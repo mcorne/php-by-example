@@ -1,0 +1,20 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+There is a technical problem.<br />
+Sorry for the inconvenience.<br />
+Please try again later.<br />
+
+<?php if ($this->application_env == 'development'):?>
+  <br />
+  Erreur message:<br />
+  <?=$e->getMessage();?><br />
+  <pre><?=print_r($e, true);?></pre>
+<?php endif;?>

@@ -1,0 +1,39 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<div>
+
+  <a class="logo"
+     href="<?=$this->_output->display_url();?>"
+    ><img src="<?=$this->base_url;?>/logo.gif"
+    /> by Example</a>
+
+  <select id="function">
+
+    <option value=""></option>
+
+    <?php foreach($this->_function_list->get_function_list() as $function_basename => $function_name) :?>
+      <option <?php if($function_basename == $this->function_basename):?>selected="selected"<?php endif;?>
+              value="<?=$this->_output->display_function_url_basename($function_basename);?>"
+      >
+          <?=$function_name;?>
+      </option>
+    <?php endforeach;?>
+
+  </select>
+
+  <input class="button select"
+         onclick="run_function('<?=$this->_output->display_url('function');?>')"
+         type="button"
+         value="<?=$this->_translation->translate('Choose a function');?>" />
+
+</div>
+
+<hr />

@@ -1,0 +1,78 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+
+return [
+
+// top bar
+1000 => "Choisissez une fonction", // validated translation
+
+// bottom bar
+1100 => "À propos", // validated translation
+1101 => "Aide",     // validated translation
+1102 => "Accueil",  // validated translation
+1103 => "Test",     // validated translation
+
+// misc
+1200 => "Cette page est disponible en anglais seulement.",  // validated translation
+
+// filter
+1300 => "ce paramètre est ignoré dans cet exemple",         // validated translation
+
+// function core
+1400 => "une valeur ne peut pas être passée par référence", // validated translation
+
+// params
+1500 => "Ne pas afficher", // validated translation
+1501 => "Copie locale",    // validated translation
+
+// parser
+1600 => "tableau invalide",        // validated translation
+1601 => "constante invalide",      // validated translation
+1602 => "nombre négatif invalide", // validated translation
+1603 => "valeur non valide",       // validated translation
+1604 => "constante indéfinie",     // validated translation
+1605 => "données inattendues",     // validated translation
+
+// output
+1700 => "Erreur",              // validated translation
+1701 => "Erreur PHP",          // validated translation
+1702 => "Notification PHP",    // validated translation
+1703 => "Alerte PHP",          // validated translation
+1704 => "Erreur PHPbEx",       // validated translation
+1705 => "Notification PHPbEx", // validated translation
+1706 => "Alerte PHPbEx",       // validated translation
+
+// home page
+1800 => "Bienvenue dans le monde des fonctions PHP",                                     // validated translation
+1801 => "Ici, vous pouvez tester les fonctions de PHP en ligne.",                        // validated translation
+1802 => "Vous n'aurez pas à écrire une seule ligne de code.",                            // validated translation
+1803 => "Vous avez juste besoin de sélectionner une fonction pour obtenir le résultat.", // validated translation
+1804 => "Chaque fonction est livrée avec quelques exemples.",                            // validated translation
+1805 => "Vous pouvez bien sûr changer les arguments de la fonction à volonté.",          // validated translation
+1806 => "La page correspondante du manuel est également affichée automatiquement.",      // validated translation
+1807 => "Alors allez-y, et commencer à jouer ...",                                       // validated translation
+
+// function page
+1900 => "Exemples",             // validated translation
+1901 => "Exécutez la fonction", // validated translation
+1902 => "Résultat",             // validated translation
+
+// php manual
+2000 => "Le manuel PHP n'est pas disponible.",   // validated translation
+2001 => "Désolé pour le désagrément.",           // validated translation
+2002 => "Vous pouvez signaler le problème ici.", // validated translation
+
+// help page
+3000 => "Veuillez cliquer ici pour signaler un problème ou faire un commentaire, en anglais de préférence.", // validated translation
+3001 => "Merci.", // validated translation
+
+// about page
+4000 => "Voir le code source du projet",
+
+];

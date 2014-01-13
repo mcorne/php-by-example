@@ -1,0 +1,251 @@
+/**
+ * PHP By Example
+ *
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+
+body
+{
+    font-family: arial, Lucida Console;
+    font-size: .9em;
+    margin: 1em;
+    margin-left: 1em;  /* needed in interface.js fix_php_manual() */
+    margin-right: 1em; /* needed in interface.js fix_php_manual() */
+}
+
+.blue, .variable
+{
+    color: #0000BB; /* blue */
+}
+
+.blue_border
+{
+    border-color: #0000BB; /* blue */
+}
+
+.gray
+{
+    color: #656565; /* gray */
+}
+
+.gray_border
+{
+    border-color: #656565; /* gray */
+}
+
+.green, .operator
+{
+    color: #007700; /* green */
+}
+
+.green_border
+{
+    border-color: #007700;  /* green */
+}
+
+.orange
+{
+    color: #FF8000; /* orange */
+}
+
+.orange_border
+{
+    border-color: #FF8000; /* orange */
+}
+
+.red
+{
+    color: #DD0000; /* red */
+}
+
+.red_border
+{
+    border-color: #DD0000; /* red */
+}
+
+a
+{
+    color: #0000BB; /* blue */
+}
+
+a.logo
+{
+    font-size: 1.8em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div.block
+{
+    background-color: rgb(242, 242, 242);
+    border-style: solid;
+    border-width: 1px;
+    margin-right: 1em; /* used in interface.js fix_php_manual() */
+    margin-bottom: 2em;
+    margin-top: 0em;
+    overflow: auto;
+    padding: .5em;
+    width: 40em;
+}
+
+div.copyright
+{
+    color: gray;
+    font-size: .8em;
+    margin-top: 1em;
+}
+
+div.copyright a
+{
+    color: gray;
+    font-weight: bold;
+}
+
+div.linebreak
+{
+    height: .5em;
+}
+
+div.links
+{
+    margin-top: 2em;
+}
+
+div.links a
+{
+    margin-right: .2em;
+}
+
+div.title
+{
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+h1
+{
+    color: #0000BB; /* blue */
+    font-size: 1.3em;
+    margin-bottom: 1.5em;
+}
+
+hr
+{
+    border: solid 1px #CCC; /* light gray */
+    margin-top: .8em;
+    margin-bottom: 1.6em;
+}
+
+img
+{
+    border: none;
+}
+
+input.button
+{
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+input.button:hover
+{
+    background-color: #FF8000; /* orange */
+    border-color: darkorange;
+}
+
+input.select
+{
+    background-color: #0000BB; /* blue */
+    border-color: darkblue;
+    vertical-align: .45em;
+}
+
+input.submit
+{
+    background-color: #0000BB; /* blue */
+    border-color: darkblue;
+    margin-bottom: 2em;
+}
+
+span.english_only
+{
+    color: #CCC; /* light gray */
+    font-size: .8em;
+    margin-left: 1em;
+}
+
+span.method_name
+{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+table tr
+{
+    vertical-align: top;
+}
+
+table.errors td.error_code
+{
+    color: #DD0000; /* red */
+    font-weight: bold;
+    white-space:nowrap;
+}
+
+table.examples a
+{
+    color: #656565; /* gray */
+}
+
+textarea.arg
+{
+    width: 20em;
+}
+
+textarea.array, textarea.int, textarea.mixed
+{
+    color: #0000BB; /* blue */
+}
+
+textarea.string
+{
+    color: #DD0000; /* red */
+}
+
+textarea.no_input
+{
+    color: gray;
+}
+
+#function
+{
+    border: solid 2px #656565; /* gray */
+    color: #0000BB; /* blue */
+    margin-left: 2em;
+    margin-right: .5em;
+    vertical-align: .6em;
+}
+
+#language
+{
+    border: solid 2px #656565; /* gray */
+    color: #0000BB; /* blue */
+    margin-left: 1em;
+    vertical-align: middle;
+}
+
+#php_manual
+{
+    background-color: rgb(242, 242, 242);
+    border: 1px solid gray;
+    float: right;
+    overflow: auto;
+}
+
+#php_manual_location
+{
+    margin-left: .5em;
+}

@@ -1,0 +1,51 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<div class="links">
+
+  <a href="<?=$this->_output->display_url();?>"><?=$this->_translation->translate('Home');?></a>
+  <a href="<?=$this->_output->display_url('help');?>"><?=$this->_translation->translate('Help');?></a>
+  <a href="<?=$this->_output->display_url('test', $this->function_basename);?>"><?=$this->_translation->translate('Test');?></a>
+  <a href="<?=$this->_output->display_url('about');?>"><?=$this->_translation->translate('About');?></a>
+
+  <select id="language"
+          onchange="change_language(this, '<?=$this->_language->language_id;?>')">
+
+    <?php foreach($this->_language->languages as $language_id => $language_name) :?>
+    <option <?php if($language_id == $this->_language->language_id):?>selected="selected"<?php endif;?>
+            value="<?=$language_id;?>">
+        <?=$language_name;?>
+    </option>
+    <?php endforeach;?>
+
+  </select>
+
+</div>
+
+<div class="copyright">
+   <div>
+
+     Powered by <a href="http://php.net/">PHP</a>&nbsp;<?=PHP_VERSION;?>
+     (<?=$this->_output->display_duration();?> s)
+
+   </div>
+
+   <div style="margin-top: .3em">
+
+     <a href="http://creativecommons.org/licenses/by-nc-nd/2.0/fr/" rel="license">
+       <img alt="Creative Commons License"
+            src="http://i.creativecommons.org/l/by-nc-nd/2.0/fr/80x15.png"
+            style="border-width:0; vertical-align: middle"
+       /></a>
+
+     <span>2014 Michel Corne</span>
+
+   </div>
+</div>

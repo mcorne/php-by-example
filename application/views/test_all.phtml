@@ -1,0 +1,89 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<h1>
+  Test of all functions
+  <?php require "$this->application_path/views/english_only.phtml";?>
+</h1>
+
+<div class="block blue_border">
+  <table>
+
+    <tr>
+      <td class="green">Test success<td>
+      <td class="blue"><?=count($this->test_results['test_success']);?><td>
+    </tr>
+
+    <tr>
+      <td class="red">Test failed<td>
+      <td class="blue"><?=count($this->test_results['test_failed']);?><td>
+    </tr>
+
+    <tr>
+      <td class="orange">Test missing<td>
+      <td class="blue"><?=count($this->test_results['test_missing']);?><td>
+    </tr>
+
+    <tr>
+      <td>Test obsolete<td>
+      <td class="gray"><?=count($this->test_results['test_obsolete']);?><td>
+    </tr>
+
+  </table>
+</div>
+
+<?php if ($this->test_results['test_success']):?>
+
+  <div class="title green">Test success</div>
+
+  <div class="block green_border">
+    <?php foreach($this->test_results['test_success'] as $function_basename => $function_name):?>
+      <a href="<?=$this->_output->display_url('test', $function_basename);?>"><?=$function_name;?></a>
+    <?php endforeach;?>
+  </div>
+
+<?php endif;?>
+
+<?php if ($this->test_results['test_failed']):?>
+
+  <div class="title red">Test failed</div>
+
+  <div class="block red_border">
+    <?php foreach($this->test_results['test_failed'] as $function_basename => $function_name):?>
+      <a href="<?=$this->_output->display_url('test', $function_basename);?>"><?=$function_name;?></a>
+    <?php endforeach;?>
+  </div>
+
+<?php endif;?>
+
+
+<?php if ($this->test_results['test_missing']):?>
+
+  <div class="title orange">Test missing</div>
+
+  <div class="block orange_border">
+    <?php foreach($this->test_results['test_missing'] as $function_basename => $function_name):?>
+      <a href="<?=$this->_output->display_url('test', $function_basename);?>"><?=$function_name;?></a>
+    <?php endforeach;?>
+  </div>
+
+<?php endif;?>
+
+<?php if ($this->test_results['test_obsolete']):?>
+
+  <div class="title gray">Test obsolete</div>
+
+  <div class="block gray_border">
+    <?php foreach($this->test_results['test_obsolete'] as $function_basename => $function_name):?>
+      <a href="<?=$this->_output->display_url('test', $function_basename);?>"><?=$function_name;?></a>
+    <?php endforeach;?>
+  </div>
+
+<?php endif;?>

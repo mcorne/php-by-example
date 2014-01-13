@@ -1,0 +1,15 @@
+SetEnv PHP_VER 5_4
+
+# uncomment the proper environment setting, comment the other
+# SetEnv APPLICATION_ENV production
+SetEnv APPLICATION_ENV development
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+# select the proper rule depending if php-by-example is run as a domain subpath, eg my.domain.com/php-by-example or not
+RewriteRule ^.*$ /index.php [NC,L]
+# RewriteRule ^.*$ /php-by-example/index.php [NC,L]

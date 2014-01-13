@@ -1,0 +1,100 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<h1><?=$this->_output->display_function_name();?></h1>
+
+<?php require "$this->application_path/views/php_manual.phtml";?>
+
+<form method="post">
+  <div class="block blue_border"><?=$this->_input->display_source_code();?></div>
+
+
+  <div>
+    <input class="button submit"
+           name="submit"
+           type="submit"
+           value="<?=$this->_translation->translate('Execute the function');?>" />
+  </div>
+
+</form>
+
+<?php if ($this->errors):?>
+  <div class="title red"><?=$this->_translation->translate('Result');?></div>
+<?php else:?>
+  <div class="title green"><?=$this->_translation->translate('Result');?></div>
+<?php endif;?>
+
+<?php if ($this->result):?>
+
+  <div class="block green_border">
+    <code>
+      <table>
+
+        <?php foreach($this->result as $var_name => $value):?>
+          <tr>
+            <td class="variable">$<?=$var_name;?></td>
+            <td class="operator">=</td>
+            <td><?=$this->_output->display_var_value($value);?></td>
+          </tr>
+        <?php endforeach;?>
+
+      </table>
+    </code>
+  </div>
+
+<?php endif;?>
+
+<?php if ($this->errors):?>
+
+  <div class="block red_border">
+    <table class="errors">
+
+      <?php foreach($this->errors as $error):?>
+        <tr>
+          <td class="error_code"><?=$this->_output->display_error_code($error['code']);?></td>
+          <td>:</td>
+          <td><?=htmlspecialchars($error['message']);?></td>
+        </tr>
+      <?php endforeach;?>
+
+    </table>
+  </div>
+
+<?php endif;?>
+
+<?php if ($this->examples):?>
+
+  <div class="title gray"><?=$this->_translation->translate('Examples');?></div>
+
+  <div class="block gray_border">
+       <table class="examples">
+
+         <?php foreach($this->examples as $example_id => $example):?>
+           <tr>
+
+             <td>
+               <code>
+                 <a href="<?=$this->_output->display_url('function', $this->function_basename);;?>?example=<?=$example_id;?>">
+                   <?=$this->_synopsis->function_name;?>
+                 </a>
+               </code>
+             </td>
+
+             <td><?=$this->_output->display_example_values($example);?></td>
+
+           </tr>
+         <?php endforeach;?>
+
+       </table>
+  </div>
+
+<?php endif;?>
+
+<?php require "$this->application_path/views/php_manual_location.phtml";?>

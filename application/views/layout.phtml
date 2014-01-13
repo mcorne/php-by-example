@@ -1,0 +1,31 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PHP By Example</title>
+    <link rel="stylesheet" type="text/css" href="<?=$this->base_url;?>/interface.css" />
+  </head>
+
+  <body onload="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local');?>)"
+        onresize="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local');?>)">
+
+    <?php require "$this->application_path/views/top_bar.phtml";?>
+    <?php require "$this->application_path/views/{$this->action_name}.phtml";?>
+    <?php require "$this->application_path/views/bottom_bar.phtml";?>
+
+    <script type="text/javascript" src="<?=$this->base_url;?>/interface.js"></script>
+
+  </body>
+</html>
