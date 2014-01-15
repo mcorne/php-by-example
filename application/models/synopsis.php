@@ -97,7 +97,7 @@ class synopsis extends object
 
     function is_input_arg($arg_name)
     {
-        $is_input_arg =  preg_match("~(array|bool|float|int|mixed|number|string) +\\$$arg_name~", $this->synopsis);
+        $is_input_arg =  preg_match("~(array|callable|bool|float|int|mixed|number|string) +\\$$arg_name~", $this->synopsis);
 
         return $is_input_arg;
     }

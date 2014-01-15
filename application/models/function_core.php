@@ -25,6 +25,30 @@ class function_core extends action
         $this->errors[] = ['code' => $errno, 'message' => $message];
     }
 
+    function function_exists()
+    {
+        $parts = explode('::', $this->_synopsis->function_name);
+
+        if (isset($parts[1])) {
+            // this is a class, extracts the class and method name
+            list($classname, $method_name) = $parts;
+
+            if (! class_exists($classname, false)) {
+                $message = $this->_translation->translate('this class is not available in the PHP version running on this server') . ' (PHP ' . PHP_VERSION . ')';
+                throw new Exception($message);
+            }
+
+            if (! method_exists($classname, $method_name)) {
+                $message = $this->_translation->translate('this method is not available in the PHP version running on this server' . ' (PHP ' . PHP_VERSION . ')');
+                throw new Exception($message);
+            }
+
+        } else if (! function_exists($this->_synopsis->function_name)) {
+            $message = $this->_translation->translate('this function is not available in the PHP version running on this server') . ' (PHP ' . PHP_VERSION . ')';
+            throw new Exception($message);
+        }
+    }
+
     function exec_function()
     {
         $result = [];
@@ -114,6 +138,8 @@ class function_core extends action
         try {
             set_error_handler([$this, 'add_error']);
 
+            $this->function_exists();
+
             $this->pre_exec_function();
             $this->result = $this->exec_function();
             $this->post_exec_function();
@@ -142,7 +168,14 @@ class function_core extends action
     function set_arg_value($arg_number, &$values, &$result)
     {
         $arg_name = $copy = $this->_synopsis->arg_names[$arg_number];
-        $values[$arg_number] = $this->_params->get_param($arg_name);
+
+        if (isset($this->special_param[$arg_name])) {
+            // this is a special param typically set in pre_exec_function(), eg a closure, see array_diff_uassoc()
+            $values[$arg_number] = $this->special_param[$arg_name];
+        } else {
+            $values[$arg_number] = $this->_params->get_param($arg_name);
+        }
+
 
         if ($this->_synopsis->is_reference_arg($arg_name)) {
             // this is an arg passed by reference
@@ -151,7 +184,8 @@ class function_core extends action
             if (! $this->_params->is_param_var($arg_name)) {
                 // a value instead of a var name was passed, triggers an error
                 $arg_name = $this->_converter->convert_value_to_text($arg_name, true);
-                throw new Exception($this->_translation->translate('a value cannot be passed by reference') . " (\$$copy: $arg_name)", E_USER_ERROR);
+                $message = $this->_translation->translate('a value cannot be passed by reference') . " (\$$copy: $arg_name)";
+                throw new Exception($message, E_USER_ERROR);
             }
 
             $arg_name = $this->_params->get_var_name($arg_name);

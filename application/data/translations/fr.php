@@ -22,10 +22,15 @@ return [
 1200 => "Cette page est disponible en anglais seulement.",  // validated translation
 
 // filter
-1300 => "ce paramètre est ignoré dans cet exemple",         // validated translation
+1300 => "le nom du fichier doit commencer par l'une des chaînes suivantes dans cet exemple", // validated translation
+1301 => "ce paramètre est ignoré dans cet exemple",                                          // validated translation
 
 // function core
-1400 => "une valeur ne peut pas être passée par référence", // validated translation
+1400 => "une valeur ne peut pas être passée par référence",                                               // validated translation
+1401 => "cette classe n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur",   // validated translation
+1402 => "cette fonction n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur", // validated translation
+1403 => "cette méthode n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur",  // validated translation
+
 
 // params
 1500 => "Ne pas afficher", // validated translation

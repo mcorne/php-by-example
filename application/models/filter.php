@@ -13,6 +13,15 @@ class filter extends object
 {
     const DEFAULT_FILE_NAME = 'tempname';
 
+    function compare_func($a, $b)
+    {
+        if ($a === $b) {
+            return 0;
+        }
+
+        return ($a > $b)? 1 : -1;
+    }
+
     function filter_array()
     {
         if (isset($this->_params->params['__array']) and $this->_params->params['__array'] != '') {
@@ -25,6 +34,31 @@ class filter extends object
         return $array;
     }
 
+    function filter_callback_compare($arg_name)
+    {
+        static $callbacks = ['key_compare_func', 'strcmp', 'gmp_cmp', 'strnatcmp', 'strcasecmp', 'variant_cmp', 'strnatcasecmp'];
+
+        if (! isset($this->_params->params[$arg_name]) and $this->_params->params[$arg_name] != '') {
+             return null;
+        }
+
+        $callback =  $this->_params->get_param($arg_name);
+
+        if (in_array($this->_params->params[$arg_name], ['$key_compare_func'])) {
+            $special_param = [$arg_name => [$this, 'compare_func']];
+
+        } else if (in_array($callback, $callbacks)) {
+            $special_param = null;
+
+        } else {
+            $message = $this->_translation->translate('the callback function must be one of the following functions')
+                     . ' (' . implode(', ' , $callbacks) . ')';
+            throw new Exception($message, E_USER_WARNING);
+        }
+
+        return $special_param;
+    }
+
     function filter_context()
     {
         if (! isset($this->_params->params['context'])) {
@@ -35,7 +69,8 @@ class filter extends object
 
         if (! is_null($context)) {
             $this->_params->params['context'] = $this->_converter->convert_value_to_text(null);
-            trigger_error($this->_translation->translate('this parameter is ignored in this example') . ' ($context)', E_USER_NOTICE);
+            $message = $this->_translation->translate('this parameter is ignored in this example') . ' ($context)';
+            trigger_error($message, E_USER_NOTICE);
         }
     }
 
@@ -98,7 +133,9 @@ class filter extends object
             // the file name is a valid http file
 
         } else {
-            throw new Exception($this->_translation->translate('this parameter is ignored in this example') . " ({$this->_file->temp_file_prefix}, http://)", E_USER_WARNING);
+            $message = $this->_translation->translate('the filename must start with one of the following strings in this example')
+                     . " ({$this->_file->temp_file_prefix}, http://)";
+            throw new Exception($message, E_USER_WARNING);
         }
 
 
@@ -127,7 +164,8 @@ class filter extends object
 
         if ($use_include_path) {
             $this->_params->params['use_include_path'] = $this->_converter->convert_value_to_text(null);
-            trigger_error($this->_translation->translate('this parameter is ignored in this example') . ' ($use_include_path)', E_USER_NOTICE);
+            $message = $this->_translation->translate('this parameter is ignored in this example') . ' ($use_include_path)';
+            trigger_error($message, E_USER_NOTICE);
         }
     }
 }

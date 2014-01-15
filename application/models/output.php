@@ -52,8 +52,10 @@ class output extends object
 
         } else {
             // this is not a function argument, eg "filename" passed to fopen() before fread()
+            // removes the underscores prefixing a var name
+            $key = ltrim($key, '_');
             // comments both param key and value
-            $value = sprintf('/* %s = %s */', $key, $value);
+            $value = sprintf('/* $%s = %s */', $key, $value);
         }
 
         return $value;

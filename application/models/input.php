@@ -120,7 +120,7 @@ class input extends object
 
     function get_vars_to_replace_by_inputs($source_code)
     {
-        preg_match_all('~^ +\$(\w+)[,;]? +// \[?(array|bool|int|mixed|resource|string|DateInterval) &?\$\w+.*$~m', $source_code, $matches, PREG_SET_ORDER);
+        preg_match_all('~^ +\$(\w+)[,;]? +// \[?(array|callable|bool|int|mixed|resource|string|DateInterval) &?\$\w+.*$~m', $source_code, $matches, PREG_SET_ORDER);
 
         return $matches;
     }

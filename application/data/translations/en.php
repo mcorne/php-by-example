@@ -22,10 +22,14 @@ return [
 1200 => "This page is available in English only.",
 
 // filter
-1300 => "this parameter is ignored in this example",
+1300 => "the filename must start with one of the following strings in this example",
+1301 => "this parameter is ignored in this example",
 
 // function core
 1400 => "a value cannot be passed by reference",
+1401 => "this class is not available in the PHP version running on this server",
+1402 => "this function is not available in the PHP version running on this server",
+1403 => "this method is not available in the PHP version running on this server",
 
 // params
 1500 => "Do not display", // as in "Do not display the PHP manual"
