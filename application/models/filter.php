@@ -22,10 +22,10 @@ class filter extends object
         return ($a > $b)? 1 : -1;
     }
 
-    function filter_array()
+    function filter_param($arg_name)
     {
-        if (isset($this->_params->params['__array']) and $this->_params->params['__array'] != '') {
-            $array = $this->_params->get_param('__array');
+        if ($this->_params->param_exists($arg_name)) {
+            $array = $this->_params->get_param($arg_name);
 
         } else {
             $array = null;
@@ -36,48 +36,75 @@ class filter extends object
 
     function filter_callback_compare($arg_name)
     {
-        static $callbacks = ['key_compare_func', 'strcmp', 'gmp_cmp', 'strnatcmp', 'strcasecmp', 'variant_cmp', 'strnatcasecmp'];
+        static $callbacks = ['$key_compare_func', 'strcmp', 'gmp_cmp', 'strnatcmp', 'strcasecmp', 'variant_cmp', 'strnatcasecmp'];
 
-        if (! isset($this->_params->params[$arg_name]) and $this->_params->params[$arg_name] != '') {
+        if (! $this->_params->param_exists($arg_name)) {
              return null;
         }
 
-        $callback =  $this->_params->get_param($arg_name);
-
-        if (in_array($this->_params->params[$arg_name], ['$key_compare_func'])) {
-            $special_param = [$arg_name => [$this, 'compare_func']];
-
-        } else if (in_array($callback, $callbacks)) {
-            $special_param = null;
+        if ($this->_params->params[$arg_name] == '$key_compare_func') {
+            $callback = [$this, 'compare_func'];
 
         } else {
-            $message = $this->_translation->translate('the callback function must be one of the following functions')
-                     . ' (' . implode(', ' , $callbacks) . ')';
-            throw new Exception($message, E_USER_WARNING);
+            $callback =  $this->_params->get_param($arg_name);
+
+            if (! in_array($callback, $callbacks)) {
+                $message = $this->_translation->translate('the callback function must be one of the following functions')
+                         . ' (' . implode(', ' , $callbacks) . ')';
+                throw new Exception($message, E_USER_WARNING);
+            }
         }
 
-        return $special_param;
+        return $callback;
     }
 
-    function filter_context()
+    function filter_callback_is_function($arg_name)
     {
-        if (! isset($this->_params->params['context'])) {
+        $even = function($var){ return(!($var & 1)); };
+        $odd = function($var){ return($var & 1); };
+
+        if (! $this->_params->param_exists($arg_name)) {
+             return null;
+        }
+
+        if ($this->_params->params[$arg_name] == '$even') {
+            $callback = $even;
+
+        } else if ($this->_params->params[$arg_name] == '$odd') {
+            $callback = $odd;
+
+        } else {
+            $callback =  $this->_params->get_param($arg_name);
+
+            if (strpos($callback, 'is_') !== false and strpos($callback, 'ctype_') !== false) {
+                $message = $this->_translation->translate('the callback function must be one of the following functions')
+                         . ' ($even, $odd, is_*, ctype_*)';
+                throw new Exception($message, E_USER_WARNING);
+            }
+        }
+
+        return $callback;
+    }
+
+    function filter_context($arg_name)
+    {
+        if (! $this->_params->param_exists($arg_name)) {
             return;
         }
 
-        $context = $this->_params->get_param('context');
+        $context = $this->_params->get_param($arg_name);
 
         if (! is_null($context)) {
-            $this->_params->params['context'] = $this->_converter->convert_value_to_text(null);
-            $message = $this->_translation->translate('this parameter is ignored in this example') . ' ($context)';
+            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text(null);
+            $message = $this->_translation->translate('this parameter is ignored in this example') . " (\$$arg_name)";
             trigger_error($message, E_USER_NOTICE);
         }
     }
 
-    function filter_date_interval()
+    function filter_date_interval($arg_name)
     {
-        if (isset($this->_params->params['interval_spec']) and $this->_params->params['interval_spec'] != '') {
-            $interval_spec = $this->_params->get_param('interval_spec');
+        if ($this->_params->param_exists($arg_name)) {
+            $interval_spec = $this->_params->get_param($arg_name);
             $interval = new DateInterval($interval_spec);
 
         } else {
@@ -87,10 +114,10 @@ class filter extends object
         return $interval;
     }
 
-    function filter_date_time()
+    function filter_date_time($arg_name)
     {
-        if (isset($this->_params->params['time']) and $this->_params->params['time'] != '') {
-            $time = $this->_params->get_param('time');
+        if ($this->_params->param_exists($arg_name)) {
+            $time = $this->_params->get_param($arg_name);
             $date = new DateTime($time);
 
         } else {
@@ -100,34 +127,22 @@ class filter extends object
         return $date;
     }
 
-    function filter_date_format()
+    function filter_filename($arg_name)
     {
-        if (isset($this->_params->params['format']) and $this->_params->params['format'] != '') {
-            $format = $this->_params->get_param('format');
-
-        } else {
-            $format = null;
-        }
-
-        return $format;
-    }
-
-    function filter_filename()
-    {
-        if (! isset($this->_params->params['filename']) and $this->_params->params['filename'] != '') {
+        if (! $this->_params->param_exists($arg_name)) {
              return null;
         }
 
-        $filename = $this->_params->get_param('filename');
+        $filename = $this->_params->get_param($arg_name);
 
         if (! is_string($filename)) {
-            // the file name is not a string, it will be captured by the function itself
+            // the file name is not a string, this will be caught by the function itself
 
         } else if ($filename == self::DEFAULT_FILE_NAME or stripos($filename, $this->_file->temp_file_prefix) === 0) {
             // the file name is a placeholder or a valid temp file prefixed with pbe, forces the file name to the new temp name
             $filename = $this->_file->create_temp_file();
             $this->_file->write_content($filename, "Hello world !");
-            $this->_params->params['filename'] = $this->_converter->convert_value_to_text($filename);;
+            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($filename);;
 
         } else if (stripos($filename, 'http://') === 0 or stripos($filename, 'https://') === 0) {
             // the file name is a valid http file
@@ -142,29 +157,17 @@ class filter extends object
         return $filename;
     }
 
-    function filter_fopen_mode()
+    function filter_use_include_path($arg_name)
     {
-        if (isset($this->_params->params['mode']) and $this->_params->params['mode'] != '') {
-            $mode = $this->_params->get_param('mode');
-
-        } else {
-            $mode = null;
-        }
-
-        return $mode;
-    }
-
-    function filter_use_include_path()
-    {
-        if (! isset($this->_params->params['use_include_path'])) {
+        if (! $this->_params->param_exists($arg_name)) {
             return;
         }
 
-        $use_include_path = $this->_params->get_param('use_include_path');
+        $use_include_path = $this->_params->get_param($arg_name);
 
         if ($use_include_path) {
-            $this->_params->params['use_include_path'] = $this->_converter->convert_value_to_text(null);
-            $message = $this->_translation->translate('this parameter is ignored in this example') . ' ($use_include_path)';
+            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text(null);
+            $message = $this->_translation->translate('this parameter is ignored in this example') . " (\$$arg_name)";
             trigger_error($message, E_USER_NOTICE);
         }
     }

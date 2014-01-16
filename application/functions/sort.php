@@ -43,6 +43,6 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $this->returned_params['array'] = $this->_filter->filter_array();
+        $this->returned_params['array'] = $this->_filter->filter_param('__array');
     }
 }

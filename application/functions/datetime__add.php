@@ -61,13 +61,13 @@ $string = $date->format($format);
 
     function post_exec_function()
     {
-        $format = $this->_filter->filter_date_format();
+        $format = $this->_filter->filter_param('format');
         $this->result['string'] = $this->object->format($format);
     }
 
     function pre_exec_function()
     {
-        $this->returned_params['interval'] = $this->_filter->filter_date_interval();
-        $this->object = $this->_filter->filter_date_time();
+        $this->returned_params['interval'] = $this->_filter->filter_date_interval('interval_spec');
+        $this->object = $this->_filter->filter_date_time('time');
     }
 }

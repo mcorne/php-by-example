@@ -34,17 +34,17 @@ class function_core extends action
             list($classname, $method_name) = $parts;
 
             if (! class_exists($classname, false)) {
-                $message = $this->_translation->translate('this class is not available in the PHP version running on this server') . ' (PHP ' . PHP_VERSION . ')';
+                $message = $this->_translation->translate('this class is not available in the PHP version running on this server');
                 throw new Exception($message);
             }
 
             if (! method_exists($classname, $method_name)) {
-                $message = $this->_translation->translate('this method is not available in the PHP version running on this server' . ' (PHP ' . PHP_VERSION . ')');
+                $message = $this->_translation->translate('this method is not available in the PHP version running on this server');
                 throw new Exception($message);
             }
 
         } else if (! function_exists($this->_synopsis->function_name)) {
-            $message = $this->_translation->translate('this function is not available in the PHP version running on this server') . ' (PHP ' . PHP_VERSION . ')';
+            $message = $this->_translation->translate('this function is not available in the PHP version running on this server');
             throw new Exception($message);
         }
     }
@@ -168,14 +168,7 @@ class function_core extends action
     function set_arg_value($arg_number, &$values, &$result)
     {
         $arg_name = $copy = $this->_synopsis->arg_names[$arg_number];
-
-        if (isset($this->special_param[$arg_name])) {
-            // this is a special param typically set in pre_exec_function(), eg a closure, see array_diff_uassoc()
-            $values[$arg_number] = $this->special_param[$arg_name];
-        } else {
-            $values[$arg_number] = $this->_params->get_param($arg_name);
-        }
-
+        $values[$arg_number] = $this->_params->get_param($arg_name);
 
         if ($this->_synopsis->is_reference_arg($arg_name)) {
             // this is an arg passed by reference

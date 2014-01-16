@@ -7,27 +7,23 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class array_diff_assoc extends function_core
+class array_diff extends function_core
 {
     public $examples = [
         [
             [
                 "a" => "green",
-                "b" => "brown",
-                "c" => "blue",
+                "red",
+                "blue",
                 "red"
             ],
             [
-                "a" => "green",
+                "b" => "green",
                 "yellow",
                 "red"
             ],
         ],
-        [
-            [0, 1, 2],
-            ["00", "01", "2"],
-        ],
     ];
 
-    public $synopsis = 'array array_diff_assoc ( array $array1 , array $array2 [, array $... ] )';
+    public $synopsis = 'array array_diff ( array $array1 , array $array2 [, array $... ] )';
 }

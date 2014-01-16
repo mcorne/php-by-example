@@ -69,7 +69,14 @@ class params extends object
         $var_name = $this->get_var_name($value);
 
         if (isset($this->returned_params[$var_name])) {
+            // the variable has a (returned) value attached to the var name itself,
+            // eg the resource "handle" attached to the param name "handle" in fread()
             $value =  $this->returned_params[$var_name];
+
+        } else  if (isset($this->returned_params[$name])) {
+            // the variable has a (returned) value attached to the param name,
+            // eg the closure "$odd" attached to param name "callback" in array_filter()
+            $value =  $this->returned_params[$name];
 
         } else  if ($var_name == $name) {
             // the param value is the same as the param name, eg $param['match'] = '$match'

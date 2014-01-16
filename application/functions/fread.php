@@ -50,8 +50,8 @@ unlink($_filename);
 
     function pre_exec_function()
     {
-        $filename = $this->_filter->filter_filename();
-        $mode = $this->_filter->filter_fopen_mode();
+        $filename = $this->_filter->filter_filename('filename');
+        $mode = $this->_filter->filter_param('mode');
         $this->returned_params['handle'] = fopen($filename, $mode);
     }
 }
