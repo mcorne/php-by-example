@@ -34,56 +34,49 @@ class filter extends object
         return $array;
     }
 
-    function filter_callback_compare($arg_name)
+    function filter_callback($arg_name)
     {
-        static $callbacks = ['$key_compare_func', 'strcmp', 'gmp_cmp', 'strnatcmp', 'strcasecmp', 'variant_cmp', 'strnatcasecmp'];
-
         if (! $this->_params->param_exists($arg_name)) {
              return null;
         }
 
-        if ($this->_params->params[$arg_name] == '$key_compare_func') {
-            $callback = [$this, 'compare_func'];
+        $closure_var_name = $this->_params->get_param($arg_name, false);
 
-        } else {
-            $callback =  $this->_params->get_param($arg_name);
-
-            if (! in_array($callback, $callbacks)) {
-                $message = $this->_translation->translate('the callback function must be one of the following functions')
-                         . ' (' . implode(', ' , $callbacks) . ')';
-                throw new Exception($message, E_USER_WARNING);
-            }
+        if (is_null($closure_var_name)) {
+            return null;
         }
 
-        return $callback;
-    }
+        $available_closures = [
+            '$cb1'              => function ($a)     { return array ($a); },
+            '$cb2'              => function ($a, $b) { return array ($a, $b); },
+            '$cube'             => function ($n)     { return($n * $n * $n); },
+            '$double'           => function($value)  { return $value * 2; },
+            '$even'             => function($var)    { return(!($var & 1)); },
+            '$key_compare_func' => function($a, $b)  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
+            '$map_Spanish'      => function ($n, $m) { return(array($n => $m)); },
+            '$odd'              => function($var)    { return($var & 1); },
+            '$show_Spanish'     => function ($n, $m) { return("The number $n is called $m in Spanish"); },
+        ];
 
-    function filter_callback_is_function($arg_name)
-    {
-        $even = function($var){ return(!($var & 1)); };
-        $odd = function($var){ return($var & 1); };
-
-        if (! $this->_params->param_exists($arg_name)) {
-             return null;
+        if ($this->_params->is_param_var($closure_var_name)) {
+            return isset($available_closures[$closure_var_name]) ? $available_closures[$closure_var_name] : null;
         }
 
-        if ($this->_params->params[$arg_name] == '$even') {
-            $callback = $even;
+        $callback_function_name =  $this->_params->get_param($arg_name);
 
-        } else if ($this->_params->params[$arg_name] == '$odd') {
-            $callback = $odd;
-
-        } else {
-            $callback =  $this->_params->get_param($arg_name);
-
-            if (strpos($callback, 'is_') !== false and strpos($callback, 'ctype_') !== false) {
-                $message = $this->_translation->translate('the callback function must be one of the following functions')
-                         . ' ($even, $odd, is_*, ctype_*)';
-                throw new Exception($message, E_USER_WARNING);
-            }
+        if (! function_exists($callback_function_name)) {
+            $message = $this->_translation->translate('the callback function is invalid or not available on this server');
+            throw new Exception($message, E_USER_WARNING);
         }
 
-        return $callback;
+        $valid_callback_functions = '~(cmp$|^ctype_|^gmp|^is_|^str[ifprst])~';
+
+        if (! is_string($callback_function_name) or ! preg_match($valid_callback_functions, $callback_function_name)) {
+            $message = $this->_translation->translate('this callback function may not be used in this example');
+            throw new Exception($message, E_USER_WARNING);
+        }
+
+        return $callback_function_name;
     }
 
     function filter_ignored_param($arg_name)

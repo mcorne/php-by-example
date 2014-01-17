@@ -10,8 +10,8 @@
 class array_filter extends function_core
 {
     public $source_code = '
-$_odd  = function($var) { return($var & 1); }
-$_even = function($var) { return(!($var & 1)); }
+$odd  = function($var) { return($var & 1); }
+$even = function($var) { return(!($var & 1)); }
 inject_function_call
 ';
 
@@ -65,6 +65,6 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $this->returned_params['callback'] = $this->_filter->filter_callback_is_function('callback');
+        $this->returned_params['callback'] = $this->_filter->filter_callback('callback');
     }
 }

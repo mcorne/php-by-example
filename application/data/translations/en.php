@@ -24,6 +24,8 @@ return [
 // filter
 1300 => "the filename must start with one of the following strings in this example",
 1301 => "this parameter is ignored in this example",
+1302 => "this callback function may not be used in this example",
+1303 => "the callback function is invalid or not available on this server",
 
 // function core
 1400 => "a value cannot be passed by reference",

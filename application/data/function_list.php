@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-17T09:55:18+00:00
+// generated automatically 2014-01-17T19:01:03+00:00
 return array (
   'abs' => 'abs',
   'array_change_key_case' => 'array_change_key_case',
@@ -21,7 +21,11 @@ return array (
   'array_intersect_key' => 'array_intersect_key',
   'array_intersect_uassoc' => 'array_intersect_uassoc',
   'array_key_exists' => 'array_key_exists',
+  'array_keys' => 'array_keys',
+  'array_map' => 'array_map',
   'array_merge' => 'array_merge',
+  'array_merge_recursive' => 'array_merge_recursive',
+  'array_multisort' => 'array_multisort',
   'datetime__add' => 'DateTime::add',
   'file_get_contents' => 'file_get_contents',
   'fread' => 'fread',

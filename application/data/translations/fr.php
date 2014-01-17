@@ -24,6 +24,9 @@ return [
 // filter
 1300 => "le nom du fichier doit commencer par l'une des chaînes suivantes dans cet exemple", // validated translation
 1301 => "ce paramètre est ignoré dans cet exemple",                                          // validated translation
+1302 => "cette fonction de rappel ne peut être utilisée dans cet exemple",                   // validated translation
+1303 => "la fonction de rappel n'est pas valide ou n'est pas disponible sur ce serveur",     // validated translation
+
 
 // function core
 1400 => "une valeur ne peut pas être passée par référence",                                               // validated translation
