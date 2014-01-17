@@ -39,6 +39,26 @@ inject_function_call
                 4 => ''
             ],
         ],
+        [
+            [
+                0 => 'foo',
+                1 => false,
+                2 => -1,
+                3 => null,
+                4 => ''
+            ],
+            'is_numeric'
+        ],
+        [
+            [
+                0 => 'foo',
+                1 => false,
+                2 => -1,
+                3 => null,
+                4 => ''
+            ],
+            'ctype_alpha'
+        ],
     ];
 
     public $synopsis = 'array array_filter ( array $array [, callable $callback ] )';

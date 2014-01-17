@@ -49,10 +49,11 @@ class params extends object
 
     function get_param($name, $indirect_get_param_from_var = true)
     {
-        if (! $this->param_exists($name) or ! $value = trim($this->params[$name])) {
+        if (! $this->param_exists($name)) {
             return null;
         }
 
+        $value = trim($this->params[$name]);
         $value = $this->_parser->parse_value($value, $name);
 
         if ($indirect_get_param_from_var and $this->is_param_var($value)) {
@@ -130,7 +131,7 @@ class params extends object
     function param_exists($name)
     {
         // checks if a param value is different from an empty string which means something was passed
-        $exists = (array_key_exists($name, $this->params) and $this->params[$name] !== '');
+        $exists = (array_key_exists($name, $this->params) and trim($this->params[$name]) !== '');
 
         return $exists;
     }

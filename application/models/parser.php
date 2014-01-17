@@ -273,8 +273,10 @@ class parser extends object
                 break;
 
             case T_STRING:
-                if (isset($this->int)) {
-                    // this is a list of constants is being parsed
+                if ($value === null or $value === false or $value === true) {
+                    // the value is null or a boolean, do nothing
+                } else if (isset($this->int)) {
+                    // this is a list of constants being parsed
                     $value = [T_STRING, $value];
                 } else {
                     // this is a single constant or the first constant of a list of or'ed constants

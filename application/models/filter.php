@@ -86,15 +86,15 @@ class filter extends object
         return $callback;
     }
 
-    function filter_context($arg_name)
+    function filter_ignored_param($arg_name)
     {
         if (! $this->_params->param_exists($arg_name)) {
             return;
         }
 
-        $context = $this->_params->get_param($arg_name);
+        $value = $this->_params->get_param($arg_name);
 
-        if (! is_null($context)) {
+        if (! is_null($value)) {
             $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text(null);
             $message = $this->_translation->translate('this parameter is ignored in this example') . " (\$$arg_name)";
             trigger_error($message, E_USER_NOTICE);
@@ -155,20 +155,5 @@ class filter extends object
 
 
         return $filename;
-    }
-
-    function filter_use_include_path($arg_name)
-    {
-        if (! $this->_params->param_exists($arg_name)) {
-            return;
-        }
-
-        $use_include_path = $this->_params->get_param($arg_name);
-
-        if ($use_include_path) {
-            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text(null);
-            $message = $this->_translation->translate('this parameter is ignored in this example') . " (\$$arg_name)";
-            trigger_error($message, E_USER_NOTICE);
-        }
     }
 }

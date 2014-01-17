@@ -205,7 +205,7 @@ textarea.arg
     width: 20em;
 }
 
-textarea.array, textarea.int, textarea.mixed
+textarea.array, textarea.callable, textarea.int, textarea.mixed
 {
     color: #0000BB; /* blue */
 }

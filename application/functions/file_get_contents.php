@@ -38,7 +38,7 @@ unlink($_filename);
     function pre_exec_function()
     {
         $this->_filter->filter_filename('filename');
-        $this->_filter->filter_use_include_path('use_include_path');
-        $this->_filter->filter_context('context');
+        $this->_filter->filter_ignored_param('use_include_path');
+        $this->_filter->filter_ignored_param('context');
     }
 }
