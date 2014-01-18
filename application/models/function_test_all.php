@@ -52,7 +52,7 @@ class function_test_all extends action
             }
 
             if ($obsolete_expected_results) {
-                $test_obsolete_functions[] = $function_name;
+                $test_obsolete_functions[$function_basename] = $function_name;
             }
         }
 

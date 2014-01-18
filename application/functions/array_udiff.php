@@ -9,14 +9,6 @@
 
 class array_udiff extends function_core
 {
-    public $source_code = '
-$_value_compare_func = function value_compare_func($a, $b) {
-    if ($a === $b) { return 0; }
-    return ($a > $b)? 1 : -1;
-};
-inject_function_call
-';
-
     public $examples = [
         [
             [
@@ -26,23 +18,12 @@ inject_function_call
                 "red"
             ],
             [
-                "a" => "green",
+                "a" => "GREEN",
+                "B" => "brown",
                 "yellow",
                 "red"
             ],
-            '$value_compare_func',
-        ],
-        [
-            [
-                "a" => 1,
-                "b" => 2,
-                "c" => 3,
-            ],
-            [
-                "a" => 2,
-                "c" => "3",
-            ],
-            'gmp_cmp',
+            'strcasecmp',
         ],
     ];
 

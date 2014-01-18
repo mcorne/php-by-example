@@ -7,7 +7,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class array_udiff_uassoc extends function_core
+class array_uintersect_uassoc extends function_core
 {
     public $examples = [
         [
@@ -27,8 +27,8 @@ class array_udiff_uassoc extends function_core
         ],
     ];
 
-    // public $synopsis = 'array array_udiff_uassoc ( array $array1 , array $array2 [, array $... ], callable $value_compare_func , callable $key_compare_func )';
-    public $synopsis = 'array array_udiff_uassoc ( array $array1 , array $array2 , callable $value_compare_func , callable $key_compare_func )';
+    // public $synopsis = 'array array_uintersect_uassoc ( array $array1 , array $array2 [, array $... ], callable $value_compare_func , callable $key_compare_func )';
+    public $synopsis = 'array array_uintersect_uassoc ( array $array1 , array $array2 , callable $value_compare_func , callable $key_compare_func )';
 
     function pre_exec_function()
     {
