@@ -47,15 +47,18 @@ class filter extends object
         }
 
         $available_closures = [
-            '$cb1'              => function ($a)     { return array ($a); },
-            '$cb2'              => function ($a, $b) { return array ($a, $b); },
-            '$cube'             => function ($n)     { return($n * $n * $n); },
-            '$double'           => function($value)  { return $value * 2; },
-            '$even'             => function($var)    { return(!($var & 1)); },
-            '$key_compare_func' => function($a, $b)  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
-            '$map_Spanish'      => function ($n, $m) { return(array($n => $m)); },
-            '$odd'              => function($var)    { return($var & 1); },
-            '$show_Spanish'     => function ($n, $m) { return("The number $n is called $m in Spanish"); },
+            '$cb1'                => function ($a)     { return array ($a); },
+            '$cb2'                => function ($a, $b) { return array ($a, $b); },
+            '$cube'               => function ($n)     { return($n * $n * $n); },
+            '$double'             => function($value)  { return $value * 2; },
+            '$even'               => function($var)    { return(!($var & 1)); },
+            '$key_compare_func'   => function($a, $b)  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
+            '$map_Spanish'        => function ($n, $m) { return(array($n => $m)); },
+            '$odd'                => function($var)    { return($var & 1); },
+            '$rmul'               => function ($v, $w) { $v *= $w; return $v; },
+            '$rsum'               => function ($v, $w) { $v += $w; return $v; },
+            '$show_Spanish'       => function ($n, $m) { return("The number $n is called $m in Spanish"); },
+            '$value_compare_func' => function($a, $b)  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
         ];
 
         if ($this->_params->is_param_var($closure_var_name)) {

@@ -76,6 +76,9 @@ class output extends object
         // encloses the values between parenthesis as in a function call
         $values = sprintf('<?php (%s)',$values);
 
+        $values = preg_replace('~  +~', ' ', $values);
+        $values = preg_replace('~ *, *]~', ' ]', $values);
+
         $html = $this->highlight_source_code_piece($values, false);
 
         return $html;

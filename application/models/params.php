@@ -29,8 +29,9 @@ class params extends object
 
         } else {
             if (isset($_GET['example'])) {
-                // an example number is passed in the url, extracts the example number
-                $example_id = $_GET['example'];
+                // an example number is passed in the url, extracts the example number minus 1
+                // note that "the displayed example number" = "the example property number" + 1
+                $example_id = $_GET['example'] - 1;
 
             } else if (! is_null($this->test_example_id)) {
                 // an example number is passed in a property, uses the example number

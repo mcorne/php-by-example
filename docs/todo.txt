@@ -3,7 +3,6 @@ things to do
 
 truncate the entered data to a max length
 add a constant selector "?" next to the textarea of constant type arg
-fix the height of array type args that is too large
 
 add a page with the list of functions
 add stats, count the number of functions executed per day, list the top 10 functions etc.

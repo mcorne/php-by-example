@@ -13,7 +13,7 @@
 <?php require "$this->application_path/views/php_manual.phtml";?>
 
 <form method="post">
-  <div class="block blue_border"><?=$this->_input->display_source_code();?></div>
+  <div class="block blue_border nowrap"><?=$this->_input->display_source_code();?></div>
 
 
   <div>
@@ -81,8 +81,8 @@
 
              <td>
                <code>
-                 <a href="<?=$this->_output->display_url('function', $this->function_basename);;?>?example=<?=$example_id;?>">
-                   <?=$this->_synopsis->function_name;?>
+                 <a href="<?=$this->_output->display_url('function', $this->function_basename);;?>?example=<?=$example_id + 1;?>">
+                   #<?=$example_id + 1;?>&nbsp;<?=$this->_synopsis->function_name;?>
                  </a>
                </code>
              </td>

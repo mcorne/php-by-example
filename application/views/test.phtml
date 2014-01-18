@@ -22,7 +22,7 @@
               $status = $validation['status'];?>
       <tr>
 
-        <td>Example <?=$example_id;?></td>
+        <td>Example #<?=$example_id + 1;?></td>
 
         <td>:</td>
 
@@ -57,15 +57,15 @@
           $status = $validation['status'];?>
 
   <?php if ($status === true):?>
-    <div class="title green">Example <?=$example_id;?></div>
+    <div class="title green">Example #<?=$example_id + 1;?></div>
     <div class="block green_border">
 
   <?php elseif ($status === false):?>
-    <div class="title red">Example <?=$example_id;?></div>
+    <div class="title red">Example #<?=$example_id + 1;?></div>
     <div class="block red_border">
 
   <?php else:?>
-    <div class="title orange">Example <?=$example_id;?></div>
+    <div class="title orange">Example #<?=$example_id + 1;?></div>
     <div class="block orange_border">
   <?php endif;?>
 

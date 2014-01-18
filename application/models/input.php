@@ -11,36 +11,22 @@ require_once 'object.php';
 
 class input extends object
 {
-    const CHARACTER_COUNT_BY_EM = 1.6;
-    const EM_BY_LINE_COUNT      = 1.7;
-    const INPUT_WIDTH_IN_EM     = 20;
-
-    public $sizes = [ // in em
-        'flags'      => 2.5,
-        'sort_flags' => 2.5,
-    ];
+    const CHARACTER_COUNT_BY_EM = 1.5; // about 30 characters for a 20em line
+    const EM_BY_LINE_COUNT      = 1.2;
+    const INPUT_WIDTH_IN_EM     = 20;  // must be the same as CSS textarea.arg width
 
     function calculate_input_height($value, $name)
     {
         $lines = explode("\n", $value);
-        $line_count = 0;
+        $line_count = count($lines);
+        $max_characters_by_line = self::CHARACTER_COUNT_BY_EM * self::INPUT_WIDTH_IN_EM;
 
         foreach ($lines as $line) {
-            $line_count += ceil(strlen($line) / (self::INPUT_WIDTH_IN_EM * self::CHARACTER_COUNT_BY_EM));
+            $line = wordwrap($line, $max_characters_by_line, "\n", true);
+            $line_count += substr_count($line, "\n");
         }
 
-        if ($line_count > 1) {
-            $height = self::EM_BY_LINE_COUNT * $line_count;
-        } else {
-            $height = $line_count;
-        }
-
-        // TODO: use the arg type and defaults to 3 for arrays, fix the height that tends to be oversized
-        $min_input_height = isset($this->sizes[$name]) ? $this->sizes[$name] : 1;
-
-        if ($height < $min_input_height) {
-            $height = $min_input_height;
-        }
+        $height = self::EM_BY_LINE_COUNT * ($line_count ?: 1);
 
         return $height;
     }

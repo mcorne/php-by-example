@@ -44,6 +44,11 @@ body
     border-color: #007700;  /* green */
 }
 
+.nowrap
+{
+    white-space:nowrap;
+}
+
 .orange
 {
     color: #FF8000; /* orange */
@@ -202,7 +207,7 @@ table.examples a
 
 textarea.arg
 {
-    width: 20em;
+    width: 20em; /* must be the same as input::INPUT_WIDTH_IN_EM */
 }
 
 textarea.array, textarea.callable, textarea.int, textarea.mixed

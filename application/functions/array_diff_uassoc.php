@@ -10,13 +10,10 @@
 class array_diff_uassoc extends function_core
 {
     public $source_code = '
-$_key_compare_func = function key_compare_func($a, $b)
-{
-    if ($a === $b) {
-        return 0;
-    }
+$_key_compare_func = function key_compare_func($a, $b) {
+    if ($a === $b) { return 0; }
     return ($a > $b)? 1 : -1;
-}
+};
 inject_function_call
 ';
 

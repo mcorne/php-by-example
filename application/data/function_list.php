@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-17T19:01:03+00:00
+// generated automatically 2014-01-18T12:12:05+00:00
 return array (
   'abs' => 'abs',
   'array_change_key_case' => 'array_change_key_case',
@@ -26,6 +26,23 @@ return array (
   'array_merge' => 'array_merge',
   'array_merge_recursive' => 'array_merge_recursive',
   'array_multisort' => 'array_multisort',
+  'array_pad' => 'array_pad',
+  'array_pop' => 'array_pop',
+  'array_product' => 'array_product',
+  'array_push' => 'array_push',
+  'array_rand' => 'array_rand',
+  'array_reduce' => 'array_reduce',
+  'array_replace' => 'array_replace',
+  'array_replace_recursive' => 'array_replace_recursive',
+  'array_reverse' => 'array_reverse',
+  'array_search' => 'array_search',
+  'array_shift' => 'array_shift',
+  'array_slice' => 'array_slice',
+  'array_splice' => 'array_splice',
+  'array_sum' => 'array_sum',
+  'array_udiff' => 'array_udiff',
+  'array_udiff_assoc' => 'array_udiff_assoc',
+  'array_udiff_uassoc' => 'array_udiff_uassoc',
   'datetime__add' => 'DateTime::add',
   'file_get_contents' => 'file_get_contents',
   'fread' => 'fread',

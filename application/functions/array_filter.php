@@ -10,8 +10,8 @@
 class array_filter extends function_core
 {
     public $source_code = '
-$odd  = function($var) { return($var & 1); }
-$even = function($var) { return(!($var & 1)); }
+$odd  = function($var) { return($var & 1); };
+$even = function($var) { return(!($var & 1)); };
 inject_function_call
 ';
 

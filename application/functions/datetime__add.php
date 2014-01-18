@@ -15,7 +15,7 @@ $date = new DateTime(
 );
 $_interval = new DateInterval(
     $interval_spec // string $interval_spec
-)
+);
 $date->inject_function_call
 $_format =
     $format; // string $format
