@@ -13,7 +13,7 @@ class function_test_all extends action
 {
     function run()
     {
-        $function_list = $this->_function_list->get_function_list();
+        $function_list = $this->_function_list->function_list;
         $function_basenames = array_keys($function_list);
 
         $functions_test_results = array_map([$this->_function_test, 'process'], $function_basenames);

@@ -20,7 +20,8 @@ class function_factory extends object
         require_once 'models/function_core.php';
         // the function object must be created as a standalone controler with the current object properties as data
         // note that functions already have preset resources which a parent would have no access to
-        $function = $this->create_object($function_basename, 'functions', (array) $this);
+        $function_sub_directory = $function_basename[0];
+        $function = $this->create_object($function_basename, "functions/$function_sub_directory", (array) $this);
 
         // sets the php manual location here before sending headers as it sets a cookie
         $function->_params->php_manual_location;

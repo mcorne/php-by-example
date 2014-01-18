@@ -36,11 +36,15 @@ function change_php_manual_location(select)
     location.assign(href + 'php_manual_location=' + select.value);
 }
 
-function run_function(url)
+function run_function(url, direction)
 {
     var function_basename = document.getElementById('function').value;
 
     if (function_basename) {
+        if (direction) {
+            function_basename += '/' + direction;
+        }
+        
         location.assign(url + '/' + function_basename);
     }
 }

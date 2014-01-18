@@ -31,10 +31,29 @@ class application extends object
 
     function function_exists($function_basename)
     {
-        $function_file_name = sprintf('%s/functions/%s.php', $this->application_path, $function_basename);
+        $function_sub_directory = $function_basename[0];
+        $function_file_name = sprintf('%s/functions/%s/%s.php', $this->application_path, $function_sub_directory, $function_basename);
         $exists = file_exists($function_file_name);
 
         return $exists;
+    }
+
+    function get_direction()
+    {
+        if (! isset($this->uri[3])) {
+            $direction = null;
+
+        } else if ($this->uri[3] == 'before') {
+            $direction = -1;
+
+        } else if ($this->uri[3] == 'after') {
+            $direction = +1;
+
+        } else {
+            $direction = null;
+        }
+
+        return $direction;
     }
 
     /**
@@ -56,6 +75,12 @@ class application extends object
 
                 case 'function':
                     if ($this->function_basename and $this->function_exists($this->function_basename)) {
+                        if ($direction = $this->get_direction()) {
+                            if ($function_basename = $this->_function_list->get_function_basename_around($direction)) {
+                                $this->function_basename = $function_basename;
+                            }
+                        }
+
                         $action = $this->_function_factory->create_function_object();
                     }
                     break;

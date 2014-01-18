@@ -165,6 +165,7 @@ input.select
 {
     background-color: #0000BB; /* blue */
     border-color: darkblue;
+    margin-right: .8em;    
     vertical-align: .45em;
 }
 

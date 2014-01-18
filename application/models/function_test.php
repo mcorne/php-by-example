@@ -13,7 +13,8 @@ class function_test extends action
 {
     function get_expected_results($function_basename, $test_results)
     {
-        $expected_results_filename = sprintf('%s/data/tests/%s.php', $this->application_path, $function_basename);
+        $function_sub_directory = $function_basename[0];
+        $expected_results_filename = sprintf('%s/data/tests/%s/%s.php', $this->application_path, $function_sub_directory, $function_basename);
 
         if (! file_exists($expected_results_filename)) {
             // this is the first time the test is run for this function, saves the test results

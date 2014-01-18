@@ -19,7 +19,7 @@
 
     <option value=""></option>
 
-    <?php foreach($this->_function_list->get_function_list() as $function_basename => $function_name) :?>
+    <?php foreach($this->_function_list->function_list as $function_basename => $function_name) :?>
       <option <?php if($function_basename == $this->function_basename):?>selected="selected"<?php endif;?>
               value="<?=$this->_output->display_function_url_basename($function_basename);?>"
       >
@@ -33,6 +33,16 @@
          onclick="run_function('<?=$this->_output->display_url('function');?>')"
          type="button"
          value="<?=$this->_translation->translate('Choose a function');?>" />
+
+  <span class="nowrap">
+
+    <img class="button" src="<?=$this->base_url;?>/previous.png"
+         onclick="run_function('<?=$this->_output->display_url('function');?>', 'before')" />
+
+    <img class="button" src="<?=$this->base_url;?>/next.png"
+         onclick="run_function('<?=$this->_output->display_url('function');?>', 'after')" />
+
+  </span>
 
 </div>
 
