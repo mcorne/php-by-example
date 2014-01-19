@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-18T16:19:09+00:00
+// generated automatically 2014-01-19T10:30:32+00:00
 return array (
   'abs' => 'abs',
   'array_change_key_case' => 'array_change_key_case',
@@ -49,6 +49,7 @@ return array (
   'datetime__add' => 'DateTime::add',
   'file_get_contents' => 'file_get_contents',
   'fread' => 'fread',
+  'get_defined_constants' => 'get_defined_constants',
   'get_defined_functions' => 'get_defined_functions',
   'preg_match_all' => 'preg_match_all',
   'sort' => 'sort',

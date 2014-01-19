@@ -18,7 +18,13 @@ class synopsis extends object
         $function_description = rtrim($function_description, '] )');
 
         $parts = explode('[', $function_description, 2);
-        $arg_descriptions = $this->get_mandatory_args_description($parts[0]);
+
+        if ($parts[0]) {
+            $arg_descriptions = $this->get_mandatory_args_description($parts[0]);
+        } else {
+            // there is no mandatory args
+            $arg_descriptions = [];
+        }
 
         if (isset($parts[1])) {
             // there are optional args, extract the optional args description

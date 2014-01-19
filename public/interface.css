@@ -148,6 +148,14 @@ img
     border: none;
 }
 
+img.arrow
+{
+    border: none;  
+    margin-left: .3em;     
+    vertical-align: .15em;
+}
+
+
 input.button
 {
     color: white;
@@ -155,7 +163,7 @@ input.button
     font-weight: bold;
 }
 
-input.button:hover
+input.button:hover, img:hover
 {
     background-color: #FF8000; /* orange */
     border-color: darkorange;
