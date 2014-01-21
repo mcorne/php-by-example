@@ -81,4 +81,7 @@ return [
 // about page
 4000 => "See the project source code",
 
+// input
+5000 => "(multiselect)",
+
 ];

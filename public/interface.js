@@ -36,6 +36,24 @@ function change_php_manual_location(select)
     location.assign(href + 'php_manual_location=' + select.value);
 }
 
+function display_arg_helper_select(arg_name)
+{   
+    document.getElementById('textarea_'    + arg_name).style.display = 'none';
+    document.getElementById('helper_mark_' + arg_name).style.display = 'none';
+    
+    document.getElementById('select_'        + arg_name).style.display = 'inline';
+    document.getElementById('helper_submit_' + arg_name).style.display = 'inline';
+}
+
+function hide_arg_helper_select(arg_name)
+{   
+    document.getElementById('textarea_'    + arg_name).style.display = 'inline';
+    document.getElementById('helper_mark_' + arg_name).style.display = 'inline';
+    
+    document.getElementById('select_'        + arg_name).style.display = 'none';
+    document.getElementById('helper_submit_' + arg_name).style.display = 'none';
+}
+
 function run_function(url, direction)
 {
     var function_basename = document.getElementById('function').value;
@@ -47,6 +65,28 @@ function run_function(url, direction)
         
         location.assign(url + '/' + function_basename);
     }
+}
+
+function set_arg_value(arg_name)
+{  
+    var select = document.getElementById('select_' + arg_name);
+    var options = '';
+    
+    for (i = 0; i < select.selectedOptions.length; i++) {
+        if (! select.selectedOptions[i].value) {
+            continue;
+        }
+        
+        if (options) {
+            options += ' | ' + select.selectedOptions[i].value;
+        } else {
+            options = select.selectedOptions[i].value;
+        }
+    }
+    
+    document.getElementById('textarea_' + arg_name).value = options;
+
+    hide_arg_helper_select(arg_name);
 }
 
 function set_php_manual_size(is_local_php_manual)

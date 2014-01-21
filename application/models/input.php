@@ -12,12 +12,12 @@ require_once 'object.php';
 class input extends object
 {
     const CHARACTER_COUNT_BY_EM = 1.5; // about 30 characters for a 20em line
-    const EM_BY_LINE_COUNT      = 1.2;
+    const LINE_HEIGHT_IN_EM     = 1.2;
     const INPUT_WIDTH_IN_EM     = 20;  // must be the same as CSS textarea.arg width
 
-    function calculate_input_height($value, $name)
+    function calculate_input_height($arg_value)
     {
-        $lines = explode("\n", $value);
+        $lines = explode("\n", $arg_value);
         $line_count = count($lines);
         $max_characters_by_line = self::CHARACTER_COUNT_BY_EM * self::INPUT_WIDTH_IN_EM;
 
@@ -26,27 +26,94 @@ class input extends object
             $line_count += substr_count($line, "\n");
         }
 
-        $height = self::EM_BY_LINE_COUNT * ($line_count ?: 1);
+        $height = self::LINE_HEIGHT_IN_EM * ($line_count ?: 1);
 
         return $height;
     }
 
-    function display_arg($type, $name)
+    function display_arg($arg_type, $arg_name)
     {
-        $format = '<textarea class="arg %s" name="%s" style="height: %sem">%s</textarea>';
+        $format = '<textarea
+                     class="arg %1$s"
+                     id="textarea_%2$s"
+                     name="%2$s" style="height: %3$sem"
+                   >%4$s</textarea>';
 
-        if (in_array($name, (array) $this->no_input_args) or ! $this->_synopsis->is_input_arg($name) and ! in_array($name, (array) $this->input_args)) {
+        if (in_array($arg_name, (array) $this->no_input_args) or ! $this->_synopsis->is_input_arg($arg_name) and ! in_array($arg_name, (array) $this->input_args)) {
             // this is an arg that is not meant to be changed by the user, forces the html class of the arg to no_imput (gray color etc.)
-            $type = 'no_input';
+            $arg_type = 'no_input';
         }
 
-        $value = $this->_params->param_exists($name) ? $this->_params->params[$name] : null;
-        $height = $this->calculate_input_height($value, $name);
+        $arg_value = $this->_params->param_exists($arg_name) ? $this->_params->params[$arg_name] : null;
+        $height = $this->calculate_input_height($arg_value);
 
-        $value = htmlspecialchars($value);
-        $html = sprintf($format, $type, $name, $height, $value);
+        $arg_value = htmlspecialchars($arg_value);
+        $html = sprintf($format, $arg_type, $arg_name, $height, $arg_value);
 
         return $html;
+    }
+
+    function display_arg_helper($arg_type, $arg_name)
+    {
+        if (! $arg_helper_options = $this->_synopsis->get_arg_constant_names($arg_name) and
+            ! ($arg_type == 'callable' and $arg_helper_options = $this->helper_callbacks))
+        {
+            return null;
+        }
+
+        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options);
+        $html .= $this->display_arg_helper_mark($arg_name);
+
+        return $html;
+    }
+
+    function display_arg_helper_mark($arg_name)
+    {
+        $format = '<span
+                     class="helper_mark"
+                     id="helper_mark_%1$s"
+                     onclick="display_arg_helper_select(\'%s\')"
+                   >?</span>';
+
+        $helper_mark = sprintf($format, $arg_name);
+
+        return $helper_mark;
+    }
+
+    function display_arg_helper_select($arg_name, $arg_helper_options)
+    {
+        if (substr($arg_name, -1) == 's') {
+            $multiple = 'multiple';
+            $empty_option = $this->_translation->translate('(multiselect)');
+            $vertical_align = 'style="vertical-align: .2em"';
+
+        } else {
+            $multiple = null;
+            $empty_option = null;
+            $vertical_align = null;
+        }
+
+        $format = '<select
+                     class="helper"
+                     id="select_%1$s"
+                     %2$s
+                   >%3$s</select>
+                   <span
+                     class="helper_submit"
+                     id="helper_submit_%1$s"
+                     onclick="set_arg_value(\'%1$s\')"
+                     %4$s
+                   >✓</span>';
+
+        $options = "<option value=''>-- $empty_option</option>";
+
+        foreach ($arg_helper_options as $option) {
+            $options .= "<option>$option</option>";
+        }
+
+        $helper_select = sprintf($format, $arg_name, $multiple, $options, $vertical_align);
+
+        return $helper_select;
     }
 
     function display_args()
@@ -131,9 +198,12 @@ class input extends object
     function replace_var_by_input($highlighted_code, $var_to_replace)
     {
         list(, $var_name, $var_type) = $var_to_replace;
+
         $input = $this->display_arg($var_type, $var_name);
+        $input .= $this->display_arg_helper($var_type, $var_name);
         // escapes "$" so it is not used as replacement reference, eg "$123"
         $input = str_replace('$', '\$', $input);
+
         $highlighted_code = preg_replace("~\\$$var_name\b~", $input, $highlighted_code, 1);
 
         return $highlighted_code;

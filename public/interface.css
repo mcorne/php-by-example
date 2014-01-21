@@ -184,11 +184,50 @@ input.submit
     margin-bottom: 2em;
 }
 
+select.helper
+{
+    border: solid 2px #007700; /* green */
+    color: #0000BB; /* blue */
+    font-family: Lucida Console;
+    display: none;
+    width: 20em;
+}
+
 span.english_only
 {
     color: #CCC; /* light gray */
     font-size: .8em;
     margin-left: 1em;
+}
+
+span.helper_mark
+{
+    background-color: #0000BB; /* blue */
+    color: white; 
+    font-size: 1.6em;    
+    font-weight: bolder; 
+    padding: 0 .2em 0 .2em;    
+    vertical-align: .2em;
+}
+
+span.helper_mark:hover
+{
+    background-color: #FF8000; /* orange */
+}
+
+span.helper_submit
+{
+    background-color: #007700; /* green */
+    color: white; 
+    display: none;    
+    font-weight: bolder;  
+    padding: .2em .3em .1em .3em; 
+    /* vertical-align: set in input.php display_arg_helper_select() */
+}
+
+span.helper_submit:hover
+{
+    background-color: #FF8000; /* orange */
 }
 
 span.method_name

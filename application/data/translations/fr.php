@@ -81,6 +81,9 @@ return [
 3001 => "Merci.", // validated translation
 
 // about page
-4000 => "Voir le code source du projet",
+4000 => "Voir le code source du projet", // validated translation
+
+// input
+5000 => "(sélection multiple)",    // validated translation
 
 ];

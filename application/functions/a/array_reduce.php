@@ -34,6 +34,13 @@ inject_function_call
 
     public $synopsis = 'mixed array_reduce ( array $array , callable $callback [, mixed $initial = NULL ] )';
 
+    function _get_helper_callbacks()
+    {
+        $callbacks = $this->get_helper_callbacks(1);
+
+        return $callbacks;
+    }
+
     function pre_exec_function()
     {
         $this->returned_params['callback'] = $this->_filter->filter_callback('callback');

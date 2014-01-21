@@ -83,6 +83,25 @@ class synopsis extends object
         return $return_var;
     }
 
+    function get_arg_constant_names($arg_name)
+    {
+        if (! preg_match('~int \$' . $arg_name . ' = ([A-Z]+)_~', $this->synopsis, $match)) {
+            return null;
+        }
+
+        $constant_prefix = $match[1];
+        $constant_names = array_keys(get_defined_constants());
+        $arg_constant_names = [];
+
+        foreach ($constant_names as $constant_name) {
+            if (preg_match('~^' . $constant_prefix . '_~', $constant_name)) {
+                $arg_constant_names[] = $constant_name;
+            }
+        }
+
+        return $arg_constant_names;
+    }
+
     function get_mandatory_args_description($mandatory_args_description)
     {
         $mandatory_args_description = explode(',', $mandatory_args_description);

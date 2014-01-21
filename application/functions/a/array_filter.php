@@ -63,6 +63,13 @@ inject_function_call
 
     public $synopsis = 'array array_filter ( array $array [, callable $callback ] )';
 
+    function _get_helper_callbacks()
+    {
+        $callbacks = $this->get_helper_callbacks(1, '~(^ctype_|^is_)~');
+
+        return $callbacks;
+    }
+
     function pre_exec_function()
     {
         $this->returned_params['callback'] = $this->_filter->filter_callback('callback');

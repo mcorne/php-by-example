@@ -49,6 +49,13 @@ inject_function_call
     // public $synopsis = 'array array_diff_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )';
     public $synopsis = 'array array_diff_uassoc ( array $array1 , array $array2 , callable $key_compare_func )';
 
+    function _get_helper_callbacks()
+    {
+        $callbacks = $this->get_helper_callbacks(2, '~(cmp$)~');
+
+        return $callbacks;
+    }
+
     function pre_exec_function()
     {
         $this->returned_params['key_compare_func'] = $this->_filter->filter_callback('key_compare_func');
