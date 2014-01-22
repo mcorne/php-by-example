@@ -64,15 +64,15 @@ inject_function_call
         ],
     ];
 
+    // public $synopsis = 'array array_map ( callable $callback , array $array1 [, array $... ] )';
+    public $synopsis = 'array array_map ( callable $callback , array $array1 [, array $array2 [, array $array3 [, array $... ]]] )';
+
     function _get_helper_callbacks()
     {
         $callbacks = $this->get_helper_callbacks(0, '~(^str[ifprst])~');
 
         return $callbacks;
     }
-
-    // public $synopsis = 'array array_map ( callable $callback , array $array1 [, array $... ] )';
-    public $synopsis = 'array array_map ( callable $callback , array $array1 [, array $array2 [, array $array3 [, array $... ]]] )';
 
     function pre_exec_function()
     {

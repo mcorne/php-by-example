@@ -186,7 +186,7 @@ input.submit
 
 select.helper
 {
-    border: solid 2px #007700; /* green */
+    border: solid 2px #DD0000; /* red */
     color: #0000BB; /* blue */
     font-family: Lucida Console;
     display: none;
@@ -217,7 +217,7 @@ span.helper_mark:hover
 
 span.helper_submit
 {
-    background-color: #007700; /* green */
+    background-color: #DD0000; /* red */
     color: white; 
     display: none;    
     font-weight: bolder;  
@@ -287,6 +287,7 @@ textarea.no_input
     border: solid 2px #656565; /* gray */
     color: #0000BB; /* blue */
     margin-left: 1em;
+    margin-right: 1em;    
     vertical-align: middle;
 }
 
@@ -300,5 +301,5 @@ textarea.no_input
 
 #php_manual_location
 {
-    margin-left: .5em;
+    margin-left: .2em;
 }
