@@ -20,6 +20,12 @@ class function_test extends action
             // this is the first time the test is run for this function, saves the test results
             // this will be used as a reference to validate subsequent tests
             // note that this first test must be fully validated by the developper
+            $directory = dirname($expected_results_filename);
+
+            if (! is_dir($directory)) {
+                $this->_file->create_directory($directory);
+            }
+
             $this->_file->write_array($expected_results_filename, $test_results);
         }
 

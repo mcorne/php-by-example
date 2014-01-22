@@ -13,10 +13,11 @@ return [
 1000 => "Choisissez une fonction", // validated translation
 
 // bottom bar
-1100 => "À propos", // validated translation
-1101 => "Aide",     // validated translation
-1102 => "Accueil",  // validated translation
-1103 => "Test",     // validated translation
+1100 => "Projet",    // validated translation
+1101 => "Problèmes", // validated translation
+1102 => "Accueil",   // validated translation
+1103 => "Test",      // validated translation
+1104 => "Stats",     // validated translation
 
 // misc
 1200 => "Cette page est disponible en anglais seulement.",  // validated translation
@@ -26,6 +27,7 @@ return [
 1301 => "ce paramètre est ignoré dans cet exemple",                                          // validated translation
 1302 => "cette fonction de rappel ne peut être utilisée dans cet exemple",                   // validated translation
 1303 => "la fonction de rappel n'est pas valide ou n'est pas disponible sur ce serveur",     // validated translation
+1304 => "la longueur ne peut pas être indéfinie ou trop grande pour cet exemple",            // validated translation
 
 
 // function core
@@ -38,6 +40,7 @@ return [
 // params
 1500 => "Ne pas afficher", // validated translation
 1501 => "Copie locale",    // validated translation
+1502 => "le paramètre a été tronqué car il est trop grand", // validated translation
 
 // parser
 1600 => "tableau invalide",        // validated translation
@@ -75,13 +78,6 @@ return [
 2000 => "Le manuel PHP n'est pas disponible.",   // validated translation
 2001 => "Désolé pour le désagrément.",           // validated translation
 2002 => "Vous pouvez signaler le problème ici.", // validated translation
-
-// help page
-3000 => "Veuillez cliquer ici pour signaler un problème ou faire un commentaire, en anglais de préférence.", // validated translation
-3001 => "Merci.", // validated translation
-
-// about page
-4000 => "Voir le code source du projet", // validated translation
 
 // input
 5000 => "(sélection multiple)",    // validated translation

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-11T18:42:13+00:00
+// generated automatically 2014-01-22T18:46:10+00:00
 return array (
   0 => 
   array (
@@ -18,51 +18,14 @@ return array (
     <title>Example Domain</title>
 
     <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 50px;
-        background-color: #fff;
-        border-radius: 1em;
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        body {
-            background-color: #fff;
-        }
-        div {
-            width: auto;
-            margin: 0 auto;
-            border-radius: 0;
-            padding: 1em;
-        }
-    }
-    </style>    
-</head>
-
-<body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is established to be used for illustrative examples in documents. You may use this
-    domain in examples without prior coordination or asking for permission.</p>
-    <p><a href="http://www.iana.org/domains/example">More information...</a></p>
-</div>
-</body>
-</html>
-',
+    <m',
+    ),
+  ),
+  2 => 
+  array (
+    'result' => 
+    array (
+      'string' => 'Hello world !',
     ),
   ),
 );

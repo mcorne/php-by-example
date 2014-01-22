@@ -13,10 +13,11 @@ return [
 1000 => "Choose a function",
 
 // bottom bar
-1100 => "About",
-1101 => "Help",
+1100 => "Project",
+1101 => "Issues",
 1102 => "Home",
 1103 => "Test",
+1104 => "Stats",
 
 // misc
 1200 => "This page is available in English only.",
@@ -26,6 +27,7 @@ return [
 1301 => "this parameter is ignored in this example",
 1302 => "this callback function may not be used in this example",
 1303 => "the callback function is invalid or not available on this server",
+1304 => "the length may not be undefined or too large in this example",
 
 // function core
 1400 => "a value cannot be passed by reference",
@@ -36,6 +38,7 @@ return [
 // params
 1500 => "Do not display", // as in "Do not display the PHP manual"
 1501 => "Local copy",     // as in "Local copy of the PHP manual"
+1502 => "the parameter was truncated as it is too large",
 
 // parser
 1600 => "invalid array",
@@ -73,13 +76,6 @@ return [
 2000 => "The PHP manual is not available.",
 2001 => "Sorry for the inconvenience.",
 2002 => "You may report the problem here.",
-
-// help page
-3000 => "Please, click here to report a problem or make a comment, in English preferably.",
-3001 => "Thank you.",
-
-// about page
-4000 => "See the project source code",
 
 // input
 5000 => "(multiselect)",

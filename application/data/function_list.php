@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-19T10:30:32+00:00
+// generated automatically 2014-01-22T18:21:24+00:00
 return array (
   'abs' => 'abs',
   'array_change_key_case' => 'array_change_key_case',
@@ -51,6 +51,7 @@ return array (
   'fread' => 'fread',
   'get_defined_constants' => 'get_defined_constants',
   'get_defined_functions' => 'get_defined_functions',
+  'is_string' => 'is_string',
   'preg_match_all' => 'preg_match_all',
   'sort' => 'sort',
 );

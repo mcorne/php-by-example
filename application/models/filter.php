@@ -12,6 +12,7 @@ require_once 'object.php';
 class filter extends object
 {
     const DEFAULT_FILE_NAME = 'tempname';
+    const MAX_FILE_LENGTH   = 1000;
 
     function compare_func($a, $b)
     {
@@ -82,7 +83,7 @@ class filter extends object
         return $callback_function_name;
     }
 
-    function filter_ignored_param($arg_name)
+    function filter_ignored_param($arg_name, $not_ignored_values = [])
     {
         if (! $this->_params->param_exists($arg_name)) {
             return;
@@ -90,7 +91,7 @@ class filter extends object
 
         $value = $this->_params->get_param($arg_name);
 
-        if (! is_null($value)) {
+        if (! is_null($value) and ! in_array($value, $not_ignored_values, true)) {
             $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text(null);
             $message = $this->_translation->translate('this parameter is ignored in this example') . " (\$$arg_name)";
             trigger_error($message, E_USER_NOTICE);
@@ -138,9 +139,9 @@ class filter extends object
             // the file name is a placeholder or a valid temp file prefixed with pbe, forces the file name to the new temp name
             $filename = $this->_file->create_temp_file();
             $this->_file->write_content($filename, "Hello world !");
-            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($filename);;
+            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($filename);
 
-        } else if (stripos($filename, 'http://') === 0 or stripos($filename, 'https://') === 0) {
+        } else if (preg_match('~^https?://~', $filename)) {
             // the file name is a valid http file
 
         } else {
@@ -149,7 +150,21 @@ class filter extends object
             throw new Exception($message, E_USER_WARNING);
         }
 
-
         return $filename;
+    }
+
+    function filter_file_length($arg_name, $filename)
+    {
+        $length = $this->_params->get_param($arg_name);
+
+        if (preg_match('~^https?://~', $filename) and (is_null($length) or is_numeric($length) and $length > self::MAX_FILE_LENGTH)) {
+            // the file is external and the length exeeds the limit, limitates the length
+            $length = self::MAX_FILE_LENGTH;
+            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($length);
+            $message = $this->_translation->translate('the length may not be undefined or too large in this example') . " (\$$arg_name)";
+            trigger_error($message, E_USER_NOTICE);
+        }
+
+        return $length;
     }
 }

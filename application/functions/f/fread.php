@@ -53,5 +53,10 @@ unlink($_filename);
         $filename = $this->_filter->filter_filename('filename');
         $mode = $this->_filter->filter_param('mode');
         $this->returned_params['handle'] = fopen($filename, $mode);
+
+        if ($this->_params->get_param('length')) {
+            $this->_filter->filter_file_length('length', $filename);
+        }
+        // else: the length is empty which is caaught by the function itself
     }
 }

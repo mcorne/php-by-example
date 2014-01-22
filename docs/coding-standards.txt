@@ -1,4 +1,4 @@
-coding standards
+Coding standards
 ----------------
 
 no camel case, name self explanatory

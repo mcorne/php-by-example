@@ -1,10 +1,6 @@
-things to do
+Things to do
 ------------
 
-truncate the entered data to a max length
-
-add a page with the list of functions
-add stats, count the number of functions executed per day, list the top 10 functions etc.
-offer users the ability to upload manuals from php.net to this site if they are more recent
-look for oudated function synopsis
-list limitations somewhere, eg no expression in param except list of or'ed constants
+- add a page with the list of functions
+- offer users the ability to upload manuals from php.net to this site if they are more recent
+- look for outdated functions (synopsis)

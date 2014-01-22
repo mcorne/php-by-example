@@ -30,9 +30,16 @@ class file extends object
         return $temp_file_prefix;
     }
 
+    function create_directory($directory)
+    {
+        if (! @mkdir($directory)) {
+            throw new Exception('cannot create directory');
+        }
+    }
+
     function create_temp_file()
     {
-        if (! $temp_filename = tempnam(sys_get_temp_dir(), 'pbe')) {
+        if (! $temp_filename = @tempnam(sys_get_temp_dir(), 'pbe')) {
             throw new Exception('cannot create temp file');
         }
 
@@ -79,7 +86,7 @@ class file extends object
 
     function write_content($filename, $content)
     {
-        if (! file_put_contents($filename, $content)) {
+        if (! @file_put_contents($filename, $content)) {
             throw new Exception("cannot write file $filename");
         }
     }

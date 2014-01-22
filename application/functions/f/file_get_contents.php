@@ -27,7 +27,14 @@ unlink($_filename);
             5,
         ],
         [
-            'http://www.example.com/'
+            'http://www.example.com/',
+            false,
+            NULL,
+            0,
+            100,
+        ],
+        [
+            filter::DEFAULT_FILE_NAME
         ],
     ];
 
@@ -37,8 +44,23 @@ unlink($_filename);
 
     function pre_exec_function()
     {
-        $this->_filter->filter_filename('filename');
-        $this->_filter->filter_ignored_param('use_include_path');
+        $filename = $this->_filter->filter_filename('filename');
+        $this->_filter->filter_ignored_param('use_include_path', [false]);
         $this->_filter->filter_ignored_param('context');
+        $length = $this->_filter->filter_file_length('maxlen', $filename);
+
+        if ($length == filter::MAX_FILE_LENGTH) {
+            if (! $this->_params->param_exists('use_include_path')) {
+                $this->_params->params['use_include_path'] = $this->_converter->convert_value_to_text(false);
+            }
+
+            if (! $this->_params->param_exists('context')) {
+                $this->_params->params['context'] = $this->_converter->convert_value_to_text(null);
+            }
+
+            if (! $this->_params->param_exists('offset')) {
+                $this->_params->params['offset'] = $this->_converter->convert_value_to_text(-1);
+            }
+        }
     }
 }

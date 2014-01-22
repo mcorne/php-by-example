@@ -11,6 +11,8 @@ require_once 'object.php';
 
 class params extends object
 {
+    const VALUE_MAX_LENGTH   = 1000;
+
     public function __construct($mixed = null)
     {
         parent::__construct($mixed);
@@ -55,6 +57,12 @@ class params extends object
         }
 
         $value = trim($this->params[$name]);
+
+        if (strlen($value) > self::VALUE_MAX_LENGTH) {
+            $message = $this->_translation->translate('the parameter was truncated as it is too large') . " (\$$name > " . self::VALUE_MAX_LENGTH . ")";
+            trigger_error($message, E_USER_NOTICE);
+        }
+
         $value = $this->_parser->parse_value($value, $name);
 
         if ($indirect_get_param_from_var and $this->is_param_var($value)) {
