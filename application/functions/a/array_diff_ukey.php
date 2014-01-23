@@ -10,7 +10,7 @@
 class array_diff_ukey extends function_core
 {
     public $source_code = '
-$_key_compare_func = function key_compare_func($a, $b) {
+$_key_compare_func = function ($a, $b) {
     if ($a === $b) { return 0; }
     return ($a > $b)? 1 : -1;
 };

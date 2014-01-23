@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-22T18:21:24+00:00
+// generated automatically 2014-01-23T21:29:14+00:00
 return array (
   'abs' => 'abs',
   'array_change_key_case' => 'array_change_key_case',
@@ -46,12 +46,25 @@ return array (
   'array_uintersect' => 'array_uintersect',
   'array_uintersect_assoc' => 'array_uintersect_assoc',
   'array_uintersect_uassoc' => 'array_uintersect_uassoc',
+  'array_unique' => 'array_unique',
+  'array_unshift' => 'array_unshift',
+  'array_values' => 'array_values',
+  'array_walk' => 'array_walk',
+  'array_walk_recursive' => 'array_walk_recursive',
+  'arsort' => 'arsort',
+  'asort' => 'asort',
+  'count' => 'count',
   'datetime__add' => 'DateTime::add',
   'file_get_contents' => 'file_get_contents',
   'fread' => 'fread',
   'get_defined_constants' => 'get_defined_constants',
   'get_defined_functions' => 'get_defined_functions',
+  'in_array' => 'in_array',
   'is_string' => 'is_string',
+  'krsort' => 'krsort',
+  'ksort' => 'ksort',
+  'natcasesort' => 'natcasesort',
+  'natsort' => 'natsort',
   'preg_match_all' => 'preg_match_all',
   'sort' => 'sort',
 );

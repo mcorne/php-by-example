@@ -72,15 +72,15 @@ function set_arg_value(arg_name)
     var select = document.getElementById('select_' + arg_name);
     var options = '';
     
-    for (i = 0; i < select.selectedOptions.length; i++) {
-        if (! select.selectedOptions[i].value) {
+    for (i = 0; i < select.length; i++) {
+        if (! i || ! select[i].selected) {
             continue;
         }
         
         if (options) {
-            options += ' | ' + select.selectedOptions[i].value;
+            options += ' | ' + select[i].value;
         } else {
-            options = select.selectedOptions[i].value;
+            options = select[i].value;
         }
     }
     

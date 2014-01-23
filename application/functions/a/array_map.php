@@ -11,7 +11,7 @@ class array_map extends function_core
 {
     public $source_code = '
 $cube         = function ($n)     { return($n * $n * $n); };
-$double       = function($value)  { return $value * 2; };
+$double       = function ($value) { return $value * 2; };
 $show_Spanish = function ($n, $m) { return("The number $n is called $m in Spanish"); };
 $map_Spanish  = function ($n, $m) { return(array($n => $m)); };
 $cb1          = function ($a)     { return array ($a); };
