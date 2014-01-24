@@ -12,6 +12,7 @@ require_once 'object.php';
 class filter extends object
 {
     const DEFAULT_FILE_NAME = 'tempname';
+    const MAX_COUNT         = 10;
     const MAX_FILE_LENGTH   = 1000;
 
     function compare_func($a, $b)
@@ -163,10 +164,30 @@ class filter extends object
             // the file is external and the length exeeds the limit, limitates the length
             $length = self::MAX_FILE_LENGTH;
             $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($length);
-            $message = $this->_translation->translate('the length may not be undefined or too large in this example') . " (\$$arg_name)";
+            $message = $this->_translation->translate('the length may not be undefined or too large in this example') . " (\$$arg_name > " . self::MAX_FILE_LENGTH . ")";
             trigger_error($message, E_USER_NOTICE);
         }
 
         return $length;
+    }
+
+    function filter_iteration_count($arg_name)
+    {
+        if (! $this->_params->param_exists($arg_name)) {
+             return null;
+        }
+
+        $count = $this->_params->get_param($arg_name);
+
+        if ($count > self::MAX_COUNT) {
+            // the count exeeds the limit, limitates the count
+            $count = self::MAX_COUNT;
+            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($count);
+            $arg_name = preg_replace('~^_+~', '', $arg_name);
+            $message = $this->_translation->translate('the number of iterations may not be too large in this example') . " (\$$arg_name > " . self::MAX_COUNT . ")";
+            trigger_error($message, E_USER_NOTICE);
+        }
+
+        return $count;
     }
 }

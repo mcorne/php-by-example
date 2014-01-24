@@ -12,7 +12,7 @@ class array_walk_recursive extends function_core
     public $source_code = '
 $_test_print = function (&$item, $key) { $item = "$key holds $item\n"; };
 $_array =
-    $__array; // array $__array;
+    $__array; // array $__array
 inject_function_call
 ';
 

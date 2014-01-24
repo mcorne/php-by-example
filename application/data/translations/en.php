@@ -28,6 +28,7 @@ return [
 1302 => "this callback function may not be used in this example",
 1303 => "the callback function is invalid or not available on this server",
 1304 => "the length may not be undefined or too large in this example",
+1305 => "the number of iterations may not be too large in this example",
 
 // function core
 1400 => "a value cannot be passed by reference",

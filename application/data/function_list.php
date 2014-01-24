@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-24T14:07:52+00:00
+// generated automatically 2014-01-24T18:06:31+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -66,6 +66,7 @@ return array (
   'cos' => 'cos',
   'cosh' => 'cosh',
   'count' => 'count',
+  'current' => 'current',
   'datetime__add' => 'DateTime::add',
   'decbin' => 'decbin',
   'dechex' => 'dechex',

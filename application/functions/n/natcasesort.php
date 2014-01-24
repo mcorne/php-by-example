@@ -11,7 +11,7 @@ class natcasesort extends function_core
 {
     public $source_code = '
 $_array =
-    $__array; // array $__array;
+    $__array; // array $__array
 inject_function_call
 ';
 

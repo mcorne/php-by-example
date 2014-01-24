@@ -13,7 +13,7 @@ class array_walk extends function_core
 $_test_alter = function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; };
 $_test_print = function (&$item, $key) { $item = "$key holds $item\n"; };
 $_array =
-    $__array; // array $__array;
+    $__array; // array $__array
 inject_function_call
 ';
 

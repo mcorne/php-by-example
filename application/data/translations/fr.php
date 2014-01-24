@@ -28,6 +28,7 @@ return [
 1302 => "cette fonction de rappel ne peut être utilisée dans cet exemple",                   // validated translation
 1303 => "la fonction de rappel n'est pas valide ou n'est pas disponible sur ce serveur",     // validated translation
 1304 => "la longueur ne peut pas être indéfinie ou trop grande pour cet exemple",            // validated translation
+1305 => "le nombre d'itérations ne peut pas être trop grand dans cet exemple",               // validated translation
 
 
 // function core
