@@ -97,9 +97,25 @@ class function_test extends action
 
                 if ($test_result === $expected_result) {
                     $test_validation['status'] = true;
-                } else {
-                    $test_validation['status'] = false;
-                    $test_validation['expected_result'] = $expected_result;
+
+                } else  {
+                    $test_value = current($test_result['result']);
+                    $expected_value = current($expected_result['result']);
+
+                    if (is_float($test_value) and is_int($expected_value) and $test_value == $expected_value) {
+                        // the test value is a float and the expected value is an integer and they are equal, they are considered as strictly equal
+                        // note that the expected value being store as eg "123" is interpreted as an integer by PHP
+                        $test_validation['status'] = true;
+
+                    } else if (is_float($test_value) and is_float($expected_value) and (string) round($test_value, 10) == (string) round($expected_value, 10)) {
+                        // both values are a float and there are equal as strings with a precision of 10 digits, they are considered as stricly equal
+                        // note that they would differ as float due to floating precision limitation
+                        $test_validation['status'] = true;
+
+                    } else {
+                        $test_validation['status'] = false;
+                        $test_validation['expected_result'] = $expected_result;
+                    }
                 }
             }
 
