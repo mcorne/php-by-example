@@ -56,7 +56,7 @@ class input extends object
     function display_arg_helper($arg_type, $arg_name)
     {
         if (! $arg_helper_options = $this->_synopsis->get_arg_constant_names($arg_name) and
-            ! ($arg_type == 'callable' and $arg_helper_options = $this->helper_callbacks))
+            ! ($arg_type == 'callable' and $arg_helper_options = $this->get_helper_callbacks()))
         {
             return null;
         }
@@ -169,6 +169,57 @@ class input extends object
         $highlighted_code = $this->display_method_name($highlighted_code);
 
         return $highlighted_code;
+    }
+
+    function get_callbacks_in_examples($callback_index)
+    {
+        $callbacks_in_examples = [];
+
+        foreach ($this->examples as $example) {
+            if (isset($example[$callback_index]) and $example[$callback_index]) {
+                $callback = $example[$callback_index];
+
+                if ($callback[0] != '$') {
+                    $callback = "'$callback'";
+                }
+
+                $callbacks_in_examples[] = $callback;
+            }
+        }
+
+        return $callbacks_in_examples;
+    }
+
+    function get_defined_function_callbacks($defined_functions_pattern)
+    {
+        $defined_functions = get_defined_functions();
+        $defined_function_callbacks = preg_grep($defined_functions_pattern, $defined_functions['internal']);
+
+        foreach ($defined_function_callbacks as &$defined_callback) {
+            $defined_callback = "'$defined_callback'";
+        }
+
+        return $defined_function_callbacks;
+    }
+
+    function get_helper_callbacks()
+    {
+        $callbacks = [];
+
+        if (isset($this->helper_callbacks['index_in_example'])) {
+            $callbacks_in_examples = $this->get_callbacks_in_examples($this->helper_callbacks['index_in_example']);
+            $callbacks = array_merge($callbacks, $callbacks_in_examples);
+        }
+
+        if (isset($this->helper_callbacks['function_name_pattern'])) {
+            $defined_function_callbacks = $this->get_defined_function_callbacks($this->helper_callbacks['function_name_pattern']);
+            $callbacks = array_merge($callbacks, $defined_function_callbacks);
+        }
+
+        $callbacks = array_unique($callbacks);
+        sort($callbacks);
+
+        return $callbacks;
     }
 
     function get_vars_to_replace_by_inputs($source_code)

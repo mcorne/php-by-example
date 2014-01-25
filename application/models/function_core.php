@@ -127,55 +127,6 @@ class function_core extends action
         return $return;
     }
 
-    function get_example_callbacks($callback_index)
-    {
-        $example_callbacks = [];
-
-        foreach ($this->examples as $example) {
-            if (isset($example[$callback_index]) and $example[$callback_index]) {
-                $callback = $example[$callback_index];
-
-                if ($callback[0] != '$') {
-                    $callback = "'$callback'";
-                }
-
-                $example_callbacks[] = $callback;
-            }
-        }
-
-        return $example_callbacks;
-    }
-
-    function get_defined_callbacks($defined_functions_pattern)
-    {
-        $defined_functions = get_defined_functions();
-        $defined_callbacks = preg_grep($defined_functions_pattern, $defined_functions['internal']);
-
-        foreach ($defined_callbacks as &$defined_callback) {
-            $defined_callback = "'$defined_callback'";
-        }
-
-        return $defined_callbacks;
-    }
-
-    function get_helper_callbacks($callback_index = null, $defined_functions_pattern = null)
-    {
-        $callbacks = [];
-
-        if (! is_null($callback_index) and $example_callbacks = $this->get_example_callbacks($callback_index)) {
-            $callbacks = array_merge($callbacks, $example_callbacks);
-        }
-
-        if ($defined_functions_pattern and $defined_callbacks = $this->get_defined_callbacks($defined_functions_pattern)) {
-            $callbacks = array_merge($callbacks, $defined_callbacks);
-        }
-
-        $callbacks = array_unique($callbacks);
-        sort($callbacks);
-
-        return $callbacks;
-    }
-
     function post_exec_function()
     {}
 

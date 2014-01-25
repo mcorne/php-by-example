@@ -43,16 +43,11 @@ inject_function_call
         ],
     ];
 
+    public $helper_callbacks = ['index_in_example' => 1];
+
     public $input_args = '__array';
 
     public $synopsis = 'bool array_walk ( array &$array , callable $callback [, mixed $userdata = NULL ] )';
-
-    function _get_helper_callbacks()
-    {
-        $callbacks = $this->get_helper_callbacks(1);
-
-        return $callbacks;
-    }
 
     function pre_exec_function()
     {

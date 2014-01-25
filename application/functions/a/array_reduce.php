@@ -32,14 +32,9 @@ inject_function_call
         ],
     ];
 
+    public $helper_callbacks = ['index_in_example' => 1];
+
     public $synopsis = 'mixed array_reduce ( array $array , callable $callback [, mixed $initial = NULL ] )';
-
-    function _get_helper_callbacks()
-    {
-        $callbacks = $this->get_helper_callbacks(1);
-
-        return $callbacks;
-    }
 
     function pre_exec_function()
     {

@@ -64,15 +64,10 @@ inject_function_call
         ],
     ];
 
+    public $helper_callbacks = ['index_in_example' => 0, 'function_name_pattern' => '~(^str[ifprst])~'];
+
     // public $synopsis = 'array array_map ( callable $callback , array $array1 [, array $... ] )';
     public $synopsis = 'array array_map ( callable $callback , array $array1 [, array $array2 [, array $array3 [, array $... ]]] )';
-
-    function _get_helper_callbacks()
-    {
-        $callbacks = $this->get_helper_callbacks(0, '~(^str[ifprst])~');
-
-        return $callbacks;
-    }
 
     function pre_exec_function()
     {

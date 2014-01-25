@@ -61,14 +61,9 @@ inject_function_call
         ],
     ];
 
+    public $helper_callbacks = ['index_in_example' => 1, 'function_name_pattern' => '~(^ctype_|^is_)~'];
+
     public $synopsis = 'array array_filter ( array $array [, callable $callback ] )';
-
-    function _get_helper_callbacks()
-    {
-        $callbacks = $this->get_helper_callbacks(1, '~(^ctype_|^is_)~');
-
-        return $callbacks;
-    }
 
     function pre_exec_function()
     {
