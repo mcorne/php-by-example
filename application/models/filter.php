@@ -12,8 +12,6 @@ require_once 'object.php';
 class filter extends object
 {
     const DEFAULT_FILE_NAME = 'tempname';
-    const MAX_COUNT         = 10;
-    const MAX_FILE_LENGTH   = 1000;
 
     function compare_func($a, $b)
     {
@@ -84,7 +82,7 @@ class filter extends object
 
         if (! is_null($value) and ! in_array($value, $not_ignored_values, true)) {
             $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text(null);
-            $message = $this->_translation->translate('this parameter is ignored in this example') . " (\$$arg_name)";
+            $message = $this->_translation->translate('this argument is ignored in this example') . " (\$$arg_name)";
             trigger_error($message, E_USER_NOTICE);
         }
     }
@@ -148,12 +146,10 @@ class filter extends object
     {
         $length = $this->_params->get_param($arg_name);
 
-        if (preg_match('~^https?://~', $filename) and (is_null($length) or is_numeric($length) and $length > self::MAX_FILE_LENGTH)) {
-            // the file is external and the length exeeds the limit, limitates the length
-            $length = self::MAX_FILE_LENGTH;
-            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($length);
-            $message = $this->_translation->translate('the length may not be undefined or too large in this example') . " (\$$arg_name > " . self::MAX_FILE_LENGTH . ")";
-            trigger_error($message, E_USER_NOTICE);
+        if (preg_match('~^https?://~', $filename) and (is_null($length) or is_numeric($length) and $length > 1000)) {
+            // the file is external and the length is null or too large
+            $message = $this->_translation->translate('the length must be defined and lower than 1000 in this example') . " (\$$arg_name)";
+            throw new Exception($message, E_USER_WARNING);
         }
 
         return $length;
@@ -167,13 +163,11 @@ class filter extends object
 
         $count = $this->_params->get_param($arg_name);
 
-        if ($count > self::MAX_COUNT) {
-            // the count exeeds the limit, limitates the count
-            $count = self::MAX_COUNT;
-            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($count);
+        if (! is_int($count) or $count > 10) {
+            // the number of iterations is not an integer or too large
             $arg_name = preg_replace('~^_+~', '', $arg_name);
-            $message = $this->_translation->translate('the number of iterations may not be too large in this example') . " (\$$arg_name > " . self::MAX_COUNT . ")";
-            trigger_error($message, E_USER_NOTICE);
+            $message = $this->_translation->translate('the number of iterations must be an integer lower than 10 in this example') . " (\$$arg_name)";
+            throw new Exception($message, E_USER_WARNING);
         }
 
         return $count;

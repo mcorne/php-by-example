@@ -24,17 +24,19 @@ return [
 
 // filter
 1300 => "the filename must start with one of the following strings in this example",
-1301 => "this parameter is ignored in this example",
+1301 => "this argument is ignored in this example",
 1302 => "this callback function may not be used in this example",
 1303 => "the callback function is invalid or not available on this server",
-1304 => "the length may not be undefined or too large in this example",
-1305 => "the number of iterations may not be too large in this example",
+1304 => "the length must be defined and lower than 1000 in this example",
+1305 => "the number of iterations must be an integer lower than 10 in this example",
 
 // function core
 1400 => "a value cannot be passed by reference",
 1401 => "this class is not available in the PHP version running on this server",
 1402 => "this function is not available in the PHP version running on this server",
 1403 => "this method is not available in the PHP version running on this server",
+1404 => "the following argument has been removed",
+1405 => "the following arguments have been removed",
 
 // params
 1500 => "Do not display", // as in "Do not display the PHP manual"

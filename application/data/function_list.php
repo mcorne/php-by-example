@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-24T18:06:31+00:00
+// generated automatically 2014-01-25T18:38:59+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -72,6 +72,7 @@ return array (
   'dechex' => 'dechex',
   'decoct' => 'decoct',
   'deg2rad' => 'deg2rad',
+  'end' => 'end',
   'exp' => 'exp',
   'expm1' => 'expm1',
   'file_get_contents' => 'file_get_contents',
@@ -93,6 +94,8 @@ return array (
   'lcg_value' => 'lcg_value',
   'natcasesort' => 'natcasesort',
   'natsort' => 'natsort',
+  'next' => 'next',
   'preg_match_all' => 'preg_match_all',
+  'prev' => 'prev',
   'sort' => 'sort',
 );

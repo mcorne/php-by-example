@@ -77,7 +77,10 @@ class function_test extends action
         $this->set_properties($function);
 
         foreach (array_keys($this->examples) as $example_id) {
-            $test_results[] = $this->test_example($function_basename, $example_id);
+            if (array_search('http://www.example.com/', (array) $this->examples[$example_id]) === false) {
+                $test_results[$example_id] = $this->test_example($function_basename, $example_id);
+            }
+
         }
         return $test_results;
     }

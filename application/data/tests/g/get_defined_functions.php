@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-18T13:32:14+00:00
+// generated automatically 2014-01-25T18:15:37+00:00
 return array (
   0 => 
   array (
@@ -1935,6 +1935,7 @@ return array (
         ),
         'user' => 
         array (
+          0 => 'zend_monitor_resolve_components',
         ),
       ),
     ),

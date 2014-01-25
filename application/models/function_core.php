@@ -15,7 +15,9 @@ require_once 'action.php';
 class function_core extends action
 {
     public $errors;
+    public $examples = [];
     public $returned_params;
+    public $tests = [];
 
     /**
      * the error handler
@@ -58,8 +60,6 @@ class function_core extends action
             if (! isset($this->_synopsis->arg_names[$arg_number]) or ! $this->_params->param_exists($this->_synopsis->arg_names[$arg_number])) {
                 // there is no more args passed to the function
                 $function = $this->_synopsis->method_name;
-                // resets the remaining args that the user might have not reset in the function form
-                $this->reset_unused_params($arg_number);
 
                 if (isset($this->object)) {
                     $return = $this->exec_method($function, $arg_number, $values);
@@ -140,6 +140,8 @@ class function_core extends action
 
             $this->function_exists();
 
+            $this->reset_args_after_first_empty_param();
+
             $this->pre_exec_function();
             $this->result = $this->exec_function();
             $this->post_exec_function();
@@ -151,11 +153,30 @@ class function_core extends action
         }
     }
 
-    function reset_unused_params($arg_number)
+    function reset_args_after_first_empty_param()
     {
-        for (; $arg_number <= 9 and isset($this->_synopsis->arg_names[$arg_number]); $arg_number++) {
+        for ($arg_number = 0; $arg_number <= 9 and isset($this->_synopsis->arg_names[$arg_number]); $arg_number++) {
             $arg_name = $this->_synopsis->arg_names[$arg_number];
-            $this->_params->params[$arg_name] = '';
+
+            if (isset($reset_args) and $this->_params->param_exists($arg_name)) {
+                $this->_params->params[$arg_name] = '';
+                $reset_args[] = "\$$arg_name";
+
+            } else if (! $this->_params->param_exists($arg_name)) {
+                $reset_args = [];
+            }
+        }
+
+        if (! empty($reset_args)) {
+            if (count($reset_args) == 1) {
+                $reset_args = current($reset_args);
+                $message = $this->_translation->translate('the following argument has been removed') . " ($reset_args)";
+            } else {
+                $reset_args = implode(', ', $reset_args);
+                $message = $this->_translation->translate('the following arguments have been removed') . " ($reset_args)";
+            }
+
+            trigger_error($message, E_USER_NOTICE);
         }
     }
 

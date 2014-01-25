@@ -24,11 +24,11 @@ return [
 
 // filter
 1300 => "le nom du fichier doit commencer par l'une des chaînes suivantes dans cet exemple", // validated translation
-1301 => "ce paramètre est ignoré dans cet exemple",                                          // validated translation
+1301 => "cet argument est ignoré dans cet exemple",                                          // validated translation
 1302 => "cette fonction de rappel ne peut être utilisée dans cet exemple",                   // validated translation
 1303 => "la fonction de rappel n'est pas valide ou n'est pas disponible sur ce serveur",     // validated translation
-1304 => "la longueur ne peut pas être indéfinie ou trop grande pour cet exemple",            // validated translation
-1305 => "le nombre d'itérations ne peut pas être trop grand dans cet exemple",               // validated translation
+1304 => "la longueur doit être définie et inférieure à 1000 dans cet exemple",               // validated translation
+1305 => "le nombre d'itérations doit être un nombre entier inférieur à 10 dans cet exemple", // validated translation
 
 
 // function core
@@ -36,6 +36,8 @@ return [
 1401 => "cette classe n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur",   // validated translation
 1402 => "cette fonction n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur", // validated translation
 1403 => "cette méthode n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur",  // validated translation
+1404 => "l'argument suivant a été supprimé",                                                              // validated translation
+1405 => "les arguments suivants ont été supprimés",                                                       // validated translation
 
 
 // params

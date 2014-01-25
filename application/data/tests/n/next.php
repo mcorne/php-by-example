@@ -1,18 +1,11 @@
 <?php
-// generated automatically 2014-01-25T16:18:31+00:00
+// generated automatically 2014-01-25T18:31:45+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'mixed' => 'car',
-    ),
-  ),
-  1 => 
-  array (
-    'result' => 
-    array (
-      'mixed' => 'foot',
+      'mixed' => 'plane',
     ),
   ),
   2 => 
@@ -43,7 +36,7 @@ return array (
       2 => 
       array (
         'code' => 2,
-        'message' => 'current() expects parameter 1 to be array, integer given',
+        'message' => 'next() expects parameter 1 to be array, integer given',
       ),
     ),
   ),
@@ -68,7 +61,7 @@ return array (
       2 => 
       array (
         'code' => 2,
-        'message' => 'current() expects parameter 1 to be array, null given',
+        'message' => 'next() expects parameter 1 to be array, null given',
       ),
     ),
   ),
@@ -115,7 +108,7 @@ return array (
       2 => 
       array (
         'code' => 2,
-        'message' => 'current() expects parameter 1 to be array, null given',
+        'message' => 'next() expects parameter 1 to be array, null given',
       ),
     ),
   ),

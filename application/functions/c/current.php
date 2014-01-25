@@ -7,6 +7,8 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+// this class is extended by other classes
+
 class current extends function_core
 {
     public $source_code = '
@@ -24,6 +26,41 @@ inject_function_call
             '__count' => 2,
             '$array',
         ],
+        [
+            '__array' => ['foot', 'bike', 'car', 'plane'],
+            '__count' => 0,
+            '$array',
+        ],
+        [
+            '__array' => ['foot', 'bike', 'car', 'plane'],
+            '__count' => 9,
+            '$array',
+        ],
+        [
+            '__array' => 123,
+            '__count' => 2,
+            '$array',
+        ],
+        [
+            '__array' => null,
+            '__count' => 2,
+            '$array',
+        ],
+        [
+            '__array' => ['foot', 'bike', 'car', 'plane'],
+            '__count' => 123,
+            '$array',
+        ],
+        [
+            '__array' => ['foot', 'bike', 'car', 'plane'],
+            '__count' => 'xyz',
+            '$array',
+        ],
+        [
+            '__array' => ['foot', 'bike', 'car', 'plane'],
+            '__count' => 2,
+            '$xyz',
+        ],
     ];
 
     public $input_args = ['__array', '__count'];
@@ -32,15 +69,21 @@ inject_function_call
 
     function post_exec_function()
     {
-        // this is a dirty fix to ensure that false is returned when there are more next() actions than the array has values
-        $this->pre_exec_function();
-        $result[$this->_synopsis->return_var] = current($this->returned_params['array']);
+        // this fix is necessary because current() does not return the proper value when processed through the default (parent) post_exec_function()
+        $function = get_class($this);
+        $result[$this->_synopsis->return_var] = $function($this->returned_params['array']);
         $this->result = $result;
+
+        if ($this->errors) {
+            // there are errors, removes the last error that would be a duplicate of the previous one,
+            // eg "current() expects parameter 1 to be array, null given"
+            $this->errors = array_slice($this->errors, 0, -1);
+        }
     }
 
     function pre_exec_function()
     {
-        $this->returned_params['array'] = $this->_filter->filter_param('__array');
+        $this->returned_params['array'] = $this->_filter->filter_param('array');
         $count = $this->_filter->filter_iteration_count('__count');
 
         for ($i = 0; $i < $count; $i++) {

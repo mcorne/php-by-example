@@ -37,6 +37,17 @@ unlink($_filename);
             '$handle',
             100,
         ],
+        [
+            'filename' => 'http://www.xyz.com/',
+            'mode'     => 'r',
+            '$handle',
+            100000,
+        ],
+        [
+            'filename' => filter::DEFAULT_FILE_NAME,
+            'mode'     => 'rb',
+            '$handle',
+        ],
     ];
 
     public $input_args = 'filename';
@@ -57,6 +68,6 @@ unlink($_filename);
         if ($this->_params->get_param('length')) {
             $this->_filter->filter_file_length('length', $filename);
         }
-        // else: the length is empty which is caaught by the function itself
+        // else: the length is empty which is caught by the function itself
     }
 }
