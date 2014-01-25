@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-23T20:42:38+00:00
+// generated automatically 2014-01-25T09:07:41+00:00
 return array (
   0 => 
   array (
@@ -16,6 +16,20 @@ return array (
         ),
         'sour' => 'sour holds lemon
 ',
+      ),
+      'bool' => true,
+    ),
+  ),
+  1 => 
+  array (
+    'result' => 
+    array (
+      'array' => 
+      array (
+        'd' => 'fruit: lemon',
+        'a' => 'fruit: orange',
+        'b' => 'fruit: banana',
+        'c' => 'fruit: apple',
       ),
       'bool' => true,
     ),

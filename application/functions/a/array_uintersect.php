@@ -7,7 +7,9 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class array_uintersect extends function_core
+require_once 'array_udiff.php';
+
+class array_uintersect extends array_udiff
 {
     public $examples = [
         [
@@ -29,16 +31,4 @@ class array_uintersect extends function_core
 
     // public $synopsis = 'array array_uintersect ( array $array1 , array $array2 [, array $... ], callable $value_compare_func )';
     public $synopsis = 'array array_uintersect ( array $array1 , array $array2 , callable $value_compare_func )';
-
-    function _get_helper_callbacks()
-    {
-        $callbacks = $this->get_helper_callbacks(2, '~(cmp$)~');
-
-        return $callbacks;
-    }
-
-    function pre_exec_function()
-    {
-        $this->returned_params['value_compare_func'] = $this->_filter->filter_callback('value_compare_func');
-    }
 }

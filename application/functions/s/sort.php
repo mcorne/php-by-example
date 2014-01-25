@@ -7,14 +7,10 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class sort extends function_core
-{
-    public $source_code = '
-$_array =
-    $__array; // array $__array
-inject_function_call
-';
+require_once 'functions/a/array_pop.php';
 
+class sort extends array_pop
+{
     public $examples = [
         [
             '__array' => [
@@ -37,12 +33,5 @@ inject_function_call
         ],
     ];
 
-    public $input_args = '__array';
-
     public $synopsis = 'bool sort ( array &$array [, int $sort_flags = SORT_REGULAR ] )';
-
-    function pre_exec_function()
-    {
-        $this->returned_params['array'] = $this->_filter->filter_param('__array');
-    }
 }

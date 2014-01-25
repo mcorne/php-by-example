@@ -88,6 +88,11 @@ class params extends object
             // eg the closure "$odd" attached to param name "callback" in array_filter()
             $value =  $this->returned_params[$name];
 
+        } else  if (isset($this->params["__$var_name"])) {
+            // the variable is set from another (pseudo) variable invisible to the user, prefixed with "__",
+            // eg "$__array" attached to param name "$array" in sort()
+            $value =  $this->get_param("__$var_name");
+
         } else  if ($var_name == $name) {
             // the param value is the same as the param name, eg $param['match'] = '$match'
             // this is typically the case for an arg passed by reference

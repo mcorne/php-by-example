@@ -24,18 +24,6 @@ class filter extends object
         return ($a > $b)? 1 : -1;
     }
 
-    function filter_param($arg_name)
-    {
-        if ($this->_params->param_exists($arg_name)) {
-            $array = $this->_params->get_param($arg_name);
-
-        } else {
-            $array = null;
-        }
-
-        return $array;
-    }
-
     function filter_callback($arg_name)
     {
         if (! $this->_params->param_exists($arg_name)) {
@@ -189,5 +177,17 @@ class filter extends object
         }
 
         return $count;
+    }
+
+    function filter_param($arg_name)
+    {
+        if ($this->_params->param_exists($arg_name)) {
+            $array = $this->_params->get_param($arg_name);
+
+        } else {
+            $array = null;
+        }
+
+        return $array;
     }
 }
