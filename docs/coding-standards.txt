@@ -1,7 +1,7 @@
 Coding standards
 ----------------
 
-no camel case, name self explanatory
+no camel case, self explanatory class, method and var names
 never return an expression but a variable
 all functions are public, public is always omitted
 properties are not defined as they are created on the fly

@@ -72,7 +72,7 @@ class synopsis extends object
 
     function _get_return_var()
     {
-        if (preg_match('~^(array|bool|float|int|mixed|number|resource|string)~', $this->synopsis, $match)) {
+        if (preg_match('~^(array|bool|float|int|mixed|number|resource|string|void)~', $this->synopsis, $match)) {
             // the function returns a value of a given type, extracts the type
             // note that the name of the return var is built by default on the type, eg "$int"
             $return_var = $match[1];

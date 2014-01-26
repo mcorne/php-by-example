@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-25T18:38:59+00:00
+// generated automatically 2014-01-25T22:11:55+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -92,10 +92,23 @@ return array (
   'krsort' => 'krsort',
   'ksort' => 'ksort',
   'lcg_value' => 'lcg_value',
+  'log' => 'log',
+  'log10' => 'log10',
+  'log1p' => 'log1p',
+  'max' => 'max',
+  'min' => 'min',
+  'mt_getrandmax' => 'mt_getrandmax',
+  'mt_rand' => 'mt_rand',
+  'mt_srand' => 'mt_srand',
   'natcasesort' => 'natcasesort',
   'natsort' => 'natsort',
   'next' => 'next',
+  'octdec' => 'octdec',
+  'pi' => 'pi',
+  'pow' => 'pow',
   'preg_match_all' => 'preg_match_all',
   'prev' => 'prev',
+  'rad2deg' => 'rad2deg',
+  'rand' => 'rand',
   'sort' => 'sort',
 );

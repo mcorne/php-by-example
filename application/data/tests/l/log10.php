@@ -1,25 +1,25 @@
 <?php
-// generated automatically 2014-01-26T09:18:52+00:00
+// generated automatically 2014-01-25T20:36:45+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'float' => 162753.791419,
+      'float' => 0,
     ),
   ),
   1 => 
   array (
     'result' => 
     array (
-      'float' => 297.86740096706,
+      'float' => 1,
     ),
   ),
   2 => 
   array (
     'result' => 
     array (
-      'float' => 1.718281828459,
+      'float' => -INF,
     ),
   ),
 );

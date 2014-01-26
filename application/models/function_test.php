@@ -73,16 +73,67 @@ class function_test extends action
 
     function test_examples($function_basename)
     {
+        // resets the inherited synopsis so the actual function synopsis will be fetched if needed
+        // note that it would have been set by the first function that needed it, eg "acos",
+        // and inherited as such when the test is run through test_all
+        unset($this->_synopsis);
+
+        $language_id = $this->_language->language_id;
+        $this->_language->language_id = 'en';
+
+        // forces the test to run in english so returned messages are always compared in english
         $function = $this->_function_factory->create_function_object($function_basename);
         $this->set_properties($function);
 
         foreach (array_keys($this->examples) as $example_id) {
-            if (array_search('http://www.example.com/', (array) $this->examples[$example_id]) === false) {
+            if (array_search('http://www.example.com/', (array) $this->examples[$example_id], true) === false) {
                 $test_results[$example_id] = $this->test_example($function_basename, $example_id);
             }
 
         }
+
+        // restores the user language
+        $this->_language->language_id = $language_id;
+
         return $test_results;
+    }
+
+    function validate_test_result($test_result, $expected_result)
+    {
+        if ($test_result === $expected_result) {
+            $test_validation['status'] = true;
+
+        } else  {
+            $test_value = current($test_result['result']);
+            $expected_value = current($expected_result['result']);
+
+            if (in_array($this->_synopsis->function_name, ['get_defined_constants', 'get_defined_functions'])) {
+                // the list of functions or constants differs from one platform to the other, always validates the test
+                $test_validation['status'] = true;
+
+            } else if (preg_match('~rand~', $this->_synopsis->function_name) and is_int($test_value)   and is_int($expected_value) or
+                       $this->_synopsis->function_name == 'array_rand'       and is_array($test_value) and is_array($expected_value) or
+                       $this->_synopsis->function_name == 'lcg_value'        and is_float($test_value) and is_float($expected_value))
+            {
+                // this a random generator and both test and expected values are of the same type
+                $test_validation['status'] = true;
+
+            } else if (is_float($test_value) and
+                      (is_int($expected_value) or is_float($expected_value)) and
+                      (is_nan($test_value) and is_nan($expected_value) or abs($test_value - $expected_value) < 0.00001))
+            {
+                // the test value is a float and the expected value is an integer or a float, they are equal with a precision of 5 digits
+                // note that an expected value being store as eg "123" is interpreted as an integer by PHP
+                // note that float numbers might note be strickly equal due to floating precision limitation
+                $test_validation['status'] = true;
+
+            } else {
+                $test_validation['status'] = false;
+                $test_validation['expected_result'] = $expected_result;
+            }
+        }
+
+        return $test_validation;
     }
 
     function validate_test_results($test_results, $expected_results)
@@ -97,29 +148,7 @@ class function_test extends action
 
             } else {
                 $expected_result = $expected_results[$example_id];
-
-                if ($test_result === $expected_result) {
-                    $test_validation['status'] = true;
-
-                } else  {
-                    $test_value = current($test_result['result']);
-                    $expected_value = current($expected_result['result']);
-
-                    if (is_float($test_value) and is_int($expected_value) and $test_value == $expected_value) {
-                        // the test value is a float and the expected value is an integer and they are equal, they are considered as strictly equal
-                        // note that the expected value being store as eg "123" is interpreted as an integer by PHP
-                        $test_validation['status'] = true;
-
-                    } else if (is_float($test_value) and is_float($expected_value) and (string) round($test_value, 10) == (string) round($expected_value, 10)) {
-                        // both values are a float and there are equal as strings with a precision of 10 digits, they are considered as stricly equal
-                        // note that they would differ as float due to floating precision limitation
-                        $test_validation['status'] = true;
-
-                    } else {
-                        $test_validation['status'] = false;
-                        $test_validation['expected_result'] = $expected_result;
-                    }
-                }
+                $test_validation += $this->validate_test_result($test_result, $expected_result);
             }
 
             $test_validations[$example_id] = $test_validation;

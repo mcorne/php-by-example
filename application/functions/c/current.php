@@ -70,7 +70,7 @@ inject_function_call
     function post_exec_function()
     {
         // this fix is necessary because current() does not return the proper value when processed through the default (parent) post_exec_function()
-        $function = get_class($this);
+        $function = $this->_synopsis->function_name;
         $result[$this->_synopsis->return_var] = $function($this->returned_params['array']);
         $this->result = $result;
 

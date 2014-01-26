@@ -1,11 +1,18 @@
 <?php
-// generated automatically 2014-01-25T18:31:45+00:00
+// generated automatically 2014-01-25T21:08:15+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
       'mixed' => 'plane',
+    ),
+  ),
+  1 => 
+  array (
+    'result' => 
+    array (
+      'mixed' => 'bike',
     ),
   ),
   2 => 

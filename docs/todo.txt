@@ -1,6 +1,15 @@
 Things to do
 ------------
 
+- fix the placement of the helper button for IE
+- fix long input arg values as they do not wrap with IE
+- fix the oversized width of the helper select box for linux
+
+- pass an optional second param to translate() with a string not to translate
+- highlight the proper function call in a function source code, eg "next"
+- change the function select box to an autocomplete input box
+- run the selected function when the return key is pressed
+
 - add a page with the list of functions
 - offer users the ability to upload manuals from php.net to this site if they are more recent
 - look for outdated functions (synopsis)

@@ -17,22 +17,22 @@
   <table>
 
     <tr>
-      <td class="green">Test success<td>
+      <td class="green">Functions tested successfully<td>
       <td class="blue"><?=count($this->test_results['test_success']);?><td>
     </tr>
 
     <tr>
-      <td class="red">Test failed<td>
+      <td class="red">Functions with failed tests<td>
       <td class="blue"><?=count($this->test_results['test_failed']);?><td>
     </tr>
 
     <tr>
-      <td class="orange">Test missing<td>
+      <td class="orange">Functions with missing tests<td>
       <td class="blue"><?=count($this->test_results['test_missing']);?><td>
     </tr>
 
     <tr>
-      <td>Test obsolete<td>
+      <td>Functions with obsolete tests<td>
       <td class="gray"><?=count($this->test_results['test_obsolete']);?><td>
     </tr>
 
@@ -41,7 +41,7 @@
 
 <?php if ($this->test_results['test_success']):?>
 
-  <div class="title green">Test success</div>
+  <div class="title green">Functions tested successfully</div>
 
   <div class="block green_border">
     <?php foreach($this->test_results['test_success'] as $function_basename => $function_name):?>
@@ -53,7 +53,7 @@
 
 <?php if ($this->test_results['test_failed']):?>
 
-  <div class="title red">Test failed</div>
+  <div class="title red">Functions with failed tests</div>
 
   <div class="block red_border">
     <?php foreach($this->test_results['test_failed'] as $function_basename => $function_name):?>
@@ -66,7 +66,7 @@
 
 <?php if ($this->test_results['test_missing']):?>
 
-  <div class="title orange">Test missing</div>
+  <div class="title orange">Functions with missing tests</div>
 
   <div class="block orange_border">
     <?php foreach($this->test_results['test_missing'] as $function_basename => $function_name):?>
@@ -78,7 +78,7 @@
 
 <?php if ($this->test_results['test_obsolete']):?>
 
-  <div class="title gray">Test obsolete</div>
+  <div class="title gray">Functions with obsolete tests</div>
 
   <div class="block gray_border">
     <?php foreach($this->test_results['test_obsolete'] as $function_basename => $function_name):?>
