@@ -85,11 +85,16 @@ class synopsis extends object
 
     function get_arg_constant_names($arg_name)
     {
-        if (! preg_match('~(int|mixed) \$' . $arg_name . ' = ([A-Z]+)_~', $this->synopsis, $match)) {
+        if (isset($this->constant_prefix[$arg_name])) {
+            $constant_prefix = $this->constant_prefix[$arg_name];
+
+        } else if (preg_match('~(int|mixed) \$' . $arg_name . ' = ([A-Z]+)_~', $this->synopsis, $match)) {
+            $constant_prefix = $constant_prefix = $match[2];
+
+        } else {
             return null;
         }
 
-        $constant_prefix = $match[2];
         $constant_names = array_keys(get_defined_constants());
         $arg_constant_names = [];
 
