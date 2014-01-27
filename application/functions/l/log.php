@@ -9,7 +9,7 @@
 
 class log extends function_core
 {
-    public $examples = [1, M_E, 0];
+    public $examples = [1, 'M_E', 0];
 
     public $synopsis = 'float log ( float $arg [, float $base = M_E ] )';
 }

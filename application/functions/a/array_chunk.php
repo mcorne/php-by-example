@@ -17,7 +17,7 @@ class array_chunk extends function_core
         [
             [ 'a', 'b', 'c', 'd', 'e' ],
             2,
-            'true',
+            true,
         ]
     ];
 

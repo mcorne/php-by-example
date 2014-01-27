@@ -31,7 +31,7 @@ class count extends function_core
                 'fruits' => ['orange', 'banana', 'apple'],
                 'veggie' => ['carrot', 'collard', 'pea']
             ],
-            COUNT_RECURSIVE
+            'COUNT_RECURSIVE'
         ],
         [
             [

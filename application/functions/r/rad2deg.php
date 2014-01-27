@@ -9,7 +9,7 @@
 
 class rad2deg extends function_core
 {
-    public $examples = [M_PI_4];
+    public $examples = ['M_PI_4'];
 
     public $synopsis = 'float rad2deg ( float $number )';
 }

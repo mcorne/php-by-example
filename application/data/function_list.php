@@ -1,9 +1,11 @@
 <?php
-// generated automatically 2014-01-25T22:11:55+00:00
+// generated automatically 2014-01-27T09:51:41+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
   'acosh' => 'acosh',
+  'addcslashes' => 'addcslashes',
+  'addslashes' => 'addslashes',
   'array_change_key_case' => 'array_change_key_case',
   'array_chunk' => 'array_chunk',
   'array_column' => 'array_column',
@@ -22,6 +24,7 @@ return array (
   'array_intersect_assoc' => 'array_intersect_assoc',
   'array_intersect_key' => 'array_intersect_key',
   'array_intersect_uassoc' => 'array_intersect_uassoc',
+  'array_intersect_ukey' => 'array_intersect_ukey',
   'array_key_exists' => 'array_key_exists',
   'array_keys' => 'array_keys',
   'array_map' => 'array_map',
@@ -110,5 +113,12 @@ return array (
   'prev' => 'prev',
   'rad2deg' => 'rad2deg',
   'rand' => 'rand',
+  'round' => 'round',
+  'sin' => 'sin',
+  'sinh' => 'sinh',
   'sort' => 'sort',
+  'sqrt' => 'sqrt',
+  'srand' => 'srand',
+  'tan' => 'tan',
+  'tanh' => 'tanh',
 );
