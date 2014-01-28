@@ -44,7 +44,10 @@ class output extends object
 
     function display_example_value($key, $value)
     {
-        $value = $this->_converter->convert_value_to_text($value, true);
+        // forces quotes around a constant for the "constant" function (this is a special case)
+        $force_quotes = $this->_synopsis->function_name == 'constant';
+
+        $value = $this->_converter->convert_value_to_text($value, true, $force_quotes);
 
         if (is_numeric($key)) {
             // this is a function argument, appends arg separator

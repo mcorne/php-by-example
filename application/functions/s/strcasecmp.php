@@ -7,11 +7,11 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class chunk_split extends function_core
+class strcasecmp extends function_core
 {
     public $examples = [
-        ['00000111112222233333', 5, "\n"]
+            ["Hello", "hello"]
     ];
 
-    public $synopsis = 'string chunk_split ( string $body [, int $chunklen = 76 [, string $end = &quot;\r\n&quot; ]] )';
+    public $synopsis = 'int strcasecmp ( string $str1 , string $str2 )';
 }

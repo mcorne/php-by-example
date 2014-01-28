@@ -280,7 +280,12 @@ class parser extends object
                     $value = [T_STRING, $value];
                 } else {
                     // this is a single constant or the first constant of a list of or'ed constants
-                    $value = $this->parse_constants($value);
+                    $int = $this->parse_constants($value);
+
+                    if ($this->convert_constant_to_int) {
+                        $value = $int;
+                    }
+                    // else: the list of constants is not converted, this is necessary when exporting examples in function configs
                 }
                 break;
 
@@ -298,9 +303,10 @@ class parser extends object
     /**
      * the parser entry point
      */
-    function parse_value($value, $name)
+    function parse_value($value, $name, $convert_constant_to_int = true)
     {
         try {
+            $this->convert_constant_to_int = $convert_constant_to_int;
             $this->get_all_tokens($value);
             $mixed = $this->get_next_token();
 

@@ -25,22 +25,34 @@ class converter extends object
         return $value;
     }
 
-    function convert_string_to_text($value, $no_linebreak)
+    function convert_string_to_text($value, $no_linebreak, $force_quotes = false)
     {
         if ($this->_params->is_param_var($value) or $this->is_constants($value)) {
-            return $value;
-        }
+            if ($force_quotes) {
+                $value = "'$value'";
+            }
 
-         if ($no_linebreak) {
-            $value = str_replace("\n", ' ', $value);
-        }
+        } else {
+            if ($no_linebreak) {
+                $value = str_replace("\n", ' ', $value);
+            }
 
-        $value = '"' . str_replace('"', '\"', $value) . '"';
+            if (strpos($value, '$') !== false or strpos($value, '\\') !== false) {
+                // there are "$" in the string, or eg '\n' not to be converted to a linebreak etc., encloses the string with single quotes
+                // note that the parser would not return a T_STRING if it was enclosed with double quotes
+                // note that linebreaks and tabs will not be replaced by their string equivalent which is acceptable
+                $value = "'" . str_replace("'", "\'", $value) . "'";
+            } else {
+                // encloses the string with double quotes
+                // escapes double quotes, replaces linebreaks and tabs with their string equivalent
+                $value = '"' . str_replace(['"', "\n", "\r", "\t"], ['\"', '\n', '\r', '\t'], $value) . '"';
+            }
+        }
 
         return $value;
     }
 
-    function convert_value_to_text($value, $no_linebreak = false)
+    function convert_value_to_text($value, $no_linebreak = false, $force_quotes = false)
     {
         $type = gettype($value);
 
@@ -64,7 +76,7 @@ class converter extends object
                 break;
 
             case 'string':
-                $value = $this->convert_string_to_text($value, $no_linebreak);
+                $value = $this->convert_string_to_text($value, $no_linebreak, $force_quotes);
                 break;
 
             default:

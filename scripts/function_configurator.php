@@ -7,8 +7,6 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-$application_path = realpath(__DIR__ . '/../application');
-set_include_path("$application_path");
 require_once 'models/object.php';
 
 class function_configurator extends object
@@ -24,7 +22,7 @@ class function_configurator extends object
                 $function_call = "array($function_call)";
             }
 
-            if ($values = $this->_parser->parse_value("array($function_call)", false)) {
+            if ($values = $this->_parser->parse_value("array($function_call)", $function_name, false)) {
                 foreach($values as $index => $value)  {
                     if (isset($names[$index])) {
                         $name = $names[$index];
@@ -39,39 +37,215 @@ class function_configurator extends object
         return $params;
     }
 
-    function make_config($argv)
+    function create_function_config($function_name, $html)
     {
-        if (! isset($argv[1])) {
-            throw new Exception('function name missing');
-        }
+        $format =
+'<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
 
-        $function_name = $argv[1];
-        $function_manual_basename = str_replace('_', '-', $function_name);
-        $function_manual_page = __DIR__ . "/../public/manual/en/function.$function_manual_basename.html";
+class %s extends function_core
+{
+    public $examples = [%s];
 
-        if (! file_exists($function_manual_page)) {
-            throw new Exception('invalid manual page');
-        }
-
-        $function_sub_directory = $function_name[0];
-        $function_config_filename = __DIR__ . "/../application/functions/$function_sub_directory/$function_name.php";
-
-        if (file_exists($function_config_filename)) {
-            throw new Exception('function already configured');
-        }
-
-        if (! $html = file_get_contents($function_manual_page)) {
-            throw new Exception('cannot read the manual page');
-        }
+    public $synopsis = \'%s\';
+}
+';
 
         $synopsis = $this->parse_synopsis($html);
         $args = $this->parse_args($synopsis, $function_name);
         $examples = $this->parse_examples($html, $function_name, $args);
-        $examples = $this->write_examples($examples);
-
-        $config = $this->write_function_config($function_config_filename, $function_name, $examples, $synopsis);
+        $examples = $this->export_examples($examples);
+        $config = sprintf($format, $function_name, $examples, $synopsis);
 
         return $config;
+    }
+
+    function display_configs($configs)
+    {
+        $configs = "\n" . implode("\n\n", $configs);
+
+        return $configs;
+    }
+
+    function export_example($example)
+    {
+        $example_values = [];
+
+        foreach ($example as $example_value) {
+            $example_values[] = $this->_converter->convert_value_to_text($example_value, false, true);
+        }
+
+        $example_values = implode(', ', $example_values);
+
+        if (count($example) != 1) {
+            $example_values = "[$example_values]";
+        }
+
+        return $example_values;
+    }
+
+    function export_examples($examples)
+    {
+        $has_multi_value_example = false;
+
+        foreach ($examples as $example) {
+            $example_values = $this->export_example($example);
+            $examples_values[] = $example_values;
+
+            if (! $has_multi_value_example and $example_values[0] == '[') {
+                $has_multi_value_example = true;
+            }
+        }
+
+        if ($has_multi_value_example) {
+            $examples_values = "\n            " . implode(",\n            ", $examples_values) . "\n    ";
+        } else {
+            $examples_values = implode(', ', $examples_values);
+        }
+
+        return $examples_values;
+    }
+
+    function get_function_config_filename($function_name)
+    {
+        $function_sub_directory = $function_name[0];
+        $function_config_filename = __DIR__ . "/../application/functions/$function_sub_directory/$function_name.php";
+
+        return $function_config_filename;
+    }
+
+    function get_function_manual_basename($function_name)
+    {
+        $function_manual_basename = str_replace('_', '-', $function_name);
+
+        return $function_manual_basename;
+    }
+
+    function get_function_manual_pagename($function_name)
+    {
+        $function_manual_basename = $this->get_function_manual_basename($function_name);
+        $function_manual_pagename = __DIR__ . "/../public/manual/en/function.$function_manual_basename.html";
+
+        if (! file_exists($function_manual_pagename)) {
+            throw new Exception("invalid manual page: function.$function_manual_basename.html");
+        }
+
+        return $function_manual_pagename;
+    }
+
+    function get_function_list_manual_pagenames($function_list)
+    {
+        $function_names = explode(',', $function_list);
+        $function_manual_pagenames = array_map([$this, 'get_function_manual_pagename'], $function_names);
+
+        return array_combine($function_names, $function_manual_pagenames);
+    }
+
+    function get_function_pattern_manual_pagenames($function_pattern)
+    {
+        $function_manual_basename_pattern = $this->get_function_manual_basename($function_pattern);
+
+        if (! $function_manual_pagenames = glob(__DIR__ . "/../public/manual/en/function.$function_manual_basename_pattern.html")) {
+            throw new Exception('no function matching this pattern');
+        }
+
+        foreach ($function_manual_pagenames as $file_name) {
+            $basename = basename($file_name, '.html');
+            list(, $function_name) = explode('.', $basename);
+            $function_names[] =  str_replace('-', '_', $function_name);
+        }
+
+        return array_combine($function_names, $function_manual_pagenames);
+    }
+
+    function get_function_manual_pagenames($functions)
+    {
+        if (strpos($functions, '*') !== false) {
+            $function_manual_pagenames = $this->get_function_pattern_manual_pagenames($functions);
+        } else {
+            $function_manual_pagenames = $this->get_function_list_manual_pagenames($functions);
+        }
+
+        return $function_manual_pagenames;
+    }
+
+    function get_help()
+    {
+        $help_message =
+'
+config_function <c|r> <function-name|function-list|function-pattern>
+
+Usage:
+-c               Create the function config.
+-r               Replace the function config.
+                 Use with caution as any manual changes in the config file
+                 will be replaced as well.
+
+function-name    A function name, eg "abs"
+function-list    A comma separated list of functions, eg "sin,cos,tan"
+function-pattern A function pattern to match, eg "ctype_*"
+
+Examples:
+config_function -c abs
+config_function -r sort
+config_function -c sin,cos,tan
+config_function -c ctype_*
+';
+
+        return $help_message;
+    }
+
+    function function_config_not_exits($function_config_filename)
+    {
+        if (file_exists($function_config_filename)) {
+            throw new Exception("function already configured: $function_config_filename");
+        }
+    }
+
+    function make_function_config($option, $function_name, $function_manual_pagename)
+    {
+        $function_config_filename = $this->get_function_config_filename($function_name);
+
+        if ($option == 'c' and file_exists($function_config_filename)) {
+            return "the function is already configured: $function_name";
+
+        }
+
+        if (! $html = file_get_contents($function_manual_pagename)) {
+            throw new Exception("cannot read the manual page: $function_manual_pagename");
+        }
+
+        $config = $this->create_function_config($function_name, $html);
+        $this->write_function_config($function_config_filename, $config);
+
+        return $config;
+    }
+
+    function make_functions_configs($option, $functions)
+    {
+        $option = ltrim($option, '-');
+
+        if ($option == 'h') {
+            throw new Exception($this->get_help());
+        }
+
+        if (! in_array($option, ['c', 'r'])) {
+            throw new Exception('bad option');
+        }
+
+        $function_manual_pagenames = $this->get_function_manual_pagenames($functions);
+
+        foreach ($function_manual_pagenames as $function_name => $function_manual_pagename) {
+            $configs[] = $this->make_function_config($option, $function_name, $function_manual_pagename);
+        }
+
+        return $configs;
     }
 
     function parse_example($example, $function_name, $args)
@@ -106,7 +280,7 @@ class function_configurator extends object
     {
         $function_calls = array();
 
-        if (! preg_match_all('~(\(?' . $function_name . '\s*\(.+?)\);~s', $string, $matches)) {
+        if (! preg_match_all('~(\(?' . $function_name . '\s*\(.+?)\)(;| ==| as| .)~s', $string, $matches)) {
             // no function calls, ex. array_diff($array1, $array2);
             return array();
         }
@@ -117,8 +291,12 @@ class function_configurator extends object
             if ($function_call[0] == '(') {
                 // the function is called within another function, ex. print_r()
                 // ex. print_r(array_change_key_case($input_array, CASE_UPPER));
-                // removes other function parenthesis
-                $function_call = substr($function_call, 1, -1);
+                $function_call = substr($function_call, 1);
+
+                if (substr($function_call, -1) == ')') {
+                    // removes the function right parenthesis
+                    $function_call = substr($function_call, 0, -1);
+                }
             }
 
             // removes function name
@@ -221,81 +399,16 @@ class function_configurator extends object
         return $synopsis;
     }
 
-    function write_function_config($function_config_filename, $classname, $examples, $synopsis)
+    function write_function_config($function_config_filename, $config)
     {
-        $format =
-'<?php
-/**
- * PHP By Example
- *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
- * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
- */
-
-class %s extends function_core
-{
-    public $examples = [%s];
-
-    public $synopsis = \'%s\';
-}
-';
-
-        $config = sprintf($format, $classname, $examples, $synopsis);
-
         $directory = dirname($function_config_filename);
 
         if (! is_dir($directory) and ! mkdir($directory)) {
-            throw new Exception('cannot create directory');
+            throw new Exception("cannot create directory: $directory");
         }
 
         if (! file_put_contents($function_config_filename, $config)) {
-            throw new Exception('cannot write function config');
+            throw new Exception("cannot write function config: $function_config_filename");
         }
-
-        return $config;
     }
-
-    function write_example($example)
-    {
-        $example_values = array_map([$this->_converter, 'convert_value_to_text'], $example);
-        $example_values = implode(', ', $example_values);
-
-        if (count($example) != 1) {
-            $example_values = "[$example_values]";
-        }
-
-        return $example_values;
-    }
-
-    function write_examples($examples)
-    {
-        $has_multi_value_example = false;
-
-        foreach ($examples as $example) {
-            $example_values = $this->write_example($example);
-            $examples_values[] = $example_values;
-
-            if (! $has_multi_value_example and $example_values[0] == '[') {
-                $has_multi_value_example = true;
-            }
-        }
-
-        if ($has_multi_value_example) {
-            $examples_values = "\n            " . implode(",\n            ", $examples_values) . "\n    ";
-        } else {
-            $examples_values = implode(', ', $examples_values);
-        }
-
-        return $examples_values;
-    }
-}
-
-try {
-    $function_configurator = new function_configurator(['application_path' => $application_path]);
-    $config = $function_configurator->make_config($argv);
-    echo $config;
-
-} catch (Exception $e) {
-    echo $e->getMessage();
 }

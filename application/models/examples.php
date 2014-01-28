@@ -39,7 +39,10 @@ class examples extends object
             $arg_name = $index;
         }
 
-        $combined[$arg_name] = $this->_converter->convert_value_to_text($value);
+        // forces quotes around a constant for the "constant" function (this is a special case)
+        $force_quotes = $this->_synopsis->function_name == 'constant';
+
+        $combined[$arg_name] = $this->_converter->convert_value_to_text($value, false, $force_quotes);
 
         return $combined;
     }

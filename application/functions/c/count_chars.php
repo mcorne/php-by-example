@@ -7,11 +7,11 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class chunk_split extends function_core
+class count_chars extends function_core
 {
     public $examples = [
-        ['00000111112222233333', 5, "\n"]
+            ["Two Ts and one F.", 1]
     ];
 
-    public $synopsis = 'string chunk_split ( string $body [, int $chunklen = 76 [, string $end = &quot;\r\n&quot; ]] )';
+    public $synopsis = 'mixed count_chars ( string $string [, int $mode = 0 ] )';
 }
