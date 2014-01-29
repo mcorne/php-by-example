@@ -9,7 +9,7 @@
 
 class get_defined_functions extends function_core
 {
-    public $examples = [[]];
-
     public $synopsis = 'array get_defined_functions ( void )';
+
+    public $test_always_valid = true;
 }

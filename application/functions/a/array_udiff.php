@@ -7,8 +7,6 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-// this class is extended by other classes
-
 class array_udiff extends function_core
 {
     public $examples = [

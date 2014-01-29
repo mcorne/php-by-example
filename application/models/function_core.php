@@ -15,7 +15,7 @@ require_once 'action.php';
 class function_core extends action
 {
     public $errors;
-    public $examples = [];
+    public $examples = [[]]; // one example with no param by default
     public $returned_params;
     public $tests = [];
 

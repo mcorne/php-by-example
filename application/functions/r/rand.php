@@ -16,4 +16,6 @@ class rand extends function_core
 
     // public $synopsis = 'int rand ( int $min , int $max )';
     public $synopsis = 'int rand ( [ int $min [, int $max ]] )';
+
+    public $test_always_valid = true;
 }

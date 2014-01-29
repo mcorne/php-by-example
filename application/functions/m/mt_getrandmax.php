@@ -9,7 +9,5 @@
 
 class mt_getrandmax extends function_core
 {
-    public $examples = [[]];
-
     public $synopsis = 'int mt_getrandmax ( void )';
 }

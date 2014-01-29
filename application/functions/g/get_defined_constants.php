@@ -15,4 +15,6 @@ class get_defined_constants extends function_core
     ];
 
     public $synopsis = 'array get_defined_constants ([ bool $categorize = false ] )';
+
+    public $test_always_valid = true;
 }

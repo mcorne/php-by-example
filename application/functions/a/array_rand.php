@@ -17,4 +17,6 @@ class array_rand extends function_core
     ];
 
     public $synopsis = 'mixed array_rand ( array $array [, int $num = 1 ] )';
+
+    public $test_always_valid = true;
 }

@@ -73,10 +73,11 @@ class function_test extends action
 
     function test_examples($function_basename)
     {
-        // resets the inherited synopsis so the actual function synopsis will be fetched if needed
+        // resets the some inherited properties
+        // eg the synopsis, so the actual function synopsis will be fetched if needed
         // note that it would have been set by the first function that needed it, eg "acos",
         // and inherited as such when the test is run through test_all
-        unset($this->_synopsis);
+        unset($this->_synopsis, $this->test_always_valid);
 
         $language_id = $this->_language->language_id;
         $this->_language->language_id = 'en';
@@ -98,29 +99,22 @@ class function_test extends action
         return $test_results;
     }
 
-    function validate_test_result($test_result, $expected_result)
+    function validate_test_result($test_result, $expected_result, $example_id)
     {
-        if ($test_result === $expected_result) {
+        if ($this->test_always_valid === true or in_array($example_id, (array) $this->test_always_valid)) {
+            // the test is considered always valid for this function, eg random generators, list of functions or constants etc.
+            $test_validation['status'] = true;
+
+        } else if ($test_result === $expected_result) {
             $test_validation['status'] = true;
 
         } else  {
             $test_value = current($test_result['result']);
             $expected_value = current($expected_result['result']);
 
-            if (in_array($this->_synopsis->function_name, ['get_defined_constants', 'get_defined_functions'])) {
-                // the list of functions or constants differs from one platform to the other, always validates the test
-                $test_validation['status'] = true;
-
-            } else if (preg_match('~rand~', $this->_synopsis->function_name) and is_int($test_value)   and is_int($expected_value) or
-                       $this->_synopsis->function_name == 'array_rand'       and is_array($test_value) and is_array($expected_value) or
-                       $this->_synopsis->function_name == 'lcg_value'        and is_float($test_value) and is_float($expected_value))
-            {
-                // this a random generator and both test and expected values are of the same type
-                $test_validation['status'] = true;
-
-            } else if (is_float($test_value) and
-                      (is_int($expected_value) or is_float($expected_value)) and
-                      (is_nan($test_value) and is_nan($expected_value) or abs($test_value - $expected_value) < 0.00001))
+            if (is_float($test_value) and
+                (is_int($expected_value) or is_float($expected_value)) and
+                (is_nan($test_value) and is_nan($expected_value) or abs($test_value - $expected_value) < 0.00001))
             {
                 // the test value is a float and the expected value is an integer or a float, they are equal with a precision of 5 digits
                 // note that an expected value being store as eg "123" is interpreted as an integer by PHP
@@ -148,7 +142,7 @@ class function_test extends action
 
             } else {
                 $expected_result = $expected_results[$example_id];
-                $test_validation += $this->validate_test_result($test_result, $expected_result);
+                $test_validation += $this->validate_test_result($test_result, $expected_result, $example_id);
             }
 
             $test_validations[$example_id] = $test_validation;

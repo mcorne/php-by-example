@@ -9,7 +9,5 @@
 
 class pi extends function_core
 {
-    public $examples = [[]];
-
     public $synopsis = 'float pi ( void )';
 }

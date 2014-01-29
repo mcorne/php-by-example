@@ -9,7 +9,5 @@
 
 class mt_srand extends function_core
 {
-    public $examples = [[]];
-
     public $synopsis = 'void mt_srand ([ int $seed ] )';
 }

@@ -10,7 +10,7 @@
 class strcasecmp extends function_core
 {
     public $examples = [
-            ["Hello", "hello"]
+        ["Hello", "hello"]
     ];
 
     public $synopsis = 'int strcasecmp ( string $str1 , string $str2 )';

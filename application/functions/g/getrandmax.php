@@ -9,7 +9,7 @@
 
 class getrandmax extends function_core
 {
-    public $examples = [[]];
-
     public $synopsis = 'int getrandmax ( void )';
+
+    public $test_always_valid = true;
 }

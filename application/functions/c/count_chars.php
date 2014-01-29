@@ -10,7 +10,7 @@
 class count_chars extends function_core
 {
     public $examples = [
-            ["Two Ts and one F.", 1]
+        ["Two Ts and one F.", 1]
     ];
 
     public $synopsis = 'mixed count_chars ( string $string [, int $mode = 0 ] )';

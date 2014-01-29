@@ -9,7 +9,7 @@
 
 class lcg_value extends function_core
 {
-    public $examples = [[]];
-
     public $synopsis = 'float lcg_value ( void )';
+
+    public $test_always_valid = true;
 }

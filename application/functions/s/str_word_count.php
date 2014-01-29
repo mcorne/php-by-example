@@ -10,11 +10,11 @@
 class str_word_count extends function_core
 {
     public $examples = [
-            [ "Hello fri3nd, you're
+        [ "Hello fri3nd, you're
        looking          good today!", 1],
-            ["Hello fri3nd, you're
+        ["Hello fri3nd, you're
        looking          good today!", 2],
-            ["Hello fri3nd, you're
+        ["Hello fri3nd, you're
        looking          good today!", 1, 'àáãç3'],
     ];
 

@@ -7,15 +7,13 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-// this class is extended by other classes
-
 class rtrim extends function_core
 {
     public $examples = [
-            "\t\tThese are a few words :) ...  ",
-            ["\t\tThese are a few words :) ...  ", " \t."],
-            ["Hello World", "Hdle"],
-            ["\x09Example string\x0A", "\x00..\x1F"]
+        "\t\tThese are a few words :) ...  ",
+        ["\t\tThese are a few words :) ...  ", " \t."],
+        ["Hello World", "Hdle"],
+        ["\x09Example string\x0A", "\x00..\x1F"]
     ];
 
     public $synopsis = 'string rtrim ( string $str [, string $charlist ] )';
