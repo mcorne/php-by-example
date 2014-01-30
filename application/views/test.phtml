@@ -16,30 +16,37 @@
 <?php require "$this->application_path/views/php_manual.phtml";?>
 
 <div class="block blue_border">
-  <table>
 
-    <?php foreach($this->test_validations as $example_id => $validation):
-              $status = $validation['status'];?>
-      <tr>
+  <?php if (! $this->test_validations):?>
+    No test available
 
-        <td>Example #<?=$example_id + 1;?></td>
+  <?php else:?>
+    <table>
 
-        <td>:</td>
+        <?php foreach($this->test_validations as $example_id => $validation):
+                  $status = $validation['status'];?>
+          <tr>
 
-        <td>
-          <?php if ($status === true):?>
-            <span class="green">test success</span>
-          <?php elseif ($status === false):?>
-            <span class="red">test failed</span>
-          <?php else:?>
-            <span class="orange">test missing</span>
-          <?php endif;?>
-        </td>
+            <td>Example #<?=$example_id + 1;?></td>
 
-      </tr>
-    <?php endforeach;?>
+            <td>:</td>
 
-  </table>
+            <td>
+              <?php if ($status === true):?>
+                <span class="green">test success</span>
+              <?php elseif ($status === false):?>
+                <span class="red">test failed</span>
+              <?php else:?>
+                <span class="orange">test missing</span>
+              <?php endif;?>
+            </td>
+
+          </tr>
+        <?php endforeach;?>
+
+      </table>
+  <?php endif;?>
+
 </div>
 
 <?php if ($this->obsolete_expected_results) :?>

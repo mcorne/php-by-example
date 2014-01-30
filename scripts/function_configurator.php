@@ -182,7 +182,7 @@ class %s extends function_core
     function get_function_list_manual_pagenames($function_list)
     {
         $function_names = explode(',', $function_list);
-        $function_manual_pagenames = array_map([$this, 'get_function_manual_pagename'], $function_names);
+        $function_manual_pagenames = @array_map([$this, 'get_function_manual_pagename'], $function_names);
 
         return array_combine($function_names, $function_manual_pagenames);
     }
@@ -436,7 +436,7 @@ config_function -c ctype_*
             foreach($vars as $var) {
                 if (isset($vars_values[$var])) {
                     $function_call = str_replace($var, $vars_values[$var], $function_call);
-                    unset($vars_values[$var]);
+                    // unset($vars_values[$var]); // the same var might used in one or more examples
                 } else {
                     $function_call = str_replace($var, '', $function_call);
                 }
@@ -466,9 +466,10 @@ config_function -c ctype_*
         $html = str_replace('&nbsp;', ' ', $html);
         // decodes all HTML entities
         $html = html_entity_decode($html, ENT_QUOTES, 'UTF-8');
-        // removes PHP comments
+        // removes PHP comments /*...*/
         $html = preg_replace('~/\*.+?\*/~s', '', $html);
-        $html = preg_replace('~//.+?$~m', '', $html);
+        // removes PHP comments //..., excluding urls's ...://... as in "http://..."
+        $html = preg_replace('~(?<!:)//.+?$~m', '', $html);
         // removes function call return variables, ex. $abs in $abs = abs(...)
         $html = preg_replace('~(\$\w+\s*=\s*)(?=' . $function_name . '\()~s', '', $html);
 

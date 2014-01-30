@@ -144,7 +144,12 @@ class parser extends object
             throw new Exception($this->_translation->translate('undefined constant'));
         }
 
-        $this->int = constant($value);
+        if ($this->convert_constant_to_int) {
+            $this->constants = constant($value);
+        } else {
+            $this->constants = $value;
+        }
+
 
         while (true) {
             $token = $this->get_next_token();
@@ -171,13 +176,17 @@ class parser extends object
                 throw new Exception($this->_translation->translate('undefined constant'));
             }
 
-            $this->int |= constant($value);
+            if ($this->convert_constant_to_int) {
+                $this->constants |= constant($value);
+            } else {
+                $this->constants .= " | $value";
+            }
         }
 
-        $int = $this->int;
-        unset($this->int);
+        $constants = $this->constants;
+        unset($this->constants);
 
-        return $int;
+        return $constants;
     }
 
     function parse_negative_number()
@@ -275,17 +284,12 @@ class parser extends object
             case T_STRING:
                 if ($value === null or $value === false or $value === true) {
                     // the value is null or a boolean, do nothing
-                } else if (isset($this->int)) {
+                } else if (isset($this->constants)) {
                     // this is a list of constants being parsed
                     $value = [T_STRING, $value];
                 } else {
                     // this is a single constant or the first constant of a list of or'ed constants
-                    $int = $this->parse_constants($value);
-
-                    if ($this->convert_constant_to_int) {
-                        $value = $int;
-                    }
-                    // else: the list of constants is not converted, this is necessary when exporting examples in function configs
+                    $value = $this->parse_constants($value);
                 }
                 break;
 

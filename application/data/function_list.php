@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-29T21:08:43+00:00
+// generated automatically 2014-01-30T08:42:20+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -147,6 +147,14 @@ return array (
   'get_defined_functions' => 'get_defined_functions',
   'get_defined_vars' => 'get_defined_vars',
   'get_extension_funcs' => 'get_extension_funcs',
+  'get_headers' => 'get_headers',
+  'get_html_translation_table' => 'get_html_translation_table',
+  'get_include_path' => 'get_include_path',
+  'get_included_files' => 'get_included_files',
+  'get_loaded_extensions' => 'get_loaded_extensions',
+  'get_magic_quotes_gpc' => 'get_magic_quotes_gpc',
+  'get_magic_quotes_runtime' => 'get_magic_quotes_runtime',
+  'get_meta_tags' => 'get_meta_tags',
   'getrandmax' => 'getrandmax',
   'hexdec' => 'hexdec',
   'hypot' => 'hypot',

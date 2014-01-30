@@ -49,7 +49,7 @@ class language extends object
     function get_browser_languages()
     {
         if (! isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            return null;
+            return [];
         }
 
         // there are accepted languages, ex: "hu, en-us;q=0.66, en;q=0.33", "hu,en-us;q=0.5"

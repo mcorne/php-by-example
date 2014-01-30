@@ -273,19 +273,11 @@ get_called_class
 get_class
 get_class_methods
 get_class_vars
+get_object_vars
+get_parent_class
 
 --
 
-get_headers
-get_html_translation_table
-get_include_path
-get_included_files
-get_loaded_extensions
-get_magic_quotes_gpc
-get_magic_quotes_runtime
-get_meta_tags
-get_object_vars
-get_parent_class
 get_required_files
 get_resource_type
 getallheaders

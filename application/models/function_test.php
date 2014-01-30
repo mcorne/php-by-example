@@ -85,6 +85,7 @@ class function_test extends action
         // forces the test to run in english so returned messages are always compared in english
         $function = $this->_function_factory->create_function_object($function_basename);
         $this->set_properties($function);
+        $test_results = [];
 
         foreach (array_keys($this->examples) as $example_id) {
             if (array_search('http://www.example.com/', (array) $this->examples[$example_id], true) === false) {
