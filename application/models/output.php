@@ -158,6 +158,7 @@ class output extends object
 
     function export_var_value($value)
     {
+        $value = $this->_converter->convert_resource_to_text($value);
         $string = '<?php ' . var_export($value, true) . ';';
         // converts "array(...)" to "[...]"
         $string = str_replace('<?php array (', '<?php [', $string);

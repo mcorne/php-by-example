@@ -11,6 +11,10 @@ require_once 'models/object.php';
 
 class function_configurator extends object
 {
+
+    public $chars_before_function = '(,!=';
+    public $chars_after_function  = ';=a{.';
+
     function assign_values_to_params($function_call, $args, $function_name)
     {
         try {
@@ -371,12 +375,9 @@ config_function -c ctype_*
 
     function parse_function_calls($string, $function_name)
     {
-        static $chars_before_function = '(,!';
-        static $chars_after_function  = ';=a{';
-
         $function_calls = array();
 
-        if (! preg_match_all("~((?:[$chars_before_function] ?)?$function_name\s*\(.+?)\)( ?[$chars_after_function])~s", $string, $matches)) {
+        if (! preg_match_all("~((?:[{$this->chars_before_function}] ?)?$function_name\s*\(.+?)\)( ?[{$this->chars_after_function}])~s", $string, $matches)) {
             // no function calls, ex. array_diff($array1, $array2);
             return array();
         }
@@ -384,10 +385,10 @@ config_function -c ctype_*
         list(, $function_calls) = $matches;
 
         foreach($function_calls as &$function_call) {
-            if (preg_match("~[$chars_before_function]~", $function_call[0])) {
+            if (preg_match("~[{$this->chars_before_function}]~", $function_call[0])) {
                 // the function is called within another function, ex. print_r()
                 // ex. print_r(array_change_key_case($input_array, CASE_UPPER));
-                $function_call = ltrim($function_call, " $chars_before_function");
+                $function_call = ltrim($function_call, " {$this->chars_before_function}");
 
                 if (substr($function_call, -1) == ')') {
                     // removes the function right parenthesis

@@ -61,7 +61,7 @@ class function_test extends action
         $function->process();
 
         if($function->result) {
-            $test_result['result'] = $function->result;
+            $test_result['result'] = $this->_converter->convert_resource_to_text($function->result);
         }
 
         if($function->errors) {
@@ -88,10 +88,11 @@ class function_test extends action
         $test_results = [];
 
         foreach (array_keys($this->examples) as $example_id) {
-            if (array_search('http://www.example.com/', (array) $this->examples[$example_id], true) === false) {
+            $example = print_r($this->examples[$example_id], true);
+
+            if (! strpos($example, 'www.example.com')) {
                 $test_results[$example_id] = $this->test_example($function_basename, $example_id);
             }
-
         }
 
         // restores the user language

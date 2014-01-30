@@ -24,6 +24,17 @@ class converter extends object
 
         return $value;
     }
+    function convert_resource_to_text($value)
+    {
+        if (is_array($value)) {
+            $value = array_map([$this, 'convert_resource_to_text'], $value);
+
+        } else if (is_resource($value)) {
+            $value = get_resource_type($value);
+        }
+
+        return $value;
+    }
 
     function convert_string_to_text($value, $no_linebreak, $force_quotes = false)
     {
