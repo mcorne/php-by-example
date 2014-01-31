@@ -1,12 +1,12 @@
 <?php
-// generated automatically 2014-01-31T07:48:46+00:00
+// generated automatically 2014-01-31T07:46:51+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
       'resource' => 'GMP integer',
-      'string' => '200000000000000',
+      'string' => '281470681743360',
     ),
   ),
   1 => 
@@ -14,7 +14,7 @@ return array (
     'result' => 
     array (
       'resource' => 'GMP integer',
-      'string' => '5',
+      'string' => '2',
     ),
   ),
 );

@@ -7,16 +7,11 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'gmp_abs.php';
-
-class gmp_pow extends gmp_abs
+class hash extends function_core
 {
     public $examples = [
-        ["2", 31],
-        ["0", 0],
-        ["2", -1],
-        ["2", 3]
+        ["ripemd160", "The quick brown fox jumped over the lazy dog."]
     ];
 
-    public $synopsis = 'resource gmp_pow ( resource $base , int $exp )';
+    public $synopsis = 'string hash ( string $algo , string $data [, bool $raw_output = false ] )';
 }

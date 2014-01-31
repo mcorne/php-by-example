@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-25T21:02:53+00:00
+// generated automatically 2014-01-31T18:48:37+00:00
 return array (
   0 => 
   array (
@@ -17,21 +17,12 @@ return array (
   ),
   3 => 
   array (
-    'result' => 
-    array (
-      'string' => 'world',
-    ),
     'errors' => 
     array (
       0 => 
       array (
-        'code' => 1024,
-        'message' => 'this argument is ignored in this example ($use_include_path)',
-      ),
-      1 => 
-      array (
-        'code' => 1024,
-        'message' => 'this argument is ignored in this example ($context)',
+        'code' => 512,
+        'message' => 'this argument value is not allowed in this example ($use_include_path)',
       ),
     ),
   ),

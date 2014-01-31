@@ -12,7 +12,8 @@ require_once 'gmp_abs.php';
 class gmp_mul extends gmp_abs
 {
     public $examples = [
-        ["12345678", "2000"]
+        ["12345678", "2000"],
+        ["3", "2"]
     ];
 
     public $synopsis = 'resource gmp_mul ( resource $a , resource $b )';

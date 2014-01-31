@@ -24,11 +24,12 @@ return [
 
 // filter
 1300 => "the filename must start with one of the following strings in this example",
-1301 => "this argument is ignored in this example",
+1301 => "this argument value is not allowed in this example",
 1302 => "this callback function may not be used in this example",
 1303 => "the callback function is invalid or not available on this server",
 1304 => "the length must be defined and lower than 1000 in this example",
 1305 => "the number of iterations must be an integer lower than 10 in this example",
+1306 => "the argument may not be empty in this example",
 
 // function core
 1400 => "a value cannot be passed by reference",

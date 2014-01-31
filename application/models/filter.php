@@ -22,6 +22,25 @@ class filter extends object
         return ($a > $b)? 1 : -1;
     }
 
+    function filter_allowed_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)
+    {
+        if (! $this->_params->param_exists($arg_name)) {
+            if (! $is_empty_arg_allowed) {
+                $message = $this->_translation->translate('the argument may not be empty in this example') . " (\$$arg_name)";
+                throw new Exception($message, E_USER_WARNING);
+            }
+
+            return;
+        }
+
+        $value = $this->_params->get_param($arg_name);
+
+        if (! is_null($value) and ! in_array($value, (array) $allowed_values, true)) {
+            $message = $this->_translation->translate('this argument value is not allowed in this example') . " (\$$arg_name)";
+            throw new Exception($message, E_USER_WARNING);
+        }
+    }
+
     function filter_callback($arg_name)
     {
         if (! $this->_params->param_exists($arg_name)) {
@@ -70,21 +89,6 @@ class filter extends object
         }
 
         return $callback_function_name;
-    }
-
-    function filter_ignored_param($arg_name, $not_ignored_values = [])
-    {
-        if (! $this->_params->param_exists($arg_name)) {
-            return;
-        }
-
-        $value = $this->_params->get_param($arg_name);
-
-        if (! is_null($value) and ! in_array($value, $not_ignored_values, true)) {
-            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text(null);
-            $message = $this->_translation->translate('this argument is ignored in this example') . " (\$$arg_name)";
-            trigger_error($message, E_USER_NOTICE);
-        }
     }
 
     function filter_date_interval($arg_name)

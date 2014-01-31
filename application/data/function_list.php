@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-30T21:31:34+00:00
+// generated automatically 2014-01-31T21:54:30+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -212,7 +212,23 @@ return array (
   'gmp_random' => 'gmp_random',
   'gmp_scan0' => 'gmp_scan0',
   'gmp_scan1' => 'gmp_scan1',
+  'gmp_setbit' => 'gmp_setbit',
+  'gmp_sign' => 'gmp_sign',
+  'gmp_sqrt' => 'gmp_sqrt',
+  'gmp_sqrtrem' => 'gmp_sqrtrem',
+  'gmp_strval' => 'gmp_strval',
+  'gmp_sub' => 'gmp_sub',
+  'gmp_testbit' => 'gmp_testbit',
+  'gmp_xor' => 'gmp_xor',
+  'gmstrftime' => 'gmstrftime',
+  'gregoriantojd' => 'gregoriantojd',
+  'hash' => 'hash',
+  'hash_algos' => 'hash_algos',
+  'hash_hmac' => 'hash_hmac',
+  'hex2bin' => 'hex2bin',
   'hexdec' => 'hexdec',
+  'highlight_string' => 'highlight_string',
+  'html_entity_decode' => 'html_entity_decode',
   'hypot' => 'hypot',
   'in_array' => 'in_array',
   'is_finite' => 'is_finite',
@@ -250,6 +266,7 @@ return array (
   'srand' => 'srand',
   'str_word_count' => 'str_word_count',
   'strcasecmp' => 'strcasecmp',
+  'strftime' => 'strftime',
   'tan' => 'tan',
   'tanh' => 'tanh',
 );

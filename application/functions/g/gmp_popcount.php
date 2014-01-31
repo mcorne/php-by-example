@@ -30,7 +30,6 @@ inject_function_call
         ],
     ];
 
-
     public $synopsis = 'int gmp_popcount ( resource $a )';
 
     function pre_exec_function()

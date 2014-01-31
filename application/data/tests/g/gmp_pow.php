@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-30T20:58:29+00:00
+// generated automatically 2014-01-31T07:53:35+00:00
 return array (
   0 => 
   array (
@@ -31,6 +31,14 @@ return array (
         'code' => 2,
         'message' => 'gmp_pow(): Negative exponent not supported',
       ),
+    ),
+  ),
+  3 => 
+  array (
+    'result' => 
+    array (
+      'resource' => 'GMP integer',
+      'string' => '8',
     ),
   ),
 );

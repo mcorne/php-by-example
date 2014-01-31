@@ -15,7 +15,7 @@ $_a = gmp_init(
     $base // [int $base = 0]
 );
 inject_function_call
-$string = gmp_strval($a);
+$string = gmp_strval($a, 2);
 ';
 
     public $examples = [
@@ -30,7 +30,7 @@ $string = gmp_strval($a);
 
     function post_exec_function()
     {
-        $this->result['string'] = gmp_strval($this->returned_params['a']);
+        $this->result['string'] = gmp_strval($this->returned_params['a'], 2);
     }
 
     function pre_exec_function()

@@ -9,14 +9,9 @@
 
 require_once 'gmp_abs.php';
 
-class gmp_pow extends gmp_abs
+class gmp_sqrt extends gmp_abs
 {
-    public $examples = [
-        ["2", 31],
-        ["0", 0],
-        ["2", -1],
-        ["2", 3]
-    ];
+    public $examples = ["9", "7", "1524157875019052100"];
 
-    public $synopsis = 'resource gmp_pow ( resource $base , int $exp )';
+    public $synopsis = 'resource gmp_sqrt ( resource $a )';
 }

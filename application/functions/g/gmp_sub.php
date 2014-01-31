@@ -9,14 +9,12 @@
 
 require_once 'gmp_abs.php';
 
-class gmp_pow extends gmp_abs
+class gmp_sub extends gmp_abs
 {
     public $examples = [
-        ["2", 31],
-        ["0", 0],
-        ["2", -1],
-        ["2", 3]
+        ["281474976710656", "4294967296"],
+        ["5", "3"]
     ];
 
-    public $synopsis = 'resource gmp_pow ( resource $base , int $exp )';
+    public $synopsis = 'resource gmp_sub ( resource $a , resource $b )';
 }

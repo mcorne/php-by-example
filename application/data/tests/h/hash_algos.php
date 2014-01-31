@@ -1,0 +1,56 @@
+<?php
+// generated automatically 2014-01-31T14:10:03+00:00
+return array (
+  0 => 
+  array (
+    'result' => 
+    array (
+      'array' => 
+      array (
+        0 => 'md2',
+        1 => 'md4',
+        2 => 'md5',
+        3 => 'sha1',
+        4 => 'sha224',
+        5 => 'sha256',
+        6 => 'sha384',
+        7 => 'sha512',
+        8 => 'ripemd128',
+        9 => 'ripemd160',
+        10 => 'ripemd256',
+        11 => 'ripemd320',
+        12 => 'whirlpool',
+        13 => 'tiger128,3',
+        14 => 'tiger160,3',
+        15 => 'tiger192,3',
+        16 => 'tiger128,4',
+        17 => 'tiger160,4',
+        18 => 'tiger192,4',
+        19 => 'snefru',
+        20 => 'snefru256',
+        21 => 'gost',
+        22 => 'adler32',
+        23 => 'crc32',
+        24 => 'crc32b',
+        25 => 'fnv132',
+        26 => 'fnv164',
+        27 => 'joaat',
+        28 => 'haval128,3',
+        29 => 'haval160,3',
+        30 => 'haval192,3',
+        31 => 'haval224,3',
+        32 => 'haval256,3',
+        33 => 'haval128,4',
+        34 => 'haval160,4',
+        35 => 'haval192,4',
+        36 => 'haval224,4',
+        37 => 'haval256,4',
+        38 => 'haval128,5',
+        39 => 'haval160,5',
+        40 => 'haval192,5',
+        41 => 'haval224,5',
+        42 => 'haval256,5',
+      ),
+    ),
+  ),
+);
