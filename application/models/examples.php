@@ -17,7 +17,7 @@ class examples extends object
             return [];
         }
 
-        if (! $example_id or ! isset($this->examples[$example_id])) {
+        if (! $example_id or ! array_key_exists($example_id, $this->examples)) {
             $example_id = key($this->examples);
         }
 
@@ -51,7 +51,13 @@ class examples extends object
     {
         $combined = [];
 
-        foreach ((array) $example as $index => $value) {
+        if (is_null($example)) {
+            $example = [null];
+        } else  {
+            $example = (array) $example;
+        }
+
+        foreach ($example as $index => $value) {
             $combined += $this->combine_arg_name_to_example_value($index, $value);
         }
 

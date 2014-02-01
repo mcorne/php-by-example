@@ -252,10 +252,16 @@ class input extends object
 
         $input = $this->display_arg($var_type, $var_name);
         $input .= $this->display_arg_helper($var_type, $var_name);
-        // escapes "$" so it is not used as replacement reference, eg "$123"
+
+        // escapes "$" so it is not used as replacement backreference, eg "$123"
         $input = str_replace('$', '\$', $input);
+        // protects characters in octal notation so they are not used as replacement backreference, eg "\061"
+        $input = preg_replace('~\\\\([0-7]{1,3})~', '_BACKSLASH_' . '$1', $input);
 
         $highlighted_code = preg_replace("~\\$$var_name\b~", $input, $highlighted_code, 1);
+
+        // restores the backslash of characters in octal notation
+        $highlighted_code = str_replace('_BACKSLASH_', '\\', $highlighted_code);
 
         return $highlighted_code;
     }

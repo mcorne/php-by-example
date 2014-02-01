@@ -212,10 +212,13 @@ class parser extends object
         $string = str_replace('\\' . $quote, $quote, $string);
 
         if ($quote == '"') {
-            // replaces line breaks and tabs
-            $string = str_replace('\n', "\n", $string);
-            $string = str_replace('\r', "\r", $string);
-            $string = str_replace('\t', "\t", $string);
+            // see http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.double
+            // converts line breaks, tabs etc.
+            $string = str_replace(['\n', '\r', '\t', '\v', '\e', '\f'], ["\n", "\r", "\t", "\v", "\e", "\f"], $string);
+            // replaces characters in hexadecimal notation
+            $string = preg_replace_callback('~\\\\x([0-9A-Fa-f]{1,2})~', function ($m) { return chr(hexdec($m[1])); }, $string);
+            // replaces characters in octal notation
+            $string = preg_replace_callback('~\\\\([0-7]{1,3})~', function ($m) { return chr(octdec($m[1])); }, $string);
         }
 
         // restores double backslashes
@@ -282,8 +285,8 @@ class parser extends object
                 break;
 
             case T_STRING:
-                if ($value === null or $value === false or $value === true) {
-                    // the value is null or a boolean, do nothing
+                if (in_array($value, [null, false, true, 'null', 'false', 'true', 'NULL', 'FALSE', 'TRUE'], true)) {
+                    // the value is null or a boolean or a string representation, do nothing
                 } else if (isset($this->constants)) {
                     // this is a list of constants being parsed
                     $value = [T_STRING, $value];

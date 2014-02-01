@@ -1,5 +1,5 @@
-Funcions to do
---------------
+Functions to do
+---------------
 
 bcscale
 
@@ -338,30 +338,8 @@ hebrevc
 
 highlight_file
 
---
-
-htmlentities
-htmlspecialchars
-htmlspecialchars_decode
-http_build_query
-http_response_code
-iconv
-iconv_get_encoding
-iconv_mime_decode
-iconv_mime_decode_headers
-iconv_mime_encode
-iconv_set_encoding
-iconv_strlen
-iconv_strpos
-iconv_strrpos
-iconv_substr
-idate
-idn_to_ascii
-idn_to_utf8
-ignore_user_abort
 image2wbmp
-image_type_to_extension
-image_type_to_mime_type
+
 imagealphablending
 imageantialias
 imagearc
@@ -453,6 +431,9 @@ imagettftext
 imagetypes
 imagewbmp
 imagexbm
+
+--
+
 imap_8bit
 imap_alerts
 imap_append
@@ -528,48 +509,35 @@ imap_utf7_decode
 imap_utf7_encode
 imap_utf8
 imap_utf8_to_mutf7
-implode
+
+--
+
 inet_ntop
 inet_pton
 ini_alter
-ini_get
-ini_get_all
 ini_restore
 ini_set
-interface_exists
-intl_error_name
-intl_get_error_code
-intl_get_error_message
-intl_is_failure
-intval
-ip2long
+
 iptcembed
 iptcparse
+
 is_a
-is_array
-is_bool
-is_callable
 is_dir
-is_double
 is_executable
 is_file
-is_float
-is_int
-is_integer
 is_link
-is_long
-is_null
-is_numeric
 is_object
 is_readable
-is_real
 is_resource
-is_scalar
 is_soap_fault
 is_subclass_of
 is_uploaded_file
 is_writable
 is_writeable
+
+--
+
+is_double,is_float,is_int,is_integer,is_long,is_null,is_numeric,is_real,is_scalar
 iterator_apply
 iterator_count
 iterator_to_array

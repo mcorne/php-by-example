@@ -13,7 +13,7 @@ class synopsis extends object
 {
     function _get_arg_descriptions()
     {
-        list(, $function_description) = explode('(', $this->synopsis);
+        list(, $function_description) = explode('(', $this->synopsis, 2);
         $function_description = ltrim($function_description);
         $function_description = rtrim($function_description, '] )');
 
@@ -37,7 +37,7 @@ class synopsis extends object
 
     function _get_arg_names()
     {
-        if (preg_match_all('~\$([\w]+)~', $this->synopsis, $matches)) {
+        if (preg_match_all('~(?<=[a-z] | &)\$([\w]+)~', $this->synopsis, $matches)) {
             // the function has arguments, extracts the argument names
             $arg_names = $matches[1];
         } else {

@@ -66,7 +66,11 @@ class output extends object
 
     function display_example_values($example)
     {
-        $example = (array) $example;
+        if (is_null($example)) {
+            $example = [null];
+        } else  {
+            $example = (array) $example;
+        }
 
         foreach ($example as $key => &$value) {
             $value = $this->display_example_value($key, $value);

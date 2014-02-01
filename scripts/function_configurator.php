@@ -13,7 +13,7 @@ class function_configurator extends object
 {
 
     public $chars_before_function = '(,!=';
-    public $chars_after_function  = ';=a{.';
+    public $chars_after_function  = ';=a{\.\?';
 
     function assign_values_to_params($function_call, $args, $function_name)
     {
@@ -63,7 +63,7 @@ class %3$s extends %2$s
 
         $function_config_filename = $this->get_function_config_filename($original_function_name);
 
-        if (! $config = file_get_contents($function_config_filename)) {
+        if (! file_exists($function_config_filename) or ! $config = file_get_contents($function_config_filename)) {
             return null;
         }
 

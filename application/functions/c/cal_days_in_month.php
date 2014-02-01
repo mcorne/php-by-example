@@ -9,11 +9,11 @@
 
 class cal_days_in_month extends function_core
 {
+    public $constant_prefix = ['calendar' => 'CAL'];
+
     public $examples = [
         ['CAL_GREGORIAN', 8, 2003]
     ];
-
-    public $constant_prefix = ['calendar' => 'CAL'];
 
     public $synopsis = 'int cal_days_in_month ( int $calendar , int $month , int $year )';
 }

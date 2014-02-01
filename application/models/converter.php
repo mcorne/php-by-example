@@ -38,25 +38,33 @@ class converter extends object
 
     function convert_string_to_text($value, $no_linebreak, $force_quotes = false)
     {
-        if ($this->_params->is_param_var($value) or $this->is_constants($value)) {
+        if ($this->_params->is_param_var($value) or $this->is_constant($value)) {
             if ($force_quotes) {
                 $value = "'$value'";
             }
 
         } else {
             if ($no_linebreak) {
-                $value = str_replace("\n", ' ', $value);
+                // replaces line breaks with a space character
+                $value = str_replace(["\r\n", "\n", "\r"], ' ', $value);
             }
 
-            if (strpos($value, '$') !== false or strpos($value, '\\') !== false) {
-                // there are "$" in the string, or eg '\n' not to be converted to a linebreak etc., encloses the string with single quotes
-                // note that the parser would not return a T_STRING if it was enclosed with double quotes
-                // note that linebreaks and tabs will not be replaced by their string equivalent which is acceptable
+            if (strpos($value, '$') !== false or preg_match('~^([^a-z0-9\ ]).+\1[a-z]*$~is', $value)) {
+                // there are "$" in the string (1) or this is (most likely) a regex pattern (2), encloses the string with single quotes
+                // note (1) that parser::get_next_token() would not return a T_STRING if it was enclosed with double quotes
+                // note (2) that backslashes would be difficult to handle properly to create a pattern between double quotes with the expected behaviour
+                // see http://fr2.php.net/manual/en/regexp.reference.delimiters.php on regex pattern delimiters
+                // note that linebreaks, tabs etc. will not be replaced by their string equivalent which is acceptable
                 $value = "'" . str_replace("'", "\'", $value) . "'";
+
             } else {
+                // see http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.double
+                // escapes back slashes and double quotes
+                $value = str_replace(['\\', '"'], ['\\\\', '\"'], $value);
+                // replaces linebreaks, tabs etc. their string equivalent
+                $value = str_replace(["\n", "\r", "\t", "\v", "\e", "\f"], ['\n', '\r', '\t', '\v', '\e', '\f'], $value);
                 // encloses the string with double quotes
-                // escapes double quotes, replaces linebreaks and tabs with their string equivalent
-                $value = '"' . str_replace(['"', "\n", "\r", "\t"], ['\"', '\n', '\r', '\t'], $value) . '"';
+                $value = '"' . $value . '"';
             }
         }
 
@@ -97,10 +105,30 @@ class converter extends object
         return $value;
     }
 
-    function is_constants($value)
+    function is_constant($value)
     {
         $constants = preg_split('~ *\| *~', $value);
 
+        if (count($constants) > 1) {
+            // this is a list of constants
+            $is_constant = $this->is_constants($constants);
+
+        } else if (in_array($value, ['null', 'false', 'true', 'NULL', 'FALSE', 'TRUE'], true)) {
+            $is_constant = false;
+
+        } else if (defined($value)) {
+            $is_constant = true;
+
+        } else  {
+            $is_constant = false;
+
+        }
+
+        return $is_constant;
+    }
+
+    function is_constants($constants)
+    {
         foreach ($constants as $constant) {
             if (! defined($constant)) {
                 return false;

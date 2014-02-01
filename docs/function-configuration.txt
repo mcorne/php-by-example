@@ -1,0 +1,20 @@
+Function configuration
+----------------------
+
+
+Example values
+--------------
+
+- scalars and arrays are allowed, eg 123 , 'abc' , "def\nghi" , [123, 'a' => ['xyz']]
+- expressions and operators are not allowed, excepted for constants
+
+- escaped characters in a string enclosed in double quotes are interpreted, see parser::parse_string()
+- variables within a string are not allowed
+
+- a variable must be enclosed with single quotes, eg '$var'
+- a constant must be enclosed with single quotes, eg 'E_ERROR', it will converted to its value
+- a list of constants must be enclosed with single quotes and separated with "|", eg 'ENT_QUOTES | ENT_IGNORE'
+ 
+- a regex pattern should ideally be enclosed between single quotes, eg '|<[^>]+>(.*)</[^>]+>|U'
+- a regex pattern entered between double quotes may produce unexpected behaviour for parsing reasons, see parser::parse_string()
+- a regex pattern will always be displayed between single quotes, see converter::convert_string_to_text()

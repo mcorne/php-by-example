@@ -34,7 +34,7 @@ FOO;
             '$phones',
         ],
         [
-            '/(<([\w]+)[^>]*>)(.*?)(<\/\\2>)/',
+            '/(<([\w]+)[^>]*>)(.*?)(<\/\2>)/',
             "<b>bold text</b><a href=howdy.html>click me</a>",
             '$matches',
             'PREG_SET_ORDER',
