@@ -1,22 +1,11 @@
 <?php
-// generated automatically 2014-01-25T18:07:23+00:00
+// generated automatically 2014-02-02T14:58:01+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
       'string' => 'Hello',
-    ),
-  ),
-  2 => 
-  array (
-    'errors' => 
-    array (
-      0 => 
-      array (
-        'code' => 512,
-        'message' => 'the length must be defined and lower than 1000 in this example ($length)',
-      ),
     ),
   ),
   3 => 

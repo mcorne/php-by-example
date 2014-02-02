@@ -9,6 +9,11 @@
 
 require_once 'object.php';
 
+/**
+ * input value parser
+ * entry point: parse_value()
+ */
+
 class parser extends object
 {
     function add_error_details()
@@ -53,7 +58,7 @@ class parser extends object
 
         foreach($unparsed_tokens as &$unparsed_token) {
             if (is_array($unparsed_token)) {
-                // gets token value
+                // gets the token value
                 $unparsed_token = $unparsed_token[1];
             }
         }
@@ -107,7 +112,7 @@ class parser extends object
 
                 case '_ARROW_||_SEPARATOR_||_END_':
                     if ($token === '_ARROW_') {
-                        // last token was actually a key, pops last value and saves as key
+                        // the last token was actually a key, pops last value and saves as key
                         $key = array_pop($array);
                         $expecting = '_VALUE_';
 
@@ -285,9 +290,7 @@ class parser extends object
                 break;
 
             case T_STRING:
-                if (in_array($value, [null, false, true, 'null', 'false', 'true', 'NULL', 'FALSE', 'TRUE'], true)) {
-                    // the value is null or a boolean or a string representation, do nothing
-                } else if (isset($this->constants)) {
+                if (isset($this->constants)) {
                     // this is a list of constants being parsed
                     $value = [T_STRING, $value];
                 } else {
@@ -307,9 +310,6 @@ class parser extends object
         return $value;
     }
 
-    /**
-     * the parser entry point
-     */
     function parse_value($value, $name, $convert_constant_to_int = true)
     {
         try {

@@ -9,6 +9,11 @@
 
 require_once 'object.php';
 
+/**
+ * function input form generation
+ * entry point: display_source_code()
+ */
+
 class input extends object
 {
     const CHARACTER_COUNT_BY_EM = 1.5; // about 30 characters for a 20em line
@@ -253,7 +258,7 @@ class input extends object
         $input = $this->display_arg($var_type, $var_name);
         $input .= $this->display_arg_helper($var_type, $var_name);
 
-        // escapes "$" so it is not used as replacement backreference, eg "$123"
+        // escapes "$" so it is not used as replacement backreferences, eg "$123"
         $input = str_replace('$', '\$', $input);
         // protects characters in octal notation so they are not used as replacement backreference, eg "\061"
         $input = preg_replace('~\\\\([0-7]{1,3})~', '_BACKSLASH_' . '$1', $input);

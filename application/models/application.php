@@ -9,6 +9,11 @@
 
 require_once 'object.php';
 
+/**
+ * application action controller
+ * entry point: run()
+ */
+
 class application extends object
 {
     function _get_function_basename()
@@ -44,9 +49,11 @@ class application extends object
             $direction = null;
 
         } else if ($this->uri[3] == 'before') {
+            // "before" is appended to the url
             $direction = -1;
 
         } else if ($this->uri[3] == 'after') {
+            // "after" is appended to the url
             $direction = +1;
 
         } else {
@@ -56,9 +63,6 @@ class application extends object
         return $direction;
     }
 
-    /**
-     * the application entry point
-     */
     function run()
     {
         try {

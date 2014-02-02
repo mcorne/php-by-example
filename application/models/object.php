@@ -7,6 +7,13 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+/**
+ * on-the-fly oject instantiation with property inheritance
+ * getter management
+ *
+ * this class is meant to be extended by all classes
+ */
+
 class object
 {
     public $_parent;

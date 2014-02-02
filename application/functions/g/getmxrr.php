@@ -10,10 +10,11 @@
 class getmxrr extends function_core
 {
     public $examples = [
-        ['www.example.com', '$mxhosts']
+        ['www.example.com', '$mxhosts'],
+        ['domainmx.net', '$mxhosts']
     ];
 
     public $synopsis = 'bool getmxrr ( string $hostname , array &$mxhosts [, array &$weight ] )';
 
-    public $test_always_valid = true;
+    public $test_not_to_run = true;
 }

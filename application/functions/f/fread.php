@@ -54,6 +54,8 @@ unlink($_filename);
 
     public $synopsis = 'string fread ( resource $handle , int $length )';
 
+    public $test_not_to_run = [1, 2];
+
     function post_exec_function()
     {
         fclose($this->returned_params['handle']);
@@ -61,7 +63,7 @@ unlink($_filename);
 
     function pre_exec_function()
     {
-        $filename = $this->_filter->filter_filename('filename');
+        $filename = $this->_filter->filter_filename('filename', true);
         $mode = $this->_filter->filter_param('mode');
         $this->returned_params['handle'] = fopen($filename, $mode);
 

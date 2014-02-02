@@ -9,9 +9,17 @@
 
 require_once 'models/object.php';
 
+/**
+ * function configurator
+ * entry points: make_functions_configs(), display_configs()
+ *
+ * creates a function configuration file in the "functions" directory to be adjusted manually as needed
+ * see get_help()
+*/
 class function_configurator extends object
 {
-
+    // the characters before or after a function call in an example may be adjusted as needed, see parse_function_calls()
+    // adjust with caution
     public $chars_before_function = '(,!=';
     public $chars_after_function  = ';=a{\.\?';
 
@@ -109,6 +117,7 @@ class %s extends function_core
         if ($examples = $this->parse_examples($html, $function_name, $args)) {
             $exported_examples = $this->export_examples($examples);
             $examples_property = sprintf("public \$examples = [%s];\n\n    ", $exported_examples);
+
         } else {
             $examples_property = null;
         }
@@ -134,9 +143,11 @@ class %s extends function_core
             $text = $this->_converter->convert_value_to_text($example_value, false, true);
 
             if (is_array($example_value)) {
+                // this example has multiple param values (array of values), formats the example
+                // left justified the array lines
                 $text = str_replace("\n", "\n              ", $text);
                 $text = preg_replace('~  \]$~', ']', $text);
-
+                // encloses the array between line breaks
                 $text = "\n            $text\n        ";
                 $has_array_value++;
             }
@@ -147,6 +158,7 @@ class %s extends function_core
         $example_values = implode(', ', $example_values);
 
         if (count($example) != 1 or $has_array_value) {
+            // there is more than one example or at least one example has multiple param values
             $example_values = "[$example_values]";
         }
 

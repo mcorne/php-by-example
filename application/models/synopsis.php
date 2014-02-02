@@ -9,6 +9,10 @@
 
 require_once 'object.php';
 
+/**
+ * function synopsis parser
+ */
+
 class synopsis extends object
 {
     function _get_arg_descriptions()

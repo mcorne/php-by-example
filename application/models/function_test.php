@@ -9,6 +9,16 @@
 
 require_once 'action.php';
 
+/**
+ * function test, all the function examples are tested
+ * entry points: run(), process()
+ *
+ * note that the function test result is saved automatically the first time in the "data/tests" directory, see get_expected_results()
+ * the first test result is used as a reference (the expected test result) to validate subsequent test runs
+ * the expected test result may have to be replaced if the examples have changed in the function config,
+ * it will have to be removed manually from the "data/tests" directory before it can be saved again as explained above
+ */
+
 class function_test extends action
 {
     function get_expected_results($function_basename, $test_results)
@@ -73,16 +83,16 @@ class function_test extends action
 
     function test_examples($function_basename)
     {
-        // resets the some inherited properties
+        // resets some inherited properties
         // eg the synopsis, so the actual function synopsis will be fetched if needed
         // note that it would have been set by the first function that needed it, eg "acos",
         // and inherited as such when the test is run through test_all
-        unset($this->_synopsis, $this->test_always_valid);
+        unset($this->_synopsis, $this->test_always_valid, $this->test_not_to_run);
 
         $language_id = $this->_language->language_id;
         $this->_language->language_id = 'en';
 
-        // forces the test to run in english so returned messages are always compared in english
+        // forces the test to run in english so the returned messages are always validated in English
         $function = $this->_function_factory->create_function_object($function_basename);
         $this->set_properties($function);
         $test_results = [];
@@ -90,7 +100,7 @@ class function_test extends action
         foreach (array_keys($this->examples) as $example_id) {
             $example = print_r($this->examples[$example_id], true);
 
-            if (! strpos($example, 'www.example.com')) {
+            if (! ($this->test_not_to_run === true or in_array($example_id, (array) $this->test_not_to_run))) {
                 $test_results[$example_id] = $this->test_example($function_basename, $example_id);
             }
         }
@@ -120,7 +130,7 @@ class function_test extends action
             {
                 // the test value is a float and the expected value is an integer or a float, they are equal with a precision of 5 digits
                 // note that an expected value being store as eg "123" is interpreted as an integer by PHP
-                // note that float numbers might note be strickly equal due to floating precision limitation
+                // note that float numbers might not be strickly equal due to floating precision limitation
                 $test_validation['status'] = true;
 
             } else {

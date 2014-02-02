@@ -7,11 +7,9 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class gethostbyname extends function_core
+class is_null extends function_core
 {
-    public $examples = ["www.example.com"];
+    public $examples = ['$inexistent', null, 0, 'null'];
 
-    public $synopsis = 'string gethostbyname ( string $hostname )';
-
-    public $test_not_to_run = true;
+    public $synopsis = 'bool is_null ( mixed $var )';
 }

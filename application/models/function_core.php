@@ -10,8 +10,14 @@
 require_once 'action.php';
 
 /**
- * all functions must extend this class
+ * function execution
+ * all function configs must extend this class
+ * main entry points: run(), process()
+ *
+ * other methods may be called directly, eg add_error(), function_exists()
+ * some methods are meant to be overloaded as needed: post_exec_function(), pre_exec_function()
  */
+
 class function_core extends action
 {
     public $errors;
@@ -25,30 +31,6 @@ class function_core extends action
     function add_error($errno , $message)
     {
         $this->errors[] = ['code' => $errno, 'message' => $message];
-    }
-
-    function function_exists()
-    {
-        $parts = explode('::', $this->_synopsis->function_name);
-
-        if (isset($parts[1])) {
-            // this is a class, extracts the class and method name
-            list($classname, $method_name) = $parts;
-
-            if (! class_exists($classname, false)) {
-                $message = $this->_translation->translate('this class is not available in the PHP version running on this server');
-                throw new Exception($message);
-            }
-
-            if (! method_exists($classname, $method_name)) {
-                $message = $this->_translation->translate('this method is not available in the PHP version running on this server');
-                throw new Exception($message);
-            }
-
-        } else if (! function_exists($this->_synopsis->function_name)) {
-            $message = $this->_translation->translate('this function is not available in the PHP version running on this server');
-            throw new Exception($message);
-        }
     }
 
     function exec_function()
@@ -127,6 +109,30 @@ class function_core extends action
         return $return;
     }
 
+    function function_exists()
+    {
+        $parts = explode('::', $this->_synopsis->function_name);
+
+        if (isset($parts[1])) {
+            // this is a class, extracts the class and method name
+            list($classname, $method_name) = $parts;
+
+            if (! class_exists($classname, false)) {
+                $message = $this->_translation->translate('this class is not available in the PHP version running on this server');
+                throw new Exception($message);
+            }
+
+            if (! method_exists($classname, $method_name)) {
+                $message = $this->_translation->translate('this method is not available in the PHP version running on this server');
+                throw new Exception($message);
+            }
+
+        } else if (! function_exists($this->_synopsis->function_name)) {
+            $message = $this->_translation->translate('this function is not available in the PHP version running on this server');
+            throw new Exception($message);
+        }
+    }
+
     function post_exec_function()
     {}
 
@@ -159,19 +165,24 @@ class function_core extends action
             $arg_name = $this->_synopsis->arg_names[$arg_number];
 
             if (isset($reset_args) and $this->_params->param_exists($arg_name)) {
+                // this param is passed after an empty param, resets this param
                 $this->_params->params[$arg_name] = '';
                 $reset_args[] = "\$$arg_name";
 
             } else if (! $this->_params->param_exists($arg_name)) {
+                // this is the (first) empty param
                 $reset_args = [];
             }
         }
 
         if (! empty($reset_args)) {
             if (count($reset_args) == 1) {
+                // there is a reset param, captures the name of the param to display
                 $reset_args = current($reset_args);
                 $message = $this->_translation->translate('the following argument has been removed') . " ($reset_args)";
+
             } else {
+                // there are reset params, captures the name of the params to display
                 $reset_args = implode(', ', $reset_args);
                 $message = $this->_translation->translate('the following arguments have been removed') . " ($reset_args)";
             }

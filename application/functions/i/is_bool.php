@@ -9,7 +9,7 @@
 
 class is_bool extends function_core
 {
-    public $examples = ['false', 0];
+    public $examples = [false, 0];
 
     public $synopsis = 'bool is_bool ( mixed $var )';
 }

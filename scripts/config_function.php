@@ -7,6 +7,12 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+/**
+ * function configurator
+ * creates a function configuration file in the "functions" directory to be adjusted manually as needed
+ * run "config_function -h" to get help
+ */
+
 $application_path = realpath(__DIR__ . '/../application');
 set_include_path("$application_path");
 require_once 'function_configurator.php';

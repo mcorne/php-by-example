@@ -16,5 +16,5 @@ class get_headers extends function_core
 
     public $synopsis = 'array get_headers ( string $url [, int $format = 0 ] )';
 
-    public $test_always_valid = true;
+    public $test_not_to_run = true;
 }

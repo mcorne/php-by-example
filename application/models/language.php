@@ -9,6 +9,11 @@
 
 require_once 'object.php';
 
+/**
+ * language detection
+ * entry point: _get_language_id()
+ */
+
 class language extends object
 {
     const DEFAULT_LANGUAGE = 'en';

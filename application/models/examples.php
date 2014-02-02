@@ -9,24 +9,13 @@
 
 require_once 'object.php';
 
+/**
+ * example values to arg names combination
+ * entry point: get_example()
+ */
+
 class examples extends object
 {
-    function _get_example($example_id)
-    {
-        if (! $this->examples) {
-            return [];
-        }
-
-        if (! $example_id or ! array_key_exists($example_id, $this->examples)) {
-            $example_id = key($this->examples);
-        }
-
-        $example = $this->examples[$example_id];
-        $example = $this->combine_arg_names_to_example_values($example);
-
-        return $example;
-    }
-
     function combine_arg_name_to_example_value($index, $value)
     {
         if (isset($this->_synopsis->arg_names[$index])) {
@@ -39,7 +28,7 @@ class examples extends object
             $arg_name = $index;
         }
 
-        // forces quotes around a constant for the "constant" function (this is a special case)
+        // forces quotes around a constant for the "constant()" function (this is a special case)
         $force_quotes = $this->_synopsis->function_name == 'constant';
 
         $combined[$arg_name] = $this->_converter->convert_value_to_text($value, false, $force_quotes);
@@ -62,5 +51,22 @@ class examples extends object
         }
 
         return $combined;
+    }
+
+    function get_example($example_id)
+    {
+        if (! $this->examples) {
+            return [];
+        }
+
+        if (! $example_id or ! array_key_exists($example_id, $this->examples)) {
+            // the example id is empty or invalid, defaults to the first example
+            $example_id = key($this->examples);
+        }
+
+        $example = $this->examples[$example_id];
+        $example = $this->combine_arg_names_to_example_values($example);
+
+        return $example;
     }
 }

@@ -9,6 +9,11 @@
 
 require_once 'action.php';
 
+/**
+ * all functions test
+ * entry points: run()
+ */
+
 class function_test_all extends action
 {
     function run()
@@ -40,8 +45,10 @@ class function_test_all extends action
 
                 if ($status === true) {
                     $test_success_functions[$function_basename] = $function_name;
+
                 } else if ($status === false) {
                     $test_failed_functions[$function_basename] = $function_name;
+
                 } else {
                     $test_missing_functions[$function_basename] = $function_name;
                 }

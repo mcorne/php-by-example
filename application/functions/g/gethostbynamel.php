@@ -13,5 +13,5 @@ class gethostbynamel extends function_core
 
     public $synopsis = 'array gethostbynamel ( string $hostname )';
 
-    public $test_always_valid = true;
+    public $test_not_to_run = true;
 }

@@ -9,6 +9,12 @@
 
 require_once 'object.php';
 
+/**
+ * message trranslation
+ *
+ * the translations are located in the "data/translations" directory
+ */
+
 class translation extends object
 {
     function _get_message_ids()
@@ -42,7 +48,7 @@ class translation extends object
             $message_id = $this->message_ids[$message];
 
             if (isset($this->translated_messages[$message_id])) {
-                // the message has e translation, returns the translation
+                // the message has a translation, returns the translation
                 $message = $this->translated_messages[$message_id];
             }
         }

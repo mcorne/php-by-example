@@ -9,17 +9,25 @@
 
 require_once 'object.php';
 
+/**
+ * value to text conversion
+ * entry point: convert_value_to_text()
+ */
+
 class converter extends object
 {
     function convert_array_to_text($value, $no_linebreak = false)
     {
         $value = var_export($value, true);
+
+       // converts "array(...)" to "[...]"
         $value = preg_replace('~array \(~', '[', $value);
         $value = str_replace('),', '],', $value);
         $value = preg_replace('~\)$~', ']', $value);
 
         if ($no_linebreak) {
-            $value = str_replace("\n", '', $value);
+            // removes line breaks to dispay the array in one line
+            $value = str_replace(["\r\n", "\n", "\r"], '', $value);
         }
 
         return $value;
@@ -27,11 +35,14 @@ class converter extends object
     function convert_resource_to_text($value)
     {
         if (is_array($value)) {
+            // recursively converts resource type values
             $value = array_map([$this, 'convert_resource_to_text'], $value);
 
         } else if (is_resource($value)) {
+            // replaces the resource by its name
             $value = get_resource_type($value);
         }
+        // else: this is not a resource, no change
 
         return $value;
     }
@@ -39,6 +50,7 @@ class converter extends object
     function convert_string_to_text($value, $no_linebreak, $force_quotes = false)
     {
         if ($this->_params->is_param_var($value) or $this->is_constant($value)) {
+            // this is a var, eg '$var', or a constant name, eg 'SORT_ASC'
             if ($force_quotes) {
                 $value = "'$value'";
             }
@@ -50,18 +62,18 @@ class converter extends object
             }
 
             if (strpos($value, '$') !== false or preg_match('~^([^a-z0-9\ ]).+\1[a-z]*$~is', $value)) {
-                // there are "$" in the string (1) or this is (most likely) a regex pattern (2), encloses the string with single quotes
-                // note (1) that parser::get_next_token() would not return a T_STRING if it was enclosed with double quotes
-                // note (2) that backslashes would be difficult to handle properly to create a pattern between double quotes with the expected behaviour
+                // there are "$" in the string (1) or this is a regex pattern (2), encloses the string with single quotes
+                // (1) note that parser::get_next_token() would not return a T_STRING if it was enclosed with double quotes
+                // (2) note that backslashes would be difficult to handle properly to create a pattern between double quotes with the expected behaviour
                 // see http://fr2.php.net/manual/en/regexp.reference.delimiters.php on regex pattern delimiters
-                // note that linebreaks, tabs etc. will not be replaced by their string equivalent which is acceptable
+                // note that line breaks, tabs etc. will not be replaced by their string equivalent which is acceptable
                 $value = "'" . str_replace("'", "\'", $value) . "'";
 
             } else {
                 // see http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.double
-                // escapes back slashes and double quotes
+                // escapes backslashes and double quotes
                 $value = str_replace(['\\', '"'], ['\\\\', '\"'], $value);
-                // replaces linebreaks, tabs etc. their string equivalent
+                // replaces line breaks, tabs etc. by their string equivalent
                 $value = str_replace(["\n", "\r", "\t", "\v", "\e", "\f"], ['\n', '\r', '\t', '\v', '\e', '\f'], $value);
                 // encloses the string with double quotes
                 $value = '"' . $value . '"';
@@ -99,7 +111,7 @@ class converter extends object
                 break;
 
             default:
-                throw new Exception("unexpected example value with type: $type");
+                throw new Exception("unexpected value with type: $type");
         }
 
         return $value;
@@ -110,10 +122,12 @@ class converter extends object
         $constants = preg_split('~ *\| *~', $value);
 
         if (count($constants) > 1) {
-            // this is a list of constants
+            // this is a list of constants separated by "|", verifies they are all defined constants
             $is_constant = $this->is_constants($constants);
 
-        } else if (in_array($value, ['null', 'false', 'true', 'NULL', 'FALSE', 'TRUE'], true)) {
+        } else if (preg_match('~(null|false|true)~i', $value)) {
+            // this is a string representation of a boolean or null, this is not a constant
+            // note that a string representation of a boolean or null would be considered as "defined" otherwise
             $is_constant = false;
 
         } else if (defined($value)) {

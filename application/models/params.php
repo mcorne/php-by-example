@@ -9,6 +9,10 @@
 
 require_once 'object.php';
 
+/**
+ * input params extraction
+ */
+
 class params extends object
 {
     const VALUE_MAX_LENGTH   = 1000;
@@ -27,6 +31,7 @@ class params extends object
     function _get_params()
     {
         if ($_POST) {
+            // the function input form is submitted
             $params = $_POST;
 
         } else {
@@ -44,10 +49,31 @@ class params extends object
                 $example_id = null;
             }
 
-            $params = $this->_examples->_get_example($example_id);
+            $params = $this->_examples->get_example($example_id);
         }
 
         return $params;
+    }
+
+    function _get_php_manual_location()
+    {
+        if (isset($_GET['php_manual_location'])) {
+            $php_manual_location = $_GET['php_manual_location'];
+
+        } else if (isset($_COOKIE['php_manual_location'])) {
+            $php_manual_location = $_COOKIE['php_manual_location'];
+
+        } else {
+            $php_manual_location = 'local';
+        }
+
+        if (! isset($this->php_manual_locations[$php_manual_location])) {
+            $php_manual_location = 'local';
+        }
+
+        setcookie('php_manual_location', $php_manual_location, time() + 60*60*24*30, '/');
+
+        return $php_manual_location;
     }
 
     function get_param($name, $indirect_get_param_from_var = true)
@@ -79,18 +105,18 @@ class params extends object
         $var_name = $this->get_var_name($value);
 
         if (isset($this->returned_params[$var_name])) {
-            // the variable has a (returned) value attached to the var name itself,
-            // eg the resource "handle" attached to the param name "handle" in fread()
+            // the variable has a (returned) value linked to the var name itself,
+            // eg the resource "handle" linked to the param name "handle" in fread()
             $value =  $this->returned_params[$var_name];
 
         } else  if (isset($this->returned_params[$name])) {
-            // the variable has a (returned) value attached to the param name,
-            // eg the closure "$odd" attached to param name "callback" in array_filter()
+            // the variable has a (returned) value linked to the param name,
+            // eg the closure "$odd" linked to param name "callback" in array_filter()
             $value =  $this->returned_params[$name];
 
         } else  if (isset($this->params["__$var_name"])) {
             // the variable is set from another (pseudo) variable invisible to the user, prefixed with "__",
-            // eg "$__array" attached to param name "$array" in sort()
+            // eg "$__array" linked to param name "$array" in sort()
             $value =  $this->get_param("__$var_name");
 
         } else  if ($var_name == $name) {
@@ -105,27 +131,6 @@ class params extends object
         return $value;
     }
 
-    function _get_php_manual_location()
-    {
-        if (isset($_GET['php_manual_location'])) {
-            $php_manual_location = $_GET['php_manual_location'];
-
-        } else if (isset($_COOKIE['php_manual_location'])) {
-            $php_manual_location = $_COOKIE['php_manual_location'];
-
-        } else {
-            $php_manual_location = 'local';
-        }
-
-        if (! isset($this->php_manual_locations[$php_manual_location])) {
-            $php_manual_location = 'local';
-        }
-
-        setcookie('php_manual_location', $php_manual_location, time() + 60*60*24*30, '/');
-
-        return $php_manual_location;
-    }
-
     function get_var_name($value)
     {
         // extracts the var name, eg "array" from "$array"
@@ -136,7 +141,8 @@ class params extends object
 
     function is_param_var($value)
     {
-        // checks if the value matches the PHP pattern of var name
+        // checks if the value matches the PHP pattern of a var name
+        // see http://fr2.php.net/manual/en/language.variables.basics.php
         $is_var = (is_string($value) and preg_match('~^\$([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)$~', $value));
 
         return $is_var;

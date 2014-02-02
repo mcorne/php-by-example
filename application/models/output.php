@@ -9,6 +9,10 @@
 
 require_once 'object.php';
 
+/**
+ * output formatting for display
+ */
+
 class output extends object
 {
     function display_duration()
@@ -50,7 +54,7 @@ class output extends object
         $value = $this->_converter->convert_value_to_text($value, true, $force_quotes);
 
         if (is_numeric($key)) {
-            // this is a function argument, appends arg separator
+            // this is a function argument, appends the arg separator
             $value .= ',';
 
         } else {
@@ -82,27 +86,14 @@ class output extends object
         $values = rtrim($values, ',');
         // encloses the values between parenthesis as in a function call
         $values = sprintf('<?php (%s)',$values);
-
+        // removes extra spaces
         $values = preg_replace('~  +~', ' ', $values);
+        // removes the last comma before the end of an array
         $values = preg_replace('~ *, *]~', ' ]', $values);
 
         $html = $this->highlight_source_code_piece($values, false);
 
         return $html;
-    }
-
-    function display_function_name()
-    {
-        $function_name = $this->_synopsis->function_name . ' ()';
-
-        return $function_name;
-    }
-
-    function display_function_url_basename($function_basename)
-    {
-        $function_url_basename = str_replace('__', '::', $function_basename);
-
-        return $function_url_basename;
     }
 
     function display_function_manual_page_url()
@@ -126,6 +117,20 @@ class output extends object
         }
 
         return $function_manual_page_url;
+    }
+
+    function display_function_name()
+    {
+        $function_name = $this->_synopsis->function_name . ' ()';
+
+        return $function_name;
+    }
+
+    function display_function_url_basename($function_basename)
+    {
+        $function_url_basename = str_replace('__', '::', $function_basename);
+
+        return $function_url_basename;
     }
 
     function display_url($action = null, $function_basename = null)
@@ -164,6 +169,7 @@ class output extends object
     {
         $value = $this->_converter->convert_resource_to_text($value);
         $string = '<?php ' . var_export($value, true) . ';';
+
         // converts "array(...)" to "[...]"
         $string = str_replace('<?php array (', '<?php [', $string);
         $string = preg_replace('~[\n] +array \(~', '[', $string);
@@ -178,7 +184,7 @@ class output extends object
         $function_name = strtolower($this->_synopsis->function_name);
 
         if (strpos($function_name, '::')) {
-            // this is class method, replace "::" with "."
+            // this is a class method, replaces "::" with "."
             $manual_function_name = str_replace('::', '.', $function_name);
         } else {
             // this is a function, prepends the function name with "function."

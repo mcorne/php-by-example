@@ -9,6 +9,10 @@
 
 require_once 'object.php';
 
+/**
+ * file management
+ */
+
 class file extends object
 {
     public $temp_filenames;
@@ -21,6 +25,9 @@ class file extends object
     function _get_temp_file_prefix()
     {
         if (! $this->temp_filenames) {
+            // there is no temp file yet, creates a temp file
+            // this temp file will not be used, one temp file is needed at least to get the temp file prefix
+            // note that the temp file prefix may be different depending on the platform
             $this->create_temp_file();
         }
 
@@ -79,7 +86,9 @@ class file extends object
                    // generated automatically %s
                    return %s;';
 
+        // removes leading spaces from the format
         $format = preg_replace('~^ +~m', '', $format);
+        // adds the current date and time in the file header
         $content = sprintf($format, date('c'), var_export($array, true));
         $this->write_content($filename, $content);
     }

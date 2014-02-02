@@ -5,6 +5,6 @@ no camel case, self explanatory class, method and var names
 never return an expression but a variable
 all functions are public, public is always omitted
 properties are not defined as they are created on the fly
-methods must be short, ready for unit testing
+methods must be short, fit for unit testing
 class name, file name and property name of object must match so they can be created on the fly
 alpha order except __construct, __destruct first, followed by magic methods, getters _get_* etc.

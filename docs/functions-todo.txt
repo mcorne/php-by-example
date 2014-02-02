@@ -535,12 +535,11 @@ is_uploaded_file
 is_writable
 is_writeable
 
---
-
-is_double,is_float,is_int,is_integer,is_long,is_null,is_numeric,is_real,is_scalar
 iterator_apply
 iterator_count
 iterator_to_array
+
+--
 jddayofweek
 jdmonthname
 jdtofrench

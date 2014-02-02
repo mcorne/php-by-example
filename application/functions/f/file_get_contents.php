@@ -49,9 +49,11 @@ unlink($_filename);
 
     public $synopsis = 'string file_get_contents ( string $filename [, bool $use_include_path = false [, resource $context [, int $offset = -1 [, int $maxlen ]]]] )';
 
+    public $test_not_to_run = 1;
+
     function pre_exec_function()
     {
-        $filename = $this->_filter->filter_filename('filename');
+        $filename = $this->_filter->filter_filename('filename', true);
         $this->_filter->filter_allowed_value('use_include_path', false);
         $this->_filter->filter_allowed_value('context');
         $this->_filter->filter_file_length('maxlen', $filename);

@@ -9,6 +9,11 @@
 
 require_once 'object.php';
 
+/**
+ * default action for basic actions, eg "home"
+ * specific actions, eg "function_core", must extend this class
+ */
+
 class action extends object
 {
     function run()

@@ -9,18 +9,15 @@
 
 require_once 'object.php';
 
+/**
+ * param value filters
+ * a filter is meant to called from the pre_exec() method in a function config
+ * there is a default filter to use as needed: filter_param()
+ */
+
 class filter extends object
 {
     const DEFAULT_FILE_NAME = 'tempname';
-
-    function compare_func($a, $b)
-    {
-        if ($a === $b) {
-            return 0;
-        }
-
-        return ($a > $b)? 1 : -1;
-    }
 
     function filter_allowed_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)
     {
@@ -71,6 +68,7 @@ class filter extends object
         ];
 
         if ($this->_params->is_param_var($closure_var_name)) {
+            // the callback is a variable set to a closure, returns wether the closure is in the list of available closures or not
             return isset($available_closures[$closure_var_name]) ? $available_closures[$closure_var_name] : null;
         }
 
@@ -117,35 +115,6 @@ class filter extends object
         return $date;
     }
 
-    function filter_filename($arg_name)
-    {
-        if (! $this->_params->param_exists($arg_name)) {
-             return null;
-        }
-
-        $filename = $this->_params->get_param($arg_name);
-
-        if (! is_string($filename)) {
-            // the file name is not a string, this will be caught by the function itself
-
-        } else if ($filename == self::DEFAULT_FILE_NAME or stripos($filename, $this->_file->temp_file_prefix) === 0) {
-            // the file name is a placeholder or a valid temp file prefixed with pbe, forces the file name to the new temp name
-            $filename = $this->_file->create_temp_file();
-            $this->_file->write_content($filename, "Hello world !");
-            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($filename);
-
-        } else if (preg_match('~^https?://~', $filename)) {
-            // the file name is a valid http file
-
-        } else {
-            $message = $this->_translation->translate('the filename must start with one of the following strings in this example')
-                     . " ({$this->_file->temp_file_prefix}, http://)";
-            throw new Exception($message, E_USER_WARNING);
-        }
-
-        return $filename;
-    }
-
     function filter_file_length($arg_name, $filename)
     {
         $length = $this->_params->get_param($arg_name);
@@ -157,6 +126,45 @@ class filter extends object
         }
 
         return $length;
+    }
+
+    function filter_filename($arg_name, $is_temp_file_allowed = false)
+    {
+        if (! $this->_params->param_exists($arg_name)) {
+             return null;
+        }
+
+        $filename = $this->_params->get_param($arg_name);
+
+        if (! is_string($filename)) {
+            // the file name is not a string, this will be caught by the function itself
+            return $filename;
+        }
+
+        if (preg_match('~^https?://~', $filename)) {
+            // the file name is a valid http file
+            return $filename;
+        }
+
+        if (! $is_temp_file_allowed) {
+            // only http files are allowed
+            $message = $this->_translation->translate('the filename must start with one of the following strings in this example')
+                     . " (http://, https://)";
+            throw new Exception($message, E_USER_WARNING);
+        }
+
+        if ($filename == self::DEFAULT_FILE_NAME or stripos($filename, $this->_file->temp_file_prefix) === 0) {
+            // the file name is a placeholder or a valid temp file prefixed with pbe, forces the file name to the new temp name
+            $filename = $this->_file->create_temp_file();
+            $this->_file->write_content($filename, "Hello world !");
+            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($filename);
+
+            return $filename;
+        }
+
+        $message = $this->_translation->translate('the filename must start with one of the following strings in this example')
+                 . " ({$this->_file->temp_file_prefix}, http://, https://)";
+        throw new Exception($message, E_USER_WARNING);
     }
 
     function filter_iteration_count($arg_name)

@@ -10,7 +10,7 @@
 class is_callable extends function_core
 {
     public $examples = [
-        ["someFunction", 'false'],
+        ["someFunction", false],
         ['is_callable']
     ];
 

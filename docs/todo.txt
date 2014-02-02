@@ -15,6 +15,7 @@ Things to do
 - display the list of tested functions in columns
 - refactor function sub directory determination
 - add helpers eg algo for "hash_mac", time formats, charsets ...
+- report functions with no test available
 
 - add a page with the list of functions
 - offer users the ability to upload manuals from php.net to this site if they are more recent
