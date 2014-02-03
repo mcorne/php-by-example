@@ -36,12 +36,22 @@ class function_test extends action
                 $this->_file->create_directory($directory);
             }
 
-            $this->_file->write_array($expected_results_filename, $test_results);
+            $this->_file->write_array($expected_results_filename, $test_results, ['stdClass::__set_state' => '(object)']);
         }
 
         $expected_results = $this->_file->read_array($expected_results_filename);
 
         return $expected_results;
+    }
+
+    function object_export($object)
+    {
+        $exported = var_export($object, true);
+        // converts numeric key from string to int, eg '123' to 123
+        // note that var_export() exports some numeric keys as string that are implicitely converted to int when the exported object is loaded
+        $exported = preg_replace("~'(\d+)' =>~", '$1 =>', $exported);
+
+        return $exported;
     }
 
     function process($function_basename = null)
@@ -118,6 +128,7 @@ class function_test extends action
             $test_validation['status'] = true;
 
         } else if ($test_result === $expected_result) {
+            // both test and expected results are strickly the same
             $test_validation['status'] = true;
 
         } else  {
@@ -131,6 +142,12 @@ class function_test extends action
                 // the test value is a float and the expected value is an integer or a float, they are equal with a precision of 5 digits
                 // note that an expected value being store as eg "123" is interpreted as an integer by PHP
                 // note that float numbers might not be strickly equal due to floating precision limitation
+                $test_validation['status'] = true;
+
+            } else if (is_object($test_value) and is_object($expected_value) and
+                       $this->object_export($test_value) == $this->object_export($expected_value))
+            {
+                // both test and expected values share the same class and properties
                 $test_validation['status'] = true;
 
             } else {

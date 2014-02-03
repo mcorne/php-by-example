@@ -80,16 +80,21 @@ class file extends object
         return $array;
     }
 
-    function write_array($filename, $array)
+    function write_array($filename, $array, $replacements = [])
     {
-        $format = '<?php
-                   // generated automatically %s
-                   return %s;';
+        $format =
+'<?php
+// generated automatically %s
+return %s;';
 
-        // removes leading spaces from the format
-        $format = preg_replace('~^ +~m', '', $format);
+        $exported_array = var_export($array, true);
+
+        if ($replacements) {
+            $exported_array = str_replace(array_keys($replacements), array_values($replacements), $exported_array);
+        }
+
         // adds the current date and time in the file header
-        $content = sprintf($format, date('c'), var_export($array, true));
+        $content = sprintf($format, date('c'), $exported_array);
         $this->write_content($filename, $content);
     }
 
