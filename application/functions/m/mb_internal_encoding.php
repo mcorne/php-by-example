@@ -9,6 +9,8 @@
 
 class mb_internal_encoding extends function_core
 {
+    public $options_getter = ['encoding' => 'mb_list_encodings'];
+
     public $examples = [[], "UTF-8"];
 
     public $synopsis = 'mixed mb_internal_encoding ([ string $encoding = mb_internal_encoding() ] )';

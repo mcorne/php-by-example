@@ -15,7 +15,7 @@ Things to do
 - display the list of tested functions in columns
 - refactor function sub directory determination
 - add helpers eg algo for hash_mac(), time formats, charsets ...
-- report functions with no test available
+- report functions with no test available in test all functions
 - add source code to trigger errors before error reporting function eg json_last_error
 
 - add a page with the list of functions

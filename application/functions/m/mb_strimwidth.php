@@ -7,14 +7,13 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class mb_check_encoding extends function_core
+class mb_strimwidth extends function_core
 {
     public $options_getter = ['encoding' => 'mb_list_encodings'];
 
     public $examples = [
-        ['Hello world', 'ASCII'],
-        ['está', 'ASCII']
+        ["Hello World", 0, 10, '...', 'UTF-8']
     ];
 
-    public $synopsis = 'bool mb_check_encoding ([ string $var = NULL [, string $encoding = mb_internal_encoding() ]] )';
+    public $synopsis = 'string mb_strimwidth ( string $str , int $start , int $width [, string $trimmarker = &quot;&quot; [, string $encoding = mb_internal_encoding() ]] )';
 }

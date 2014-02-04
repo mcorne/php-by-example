@@ -87,7 +87,7 @@ class synopsis extends object
         return $return_var;
     }
 
-    function get_arg_constant_names($arg_name)
+    function get_arg_constant_name_prefix($arg_name)
     {
         if (isset($this->constant_prefix[$arg_name])) {
             $constant_prefix = $this->constant_prefix[$arg_name];
@@ -96,9 +96,14 @@ class synopsis extends object
             $constant_prefix = $constant_prefix = $match[2];
 
         } else {
-            return null;
+            $constant_prefix = null;
         }
 
+        return $constant_prefix;
+    }
+
+    function get_arg_constant_names($constant_prefix)
+    {
         $constant_names = array_keys(get_defined_constants());
         $arg_constant_names = [];
 
@@ -107,6 +112,8 @@ class synopsis extends object
                 $arg_constant_names[] = $constant_name;
             }
         }
+
+        sort($arg_constant_names, SORT_NATURAL | SORT_FLAG_CASE);
 
         return $arg_constant_names;
     }

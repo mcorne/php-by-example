@@ -9,6 +9,8 @@
 
 class mb_convert_case extends function_core
 {
+    public $options_getter = ['encoding' => 'mb_list_encodings'];
+
     public $examples = [
         ["mary had a Little lamb and she loved it so", 'MB_CASE_UPPER', "UTF-8"],
         ["mary had a Little lamb and she loved it so", 'MB_CASE_TITLE', "UTF-8"],

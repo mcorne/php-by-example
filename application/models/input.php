@@ -60,9 +60,16 @@ class input extends object
 
     function display_arg_helper($arg_type, $arg_name)
     {
-        if (! $arg_helper_options = $this->_synopsis->get_arg_constant_names($arg_name) and
-            ! ($arg_type == 'callable' and $arg_helper_options = $this->get_helper_callbacks()))
-        {
+        if ($constant_prefix = $this->_synopsis->get_arg_constant_name_prefix($arg_name)) {
+            $arg_helper_options = $this->_synopsis->get_arg_constant_names($constant_prefix);
+
+        } else if ($arg_type == 'callable') {
+            $arg_helper_options = $this->get_helper_callbacks();
+
+        } else if (isset($this->options_getter[$arg_name])) {
+            $arg_helper_options = $this->get_helper_options($this->options_getter[$arg_name]);
+
+        } else {
             return null;
         }
 
@@ -225,6 +232,21 @@ class input extends object
         sort($callbacks);
 
         return $callbacks;
+    }
+
+    function get_helper_options($getter_function)
+    {
+        $options = $getter_function();
+
+        foreach ($options as &$option) {
+            if (is_string($option)) {
+                $option = "'$option'";
+            }
+        }
+
+        sort($options, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return $options;
     }
 
     function get_vars_to_replace_by_inputs($source_code)
