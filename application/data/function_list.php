@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-04T13:29:20+00:00
+// generated automatically 2014-02-04T20:45:02+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -337,8 +337,10 @@ return array (
   'memory_get_usage' => 'memory_get_usage',
   'metaphone' => 'metaphone',
   'method_exists' => 'method_exists',
+  'microtime' => 'microtime',
   'min' => 'min',
   'mktime' => 'mktime',
+  'money_format' => 'money_format',
   'mt_getrandmax' => 'mt_getrandmax',
   'mt_rand' => 'mt_rand',
   'mt_srand' => 'mt_srand',
@@ -354,6 +356,7 @@ return array (
   'rand' => 'rand',
   'round' => 'round',
   'rtrim' => 'rtrim',
+  'setlocale' => 'setlocale',
   'sin' => 'sin',
   'sinh' => 'sinh',
   'sort' => 'sort',

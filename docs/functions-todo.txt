@@ -641,19 +641,17 @@ mcrypt_module_self_test
 mdecrypt_generic
 
 md5_file
-
---
-
 mhash
 mhash_count
 mhash_get_block_size
 mhash_get_hash_name
 mhash_keygen_s2k
-microtime
+
 mime_content_type
+
 mkdir
-money_format
 move_uploaded_file
+
 msg_get_queue
 msg_queue_exists
 msg_receive
@@ -671,6 +669,9 @@ msgfmt_get_pattern
 msgfmt_parse
 msgfmt_parse_message
 msgfmt_set_pattern
+
+--
+
 ngettext
 nl2br
 nl_langinfo
@@ -873,7 +874,6 @@ set_magic_quotes_runtime
 set_socket_blocking
 set_time_limit
 setcookie
-setlocale
 setrawcookie
 settype
 sha1
