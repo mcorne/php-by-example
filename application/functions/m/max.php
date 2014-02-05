@@ -33,6 +33,6 @@ class max extends function_core
         ],
     ];
 
-    // public $synopsis = 'mixed max ( mixed $value1 , mixed $value2 [, mixed $... ] )';
-    public $synopsis = 'mixed max ( mixed $value1 , mixed $value2 , mixed $value3 [, mixed $... ] )';
+    public $synopsis       = 'mixed max ( mixed $value1 , mixed $value2 [, mixed $... ] )';
+    public $synopsis_fixed = 'mixed max ( mixed $value1 , mixed $value2 , mixed $value3 [, mixed $... ] )';
 }

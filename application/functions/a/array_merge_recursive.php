@@ -27,6 +27,6 @@ class array_merge_recursive extends function_core
         ],
     ];
 
-    // public $synopsis = 'array array_merge_recursive ( array $array1 [, array $... ] )';
-    public $synopsis = 'array array_merge_recursive ( array $array1 , array $array2 [, array $... ] )';
+    public $synopsis       = 'array array_merge_recursive ( array $array1 [, array $... ] )';
+    public $synopsis_fixed = 'array array_merge_recursive ( array $array1 , array $array2 [, array $... ] )';
 }

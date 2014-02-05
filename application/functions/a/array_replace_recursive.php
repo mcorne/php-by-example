@@ -39,6 +39,6 @@ class array_replace_recursive extends function_core
         ],
     ];
 
-    // public $synopsis = 'array array_replace_recursive ( array $array1 , array $array2 [, array $... ] )';
-    public $synopsis = 'array array_replace_recursive ( array $array1 , array $array2 [, array $array3 [, array $... ]] )';
+    public $synopsis       = 'array array_replace_recursive ( array $array1 , array $array2 [, array $... ] )';
+    public $synopsis_fixed = 'array array_replace_recursive ( array $array1 , array $array2 [, array $array3 [, array $... ]] )';
 }

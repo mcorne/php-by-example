@@ -12,5 +12,5 @@ require_once 'functions/m/mktime.php';
 class easter_date extends mktime
 {    public $examples = [1999, 2000, 2001];
 
-    public $synopsis = 'int easter_date ([ int $year ] )';
+    public $synopsis_fixed = 'int easter_date ([ int $year ] )';
 }

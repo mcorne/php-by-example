@@ -55,6 +55,5 @@ class array_intersect_uassoc extends array_diff_uassoc
         ],
     ];
 
-    // public $synopsis = 'array array_intersect_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )';
-    public $synopsis = 'array array_intersect_uassoc ( array $array1 , array $array2 , callable $key_compare_func )';
+    public $synopsis = 'array array_intersect_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )';
 }

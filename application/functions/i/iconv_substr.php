@@ -18,6 +18,6 @@ class iconv_substr extends function_core
         ],
     ];
 
-    // public $synopsis = 'string iconv_substr ( string $str , int $offset [, int $length = iconv_strlen($str, $charset) [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;) ]] )';
-    public $synopsis = 'string iconv_substr ( string $str , int $offset [, int $length = iconv_strlen($str, $_charset) [, string $charset = ini_get("iconv.internal_encoding") ]] )';
+    public $synopsis       = 'string iconv_substr ( string $str , int $offset [, int $length = iconv_strlen($str, $charset) [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;) ]] )';
+    public $synopsis_fixed = 'string iconv_substr ( string $str , int $offset [, int $length = iconv_strlen($str, $_charset) [, string $charset = ini_get("iconv.internal_encoding") ]] )';
 }

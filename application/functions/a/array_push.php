@@ -20,6 +20,6 @@ class array_push extends array_pop
         ],
     ];
 
-    // public $synopsis = 'int array_push ( array &$array , mixed $value1 [, mixed $... ] )';
-    public $synopsis = 'int array_push ( array &$array , mixed $value1 [, mixed $value2 [, mixed $... ]] )';
+    public $synopsis       = 'int array_push ( array &$array , mixed $value1 [, mixed $... ] )';
+    public $synopsis_fixed = 'int array_push ( array &$array , mixed $value1 [, mixed $value2 [, mixed $... ]] )';
 }

@@ -48,8 +48,7 @@ inject_function_call
 
     public $helper_callbacks = ['index_in_example' => 2, 'function_name_pattern' => '~(cmp$)~'];
 
-    // public $synopsis = 'array array_diff_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )';
-    public $synopsis = 'array array_diff_uassoc ( array $array1 , array $array2 , callable $key_compare_func )';
+    public $synopsis = 'array array_diff_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )';
 
     function pre_exec_function()
     {

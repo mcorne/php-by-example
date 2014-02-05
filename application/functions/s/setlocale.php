@@ -18,8 +18,8 @@ class setlocale extends function_core
         ['LC_ALL', 'de_DE@euro', 'de_DE', 'deu_deu']
     ];
 
-    // public $synopsis = 'string setlocale ( int $category , string $locale [, string $... ] )';
-    public $synopsis = 'string setlocale ( int $category , string $locale , string $locale1 , string $locale2, string $locale3 [, string $... ] )';
+    public $synopsis       = 'string setlocale ( int $category , string $locale [, string $... ] )';
+    public $synopsis_fixed = 'string setlocale ( int $category , string $locale , string $locale1 , string $locale2, string $locale3 [, string $... ] )';
 
-    public $test_not_to_run = true;
+    public $test_always_valid = true;
 }

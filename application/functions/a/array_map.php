@@ -66,8 +66,8 @@ inject_function_call
 
     public $helper_callbacks = ['index_in_example' => 0, 'function_name_pattern' => '~(^str[ifprst])~'];
 
-    // public $synopsis = 'array array_map ( callable $callback , array $array1 [, array $... ] )';
-    public $synopsis = 'array array_map ( callable $callback , array $array1 [, array $array2 [, array $array3 [, array $... ]]] )';
+    public $synopsis       = 'array array_map ( callable $callback , array $array1 [, array $... ] )';
+    public $synopsis_fixed = 'array array_map ( callable $callback , array $array1 [, array $array2 [, array $array3 ]] )';
 
     function pre_exec_function()
     {

@@ -2,6 +2,36 @@ Function configuration
 ----------------------
 
 
+the $constant_prefix property
+-----------------------------
+
+- this property specifies the prefix of constants to filter from get_defined_constants(), see synopsis::get_arg_constant_name_prefix()
+- the list of constants id used to display the arg helper, see input::display_arg_helper()
+- format: public $constant_prefix = [<arg_name> => <constant_prefix>, ... ];
+- eg public $constant_prefix = ['calendar' => 'CAL'];
+
+
+the $synopsis property
+----------------------
+
+- this property has a copy of the synopsis extracted from the function manual page
+- the synopsis is used to extract arg names, arg types etc.
+- eg public $synopsis = 'number abs ( mixed $number )';
+- the synopsis is occasionally altered for parsing purposes, eg array_diff_uassoc.php
+
+
+other properties
+----------------
+
+- examples:
+public $helper_callbacks = ['index_in_example' => 2, 'function_name_pattern' => '~(cmp$)~'];
+public $input_args = ['__array1', '__array2', '__array3'];
+public $test_always_valid = true;
+public $no_input_args = 'use_include_path';
+public $test_not_to_run = 1;
+public $options_getter = ['encoding' => 'mb_list_encodings'];
+
+
 Example values
 --------------
 
@@ -17,5 +47,5 @@ Example values
 - false, true, null must not be enclosed with quotes, otherwise there are considered as string
  
 - a regex pattern should ideally be enclosed between single quotes, eg '|<[^>]+>(.*)</[^>]+>|U'
-- a regex pattern entered between double quotes may produce unexpected behaviour for parsing reasons, see parser::parse_string()
+- a regex pattern entered between double quotes may produce unexpected behavior for parsing reasons, see parser::parse_string()
 - a regex pattern will always be displayed between single quotes, see converter::convert_string_to_text()

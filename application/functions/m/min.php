@@ -30,6 +30,6 @@ class min extends function_core
         [-100,-10, FALSE],
     ];
 
-    // public $synopsis = 'mixed min ( mixed $value1 , mixed $value2 [, mixed $... ] )';
-    public $synopsis = 'mixed min ( mixed $value1 , mixed $value2 , mixed $value3 [, mixed $... ] )';
+    public $synopsis       = 'mixed min ( mixed $value1 , mixed $value2 [, mixed $... ] )';
+    public $synopsis_fixed = 'mixed min ( mixed $value1 , mixed $value2 , mixed $value3 [, mixed $... ] )';
 }

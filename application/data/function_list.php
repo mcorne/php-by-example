@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-04T20:45:02+00:00
+// generated automatically 2014-02-05T21:14:30+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -347,6 +347,8 @@ return array (
   'natcasesort' => 'natcasesort',
   'natsort' => 'natsort',
   'next' => 'next',
+  'nl2br' => 'nl2br',
+  'number_format' => 'number_format',
   'octdec' => 'octdec',
   'pi' => 'pi',
   'pow' => 'pow',

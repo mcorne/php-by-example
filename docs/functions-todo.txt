@@ -670,14 +670,12 @@ msgfmt_parse
 msgfmt_parse_message
 msgfmt_set_pattern
 
---
-
 ngettext
-nl2br
 nl_langinfo
+
 normalizer_is_normalized
 normalizer_normalize
-number_format
+
 numfmt_create
 numfmt_format
 numfmt_format_currency
@@ -694,6 +692,7 @@ numfmt_set_attribute
 numfmt_set_pattern
 numfmt_set_symbol
 numfmt_set_text_attribute
+
 ob_clean
 ob_end_clean
 ob_end_flush
@@ -710,6 +709,10 @@ ob_list_handlers
 ob_start
 opendir
 openlog
+
+--
+
+
 ord
 output_add_rewrite_var
 output_reset_rewrite_vars

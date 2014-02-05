@@ -11,6 +11,6 @@ require_once 'functions/m/mktime.php';
 
 class gmmktime extends mktime
 {
-    // public $synopsis = 'int gmmktime ([ int $hour = gmdate("H") [, int $minute = gmdate("i") [, int $second = gmdate("s") [, int $month = gmdate("n") [, int $day = gmdate("j") [, int $year = gmdate("Y") [, int $is_dst = -1 ]]]]]]] )';
-    public $synopsis = 'int gmmktime ([ int $hour  [, int $minute  [, int $second  [, int $month  [, int $day  [, int $year  [, int $is_dst = -1 ]]]]]]] )';
+    public $synopsis       = 'int gmmktime ([ int $hour = gmdate("H") [, int $minute = gmdate("i") [, int $second = gmdate("s") [, int $month = gmdate("n") [, int $day = gmdate("j") [, int $year = gmdate("Y") [, int $is_dst = -1 ]]]]]]] )';
+    public $synopsis_fixed = 'int gmmktime ([ int $hour  [, int $minute  [, int $second  [, int $month  [, int $day  [, int $year  [, int $is_dst = -1 ]]]]]]] )';
 }

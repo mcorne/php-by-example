@@ -25,8 +25,8 @@ $date = date("c", $int);
         [0, 0, 0, 4, -31, 2000]
     ];
 
-    // public $synopsis = 'int mktime ([ int $hour = date(&quot;H&quot;) [, int $minute = date(&quot;i&quot;) [, int $second = date(&quot;s&quot;) [, int $month = date(&quot;n&quot;) [, int $day = date(&quot;j&quot;) [, int $year = date(&quot;Y&quot;) [, int $is_dst = -1 ]]]]]]] )';
-    public $synopsis = 'int mktime ([ int $hour ) [, int $minute ) [, int $second ) [, int $month ) [, int $day ) [, int $year ) [, int $is_dst = -1 ]]]]]]] )';
+    public $synopsis       = 'int mktime ([ int $hour = date(&quot;H&quot;) [, int $minute = date(&quot;i&quot;) [, int $second = date(&quot;s&quot;) [, int $month = date(&quot;n&quot;) [, int $day = date(&quot;j&quot;) [, int $year = date(&quot;Y&quot;) [, int $is_dst = -1 ]]]]]]] )';
+    public $synopsis_fixed = 'int mktime ([ int $hour ) [, int $minute ) [, int $second ) [, int $month ) [, int $day ) [, int $year ) [, int $is_dst = -1 ]]]]]]] )';
 
     function post_exec_function()
     {

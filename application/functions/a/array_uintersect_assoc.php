@@ -28,6 +28,5 @@ class array_uintersect_assoc extends array_udiff
         ],
     ];
 
-    // public $synopsis = 'array array_uintersect_assoc ( array $array1 , array $array2 [, array $... ], callable $value_compare_func )';
-    public $synopsis = 'array array_uintersect_assoc ( array $array1 , array $array2 , callable $value_compare_func )';
+    public $synopsis = 'array array_uintersect_assoc ( array $array1 , array $array2 [, array $... ], callable $value_compare_func )';
 }

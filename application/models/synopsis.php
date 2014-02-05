@@ -17,7 +17,7 @@ class synopsis extends object
 {
     function _get_arg_descriptions()
     {
-        list(, $function_description) = explode('(', $this->synopsis, 2);
+        list(, $function_description) = explode('(', $this->synopsis_fixed, 2);
         $function_description = ltrim($function_description);
         $function_description = rtrim($function_description, '] )');
 
@@ -41,7 +41,7 @@ class synopsis extends object
 
     function _get_arg_names()
     {
-        if (preg_match_all('~(?<=[a-z] | &)\$([\w]+)~', $this->synopsis, $matches)) {
+        if (preg_match_all('~(?<=[a-z] | &)\$([\w]+)~', $this->synopsis_fixed, $matches)) {
             // the function has arguments, extracts the argument names
             $arg_names = $matches[1];
         } else {
@@ -50,10 +50,9 @@ class synopsis extends object
 
         return $arg_names;
     }
-
     function _get_function_name()
     {
-        if (! preg_match('~([\w:]+) \(~', $this->synopsis, $match)) {
+        if (! preg_match('~([\w:]+) \(~', $this->synopsis_fixed, $match)) {
             throw new Exception('cannot get function name');
         }
 
@@ -76,7 +75,7 @@ class synopsis extends object
 
     function _get_return_var()
     {
-        if (preg_match('~^(array|bool|float|int|mixed|number|resource|string|void)~', $this->synopsis, $match)) {
+        if (preg_match('~^(array|bool|float|int|mixed|number|resource|string|void)~', $this->synopsis_fixed, $match)) {
             // the function returns a value of a given type, extracts the type
             // note that the name of the return var is built by default on the type, eg "$int"
             $return_var = $match[1];
@@ -87,12 +86,25 @@ class synopsis extends object
         return $return_var;
     }
 
+    function _get_synopsis_fixed()
+    {
+        if ($this->_parent and $this->_parent->synopsis_fixed) {
+            $synopsis_fixed = $this->_parent->synopsis_fixed;
+        } else {
+            $synopsis_fixed = $this->synopsis;
+            $synopsis_fixed = str_replace('[, array $... ]', '', $synopsis_fixed);
+            $synopsis_fixed = str_replace(['&quot;', '&#039;'], ['"', "'"], $synopsis_fixed);
+        }
+
+        return $synopsis_fixed;
+    }
+
     function get_arg_constant_name_prefix($arg_name)
     {
         if (isset($this->constant_prefix[$arg_name])) {
             $constant_prefix = $this->constant_prefix[$arg_name];
 
-        } else if (preg_match('~(int|mixed) \$' . $arg_name . ' = ([A-Z]+)_~', $this->synopsis, $match)) {
+        } else if (preg_match('~(int|mixed) \$' . $arg_name . ' = ([A-Z]+)_~', $this->synopsis_fixed, $match)) {
             $constant_prefix = $constant_prefix = $match[2];
 
         } else {
@@ -138,7 +150,7 @@ class synopsis extends object
 
     function is_input_arg($arg_name)
     {
-        $is_input_arg =  preg_match("~(array|callable|bool|float|int|mixed|number|string) +\\$$arg_name~", $this->synopsis);
+        $is_input_arg =  preg_match("~(array|callable|bool|float|int|mixed|number|string) +\\$$arg_name~", $this->synopsis_fixed);
 
         return $is_input_arg;
     }
@@ -146,7 +158,7 @@ class synopsis extends object
     function is_reference_arg($arg_name)
     {
         // checks if the arg is prefixed with "&"
-        $is_reference_arg = preg_match("~(array|float|int|string) +&\\$$arg_name~", $this->synopsis);
+        $is_reference_arg = preg_match("~(array|float|int|string) +&\\$$arg_name~", $this->synopsis_fixed);
 
         return $is_reference_arg;
     }

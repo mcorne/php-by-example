@@ -21,7 +21,7 @@ class levenshtein extends function_core
         ["carrrot", 'potato'],
     ];
 
-    // public $synopsis = 'int levenshtein ( string $str1 , string $str2 )';
-    // public $synopsis = 'int levenshtein ( string $str1 , string $str2 , int $cost_ins , int $cost_rep , int $cost_del )';
-    public $synopsis = 'int levenshtein ( string $str1 , string $str2 [, int $cost_ins [, int $cost_rep [, int $cost_del ]]] )';
+    // public $synopsis    = 'int levenshtein ( string $str1 , string $str2 )';
+    public $synopsis       = 'int levenshtein ( string $str1 , string $str2 , int $cost_ins , int $cost_rep , int $cost_del )';
+    public $synopsis_fixed = 'int levenshtein ( string $str1 , string $str2 [, int $cost_ins [, int $cost_rep [, int $cost_del ]]] )';
 }

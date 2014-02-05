@@ -69,8 +69,8 @@ inject_function_call
 
     public $input_args = ['__array1', '__array2', '__array3'];
 
-    // public $synopsis = 'bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, mixed $... ]]] )';
-    public $synopsis = 'bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, array &$array2 [, mixed $array2_sort_order = SORT_ASC [, mixed $array2_sort_flags = SORT_REGULAR [, array &$array3 [, mixed $array3_sort_order = SORT_ASC [, mixed $array3_sort_flags = SORT_REGULAR [, mixed $... ]]]]]]]]] )';
+    public $synopsis       = 'bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, mixed $... ]]] )';
+    public $synopsis_fixed = 'bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, array &$array2 [, mixed $array2_sort_order = SORT_ASC [, mixed $array2_sort_flags = SORT_REGULAR [, array &$array3 [, mixed $array3_sort_order = SORT_ASC [, mixed $array3_sort_flags = SORT_REGULAR [, mixed $... ]]]]]]]]] )';
 
     function pre_exec_function()
     {
