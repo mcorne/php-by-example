@@ -44,7 +44,7 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $time = $this->_filter->filter_param('time');
+        $time = $this->_filter->filter_arg_value('time');
         $this->returned_params['timestamp'] = strtotime($time);
     }
 }

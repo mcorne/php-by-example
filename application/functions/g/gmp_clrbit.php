@@ -35,7 +35,7 @@ $string = gmp_strval($a, 2);
 
     function pre_exec_function()
     {
-        $number = $this->_filter->filter_param('number');
+        $number = $this->_filter->filter_arg_value('number');
         $this->returned_params['a'] = gmp_init($number);
     }
 }

@@ -27,9 +27,9 @@ return [
 1301 => "this argument value is not allowed in this example",
 1302 => "this callback function may not be used in this example",
 1303 => "the callback function is invalid or not available on this server",
-1304 => "the length must be defined and lower than 1000 in this example",
+1304 => "the length must be defined and lower than 1000 bytes in this example",
 1305 => "the number of iterations must be an integer lower than 10 in this example",
-1306 => "the argument may not be empty in this example",
+1306 => "this argument may not be empty in this example",
 
 // function core
 1400 => "a value cannot be passed by reference",
@@ -42,7 +42,7 @@ return [
 // params
 1500 => "Do not display", // as in "Do not display the PHP manual"
 1501 => "Local copy",     // as in "Local copy of the PHP manual"
-1502 => "the parameter was truncated as it is too large",
+1502 => "the argument was truncated to 1000 bytes in this example",
 
 // parser
 1600 => "invalid array",

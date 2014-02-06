@@ -15,8 +15,6 @@ require_once 'object.php';
 
 class params extends object
 {
-    const VALUE_MAX_LENGTH   = 1000;
-
     public function __construct($mixed = null)
     {
         parent::__construct($mixed);
@@ -76,31 +74,31 @@ class params extends object
         return $php_manual_location;
     }
 
-    function get_param($name, $indirect_get_param_from_var = true)
+    function get_param($param_name, $indirect_get_param_from_var = true)
     {
-        if (! $this->param_exists($name)) {
+        if (! $this->param_exists($param_name)) {
             return null;
         }
 
-        $value = trim($this->params[$name]);
+        $value = trim($this->params[$param_name]);
 
-        if (strlen($value) > self::VALUE_MAX_LENGTH) {
-            $message = $this->_translation->translate('the parameter was truncated as it is too large') . " (\$$name > " . self::VALUE_MAX_LENGTH . ")";
+        if (strlen($value) > 1000) {
+            $message = $this->_translation->translate('the argument was truncated to 1000 characters in this example') . " (\$$param_name)";
             trigger_error($message, E_USER_NOTICE);
         }
 
-        $value = $this->_parser->parse_value($value, $name);
+        $value = $this->_parser->parse_value($value, $param_name);
 
         if ($indirect_get_param_from_var and $this->is_param_var($value)) {
             // the param values is actually a variable name, gets the value of that variable
             // eg "$handle" returned by fopen() and used by fread($handle, ...)
-            $value = $this->get_param_var($value, $name);
+            $value = $this->get_param_var($value, $param_name);
         }
 
         return $value;
     }
 
-    function get_param_var($value, $name)
+    function get_param_var($value, $param_name)
     {
         $var_name = $this->get_var_name($value);
 
@@ -109,17 +107,17 @@ class params extends object
             // eg the resource "handle" linked to the param name "handle" in fread()
             $value =  $this->returned_params[$var_name];
 
-        } else  if (isset($this->returned_params[$name])) {
+        } else  if (isset($this->returned_params[$param_name])) {
             // the variable has a (returned) value linked to the param name,
             // eg the closure "$odd" linked to param name "callback" in array_filter()
-            $value =  $this->returned_params[$name];
+            $value =  $this->returned_params[$param_name];
 
         } else  if (isset($this->params["__$var_name"])) {
             // the variable is set from another (pseudo) variable invisible to the user, prefixed with "__",
             // eg "$__array" linked to param name "$array" in sort()
             $value =  $this->get_param("__$var_name");
 
-        } else  if ($var_name == $name) {
+        } else  if ($var_name == $param_name) {
             // the param value is the same as the param name, eg $param['match'] = '$match'
             // this is typically the case for an arg passed by reference
             $value = null;
@@ -148,10 +146,10 @@ class params extends object
         return $is_var;
     }
 
-    function param_exists($name)
+    function param_exists($param_name)
     {
         // checks if a param value is different from an empty string which means something was passed
-        $exists = (array_key_exists($name, $this->params) and trim($this->params[$name]) !== '');
+        $exists = (array_key_exists($param_name, $this->params) and trim($this->params[$param_name]) !== '');
 
         return $exists;
     }

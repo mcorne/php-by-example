@@ -64,7 +64,7 @@ unlink($_filename);
     function pre_exec_function()
     {
         $filename = $this->_filter->filter_filename('filename', true);
-        $mode = $this->_filter->filter_param('mode');
+        $mode = $this->_filter->filter_arg_value('mode');
         $this->returned_params['handle'] = fopen($filename, $mode);
 
         if ($this->_params->get_param('length')) {

@@ -61,7 +61,7 @@ $string = $date->format($format);
 
     function post_exec_function()
     {
-        $format = $this->_filter->filter_param('format');
+        $format = $this->_filter->filter_arg_value('format');
         $this->result['string'] = $this->object->format($format);
     }
 

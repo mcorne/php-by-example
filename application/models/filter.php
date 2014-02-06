@@ -10,33 +10,14 @@
 require_once 'object.php';
 
 /**
- * param value filters
+ * arg value filters
  * a filter is meant to called from the pre_exec() method in a function config
- * there is a default filter to use as needed: filter_param()
+ * there is a default filter to use as needed: filter_arg_value()
  */
 
 class filter extends object
 {
     const DEFAULT_FILE_NAME = 'tempname';
-
-    function filter_allowed_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)
-    {
-        if (! $this->_params->param_exists($arg_name)) {
-            if (! $is_empty_arg_allowed) {
-                $message = $this->_translation->translate('the argument may not be empty in this example') . " (\$$arg_name)";
-                throw new Exception($message, E_USER_WARNING);
-            }
-
-            return;
-        }
-
-        $value = $this->_params->get_param($arg_name);
-
-        if (! is_null($value) and ! in_array($value, (array) $allowed_values, true)) {
-            $message = $this->_translation->translate('this argument value is not allowed in this example') . " (\$$arg_name)";
-            throw new Exception($message, E_USER_WARNING);
-        }
-    }
 
     function filter_callback($arg_name)
     {
@@ -185,7 +166,7 @@ class filter extends object
         return $count;
     }
 
-    function filter_param($arg_name)
+    function filter_arg_value($arg_name)
     {
         if ($this->_params->param_exists($arg_name)) {
             $array = $this->_params->get_param($arg_name);
@@ -195,5 +176,24 @@ class filter extends object
         }
 
         return $array;
+    }
+
+    function is_allowed_arg_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)
+    {
+        if (! $this->_params->param_exists($arg_name)) {
+            if (! $is_empty_arg_allowed) {
+                $message = $this->_translation->translate('this argument may not be empty in this example') . " (\$$arg_name)";
+                throw new Exception($message, E_USER_WARNING);
+            }
+
+            return;
+        }
+
+        $value = $this->_params->get_param($arg_name);
+
+        if (! is_null($value) and ! in_array($value, (array) $allowed_values, true)) {
+            $message = $this->_translation->translate('this argument value is not allowed in this example') . " (\$$arg_name)";
+            throw new Exception($message, E_USER_WARNING);
+        }
     }
 }

@@ -36,6 +36,6 @@ class each extends function_core
 
     function pre_exec_function()
     {
-        $this->returned_params['array'] = $this->_filter->filter_param('__array');
+        $this->returned_params['array'] = $this->_filter->filter_arg_value('__array');
     }
 }

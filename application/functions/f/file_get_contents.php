@@ -54,8 +54,8 @@ unlink($_filename);
     function pre_exec_function()
     {
         $filename = $this->_filter->filter_filename('filename', true);
-        $this->_filter->filter_allowed_value('use_include_path', false);
-        $this->_filter->filter_allowed_value('context');
+        $this->_filter->is_allowed_arg_value('use_include_path', false);
+        $this->_filter->is_allowed_arg_value('context');
         $this->_filter->filter_file_length('maxlen', $filename);
     }
 }

@@ -34,8 +34,8 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $number = $this->_filter->filter_param('number');
-        $base = $this->_filter->filter_param('base');
+        $number = $this->_filter->filter_arg_value('number');
+        $base = $this->_filter->filter_arg_value('base');
         $this->returned_params['a'] = gmp_init($number, $base);
     }
 }

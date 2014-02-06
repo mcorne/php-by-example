@@ -23,11 +23,11 @@ class function_configurator extends object
     public $chars_before_function = '(,!=';
     public $chars_after_function  = ';=a{\.\?';
 
-    function assign_values_to_params($function_call, $args, $function_name)
+    function assign_values_to_args($function_call, $args, $function_name)
     {
         try {
             $params = array();
-            $names = array_keys($args);
+            $arg_names = array_keys($args);
 
             if ($function_name == 'array') {
                 // this is array() pseudo function, encloses the function call into an array
@@ -36,9 +36,9 @@ class function_configurator extends object
 
             if ($values = $this->_parser->parse_value("array($function_call)", $function_name, false)) {
                 foreach($values as $index => $value)  {
-                    if (isset($names[$index])) {
-                        $name = $names[$index];
-                        $params[$name] = $value;
+                    if (isset($arg_names[$index])) {
+                        $arg_name = $arg_names[$index];
+                        $params[$arg_name] = $value;
                     }
                 }
             }
@@ -143,7 +143,7 @@ class %s extends function_core
             $text = $this->_converter->convert_value_to_text($example_value, false, true);
 
             if (is_array($example_value)) {
-                // this example has multiple param values (array of values), formats the example
+                // this example has multiple arg values (array of values), formats the example
                 // left justified the array lines
                 $text = str_replace("\n", "\n              ", $text);
                 $text = preg_replace('~  \]$~', ']', $text);
@@ -158,7 +158,7 @@ class %s extends function_core
         $example_values = implode(', ', $example_values);
 
         if (count($example) != 1 or $has_array_value) {
-            // there is more than one example or at least one example has multiple param values
+            // there is more than one example or at least one example has multiple arg values
             $example_values = "[$example_values]";
         }
 
@@ -329,8 +329,7 @@ config_function -c ctype_*
     function parse_args($synopsis, $function_name)
     {
         if ($function_name == 'array') {
-            // this is the pseudo function array(), forces param to $array
-            // as it is used as such in the sort() family functions
+            // this is the pseudo function array(), forces the param to $array as it is used as such in the sort() like functions
             $params = array('array' => '$array');
 
         } else if (preg_match_all('~&?\$(\w+)~', $synopsis, $matches)) {
@@ -463,7 +462,7 @@ config_function -c ctype_*
     {
         foreach($function_calls as &$function_call) {
             $function_call = $this->replace_function_vars_with_values($function_call, $vars_values);
-            $function_call = $this->assign_values_to_params($function_call, $args, $function_name);
+            $function_call = $this->assign_values_to_args($function_call, $args, $function_name);
         }
 
         return $function_calls;

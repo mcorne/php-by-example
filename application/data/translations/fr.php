@@ -27,9 +27,9 @@ return [
 1301 => "cette valeur d'argument n'est pas autorisé dans cet exemple",                       // validated translation
 1302 => "cette fonction de rappel ne peut être utilisée dans cet exemple",                   // validated translation
 1303 => "la fonction de rappel n'est pas valide ou n'est pas disponible sur ce serveur",     // validated translation
-1304 => "la longueur doit être définie et inférieure à 1000 dans cet exemple",               // validated translation
+1304 => "la longueur doit être définie et inférieure à 1000 octets dans cet exemple",               // validated translation
 1305 => "le nombre d'itérations doit être un nombre entier inférieur à 10 dans cet exemple", // validated translation
-1306 => "l'argument ne peut pas être vide dans cet exemple",                                 // validated translation
+1306 => "cet argument ne peut pas être vide dans cet exemple",                                 // validated translation
 
 
 // function core
@@ -44,7 +44,7 @@ return [
 // params
 1500 => "Ne pas afficher", // validated translation
 1501 => "Copie locale",    // validated translation
-1502 => "le paramètre a été tronqué car il est trop grand", // validated translation
+1502 => "l'argument a été tronqué à 1000 octets dans cet exemple", // validated translation
 
 // parser
 1600 => "tableau invalide",        // validated translation

@@ -21,7 +21,7 @@ require_once 'action.php';
 class function_core extends action
 {
     public $errors;
-    public $examples = [[]]; // one example with no param by default
+    public $examples = [[]]; // one example with no arg by default
     public $returned_params;
     public $tests = [];
 
@@ -36,7 +36,7 @@ class function_core extends action
     function exec_function()
     {
         $result = [];
-        $values = [];
+        $arg_values = [];
 
         for ($arg_number = 0; $arg_number <= 9; $arg_number++) {
             if (! isset($this->_synopsis->arg_names[$arg_number]) or ! $this->_params->param_exists($this->_synopsis->arg_names[$arg_number])) {
@@ -44,10 +44,10 @@ class function_core extends action
                 $function = $this->_synopsis->method_name;
 
                 if (isset($this->object)) {
-                    $return = $this->exec_method($function, $arg_number, $values);
+                    $return = $this->exec_method($function, $arg_number, $arg_values);
 
                 } else {
-                    $return = $this->exec_procedure($function, $arg_number, $values);
+                    $return = $this->exec_procedure($function, $arg_number, $arg_values);
                 }
 
                 if ($this->_synopsis->return_var) {
@@ -59,10 +59,10 @@ class function_core extends action
                 return $result;
             }
 
-            $this->set_arg_value($arg_number, $values, $result);
+            $this->set_arg_value($arg_number, $arg_values, $result);
         }
 
-        throw new Exception('too many parameters passed');
+        throw new Exception('too many args passed');
     }
 
     function exec_method($method, $arg_number, $v)
@@ -146,7 +146,7 @@ class function_core extends action
 
             $this->function_exists();
 
-            $this->reset_args_after_first_empty_param();
+            $this->reset_args_after_first_empty_arg();
 
             $this->pre_exec_function();
             $this->result = $this->exec_function();
@@ -159,30 +159,30 @@ class function_core extends action
         }
     }
 
-    function reset_args_after_first_empty_param()
+    function reset_args_after_first_empty_arg()
     {
         for ($arg_number = 0; $arg_number <= 9 and isset($this->_synopsis->arg_names[$arg_number]); $arg_number++) {
             $arg_name = $this->_synopsis->arg_names[$arg_number];
 
             if (isset($reset_args) and $this->_params->param_exists($arg_name)) {
-                // this param is passed after an empty param, resets this param
+                // this arg is passed after an empty param, resets this param
                 $this->_params->params[$arg_name] = '';
                 $reset_args[] = "\$$arg_name";
 
             } else if (! $this->_params->param_exists($arg_name)) {
-                // this is the (first) empty param
+                // this is the (first) empty arg
                 $reset_args = [];
             }
         }
 
         if (! empty($reset_args)) {
             if (count($reset_args) == 1) {
-                // there is a reset param, captures the name of the param to display
+                // there is a reset arg, captures the name of the arg to display
                 $reset_args = current($reset_args);
                 $message = $this->_translation->translate('the following argument has been removed') . " ($reset_args)";
 
             } else {
-                // there are reset params, captures the name of the params to display
+                // there are reset args, captures the name of the args to display
                 $reset_args = implode(', ', $reset_args);
                 $message = $this->_translation->translate('the following arguments have been removed') . " ($reset_args)";
             }
@@ -197,10 +197,10 @@ class function_core extends action
         parent::run();
     }
 
-    function set_arg_value($arg_number, &$values, &$result)
+    function set_arg_value($arg_number, &$arg_values, &$result)
     {
         $arg_name = $copy = $this->_synopsis->arg_names[$arg_number];
-        $values[$arg_number] = $this->_params->get_param($arg_name);
+        $arg_values[$arg_number] = $this->_params->get_param($arg_name);
 
         if ($this->_synopsis->is_reference_arg($arg_name)) {
             // this is an arg passed by reference
@@ -215,7 +215,7 @@ class function_core extends action
 
             $arg_name = $this->_params->get_var_name($arg_name);
             // links a position in the result array to where the value will be returned by reference
-            $result[$arg_name] = &$values[$arg_number];
+            $result[$arg_name] = &$arg_values[$arg_number];
         }
     }
 }

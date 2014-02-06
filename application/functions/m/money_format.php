@@ -56,7 +56,7 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $locale = $this->_filter->filter_param('locale');
+        $locale = $this->_filter->filter_arg_value('locale');
         $this->returned_params['string'] = setlocale(LC_MONETARY, $locale);
     }
 }

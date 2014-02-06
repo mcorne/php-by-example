@@ -18,7 +18,7 @@ class get_meta_tags extends function_core
     function pre_exec_function()
     {
         $filename = $this->_filter->filter_filename('filename');
-        $this->_filter->filter_allowed_value('use_include_path', false);
+        $this->_filter->is_allowed_arg_value('use_include_path', false);
     }
 
     public $test_not_to_run = true;

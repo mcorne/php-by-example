@@ -74,8 +74,8 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $this->returned_params['array1'] = $this->_filter->filter_param('array1');
-        $this->returned_params['array2'] = $this->_filter->filter_param('array2');
-        $this->returned_params['array3'] = $this->_filter->filter_param('array3');
+        $this->returned_params['array1'] = $this->_filter->filter_arg_value('array1');
+        $this->returned_params['array2'] = $this->_filter->filter_arg_value('array2');
+        $this->returned_params['array3'] = $this->_filter->filter_arg_value('array3');
     }
 }

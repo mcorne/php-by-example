@@ -56,6 +56,6 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $this->returned_params['input'] = $this->_filter->filter_param('input');
+        $this->returned_params['input'] = $this->_filter->filter_arg_value('input');
     }
 }

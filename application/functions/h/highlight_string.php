@@ -17,6 +17,6 @@ class highlight_string extends function_core
 
     function pre_exec_function()
     {
-        $this->_filter->filter_allowed_value('return', true, false);
+        $this->_filter->is_allowed_arg_value('return', true, false);
     }
 }
