@@ -41,7 +41,7 @@ class translation extends object
         return $english_messages;
     }
 
-    function translate($message)
+    function translate($message, $not_translated_part = null)
     {
         if ($this->_language->language_id != 'en' and isset($this->message_ids[$message])) {
             // the language is not English and the message is to be translated
@@ -51,6 +51,10 @@ class translation extends object
                 // the message has a translation, returns the translation
                 $message = $this->translated_messages[$message_id];
             }
+        }
+
+        if ($not_translated_part) {
+            $message .= " ($not_translated_part)";
         }
 
         return $message;

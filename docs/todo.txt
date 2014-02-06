@@ -10,7 +10,6 @@ Things to do
 - fix the height of the select helper to 1.8em or more if multiselect
 - fix height textarea for setlocale() example 3
 
-- pass an optional second param to translate() with a string not to translate
 - change the function select box to an autocomplete input box
 - run the selected function when the return key is pressed
 - display the list of tested functions in columns

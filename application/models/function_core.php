@@ -179,12 +179,12 @@ class function_core extends action
             if (count($reset_args) == 1) {
                 // there is a reset arg, captures the name of the arg to display
                 $reset_args = current($reset_args);
-                $message = $this->_translation->translate('the following argument has been removed') . " ($reset_args)";
+                $message = $this->_translation->translate('the following argument has been removed', $reset_args);
 
             } else {
                 // there are reset args, captures the name of the args to display
                 $reset_args = implode(', ', $reset_args);
-                $message = $this->_translation->translate('the following arguments have been removed') . " ($reset_args)";
+                $message = $this->_translation->translate('the following arguments have been removed', $reset_args);
             }
 
             trigger_error($message, E_USER_NOTICE);
@@ -208,8 +208,8 @@ class function_core extends action
 
             if (! $this->_params->is_param_var($arg_name)) {
                 // a value instead of a var name was passed, triggers an error
-                $arg_name = $this->_converter->convert_value_to_text($arg_name, true);
-                $message = $this->_translation->translate('a value cannot be passed by reference') . " (\$$copy: $arg_name)";
+                $value = $this->_converter->convert_value_to_text($arg_name, true);
+                $message = $this->_translation->translate('a value cannot be passed by reference', $value);
                 throw new Exception($message, E_USER_ERROR);
             }
 

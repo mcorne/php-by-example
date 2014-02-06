@@ -83,7 +83,7 @@ class params extends object
         $value = trim($this->params[$param_name]);
 
         if (strlen($value) > 1000) {
-            $message = $this->_translation->translate('the argument was truncated to 1000 characters in this example') . " (\$$param_name)";
+            $message = $this->_translation->translate('the argument was truncated to 1000 bytes in this example', '$' . $param_name);
             trigger_error($message, E_USER_NOTICE);
         }
 

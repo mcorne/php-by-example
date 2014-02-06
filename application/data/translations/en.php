@@ -80,6 +80,7 @@ return [
 2000 => "The PHP manual is not available.",
 2001 => "Sorry for the inconvenience.",
 2002 => "You may report the problem here.",
+2003 => "PHP Manual",
 
 // input
 5000 => "(multiselect)",

@@ -82,6 +82,7 @@ return [
 2000 => "Le manuel PHP n'est pas disponible.",   // validated translation
 2001 => "Désolé pour le désagrément.",           // validated translation
 2002 => "Vous pouvez signaler le problème ici.", // validated translation
+2003 => "Manuel PHP",                            // validated translation
 
 // input
 5000 => "(sélection multiple)",    // validated translation
