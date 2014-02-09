@@ -109,7 +109,7 @@ class function_core extends action
         return $return;
     }
 
-    function function_exists()
+    function function_exists($return = false)
     {
         $parts = explode('::', $this->_synopsis->function_name);
 
@@ -119,18 +119,26 @@ class function_core extends action
 
             if (! class_exists($classname, false)) {
                 $message = $this->_translation->translate('this class is not available in the PHP version running on this server');
-                throw new Exception($message);
-            }
 
-            if (! method_exists($classname, $method_name)) {
+            } else if (! method_exists($classname, $method_name)) {
                 $message = $this->_translation->translate('this method is not available in the PHP version running on this server');
-                throw new Exception($message);
             }
 
         } else if (! function_exists($this->_synopsis->function_name)) {
             $message = $this->_translation->translate('this function is not available in the PHP version running on this server');
+        }
+
+        if (! isset($message)) {
+            return true;
+        }
+
+        if (! $return) {
             throw new Exception($message);
         }
+
+        $message = ucfirst($message);
+
+        return $message;
     }
 
     function post_exec_function()

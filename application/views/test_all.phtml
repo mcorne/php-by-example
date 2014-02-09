@@ -18,72 +18,51 @@
 
     <tr>
       <td class="green">Functions tested successfully<td>
-      <td class="blue"><?=count($this->test_results['test_success']);?><td>
+      <td class="blue"><?=count($this->test_results['functions_tested_succesfully']);?><td>
     </tr>
 
     <tr>
       <td class="red">Functions with failed tests<td>
-      <td class="blue"><?=count($this->test_results['test_failed']);?><td>
+      <td class="blue"><?=count($this->test_results['functions_with_failed_tests']);?><td>
     </tr>
 
     <tr>
       <td class="orange">Functions with missing tests<td>
-      <td class="blue"><?=count($this->test_results['test_missing']);?><td>
+      <td class="blue"><?=count($this->test_results['functions_with_missing_tests']);?><td>
     </tr>
 
     <tr>
-      <td>Functions with obsolete tests<td>
-      <td class="gray"><?=count($this->test_results['test_obsolete']);?><td>
+      <td class="orange">Functions with obsolete tests<td>
+      <td class="gray"><?=count($this->test_results['functions_with_obsolete_tests']);?><td>
+    </tr>
+
+    <tr>
+      <td class="gray">Functions not tested<td>
+      <td class="gray"><?=count($this->test_results['functions_not_tested']);?><td>
+    </tr>
+
+    <tr>
+      <td class="gray">Functions not available<td>
+      <td class="gray"><?=count($this->test_results['functions_not_available']);?><td>
     </tr>
 
   </table>
 </div>
 
-<?php if ($this->test_results['test_success']):?>
+<?php $this->test_results['functions_tested_succesfully'] and
+      $this->_output->display_function_list($this->test_results['functions_tested_succesfully'], 'Functions tested successfully', 'green');?>
 
-  <div class="title green">Functions tested successfully</div>
+<?php $this->test_results['functions_with_failed_tests'] and
+      $this->_output->display_function_list($this->test_results['functions_with_failed_tests'], 'Functions with failed tests', 'red');?>
 
-  <div class="block green_border">
-    <?php foreach($this->test_results['test_success'] as $function_basename => $function_name):?>
-      <a href="<?=$this->_output->display_url('test', $function_basename);?>"><?=$function_name;?></a>
-    <?php endforeach;?>
-  </div>
+<?php $this->test_results['functions_with_missing_tests'] and
+      $this->_output->display_function_list($this->test_results['functions_with_missing_tests'], 'Functions with missing tests', 'orange');?>
 
-<?php endif;?>
+<?php $this->test_results['functions_with_obsolete_tests'] and
+      $this->_output->display_function_list($this->test_results['functions_with_obsolete_tests'], 'Functions with obsolete tests', 'orange');?>
 
-<?php if ($this->test_results['test_failed']):?>
+<?php $this->test_results['functions_not_tested'] and
+      $this->_output->display_function_list($this->test_results['functions_not_tested'], 'Functions not tested', 'gray');?>
 
-  <div class="title red">Functions with failed tests</div>
-
-  <div class="block red_border">
-    <?php foreach($this->test_results['test_failed'] as $function_basename => $function_name):?>
-      <a href="<?=$this->_output->display_url('test', $function_basename);?>"><?=$function_name;?></a>
-    <?php endforeach;?>
-  </div>
-
-<?php endif;?>
-
-
-<?php if ($this->test_results['test_missing']):?>
-
-  <div class="title orange">Functions with missing tests</div>
-
-  <div class="block orange_border">
-    <?php foreach($this->test_results['test_missing'] as $function_basename => $function_name):?>
-      <a href="<?=$this->_output->display_url('test', $function_basename);?>"><?=$function_name;?></a>
-    <?php endforeach;?>
-  </div>
-
-<?php endif;?>
-
-<?php if ($this->test_results['test_obsolete']):?>
-
-  <div class="title gray">Functions with obsolete tests</div>
-
-  <div class="block gray_border">
-    <?php foreach($this->test_results['test_obsolete'] as $function_basename => $function_name):?>
-      <a href="<?=$this->_output->display_url('test', $function_basename);?>"><?=$function_name;?></a>
-    <?php endforeach;?>
-  </div>
-
-<?php endif;?>
+<?php $this->test_results['functions_not_available'] and
+      $this->_output->display_function_list($this->test_results['functions_not_available'], 'Functions not available', 'gray');?>

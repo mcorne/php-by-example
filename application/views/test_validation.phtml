@@ -1,0 +1,70 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<?php foreach($this->test_validations as $example_id => $validation):
+          $status = $validation['status'];?>
+
+  <?php if ($status === true):?>
+    <div class="title green">Example #<?=$example_id + 1;?></div>
+    <div class="block green_border">
+
+  <?php elseif ($status === false):?>
+    <div class="title red">Example #<?=$example_id + 1;?></div>
+    <div class="block red_border">
+
+  <?php else:?>
+    <div class="title orange">Example #<?=$example_id + 1;?></div>
+    <div class="block orange_border">
+  <?php endif;?>
+
+    <table>
+
+       <tr>
+         <td class="variable">$input</td>
+         <td class="operator">=</td>
+         <td><?=$this->_output->display_var_value($this->examples[$example_id]);?></td>
+       </tr>
+
+       <tr>
+         <?php if ($status !== null):?>
+           <td class="variable">$expected_output</td>
+         <?php else:?>
+           <td class="orange">$expected_output</td>
+         <?php endif;?>
+
+         <td class="operator">=</td>
+
+         <?php if ($status === true):?>
+           <td class="variable">$test_output</td>
+         <?php elseif ($status === false):?>
+           <td><?=$this->_output->display_var_value($validation['expected_result']);?></td>
+         <?php else:?>
+           <td>MISSING</td>
+         <?php endif;?>
+       </tr>
+
+       <tr>
+         <?php if ($status === true):?>
+           <td class="green">$test_output</td>
+         <?php elseif ($status === false):?>
+           <td class="red">$test_output</td>
+         <?php else:?>
+           <td class="variable">$test_output</td>
+         <?php endif;?>
+
+         <td class="operator">=</td>
+
+         <td><?=$this->_output->display_var_value($validation['test_result']);?></td>
+       </tr>
+
+     </table>
+  </div>
+
+<?php endforeach;?>

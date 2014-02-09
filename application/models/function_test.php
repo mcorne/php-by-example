@@ -60,17 +60,17 @@ class function_test extends action
             $function_basename = $this->function_basename;
         }
 
-        $test_results = $this->test_examples($function_basename);
+        list($test_results, $is_function_available) = $this->test_examples($function_basename);
         $expected_results = $this->get_expected_results($function_basename, $test_results);
         $test_validations = $this->validate_test_results($test_results, $expected_results);
         $obsolete_expected_results = count($expected_results) - count($this->examples) > 0;
 
-        return [$test_validations, $obsolete_expected_results];
+        return [$test_validations, $obsolete_expected_results, $is_function_available];
     }
 
     function run()
     {
-        list($this->test_validations , $this->obsolete_expected_results) = $this->process();
+        list($this->test_validations , $this->obsolete_expected_results, $this->is_function_available) = $this->process();
         parent::run();
     }
 
@@ -99,10 +99,10 @@ class function_test extends action
         // and inherited as such when the test is run through test_all
         unset($this->_synopsis, $this->test_always_valid, $this->test_not_to_run);
 
+        // forces the test to run in english so the returned messages are always validated in English
         $language_id = $this->_language->language_id;
         $this->_language->language_id = 'en';
 
-        // forces the test to run in english so the returned messages are always validated in English
         $function = $this->_function_factory->create_function_object($function_basename);
         $this->set_properties($function);
         $test_results = [];
@@ -115,10 +115,12 @@ class function_test extends action
             }
         }
 
+        $is_function_available = $function->function_exists(true);
+
         // restores the user language
         $this->_language->language_id = $language_id;
 
-        return $test_results;
+        return [$test_results, $is_function_available];
     }
 
     function validate_test_result($test_result, $expected_result, $example_id)

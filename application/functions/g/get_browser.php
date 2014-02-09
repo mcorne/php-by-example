@@ -15,5 +15,5 @@ class get_browser extends function_core
 
     public $synopsis = 'mixed get_browser ([ string $user_agent [, bool $return_array = false ]] )';
 
-    public $test_always_valid = true;
+    public $test_not_to_run = true;
 }

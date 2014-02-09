@@ -96,6 +96,11 @@ class output extends object
         return $html;
     }
 
+    function display_function_list($functions, $title, $color)
+    {
+        require __DIR__ . '/../views/function_list.phtml';
+    }
+
     function display_function_manual_page_url()
     {
         $manual_function_name = $this->get_manual_function_name();

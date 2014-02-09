@@ -33,18 +33,13 @@ class object
 
     function __get($name)
     {
-        if ($is_local_property = $this->is_local_property($name)) {
-            // this is a local property, removes the "_" suffix
-            $name = substr($name, 0, -1);
-        }
-
         if ($name[0] == '_') {
-            // this is the name of an object as it is prefixed with "_", eg "_parser", gets or cretes the object
-            $this->$name = $this->get_object($name, $is_local_property);
+            // this is the name of an object as it is prefixed with "_", eg "_parser", gets or creates the object
+            $this->$name = $this->get_object($name);
 
         } else {
             // this is a property, gets the property
-            $this->$name = $this->get_property($name, $is_local_property);
+            $this->$name = $this->get_property($name);
         }
 
         return $this->$name;
@@ -73,30 +68,23 @@ class object
         return $object;
     }
 
-    function get_object($name, $is_local_object)
+    function get_object($name)
     {
-        if (! $is_local_object and $this->_parent) {
-            // this is not a local object and the current object has a parent
-            // links the property to the parent's object, note that the parent will create the object as needed
+        if ($this->_parent) {
+            // the current object has a parent, links the property to the parent's object
+            // note that the parent will create the object as needed
             $object = $this->_parent->$name;
 
         } else {
             // the class name is meant to be the same as the object name without the "_" prefix, eg "parser", removes the "_" prefix
             $classname = substr($name, 1);
-
-            if ($is_local_object) {
-                // this is a local object, creates the object and passes the current object properties
-                $object = $this->create_object($classname, null, (array) $this);
-
-            } else {
-                $object = $this->create_object($classname);
-            }
+            $object = $this->create_object($classname);
         }
 
         return $object;
     }
 
-    function get_property($name, $is_local_property)
+    function get_property($name)
     {
         $get_method = "_get_$name";
 
@@ -104,9 +92,9 @@ class object
             // there is a getter method to get the property, gets the property
             $property = $this->$get_method();
 
-        } else if (! $is_local_property and $this->_parent) {
-            // this is not a local property and the current object has a parent
-            // gets (a copy of) the parent's property, note that the parent will get the property as needed
+        } else if ($this->_parent) {
+            // the current object has a parent, gets (a copy of) the parent's property
+            // note that the parent will get the property as needed
             // as a side note it is not possible to get a reference to the parent's property such as: $property =& $this->_parent->$name;
             // which fails and triggers the notice: "Indirect modification of overloaded property sort::$params has no effect"
             $property = $this->_parent->$name;
@@ -116,14 +104,6 @@ class object
         }
 
         return $property;
-    }
-
-    function is_local_property($name)
-    {
-        // a local property is suffixed with "_", eg "_parser_"
-        $is_local_property = substr($name, -1) == '_';
-
-        return $is_local_property;
     }
 
     function merge_parents_properties($properties)

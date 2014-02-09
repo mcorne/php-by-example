@@ -16,6 +16,17 @@ require_once 'action.php';
 
 class function_test_all extends action
 {
+    function consolidate_test_validations($test_validations)
+    {
+        foreach ($test_validations as $test_validation) {
+            if ($test_validation['status'] !== true) {
+                return $test_validation['status'];
+            }
+        }
+
+        return true;
+    }
+
     function run()
     {
         $function_list = $this->_function_list->function_list;
@@ -31,44 +42,30 @@ class function_test_all extends action
 
     function summarize_test_results($functions_test_results, $function_list)
     {
-        $test_success_functions = [];
-        $test_failed_functions = [];
-        $test_missing_functions = [];
-        $test_obsolete_functions = [];
-
         foreach ($functions_test_results as $function_basename => $function_test_results) {
-            list($test_validations , $obsolete_expected_results) = $function_test_results;
+            list($test_validations , $obsolete_expected_results, $is_function_available) = $function_test_results;
+            $function_name = $function_list[$function_basename];
+            $status = $this->consolidate_test_validations($test_validations);
 
-            foreach ($test_validations as $test_validation) {
-                $status = $test_validation['status'];
-                $function_name = $function_list[$function_basename];
+            if ($is_function_available !== true) {
+                $test_results['functions_not_available'][$function_basename] = $function_name;
 
-                if ($status === true) {
-                    $test_success_functions[$function_basename] = $function_name;
+            } else if ($status === false) {
+                $test_results['functions_with_failed_tests'][$function_basename] = $function_name;
 
-                } else if ($status === false) {
-                    $test_failed_functions[$function_basename] = $function_name;
+            } else if ($status === null) {
+                $test_results['functions_with_missing_tests'][$function_basename] = $function_name;
 
-                } else {
-                    $test_missing_functions[$function_basename] = $function_name;
-                }
-            }
+            } else if ($obsolete_expected_results) {
+                $test_results['functions_with_obsolete_tests'][$function_basename] = $function_name;
 
-            if (isset($test_failed_functions[$function_basename])) {
-                unset($test_success_functions[$function_basename]);
-            }
+            } else if (! $test_validations) {
+                $test_results['functions_not_tested'][$function_basename] = $function_name;
 
-            if ($obsolete_expected_results) {
-                $test_obsolete_functions[$function_basename] = $function_name;
+            } else if ($status === true) {
+                $test_results['functions_tested_succesfully'][$function_basename] = $function_name;
             }
         }
-
-        $test_results = [
-            'test_success'  => $test_success_functions,
-            'test_failed'   => $test_failed_functions,
-            'test_missing'  => $test_missing_functions,
-            'test_obsolete' => $test_obsolete_functions,
-        ];
 
         return $test_results;
     }
