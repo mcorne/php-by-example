@@ -12,6 +12,10 @@
 
 <div class="block <?=$color;?>_border">
   <?php foreach($functions as $function_basename => $function_name):?>
+
+    <?php if ($function_name != current($functions)):?>,<?php endif;?>
+
     <a href="<?=$this->display_url('test', $function_basename);?>"><?=$function_name;?></a>
+
   <?php endforeach;?>
 </div>

@@ -16,44 +16,63 @@ require_once 'object.php';
 
 class converter extends object
 {
-    function convert_array_to_text($value, $no_linebreak = false)
+    function convert_array_to_text($values, $no_linebreak = false, $force_quotes = false, $no_string_equivalent = false, $level = 0)
     {
-        $value = var_export($value, true);
+        $level++;
 
-       // converts "array(...)" to "[...]"
-        $value = preg_replace('~array \(~', '[', $value);
-        $value = str_replace('),', '],', $value);
-        $value = preg_replace('~\)$~', ']', $value);
+        foreach ($values as $key => &$value) {
+            if (is_array($value)) {
+                $value = $this->convert_array_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent, $level);
+            } else {
+                $value = $this->convert_value_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent);
+            }
 
-        if ($no_linebreak) {
-            // removes line breaks to dispay the array in one line
-            $value = str_replace(["\r\n", "\n", "\r"], '', $value);
+            $key = $this->convert_value_to_text($key, $no_linebreak, $force_quotes, $no_string_equivalent);
+            $value = "$key => $value";
         }
 
-        return $value;
+        if ($no_linebreak) {
+            $glue = ', ';
+            $text = '[' . implode($glue, $values) . ']';
+
+        } else if (! $values) {
+            $text = '[]';
+
+        } else {
+            $array_leading_spaces = str_repeat('  ', $level - 1);
+            $scalar_leading_spaces = str_repeat('  ', $level);
+            $text =  implode(",\n$scalar_leading_spaces", $values);
+            $text =  "[\n$scalar_leading_spaces$text,\n$array_leading_spaces]";
+        }
+
+        $level--;
+
+        return $text;
     }
+
     function convert_resource_to_text($value)
     {
         if (is_array($value)) {
             // recursively converts resource type values
-            $value = array_map([$this, 'convert_resource_to_text'], $value);
+            $text = array_map([$this, 'convert_resource_to_text'], $value);
 
         } else if (is_resource($value)) {
             // replaces the resource by its name
-            $value = get_resource_type($value);
-        }
-        // else: this is not a resource, no change
+            $text = get_resource_type($value);
 
-        return $value;
+        } else {
+            // this is not a resource, no change
+            $text = $value;
+        }
+
+        return $text;
     }
 
-    function convert_string_to_text($value, $no_linebreak, $force_quotes = false)
+    function convert_string_to_text($value, $no_linebreak, $force_quotes = false, $no_string_equivalent = false)
     {
         if ($this->_params->is_param_var($value) or $this->is_constant($value)) {
             // this is a var, eg '$var', or a constant name, eg 'SORT_ASC'
-            if ($force_quotes) {
-                $value = "'$value'";
-            }
+            $text = $force_quotes ? "'$value'" : $value;
 
         } else {
             if ($no_linebreak) {
@@ -67,54 +86,59 @@ class converter extends object
                 // (2) note that backslashes would be difficult to handle properly to create a pattern between double quotes with the expected behaviour
                 // see http://fr2.php.net/manual/en/regexp.reference.delimiters.php on regex pattern delimiters
                 // note that line breaks, tabs etc. will not be replaced by their string equivalent which is acceptable
-                $value = "'" . str_replace("'", "\'", $value) . "'";
+                $text = "'" . str_replace("'", "\'", $value) . "'";
 
             } else {
                 // see http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.double
                 // escapes backslashes and double quotes
                 $value = str_replace(['\\', '"'], ['\\\\', '\"'], $value);
-                // replaces line breaks, tabs etc. by their string equivalent
-                $value = str_replace(["\n", "\r", "\t", "\v", "\e", "\f"], ['\n', '\r', '\t', '\v', '\e', '\f'], $value);
+
+                if (! $no_string_equivalent) {
+                    // replaces line breaks, tabs etc. by their string equivalent
+                    $value = str_replace(["\n", "\r", "\t", "\v", "\e", "\f"], ['\n', '\r', '\t', '\v', '\e', '\f'], $value);
+                }
+
                 // encloses the string with double quotes
-                $value = '"' . $value . '"';
+                $text = '"' . $value . '"';
             }
         }
 
-        return $value;
+        return $text;
     }
 
-    function convert_value_to_text($value, $no_linebreak = false, $force_quotes = false)
+    function convert_value_to_text($value, $no_linebreak = false, $force_quotes = false, $no_string_equivalent = false)
     {
         $type = gettype($value);
 
         switch($type) {
             case 'array':
-                $value = $this->convert_array_to_text($value, $no_linebreak);
+                $text = $this->convert_array_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent);
                 break;
 
             case 'boolean':
-                $value = $value? 'true' : 'false';
+                $text = $value? 'true' : 'false';
                 break;
 
             case 'double':
             case 'float':
             case 'integer':
+                $text = $value;
                 break;
 
             case 'null':
             case 'NULL':
-                $value = 'null';
+                $text = 'null';
                 break;
 
             case 'string':
-                $value = $this->convert_string_to_text($value, $no_linebreak, $force_quotes);
+                $text = $this->convert_string_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent);
                 break;
 
             default:
                 throw new Exception("unexpected value with type: $type");
         }
 
-        return $value;
+        return $text;
     }
 
     function is_constant($value)

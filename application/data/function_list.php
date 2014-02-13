@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-05T21:14:30+00:00
+// generated automatically 2014-02-11T18:57:32+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -350,8 +350,21 @@ return array (
   'nl2br' => 'nl2br',
   'number_format' => 'number_format',
   'octdec' => 'octdec',
+  'ord' => 'ord',
+  'parse_ini_string' => 'parse_ini_string',
+  'parse_str' => 'parse_str',
+  'parse_url' => 'parse_url',
+  'pathinfo' => 'pathinfo',
+  'php_ini_loaded_file' => 'php_ini_loaded_file',
+  'php_ini_scanned_files' => 'php_ini_scanned_files',
+  'php_logo_guid' => 'php_logo_guid',
+  'php_sapi_name' => 'php_sapi_name',
+  'php_uname' => 'php_uname',
+  'phpversion' => 'phpversion',
   'pi' => 'pi',
+  'pos' => 'pos',
   'pow' => 'pow',
+  'preg_filter' => 'preg_filter',
   'preg_match_all' => 'preg_match_all',
   'prev' => 'prev',
   'rad2deg' => 'rad2deg',

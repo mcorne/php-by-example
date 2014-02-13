@@ -30,6 +30,8 @@ public $test_always_valid = true;
 public $no_input_args = 'use_include_path';
 public $test_not_to_run = 1;
 public $options_getter = ['encoding' => 'mb_list_encodings'];
+public $constant_prefix = ['calendar' => 'CAL'];
+public $synopsis_fixed
 
 
 Example values

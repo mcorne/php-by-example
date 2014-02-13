@@ -31,7 +31,7 @@ class examples extends object
         // forces quotes around a constant for the "constant()" function (this is a special case)
         $force_quotes = $this->_synopsis->function_name == 'constant';
 
-        $combined[$arg_name] = $this->_converter->convert_value_to_text($value, false, $force_quotes);
+        $combined[$arg_name] = $this->_converter->convert_value_to_text($value, false, $force_quotes, true);
 
         return $combined;
     }
