@@ -15,5 +15,5 @@ class gmp_random extends gmp_abs
 
     public $synopsis = 'resource gmp_random ([ int $limiter = 20 ] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

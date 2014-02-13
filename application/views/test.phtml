@@ -35,9 +35,11 @@
             <td>:</td>
 
             <td>
-              <?php if ($status === true):?>
+              <?php if ($status == 'test_success'):?>
                 <span class="green">test success</span>
-              <?php elseif ($status === false):?>
+              <?php elseif ($status == 'test_not_validated'):?>
+                <span class="gray">test not validated</span>
+              <?php elseif ($status == 'test_failed'):?>
                 <span class="red">test failed</span>
               <?php else:?>
                 <span class="orange">test missing</span>

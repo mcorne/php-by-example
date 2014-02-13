@@ -11,5 +11,5 @@ class memory_get_usage extends function_core
 {
     public $synopsis = 'int memory_get_usage ([ bool $real_usage = false ] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

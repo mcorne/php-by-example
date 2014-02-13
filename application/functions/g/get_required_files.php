@@ -13,5 +13,5 @@ class get_required_files extends get_included_files
 {
     public $synopsis = 'array get_required_files ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

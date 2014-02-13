@@ -11,5 +11,5 @@ class get_current_user extends function_core
 {
     public $synopsis = 'string get_current_user ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

@@ -7,13 +7,12 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class getservbyport extends function_core
+class preg_quote extends function_core
 {
     public $examples = [
-        [80, "tcp"]
+        ['$40 for a g3/400', "/"],
+        '*very*'
     ];
 
-    public $synopsis = 'string getservbyport ( int $port , string $protocol )';
-
-    public $test_not_validated = true;
+    public $synopsis = 'string preg_quote ( string $str [, string $delimiter = NULL ] )';
 }

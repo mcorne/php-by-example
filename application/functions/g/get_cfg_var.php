@@ -13,5 +13,5 @@ class get_cfg_var extends function_core
 
     public $synopsis = 'string get_cfg_var ( string $option )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

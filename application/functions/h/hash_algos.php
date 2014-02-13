@@ -11,5 +11,5 @@ class hash_algos extends function_core
 {
     public $synopsis = 'array hash_algos ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

@@ -11,5 +11,5 @@ class get_include_path extends function_core
 {
     public $synopsis = 'string get_include_path ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

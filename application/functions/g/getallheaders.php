@@ -11,5 +11,5 @@ class getallheaders extends function_core
 {
     public $synopsis = 'array getallheaders ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

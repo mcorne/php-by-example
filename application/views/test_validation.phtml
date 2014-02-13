@@ -11,11 +11,15 @@
 <?php foreach($this->test_validations as $example_id => $validation):
           $status = $validation['status'];?>
 
-  <?php if ($status === true):?>
+  <?php if ($status == 'test_success'):?>
     <div class="title green">Example #<?=$example_id + 1;?></div>
     <div class="block green_border">
 
-  <?php elseif ($status === false):?>
+  <?php elseif ($status == 'test_not_validated'):?>
+    <div class="title gray">Example #<?=$example_id + 1;?></div>
+    <div class="block gray_border">
+
+  <?php elseif ($status == 'test_failed'):?>
     <div class="title red">Example #<?=$example_id + 1;?></div>
     <div class="block red_border">
 
@@ -33,7 +37,7 @@
        </tr>
 
        <tr>
-         <?php if ($status !== null):?>
+         <?php if ($status !== 'test_missing'):?>
            <td class="variable">$expected_output</td>
          <?php else:?>
            <td class="orange">$expected_output</td>
@@ -41,9 +45,9 @@
 
          <td class="operator">=</td>
 
-         <?php if ($status === true):?>
+         <?php if ($status == 'test_success' or $status == 'test_not_validated'):?>
            <td class="variable">$test_output</td>
-         <?php elseif ($status === false):?>
+         <?php elseif ($status == 'test_failed'):?>
            <td><?=$this->_output->display_var_value($validation['expected_result']);?></td>
          <?php else:?>
            <td>MISSING</td>
@@ -51,9 +55,11 @@
        </tr>
 
        <tr>
-         <?php if ($status === true):?>
+         <?php if ($status == 'test_success'):?>
            <td class="green">$test_output</td>
-         <?php elseif ($status === false):?>
+         <?php elseif ($status == 'test_not_validated'):?>
+           <td class="gray">$test_output</td>
+         <?php elseif ($status == 'test_failed'):?>
            <td class="red">$test_output</td>
          <?php else:?>
            <td class="variable">$test_output</td>

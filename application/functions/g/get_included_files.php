@@ -11,5 +11,5 @@ class get_included_files extends function_core
 {
     public $synopsis = 'array get_included_files ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

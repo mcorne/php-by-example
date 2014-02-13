@@ -773,11 +773,6 @@ posix_uname
 
 --
 
-preg_grep
-preg_last_error
-preg_match
-preg_quote
-preg_replace
 preg_replace_callback
 preg_split
 print_r

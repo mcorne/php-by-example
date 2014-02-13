@@ -13,5 +13,5 @@ class get_extension_funcs extends function_core
 
     public $synopsis = 'array get_extension_funcs ( string $module_name )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

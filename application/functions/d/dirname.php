@@ -13,5 +13,5 @@ class dirname extends function_core
 
     public $synopsis = 'string dirname ( string $path )';
 
-    public $test_always_valid = [1, 3, 4, 6];
+    public $test_not_validated = [1, 3, 4, 6];
 }

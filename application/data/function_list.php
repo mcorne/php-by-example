@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-11T18:57:32+00:00
+// generated automatically 2014-02-13T20:52:37+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -365,7 +365,13 @@ return array (
   'pos' => 'pos',
   'pow' => 'pow',
   'preg_filter' => 'preg_filter',
+  'preg_grep' => 'preg_grep',
+  'preg_last_error' => 'preg_last_error',
+  'preg_match' => 'preg_match',
   'preg_match_all' => 'preg_match_all',
+  'preg_quote' => 'preg_quote',
+  'preg_replace' => 'preg_replace',
+  'preg_replace_callback' => 'preg_replace_callback',
   'prev' => 'prev',
   'rad2deg' => 'rad2deg',
   'rand' => 'rand',

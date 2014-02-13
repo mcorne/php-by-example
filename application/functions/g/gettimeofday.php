@@ -16,5 +16,5 @@ class gettimeofday extends function_core
 
     public $synopsis = 'mixed gettimeofday ([ bool $return_float = false ] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

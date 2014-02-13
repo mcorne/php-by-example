@@ -13,5 +13,5 @@ class gethostbyaddr extends function_core
 
     public $synopsis = 'string gethostbyaddr ( string $ip_address )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

@@ -21,5 +21,15 @@ class setlocale extends function_core
     public $synopsis       = 'string setlocale ( int $category , string $locale [, string $... ] )';
     public $synopsis_fixed = 'string setlocale ( int $category , string $locale , string $locale1 , string $locale2, string $locale3 [, string $... ] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
+
+    function post_exec_function()
+    {
+        setlocale(LC_ALL, $this->local);
+    }
+
+    function pre_exec_function()
+    {
+        $this->local = setlocale(LC_ALL, 0);
+    }
 }

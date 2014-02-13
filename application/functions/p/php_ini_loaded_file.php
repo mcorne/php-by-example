@@ -11,5 +11,5 @@ class php_ini_loaded_file extends function_core
 {
     public $synopsis = 'string php_ini_loaded_file ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

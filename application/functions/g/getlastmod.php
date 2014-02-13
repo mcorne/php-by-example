@@ -11,5 +11,5 @@ class getlastmod extends function_core
 {
     public $synopsis = 'int getlastmod ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

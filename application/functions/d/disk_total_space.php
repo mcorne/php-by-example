@@ -13,5 +13,5 @@ class disk_total_space extends function_core
 
     public $synopsis = 'float disk_total_space ( string $directory )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

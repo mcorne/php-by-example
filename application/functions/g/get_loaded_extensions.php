@@ -11,5 +11,5 @@ class get_loaded_extensions extends function_core
 {
     public $synopsis = 'array get_loaded_extensions ([ bool $zend_extensions = false ] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

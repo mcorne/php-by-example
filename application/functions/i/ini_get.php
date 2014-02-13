@@ -13,5 +13,5 @@ class ini_get extends function_core
 
     public $synopsis = 'string ini_get ( string $varname )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

@@ -52,7 +52,7 @@ inject_function_call
 
     public $synopsis = 'string money_format ( string $format , float $number )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 
     function pre_exec_function()
     {

@@ -97,7 +97,7 @@ class function_test extends action
         // eg the synopsis, so the actual function synopsis will be fetched if needed
         // note that it would have been set by the first function that needed it, eg "acos",
         // and inherited as such when the test is run through test_all
-        unset($this->_synopsis, $this->test_always_valid, $this->test_not_to_run);
+        unset($this->_synopsis, $this->test_not_validated, $this->test_not_to_run);
 
         // forces the test to run in english so the returned messages are always validated in English
         $language_id = $this->_language->language_id;
@@ -125,13 +125,13 @@ class function_test extends action
 
     function validate_test_result($test_result, $expected_result, $example_id)
     {
-        if ($this->test_always_valid === true or in_array($example_id, (array) $this->test_always_valid)) {
+        if ($this->test_not_validated === true or in_array($example_id, (array) $this->test_not_validated)) {
             // the test is considered always valid for this function, eg random generators, list of functions or constants etc.
-            $test_validation['status'] = true;
+            $test_validation['status'] = 'test_not_validated';
 
         } else if ($test_result === $expected_result) {
             // both test and expected results are strickly the same
-            $test_validation['status'] = true;
+            $test_validation['status'] = 'test_success';
 
         } else  {
             $test_value = current($test_result['result']);
@@ -144,16 +144,16 @@ class function_test extends action
                 // the test value is a float and the expected value is an integer or a float, they are equal with a precision of 5 digits
                 // note that an expected value being store as eg "123" is interpreted as an integer by PHP
                 // note that float numbers might not be strickly equal due to floating precision limitation
-                $test_validation['status'] = true;
+                $test_validation['status'] = 'test_success';
 
             } else if (is_object($test_value) and is_object($expected_value) and
                        $this->object_export($test_value) == $this->object_export($expected_value))
             {
                 // both test and expected values share the same class and properties
-                $test_validation['status'] = true;
+                $test_validation['status'] = 'test_success';
 
             } else {
-                $test_validation['status'] = false;
+                $test_validation['status'] = 'test_failed';
                 $test_validation['expected_result'] = $expected_result;
             }
         }
@@ -169,7 +169,7 @@ class function_test extends action
             $test_validation = ['test_result' => $test_result];
 
             if (! isset($expected_results[$example_id])){
-                $test_validation['status'] = null;
+                $test_validation['status'] = 'test_missing';
 
             } else {
                 $expected_result = $expected_results[$example_id];

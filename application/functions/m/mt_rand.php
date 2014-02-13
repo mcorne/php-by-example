@@ -18,5 +18,5 @@ class mt_rand extends function_core
     public $synopsis       = 'int mt_rand ( int $min , int $max )';
     public $synopsis_fixed = 'int mt_rand ( [ int $min [, int $max ]] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

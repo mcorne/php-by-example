@@ -11,5 +11,5 @@ class php_sapi_name extends function_core
 {
     public $synopsis = 'string php_sapi_name ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

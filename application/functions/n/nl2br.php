@@ -17,5 +17,5 @@ class nl2br extends function_core
 
     public $synopsis = 'string nl2br ( string $string [, bool $is_xhtml = true ] )';
 
-    public $test_always_valid = [1, 2];
+    public $test_not_validated = [1, 2];
 }

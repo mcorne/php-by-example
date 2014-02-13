@@ -11,5 +11,5 @@ class php_logo_guid extends function_core
 {
     public $synopsis = 'string php_logo_guid ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

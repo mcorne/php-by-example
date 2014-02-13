@@ -11,5 +11,5 @@ class mb_list_encodings extends function_core
 {
     public $synopsis = 'array mb_list_encodings ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

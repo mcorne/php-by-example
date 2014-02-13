@@ -11,5 +11,5 @@ class php_uname extends function_core
 {
     public $synopsis = 'string php_uname ([ string $mode = &quot;a&quot; ] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

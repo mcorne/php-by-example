@@ -13,5 +13,5 @@ class escapeshellarg extends function_core
 
     public $synopsis = 'string escapeshellarg ( string $arg )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

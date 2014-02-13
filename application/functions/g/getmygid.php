@@ -11,5 +11,5 @@ class getmygid extends function_core
 {
     public $synopsis = 'int getmygid ( void )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

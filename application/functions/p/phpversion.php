@@ -15,5 +15,5 @@ class phpversion extends function_core
 
     public $synopsis = 'string phpversion ([ string $extension ] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

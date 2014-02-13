@@ -13,5 +13,5 @@ class microtime extends function_core
 
     public $synopsis = 'mixed microtime ([ bool $get_as_float = false ] )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }

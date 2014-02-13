@@ -13,5 +13,5 @@ class getenv extends function_core
 
     public $synopsis = 'string getenv ( string $varname )';
 
-    public $test_always_valid = true;
+    public $test_not_validated = true;
 }
