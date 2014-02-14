@@ -38,9 +38,9 @@
     </tr>
 
     <tr>
-      <td class="gray">Functions with no validated test<td>
-      <td class="gray"><?=count($this->test_results['functions_with_no_validated_test']);?><td>
-      <td class="gray">(<?=($this->test_counts['functions_with_no_validated_test']);?> tests)<td>
+      <td class="gray">Functions with unvalidated tests<td>
+      <td class="gray"><?=count($this->test_results['functions_with_unvalidated_tests']);?><td>
+      <td class="gray">(<?=($this->test_counts['functions_with_unvalidated_tests']);?> tests)<td>
     </tr>
 
     <tr>
@@ -68,8 +68,8 @@
 <?php $this->test_results['functions_with_obsolete_tests'] and
       $this->_output->display_function_list($this->test_results['functions_with_obsolete_tests'], 'Functions with obsolete tests', 'orange');?>
 
-<?php $this->test_results['functions_with_no_validated_test'] and
-      $this->_output->display_function_list($this->test_results['functions_with_no_validated_test'], 'Functions with no validated test', 'gray');?>
+<?php $this->test_results['functions_with_unvalidated_tests'] and
+      $this->_output->display_function_list($this->test_results['functions_with_unvalidated_tests'], 'Functions with unvalidated tests', 'gray');?>
 
 <?php $this->test_results['functions_not_tested'] and
       $this->_output->display_function_list($this->test_results['functions_not_tested'], 'Functions not tested', 'gray');?>

@@ -137,29 +137,26 @@ class %s extends function_core
     function export_example($example)
     {
         $example_values = [];
-        $has_array_value = 0;
+        $has_array_value = false;
 
         foreach ($example as $example_value) {
-            $text = $this->_converter->convert_value_to_text($example_value, false, true);
+            $text = $this->_converter->convert_value_to_text($example_value, false, true, false, '    ');
 
             if (is_array($example_value)) {
                 // this example has multiple arg values (array of values), formats the example
                 // left justified the array lines
-                $text = str_replace("\n", "\n              ", $text);
-                $text = preg_replace('~  \]$~', ']', $text);
-                // encloses the array between line breaks
-                $text = "\n            $text\n        ";
-                $has_array_value++;
+                $text = str_replace("\n", "\n            ", $text);
+                $has_array_value = true;
             }
 
             $example_values[] = $text;
         }
 
-        $example_values = implode(', ', $example_values);
+        $example_values = implode(",\n            ", $example_values);
 
         if (count($example) != 1 or $has_array_value) {
             // there is more than one example or at least one example has multiple arg values
-            $example_values = "[$example_values]";
+            $example_values = "[\n            $example_values\n        ]";
         }
 
         return $example_values;
@@ -173,7 +170,7 @@ class %s extends function_core
             $example_values = $this->export_example($example);
             $examples_values[] = $example_values;
 
-            if (! $has_multi_value_example and $example_values[0] == '[') {
+            if ($example_values[0] == '[') {
                 $has_multi_value_example = true;
             }
         }

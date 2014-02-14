@@ -16,13 +16,13 @@ require_once 'object.php';
 
 class converter extends object
 {
-    function convert_array_to_text($values, $no_linebreak = false, $force_quotes = false, $no_string_equivalent = false, $level = 0)
+    function convert_array_to_text($values, $no_linebreak = false, $force_quotes = false, $no_string_equivalent = false, $indentation = '  ', $level = 0)
     {
         $level++;
 
         foreach ($values as $key => &$value) {
             if (is_array($value)) {
-                $value = $this->convert_array_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent, $level);
+                $value = $this->convert_array_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent, $indentation, $level);
             } else {
                 $value = $this->convert_value_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent);
             }
@@ -39,8 +39,8 @@ class converter extends object
             $text = '[]';
 
         } else {
-            $array_leading_spaces = str_repeat('  ', $level - 1);
-            $scalar_leading_spaces = str_repeat('  ', $level);
+            $array_leading_spaces = str_repeat($indentation, $level - 1);
+            $scalar_leading_spaces = str_repeat($indentation, $level);
             $text =  implode(",\n$scalar_leading_spaces", $values);
             $text =  "[\n$scalar_leading_spaces$text,\n$array_leading_spaces]";
         }
@@ -70,7 +70,11 @@ class converter extends object
 
     function convert_string_to_text($value, $no_linebreak, $force_quotes = false, $no_string_equivalent = false)
     {
-        if ($this->_params->is_param_var($value) or $this->is_constant($value)) {
+        if (preg_match('~^(null|false|true)$~i', $value)) {
+            // this is a string representation of a boolean or null
+            $text = $no_string_equivalent ? "'$value'" : $value;
+
+        } else if ($this->_params->is_param_var($value) or $this->is_constant($value)) {
             // this is a var, eg '$var', or a constant name, eg 'SORT_ASC'
             $text = $force_quotes ? "'$value'" : $value;
 
@@ -108,13 +112,13 @@ class converter extends object
         return $text;
     }
 
-    function convert_value_to_text($value, $no_linebreak = false, $force_quotes = false, $no_string_equivalent = false)
+    function convert_value_to_text($value, $no_linebreak = false, $force_quotes = false, $no_string_equivalent = false, $indentation = '  ')
     {
         $type = gettype($value);
 
         switch($type) {
             case 'array':
-                $text = $this->convert_array_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent);
+                $text = $this->convert_array_to_text($value, $no_linebreak, $force_quotes, $no_string_equivalent, $indentation);
                 break;
 
             case 'boolean':
@@ -150,11 +154,6 @@ class converter extends object
         if (count($constants) > 1) {
             // this is a list of constants separated by "|", verifies they are all defined constants
             $is_constant = $this->is_constants($constants);
-
-        } else if (preg_match('~(null|false|true)~i', $value)) {
-            // this is a string representation of a boolean or null, this is not a constant
-            // note that a string representation of a boolean or null would be considered as "defined" otherwise
-            $is_constant = false;
 
         } else if (defined($value)) {
             $is_constant = true;

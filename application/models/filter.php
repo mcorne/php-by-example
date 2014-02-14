@@ -19,6 +19,18 @@ class filter extends object
 {
     const DEFAULT_FILE_NAME = 'tempname';
 
+    function filter_arg_value($arg_name)
+    {
+        if ($this->_params->param_exists($arg_name)) {
+            $array = $this->_params->get_param($arg_name);
+
+        } else {
+            $array = null;
+        }
+
+        return $array;
+    }
+
     function filter_callback($arg_name)
     {
         if (! $this->_params->param_exists($arg_name)) {
@@ -39,12 +51,14 @@ class filter extends object
             '$even'               => function($var)                    { return(!($var & 1)); },
             '$key_compare_func'   => function($a, $b)                  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
             '$map_Spanish'        => function ($n, $m)                 { return(array($n => $m)); },
+            '$next_year'          => function ($matches)               { return $matches[1] . ($matches[2] + 1); },
             '$odd'                => function($var)                    { return($var & 1); },
             '$rmul'               => function ($v, $w)                 { $v *= $w; return $v; },
             '$rsum'               => function ($v, $w)                 { $v += $w; return $v; },
             '$show_Spanish'       => function ($n, $m)                 { return("The number $n is called $m in Spanish"); },
             '$test_alter'         => function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; },
             '$test_print'         => function (&$item, $key)           { $item = "$key holds $item\n"; },
+            '$to_lower'           => function ($matches)               { return strtolower($matches[0]); },
             '$value_compare_func' => function($a, $b)                  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
         ];
 
@@ -164,18 +178,6 @@ class filter extends object
         }
 
         return $count;
-    }
-
-    function filter_arg_value($arg_name)
-    {
-        if ($this->_params->param_exists($arg_name)) {
-            $array = $this->_params->get_param($arg_name);
-
-        } else {
-            $array = null;
-        }
-
-        return $array;
     }
 
     function is_allowed_arg_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)

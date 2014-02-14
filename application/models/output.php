@@ -51,7 +51,7 @@ class output extends object
         // forces quotes around a constant for the "constant" function (this is a special case)
         $force_quotes = $this->_synopsis->function_name == 'constant';
 
-        $value = $this->_converter->convert_value_to_text($value, true, $force_quotes);
+        $value = $this->_converter->convert_value_to_text($value, true, $force_quotes, true);
 
         if (is_numeric($key)) {
             // this is a function argument, appends the arg separator

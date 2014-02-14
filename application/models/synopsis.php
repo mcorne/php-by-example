@@ -158,7 +158,7 @@ class synopsis extends object
     function is_reference_arg($arg_name)
     {
         // checks if the arg is prefixed with "&"
-        $is_reference_arg = preg_match("~(array|float|int|string) +&\\$$arg_name~", $this->synopsis_fixed);
+        $is_reference_arg = preg_match("~(array|float|int|mixed|string) +&\\$$arg_name~", $this->synopsis_fixed);
 
         return $is_reference_arg;
     }
