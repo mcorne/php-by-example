@@ -32,6 +32,19 @@ class function_test_all extends action
         return $has_test_success ? 'test_success' : 'test_not_validated';
     }
 
+    function count_failed_tests($test_validations)
+    {
+        $count = 0;
+
+        foreach ($test_validations as $test_validation) {
+            if ($test_validation['status'] == 'test_failed') {
+                $count++;
+            }
+        }
+
+        return $count;
+    }
+
     function run()
     {
         $function_list = $this->_function_list->function_list;
@@ -40,46 +53,56 @@ class function_test_all extends action
         $functions_test_results = array_map([$this->_function_test, 'process'], $function_basenames);
         $functions_test_results = array_combine($function_basenames, $functions_test_results);
 
-        list($this->test_results, $this->test_counts) = $this->summarize_test_results($functions_test_results, $function_list);
+        list($this->functions, $this->totals, $this->test_count_by_function, $this->test_failed_counts) =
+            $this->summarize_test_results($functions_test_results, $function_list);
 
         parent::run();
     }
 
     function summarize_test_results($functions_test_results, $function_list)
     {
-        $test_counts['functions_not_available'] = 0;
-        $test_counts['functions_with_unvalidated_tests'] = 0;
+        $test_count_by_function = [];
+        $test_failed_counts = [];
 
         foreach ($functions_test_results as $function_basename => $function_test_results) {
             list($test_validations , $obsolete_expected_results, $is_function_available) = $function_test_results;
             $function_name = $function_list[$function_basename];
             $status = $this->consolidate_test_validations($test_validations);
+            $test_count = count($test_validations);
+            isset($totals[$status]) or $totals[$status] = 0;
 
             if ($is_function_available !== true) {
-                $test_results['functions_not_available'][$function_basename] = $function_name;
+                $functions['not_available'][$function_basename] = $function_name;
 
             } else if ($status == 'test_failed') {
-                $test_results['functions_with_failed_tests'][$function_basename] = $function_name;
+                $functions['test_failed'][$function_basename] = $function_name;
+                $totals['test_failed'] += $test_count;
+                $test_failed_counts[$function_basename] = $this->count_failed_tests($test_validations);
 
             } else if ($status == 'test_missing') {
-                $test_results['functions_with_missing_tests'][$function_basename] = $function_name;
+                $functions['test_missing'][$function_basename] = $function_name;
 
             } else if ($obsolete_expected_results) {
-                $test_results['functions_with_obsolete_tests'][$function_basename] = $function_name;
+                $functions['test_obsolete'][$function_basename] = $function_name;
 
             } else if (! $test_validations) {
-                $test_results['functions_not_tested'][$function_basename] = $function_name;
+                $functions['not_tested'][$function_basename] = $function_name;
 
             } else if ($status == 'test_success') {
-                $test_results['functions_tested_succesfully'][$function_basename] = $function_name;
-                $test_counts['functions_tested_succesfully'] += count($test_validations);
+                $functions['test_success'][$function_basename] = $function_name;
+                $totals['test_success'] += $test_count;
+
+            } else if ($status == 'test_not_validated') {
+                $functions['test_not_validated'][$function_basename] = $function_name;
+                $totals['test_not_validated'] += $test_count;
 
             } else {
-                $test_results['functions_with_unvalidated_tests'][$function_basename] = $function_name;
-                $test_counts['functions_with_unvalidated_tests'] += count($test_validations);
+                throw new Exception('unexpected test status');
             }
+
+            $test_count_by_function[$function_basename] = $test_count;
         }
 
-        return [$test_results, $test_counts];
+        return [$functions, $totals, $test_count_by_function, $test_failed_counts];
     }
 }

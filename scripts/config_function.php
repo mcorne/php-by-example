@@ -21,7 +21,8 @@ try {
     $function_configurator = new function_configurator(['application_path' => $application_path]);
     $option = isset($argv[1]) ? $argv[1] : null;
     $functions = isset($argv[2]) ? $argv[2] : null;
-    $configs = $function_configurator->make_functions_configs($option, $functions);
+    $synopsis_fixed = isset($argv[3]) ? $argv[3] : null;
+    $configs = $function_configurator->make_functions_configs($option, $functions, $synopsis_fixed);
     echo $function_configurator->display_configs($configs);
 
 } catch (Exception $e) {

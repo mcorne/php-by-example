@@ -13,9 +13,23 @@
 <div class="block <?=$color;?>_border">
   <?php foreach($functions as $function_basename => $function_name):?>
 
-    <?php if ($function_name != current($functions)):?>,<?php endif;?>
+    <span class="nowrap">
 
-    <a href="<?=$this->display_url('test', $function_basename);?>"><?=$function_name;?></a>
+      <a href="<?=$this->display_url('test', $function_basename);?>"><?=$function_name;?></a>
+
+      <?php if (! empty($test_count_by_function[$function_basename])):?>
+
+        <?php if (isset($test_subset_count_by_function[$function_basename])):?>
+          <span class="gray">(<?=($test_subset_count_by_function[$function_basename]);?>/<?=($test_count_by_function[$function_basename]);?>)</span>
+        <?php else:?>
+          <span class="gray">(<?=($test_count_by_function[$function_basename]);?>)</span>
+        <?php endif;?>
+
+      <?php endif;?>
+
+      <?php if ($function_name != end($functions)):?>,<?php endif;?>
+
+    </span>
 
   <?php endforeach;?>
 </div>

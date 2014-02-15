@@ -96,7 +96,7 @@ class output extends object
         return $html;
     }
 
-    function display_function_list($functions, $title, $color)
+    function display_function_list($functions, $title, $color, $test_count_by_function = null, $test_subset_count_by_function = null)
     {
         require __DIR__ . '/../views/function_list.phtml';
     }

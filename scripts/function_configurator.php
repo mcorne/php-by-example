@@ -26,11 +26,11 @@ class function_configurator extends object
     function assign_values_to_args($function_call, $args, $function_name)
     {
         try {
-            $params = array();
+            $params = [];
             $arg_names = array_keys($args);
 
             if ($function_name == 'array') {
-                // this is array() pseudo function, encloses the function call into an array
+                // this is the array() pseudo function, encloses the function call into an array
                 $function_call = "array($function_call)";
             }
 
@@ -94,7 +94,7 @@ class %3$s extends %2$s
         return $config;
     }
 
-    function create_function_config($function_name, $html, $synopsis)
+    function create_function_config($function_name, $html, $synopsis, $synopsis_fixed = null)
     {
         $format =
 '<?php
@@ -102,17 +102,17 @@ class %3$s extends %2$s
  * PHP By Example
  *
  * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright %s Michel Corne
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
 class %s extends function_core
 {
-    %spublic $synopsis = \'%s\';
+    %s%s
 }
 ';
 
-        $args = $this->parse_args($synopsis, $function_name);
+        $args = $this->parse_args($synopsis_fixed ?: $synopsis, $function_name);
 
         if ($examples = $this->parse_examples($html, $function_name, $args)) {
             $exported_examples = $this->export_examples($examples);
@@ -122,9 +122,33 @@ class %s extends function_core
             $examples_property = null;
         }
 
-        $config = sprintf($format, $function_name, $examples_property, $synopsis);
+        if ($synopsis_fixed) {
+            $synopsis_property = $this->create_synopsis_fixed_properties($synopsis, $synopsis_fixed);
+        } else {
+            $synopsis_property = $this->create_synopsis_property($synopsis);
+        }
+
+        $config = sprintf($format, date('Y'), $function_name, $examples_property, $synopsis_property);
 
         return $config;
+    }
+
+    function create_synopsis_fixed_properties($synopsis, $synopsis_fixed)
+    {
+        $format =
+'    public $synopsis       = \'%s\';
+        public $synopsis_fixed = \'%s\';';
+        $synopsis_properties = sprintf($format, $synopsis, $synopsis_fixed);
+
+        return $synopsis_properties;
+    }
+
+    function create_synopsis_property($synopsis)
+    {
+        $format = '    public $synopsis = \'%s\';';
+        $synopsis_property = sprintf($format, $synopsis);
+
+        return $synopsis_property;
     }
 
     function display_configs($configs)
@@ -251,7 +275,7 @@ class %s extends function_core
     {
         $help_message =
 '
-config_function <c|r> <function-name|function-list|function-pattern>
+config_function <c|r> <function-name|function-list|function-pattern> [synopsis-fixed]
 
 Usage:
 -c               Create the function config.
@@ -263,17 +287,21 @@ function-name    A function name, eg "abs"
 function-list    A comma separated list of functions, eg "sin,cos,tan"
 function-pattern A function pattern to match, eg "ctype_*"
 
+synopsis-fixed   The fixed sysnopsis,
+                 eg "string sprintf ( string $format , mixed $arg0 , mixed $arg1 [, mixed $... ] )"
+
 Examples:
 config_function -c abs
 config_function -r sort
 config_function -c sin,cos,tan
 config_function -c ctype_*
+config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixed $arg1 [, mixed $... ] )"
 ';
 
         return $help_message;
     }
 
-    function make_function_config($option, $function_name, $function_manual_pagename)
+    function make_function_config($option, $function_name, $function_manual_pagename, $synopsis_fixed = null)
     {
         $function_config_filename = $this->get_function_config_filename($function_name);
 
@@ -286,7 +314,7 @@ config_function -c ctype_*
         }
 
         if ($synopsis = $this->parse_synopsis($html)) {
-            $config = $this->create_function_config($function_name, $html, $synopsis);
+            $config = $this->create_function_config($function_name, $html, $synopsis, $synopsis_fixed);
 
         } else if ($original_function_name = $this->parse_function_alias($html)) {
             if (! $config = $this->create_function_alias_config($function_name, $original_function_name)) {
@@ -302,7 +330,7 @@ config_function -c ctype_*
         return $config;
     }
 
-    function make_functions_configs($option, $functions)
+    function make_functions_configs($option, $functions, $synopsis_fixed = null)
     {
         $option = ltrim($option, '-');
 
@@ -317,7 +345,7 @@ config_function -c ctype_*
         $function_manual_pagenames = $this->get_function_manual_pagenames($functions);
 
         foreach ($function_manual_pagenames as $function_name => $function_manual_pagename) {
-            $configs[] = $this->make_function_config($option, $function_name, $function_manual_pagename);
+            $configs[] = $this->make_function_config($option, $function_name, $function_manual_pagename, $synopsis_fixed);
         }
 
         return $configs;
@@ -326,8 +354,8 @@ config_function -c ctype_*
     function parse_args($synopsis, $function_name)
     {
         if ($function_name == 'array') {
-            // this is the pseudo function array(), forces the param to $array as it is used as such in the sort() like functions
-            $params = array('array' => '$array');
+            // this is the array() pseudo function, forces the param to $array as it is used as such in the sort() like functions
+            $params = ['array' => '$array'];
 
         } else if (preg_match_all('~&?\$(\w+)~', $synopsis, $matches)) {
             // the function has arguments, ex. $bar, &$baz
@@ -336,18 +364,18 @@ config_function -c ctype_*
 
         } else {
             // the function has no arguments
-            $params = array();
+            $params = [];
         }
 
         return $params;
     }
 
-    function parse_example($example, $function_name, $args)
+    function parse_example($example, $function_name, $args, &$vars_values)
     {
         $example = $this->strip_example($example, $function_name);
 
         if ($function_calls = $this->parse_function_calls($example, $function_name)) {
-            $vars_values = $this->parse_vars_values($example);
+            $vars_values = $this->parse_vars_values($example) + $vars_values;
             $function_calls = $this->replace_functions_vars_with_values($function_calls, $vars_values, $args, $function_name);
         }
 
@@ -361,10 +389,11 @@ config_function -c ctype_*
     	}
 
     	list(, $examples) = $matches;
-    	$function_calls = array();
+    	$function_calls = [];
+    	$vars_values = [];
 
     	foreach($examples as $example) {
-            $function_calls = array_merge($function_calls, $this->parse_example($example, $function_name, $args));
+            $function_calls = array_merge($function_calls, $this->parse_example($example, $function_name, $args, $vars_values));
     	}
 
     	return array_filter($function_calls);
@@ -383,11 +412,11 @@ config_function -c ctype_*
 
     function parse_function_calls($string, $function_name)
     {
-        $function_calls = array();
+        $function_calls = [];
 
         if (! preg_match_all("~((?:[{$this->chars_before_function}] ?)?$function_name\s*\(.+?)\)( ?[{$this->chars_after_function}])~s", $string, $matches)) {
             // no function calls, ex. array_diff($array1, $array2);
-            return array();
+            return [];
         }
 
         list(, $function_calls) = $matches;
@@ -428,7 +457,7 @@ config_function -c ctype_*
     function parse_vars_values($string)
     {
     	if ( ! preg_match_all('~(\$\w+)\s*=\s*(.+?);~s', $string, $matches)) {
-    		return array();
+    		return [];
     	}
 
     	list(, $names, $values) = $matches;
@@ -437,7 +466,7 @@ config_function -c ctype_*
     	return $vars_values;
     }
 
-    function replace_function_vars_with_values($function_call, &$vars_values)
+    function replace_function_vars_with_values($function_call, $vars_values)
     {
         if (preg_match_all('~\$\w+~s', $function_call, $matches)) {
             list($vars) = $matches;
@@ -445,7 +474,6 @@ config_function -c ctype_*
             foreach($vars as $var) {
                 if (isset($vars_values[$var])) {
                     $function_call = str_replace($var, $vars_values[$var], $function_call);
-                    // unset($vars_values[$var]); // the same var might used in one or more examples
                 } else {
                     $function_call = str_replace($var, '', $function_call);
                 }

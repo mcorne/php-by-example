@@ -930,10 +930,9 @@ spl_autoload_register
 spl_autoload_unregister
 spl_classes
 spl_object_hash
+
 --
 
-
-sprintf
 sql_regcase
 sscanf
 stat
