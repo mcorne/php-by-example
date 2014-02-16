@@ -128,6 +128,6 @@ class sprintf extends function_core
         ]
     ];
 
-        public $synopsis       = 'string sprintf ( string $format [, mixed $args [, mixed $... ]] )';
-        public $synopsis_fixed = 'string sprintf ( string $format , mixed $arg0 , mixed $arg1 , mixed $arg2 [, mixed $... ] )';
+    public $synopsis       = 'string sprintf ( string $format [, mixed $args [, mixed $... ]] )';
+    public $synopsis_fixed = 'string sprintf ( string $format , mixed $arg0 , mixed $arg1 , mixed $arg2 [, mixed $... ] )';
 }

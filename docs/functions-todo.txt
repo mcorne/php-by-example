@@ -931,23 +931,10 @@ spl_autoload_unregister
 spl_classes
 spl_object_hash
 
---
-
-sql_regcase
-sscanf
 stat
-str_getcsv
-str_ireplace
-str_pad
-str_repeat
-str_replace
-str_rot13
-str_shuffle
-str_split
-strchr
-strcmp
+
 strcoll
-strcspn
+
 stream_bucket_append
 stream_bucket_make_writeable
 stream_bucket_new
@@ -992,6 +979,9 @@ stream_supports_lock
 stream_wrapper_register
 stream_wrapper_restore
 stream_wrapper_unregister
+
+--
+
 strip_tags
 stripcslashes
 stripos

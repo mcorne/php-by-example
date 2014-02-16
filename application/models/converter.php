@@ -85,11 +85,12 @@ class converter extends object
             }
 
             if (strpos($value, '$') !== false or                       // there are "$" in the string (1) or
-                preg_match('~^([^a-z0-9\ ]).+\1[a-z]*$~is', $value) or // this is a regex pattern (2), encloses the string with single quotes or
+                preg_match('~^([^a-z0-9\ %]).+\1[a-z]*$~is', $value) or // this is a regex pattern (2), encloses the string with single quotes or
                 preg_match('~\\\\[1-9]\d?~', $value))                  // this is a regex replacement eg "\1"
             {
                 // (1) note that parser::get_next_token() would not return a T_STRING if it was enclosed with double quotes
                 // (2) note that backslashes would be difficult to handle properly to create a pattern between double quotes with the expected behaviour
+                // note also that "%" is excluded from the list of delimiters although a valid one so sscanf() formats are not mistaken for regex patterns
                 // see http://fr2.php.net/manual/en/regexp.reference.delimiters.php on regex pattern delimiters
                 // note that line breaks, tabs etc. will not be replaced by their string equivalent which is acceptable
                 $text = "'" . str_replace("'", "\'", $value) . "'";

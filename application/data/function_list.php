@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-14T20:55:18+00:00
+// generated automatically 2014-02-16T10:06:30+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -401,8 +401,19 @@ return array (
   'sprintf' => 'sprintf',
   'sqrt' => 'sqrt',
   'srand' => 'srand',
+  'sscanf' => 'sscanf',
+  'str_getcsv' => 'str_getcsv',
+  'str_ireplace' => 'str_ireplace',
+  'str_pad' => 'str_pad',
+  'str_repeat' => 'str_repeat',
+  'str_replace' => 'str_replace',
+  'str_rot13' => 'str_rot13',
+  'str_shuffle' => 'str_shuffle',
+  'str_split' => 'str_split',
   'str_word_count' => 'str_word_count',
   'strcasecmp' => 'strcasecmp',
+  'strcmp' => 'strcmp',
+  'strcspn' => 'strcspn',
   'strftime' => 'strftime',
   'tan' => 'tan',
   'tanh' => 'tanh',

@@ -136,8 +136,8 @@ class %s extends function_core
     function create_synopsis_fixed_properties($synopsis, $synopsis_fixed)
     {
         $format =
-'    public $synopsis       = \'%s\';
-        public $synopsis_fixed = \'%s\';';
+'public $synopsis       = \'%s\';
+    public $synopsis_fixed = \'%s\';';
         $synopsis_properties = sprintf($format, $synopsis, $synopsis_fixed);
 
         return $synopsis_properties;
@@ -145,7 +145,7 @@ class %s extends function_core
 
     function create_synopsis_property($synopsis)
     {
-        $format = '    public $synopsis = \'%s\';';
+        $format = 'public $synopsis = \'%s\';';
         $synopsis_property = sprintf($format, $synopsis);
 
         return $synopsis_property;
