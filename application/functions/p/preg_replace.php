@@ -10,7 +10,7 @@
 class preg_replace extends function_core
 {
     public $examples = [
-        ['/(\w+) (\d+), (\d+)/i', '${1}1,$3', "April 15, 2003"],
+        ['_SINGLE_QUOTE_/(\w+) (\d+), (\d+)/i_SINGLE_QUOTE_', '${1}1,$3', "April 15, 2003"],
         [
             ['/quick/', '/brown/', '/fox/'],
             ['bear', 'black', 'slow'],
@@ -23,20 +23,20 @@ class preg_replace extends function_core
         ],
         [
             [
-                0 => '/(19|20)(\d{2})-(\d{1,2})-(\d{1,2})/',
-                1 => '/^\s*{(\w+)}\s*=/',
+                0 => '_SINGLE_QUOTE_/(19|20)(\d{2})-(\d{1,2})-(\d{1,2})/_SINGLE_QUOTE_',
+                1 => '_SINGLE_QUOTE_/^\s*{(\w+)}\s*=/_SINGLE_QUOTE_',
             ],
             [
-                0 => '\3/\4/\1\2',
-                1 => '$\1 =',
+                0 => '_SINGLE_QUOTE_\3/\4/\1\2_SINGLE_QUOTE_',
+                1 => '_SINGLE_QUOTE_$\1 =_SINGLE_QUOTE_',
             ],
             '{startDate} = 1999-5-27'
         ],
-        ['/\s\s+/', " ", "foo   o"],
+        ['_SINGLE_QUOTE_/\s\s+/_SINGLE_QUOTE_', " ", "foo   o"],
         [
             [
-                0 => '/\d/',
-                1 => '/\s/',
+                0 => '_SINGLE_QUOTE_/\d/_SINGLE_QUOTE_',
+                1 => '_SINGLE_QUOTE_/\s/_SINGLE_QUOTE_',
             ],
             "*",
             "xp 4 to",

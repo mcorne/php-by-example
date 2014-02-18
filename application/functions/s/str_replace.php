@@ -51,9 +51,9 @@ class str_replace extends function_core
         ],
         [
             [
-                0 => "\r\n",
-                1 => "\n",
-                2 => "\r",
+                0 => '_DOUBLE_QUOTES_\r\n_DOUBLE_QUOTES_',
+                1 => '_DOUBLE_QUOTES_\n_DOUBLE_QUOTES_',
+                2 => '_DOUBLE_QUOTES_\r_DOUBLE_QUOTES_',
             ],
             [
                 0 => "B",
@@ -62,7 +62,7 @@ class str_replace extends function_core
                 3 => "E",
                 4 => "F",
             ],
-            "Line 1\nLine 2\rLine 3\r\nLine 4\n"
+            '_DOUBLE_QUOTES_Line 1\nLine 2\rLine 3\r\nLine 4\n_DOUBLE_QUOTES_'
         ],
         [
             [

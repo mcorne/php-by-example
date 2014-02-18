@@ -9,7 +9,7 @@
 
 class convert_uudecode extends function_core
 {
-    public $examples = ["+22!L;W9E(%!(4\"$`\n`"];
+    public $examples = ['_DOUBLE_QUOTES_+22!L;W9E(%!(4\"$`\n`_DOUBLE_QUOTES_'];
 
     public $synopsis = 'string convert_uudecode ( string $data )';
 }

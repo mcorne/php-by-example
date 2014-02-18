@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-03T10:06:46+00:00
+// generated automatically 2014-02-18T18:44:43+00:00
 return array (
   0 => 
   array (
@@ -97,9 +97,9 @@ return array (
     'result' => 
     array (
       'mixed' => 
-      array (
-        'number' => '12345678901234567890',
-      ),
+      (object)(array(
+         'number' => '12345678901234567890',
+      )),
     ),
   ),
 );

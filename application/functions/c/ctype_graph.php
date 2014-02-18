@@ -9,7 +9,7 @@
 
 class ctype_graph extends function_core
 {
-    public $examples = ["asdf\n\r\t", 'arf12', 'LKA#@%.54'];
+    public $examples = ['_DOUBLE_QUOTES_asdf\n\r\t_DOUBLE_QUOTES_', 'arf12', 'LKA#@%.54'];
 
     public $synopsis = 'bool ctype_graph ( string $text )';
 }

@@ -10,9 +10,12 @@
 class nl2br extends function_core
 {
     public $examples = [
-        "foo isn't\n bar",
-        ["Welcome\r\nThis is my HTML document", false],
-        "This\r\nis\n\ra\nstring\r"
+        '_DOUBLE_QUOTES_foo isn\'t\n bar_DOUBLE_QUOTES_',
+        [
+            '_DOUBLE_QUOTES_Welcome\r\nThis is my HTML document_DOUBLE_QUOTES_',
+            false
+        ],
+        '_DOUBLE_QUOTES_This\r\nis\n\ra\nstring\r_DOUBLE_QUOTES_'
     ];
 
     public $synopsis = 'string nl2br ( string $string [, bool $is_xhtml = true ] )';

@@ -12,8 +12,8 @@ class htmlentities extends function_core
     public $examples = [
         "A 'quote' is <b>bold</b>",
         ["A 'quote' is <b>bold</b>", 'ENT_QUOTES'],
-        ["\x8F!!!", 'ENT_QUOTES', "UTF-8"],
-        ["\x8F!!!", 'ENT_QUOTES | ENT_IGNORE', "UTF-8"]
+        ['_DOUBLE_QUOTES_\x8F!!!_DOUBLE_QUOTES_', 'ENT_QUOTES', "UTF-8"],
+        ['_DOUBLE_QUOTES_\x8F!!!_DOUBLE_QUOTES_', 'ENT_QUOTES | ENT_IGNORE', "UTF-8"]
     ];
 
     public $synopsis = 'string htmlentities ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = &#039;UTF-8&#039; [, bool $double_encode = true ]]] )';

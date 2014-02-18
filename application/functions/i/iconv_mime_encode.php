@@ -10,21 +10,23 @@
 class iconv_mime_encode extends function_core
 {
     public $examples = [
-        ["Subject", "Prüfung Prüfung",
+        [
+            "Subject", "Prüfung Prüfung",
             [
                 'input-charset' => 'UTF-8',
                 'output-charset' => 'UTF-8',
                 'line-length' => 76,
-                'line-break-chars' => "\n",
+                'line-break-chars' => '_DOUBLE_QUOTES_\n_DOUBLE_QUOTES_',
                 'scheme' => 'Q',
             ]
         ],
-        ["Subject", "Prüfung Prüfung",
+        [
+            "Subject", "Prüfung Prüfung",
             [
                 'input-charset' => 'UTF-8',
                 'output-charset' => 'ISO-8859-1',
                 'line-length' => 76,
-                'line-break-chars' => "\n",
+                'line-break-chars' => '_DOUBLE_QUOTES_\n_DOUBLE_QUOTES_',
                 'scheme' => 'B',
             ]
         ]

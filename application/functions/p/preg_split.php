@@ -10,7 +10,7 @@
 class preg_split extends function_core
 {
     public $examples = [
-        ['/[\s,]+/', "hypertext language, programming"],
+        ['_SINGLE_QUOTE_/[\s,]+/_SINGLE_QUOTE_', "hypertext language, programming"],
         ['//', "string", -1, 'PREG_SPLIT_NO_EMPTY'],
         ['/ /', "hypertext language programming", -1, 'PREG_SPLIT_OFFSET_CAPTURE'],
     ];

@@ -9,7 +9,7 @@
 
 class quotemeta extends function_core
 {
-    public $examples = ['. \ + * ? [ ^ ] ( $ )', 'abcd123'];
+    public $examples = ['_SINGLE_QUOTE_. \ + * ? [ ^ ] ( $ )_SINGLE_QUOTE_', 'abcd123'];
 
     public $synopsis = 'string quotemeta ( string $str )';
 }

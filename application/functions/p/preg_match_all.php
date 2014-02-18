@@ -29,18 +29,18 @@ FOO;
             'PREG_SET_ORDER',
         ],
         [
-            '/\(?  (\d{3})?  \)?  (?(1)  [\-\s] ) \d{3}-\d{4}/x',
+            '_SINGLE_QUOTE_/\(?  (\d{3})?  \)?  (?(1)  [\-\s] ) \d{3}-\d{4}/x_SINGLE_QUOTE_',
             "Call 555-1212 or 1-800-555-1212",
             '$phones',
         ],
         [
-            '/(<([\w]+)[^>]*>)(.*?)(<\/\2>)/',
+            '_SINGLE_QUOTE_/(<([\w]+)[^>]*>)(.*?)(<\/\2>)/_SINGLE_QUOTE_',
             "<b>bold text</b><a href=howdy.html>click me</a>",
             '$matches',
             'PREG_SET_ORDER',
         ],
         [
-            '/(?P<name>\w+): (?P<digit>\d+)/',
+            '_SINGLE_QUOTE_/(?P<name>\w+): (?P<digit>\d+)/_SINGLE_QUOTE_',
             self::STR,
             '$matches',
         ],

@@ -19,8 +19,8 @@ class sscanf extends function_core
             '%s %d %d'
         ],
         [
-            "24\tLewis Carroll",
-            "%d\t%s %s",
+            '_DOUBLE_QUOTES_24\tLewis Carroll_DOUBLE_QUOTES_',
+            '_DOUBLE_QUOTES_%d\t%s %s_DOUBLE_QUOTES_',
             '$id',
             '$first',
             '$last',

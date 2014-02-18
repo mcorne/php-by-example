@@ -9,7 +9,7 @@
 
 class ord extends function_core
 {
-    public $examples = ["\n"];
+    public $examples = ['_DOUBLE_QUOTES_\n_DOUBLE_QUOTES_'];
 
     public $synopsis = 'int ord ( string $string )';
 }

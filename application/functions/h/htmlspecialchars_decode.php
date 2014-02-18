@@ -9,7 +9,13 @@
 
 class htmlspecialchars_decode extends function_core
 {
-    public $examples = ["<p>this -&gt; &quot;</p>\n"];
+    public $examples = [
+        "<p>this -&gt; &quot;</p>",
+        [
+            "<p>this -&gt; &quot;</p>",
+            'ENT_NOQUOTES'
+        ]
+    ];
 
     public $synopsis = 'string htmlspecialchars_decode ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 ] )';
 }

@@ -10,7 +10,7 @@
 class preg_grep extends function_core
 {public $examples = [
         [
-            '/^(\d+)?\.\d+$/',
+            '_SINGLE_QUOTE_/^(\d+)?\.\d+$/_SINGLE_QUOTE_',
             [
                 0 => 123,
                 1 => 0.456,

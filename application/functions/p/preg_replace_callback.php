@@ -17,12 +17,12 @@ inject_function_call
 
     public $examples = [
         [
-            '|<p>\s*\w|',
+            '_SINGLE_QUOTE_|<p>\s*\w|_SINGLE_QUOTE_',
             '$to_lower',
             "<p>There is an elephant</p>",
         ],
         [
-            '|(\d{2}/\d{2}/)(\d{4})|',
+            '_SINGLE_QUOTE_|(\d{2}/\d{2}/)(\d{4})|_SINGLE_QUOTE_',
             '$next_year',
             "April fools day is 04/01/2002\nLast christmas was 12/24/2001\n",
         ]

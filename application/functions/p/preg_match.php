@@ -13,11 +13,11 @@ class preg_match extends function_core
         ['/^def/', "abcdef", '$matches', 'PREG_OFFSET_CAPTURE', 3],
         ['/^def/', "def", '$matches', 'PREG_OFFSET_CAPTURE'],
         ['/php/i', "PHP is the web scripting language of choice.", '$matches'],
-        ['/\bweb\b/i', "PHP is the web scripting language of choice.", '$matches'],
-        ['/\bweb\b/i', "PHP is the website scripting language of choice.", '$matches'],
+        ['_SINGLE_QUOTE_/\bweb\b/i_SINGLE_QUOTE_', "PHP is the web scripting language of choice.", '$matches'],
+        ['_SINGLE_QUOTE_/\bweb\b/i_SINGLE_QUOTE_', "PHP is the website scripting language of choice.", '$matches'],
         ['@^(?:http://)?([^/]+)@i', "http://www.php.net/index.html", '$matches'],
-        ['/[^.]+\.[^.]+$/', "http://www.php.net", '$matches'],
-        ['/(?P<name>\w+): (?P<digit>\d+)/', "foobar: 2008", '$matches']
+        ['_SINGLE_QUOTE_/[^.]+\.[^.]+$/_SINGLE_QUOTE_', "http://www.php.net", '$matches'],
+        ['_SINGLE_QUOTE_/(?P<name>\w+): (?P<digit>\d+)/_SINGLE_QUOTE_', "foobar: 2008", '$matches']
     ];
 
     public $synopsis = 'int preg_match ( string $pattern , string $subject [, array &$matches [, int $flags = 0 [, int $offset = 0 ]]] )';

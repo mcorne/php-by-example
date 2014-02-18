@@ -84,18 +84,22 @@ class converter extends object
                 $value = str_replace(["\r\n", "\n", "\r"], ' ', $value);
             }
 
-            if (strpos($value, '$') !== false or                       // there are "$" in the string (1) or
-                preg_match('~^([^a-z0-9\ %]).+\1[a-z]*$~is', $value) or // this is a regex pattern (2), encloses the string with single quotes or
-                preg_match('~\\\\[1-9]\d?~', $value))                  // this is a regex replacement eg "\1"
-            {
-                // (1) note that parser::get_next_token() would not return a T_STRING if it was enclosed with double quotes
-                // (2) note that backslashes would be difficult to handle properly to create a pattern between double quotes with the expected behaviour
-                // note also that "%" is excluded from the list of delimiters although a valid one so sscanf() formats are not mistaken for regex patterns
+            if (strpos($value, '_DOUBLE_QUOTES_') === 0) {
+                // this is a value to display between double quotes
+                $text = str_replace('_DOUBLE_QUOTES_', '"', $value);
+
+            } else if (strpos($value, '_SINGLE_QUOTE_') === 0) {
+                // this is a value to display between double quotes
+                $text = str_replace('_SINGLE_QUOTE_', "'", $value);
+
+            } else if (strpos($value, '$') !== false) {
+                // there are "$" in the string, note that parser::get_next_token() would not return a T_STRING if it was enclosed with double quotes
                 // see http://fr2.php.net/manual/en/regexp.reference.delimiters.php on regex pattern delimiters
                 // note that line breaks, tabs etc. will not be replaced by their string equivalent which is acceptable
                 $text = "'" . str_replace("'", "\'", $value) . "'";
 
             } else {
+                // converts the string between double quotes by default
                 // see http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.double
                 // escapes backslashes and double quotes
                 $value = str_replace(['\\', '"'], ['\\\\', '\"'], $value);

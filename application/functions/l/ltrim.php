@@ -10,10 +10,19 @@
 class ltrim extends function_core
 {
     public $examples = [
-        "\t\tThese are a few words :) ...  ",
-        ["\t\tThese are a few words :) ...  ", " \t."],
-        ["Hello World", "Hdle"],
-        ["\tExample string\n", "\x00..\x1F"]
+        '_DOUBLE_QUOTES_\t\tThese are a few words :) ...  _DOUBLE_QUOTES_',
+        [
+            '_DOUBLE_QUOTES_\t\tThese are a few words :) ...  _DOUBLE_QUOTES_',
+            '_DOUBLE_QUOTES_ \t._DOUBLE_QUOTES_'
+        ],
+        [
+            '_DOUBLE_QUOTES_Hello World_DOUBLE_QUOTES_',
+            "Hdle"
+        ],
+        [
+            '_DOUBLE_QUOTES_\tExample string\n_DOUBLE_QUOTES_',
+            '_DOUBLE_QUOTES_\x00..\x1F_DOUBLE_QUOTES_'
+        ]
     ];
 
     public $synopsis = 'string ltrim ( string $str [, string $charlist ] )';

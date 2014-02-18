@@ -10,7 +10,7 @@
 class chunk_split extends function_core
 {
     public $examples = [
-        ['00000111112222233333', 5, "\n"]
+        ['00000111112222233333', 5, '_DOUBLE_QUOTES_\n_DOUBLE_QUOTES_']
     ];
 
     public $synopsis = 'string chunk_split ( string $body [, int $chunklen = 76 [, string $end = &quot;\r\n&quot; ]] )';

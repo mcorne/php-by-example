@@ -21,56 +21,70 @@ class json_encode extends function_core
         ],
         [
             [
-                '<foo>',"'bar'",
-                '"baz"','&blong&',
-                "\xc3\xa9"
+                '<foo>',
+                "'bar'",
+                '_SINGLE_QUOTE_"baz"_SINGLE_QUOTE_',
+                '&blong&',
+                '_DOUBLE_QUOTES_\xc3\xa9_DOUBLE_QUOTES_'
             ],
         ],
         [
             [
-                '<foo>',"'bar'",
-                '"baz"','&blong&',
-                "\xc3\xa9"
+                '<foo>',
+                "'bar'",
+                '_SINGLE_QUOTE_"baz"_SINGLE_QUOTE_',
+                '&blong&',
+                '_DOUBLE_QUOTES_\xc3\xa9_DOUBLE_QUOTES_'
             ],
             'JSON_HEX_TAG'
         ],
         [
             [
-                '<foo>',"'bar'",
-                '"baz"','&blong&',
-                "\xc3\xa9"
+                '<foo>',
+                "'bar'",
+                '_SINGLE_QUOTE_"baz"_SINGLE_QUOTE_',
+                '&blong&',
+                '_DOUBLE_QUOTES_\xc3\xa9_DOUBLE_QUOTES_'
             ],
             'JSON_HEX_APOS'
         ],
         [
             [
-                '<foo>',"'bar'",
-                '"baz"','&blong&',
-                "\xc3\xa9"
+                '<foo>',
+                "'bar'",
+                '_SINGLE_QUOTE_"baz"_SINGLE_QUOTE_',
+                '&blong&',
+                '_DOUBLE_QUOTES_\xc3\xa9_DOUBLE_QUOTES_'
             ],
             'JSON_HEX_QUOT'
         ],
         [
             [
-                '<foo>',"'bar'",
-                '"baz"','&blong&',
-                "\xc3\xa9"
+                '<foo>',
+                "'bar'",
+                '_SINGLE_QUOTE_"baz"_SINGLE_QUOTE_',
+                '&blong&',
+                '_DOUBLE_QUOTES_\xc3\xa9_DOUBLE_QUOTES_'
             ],
             'JSON_HEX_AMP'
         ],
         [
             [
-                '<foo>',"'bar'",
-                '"baz"','&blong&',
-                "\xc3\xa9"
+                '<foo>',
+                "'bar'",
+                '_SINGLE_QUOTE_"baz"_SINGLE_QUOTE_',
+                '&blong&',
+                '_DOUBLE_QUOTES_\xc3\xa9_DOUBLE_QUOTES_'
             ],
             'JSON_UNESCAPED_UNICODE'
         ],
         [
             [
-                '<foo>',"'bar'",
-                '"baz"','&blong&',
-                "\xc3\xa9"
+                '<foo>',
+                "'bar'",
+                '_SINGLE_QUOTE_"baz"_SINGLE_QUOTE_',
+                '&blong&',
+                '_DOUBLE_QUOTES_\xc3\xa9_DOUBLE_QUOTES_'
             ],
             'JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE'
         ],

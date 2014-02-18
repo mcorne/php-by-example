@@ -12,9 +12,9 @@ class str_getcsv extends function_core
     public $examples = [
         ['red,blue,yellow,green'],
         [
-            'red;blue;"dark orange";green',
+            '_SINGLE_QUOTE_red;blue;"dark orange";green_SINGLE_QUOTE_',
             ';',
-            '"'
+            '_SINGLE_QUOTE_"_SINGLE_QUOTE_'
         ]
     ];
 

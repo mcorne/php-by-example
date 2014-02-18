@@ -9,7 +9,7 @@
 
 class ctype_cntrl extends function_core
 {
-    public $examples = ["\n\r\t", 'arf12'];
+    public $examples = ['_DOUBLE_QUOTES_\n\r\t_DOUBLE_QUOTES_', 'arf12'];
 
     public $synopsis = 'bool ctype_cntrl ( string $text )';
 }

@@ -10,10 +10,10 @@
 class rtrim extends function_core
 {
     public $examples = [
-        "\t\tThese are a few words :) ...  ",
-        ["\t\tThese are a few words :) ...  ", " \t."],
+        '_DOUBLE_QUOTES_\t\tThese are a few words :) ...  _DOUBLE_QUOTES_',
+        ['_DOUBLE_QUOTES_\t\tThese are a few words :) ...  _DOUBLE_QUOTES_', '_DOUBLE_QUOTES_ \t._DOUBLE_QUOTES_'],
         ["Hello World", "Hdle"],
-        ["\x09Example string\x0A", "\x00..\x1F"]
+        ['_DOUBLE_QUOTES_\x09Example string\x0A_DOUBLE_QUOTES_', '_DOUBLE_QUOTES_\x00..\x1F_DOUBLE_QUOTES_']
     ];
 
     public $synopsis = 'string rtrim ( string $str [, string $charlist ] )';

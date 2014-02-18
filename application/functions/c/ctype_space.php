@@ -9,7 +9,7 @@
 
 class ctype_space extends function_core
 {
-    public $examples = ["\n\r\t", "\narf12", '\n\r\t'];
+    public $examples = ['_DOUBLE_QUOTES_\n\r\t_DOUBLE_QUOTES_', '_DOUBLE_QUOTES_\narf12_DOUBLE_QUOTES_', '_SINGLE_QUOTE_\n\r\t_SINGLE_QUOTE_'];
 
     public $synopsis = 'bool ctype_space ( string $text )';
 }

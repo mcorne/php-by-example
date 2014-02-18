@@ -12,9 +12,9 @@ class preg_filter extends function_core
     public $examples = [
         [
             [
-                0 => '/\d/',
-                1 => '/[a-z]/',
-                2 => '/[1a]/',
+                0 => '_SINGLE_QUOTE_/\d/_SINGLE_QUOTE_',
+                1 => '_SINGLE_QUOTE_/[a-z]/_SINGLE_QUOTE_',
+                2 => '_SINGLE_QUOTE_/[1a]/_SINGLE_QUOTE_',
             ],
             [
                 0 => 'A:$0',
