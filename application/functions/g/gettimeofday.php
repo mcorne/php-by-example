@@ -11,7 +11,7 @@ class gettimeofday extends function_core
 {
     public $examples = [
         [],
-        'true'
+        true
     ];
 
     public $synopsis = 'mixed gettimeofday ([ bool $return_float = false ] )';

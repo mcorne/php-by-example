@@ -46,10 +46,10 @@ class filter extends object
         $available_closures = [
             '$cb1'                => function ($a)                     { return array ($a); },
             '$cb2'                => function ($a, $b)                 { return array ($a, $b); },
+            '$compare_func'       => function($a, $b)                  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
             '$cube'               => function ($n)                     { return($n * $n * $n); },
             '$double'             => function($value)                  { return $value * 2; },
             '$even'               => function($var)                    { return(!($var & 1)); },
-            '$key_compare_func'   => function($a, $b)                  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
             '$map_Spanish'        => function ($n, $m)                 { return(array($n => $m)); },
             '$next_year'          => function ($matches)               { return $matches[1] . ($matches[2] + 1); },
             '$odd'                => function($var)                    { return($var & 1); },
@@ -59,7 +59,6 @@ class filter extends object
             '$test_alter'         => function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; },
             '$test_print'         => function (&$item, $key)           { $item = "$key holds $item\n"; },
             '$to_lower'           => function ($matches)               { return strtolower($matches[0]); },
-            '$value_compare_func' => function($a, $b)                  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
         ];
 
         if ($this->_params->is_param_var($closure_var_name)) {

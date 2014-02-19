@@ -9,7 +9,7 @@
 
 class is_float extends function_core
 {
-    public $examples = [27.25, "abc", 23, 23.5, 10000000, 'true'];
+    public $examples = [27.25, "abc", 23, 23.5, 10000000, true];
 
     public $synopsis = 'bool is_float ( mixed $var )';
 }

@@ -28,7 +28,7 @@ public $helper_callbacks = ['index_in_example' => 2, 'function_name_pattern' => 
 public $input_args = ['__array1', '__array2', '__array3'];
 public $test_not_validated = true;
 public $no_input_args = 'use_include_path';
-public $test_not_to_run = 1;
+public $test_not_to_run = true;
 public $options_getter = ['encoding' => 'mb_list_encodings'];
 public $constant_prefix = ['calendar' => 'CAL'];
 public $synopsis_fixed
@@ -48,6 +48,7 @@ Example values
 - a list of constants must be enclosed with quotes and separated with "|", eg 'ENT_QUOTES | ENT_IGNORE'
 - false, true, null must not be enclosed with quotes, otherwise there are considered as string
  
-- a regex pattern should ideally be enclosed between single quotes, eg '|<[^>]+>(.*)</[^>]+>|U'
+- use _DOUBLE_QUOTES_ to force the string to be enclosed with double quotes, eg '_DOUBLE_QUOTES_\n_DOUBLE_QUOTES_'
+- use _SINGLE_QUOTE_ to force the string to be enclosed with single quotes, eg '_SINGLE_QUOTE_/\d/_SINGLE_QUOTE_'
+- a regex pattern should ideally be enclosed between single quotes, eg '_SINGLE_QUOTE_/(<([\w]+)[^>]*>)(.*?)(<\/\2>)/_SINGLE_QUOTE_'
 - a regex pattern entered between double quotes may produce unexpected behavior for parsing reasons, see parser::parse_string()
-- a regex pattern will always be displayed between single quotes, see converter::convert_string_to_text()

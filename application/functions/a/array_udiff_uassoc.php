@@ -27,7 +27,28 @@ class array_udiff_uassoc extends array_diff_uassoc
             'strcasecmp',
             'strcasecmp',
         ],
+        [
+            [
+                "a" => "green",
+                "b" => "brown",
+                "c" => "blue",
+                "red"
+            ],
+            [
+                "a" => "GREEN",
+                "B" => "brown",
+                "yellow", "red"
+            ],
+            '$compare_func',
+            '$compare_func',
+        ],
     ];
 
     public $synopsis = 'array array_udiff_uassoc ( array $array1 , array $array2 [, array $... ], callable $value_compare_func , callable $key_compare_func )';
+
+    function pre_exec_function()
+    {
+        $this->returned_params['key_compare_func'] = $this->_filter->filter_callback('key_compare_func');
+        $this->returned_params['value_compare_func'] = $this->_filter->filter_callback('value_compare_func');
+    }
 }

@@ -10,7 +10,7 @@
 class get_browser extends function_core
 {
     public $examples = [
-        ['null', 'true']
+        [null, true]
     ];
 
     public $synopsis = 'mixed get_browser ([ string $user_agent [, bool $return_array = false ]] )';

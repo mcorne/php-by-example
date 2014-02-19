@@ -1,23 +1,22 @@
 Things to do
 ------------
 
-- fix the placement of the helper button for IE
-- fix long input arg values as they do not wrap with IE
-- fix the oversized width of the helper select box for linux
+- add a page with the list of functions
+- run the selected function when the return key is pressed
+- add a function search
+
 - highlight the proper function call in a function source code, eg next()
 - fix "php manual local copy" always displayed in English when running tests
-- fix test of all functions not working with IE
+
 - fix the height of the select helper to 1.8em or more if multiselect
-- fix height textarea for setlocale() example 3
+- fix the placement of the helper button for IE
+- fix long input arg values as they do not wrap with IE
+- fix test of all functions not working with IE
+- fix the oversized width of the helper select box for linux
 
-- change the function select box to an autocomplete input box
-- run the selected function when the return key is pressed
-- display the list of tested functions in columns
 - add helpers eg algo for hash_mac(), time formats, charsets ...
-- report functions with no test available in test all functions
 - add source code to trigger errors for error reporting function eg json_last_error
-- lool for unvalidated translations
+- display readable time/date to some date/time functions, eg unixtojd()
 
-- add a page with the list of functions
 - offer users the ability to upload manuals from php.net to this site if they are more recent
 - look for outdated functions (synopsis)

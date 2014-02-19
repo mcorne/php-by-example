@@ -11,8 +11,8 @@ class ini_get_all extends function_core
 {
     public $examples = [
         "pcre",
-        ["pcre", 'false'],
-        ['null', 'false']
+        ["pcre", false],
+        [null, false]
     ];
 
     public $synopsis = 'array ini_get_all ([ string $extension [, bool $details = true ]] )';

@@ -95,7 +95,7 @@ class output extends object
 
     function display_function_list($functions, $title, $color, $test_count_by_function = null, $test_subset_count_by_function = null)
     {
-        require __DIR__ . '/../views/function_list.phtml';
+        require __DIR__ . '/../views/tested_functions.phtml';
     }
 
     function display_function_manual_page_url()

@@ -9,7 +9,7 @@
 
 class ignore_user_abort extends function_core
 {
-    public $examples = ['true'];
+    public $examples = [true];
 
     public $synopsis = 'int ignore_user_abort ([ string $value ] )';
 }
