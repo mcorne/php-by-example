@@ -52,11 +52,32 @@ class synopsis extends object
     }
     function _get_function_name()
     {
+        if (! $this->synopsis_fixed) {
+            return null;
+        }
+
         if (! preg_match('~([\w:]+) \(~', $this->synopsis_fixed, $match)) {
             throw new Exception('cannot get function name');
         }
 
         return $match[1];
+    }
+
+    function _get_manual_function_name()
+    {
+        $function_name = strtolower($this->_synopsis->function_name);
+
+        if (strpos($function_name, '::')) {
+            // this is a class method, replaces "::" with "."
+            $manual_function_name = str_replace('::', '.', $function_name);
+        } else {
+            // this is a function, prepends the function name with "function."
+            $manual_function_name = "function.$function_name";
+        }
+
+        $manual_function_name = str_replace('_', '-', $manual_function_name);
+
+        return $manual_function_name;
     }
 
     function _get_method_name()

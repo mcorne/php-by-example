@@ -20,6 +20,7 @@ class application extends object
     {
         $function_basename = isset($this->uri[2]) ? $this->uri[2] : null;
         $function_basename = str_replace('::', '__', $function_basename);
+        $function_basename = strtolower($function_basename);
 
         return $function_basename;
     }
@@ -34,33 +35,11 @@ class application extends object
         return $uri;
     }
 
-    function function_exists($function_basename)
+    function function_exists()
     {
-        $function_sub_directory = $function_basename[0];
-        $function_file_name = sprintf('%s/functions/%s/%s.php', $this->application_path, $function_sub_directory, $function_basename);
-        $exists = file_exists($function_file_name);
+        $function_exists = ($this->function_basename and isset($this->_function_list->function_list[$this->function_basename]));
 
-        return $exists;
-    }
-
-    function get_direction()
-    {
-        if (! isset($this->uri[3])) {
-            $direction = null;
-
-        } else if ($this->uri[3] == 'before') {
-            // "before" is appended to the url
-            $direction = -1;
-
-        } else if ($this->uri[3] == 'after') {
-            // "after" is appended to the url
-            $direction = +1;
-
-        } else {
-            $direction = null;
-        }
-
-        return $direction;
+        return $function_exists;
     }
 
     function run()
@@ -72,25 +51,24 @@ class application extends object
 
             switch ($this->action_name) {
                 case 'about':
+                case 'function_list':
                 case 'help':
                 case 'home':
                     $action = $this->_action;
                     break;
 
                 case 'function':
-                    if ($this->function_basename and $this->function_exists($this->function_basename)) {
-                        if ($direction = $this->get_direction()) {
-                            if ($function_basename = $this->_function_list->get_function_basename_around($direction)) {
-                                $this->function_basename = $function_basename;
-                            }
-                        }
-
+                    if ($this->function_exists()) {
                         $action = $this->_function_factory->create_function_object();
+
+                    } else {
+                        $this->action_name = 'search_functions';
+                        $action = $this->_action;
                     }
                     break;
 
                 case 'test':
-                    if (! $this->function_basename or ! $this->function_exists($this->function_basename)) {
+                    if (! $this->function_exists()) {
                         break;
                     }
 

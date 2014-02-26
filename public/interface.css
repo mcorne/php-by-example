@@ -105,6 +105,26 @@ div.copyright a
 {
     color: gray;
     font-weight: bold;
+    text-decoration: none;
+}
+
+div.h1
+{
+    margin-bottom: 1.5em; 
+    width: 40em;    
+}
+
+div.h1 h1
+{
+    display: inline;
+    margin-bottom: 0;   
+}
+
+span.prev_next_functions
+{
+    color: #656565; /* gray */
+    float: right;
+    white-space:nowrap;    
 }
 
 div.linebreak
@@ -148,19 +168,12 @@ img
     border: none;
 }
 
-img.arrow
-{
-    border: none;  
-    margin-left: .3em;     
-    vertical-align: .15em;
-}
-
-
 input.button
 {
     color: white;
     font-size: 1.1em;
     font-weight: bold;
+    height: 1.6em;
 }
 
 input.button:hover, img:hover
@@ -174,7 +187,7 @@ input.select
     background-color: #0000BB; /* blue */
     border-color: darkblue;
     margin-right: .8em;    
-    vertical-align: .45em;
+    vertical-align: .8em;
 }
 
 input.submit
@@ -248,11 +261,6 @@ table.errors td.error_code
     white-space:nowrap;
 }
 
-table.examples a
-{
-    color: #656565; /* gray */
-}
-
 textarea.arg
 {
     width: 20em; /* must be the same as input::INPUT_WIDTH_IN_EM */
@@ -273,13 +281,24 @@ textarea.no_input
     color: gray;
 }
 
-#function
+#function_input, #function_select
 {
     border: solid 2px #656565; /* gray */
     color: #0000BB; /* blue */
     margin-left: 2em;
     margin-right: .5em;
-    vertical-align: .6em;
+    vertical-align: 1em;
+}
+
+#function_input
+{
+    height: 1.5em;    
+    width: 15em;
+}
+
+#function_select_placeholder
+{
+    display: none;
 }
 
 #language

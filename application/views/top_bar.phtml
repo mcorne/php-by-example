@@ -15,34 +15,18 @@
     ><img src="<?=$this->base_url;?>/logo.gif"
     /> by Example</a>
 
-  <select id="function">
+  <datalist id="function_list"><option></option></datalist>
+  <input id="function_input"
+         list="function_list"
+         onkeypress="is_enter_key(event) && run_function('<?=$this->_output->display_url('function');?>')"
+         value="<?=$this->_synopsis->function_name;?>" />
 
-    <option value=""></option>
-
-    <?php foreach($this->_function_list->function_list as $function_basename => $function_name) :?>
-      <option <?php if($function_basename == $this->function_basename):?>selected="selected"<?php endif;?>
-              value="<?=$this->_output->display_function_url_basename($function_basename);?>"
-      >
-          <?=$function_name;?>
-      </option>
-    <?php endforeach;?>
-
-  </select>
+  <span id="function_select_placeholder"><select id="function_select"><option><?=$this->_synopsis->function_name;?></option></select></span>
 
   <input class="button select"
          onclick="run_function('<?=$this->_output->display_url('function');?>')"
          type="button"
          value="<?=$this->_translation->translate('Choose a function');?>" />
-
-  <span class="nowrap">
-
-    <img class="arrow" src="<?=$this->base_url;?>/previous.png"
-         onclick="run_function('<?=$this->_output->display_url('function');?>', 'before')" />
-
-    <img class="arrow" src="<?=$this->base_url;?>/next.png"
-         onclick="run_function('<?=$this->_output->display_url('function');?>', 'after')" />
-
-  </span>
 
 </div>
 

@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="<?=$this->base_url;?>/interface.css" />
   </head>
 
-  <body onload="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local');?>)"
+  <body onload="set_function_list('<?=$this->_synopsis->function_name;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local');?>)"
         onresize="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local');?>)">
 
     <?php require "$this->application_path/views/top_bar.phtml";?>
@@ -26,6 +26,7 @@
     <?php require "$this->application_path/views/bottom_bar.phtml";?>
 
     <script type="text/javascript" src="<?=$this->base_url;?>/interface.js"></script>
+    <script type="text/javascript" src="<?=$this->base_url;?>/function_list.js?v=<?=$this->_function_list->function_list_mtime;?>"></script>
 
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">

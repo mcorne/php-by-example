@@ -21,3 +21,8 @@
 <?=$this->_translation->translate('The corresponding page of the manual is also displayed automatically.');?><br />
 <br />
 <?=$this->_translation->translate('So go ahead, and start playing...');?>
+<br />
+<br />
+<a href="<?=$this->_output->display_url('function_list');?>"><?=$this->_translation->translate('List of available functions');?></a>
+(<?=count($this->_function_list->function_list);?>)
+

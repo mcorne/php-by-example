@@ -1,0 +1,33 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<h1>
+  <?=$this->_translation->translate('List of available functions');?>
+
+  <?php if ($this->_function_list->function_matches):?>
+    (<?=count($this->_function_list->function_matches);?>)
+  <?php endif;?>
+</h1>
+
+<?php if ($this->_function_list->function_matches):?>
+
+  <?php foreach($this->_function_list->function_matches as $function_name):?>
+    <div>
+      <a href="<?=$this->_output->display_url('function', $function_name);?>"><?=$this->_output->highlight_pattern_in_function_name($function_name, $this->function_basename);?></a>
+    </div>
+  <?php endforeach;?>
+
+<?php else :?>
+
+  <div class="red"><?=$this->_translation->translate('No function was found that matches this pattern.');?></div>
+  <br />
+  <a href="<?=$this->_output->display_url('function_list');?>"><?=$this->_translation->translate('List of all available functions');?></a>
+
+<?php endif;?>

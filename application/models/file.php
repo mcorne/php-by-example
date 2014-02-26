@@ -80,6 +80,15 @@ class file extends object
         return $array;
     }
 
+    function read_content($filename)
+    {
+        if (! $content = @file_get_contents($filename)) {
+            throw new Exception("cannot read file $filename");
+        }
+
+        return $content;
+    }
+
     function write_array($filename, $array, $replacements = [])
     {
         $format =

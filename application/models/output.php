@@ -93,22 +93,20 @@ class output extends object
         return $html;
     }
 
-    function display_function_list($functions, $title, $color, $test_count_by_function = null, $test_subset_count_by_function = null)
+    function display_function_list($functions, $title, $color)
     {
-        require __DIR__ . '/../views/tested_functions.phtml';
+        require __DIR__ . '/../views/listed_functions.phtml';
     }
 
     function display_function_manual_page_url()
     {
-        $manual_function_name = $this->get_manual_function_name();
-
         if ($this->_params->php_manual_location == 'php.net') {
             // displays the official php.net manual page
-            $function_manual_page_url = sprintf('http://php.net/manual/%s.php', $manual_function_name);
+            $function_manual_page_url = sprintf('http://php.net/manual/%s.php', $this->_synopsis->manual_function_name);
 
-        } else if (file_exists(sprintf('%s/manual/%s/%s.html', $this->public_path, $this->_language->language_id, $manual_function_name))) {
+        } else if (file_exists(sprintf('%s/manual/%s/%s.html', $this->public_path, $this->_language->language_id, $this->_synopsis->manual_function_name))) {
             // displays the local manual function page
-            $function_manual_page_url = sprintf('%s/manual/%s/%s.html', $this->base_url, $this->_language->language_id, $manual_function_name);
+            $function_manual_page_url = sprintf('%s/manual/%s/%s.html', $this->base_url, $this->_language->language_id, $this->_synopsis->manual_function_name);
 
         } else if (file_exists(sprintf('%s/manual/%s/index.html', $this->public_path, $this->_language->language_id))) {
             // this function is not in the manual, defaults to the local manual index page
@@ -128,19 +126,23 @@ class output extends object
         return $function_name;
     }
 
-    function display_function_url_basename($function_basename)
+    function display_function_title()
     {
-        $function_url_basename = str_replace('__', '::', $function_basename);
-
-        return $function_url_basename;
+        $prev_function_name = $this->_function_list->get_function_name_around(-1);
+        $next_function_name = $this->_function_list->get_function_name_around(+1);
+        require __DIR__ . '/../views/function_title.phtml';
     }
 
-    function display_url($action = null, $function_basename = null)
+    function display_tested_function_list($functions, $title, $color, $test_count_by_function = null, $test_subset_count_by_function = null)
     {
-        if ($function_basename) {
+        require __DIR__ . '/../views/tested_functions.phtml';
+    }
+
+    function display_url($action = null, $function_name = null)
+    {
+        if ($function_name) {
             // there is a function name, eg "http://php-by-example/en/function/abs"
-            $function_url_basename = $this->display_function_url_basename($function_basename);
-            $url = sprintf('%s/%s/%s/%s', $this->base_url, $this->_language->language_id, $action, $function_url_basename);
+            $url = sprintf('%s/%s/%s/%s', $this->base_url, $this->_language->language_id, $action, $function_name);
 
         } else if ($action) {
             if ($action == 'test') {
@@ -181,21 +183,11 @@ class output extends object
         return $string;
     }
 
-    function get_manual_function_name()
+    function highlight_pattern_in_function_name($function_name, $pattern)
     {
-        $function_name = strtolower($this->_synopsis->function_name);
+        $function_name = preg_replace("~$pattern~i", "<b>$0</b>", $function_name, 1);
 
-        if (strpos($function_name, '::')) {
-            // this is a class method, replaces "::" with "."
-            $manual_function_name = str_replace('::', '.', $function_name);
-        } else {
-            // this is a function, prepends the function name with "function."
-            $manual_function_name = "function.$function_name";
-        }
-
-        $manual_function_name = str_replace('_', '-', $manual_function_name);
-
-        return $manual_function_name;
+        return $function_name;
     }
 
     function highlight_source_code_piece($string, $trim_extra_left_spaces = true)

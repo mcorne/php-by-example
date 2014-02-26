@@ -1,0 +1,31 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<div class="h1">
+  <h1><?=$this->_output->display_function_name();?></h1>
+
+  <span class="prev_next_functions">
+
+    <?php if ($prev_function_name):?>
+      «
+      <a class="gray" href="<?=$this->_output->display_url('function', $prev_function_name);?>"><?=$prev_function_name;?></a>
+    <?php endif;?>
+
+    <?php if ($prev_function_name and $next_function_name):?>
+      |
+    <?php endif;?>
+
+    <?php if ($next_function_name):?>
+      <a class="gray" href="<?=$this->_output->display_url('function', $next_function_name);?>"><?=$next_function_name;?></a>
+      »
+    <?php endif;?>
+
+  </span>
+</div>

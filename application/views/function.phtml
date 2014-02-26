@@ -8,9 +8,10 @@
  */
 ?>
 
-<h1><?=$this->_output->display_function_name();?></h1>
-
-<?php require "$this->application_path/views/php_manual.phtml";?>
+<?php
+    $this->_output->display_function_title();
+    require "$this->application_path/views/php_manual.phtml";
+?>
 
 <form method="post">
   <div class="block blue_border nowrap"><?=$this->_input->display_source_code();?></div>
@@ -74,16 +75,22 @@
   <div class="title gray"><?=$this->_translation->translate('Examples');?></div>
 
   <div class="block gray_border">
-       <table class="examples">
+       <table>
 
          <?php foreach($this->examples as $example_id => $example):?>
            <tr>
 
              <td>
                <code>
-                 <a href="<?=$this->_output->display_url('function', $this->function_basename);?>?example=<?=$example_id + 1;?>">
-                   #<?=$example_id + 1;?>&nbsp;<?=$this->_synopsis->function_name;?>
+                 <a class="gray" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?example=<?=$example_id + 1;?>">
+                   #<?=$example_id + 1;?>
                  </a>
+               </code>
+             </td>
+
+             <td>
+               <code class="gray">
+                 <?=$this->_synopsis->function_name;?>
                </code>
              </td>
 
@@ -96,3 +103,13 @@
   </div>
 
 <?php endif;?>
+
+<?php
+if ($this->_function_list->see_also_functions) {
+    $this->_output->display_function_list(
+        $this->_function_list->see_also_functions,
+        'See also',
+        'gray'
+    );
+}
+?>

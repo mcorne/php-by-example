@@ -1,0 +1,20 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<div class="title <?=$color;?>"><?=$title;?></div>
+
+<div class="block <?=$color;?>_border">
+  <?php foreach($functions as $function_name):?>
+
+      <a class="<?=$color;?>" href="<?=$this->display_url('function', $function_name);?>"
+      ><?=$function_name;?></a><?php if ($function_name != end($functions)):?>,<?php endif;?>
+
+  <?php endforeach;?>
+</div>

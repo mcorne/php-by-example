@@ -101,7 +101,7 @@
 
 <?php
 if (! empty($this->functions['test_success'])) {
-    $this->_output->display_function_list(
+    $this->_output->display_tested_function_list(
         $this->functions['test_success'],
         'Functions tested successfully',
         'green',
@@ -110,7 +110,7 @@ if (! empty($this->functions['test_success'])) {
 }
 
 if (! empty($this->functions['test_failed'])) {
-    $this->_output->display_function_list(
+    $this->_output->display_tested_function_list(
         $this->functions['test_failed'],
         'Functions with failed tests',
         'red',
@@ -120,7 +120,7 @@ if (! empty($this->functions['test_failed'])) {
 }
 
 if (! empty($this->functions['test_missing'])) {
-    $this->_output->display_function_list(
+    $this->_output->display_tested_function_list(
         $this->functions['test_missing'],
         'Functions with missing tests',
         'orange',
@@ -129,7 +129,7 @@ if (! empty($this->functions['test_missing'])) {
 }
 
 if (! empty($this->functions['test_obsolete'])) {
-    $this->_output->display_function_list(
+    $this->_output->display_tested_function_list(
         $this->functions['test_obsolete'],
         'Functions with obsolete tests',
         'orange',
@@ -138,7 +138,7 @@ if (! empty($this->functions['test_obsolete'])) {
 }
 
 if (! empty($this->functions['test_not_validated'])) {
-    $this->_output->display_function_list(
+    $this->_output->display_tested_function_list(
         $this->functions['test_not_validated'],
         'Functions with unvalidated tests',
         'gray',
@@ -147,7 +147,7 @@ if (! empty($this->functions['test_not_validated'])) {
 }
 
 if (! empty($this->functions['not_tested'])) {
-    $this->_output->display_function_list(
+    $this->_output->display_tested_function_list(
         $this->functions['not_tested'],
         'Functions not tested',
         'gray'
@@ -155,7 +155,7 @@ if (! empty($this->functions['not_tested'])) {
 }
 
 if (! empty($this->functions['not_available'])) {
-    $this->_output->display_function_list(
+    $this->_output->display_tested_function_list(
         $this->functions['not_available'],
         'Functions not available',
         'gray'

@@ -14,7 +14,7 @@
   <a href="http://code.google.com/p/php-by-example/issues/list"><?=$this->_translation->translate('Issues');?></a>
   <a href="http://code.google.com/p/php-by-example/"><?=$this->_translation->translate('Project');?></a>
   <a href="http://statcounter.com/p9559234/summary/?guest=1"><?=$this->_translation->translate('Stats');?></a>
-  <a href="<?=$this->_output->display_url('test', $this->function_basename);?>"><?=$this->_translation->translate('Test');?></a>
+  <a href="<?=$this->_output->display_url('test', $this->_synopsis->function_name);?>"><?=$this->_translation->translate('Test');?></a>
 
   <select id="language"
           onchange="change_language(this, '<?=$this->_language->language_id;?>')">

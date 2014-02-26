@@ -20,3 +20,13 @@ Things to do
 
 - offer users the ability to upload manuals from php.net to this site if they are more recent
 - look for outdated functions (synopsis)
+
+misc
+----
+// see http://diveintohtml5.info/everything.html#datalist
+if ('options' in document.createElement('datalist')) {
+    // supported!
+}
+// feed datalist, see http://stackoverflow.com/questions/17929356/html-datalist-values-from-array-in-javascript
+// see also for a mix datalist + select http://adactio.com/journal/4272/
+// see http://www.alsacreations.com/article/lire/1334-html5-element-datalist.html
