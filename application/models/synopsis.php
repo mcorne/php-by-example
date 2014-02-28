@@ -111,10 +111,14 @@ class synopsis extends object
     {
         if ($this->_parent and $this->_parent->synopsis_fixed) {
             $synopsis_fixed = $this->_parent->synopsis_fixed;
-        } else {
+
+        } else if ($this->synopsis) {
             $synopsis_fixed = $this->synopsis;
             $synopsis_fixed = str_replace('[, array $... ]', '', $synopsis_fixed);
             $synopsis_fixed = str_replace(['&quot;', '&#039;'], ['"', "'"], $synopsis_fixed);
+
+        } else {
+            $synopsis_fixed = null;
         }
 
         return $synopsis_fixed;

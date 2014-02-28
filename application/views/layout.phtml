@@ -18,8 +18,13 @@
     <link rel="stylesheet" type="text/css" href="<?=$this->base_url;?>/interface.css" />
   </head>
 
-  <body onload="set_function_list('<?=$this->_synopsis->function_name;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local');?>)"
-        onresize="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local');?>)">
+  <body <?php if ($this->_params->search_method == 'input'):?>
+           onload="set_function_input('<?=$this->_synopsis->function_name;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
+        <?php else:?>
+           onload="set_function_select('<?=$this->_synopsis->function_name;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
+        <?php endif;?>
+
+        onresize="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)">
 
     <?php require "$this->application_path/views/top_bar.phtml";?>
     <?php require "$this->application_path/views/{$this->action_name}.phtml";?>

@@ -79,6 +79,13 @@ a.logo
     font-size: 1.8em;
     font-weight: bold;
     text-decoration: none;
+    vertical-align: middle;    
+}
+
+a.search_method_switch
+{
+    color: #656565; /* gray */    
+    vertical-align: middle;    
 }
 
 div.block
@@ -96,15 +103,14 @@ div.block
 
 div.copyright
 {
-    color: gray;
+    color: #656565; /* gray */    
     font-size: .8em;
     margin-top: 1em;
 }
 
 div.copyright a
 {
-    color: gray;
-    font-weight: bold;
+    color: #656565; /* gray */    
     text-decoration: none;
 }
 
@@ -118,13 +124,6 @@ div.h1 h1
 {
     display: inline;
     margin-bottom: 0;   
-}
-
-span.prev_next_functions
-{
-    color: #656565; /* gray */
-    float: right;
-    white-space:nowrap;    
 }
 
 div.linebreak
@@ -147,6 +146,11 @@ div.title
     font-size: 1.1em;
     font-weight: bold;
     margin-bottom: 1em;
+}
+
+div.top_bar a, div.top_bar input
+{
+    vertical-align: middle;    
 }
 
 h1
@@ -182,12 +186,12 @@ input.button:hover, img:hover
     border-color: darkorange;
 }
 
-input.select
+input.search
 {
     background-color: #0000BB; /* blue */
     border-color: darkblue;
-    margin-right: .8em;    
-    vertical-align: .8em;
+    margin-right: .8em;        
+    vertical-align: middle;
 }
 
 input.submit
@@ -249,6 +253,13 @@ span.method_name
     font-weight: bold;
 }
 
+span.prev_next_functions
+{
+    color: #0000BB; /* blue */
+    float: right;
+    white-space:nowrap;    
+}
+
 table tr
 {
     vertical-align: top;
@@ -283,30 +294,24 @@ textarea.no_input
 
 #function_input, #function_select
 {
-    border: solid 2px #656565; /* gray */
     color: #0000BB; /* blue */
-    margin-left: 2em;
-    margin-right: .5em;
-    vertical-align: 1em;
-}
-
-#function_input
-{
     height: 1.5em;    
-    width: 15em;
+    margin-left: 2em;
+    margin-right: .5em;    
+    vertical-align: middle;
+    width: 15em;    
 }
 
-#function_select_placeholder
+#function_select
 {
-    display: none;
+    height: 2em;    
+    width: 15.3em;
 }
 
 #language
 {
-    border: solid 2px #656565; /* gray */
     color: #0000BB; /* blue */
-    margin-left: 1em;
-    margin-right: 1em;    
+    margin-right: .2em;    
     vertical-align: middle;
 }
 

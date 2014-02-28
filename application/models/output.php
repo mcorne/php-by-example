@@ -145,11 +145,6 @@ class output extends object
             $url = sprintf('%s/%s/%s/%s', $this->base_url, $this->_language->language_id, $action, $function_name);
 
         } else if ($action) {
-            if ($action == 'test') {
-                // test all functions, adds suffix to action, eg "test_all"
-                $action .= '_all';
-            }
-
             // eg "http://php-by-example/en/help"
             $url = sprintf('%s/%s/%s', $this->base_url, $this->_language->language_id, $action);
 

@@ -10,12 +10,6 @@
 
 <div class="links">
 
-  <a href="<?=$this->_output->display_url();?>"><?=$this->_translation->translate('Home');?></a>
-  <a href="http://code.google.com/p/php-by-example/issues/list"><?=$this->_translation->translate('Issues');?></a>
-  <a href="http://code.google.com/p/php-by-example/"><?=$this->_translation->translate('Project');?></a>
-  <a href="http://statcounter.com/p9559234/summary/?guest=1"><?=$this->_translation->translate('Stats');?></a>
-  <a href="<?=$this->_output->display_url('test', $this->_synopsis->function_name);?>"><?=$this->_translation->translate('Test');?></a>
-
   <select id="language"
           onchange="change_language(this, '<?=$this->_language->language_id;?>')">
 
@@ -28,7 +22,14 @@
 
   </select>
 
-  <?php require "$this->application_path/views/php_manual_location.phtml";?>
+  <a href="<?=$this->_output->display_url();?>"><?=$this->_translation->translate('Home');?></a>
+  <a href="<?=$this->_output->display_url('help');?>"><?=$this->_translation->translate('Help');?></a>
+  <a href="<?=$this->_output->display_url('about');?>"><?=$this->_translation->translate('About');?></a>
+
+  <?php if ($this->action_name == 'function' or $this->action_name == 'test'):?>
+    <a href="<?=$this->_output->display_url('test', $this->_synopsis->function_name);?>"><?=$this->_translation->translate('Test');?></a>
+    <?php require "$this->application_path/views/php_manual_location.phtml";?>
+  <?php endif;?>
 
 </div>
 

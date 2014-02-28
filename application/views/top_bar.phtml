@@ -8,25 +8,53 @@
  */
 ?>
 
-<div>
+<div class="top_bar">
 
-  <a class="logo"
-     href="<?=$this->_output->display_url();?>"
-    ><img src="<?=$this->base_url;?>/logo.gif"
-    /> by Example</a>
+  <a class="logo" href="<?=$this->_output->display_url();?>"><img src="<?=$this->base_url;?>/logo.gif"/> by Example</a>
 
-  <datalist id="function_list"><option></option></datalist>
-  <input id="function_input"
-         list="function_list"
-         onkeypress="is_enter_key(event) && run_function('<?=$this->_output->display_url('function');?>')"
-         value="<?=$this->_synopsis->function_name;?>" />
+  <?php if ($this->_params->search_method == 'input'):?>
 
-  <span id="function_select_placeholder"><select id="function_select"><option><?=$this->_synopsis->function_name;?></option></select></span>
+    <datalist id="function_list"><option></option></datalist>
 
-  <input class="button select"
-         onclick="run_function('<?=$this->_output->display_url('function');?>')"
-         type="button"
-         value="<?=$this->_translation->translate('Choose a function');?>" />
+    <input id="function_input"
+           list="function_list"
+           onkeydown="is_submit_enter_key(event) && run_searched_function('<?=$this->_output->display_url('function');?>')"
+           placeholder="<?=$this->_translation->translate('Search a function');?>"
+           type="text"
+           value="<?=$this->_synopsis->function_name;?>" />
+
+    <input class="button search"
+           onclick="run_searched_function('<?=$this->_output->display_url('function');?>')"
+           type="button"
+           value="↩" />
+
+    <a class="search_method_switch" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?search_method=select"
+      ><?=$this->_translation->translate('Display drop down list');?></a>
+
+  <?php else:?>
+
+    <span id="function_select_placeholder">
+      <select id="function_select"
+              onkeydown="is_submit_enter_key(event) && run_selected_function('<?=$this->_output->display_url('function');?>')">
+        <option value="">-- <?=$this->_translation->translate('Choose a function');?> --</option>
+
+        <?php if ($this->_synopsis->function_name):?>
+          <option selected="selected"><?=$this->_synopsis->function_name;?></option>
+        <?php endif;?>
+
+      </select>
+    </span>
+
+    <input class="button search"
+           onclick="run_selected_function('<?=$this->_output->display_url('function');?>')"
+           type="button"
+           value="↩" />
+
+    <a class="search_method_switch" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?search_method=input"
+      ><?=$this->_translation->translate('Display input box');?></a>
+
+
+  <?php endif;?>
 
 </div>
 

@@ -12,7 +12,7 @@
 
   <?php if ($url = $this->_output->display_function_manual_page_url()):?>
     <iframe id="php_manual"
-            onload="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local');?>)"
+            onload="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
             src="<?=$url;?>"></iframe>
 
   <?php else:?>

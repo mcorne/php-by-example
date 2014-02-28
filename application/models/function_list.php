@@ -12,7 +12,7 @@ require_once 'object.php';
 /**
  * returns the list of functions
  * updates the list automatically when functions are added or removed
- * entry points: _get_function_list(), get_function_name_around() etc.
+ * entry points: _get_function_list() etc.
  */
 
 class function_list extends object

@@ -15,17 +15,6 @@ require_once 'object.php';
 
 class params extends object
 {
-    public function __construct($mixed = null)
-    {
-        parent::__construct($mixed);
-
-        $this->php_manual_locations = [
-            'local'   => $this->_translation->translate('Local copy'),
-            'php.net' => 'php.net',
-            'none'    => $this->_translation->translate('Do not display'),
-        ];
-    }
-
     function _get_params()
     {
         if ($_POST) {
@@ -60,18 +49,33 @@ class params extends object
 
         } else if (isset($_COOKIE['php_manual_location'])) {
             $php_manual_location = $_COOKIE['php_manual_location'];
-
-        } else {
-            $php_manual_location = 'local';
         }
 
-        if (! isset($this->php_manual_locations[$php_manual_location])) {
-            $php_manual_location = 'local';
+        if (! isset($php_manual_location) or $php_manual_location != 'php.net' and $php_manual_location != 'none') {
+            $php_manual_location = 'local_copy';
         }
 
         setcookie('php_manual_location', $php_manual_location, time() + 60*60*24*30, '/');
 
         return $php_manual_location;
+    }
+
+    function _get_search_method()
+    {
+        if (isset($_GET['search_method'])) {
+            $search_method = $_GET['search_method'];
+
+        } else if (isset($_COOKIE['search_method'])) {
+            $search_method = $_COOKIE['search_method'];
+        }
+
+        if (! isset($search_method) or $search_method != 'select') {
+            $search_method = 'input';
+        }
+
+        setcookie('search_method', $search_method, time() + 60*60*24*30, '/');
+
+        return $search_method;
     }
 
     function get_param($param_name, $indirect_get_param_from_var = true)

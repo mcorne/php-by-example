@@ -6,26 +6,23 @@
  * @copyright 2014 Michel Corne
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
+
+$php_manual_locations = [
+    'local_copy'   => $this->_translation->translate('Local copy of PHP manual'),
+    'php.net'      => $this->_translation->translate('PHP Manual at php.net'),
+    'none'         => $this->_translation->translate('No display of PHP manual'),
+];
 ?>
 
-<?php if ($this->action_name == 'function' or $this->action_name == 'test'):?>
-<span class="gray">
+<select class="blue"
+        id="php_manual_location"
+        onchange="change_php_manual_location(this)">
 
-  <?=$this->_translation->translate('PHP Manual');?>
+  <?php foreach($php_manual_locations as $location_id => $location_name) :?>
+  <option <?php if($location_id == $this->_params->php_manual_location):?>selected="selected"<?php endif;?>
+          value="<?=$location_id;?>">
+      <?=$location_name;?>
+  </option>
+  <?php endforeach;?>
 
-  <select class="gray"
-          id="php_manual_location"
-          onchange="change_php_manual_location(this)">
-
-    <?php foreach($this->_params->php_manual_locations as $location_id => $location_name) :?>
-    <option <?php if($location_id == $this->_params->php_manual_location):?>selected="selected"<?php endif;?>
-            value="<?=$location_id;?>">
-        <?=$location_name;?>
-    </option>
-    <?php endforeach;?>
-
-  </select>
-
-</span>
-
-<?php endif;?>
+</select>
