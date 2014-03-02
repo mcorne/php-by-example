@@ -12,4 +12,6 @@ class unixtojd extends function_core
     public $examples = [946684800, 0];
 
     public $synopsis = 'int unixtojd ([ int $timestamp = time() ] )';
+
+    public $test_not_validated = 1;
 }

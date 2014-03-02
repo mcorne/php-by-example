@@ -9,20 +9,20 @@
 ?>
 
 <h1>
-  <?=$this->_translation->translate('Welcome to the world of the PHP functions');?>
+  <?=$this->_translator->translate('Welcome to the world of the PHP functions');?>
 </h1>
 
-<?=$this->_translation->translate('Here you can test PHP functions online.');?><br />
-<?=$this->_translation->translate("You won't have to write a single line of code.");?><br />
-<?=$this->_translation->translate('You just need to select a function to get the result.');?><br />
+<?=$this->_translator->translate('Here you can test PHP functions online.');?><br />
+<?=$this->_translator->translate("You won't have to write a single line of code.");?><br />
+<?=$this->_translator->translate('You just need to select a function to get the result.');?><br />
 <br />
-<?=$this->_translation->translate('Each function comes with a few examples.');?><br />
-<?=$this->_translation->translate('You may of course change the function arguments at will.');?><br />
-<?=$this->_translation->translate('The corresponding page of the manual is also displayed automatically.');?><br />
+<?=$this->_translator->translate('Each function comes with a few examples.');?><br />
+<?=$this->_translator->translate('You may of course change the function arguments at will.');?><br />
+<?=$this->_translator->translate('The corresponding page of the manual is also displayed automatically.');?><br />
 <br />
-<?=$this->_translation->translate('So go ahead, and start playing...');?>
+<?=$this->_translator->translate('So go ahead, and start playing...');?>
 <br />
 <br />
-<a href="<?=$this->_output->display_url('function_list');?>"><?=$this->_translation->translate('List of available functions');?></a>
+<a href="<?=$this->_output->display_url('function_list');?>"><?=$this->_translator->translate('List of available functions');?></a>
 (<?=count($this->_function_list->function_list);?>)
 

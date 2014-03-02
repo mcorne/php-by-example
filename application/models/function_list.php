@@ -60,15 +60,6 @@ class function_list extends object
         return $function_matches;
     }
 
-    function _get_see_also_functions()
-    {
-        $manual_see_also_functions = $this->get_manual_see_also_functions();
-        $function_matches_excluding_basename = array_diff($this->function_matches, [$this->function_basename]);
-        $see_also_functions = array_intersect($this->function_list, $manual_see_also_functions + $function_matches_excluding_basename);
-
-        return $see_also_functions;
-    }
-
     function create_function_list()
     {
         $filenames = glob("{$this->application_path}/functions/*/*.php");
@@ -121,23 +112,6 @@ class function_list extends object
         $function_sub_directories_max_time = max($function_sub_directories_times);
 
         return $function_sub_directories_max_time;
-    }
-
-    function get_manual_see_also_functions()
-    {
-        $manual_file_name = sprintf('%s/manual/en/%s.html', $this->public_path, $this->_synopsis->manual_function_name);
-
-        if (! file_exists($manual_file_name) or
-            ! $content = $this->_file->read_content($manual_file_name) or
-            ! preg_match('~<div class="refsect1 seealso"(.+)</div>~s', $content, $match) or
-            ! preg_match_all('~rel="rdfs-seeAlso">([\w:]+)\(\)~', $match[1], $matches))
-        {
-            return [];
-        }
-
-        $manual_see_also_functions = $matches[1];
-
-        return $manual_see_also_functions;
     }
 
     function is_class_method($function_basename)

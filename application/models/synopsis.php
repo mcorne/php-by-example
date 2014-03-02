@@ -65,7 +65,7 @@ class synopsis extends object
 
     function _get_manual_function_name()
     {
-        $function_name = strtolower($this->_synopsis->function_name);
+        $function_name = strtolower($this->function_name);
 
         if (strpos($function_name, '::')) {
             // this is a class method, replaces "::" with "."
@@ -109,7 +109,7 @@ class synopsis extends object
 
     function _get_synopsis_fixed()
     {
-        if ($this->_parent and $this->_parent->synopsis_fixed) {
+        if ($this->_parent and isset($this->_parent->synopsis_fixed)) {
             $synopsis_fixed = $this->_parent->synopsis_fixed;
 
         } else if ($this->synopsis) {

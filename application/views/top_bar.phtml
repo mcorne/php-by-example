@@ -19,7 +19,7 @@
     <input id="function_input"
            list="function_list"
            onkeydown="is_submit_enter_key(event) && run_searched_function('<?=$this->_output->display_url('function');?>')"
-           placeholder="<?=$this->_translation->translate('Search a function');?>"
+           placeholder="<?=$this->_translator->translate('Search a function');?>"
            type="text"
            value="<?=$this->_synopsis->function_name;?>" />
 
@@ -29,14 +29,14 @@
            value="↩" />
 
     <a class="search_method_switch" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?search_method=select"
-      ><?=$this->_translation->translate('Display drop down list');?></a>
+      ><?=$this->_translator->translate('Display drop down list');?></a>
 
   <?php else:?>
 
     <span id="function_select_placeholder">
       <select id="function_select"
               onkeydown="is_submit_enter_key(event) && run_selected_function('<?=$this->_output->display_url('function');?>')">
-        <option value="">-- <?=$this->_translation->translate('Choose a function');?> --</option>
+        <option value="">-- <?=$this->_translator->translate('Choose a function');?> --</option>
 
         <?php if ($this->_synopsis->function_name):?>
           <option selected="selected"><?=$this->_synopsis->function_name;?></option>
@@ -51,7 +51,7 @@
            value="↩" />
 
     <a class="search_method_switch" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?search_method=input"
-      ><?=$this->_translation->translate('Display input box');?></a>
+      ><?=$this->_translator->translate('Display input box');?></a>
 
 
   <?php endif;?>

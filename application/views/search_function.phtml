@@ -9,7 +9,7 @@
 ?>
 
 <h1>
-  <?=$this->_translation->translate('List of available functions');?>
+  <?=$this->_translator->translate('List of available functions');?>
 
   <?php if ($this->_function_list->function_matches):?>
     (<?=count($this->_function_list->function_matches);?>)
@@ -26,8 +26,8 @@
 
 <?php else :?>
 
-  <div class="red"><?=$this->_translation->translate('No function was found that matches this pattern.');?></div>
+  <div class="red"><?=$this->_translator->translate('No function was found that matches this pattern.');?></div>
   <br />
-  <a href="<?=$this->_output->display_url('function_list');?>"><?=$this->_translation->translate('List of all available functions');?></a>
+  <a href="<?=$this->_output->display_url('function_list');?>"><?=$this->_translator->translate('List of all available functions');?></a>
 
 <?php endif;?>

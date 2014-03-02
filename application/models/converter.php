@@ -74,7 +74,7 @@ class converter extends object
             // this is a string representation of a boolean or null
             $text = $no_string_equivalent ? "'$value'" : $value;
 
-        } else if ($this->_params->is_param_var($value) or $this->is_constant($value)) {
+        } else if ($this->_function_params->is_param_var($value) or $this->is_constant($value)) {
             // this is a var, eg '$var', or a constant name, eg 'SORT_ASC'
             $text = $force_quotes ? "'$value'" : $value;
 

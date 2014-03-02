@@ -75,7 +75,7 @@ class parser extends object
         }
 
         if ($token !== '_BEGIN_') {
-            throw new Exception($this->_translation->translate('invalid array'));
+            throw new Exception($this->_translator->translate('invalid array'));
         }
 
         $array = [];
@@ -90,7 +90,7 @@ class parser extends object
                         return $array;
 
                     } else if ($token === '_BEGIN_' or $token === '_ARROW_' or $token === '_SEPARATOR_') {
-                        throw new Exception($this->_translation->translate('invalid array'));
+                        throw new Exception($this->_translator->translate('invalid array'));
 
                     } else {
                         $array[] = $token;
@@ -106,7 +106,7 @@ class parser extends object
                         return $array;
 
                     } else {
-                        throw new Exception($this->_translation->translate('invalid array'));
+                        throw new Exception($this->_translator->translate('invalid array'));
                     }
                     break;
 
@@ -123,13 +123,13 @@ class parser extends object
                         return $array;
 
                     } else {
-                        throw new Exception($this->_translation->translate('invalid array'));
+                        throw new Exception($this->_translator->translate('invalid array'));
                     }
                     break;
 
                 case '_VALUE_':
                     if ($token === '_BEGIN_' or $token === '_ARROW_' or $token === '_SEPARATOR_' or $token === '_END_') {
-                        throw new Exception($this->_translation->translate('invalid array'));
+                        throw new Exception($this->_translator->translate('invalid array'));
 
                     } else {
                         $array[$key] = $token;
@@ -139,14 +139,14 @@ class parser extends object
             }
         }
 
-        throw new Exception($this->_translation->translate('invalid array'));
+        throw new Exception($this->_translator->translate('invalid array'));
     }
 
     function parse_constants($value)
     {
         if (! defined($value)) {
             // the constant is undefined, eg "xyz"
-            throw new Exception($this->_translation->translate('undefined constant'));
+            throw new Exception($this->_translator->translate('undefined constant'));
         }
 
         if ($this->convert_constant_to_int) {
@@ -174,11 +174,11 @@ class parser extends object
 
             if ($type != T_STRING) {
                 // this is not a constant, eg "E_ERROR|123"
-                throw new Exception($this->_translation->translate('invalid constant'));
+                throw new Exception($this->_translator->translate('invalid constant'));
             }
 
             if (! defined($value)) {
-                throw new Exception($this->_translation->translate('undefined constant'));
+                throw new Exception($this->_translator->translate('undefined constant'));
             }
 
             if ($this->convert_constant_to_int) {
@@ -200,7 +200,7 @@ class parser extends object
 
         if (! is_numeric($token)) {
             // this is not a negative number, eg "-'sdf'"
-            throw new Exception($this->_translation->translate('invalid negative number'));
+            throw new Exception($this->_translator->translate('invalid negative number'));
         }
 
         return $token * -1;
@@ -304,7 +304,7 @@ class parser extends object
 
             default:
                 // any other token is rejected, eg "--123", "__DIR__"
-                throw new Exception($this->_translation->translate('invalid value'));
+                throw new Exception($this->_translator->translate('invalid value'));
         }
 
         return $value;
@@ -319,7 +319,7 @@ class parser extends object
 
             if ($this->get_next_token() !== '_NO_TOKEN_') {
                 // any data is unexpected beyond this point
-                throw new Exception($this->_translation->translate('unexpected data'));
+                throw new Exception($this->_translator->translate('unexpected data'));
             }
 
         } catch (Exception $e) {

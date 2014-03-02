@@ -61,20 +61,24 @@ class application extends object
                     if ($this->function_exists()) {
                         $action = $this->_function_factory->create_function_object();
 
-                    } else {
-                        $this->action_name = 'search_functions';
+                    } else if ($this->function_basename) {
+                        $this->action_name = 'search_function';
                         $action = $this->_action;
                     }
                     break;
 
                 case 'test':
-                    if (! $this->function_exists()) {
-                        break;
+                    if ($this->function_exists()) {
+                        $action = $this->_function_test;
                     }
+                    break;
 
                 case 'test_all':
-                    $classname = '_function_' . $this->action_name;
-                    $action = $this->$classname;
+                    $action = $this->_function_test_all;
+                    break;
+
+                case 'translation':
+                    $action = $this->_translation;
                     break;
             }
 

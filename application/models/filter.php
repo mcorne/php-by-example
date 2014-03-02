@@ -21,8 +21,8 @@ class filter extends object
 
     function filter_arg_value($arg_name)
     {
-        if ($this->_params->param_exists($arg_name)) {
-            $array = $this->_params->get_param($arg_name);
+        if ($this->_function_params->param_exists($arg_name)) {
+            $array = $this->_function_params->get_param($arg_name);
 
         } else {
             $array = null;
@@ -33,11 +33,11 @@ class filter extends object
 
     function filter_callback($arg_name)
     {
-        if (! $this->_params->param_exists($arg_name)) {
+        if (! $this->_function_params->param_exists($arg_name)) {
              return null;
         }
 
-        $closure_var_name = $this->_params->get_param($arg_name, false);
+        $closure_var_name = $this->_function_params->get_param($arg_name, false);
 
         if (is_null($closure_var_name)) {
             return null;
@@ -61,22 +61,22 @@ class filter extends object
             '$to_lower'           => function ($matches)               { return strtolower($matches[0]); },
         ];
 
-        if ($this->_params->is_param_var($closure_var_name)) {
+        if ($this->_function_params->is_param_var($closure_var_name)) {
             // the callback is a variable set to a closure, returns wether the closure is in the list of available closures or not
             return isset($available_closures[$closure_var_name]) ? $available_closures[$closure_var_name] : null;
         }
 
-        $callback_function_name =  $this->_params->get_param($arg_name);
+        $callback_function_name =  $this->_function_params->get_param($arg_name);
 
         if (! function_exists($callback_function_name)) {
-            $message = $this->_translation->translate('the callback function is invalid or not available on this server');
+            $message = $this->_translator->translate('this callback function is invalid or not available on this server');
             throw new Exception($message, E_USER_WARNING);
         }
 
         $valid_callback_functions = '~(cmp$|^ctype_|^gmp|^is_|^str[ifprst])~';
 
         if (! is_string($callback_function_name) or ! preg_match($valid_callback_functions, $callback_function_name)) {
-            $message = $this->_translation->translate('this callback function may not be used in this example');
+            $message = $this->_translator->translate('this callback function may not be used in this example');
             throw new Exception($message, E_USER_WARNING);
         }
 
@@ -85,8 +85,8 @@ class filter extends object
 
     function filter_date_interval($arg_name)
     {
-        if ($this->_params->param_exists($arg_name)) {
-            $interval_spec = $this->_params->get_param($arg_name);
+        if ($this->_function_params->param_exists($arg_name)) {
+            $interval_spec = $this->_function_params->get_param($arg_name);
             $interval = new DateInterval($interval_spec);
 
         } else {
@@ -98,8 +98,8 @@ class filter extends object
 
     function filter_date_time($arg_name)
     {
-        if ($this->_params->param_exists($arg_name)) {
-            $time = $this->_params->get_param($arg_name);
+        if ($this->_function_params->param_exists($arg_name)) {
+            $time = $this->_function_params->get_param($arg_name);
             $date = new DateTime($time);
 
         } else {
@@ -111,11 +111,11 @@ class filter extends object
 
     function filter_file_length($arg_name, $filename)
     {
-        $length = $this->_params->get_param($arg_name);
+        $length = $this->_function_params->get_param($arg_name);
 
         if (preg_match('~^https?://~', $filename) and (is_null($length) or is_numeric($length) and $length > 1000)) {
             // the file is external and the length is null or too large
-            $message = $this->_translation->translate('the length must be defined and lower than 1000 bytes in this example', '$' . $arg_name);
+            $message = $this->_translator->translate('the length must be defined and lower than 1000 bytes in this example', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
 
@@ -124,11 +124,11 @@ class filter extends object
 
     function filter_filename($arg_name, $is_temp_file_allowed = false)
     {
-        if (! $this->_params->param_exists($arg_name)) {
+        if (! $this->_function_params->param_exists($arg_name)) {
              return null;
         }
 
-        $filename = $this->_params->get_param($arg_name);
+        $filename = $this->_function_params->get_param($arg_name);
 
         if (! is_string($filename)) {
             // the file name is not a string, this will be caught by the function itself
@@ -142,7 +142,7 @@ class filter extends object
 
         if (! $is_temp_file_allowed) {
             // only http files are allowed
-            $message = $this->_translation->translate('the filename must start with one of the following strings in this example')
+            $message = $this->_translator->translate('the filename must start with one of the following strings in this example')
                      . " (http://, https://)";
             throw new Exception($message, E_USER_WARNING);
         }
@@ -151,28 +151,28 @@ class filter extends object
             // the file name is a placeholder or a valid temp file prefixed with pbe, forces the file name to the new temp name
             $filename = $this->_file->create_temp_file();
             $this->_file->write_content($filename, "Hello world !");
-            $this->_params->params[$arg_name] = $this->_converter->convert_value_to_text($filename);
+            $this->_function_params->params[$arg_name] = $this->_converter->convert_value_to_text($filename);
 
             return $filename;
         }
 
-        $message = $this->_translation->translate('the filename must start with one of the following strings in this example')
+        $message = $this->_translator->translate('the filename must start with one of the following strings in this example')
                  . " ({$this->_file->temp_file_prefix}, http://, https://)";
         throw new Exception($message, E_USER_WARNING);
     }
 
     function filter_iteration_count($arg_name)
     {
-        if (! $this->_params->param_exists($arg_name)) {
+        if (! $this->_function_params->param_exists($arg_name)) {
              return null;
         }
 
-        $count = $this->_params->get_param($arg_name);
+        $count = $this->_function_params->get_param($arg_name);
 
         if (! is_int($count) or $count > 10) {
             // the number of iterations is not an integer or too large
             $arg_name = preg_replace('~^_+~', '', $arg_name);
-            $message = $this->_translation->translate('the number of iterations must be an integer lower than 10 in this example', '$' . $arg_name);
+            $message = $this->_translator->translate('the number of iterations must be an integer lower than 10 in this example', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
 
@@ -181,19 +181,19 @@ class filter extends object
 
     function is_allowed_arg_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)
     {
-        if (! $this->_params->param_exists($arg_name)) {
+        if (! $this->_function_params->param_exists($arg_name)) {
             if (! $is_empty_arg_allowed) {
-                $message = $this->_translation->translate('this argument may not be empty in this example', '$' . $arg_name);
+                $message = $this->_translator->translate('this argument may not be empty in this example', '$' . $arg_name);
                 throw new Exception($message, E_USER_WARNING);
             }
 
             return;
         }
 
-        $value = $this->_params->get_param($arg_name);
+        $value = $this->_function_params->get_param($arg_name);
 
         if (! is_null($value) and ! in_array($value, (array) $allowed_values, true)) {
-            $message = $this->_translation->translate('this argument value is not allowed in this example', '$' . $arg_name);
+            $message = $this->_translator->translate('this argument value is not allowed in this example', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
     }

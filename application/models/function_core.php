@@ -25,6 +25,15 @@ class function_core extends action
     public $returned_params;
     public $tests = [];
 
+    function _get_see_also_functions()
+    {
+        $manual_see_also_functions = $this->_see_also_function->get_manual_see_also_functions() ?: [];
+        $function_matches_excluding_basename = array_diff($this->_function_list->function_matches, [$this->function_basename]);
+        $see_also_functions = array_intersect($this->_function_list->function_list, $manual_see_also_functions + $function_matches_excluding_basename);
+
+        return $see_also_functions;
+    }
+
     /**
      * the error handler
      */
@@ -39,7 +48,7 @@ class function_core extends action
         $arg_values = [];
 
         for ($arg_number = 0; $arg_number <= 9; $arg_number++) {
-            if (! isset($this->_synopsis->arg_names[$arg_number]) or ! $this->_params->param_exists($this->_synopsis->arg_names[$arg_number])) {
+            if (! isset($this->_synopsis->arg_names[$arg_number]) or ! $this->_function_params->param_exists($this->_synopsis->arg_names[$arg_number])) {
                 // there is no more args passed to the function
                 $function = $this->_synopsis->method_name;
 
@@ -118,14 +127,14 @@ class function_core extends action
             list($classname, $method_name) = $parts;
 
             if (! class_exists($classname, false)) {
-                $message = $this->_translation->translate('this class is not available in the PHP version running on this server');
+                $message = $this->_translator->translate('this class is not available in the PHP version running on this server');
 
             } else if (! method_exists($classname, $method_name)) {
-                $message = $this->_translation->translate('this method is not available in the PHP version running on this server');
+                $message = $this->_translator->translate('this method is not available in the PHP version running on this server');
             }
 
         } else if (! function_exists($this->_synopsis->function_name)) {
-            $message = $this->_translation->translate('this function is not available in the PHP version running on this server');
+            $message = $this->_translator->translate('this function is not available in the PHP version running on this server');
         }
 
         if (! isset($message)) {
@@ -172,12 +181,12 @@ class function_core extends action
         for ($arg_number = 0; $arg_number <= 9 and isset($this->_synopsis->arg_names[$arg_number]); $arg_number++) {
             $arg_name = $this->_synopsis->arg_names[$arg_number];
 
-            if (isset($reset_args) and $this->_params->param_exists($arg_name)) {
+            if (isset($reset_args) and $this->_function_params->param_exists($arg_name)) {
                 // this arg is passed after an empty param, resets this param
-                $this->_params->params[$arg_name] = '';
+                $this->_function_params->params[$arg_name] = '';
                 $reset_args[] = "\$$arg_name";
 
-            } else if (! $this->_params->param_exists($arg_name)) {
+            } else if (! $this->_function_params->param_exists($arg_name)) {
                 // this is the (first) empty arg
                 $reset_args = [];
             }
@@ -187,12 +196,12 @@ class function_core extends action
             if (count($reset_args) == 1) {
                 // there is a reset arg, captures the name of the arg to display
                 $reset_args = current($reset_args);
-                $message = $this->_translation->translate('the following argument has been removed', $reset_args);
+                $message = $this->_translator->translate('the following argument has been removed', $reset_args);
 
             } else {
                 // there are reset args, captures the name of the args to display
                 $reset_args = implode(', ', $reset_args);
-                $message = $this->_translation->translate('the following arguments have been removed', $reset_args);
+                $message = $this->_translator->translate('the following arguments have been removed', $reset_args);
             }
 
             trigger_error($message, E_USER_NOTICE);
@@ -208,20 +217,20 @@ class function_core extends action
     function set_arg_value($arg_number, &$arg_values, &$result)
     {
         $arg_name = $copy = $this->_synopsis->arg_names[$arg_number];
-        $arg_values[$arg_number] = $this->_params->get_param($arg_name);
+        $arg_values[$arg_number] = $this->_function_params->get_param($arg_name);
 
         if ($this->_synopsis->is_reference_arg($arg_name)) {
             // this is an arg passed by reference
-            $arg_name = $this->_params->get_param($arg_name, false);
+            $arg_name = $this->_function_params->get_param($arg_name, false);
 
-            if (! $this->_params->is_param_var($arg_name)) {
+            if (! $this->_function_params->is_param_var($arg_name)) {
                 // a value instead of a var name was passed, triggers an error
                 $value = $this->_converter->convert_value_to_text($arg_name, true);
-                $message = $this->_translation->translate('a value cannot be passed by reference', $value);
+                $message = $this->_translator->translate('a value cannot be passed by reference', $value);
                 throw new Exception($message, E_USER_ERROR);
             }
 
-            $arg_name = $this->_params->get_var_name($arg_name);
+            $arg_name = $this->_function_params->get_var_name($arg_name);
             // links a position in the result array to where the value will be returned by reference
             $result[$arg_name] = &$arg_values[$arg_number];
         }

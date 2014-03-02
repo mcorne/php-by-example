@@ -19,18 +19,19 @@ class language extends object
     const DEFAULT_LANGUAGE = 'en';
 
     public $languages = [
-        // 'zh' => 'Chinese', // (Simplified)
+        'zh' => 'Chinese', // (Simplified)
         'en' => 'English',
         'fr' => 'French',
-        // 'de' => 'German',
-        // 'it' => 'Italian',
-        // 'ja' => 'Japanese',
-        // 'pt' => 'Portuguese',
-        // 'ro' => 'Romanian',
-        // 'ru' => 'Russian',
-        // 'es' => 'Spanish',
-        // 'tr' => 'Turkish',
+        'de' => 'German',
+        'it' => 'Italian',
+        'ja' => 'Japanese',
+        'pt' => 'Portuguese', // Brazilian
+        'ro' => 'Romanian',
+        'ru' => 'Russian',
+        'es' => 'Spanish',
+        'tr' => 'Turkish',
     ];
+
     function _get_language_id()
     {
         $language_id = isset($this->uri[0]) ? $this->uri[0] : null;

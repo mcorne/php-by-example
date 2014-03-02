@@ -272,6 +272,64 @@ table.errors td.error_code
     white-space:nowrap;
 }
 
+table.translations
+{
+    margin-top: 2em;
+}
+
+table.translations button
+{
+    color: white;
+    font-weight: bold;
+    width: 15em;
+}
+
+table.translations button.select_message
+{
+    background-color: #656565; /* gray */    
+    border-color: darkgray;    
+}
+
+table.translations button.next_message_to_validate
+{
+    background-color: #0000BB; /* blue */ 
+    border-color: darkblue;    
+}
+
+table.translations button.validate_message
+{
+    background-color: #007700; /* green */
+    border-color: darkgreen;    
+}
+
+table.translations button.save_message
+{
+    background-color: #DD0000; /* red */  
+    border-color: darkred;    
+}
+
+table.translations button:hover
+{
+    background-color: #FF8000; /* orange */
+    border-color: darkorange;
+}
+
+table.translations input
+{
+    width: 39.6em;    
+}
+
+table.translations select
+{
+    height: 1.7em;
+    width: 40em;    
+}
+
+table.translations td.blank_line
+{
+    height: 1.7em;
+}
+
 textarea.arg
 {
     width: 20em; /* must be the same as input::INPUT_WIDTH_IN_EM */

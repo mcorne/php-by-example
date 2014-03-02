@@ -49,7 +49,7 @@ class input extends object
             $arg_type = 'no_input';
         }
 
-        $arg_value = $this->_params->param_exists($arg_name) ? $this->_params->params[$arg_name] : null;
+        $arg_value = $this->_function_params->param_exists($arg_name) ? $this->_function_params->params[$arg_name] : null;
         $height = $this->calculate_input_height($arg_value);
 
         $arg_value = htmlspecialchars($arg_value);
@@ -96,7 +96,7 @@ class input extends object
     {
         if (substr($arg_name, -1) == 's') {
             $multiple = 'multiple';
-            $empty_option = $this->_translation->translate('(multiselect)');
+            $empty_option = $this->_translator->translate('(multi-select)');
             $vertical_align = 'style="vertical-align: .2em"';
 
         } else {

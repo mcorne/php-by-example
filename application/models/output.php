@@ -33,15 +33,15 @@ class output extends object
     function display_error_code($code)
     {
         $messages = [
-            E_ERROR        => $this->_translation->translate('PHP error'),
-            E_NOTICE       => $this->_translation->translate('PHP notice'),
-            E_USER_ERROR   => $this->_translation->translate('PHPbEx error'),
-            E_USER_NOTICE  => $this->_translation->translate('PHPbEx notice'),
-            E_USER_WARNING => $this->_translation->translate('PHPbEx warning'),
-            E_WARNING      => $this->_translation->translate('PHP warning'),
+            E_ERROR        => $this->_translator->translate('PHP error'),
+            E_NOTICE       => $this->_translator->translate('PHP notice'),
+            E_USER_ERROR   => $this->_translator->translate('PHPbEx error'),
+            E_USER_NOTICE  => $this->_translator->translate('PHPbEx notice'),
+            E_USER_WARNING => $this->_translator->translate('PHPbEx warning'),
+            E_WARNING      => $this->_translator->translate('PHP warning'),
         ];
 
-        $message = isset($messages[$code]) ? $messages[$code] : $this->_translation->translate('Error');
+        $message = isset($messages[$code]) ? $messages[$code] : $this->_translator->translate('Error');
 
         return $message;
     }

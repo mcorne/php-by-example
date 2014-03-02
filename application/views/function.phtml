@@ -16,20 +16,19 @@
 <form method="post">
   <div class="block blue_border nowrap"><?=$this->_input->display_source_code();?></div>
 
-
   <div>
     <input class="button submit"
            name="submit"
            type="submit"
-           value="<?=$this->_translation->translate('Execute the function');?>" />
+           value="<?=$this->_translator->translate('Execute the function');?>" />
   </div>
 
 </form>
 
 <?php if ($this->errors):?>
-  <div class="title red"><?=$this->_translation->translate('Result');?></div>
+  <div class="title red"><?=$this->_translator->translate('Result');?></div>
 <?php else:?>
-  <div class="title green"><?=$this->_translation->translate('Result');?></div>
+  <div class="title green"><?=$this->_translator->translate('Result');?></div>
 <?php endif;?>
 
 <?php if ($this->result):?>
@@ -72,9 +71,9 @@
 
 <?php if ($this->examples):?>
 
-  <div class="title gray"><?=$this->_translation->translate('Examples');?></div>
+  <div class="title blue"><?=$this->_translator->translate('Examples');?></div>
 
-  <div class="block gray_border">
+  <div class="block blue_border">
        <table>
 
          <?php foreach($this->examples as $example_id => $example):?>
@@ -82,14 +81,14 @@
 
              <td>
                <code>
-                 <a class="gray" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?example=<?=$example_id + 1;?>">
+                 <a class="blue" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?example=<?=$example_id + 1;?>">
                    #<?=$example_id + 1;?>
                  </a>
                </code>
              </td>
 
              <td>
-               <code class="gray">
+               <code class="blue">
                  <?=$this->_synopsis->function_name;?>
                </code>
              </td>
@@ -105,11 +104,10 @@
 <?php endif;?>
 
 <?php
-if ($this->_function_list->see_also_functions) {
+if ($this->see_also_functions) {
     $this->_output->display_function_list(
-        $this->_function_list->see_also_functions,
-        'See also',
-        'gray'
-    );
+        $this->see_also_functions,
+        $this->_translator->translate('See also'),
+        'blue');
 }
 ?>
