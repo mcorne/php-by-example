@@ -14,7 +14,11 @@ $php_manual_locations = [
 ];
 ?>
 
-<select class="blue"
+<select <?php if ($this->_params->translation_in_action and in_array($this->_params->translation_in_action, [1301, 1302, 1303])):?>
+          class="blue highlight_translation_in_action"
+        <?php else:?>
+          class="blue"
+        <?php endif;?>
         id="php_manual_location"
         onchange="change_php_manual_location(this)">
 

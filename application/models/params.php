@@ -15,71 +15,72 @@ require_once 'object.php';
 
 class params extends object
 {
-    function _get_email()
-    {
-        if (isset($_POST['email'])) {
-            $email = $_POST['email'];
+    public $cookie_params = ['email', 'translation_key'];
 
-        } else if (isset($_COOKIE['email'])) {
-            $email = $_COOKIE['email'];
+    function _get($name)
+    {
+        if (in_array($name, $this->cookie_params)) {
+            $this->$name = $this->get_param_or_cookie($name);
 
         } else {
-            $email = null;
+            $this->$name = $this->get_param($name);
         }
 
-        setcookie('email', $email, time() + 60*60*24*30, '/');
+        return $this->$name;
+    }
 
-        return $email;
+    function _get_params()
+    {
+        return $_POST + $_GET;
     }
 
     function _get_php_manual_location()
     {
-        if (isset($_GET['php_manual_location'])) {
-            $php_manual_location = $_GET['php_manual_location'];
-
-        } else if (isset($_COOKIE['php_manual_location'])) {
-            $php_manual_location = $_COOKIE['php_manual_location'];
-        }
+        $php_manual_location = $this->get_param_or_cookie('php_manual_location');
 
         if (! isset($php_manual_location) or $php_manual_location != 'php.net' and $php_manual_location != 'none') {
             $php_manual_location = 'local_copy';
         }
-
-        setcookie('php_manual_location', $php_manual_location, time() + 60*60*24*30, '/');
 
         return $php_manual_location;
     }
 
     function _get_search_method()
     {
-        if (isset($_GET['search_method'])) {
-            $search_method = $_GET['search_method'];
+        $search_method = $this->get_param_or_cookie('search_method');
 
-        } else if (isset($_COOKIE['search_method'])) {
-            $search_method = $_COOKIE['search_method'];
-        }
-
-        if (! isset($search_method) or $search_method != 'select') {
+        if (is_null($search_method) or $search_method != 'select') {
             $search_method = 'input';
         }
-
-        setcookie('search_method', $search_method, time() + 60*60*24*30, '/');
 
         return $search_method;
     }
 
-    function _get_params()
-    {
-        return $_POST;
-    }
-
     function get_param($param_name)
     {
-        if (! $this->param_exists($param_name)) {
-            return null;
+        if ($this->param_exists($param_name)) {
+            $value = trim($this->params[$param_name]);
+        } else {
+            $value = null;
         }
 
-        $value = trim($this->params[$param_name]);
+        return $value;
+    }
+
+    function get_param_or_cookie($param_name)
+    {
+        $value = $this->get_param($param_name);
+
+        if (! is_null($value)) {
+            setcookie($param_name, $value, time() + 60*60*24*30, '/');
+
+        } else if (isset($_COOKIE[$param_name])) {
+            $value = $_COOKIE[$param_name];
+            setcookie($param_name, $value, time() + 60*60*24*30, '/');
+
+        } else {
+            setcookie($param_name, '', 1);
+        }
 
         return $value;
     }

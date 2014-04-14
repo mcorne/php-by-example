@@ -1,0 +1,80 @@
+Translation process
+-------------------
+
+Note that most of the process must take place in the development environment.
+This ensures that message translations and translators access rights are stored in the version control repository.
+The only part of the process done in the production environment is the message validation or changes by the translators.
+
+
+1. Check messages to translate
+------------------------------
+
+- go to "scripts"
+- run "check_translations"
+
+- if "obsolete english message ids" are reported:
+* commment these messages in "data/translations/en.php"
+* note that message ids must not be reused
+
+- if "missing english messages" are reported:
+* add each message in the corresponding section of "data/translations/en.php"
+* add a new section at the end if the message does not fit in an existing section (see the note on sections)
+* use the next available message id
+
+Note that "missing translated message ids" and "obsolete translated message ids" are just reported for information purposes.
+
+Note on sections:
+- a section corresponds to a logical unit of the interface, eg the top bar messages, the home page messages etc.
+- a section begins with a message id that is a multiple of 100, and the section title, eg "Top bar", "Home page" etc.
+- if you need to add a new section
+
+
+2. Machine translate new messages
+---------------------------------
+
+For each new message:
+- machine translate the message in each language with google or bing etc.
+- add the translation in each language in the corresponding translation file, eg "data/translations/fr.php" for French
+  use the same message id as the original message in English in "data/translations/en.php"
+
+
+3. Updade the translations in action
+------------------------------------
+
+- if "obsolete english message ids" are reported, remove the corresponding entries in "data/translations_in_action.php"
+
+For each "missing english messages" reported:
+- add an entry in "data/translations_in_action.php"
+* go to eg "http://php-by-example.local/fr/translation"
+* select one language
+* enter the admin credentials
+* select the message
+* click on "See the curent translation in action" to verify the translation is properly highlighted
+  
+
+4. Double-check messages to translate
+-------------------------------------
+
+- run "check_translations" (again)
+- verify that no message is reported obsolete or missing
+
+
+5. Validate translations
+------------------------
+
+- copy "data/translations" to production
+
+For each translator in a each language:
+- obfuscate the translator email, eg in "scripts" run "obfuscate_email jsmith@mail.com"
+- add/check the entry for this translator in "data/translators.php", eg "naAgnKEbDT1unJjhL29g" => [fr]
+- hash the translation key of the translator, eg in "scripts" run "hash_translation_key jsmith@mail.com"
+- make the link to the translation page, eg "http://micmap.org/php-by-example/fr/translation?email=jsmith@mail.com&translation_key=6445521bed130aed928ec9eda4b67ee8"
+- verify the link works
+- email the request for translation and the link to the translator
+
+Note that the obfuscation of emails is not a security feature, it only prevents storing emails in the clear in the version control repository.
+
+
+6. Update translations
+----------------------
+TBD

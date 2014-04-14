@@ -18,18 +18,21 @@ class language extends object
 {
     const DEFAULT_LANGUAGE = 'en';
 
+    /**
+     * sorted by original name for displaying purposes
+     */
     public $languages = [
-        'zh' => 'Chinese', // (Simplified)
-        'en' => 'English',
-        'fr' => 'French',
-        'de' => 'German',
-        'it' => 'Italian',
-        'ja' => 'Japanese',
-        'pt' => 'Portuguese', // Brazilian
-        'ro' => 'Romanian',
-        'ru' => 'Russian',
-        'es' => 'Spanish',
-        'tr' => 'Turkish',
+        'de' => ['english_name' => 'German'    , 'original_name' => 'Deutsch'],
+        'en' => ['english_name' => 'English'   , 'original_name' => 'English'],
+        'es' => ['english_name' => 'Spanish'   , 'original_name' => 'Español'],
+        'fr' => ['english_name' => 'French'    , 'original_name' => 'Français'],
+        'it' => ['english_name' => 'Italian'   , 'original_name' => 'Italiano'],
+        'pt' => ['english_name' => 'Portuguese', 'original_name' => 'Português'],
+        'ro' => ['english_name' => 'Romanian'  , 'original_name' => 'Română'],
+        'tr' => ['english_name' => 'Turkish'   , 'original_name' => 'Türkçe'],
+        'ru' => ['english_name' => 'Russian'   , 'original_name' => 'Русский'],
+        'zh' => ['english_name' => 'Chinese'   , 'original_name' => '中文'],
+        'ja' => ['english_name' => 'Japanese'  , 'original_name' => '日本語'],
     ];
 
     function _get_language_id()
@@ -41,6 +44,13 @@ class language extends object
         }
 
         return $language_id;
+    }
+
+    function get_language_english_name()
+    {
+        $language_english_name = $this->languages[$this->language_id]['english_name'];
+
+        return $language_english_name;
     }
 
     function fix_language_id($language_id)

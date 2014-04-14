@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-17T08:50:29+00:00
+// generated automatically 2014-04-11T20:08:19+00:00
 return array (
   0 => 
   array (
@@ -55,6 +55,28 @@ return array (
       array (
         0 => 'foo',
         2 => -1,
+      ),
+    ),
+  ),
+  5 => 
+  array (
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 512,
+        'message' => 'this callback function is invalid or not available on this server',
+      ),
+    ),
+  ),
+  6 => 
+  array (
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 512,
+        'message' => 'this callback function may not be used in this example',
       ),
     ),
   ),

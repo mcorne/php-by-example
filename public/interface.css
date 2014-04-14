@@ -79,16 +79,16 @@ a.logo
     font-size: 1.8em;
     font-weight: bold;
     text-decoration: none;
-    vertical-align: middle;    
+    vertical-align: middle;
 }
 
 a.search_method_switch
 {
-    color: #656565; /* gray */    
-    vertical-align: middle;    
+    color: #656565; /* gray */
+    vertical-align: middle;
 }
 
-div.block
+div.block, div.block_translation
 {
     background-color: rgb(242, 242, 242);
     border-style: solid;
@@ -101,29 +101,124 @@ div.block
     width: 40em;
 }
 
+div.block_translation
+{
+    width: 51em;
+}
+
+div.block_translation button
+{
+    color: white; 
+    font-weight: bold;
+    white-space: nowrap;
+    width: 19em;
+}
+
+div.block_translation button
+{
+    background-color: #0000BB; /* blue */
+    margin-top: .2em;    
+}
+
+div.block_translation button.validate_message
+{
+    background-color: #007700; /* green */
+}
+
+div.block_translation button:hover
+{
+    background-color: #FF8000; /* orange */
+    border-color: darkorange;
+}
+
+div.block_translation div.comment
+{
+    padding-top: 1em;
+}
+
+div.block_translation div.translation_in_action
+{
+    padding-top: .8em;
+}
+
+div.block_translation input
+{
+    width: 54.6em;
+}
+
+div.block_translation select
+{
+    height: 1.7em;
+    margin-bottom: .8em;
+    width: 55em;
+}
+
+div.block_translation td.blank_line
+{
+    height: 1.7em;
+}
+
+div.changelog
+{
+    font-size: .9em;
+}
+
+div.changelog div.translated_message
+{
+    background-color: white;
+    border: solid 1px #CCC; /* light gray */
+    margin-top: .8em;    
+    padding-left: .5em;
+}
+
+div.changelog div.translation_action
+{
+    color: #656565; /* gray */
+    margin-top: .2em;    
+    padding-left: .5em;
+}
+
+div.changelog div.translation_comment
+{
+    background-color: white;
+    color: #656565; /* gray */
+    margin-top: .1em;    
+    padding-left: .5em;
+}
+
 div.copyright
 {
-    color: #656565; /* gray */    
+    color: #656565; /* gray */
     font-size: .8em;
     margin-top: 1em;
 }
 
 div.copyright a
 {
-    color: #656565; /* gray */    
+    color: #656565; /* gray */
     text-decoration: none;
+}
+
+div.credentials input
+{
+    width: 20em;
+}
+
+div.email
+{
+    margin-bottom: .5em;
 }
 
 div.h1
 {
-    margin-bottom: 1.5em; 
-    width: 40em;    
+    margin-bottom: 1.5em;
+    width: 40em;
 }
 
 div.h1 h1
 {
     display: inline;
-    margin-bottom: 0;   
+    margin-bottom: 0;
 }
 
 div.linebreak
@@ -148,9 +243,14 @@ div.title
     margin-bottom: 1em;
 }
 
+div.translation_intro
+{
+    margin-bottom: 2em;
+}
+
 div.top_bar a, div.top_bar input
 {
-    vertical-align: middle;    
+    vertical-align: middle;
 }
 
 h1
@@ -190,7 +290,7 @@ input.search
 {
     background-color: #0000BB; /* blue */
     border-color: darkblue;
-    margin-right: .8em;        
+    margin-right: .8em;
     vertical-align: middle;
 }
 
@@ -220,10 +320,10 @@ span.english_only
 span.helper_mark
 {
     background-color: #0000BB; /* blue */
-    color: white; 
-    font-size: 1.6em;    
-    font-weight: bolder; 
-    padding: 0 .2em 0 .2em;    
+    color: white;
+    font-size: 1.6em;
+    font-weight: bolder;
+    padding: 0 .2em 0 .2em;
     vertical-align: .2em;
 }
 
@@ -235,10 +335,10 @@ span.helper_mark:hover
 span.helper_submit
 {
     background-color: #007700;  /* green */
-    color: white; 
-    display: none;    
-    font-weight: bolder;  
-    padding: .2em .3em .1em .3em; 
+    color: white;
+    display: none;
+    font-weight: bolder;
+    padding: .2em .3em .1em .3em;
     /* vertical-align: set in input.php display_arg_helper_select() */
 }
 
@@ -257,7 +357,7 @@ span.prev_next_functions
 {
     color: #0000BB; /* blue */
     float: right;
-    white-space:nowrap;    
+    white-space:nowrap;
 }
 
 table tr
@@ -270,64 +370,6 @@ table.errors td.error_code
     color: #DD0000; /* red */
     font-weight: bold;
     white-space:nowrap;
-}
-
-table.translations
-{
-    margin-top: 2em;
-}
-
-table.translations button
-{
-    color: white;
-    font-weight: bold;
-    width: 15em;
-}
-
-table.translations button.select_message
-{
-    background-color: #656565; /* gray */    
-    border-color: darkgray;    
-}
-
-table.translations button.next_message_to_validate
-{
-    background-color: #0000BB; /* blue */ 
-    border-color: darkblue;    
-}
-
-table.translations button.validate_message
-{
-    background-color: #007700; /* green */
-    border-color: darkgreen;    
-}
-
-table.translations button.save_message
-{
-    background-color: #DD0000; /* red */  
-    border-color: darkred;    
-}
-
-table.translations button:hover
-{
-    background-color: #FF8000; /* orange */
-    border-color: darkorange;
-}
-
-table.translations input
-{
-    width: 39.6em;    
-}
-
-table.translations select
-{
-    height: 1.7em;
-    width: 40em;    
-}
-
-table.translations td.blank_line
-{
-    height: 1.7em;
 }
 
 textarea.arg
@@ -353,23 +395,23 @@ textarea.no_input
 #function_input, #function_select
 {
     color: #0000BB; /* blue */
-    height: 1.5em;    
+    height: 1.5em;
     margin-left: 2em;
-    margin-right: .5em;    
+    margin-right: .5em;
     vertical-align: middle;
-    width: 15em;    
+    width: 15em;
 }
 
 #function_select
 {
-    height: 2em;    
+    height: 2em;
     width: 15.3em;
 }
 
 #language
 {
     color: #0000BB; /* blue */
-    margin-right: .2em;    
+    margin-right: .2em;
     vertical-align: middle;
 }
 
@@ -384,4 +426,9 @@ textarea.no_input
 #php_manual_location
 {
     margin-left: .2em;
+}
+
+.highlight_translation_in_action, input.highlight_translation_in_action, select.highlight_translation_in_action
+{
+    background-color: #FFCCFF; /* light fuchsia */
 }

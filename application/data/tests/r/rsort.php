@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-14T18:17:57+00:00
+// generated automatically 2014-04-11T20:14:13+00:00
 return array (
   0 => 
   array (
@@ -27,6 +27,17 @@ return array (
         3 => 'Orange1',
       ),
       'bool' => true,
+    ),
+  ),
+  2 => 
+  array (
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 256,
+        'message' => 'a value cannot be passed by reference ([0 =&gt; 123])',
+      ),
     ),
   ),
 );

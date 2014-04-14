@@ -12,30 +12,24 @@
   <?=$this->_translator->translate('Help');?>
 </h1>
 
-<p>
-<?=$this->_translator->translate('You found a problem with this site.');?>
-<br/>
-<?=$this->_translator->translate('You need a new feature.');?>
-<br/>
-<?=$this->_translator->translate('You have a suggestion to improve this site.');?>
-<br/>
-<a href="http://code.google.com/p/php-by-example/issues/list"><?=$this->_translator->translate('Please, open a support ticket.');?></a>
-<br/>
-<span class="gray"><?=$this->_translator->translate('Note that you will need a Gmail account.');?></span>
-</p>
+<?=$this->_translator->translate('You found a problem with this site.');?><br/>
+<?=$this->_translator->translate('You need a new feature.');?><br/>
+<?=$this->_translator->translate('You have a suggestion to improve this site.');?><br/>
+<a href="http://code.google.com/p/php-by-example/issues/list"><?=$this->_translator->translate('Open a support ticket');?></a><br />
 
-<p>
-<?=$this->_translator->translate('You may otherwise send your request by email.');?>
-<br/>
-<a href="mailto:mcorne@yahoo.com?subject=Php-bt-Example"><?=$this->_translator->translate('Send an email.');?></a>
-</p>
+<br />
 
-<p>
-<?=$this->_translator->translate('Please, make your request in English, thanks.');?>
-</p>
+<?=$this->_translator->translate('You may otherwise send your request by email.');?><br/>
+<a href="<?=$this->_output->display_mailto(
+            'Support request',
+            '<<< Please describe your problem or suggestion here, then send the email. Thank you. >>>');?>"
+><?=$this->_translator->translate('Send an email');?></a><br/>
 
-<p>
-<?=$this->_translator->translate('If you have a question related to PHP, please consult the PHP manual.');?>
 <br/>
-<a href="mailto:mcorne@yahoo.com?subject=Dicfro"><?=$this->_translator->translate('Open the PHP manual.');?></a>
-</p>
+
+<?=$this->_translator->translate('Please, make your request in English, thanks.');?><br/>
+
+<br/>
+
+<?=$this->_translator->translate('If you have a question related to PHP, please consult the PHP manual.');?><br/>
+<a href="http://php.net/manual/<?=$this->_language->language_id;?>"><?=$this->_translator->translate('Open the PHP manual');?></a>

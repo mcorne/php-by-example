@@ -20,6 +20,7 @@ class iconv extends function_core
             "ISO-8859-1//IGNORE",
             "This is the Euro symbol '€'.",
         ],
+        // used in translations_in_action.php
         [
             "UTF-8",
             "ISO-8859-1",

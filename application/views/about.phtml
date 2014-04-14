@@ -9,11 +9,14 @@
 ?>
 
 <h1>
-  <?=$this->_translation->translate('About');?>
+  <?=$this->_translator->translate('About');?>
 </h1>
 
-<a href="http://code.google.com/p/php-by-example/"><?=$this->_translation->translate('Source code');?></a>
+<a href="http://code.google.com/p/php-by-example/"><?=$this->_translator->translate('Source code');?></a>
 <br />
-<a href="http://statcounter.com/p9559234/summary/?guest=1"><?=$this->_translation->translate('Stats');?></a>
+<a href="http://statcounter.com/p9559234/summary/?guest=1"><?=$this->_translator->translate('Stats');?></a>
 <br />
-<a href="<?=$this->_output->display_url('test_all');?>"><?=$this->_translation->translate('Test of all functions');?></a>
+<br />
+<a href="<?=$this->_output->display_url('test_all');?>"><?=$this->_translator->translate('Test of all functions');?></a>
+<br />
+<a href="<?=$this->_output->display_url('translation');?>"><?=$this->_translator->translate('Messages translation');?></a>

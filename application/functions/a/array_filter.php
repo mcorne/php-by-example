@@ -59,6 +59,19 @@ inject_function_call
             ],
             'ctype_alpha'
         ],
+        // used in translations_in_action.php
+        [
+            [
+                "a" => 1,
+            ],
+            'xyz',
+        ],
+        [
+            [
+                "a" => 1,
+            ],
+            'time',
+        ],
     ];
 
     public $helper_callbacks = ['index_in_example' => 1, 'function_name_pattern' => '~(^ctype_|^is_)~'];

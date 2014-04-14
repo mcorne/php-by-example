@@ -126,14 +126,14 @@ class function_core extends action
             // this is a class, extracts the class and method name
             list($classname, $method_name) = $parts;
 
-            if (! class_exists($classname, false)) {
+            if (! class_exists($classname, false) or $this->_params->translation_in_action == 2002) {
                 $message = $this->_translator->translate('this class is not available in the PHP version running on this server');
 
-            } else if (! method_exists($classname, $method_name)) {
+            } else if (! method_exists($classname, $method_name) or $this->_params->translation_in_action == 2004) {
                 $message = $this->_translator->translate('this method is not available in the PHP version running on this server');
             }
 
-        } else if (! function_exists($this->_synopsis->function_name)) {
+        } else if (! function_exists($this->_synopsis->function_name) or in_array($this->_params->translation_in_action, [1701, 2003])) {
             $message = $this->_translator->translate('this function is not available in the PHP version running on this server');
         }
 

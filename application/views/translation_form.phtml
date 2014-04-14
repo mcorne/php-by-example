@@ -1,0 +1,213 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<form action="<?=$this->_output->display_url('translation');?>"
+      method="post"
+>
+
+  <div class="title gray">Your email and translation key</div>
+
+  <div class="block_translation gray_border credentials">
+    <div class="email">
+      <input name="email"
+             placeholder="Enter your email"
+             type="text" value="<?=htmlspecialchars($this->_params->email);?>"
+      />
+    </div>
+
+    <div>
+      <input name="translation_key"
+             placeholder="Enter your translation key"
+             type="password"
+             value="<?=htmlspecialchars($this->_params->translation_key);?>"
+      />
+    </div>
+  </div>
+
+  <div class="title blue">Three ways to select a message to translate</div>
+
+  <div class="block_translation blue_border">
+
+    <div>
+      <div class="gray">The original message in English</div>
+
+      <select id="select_english_message"
+              name="select_message"
+              onchange="set_translation_selects('select_translation_in_production', 'select_translation_lastest_version', this.value)"
+      >
+        <?php $this->_output->display_translation_selection($this->message_id, $this->_translator->english_messages);?>
+      </select>
+    </div>
+
+    <div>
+      <div class="gray">The translation in production</div>
+
+      <select id="select_translation_in_production"
+              onchange="set_translation_selects('select_english_message', 'select_translation_lastest_version', this.value)"
+      >
+        <?php $this->_output->display_translation_selection($this->message_id, $this->_translator->translated_messages);?>
+      </select>
+    </div>
+
+    <div>
+      <div class="gray">
+        <?php
+            if (! isset($this->translations_last_version[$this->message_id]) or ! isset($this->_translator->translated_messages[$this->message_id])) {
+                $display_in_production     = 'none';
+                $display_not_in_production = 'none';
+            } else if ($this->translations_last_version[$this->message_id] == $this->_translator->translated_messages[$this->message_id]) {
+                $display_in_production     = 'inline';
+                $display_not_in_production = 'none';
+            } else {
+                $display_in_production     = 'none';
+                $display_not_in_production = 'inline';
+            };
+        ?>
+
+        The lastest version of the translation
+        <span id="display_in_production"
+              style="display: <?=$display_in_production;?>"
+        >(currently in production)
+        </span>
+
+        <span id="display_not_in_production"
+              style="display: <?=$display_not_in_production;?>"
+        >(not in production yet)
+        </span>
+      </div>
+
+      <select id="select_translation_lastest_version"
+              onchange="set_translation_selects('select_english_message', 'select_translation_in_production', this.value)"
+      >
+        <?php $this->_output->display_translation_selection($this->message_id, $this->translations_last_version);?>
+      </select>
+    </div>
+
+    <button name="translation_action"
+            type="submit"
+            value="select_message"
+    >Select message
+    </button>
+
+  </div>
+
+  <?php if ($this->message_id):?>
+
+    <?php if (! $this->no_additional_action and ! $this->no_display_translation_input):
+              $last_translated_message = end($this->translations_log_entries[$this->message_id]);?>
+
+      <input name="previous_translated_message"
+             type="hidden"
+             value="<?=$last_translated_message['translated_message'];?>"
+      />
+
+      <input name="message_to_validate_id"
+             type="hidden"
+             value="<?=$last_translated_message['message_id'];?>"
+      />
+
+      <div class="title green">Your translation input</div>
+
+      <div class="block_translation green_border">
+
+        <div>
+          <input class="green"
+                 name="translated_message"
+                 type="text"
+                 value="<?=$last_translated_message['translated_message'];?>"
+          />
+        </div>
+
+        <div>
+          <button class="validate_message"
+                  name="translation_action"
+                  type="submit"
+                  value="save_translation">Validate or Change
+          </button>
+
+          <?php if ($this->translation_not_processed):?>
+            <div>
+              <span class="red"><?=$this->translation_not_processed;?></span>
+              <span class="gray">(translation not processed)</span>
+            </div>
+          <?php endif;?>
+
+          <div class="comment">
+            <input class="gray"
+                   name="comment"
+                   placeholder="You may add a comment here to explain the change"
+                   title="You may add a comment here to explain the change" type="text"
+            />
+          </div>
+
+          <?php if ($url = $this->get_translation_in_action_url($this->message_id)):?>
+            <div class="translation_in_action gray">
+
+              See the
+              <a class="gray" href="<?=$this->_output->display_url($url['action'], $url['function_name'], $url['params']);?>"
+                 target="translation_in_action"
+              >current translation in action</a>
+              or the
+              <a class="gray" href="<?=$this->_output->display_url($url['action'], $url['function_name'], $url['params'], 'en');?>"
+                 target="translation_in_action"
+              >message in English</a>
+              highlighted in a fuchsia in a separate tab.
+
+              <?php if (isset($url['translation_note'])):?>
+                <br />
+                Additional information!
+                <?=$url['translation_note'];?>
+              <?php endif;?>
+
+            </div>
+          <?php endif;?>
+        </div>
+
+      </div>
+    <?php endif;?>
+
+    <div class="title gray">Change log</div>
+
+    <div class="block_translation gray_border">
+      <?php $previous_translated_messaged = null;
+            foreach ($this->translations_log_entries[$this->message_id] as $entry_id => $translation_log_entry):
+                $last_entry_id = count($this->translations_log_entries[$this->message_id]) - 1;?>
+
+        <?php if ($translation_log_entry['action'] != 'reviewed' or
+                 $entry_id == $last_entry_id and $timeout = $this->is_translation_locked_for_review($translation_log_entry)):?>
+          <div class="changelog">
+
+            <?php if ($translation_log_entry['translated_message'] != $previous_translated_messaged):?>
+              <div class="translated_message"><?=$this->_output->display_log_entry_text($translation_log_entry['translated_message']);?></div>
+            <?php endif;?>
+
+            <div class="translation_action">
+              <?=$translation_log_entry['action'];?>
+              by <?=$this->_output->display_translator_name($translation_log_entry['translator'], $this->no_additional_action);?>
+              on <?=$translation_log_entry['date'];?> UTC
+              <?php if (! empty($timeout)):?>until <?=date('H:i:s', $timeout);?><?php endif;?>
+              <?php if ($translation_log_entry['comment']):?>with a comment:<?php endif;?>
+            </div>
+
+            <?php if ($translation_log_entry['comment']):?>
+              <div class="translation_comment"><?=$this->_output->display_log_entry_text($translation_log_entry['comment']);?></div>
+            <?php endif;?>
+
+          </div>
+        <?php $previous_translated_messaged = $translation_log_entry['translated_message'];
+              endif;?>
+
+      <?php endforeach;?>
+
+    </div>
+
+  <?php endif;?>
+
+</form>

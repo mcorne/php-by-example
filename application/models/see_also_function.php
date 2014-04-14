@@ -41,15 +41,15 @@ class see_also_function extends object
 
     function read_manual_page_content($must_exist = false)
     {
-        $manual_page_file_name = sprintf('%s/manual/en/%s.html', $this->public_path, $this->_synopsis->manual_function_name);
+        $manual_page_filename = sprintf('%s/manual/en/%s.html', $this->public_path, $this->_synopsis->manual_function_name);
 
-        if (! file_exists($manual_page_file_name)) {
+        if (! file_exists($manual_page_filename)) {
             // although unlikely a manual page might not be found any more after a PHP manual update
             // silently ignores the issue so this remains transparent to the user
             return null;
         }
 
-        $content = $this->_file->read_content($manual_page_file_name);
+        $content = $this->_file->read_content($manual_page_filename);
 
         return $content;
     }

@@ -16,7 +16,8 @@
 
     <datalist id="function_list"><option></option></datalist>
 
-    <input id="function_input"
+    <input <?php if ($this->_params->translation_in_action == 1001):?>class="highlight_translation_in_action"<?php endif;?>
+           id="function_input"
            list="function_list"
            onkeydown="is_submit_enter_key(event) && run_searched_function('<?=$this->_output->display_url('function');?>')"
            placeholder="<?=$this->_translator->translate('Search a function');?>"
@@ -36,6 +37,7 @@
     <span id="function_select_placeholder">
       <select id="function_select"
               onkeydown="is_submit_enter_key(event) && run_selected_function('<?=$this->_output->display_url('function');?>')">
+
         <option value="">-- <?=$this->_translator->translate('Choose a function');?> --</option>
 
         <?php if ($this->_synopsis->function_name):?>

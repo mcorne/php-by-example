@@ -1,0 +1,28 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<option value="">--</option>
+
+<?php foreach ($messages as $message_id => $message):?>
+
+  <?php if ($message_id % 100):?>
+    <option <?php if ($message_id == $selected_message_id):?>selected="selected"<?php endif;?>
+            title="#<?=$message_id?>"
+            value="<?=$message_id;?>"
+    ><?=htmlspecialchars($message);?></option>
+
+  <?php else:?>
+    <?php if ($message_id != 1000):?>
+      </optgroup>
+    <?php endif;?>
+    <optgroup label="<?=htmlspecialchars($message);?>">
+  <?php endif;?>
+
+<?php endforeach;?>

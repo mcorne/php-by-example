@@ -84,7 +84,11 @@ class converter extends object
                 $value = str_replace(["\r\n", "\n", "\r"], ' ', $value);
             }
 
-            if (strpos($value, '_DOUBLE_QUOTES_') === 0) {
+            if (strpos($value, '_NO_CHANGE_') === 0) {
+                // this is a value to display as it is, primarily used to force invalid input for testing purposes
+                $text = str_replace('_NO_CHANGE_', '', $value);
+
+            } else if (strpos($value, '_DOUBLE_QUOTES_') === 0) {
                 // this is a value to display between double quotes
                 $text = str_replace('_DOUBLE_QUOTES_', '"', $value);
 

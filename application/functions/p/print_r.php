@@ -33,7 +33,13 @@ class print_r extends function_core
                 ],
             ],
             true
-        ]
+        ],
+        // used in translations_in_action.php
+        [
+            [
+                "a" => "apple",
+            ],
+        ],
     ];
 
     public $synopsis = 'mixed print_r ( mixed $expression [, bool $return = false ] )';

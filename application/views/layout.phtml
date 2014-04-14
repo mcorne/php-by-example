@@ -21,7 +21,7 @@
   <body <?php if ($this->_params->search_method == 'input'):?>
            onload="set_function_input('<?=$this->_synopsis->function_name;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
         <?php else:?>
-           onload="set_function_select('<?=$this->_synopsis->function_name;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
+           onload="set_function_select('<?=$this->_synopsis->function_name;?>', '<?=$this->_params->translation_in_action == 1003 ? 'highlight_translation_in_action' : null;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
         <?php endif;?>
 
         onresize="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)">

@@ -10,22 +10,15 @@
 
 <?php if ($this->_params->php_manual_location != 'none'):?>
 
-  <?php if ($url = $this->_output->display_function_manual_page_url()):?>
+  <?php if ($url = $this->_output->display_function_manual_page_url() and ! in_array($this->_params->translation_in_action, [2501, 2502])):?>
     <iframe id="php_manual"
             onload="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
             src="<?=$url;?>"></iframe>
 
   <?php else:?>
     <div class="block red_border red">
-
-        <?=$this->_translator->translate('The PHP manual is not available.');?>
-
+        <?=$this->_translator->translate('This page of the PHP manual is not available.');?>
         <?=$this->_translator->translate('Sorry for the inconvenience.');?>
-
-        <br />
-        <a target="target="_blank"
-           href="http://code.google.com/p/php-by-example/issues/list"><?=$this->_translator->translate('You may report the problem here.');?></a>
-
     </div>
   <?php endif;?>
 

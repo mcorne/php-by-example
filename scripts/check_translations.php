@@ -8,7 +8,7 @@
  */
 
 /*
- * check source code message translations
+ * checks source code message translations
  */
 
 class check_translations
@@ -37,7 +37,6 @@ class check_translations
                     $missing_translated_message_ids[$id] .= ", $language_id";
                 }
             }
-
 
             foreach (array_diff($translated_message_ids, $english_message_ids) as $id) {
                 if (! isset($obsolete_translated_message_ids[$id])) {
@@ -82,6 +81,7 @@ class check_translations
         $english_messages = array_flip($this->english_messages);
         $source_code_messages = array_fill_keys($source_code_messages, true);
         $obsolete_english_message_ids = array_diff_key($english_messages, $source_code_messages);
+        $obsolete_english_message_ids = array_filter($obsolete_english_message_ids, function($id) { return $id % 100; });
 
         return $obsolete_english_message_ids;
     }

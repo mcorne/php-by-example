@@ -9,80 +9,106 @@
 
 return [
 
-// top bar
-1000 => "Choose a function",
+1000 => "Top bar",
+1001 => "Search a function",
+1002 => "Display drop down list",
+1003 => "Choose a function",
+1004 => "Display input box",
 
-// bottom bar
-1100 => "Project",
-1101 => "Issues",
-1102 => "Home",
-1103 => "Test",
-1104 => "Stats",
+1100 => "Home page",
+1101 => "Welcome to the world of the PHP functions",
+1102 => "Here you can test PHP functions online.",
+1103 => "You won't have to write a single line of code.",
+1104 => "You just need to select a function to get the result.",
+1105 => "Each function comes with a few examples.",
+1106 => "You may of course change the function arguments at will.",
+1107 => "The corresponding page of the manual is also displayed automatically.",
+1108 => "So go ahead, and start playing...",
+1109 => "List of available functions",
 
-// misc
-1200 => "This page is available in English only.",
+1200 => "Bottom bar",
+1201 => "Home",
+1202 => "Help",
+1203 => "About",
+1204 => "Test",
 
-// filter
-1300 => "the filename must start with one of the following strings in this example",
-1301 => "this argument value is not allowed in this example",
-1302 => "this callback function may not be used in this example",
-1303 => "the callback function is invalid or not available on this server",
-1304 => "the length must be defined and lower than 1000 bytes in this example",
-1305 => "the number of iterations must be an integer lower than 10 in this example",
-1306 => "this argument may not be empty in this example",
+1300 => "PHP manual location",
+1301 => "Local copy of PHP manual",
+1302 => "PHP Manual at php.net",
+1303 => "No display of PHP manual",
 
-// function core
-1400 => "a value cannot be passed by reference",
-1401 => "this class is not available in the PHP version running on this server",
-1402 => "this function is not available in the PHP version running on this server",
-1403 => "this method is not available in the PHP version running on this server",
-1404 => "the following argument has been removed",
-1405 => "the following arguments have been removed",
+1400 => "Function page",
+1401 => "Execute the function",
+1402 => "Result",
+1403 => "Examples",
+1404 => "See also",
 
-// params
-1500 => "Do not display", // as in "Do not display the PHP manual"
-1501 => "Local copy",     // as in "Local copy of the PHP manual"
-1502 => "the argument was truncated to 1000 bytes in this example",
+1500 => "Function input",
+1501 => "multi-select",
 
-// parser
-1600 => "invalid array",
-1601 => "invalid constant",
-1602 => "invalid negative number",
-1603 => "invalid value",
-1604 => "undefined constant",
-1605 => "unexpected data",
+1600 => "Search function page",
+1601 => "List of all available functions",
+1602 => "No function was found that matches this pattern.",
 
-// output
-1700 => "Error",
-1701 => "PHP error",
-1702 => "PHP notice",
-1703 => "PHP warning",
-1704 => "PHPbEx error",
-1705 => "PHPbEx notice",
-1706 => "PHPbEx warning",
+1700 => "Error types",
+1701 => "Error",
+1702 => "PHP error",
+1703 => "PHP notice",
+1704 => "PHP warning",
+1705 => "PHPbEx error",
+1706 => "PHPbEx notice",
+1707 => "PHPbEx warning",
 
-// home page
-1800 => "Welcome to the world of the PHP functions",
-1801 => "Here you can test PHP functions online.",
-1802 => "You won't have to write a single line of code.",
-1803 => "You just need to select a function to get the result.",
-1804 => "Each function comes with a few examples.",
-1805 => "You may of course change the function arguments at will.",
-1806 => "The corresponding page of the manual is also displayed automatically.",
-1807 => "So go ahead, and start playing...",
+1800 => "Parser errors",
+1801 => "invalid array",
+1802 => "invalid constant",
+1803 => "invalid negative number",
+1804 => "invalid value",
+1805 => "undefined constant",
+1806 => "unexpected data",
 
-// function page
-1900 => "Examples",
-1901 => "Execute the function",
-1902 => "Result",
+1900 => "Argument filter errors",
+1901 => "the filename must start with one of the following strings in this example",
+1902 => "this argument value is not allowed in this example",
+1903 => "this callback function may not be used in this example",
+1904 => "this callback function is invalid or not available on this server",
+1905 => "the length must be defined and lower than 1000 bytes in this example",
+1906 => "the number of iterations must be an integer lower than 10 in this example",
+1907 => "this argument may not be empty in this example",
 
-// php manual
-2000 => "The PHP manual is not available.",
-2001 => "Sorry for the inconvenience.",
-2002 => "You may report the problem here.",
-2003 => "PHP Manual",
+2000 => "Function errors",
+2001 => "a value cannot be passed by reference",
+2002 => "this class is not available in the PHP version running on this server",
+2003 => "this function is not available in the PHP version running on this server",
+2004 => "this method is not available in the PHP version running on this server",
+2005 => "the following argument has been removed",
+2006 => "the following arguments have been removed",
 
-// input
-5000 => "(multiselect)",
+2100 => "Parameter errors",
+2101 => "the argument was truncated to 1000 bytes in this example",
+
+2200 => "Help page",
+2201 => "You found a problem with this site.",
+2202 => "You need a new feature.",
+2203 => "You have a suggestion to improve this site.",
+2204 => "Open a support ticket",
+2206 => "You may otherwise send your request by email.",
+2207 => "Send an email",
+2208 => "Please, make your request in English, thanks.",
+2209 => "If you have a question related to PHP, please consult the PHP manual.",
+2210 => "Open the PHP manual",
+
+2300 => "About page",
+2301 => "Source code",
+2302 => "Stats",
+2303 => "Test of all functions",
+2304 => "Messages translation",
+
+2400 => "Miscellaneous",
+2401 => "This page is available in English only.",
+
+2500 => "Unavailable PHP manual notice",
+2501 => "This page of the PHP manual is not available.",
+2502 => "Sorry for the inconvenience.",
 
 ];

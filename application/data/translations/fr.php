@@ -1,90 +1,106 @@
 <?php
-/**
- * PHP By Example
- *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
- * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
- */
+// generated automatically 2014-04-14T09:06:58+00:00
+return array (
 
-return [
+  1000 => 'Top bar',
+  1001 => 'Rechercher une fonction',
+  1002 => 'Afficher la liste déroulante',
+  1003 => 'Choisissez une fonction',
+  1004 => 'Afficher la boîte d\'entrée',
 
-// top bar
-1000 => "Choisissez une fonction", // validated translation
+  1100 => 'Home page',
+  1101 => 'Bienvenue dans le monde des fonctions PHP',
+  1102 => 'Ici, vous pouvez tester les fonctions de PHP en ligne.',
+  1103 => 'Vous n\'aurez pas à écrire une seule ligne de code.',
+  1104 => 'Vous avez juste besoin de sélectionner une fonction pour obtenir le résultat.',
+  1105 => 'Chaque fonction est livré avec quelques exemples.',
+  1106 => 'Vous pouvez bien sûr changer les arguments de la fonction à volonté.',
+  1107 => 'La page correspondante du manuel est également affiché automatiquement.',
+  1108 => 'Alors allez-y , et commencer à jouer...',
+  1109 => 'Liste des fonctions disponibles',
 
-// bottom bar
-1100 => "Projet",    // validated translation
-1101 => "Problèmes", // validated translation
-1102 => "Accueil",   // validated translation
-1103 => "Test",      // validated translation
-1104 => "Stats",     // validated translation
+  1200 => 'Bottom bar',
+  1201 => 'maison',
+  1202 => 'aider',
+  1203 => 'sur',
+  1204 => 'test',
 
-// misc
-1200 => "Cette page est disponible en anglais seulement.",  // validated translation
+  1300 => 'PHP manual location',
+  1301 => 'Copie locale du manuel PHP',
+  1302 => 'Manuel PHP sur php.net',
+  1303 => 'Pas d\'affichage de manuel PHP',
 
-// filter
-1300 => "le nom du fichier doit commencer par l'une des chaînes suivantes dans cet exemple", // validated translation
-1301 => "cette valeur d'argument n'est pas autorisé dans cet exemple",                       // validated translation
-1302 => "cette fonction de rappel ne peut être utilisée dans cet exemple",                   // validated translation
-1303 => "la fonction de rappel n'est pas valide ou n'est pas disponible sur ce serveur",     // validated translation
-1304 => "la longueur doit être définie et inférieure à 1000 octets dans cet exemple",               // validated translation
-1305 => "le nombre d'itérations doit être un nombre entier inférieur à 10 dans cet exemple", // validated translation
-1306 => "cet argument ne peut pas être vide dans cet exemple",                                 // validated translation
+  1400 => 'Function page',
+  1401 => 'Exécutez la fonction',
+  1402 => 'résultat',
+  1403 => 'Exemples',
+  1404 => 'voir aussi',
 
+  1500 => 'Function input',
+  1501 => 'multi-sélection',
 
-// function core
-1400 => "une valeur ne peut pas être passée par référence",                                               // validated translation
-1401 => "cette classe n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur",   // validated translation
-1402 => "cette fonction n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur", // validated translation
-1403 => "cette méthode n'est pas disponible dans la version de PHP en cours d'exécution sur ce serveur",  // validated translation
-1404 => "l'argument suivant a été supprimé",                                                              // validated translation
-1405 => "les arguments suivants ont été supprimés",                                                       // validated translation
+  1600 => 'Search function page',
+  1601 => 'Liste des fonctions disponibles',
+  1602 => 'Aucune fonction n\'a été trouvée qui correspond à ce modèle.',
 
+  1700 => 'Error types',
+  1701 => 'erreur',
+  1702 => 'Erreur PHP',
+  1703 => 'Avis de PHP',
+  1704 => 'Alerte PHP',
+  1705 => 'erreur PHPbEx',
+  1706 => 'avis PHPbEx',
+  1707 => 'avertissement PHPbEx',
 
-// params
-1500 => "Ne pas afficher", // validated translation
-1501 => "Copie locale",    // validated translation
-1502 => "l'argument a été tronqué à 1000 octets dans cet exemple", // validated translation
+  1800 => 'Parser errors',
+  1801 => 'tableau invalide',
+  1802 => 'constante invalide',
+  1803 => 'nombre négatif invalide',
+  1804 => 'valeur non valide',
+  1805 => 'constante indéfinie',
+  1806 => 'données inattendues',
 
-// parser
-1600 => "tableau invalide",        // validated translation
-1601 => "constante invalide",      // validated translation
-1602 => "nombre négatif invalide", // validated translation
-1603 => "valeur non valide",       // validated translation
-1604 => "constante indéfinie",     // validated translation
-1605 => "données inattendues",     // validated translation
+  1900 => 'Argument filter errors',
+  1901 => 'le nom du fichier doit commencer par l\'une des chaînes suivantes dans cet exemple',
+  1902 => 'cette valeur d\'argument n\'est pas autorisé dans cet exemple',
+  1903 => 'cette fonction de rappel ne peut être utilisée dans cet exemple',
+  1904 => 'cette fonction de rappel n\'est pas valide ou n\'est pas disponible sur ce serveur',
+  1905 => 'la longueur doit être définie et inférieure à 1000 octets dans cet exemple',
+  1906 => 'le nombre d\'itérations doit être un nombre entier inférieur à 10 dans cet exemple',
+  1907 => 'cet argument ne peut pas être vide dans cet exemple',
 
-// output
-1700 => "Erreur",              // validated translation
-1701 => "Erreur PHP",          // validated translation
-1702 => "Notification PHP",    // validated translation
-1703 => "Alerte PHP",          // validated translation
-1704 => "Erreur PHPbEx",       // validated translation
-1705 => "Notification PHPbEx", // validated translation
-1706 => "Alerte PHPbEx",       // validated translation
+  2000 => 'Function errors',
+  2001 => 'une valeur ne peut pas être passé par référence',
+  2002 => 'cette classe n\'est pas disponible dans la version de PHP en cours d\'exécution sur ce serveur',
+  2003 => 'cette fonction n\'est pas disponible dans la version de PHP en cours d\'exécution sur ce serveur',
+  2004 => 'cette méthode ne sont pas disponibles dans la version de PHP fonctionnant sur ce serveur',
+  2005 => 'l\'argument suivant a été supprimé',
+  2006 => 'les arguments suivants ont été supprimés',
 
-// home page
-1800 => "Bienvenue dans le monde des fonctions PHP",                                     // validated translation
-1801 => "Ici, vous pouvez tester les fonctions de PHP en ligne.",                        // validated translation
-1802 => "Vous n'aurez pas à écrire une seule ligne de code.",                            // validated translation
-1803 => "Vous avez juste besoin de sélectionner une fonction pour obtenir le résultat.", // validated translation
-1804 => "Chaque fonction est livrée avec quelques exemples.",                            // validated translation
-1805 => "Vous pouvez bien sûr changer les arguments de la fonction à volonté.",          // validated translation
-1806 => "La page correspondante du manuel est également affichée automatiquement.",      // validated translation
-1807 => "Alors allez-y, et commencer à jouer ...",                                       // validated translation
+  2100 => 'Parameter errors',
+  2101 => 'l\'argument a été tronqué à 1000 octets dans cet exemple',
 
-// function page
-1900 => "Exemples",             // validated translation
-1901 => "Exécutez la fonction", // validated translation
-1902 => "Résultat",             // validated translation
+  2200 => 'Help page',
+  2201 => 'Vous avez trouvé un problème sur ce site.',
+  2202 => 'Vous avez besoin d\'une nouvelle fonctionnalité.',
+  2203 => 'Vous avez une suggestion pour améliorer le site.',
+  2204 => 'Ouvrez un ticket de support',
+  2206 => 'Vous pouvez par ailleurs envoyer votre demande par email.',
+  2207 => 'Envoyer un email',
+  2208 => 'S\'il vous plaît , faites votre demande en anglais , merci.',
+  2209 => 'Si vous avez une question relative à PHP , s\'il vous plaît consulter le manuel de PHP.',
+  2210 => 'Ouvrez le manuel PHP',
 
-// php manual
-2000 => "Le manuel PHP n'est pas disponible.",   // validated translation
-2001 => "Désolé pour le désagrément.",           // validated translation
-2002 => "Vous pouvez signaler le problème ici.", // validated translation
-2003 => "Manuel PHP",                            // validated translation
+  2300 => 'About page',
+  2301 => 'Le code source',
+  2302 => 'Statistiques',
+  2303 => 'Test de toutes les fonctions',
+  2304 => 'Traduction des messages',
 
-// input
-5000 => "(sélection multiple)",    // validated translation
+  2400 => 'Miscellaneous',
+  2401 => 'Cette page est disponible en anglais seulement.',
 
-];
+  2500 => 'Unavailable PHP manual notice',
+  2501 => 'Cette page du manuel PHP n\'est pas disponible.',
+  2502 => 'Désolé pour le désagrément.',
+);

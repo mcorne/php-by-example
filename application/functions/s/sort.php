@@ -31,6 +31,13 @@ class sort extends array_pop
             '$array',
             'SORT_NATURAL | SORT_FLAG_CASE',
         ],
+        // used in translations_in_action.php
+        [
+            '__array' => [
+                "lemon",
+            ],
+            [123],
+        ],
     ];
 
     public $synopsis = 'bool sort ( array &$array [, int $sort_flags = SORT_REGULAR ] )';

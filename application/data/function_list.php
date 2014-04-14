@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-20T11:30:16+00:00
+// generated automatically 2014-04-11T07:11:06+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -452,6 +452,7 @@ return array (
   'time_nanosleep' => 'time_nanosleep',
   'token_get_all' => 'token_get_all',
   'token_name' => 'token_name',
+  'trigger_error' => 'trigger_error',
   'trim' => 'trim',
   'uasort' => 'uasort',
   'ucfirst' => 'ucfirst',

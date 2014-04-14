@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-25T21:11:01+00:00
+// generated automatically 2014-04-11T20:13:19+00:00
 return array (
   0 => 
   array (
@@ -116,6 +116,17 @@ return array (
       array (
         'code' => 2,
         'message' => 'prev() expects parameter 1 to be array, null given',
+      ),
+    ),
+  ),
+  8 => 
+  array (
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 512,
+        'message' => 'the number of iterations must be an integer lower than 10 in this example ($count)',
       ),
     ),
   ),

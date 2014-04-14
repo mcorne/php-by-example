@@ -8,7 +8,7 @@
  */
 ?>
 
-<?php if ($this->_language->language_id != 'en'):?>
+<?php if ($this->_language->language_id != 'en' or $this->_params->translation_in_action == 2401):?>
 
   <span class="english_only">
     <?=$this->_translator->translate('This page is available in English only.');?>

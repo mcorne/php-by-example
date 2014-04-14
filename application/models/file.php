@@ -37,6 +37,38 @@ class file extends object
         return $temp_file_prefix;
     }
 
+    function append_csv_line($filename, $array)
+    {
+        // replaces tabs with spaces since a tab is used as cell separator
+        $array = str_replace("\t", ' ', $array);
+        $line = implode("\t", $array);
+
+        // replaces line breaks with their string equivalent since a line break is used as line separator
+        // note that line break string equivalents should be replaced back to their original value after reading the line
+        $line = str_replace("\n", '\n', $line);
+
+        $directory = dirname($filename);
+
+        if (! is_dir($directory)) {
+            $this->create_directory($directory);
+        }
+
+        if (! @file_put_contents($filename, $line . "\n", FILE_APPEND | LOCK_EX)) {
+            throw new Exception("cannot append file $filename");
+        }
+    }
+
+    function combine_keys_to_lines($keys, $lines)
+    {
+        $lines_with_keys = [];
+
+        foreach ($lines as $values) {
+            $lines_with_keys[] = array_combine($keys, $values);
+        }
+
+        return $lines_with_keys;
+    }
+
     function create_directory($directory)
     {
         if (! @mkdir($directory)) {
@@ -69,6 +101,18 @@ class file extends object
         }
     }
 
+    function index_lines($lines, $index_key)
+    {
+        $indexed_last_lines = [];
+
+        foreach ($lines as $line) {
+            $key = $line[$index_key];
+            $indexed_last_lines[$key][] = $line;
+        }
+
+        return $indexed_last_lines;
+    }
+
     function read_array($filename)
     {
         if (! file_exists($filename)) {
@@ -89,7 +133,34 @@ class file extends object
         return $content;
     }
 
-    function write_array($filename, $array, $replacements = [])
+    function read_csv_lines($filename, $keys = null, $pattern = null, $index_key = null)
+    {
+        if (! file_exists($filename)) {
+            return [];
+        }
+
+        if (! $lines = @file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)) {
+            throw new Exception("cannot read file $filename");
+        }
+
+        if ($pattern) {
+            $lines = preg_grep($pattern, $lines);
+        }
+
+        $lines = array_map(function($line) { return explode("\t", $line); }, $lines);
+
+        if ($keys) {
+            $lines = $this->combine_keys_to_lines($keys, $lines);
+        }
+
+        if ($index_key) {
+            $lines = $this->index_lines($lines, $index_key);
+        }
+
+        return $lines;
+    }
+
+    function write_array($filename, $array, $replacements = [], $replacement_method = 'str_replace')
     {
         $format =
 '<?php
@@ -99,7 +170,7 @@ return %s;';
         $exported_array = var_export($array, true);
 
         if ($replacements) {
-            $exported_array = str_replace(array_keys($replacements), array_values($replacements), $exported_array);
+            $exported_array = $replacement_method(array_keys($replacements), array_values($replacements), $exported_array);
         }
 
         // adds the current date and time in the file header

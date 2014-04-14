@@ -41,7 +41,12 @@ class output extends object
             E_WARNING      => $this->_translator->translate('PHP warning'),
         ];
 
-        $message = isset($messages[$code]) ? $messages[$code] : $this->_translator->translate('Error');
+        if (isset($messages[$code])) {
+            $message = $messages[$code];
+        } else {
+            // this is an internal exception without an error code, see function_core.php
+            $message = $this->_translator->translate('Error');
+        }
 
         return $message;
     }
@@ -133,24 +138,65 @@ class output extends object
         require __DIR__ . '/../views/function_title.phtml';
     }
 
+    function display_log_entry_text($text)
+    {
+        $text = str_replace('\n', '<br />', $text);
+
+        return htmlspecialchars($text);
+    }
+
+    function display_mailto($subject, $body)
+    {
+        $subject = urlencode($subject);
+        $body = urlencode($body);
+        $mailto = sprintf('mailto:help.php.by.example@gmail.com?subject=[PHP-by-Example]+%s&body=%s', $subject, $body);
+
+        return $mailto;
+    }
+
     function display_tested_function_list($functions, $title, $color, $test_count_by_function = null, $test_subset_count_by_function = null)
     {
         require __DIR__ . '/../views/tested_functions.phtml';
     }
 
-    function display_url($action = null, $function_name = null)
+    function display_translation_selection($selected_message_id, $messages)
     {
+        require __DIR__ . '/../views/translation_selection.phtml';
+    }
+
+    function display_translator_name($email, $obfuscate)
+    {
+        if ($obfuscate) {
+            $translator_name =  $email[0] . '*******';
+
+        } else {
+            list($translator_name) = explode('@', $email, 2);
+        }
+
+        return $translator_name;
+    }
+
+    function display_url($action = null, $function_name = null, $parameters = null, $language_id = null)
+    {
+        if (! $language_id) {
+            $language_id = $this->_language->language_id;
+        }
+
         if ($function_name) {
             // there is a function name, eg "http://php-by-example/en/function/abs"
-            $url = sprintf('%s/%s/%s/%s', $this->base_url, $this->_language->language_id, $action, $function_name);
+            $url = sprintf('%s/%s/%s/%s', $this->base_url, $language_id, $action, $function_name);
 
         } else if ($action) {
             // eg "http://php-by-example/en/help"
-            $url = sprintf('%s/%s/%s', $this->base_url, $this->_language->language_id, $action);
+            $url = sprintf('%s/%s/%s', $this->base_url, $language_id, $action);
 
         } else {
             // this is the home page, eg "http://php-by-example/en"
-            $url = sprintf('%s/%s', $this->base_url, $this->_language->language_id);
+            $url = sprintf('%s/%s', $this->base_url, $language_id);
+        }
+
+        if ($parameters) {
+            $url .= $parameters;
         }
 
         return $url;

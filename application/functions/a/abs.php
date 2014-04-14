@@ -9,7 +9,26 @@
 
 class abs extends function_core
 {
-    public $examples = [-4.2, 5, -5];
+    public $examples = [
+        -4.2,
+        5,
+        // used in translations_in_action.php
+        -5,
+        '_SINGLE_QUOTE_abc',
+        '_NO_CHANGE_["abc" => 123',
+        '_NO_CHANGE_xyz',
+        '_NO_CHANGE_E_ERROR|123',
+        "_NO_CHANGE_-'sdf'",
+        '_NO_CHANGE_123 456',
+        null, // placeholder, see below
+    ];
+
+    function __construct($mixed = null)
+    {
+        parent::__construct($mixed);
+
+        $this->examples[9] = str_repeat('a', 1000 + 1);
+    }
 
     public $synopsis = 'number abs ( mixed $number )';
 }

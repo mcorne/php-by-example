@@ -17,7 +17,7 @@ require_once 'object.php';
 
 class filter extends object
 {
-    const DEFAULT_FILE_NAME = 'tempname';
+    const DEFAULT_FILENAME = 'tempname';
 
     function filter_arg_value($arg_name)
     {
@@ -147,7 +147,7 @@ class filter extends object
             throw new Exception($message, E_USER_WARNING);
         }
 
-        if ($filename == self::DEFAULT_FILE_NAME or stripos($filename, $this->_file->temp_file_prefix) === 0) {
+        if ($filename == self::DEFAULT_FILENAME or stripos($filename, $this->_file->temp_file_prefix) === 0) {
             // the file name is a placeholder or a valid temp file prefixed with pbe, forces the file name to the new temp name
             $filename = $this->_file->create_temp_file();
             $this->_file->write_content($filename, "Hello world !");

@@ -26,7 +26,7 @@ unlink($_filename);
 
     public $examples = [
         [
-            'filename' => filter::DEFAULT_FILE_NAME,
+            'filename' => filter::DEFAULT_FILENAME,
             'mode'     => 'rb',
             '$handle',
             5,
@@ -44,7 +44,7 @@ unlink($_filename);
             100000,
         ],
         [
-            'filename' => filter::DEFAULT_FILE_NAME,
+            'filename' => filter::DEFAULT_FILENAME,
             'mode'     => 'rb',
             '$handle',
         ],

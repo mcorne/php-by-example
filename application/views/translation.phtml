@@ -1,0 +1,110 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<h1>
+  Messages translation (<?=$this->_translator->message_count;?>)
+  <?php require "$this->application_path/views/english_only.phtml";?>
+</h1>
+
+<div class="translation_intro">
+  <?php if ($this->sentence == 'no_translation_language'):?>
+    You must select a language other than English to contribute to the translation of this site.
+
+  <?php elseif ($this->sentence == 'empty_email'):?>
+    You need a translator account for the current language and a translation key to validate or change translations.<br />
+    Please enter your email and translation key, or
+    <a href="<?=$this->_output->display_mailto(
+            'Translator account creation request for ' . $this->_language->get_language_english_name(),
+            '<<< Please enter any additional information here then send the email. Thank you. Your request will be processed shortly. >>>');?>"
+    >request a translator account</a>.<br />
+    You may only review translations for now.
+
+  <?php elseif ($this->sentence == 'invalid_translator'):?>
+    <span class="red">There is no translator account with this email for the current language!</span><br />
+    Please check you email and try again, or
+    <a href="<?=$this->_output->display_mailto(
+            'Translator account assistance for ' . $this->_language->get_language_english_name(),
+            '<<< Please enter any additional information here then send the email. Thank you. Your request will be processed shortly. >>>');?>"
+    >request assistance</a>.<br />
+    You may only review translations for now.
+
+  <?php elseif ($this->sentence == 'invalid_translation_key'):?>
+    <span class="red">Your translation key is invalid!</span><br />
+    Please check your key and try again, or
+    <a href="<?=$this->_output->display_mailto(
+            'Translator key request',
+            '<<< Please enter any additional information here then send the email. Thank you. Your request will be processed shortly. >>>');?>"
+    >request a new translation key</a>.<br />
+    You may only review translations for now.
+
+  <?php elseif ($this->sentence == 'translation_needs_validation'):?>
+    <span class="green">This translation needs your validation!</span><br />
+
+  <?php elseif ($this->sentence == 'you_could_double_check_this_translation'):?>
+    <span class="green">This translation was validated by another translator.</span><br />
+    You are welcome to double-check.
+
+  <?php elseif ($this->sentence == 'translation_may_not_be_empty'):?>
+    <span class="red">Your translation must not be empty!</span><br />
+
+  <?php elseif ($this->sentence == 'translation_changed_in_the_mean_time_by_another_translator'):?>
+    <span class="orange">A translation was added by another translator in the mean time!</span><br />
+    Your translation in <span class="red">red</span> was not processed.
+
+  <?php elseif ($this->sentence == 'translation_validated_successfully'):?>
+    <span class="green">Your validation has been saved.</span><br />
+    This translation will go to production shortly. Thank you for your contribution.
+
+  <?php elseif ($this->sentence == 'translation_added_successfully'):?>
+    <span class="green">Your translation has been saved.</span><br />
+    Your translation will go to production after being validated by another translator. Thank you for your contribution.
+
+  <?php elseif ($this->sentence == 'you_may_not_validate_your_translation'):?>
+    <span class="orange">You may not validate a translation that you added!</span><br />
+    It may only be validated by another translator. You may still change it if necessary.
+
+  <?php elseif ($this->sentence == 'translation_being_reviewed_by_another_translator'):?>
+    <span class="orange">This translation is being reviewed by another translator.</span><br />
+    You may not change the translation at this point.
+
+  <?php elseif ($this->sentence == 'you_already_validated_this_translation'):?>
+    <span class="orange">Note that you already validated this translation.</span><br />
+
+  <?php else:?>
+    <span>Your are welcome to contribute to the translation of this site.</span><br />
+
+  <?php endif;?>
+
+  <br />
+  <br />
+
+  <?php if ($this->no_additional_action):?>
+
+  <?php elseif ($this->validate_or_change):?>
+    Please review the translation in <span class="green">green</span>. Change the translation if needed. <br />
+    Then click on the green button.
+
+  <?php elseif ($this->next_action == 'translations_need_your_validation'):?>
+    Some translations (<?=$this->translations_count;?>) need your validation.<br />
+    <a href="<?=$this->_output->display_url('translation');?>?translation_action=get_next_translation_to_validate">Get the next translation to validate</a>
+
+  <?php elseif ($this->next_action == 'translations_could_be_double_checked_by_you'):?>
+    All translations have been validated by at least one translator. You welcome to double-check those (<?=$this->translations_count;?>) you have not.<br />
+    <a href="<?=$this->_output->display_url('translation');?>?translation_action=get_next_translation_to_validate">Get the next translation to validate</a>
+
+  <?php else:?>
+    There are no translation that you need to validate.<br />
+    Many thanks for contributing to the translation of this site.
+
+  <?php endif;?>
+
+</div>
+
+<?php $this->_language->language_id != 'en' and require 'translation_form.phtml'?>

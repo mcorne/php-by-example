@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-14T17:49:24+00:00
+// generated automatically 2014-04-11T20:13:36+00:00
 return array (
   0 => 
   array (
@@ -37,6 +37,17 @@ return array (
 
 )
 ',
+    ),
+  ),
+  2 => 
+  array (
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 512,
+        'message' => 'this argument may not be empty in this example ($return)',
+      ),
     ),
   ),
 );

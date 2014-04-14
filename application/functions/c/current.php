@@ -59,6 +59,12 @@ inject_function_call
             '__count' => 2,
             '$xyz',
         ],
+        // used in translations_in_action.php
+        [
+            '__array' => ['foot', 'bike', 'car', 'plane'],
+            '__count' => 99,
+            '$array',
+        ],
     ];
 
     public $input_args = ['__array', '__count'];

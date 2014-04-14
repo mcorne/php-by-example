@@ -47,6 +47,7 @@ $string = $date->format($format);
             '$interval',
             'format'        => 'Y-m-d',
         ],
+        // used in translations_in_action.php
         [
             'time'          => '2000-12-31',
             'interval_spec' => 'P2M',

@@ -262,8 +262,8 @@ class %s extends function_core
             throw new Exception('no function matching this pattern');
         }
 
-        foreach ($function_manual_pagenames as $file_name) {
-            $basename = basename($file_name, '.html');
+        foreach ($function_manual_pagenames as $filename) {
+            $basename = basename($filename, '.html');
             list(, $function_name) = explode('.', $basename);
             $function_names[] =  str_replace('-', '_', $function_name);
         }

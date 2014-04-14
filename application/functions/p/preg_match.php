@@ -9,6 +9,8 @@
 
 class preg_match extends function_core
 {
+    public $constant_prefix = ['flags' => 'PREG'];
+
     public $examples = [
         ['/^def/', "abcdef", '$matches', 'PREG_OFFSET_CAPTURE', 3],
         ['/^def/', "def", '$matches', 'PREG_OFFSET_CAPTURE'],

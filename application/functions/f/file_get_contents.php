@@ -20,7 +20,7 @@ unlink($_filename);
 
     public $examples = [
         [
-            filter::DEFAULT_FILE_NAME,
+            filter::DEFAULT_FILENAME,
             NULL,
             NULL,
             6,
@@ -34,12 +34,45 @@ unlink($_filename);
             100,
         ],
         [
-            filter::DEFAULT_FILE_NAME
+            filter::DEFAULT_FILENAME
         ],
         [
-            filter::DEFAULT_FILE_NAME,
+            filter::DEFAULT_FILENAME,
             true,
             'xyz',
+            6,
+            5,
+        ],
+        // used in translations_in_action.php
+        [],
+        [
+            filter::DEFAULT_FILENAME,
+            NULL,
+            NULL,
+            '_NO_CHANGE_',
+            5,
+        ],
+        [
+            filter::DEFAULT_FILENAME,
+            NULL,
+            '_NO_CHANGE_',
+            6,
+            5,
+        ],
+        [
+            'http://www.example.com/',
+            false,
+            NULL,
+            0,
+            9999,
+        ],
+        [
+            'abc',
+        ],
+        [
+            filter::DEFAULT_FILENAME,
+            true,
+            NULL,
             6,
             5,
         ],

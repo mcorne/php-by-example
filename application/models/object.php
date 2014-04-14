@@ -92,6 +92,10 @@ class object
             // there is a getter method to get the property, gets the property
             $property = $this->$get_method();
 
+        } else if (method_exists($this, '_get')) {
+            // there is a getter method for the class, gets the property
+            $property = $this->_get($name);
+
         } else if ($this->_parent) {
             // the current object has a parent, gets (a copy of) the parent's property
             // note that the parent will get the property as needed

@@ -17,7 +17,11 @@
   <div class="block blue_border nowrap"><?=$this->_input->display_source_code();?></div>
 
   <div>
-    <input class="button submit"
+    <input <?php if ($this->_params->translation_in_action == 1401):?>
+             class="button submit highlight_translation_in_action"
+           <?php else:?>
+             class="button submit"
+           <?php endif;?>
            name="submit"
            type="submit"
            value="<?=$this->_translator->translate('Execute the function');?>" />
@@ -60,7 +64,12 @@
         <tr>
           <td class="error_code"><?=$this->_output->display_error_code($error['code']);?></td>
           <td>:</td>
-          <td><?=htmlspecialchars($error['message']);?></td>
+          <td>
+            <?=in_array($error['code'], [E_USER_ERROR, E_USER_NOTICE, E_USER_WARNING, null]) ?
+                   $error['message'] :
+                   htmlspecialchars($error['message']);
+            ?>
+          </td>
         </tr>
       <?php endforeach;?>
 
