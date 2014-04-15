@@ -1,12 +1,12 @@
 <?php
-// generated automatically 2014-04-15T12:20:43+00:00
+// generated automatically 2014-04-15T17:09:21+00:00
 return array (
 
   1000 => 'Top bar',
   1001 => 'Rechercher une fonction',
-  1002 => 'Afficher la liste déroulante',
   1003 => 'Choisir une fonction',
-  1004 => 'Afficher la boîte d\'entrée',
+  1005 => 'Afficher la liste déroulante',
+  1006 => 'Afficher la zone de texte',
 
   1100 => 'Home page',
   1101 => 'Bienvenue dans le monde des fonctions PHP',
@@ -87,7 +87,7 @@ return array (
   2204 => 'Ouvrir un ticket de support',
   2206 => 'Vous pouvez par ailleurs envoyer votre demande par email.',
   2207 => 'Envoyer un email',
-  2208 => 'S\'il vous plaît, faites votre demande en anglais, merci.',
+  2208 => 'Veuillez faire votre demande en anglais, merci.',
   2209 => 'Si vous avez une question relative à PHP, veuillez consulter le manuel PHP.',
   2210 => 'Ouvrir le manuel PHP',
 

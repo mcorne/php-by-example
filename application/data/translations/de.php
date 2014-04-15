@@ -1,12 +1,12 @@
 <?php
-// generated automatically 2014-04-15T12:20:43+00:00
+// generated automatically 2014-04-15T17:09:21+00:00
 return array (
 
   1000 => 'Top bar',
   1001 => 'Suchen Sie eine Funktion',
-  1002 => 'Anzeige der Dropdown-Liste',
   1003 => 'Wählen Sie eine Funktion',
-  1004 => 'Eingabefeld anzeigen',
+  1005 => 'Zeigen Sie die Dropdown-Liste',
+  1006 => 'Zeigen Sie das Textfeld',
 
   1100 => 'Home page',
   1101 => 'Willkommen in der Welt der PHP-Funktionen',

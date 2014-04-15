@@ -11,9 +11,11 @@ return [
 
 1000 => "Top bar",
 1001 => "Search a function",
-1002 => "Display drop down list",
+// 1002 => "Display drop down list",
 1003 => "Choose a function",
-1004 => "Display input box",
+// 1004 => "Display input box",
+1005 => "Display the drop-down list",
+1006 => "Display the text box",
 
 1100 => "Home page",
 1101 => "Welcome to the world of the PHP functions",

@@ -1,12 +1,12 @@
 <?php
-// generated automatically 2014-04-15T12:20:43+00:00
+// generated automatically 2014-04-15T17:09:21+00:00
 return array (
 
   1000 => 'Top bar',
   1001 => 'Buscar una función',
-  1002 => 'Lista desplegable Display',
   1003 => 'Elija una función',
-  1004 => 'Ver cuadro de entrada',
+  1005 => 'Visualice la lista desplegable',
+  1006 => 'Mostrar el cuadro de texto',
 
   1100 => 'Home page',
   1101 => 'Bienvenido al mundo de las funciones de PHP',

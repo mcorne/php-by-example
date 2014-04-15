@@ -1,12 +1,12 @@
 <?php
-// generated automatically 2014-04-15T12:20:43+00:00
+// generated automatically 2014-04-15T17:09:21+00:00
 return array (
 
   1000 => 'Top bar',
   1001 => 'Bir arama fonksiyonu',
-  1002 => 'Ekran aşağıya açılan liste',
   1003 => 'Bir fonksiyonu seçin',
-  1004 => 'Giriş kutusunu görüntüleme',
+  1005 => 'Açılan listeyi görüntüleyebilir',
+  1006 => 'Metin kutusunu görüntüleme',
 
   1100 => 'Home page',
   1101 => 'PHP fonksiyonlarıdünyasına hoş geldiniz',

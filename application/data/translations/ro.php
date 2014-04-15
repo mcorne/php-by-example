@@ -1,12 +1,12 @@
 <?php
-// generated automatically 2014-04-15T12:20:43+00:00
+// generated automatically 2014-04-15T17:09:21+00:00
 return array (
 
   1000 => 'Top bar',
   1001 => 'Cauta o funcție',
-  1002 => 'Lista Afișarea verticală',
   1003 => 'Alegeți o funcție',
-  1004 => 'Casetă de introducere a afișa',
+  1005 => 'Afișa lista drop-down',
+  1006 => 'Afișează caseta de text',
 
   1100 => 'Home page',
   1101 => 'Bine ați venit în lumea a funcțiilor PHP',

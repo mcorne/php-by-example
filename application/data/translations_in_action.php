@@ -16,9 +16,9 @@ return [
 
 1000 => "Top bar",
 1001 => ['function', null, '?search_method=input&no_auto_highlight=1'],
-1002 => ['function', null, '?search_method=input'],
 1003 => ['function', null, '?search_method=select&no_auto_highlight=1'],
-1004 => ['function', null, '?search_method=select'],
+1005 => ['function', null, '?search_method=input'],
+1006 => ['function', null, '?search_method=select'],
 
 1100 => "Home page",
 1101 => 'home',

@@ -50,6 +50,7 @@ class translator extends object
     {
         $translated_messages_filename = $this->translated_messages_filename;
         $translated_messages = $this->_file->read_array($translated_messages_filename);
+        $translated_messages = array_intersect_key($translated_messages, $this->english_messages);
 
         return $translated_messages;
     }

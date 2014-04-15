@@ -13,7 +13,7 @@ The only part of the process done in the production environment is the message v
 - run "check_translations"
 
 - if "obsolete english message ids" are reported:
-* commment these messages in "data/translations/en.php"
+* comment these messages in "data/translations/en.php"
 * note that message ids must not be reused
 
 - if "missing english messages" are reported:
@@ -21,7 +21,7 @@ The only part of the process done in the production environment is the message v
 * add a new section at the end if the message does not fit in an existing section (see the note on sections)
 * use the next available message id
 
-Note that "missing translated message ids" and "obsolete translated message ids" are just reported for information purposes.
+Note that "missing translated message ids" and "obsolete translated message ids" are not used in this step.
 
 Note on sections:
 - a section corresponds to a logical unit of the interface, eg the top bar messages, the home page messages etc.
@@ -56,7 +56,9 @@ For each "missing english messages" reported:
 -------------------------------------
 
 - run "check_translations" (again)
-- verify that no message is reported obsolete or missing
+- verify that no "obsolete english message ids", "missing english messages" and "missing translated message ids" are reported
+
+Note that "obsolete translated message ids" are not used in this step.
 
 
 5. Prepare the validation of the translations
@@ -78,7 +80,7 @@ Note: the obfuscation of emails is not a security feature, it only prevents stor
 6. Validate translations
 ------------------------
 
-The translators validate or fix translations with the interface and report when they are done.
+The translators validate or fix translations with the interface and report back when they are done.
 
 Note: the translators inputs (validations and changes) are stored in the "data/translations.production.log" directory on the production machine.
 
@@ -88,6 +90,7 @@ Note: the translators inputs (validations and changes) are stored in the "data/t
 
 - copy the content of "data/translations.production.log" from the production machine to "data/translations.development.log" on the development machine
 - update the translations with the translators inputs, in "scripts", run "update_translations" 
+- run "check_translations" (again) which should report no issues if all translations have been validated
 - copy the content of "data/translations" from the development machine to the production machine
 
 Notes:
