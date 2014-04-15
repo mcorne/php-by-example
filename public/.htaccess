@@ -1,8 +1,7 @@
-SetEnv PHP_VER 5_4
-
 # uncomment the proper environment setting, comment the other
-# SetEnv APPLICATION_ENV production
-SetEnv APPLICATION_ENV development
+# note that this setting might be overruled by the php-fpm config if any
+# SetEnv ENVIRONMENT production
+SetEnv ENVIRONMENT development
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} -s [OR]

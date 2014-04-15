@@ -28,7 +28,7 @@ if ($is_domain_subpath) {
 require_once 'models/application.php';
 
 $config = [
-    'application_env'  => getenv('APPLICATION_ENV'),
+    'application_env'  => getenv('ENVIRONMENT'),
     'application_path' => $application_path,
     'base_url'         => $base_url,
     'public_path'      => __DIR__,

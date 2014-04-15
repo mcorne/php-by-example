@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-14T09:06:58+00:00
+// generated automatically 2014-04-15T12:20:43+00:00
 return array (
 
   1000 => 'Top bar',
@@ -87,8 +87,8 @@ return array (
   2204 => 'Aprire un ticket di supporto',
   2206 => 'Potete altrimenti inviare la richiesta via email.',
   2207 => 'Invia una e-mail',
-  2208 => 'Per favore , fai la tua richiesta in inglese , grazie.',
-  2209 => 'Se hai una domanda relativa a PHP , consultare il manuale PHP.',
+  2208 => 'Per favore, fai la tua richiesta in inglese, grazie.',
+  2209 => 'Se hai una domanda relativa a PHP, consultare il manuale PHP.',
   2210 => 'Aprire il manuale PHP',
 
   2300 => 'About page',

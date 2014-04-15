@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-14T09:06:58+00:00
+// generated automatically 2014-04-15T12:20:43+00:00
 return array (
 
   1000 => 'Top bar',
@@ -14,7 +14,7 @@ return array (
   1103 => 'Você não terá que escrever uma única linha de código.',
   1104 => 'Você só precisa selecionar uma função para obter o resultado.',
   1105 => 'Cada função vem com alguns exemplos.',
-  1106 => 'Você pode , claro, alterar os argumentos da função à vontade.',
+  1106 => 'Você pode, claro, alterar os argumentos da função à vontade.',
   1107 => 'A página correspondente do manual também é exibido automaticamente.',
   1108 => 'Então vá em frente e começar a jogar...',
   1109 => 'Lista de funções disponíveis',
@@ -66,7 +66,7 @@ return array (
   1903 => 'esta função de retorno não pode ser usada no presente exemplo',
   1904 => 'essa função de retorno de chamada é inválido ou não disponível neste servidor',
   1905 => 'o comprimento deve ser definido e menor do que 1000 bytes neste exemplo',
-  1906 => 'o número de iterações deve ser um número inteiro menor do que 10 , neste exemplo,',
+  1906 => 'o número de iterações deve ser um número inteiro menor do que 10, neste exemplo,',
   1907 => 'este argumento pode não estar vazia neste exemplo',
 
   2000 => 'Function errors',
@@ -87,8 +87,8 @@ return array (
   2204 => 'Abra um ticket de suporte',
   2206 => 'De contrário pode enviar o seu pedido por e-mail.',
   2207 => 'Enviar um email',
-  2208 => 'Por favor , faça o seu pedido em Inglês , obrigado.',
-  2209 => 'Se você tem uma pergunta relacionada com o PHP , por favor consulte o manual do PHP.',
+  2208 => 'Por favor, faça o seu pedido em Inglês, obrigado.',
+  2209 => 'Se você tem uma pergunta relacionada com o PHP, por favor consulte o manual do PHP.',
   2210 => 'Abra o manual do PHP',
 
   2300 => 'About page',

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-14T09:06:58+00:00
+// generated automatically 2014-04-15T12:20:43+00:00
 return array (
 
   1000 => 'Top bar',
@@ -66,8 +66,8 @@ return array (
   1903 => 'Bu geri arama işlevi bu örnekte kullanılamaz',
   1904 => 'Bu geri çağırma işlevi bu sunucuda kullanılabilir geçersiz ya da değildir',
   1905 => 'uzunluğu bu örnekte tanımlandığı gibidir ve daha düşük 1.000 bayt olması gerekir',
-  1906 => 'yineleme sayısı, bu örnekte , 10 daha düşük bir tam sayı olmalıdır',
-  1907 => 'Bu argüman , bu örnekte boş olmayabilir',
+  1906 => 'yineleme sayısı, bu örnekte, 10 daha düşük bir tam sayı olmalıdır',
+  1907 => 'Bu argüman, bu örnekte boş olmayabilir',
 
   2000 => 'Function errors',
   2001 => 'Bir değer referans olarak kabul edilemez',
@@ -88,7 +88,7 @@ return array (
   2206 => 'Aksi takdirde e-posta ile isteği gönderebilir.',
   2207 => 'Bir e-posta gönder',
   2208 => ', İngilizce sayesinde isteğinizi olun.',
-  2209 => 'PHP ile ilgili bir sorunuz varsa ,PHP kılavuzuna başvurun.',
+  2209 => 'PHP ile ilgili bir sorunuz varsa,PHP kılavuzuna başvurun.',
   2210 => 'PHP kitabını açın',
 
   2300 => 'About page',

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-14T09:06:58+00:00
+// generated automatically 2014-04-15T12:20:43+00:00
 return array (
 
   1000 => 'Top bar',
@@ -12,7 +12,7 @@ return array (
   1101 => 'Willkommen in der Welt der PHP-Funktionen',
   1102 => 'Hier können Sie Online- PHP-Funktionen zu testen.',
   1103 => 'Sie müssen nicht auf eine einzige Zeile Code zu schreiben.',
-  1104 => 'Sie müssen nur eine Funktion auszuwählen , um das Ergebnis zu erhalten.',
+  1104 => 'Sie müssen nur eine Funktion auszuwählen, um das Ergebnis zu erhalten.',
   1105 => 'Jede Funktion kommt mit ein paar Beispiele.',
   1106 => 'Natürlich können Sie die Funktion Argumente ändern am Willen.',
   1107 => 'Die entsprechende Seite des Handbuchs wird auch automatisch angezeigt.',
@@ -83,11 +83,11 @@ return array (
   2200 => 'Help page',
   2201 => 'Sie fanden ein Problem mit dieser Website.',
   2202 => 'Sie brauchen eine neue Funktion.',
-  2203 => 'Sie haben einen Vorschlag , diese Website zu verbessern.',
+  2203 => 'Sie haben einen Vorschlag, diese Website zu verbessern.',
   2204 => 'Öffnen Sie ein Support-Ticket',
   2206 => 'Sie können sonst senden Sie Ihre Anfrage per E-Mail.',
   2207 => 'Senden Sie eine E-Mail',
-  2208 => 'Bitte stellen Sie Ihre Anfrage auf Englisch , danke.',
+  2208 => 'Bitte stellen Sie Ihre Anfrage auf Englisch, danke.',
   2209 => 'Wenn Sie eine Frage zu PHP haben, nehmen Sie bitte die PHP-Handbuch.',
   2210 => 'Öffnen Sie das PHP-Handbuch',
 

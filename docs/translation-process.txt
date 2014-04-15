@@ -49,7 +49,7 @@ For each "missing english messages" reported:
 * select one language
 * enter the admin credentials
 * select the message
-* click on "See the curent translation in action" to verify the translation is properly highlighted
+* click on "See the current translation in action" to verify the translation is properly highlighted
   
 
 4. Double-check messages to translate
@@ -59,10 +59,10 @@ For each "missing english messages" reported:
 - verify that no message is reported obsolete or missing
 
 
-5. Validate translations
-------------------------
+5. Prepare the validation of the translations
+---------------------------------------------
 
-- copy "data/translations" to production
+- copy the content of "data/translations" from the development machine to the production machine
 
 For each translator in a each language:
 - obfuscate the translator email, eg in "scripts" run "obfuscate_email jsmith@mail.com"
@@ -70,11 +70,27 @@ For each translator in a each language:
 - hash the translation key of the translator, eg in "scripts" run "hash_translation_key jsmith@mail.com"
 - make the link to the translation page, eg "http://micmap.org/php-by-example/fr/translation?email=jsmith@mail.com&translation_key=6445521bed130aed928ec9eda4b67ee8"
 - verify the link works
-- email the request for translation and the link to the translator
+- email the link and the request to validate or fix translations to the translator
 
-Note that the obfuscation of emails is not a security feature, it only prevents storing emails in the clear in the version control repository.
+Note: the obfuscation of emails is not a security feature, it only prevents storing emails in the clear in the version control repository.
 
 
-6. Update translations
+6. Validate translations
+------------------------
+
+The translators validate or fix translations with the interface and report when they are done.
+
+Note: the translators inputs (validations and changes) are stored in the "data/translations.production.log" directory on the production machine.
+
+
+7. Update translations
 ----------------------
-TBD
+
+- copy the content of "data/translations.production.log" from the production machine to "data/translations.development.log" on the development machine
+- update the translations with the translators inputs, in "scripts", run "update_translations" 
+- copy the content of "data/translations" from the development machine to the production machine
+
+Notes:
+- there should be no "data/translations.production.log" directory on the development machine
+- the "data/translations.development.log" directory might be present on the production machine but it is ignored on this machine
+- the content of the "data/translations.development.log" is set not to be stored in the version control repository

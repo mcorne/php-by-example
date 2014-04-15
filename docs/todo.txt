@@ -8,7 +8,6 @@ Things to do
 - fix the oversized width of the helper select box for linux
 - fix scrollbar issue in test results with chrome
 
-- test parser and filter errors in a few funxtions eg abs()
 - add helpers eg algo for hash_mac(), time formats, charsets ...
 - add source code to trigger errors for error reporting function eg json_last_error
 - display readable time/date to some date/time functions, eg unixtojd()

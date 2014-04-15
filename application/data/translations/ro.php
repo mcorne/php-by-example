@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-14T09:06:58+00:00
+// generated automatically 2014-04-15T12:20:43+00:00
 return array (
 
   1000 => 'Top bar',
@@ -14,9 +14,9 @@ return array (
   1103 => 'Tu nu va trebui să scrie o singură linie de cod.',
   1104 => 'Ai nevoie doar de a selecta o funcție pentru a obține rezultatul.',
   1105 => 'Fiecare funcție vine cu câteva exemple.',
-  1106 => 'Puteți schimba , desigur, argumentele funcției în voie.',
-  1107 => 'Pagina corespunzatoare a manualului este , de asemenea, afișată în mod automat.',
-  1108 => 'Deci , mergeți mai departe , și începeți să jucați...',
+  1106 => 'Puteți schimba, desigur, argumentele funcției în voie.',
+  1107 => 'Pagina corespunzatoare a manualului este, de asemenea, afișată în mod automat.',
+  1108 => 'Deci, mergeți mai departe, și începeți să jucați...',
   1109 => 'Lista de funcții disponibile',
 
   1200 => 'Bottom bar',
@@ -65,8 +65,8 @@ return array (
   1902 => 'această valoare argument nu este permis în acest exemplu',
   1903 => 'această funcție callback nu pot fi utilizate în acest exemplu',
   1904 => 'această funcție de apel invers este valabil sau nu este disponibil pe acest server',
-  1905 => 'lungimea trebuie să fie definite și mai mică de 1000 octeți , în acest exemplu',
-  1906 => 'numărul de iterații trebuie să fie un număr întreg mai mic decât 10 , în acest exemplu',
+  1905 => 'lungimea trebuie să fie definite și mai mică de 1000 octeți, în acest exemplu',
+  1906 => 'numărul de iterații trebuie să fie un număr întreg mai mic decât 10, în acest exemplu',
   1907 => 'acest argument nu poate fi gol în acest exemplu',
 
   2000 => 'Function errors',
@@ -87,8 +87,8 @@ return array (
   2204 => 'Deschideți un bilet de sprijin',
   2206 => 'În caz contrar s-ar putea trimite cererea dvs. de e-mail.',
   2207 => 'Trimite un e-mail',
-  2208 => 'Vă rugăm , fac o cerere în limba engleză , mulțumesc.',
-  2209 => 'Dacă aveți o întrebare legată de PHP , vă rugăm să consultați manualul de PHP.',
+  2208 => 'Vă rugăm, fac o cerere în limba engleză, mulțumesc.',
+  2209 => 'Dacă aveți o întrebare legată de PHP, vă rugăm să consultați manualul de PHP.',
   2210 => 'Deschide manualul de PHP',
 
   2300 => 'About page',

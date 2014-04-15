@@ -8,7 +8,7 @@
  */
 
 /*
- * updates the translation of the source code message
+ * updates the translation of the source code messages
  */
 
 $application_path = realpath(__DIR__ . '/../application');
