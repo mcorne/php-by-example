@@ -20,10 +20,10 @@ return array (
   1109 => 'Kullanılabilir işlevlerin listesi',
 
   1200 => 'Bottom bar',
-  1201 => 'ev',
+  1201 => 'Ana sayfa',
   1202 => 'Yardım',
-  1203 => 'hakkında',
-  1204 => 'test',
+  1203 => 'Hakkında',
+  1204 => 'Test',
 
   1300 => 'PHP manual location',
   1301 => 'PHP Kılavuzun yerel kopyası',
@@ -87,7 +87,7 @@ return array (
   2204 => 'Bir destek bileti açın',
   2206 => 'Aksi takdirde e-posta ile isteği gönderebilir.',
   2207 => 'Bir e-posta gönder',
-  2208 => ', İngilizce sayesinde isteğinizi olun.',
+  2208 => 'İngilizce sayesinde isteğinizi olun.',
   2209 => 'PHP ile ilgili bir sorunuz varsa,PHP kılavuzuna başvurun.',
   2210 => 'PHP kitabını açın',
 

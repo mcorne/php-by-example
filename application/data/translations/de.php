@@ -20,9 +20,9 @@ return array (
   1109 => 'Liste der verfügbaren Funktionen',
 
   1200 => 'Bottom bar',
-  1201 => 'Zuhause',
+  1201 => 'Startseite',
   1202 => 'Hilfe',
-  1203 => 'über',
+  1203 => 'Über',
   1204 => 'Test',
 
   1300 => 'PHP manual location',
@@ -45,9 +45,9 @@ return array (
 
   1700 => 'Error types',
   1701 => 'Fehler',
-  1702 => 'PHP-Fehler',
+  1702 => 'PHP Fehler',
   1703 => 'PHP Ankündigung',
-  1704 => 'PHP- Warnung',
+  1704 => 'PHP Warnung',
   1705 => 'PHPbEx Fehler',
   1706 => 'PHPbEx Ankündigung',
   1707 => 'PHPbEx Warnung',

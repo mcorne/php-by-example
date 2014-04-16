@@ -307,20 +307,25 @@ class translation extends action
 
     function process_credentials()
     {
+        if ($this->_params->logoff) {
+            $this->_params->reset_cookie_param('email');
+            $this->_params->reset_cookie_param('translation_key');
+        }
+
         if (! $this->_params->email) {
-            $this->sentence = 'empty_email';
+            $this->status = 'empty_email';
             $this->no_additional_action = true;
 
         } else if (! $this->is_valid_translator($this->_params->email)) {
-            $this->sentence = 'invalid_translator';
+            $this->status = 'invalid_translator';
             $this->no_additional_action = true;
 
         } else if (! $this->is_valid_translation_key($this->_params->translation_key, $this->_params->email)) {
-            $this->sentence = 'invalid_translation_key';
+            $this->status = 'invalid_translation_key';
             $this->no_additional_action = true;
         }
 
-        return empty($this->sentence);
+        return empty($this->status);
     }
 
     function process_next_translation_to_validate()
@@ -329,14 +334,14 @@ class translation extends action
             $translation_log_entries = $this->get_translation_log_entries($this->message_id);
             $last_translation_log_entry = end($translation_log_entries);
             $this->add_translation_log_entry($this->message_id, $this->_params->email, 'reviewed', $last_translation_log_entry['translated_message']);
-            $this->sentence = 'translation_needs_validation';
+            $this->status = 'translation_needs_validation';
             $this->validate_or_change = true;
 
         } else if ($this->message_id = $this->get_next_translation_to_validate(true)) {
             $translation_log_entries = $this->get_translation_log_entries($this->message_id);
             $last_translation_log_entry = end($translation_log_entries);
             $this->add_translation_log_entry($this->message_id, $this->_params->email, 'reviewed', $last_translation_log_entry['translated_message']);
-            $this->sentence = 'you_could_double_check_this_translation';
+            $this->status = 'you_could_double_check_this_translation';
             $this->validate_or_change = true;
         } else {
              $this->next_action = 'no_validation_needed';
@@ -350,11 +355,11 @@ class translation extends action
         $translated_message = $this->_params->get_param('translated_message');
 
         if (! $translated_message) {
-            $this->sentence = 'translation_may_not_be_empty';
+            $this->status = 'translation_may_not_be_empty';
             $this->validate_or_change = true;
 
         } else if ($last_translation_log_entry['translated_message'] != $this->_params->get_param('previous_translated_message')) {
-            $this->sentence = 'translation_changed_in_the_mean_time_by_another_translator';
+            $this->status = 'translation_changed_in_the_mean_time_by_another_translator';
             $this->validate_or_change = true;
             $this->translation_not_processed = $translated_message;
 
@@ -362,22 +367,22 @@ class translation extends action
             $is_translation_to_validate_by_translator = $this->is_translation_to_validate(true, $translation_log_entries);
 
             if ($is_translation_to_validate_by_translator === false) {
-                $this->sentence = 'you_already_validated_this_translation';
+                $this->status = 'you_already_validated_this_translation';
                 $this->set_next_action();
 
             } else if ($is_translation_to_validate_by_translator === null) {
-                $this->sentence = 'you_may_not_validate_your_translation';
+                $this->status = 'you_may_not_validate_your_translation';
                 $this->set_next_action();
 
             } else {
                 $this->add_translation_log_entry($message_id, $this->_params->email, 'validated', $translated_message, $this->_params->get_param('comment'));
-                $this->sentence = 'translation_validated_successfully';
+                $this->status = 'translation_validated_successfully';
                 $this->set_next_action();
             }
 
         } else { // new translation added
             $this->add_translation_log_entry($message_id, $this->_params->email, 'added', $translated_message, $this->_params->get_param('comment'));
-            $this->sentence = 'translation_added_successfully';
+            $this->status = 'translation_added_successfully';
             $this->set_next_action();
         }
 
@@ -391,30 +396,30 @@ class translation extends action
 
         if ($last_translation_log_entry['action'] == 'added') {
             if ($last_translation_log_entry['translator'] == $this->_params->email) {
-                $this->sentence = 'you_may_not_validate_your_translation';
+                $this->status = 'you_may_not_validate_your_translation';
                 $this->set_next_action();
 
             } else {
-                $this->sentence = 'translation_needs_validation';
+                $this->status = 'translation_needs_validation';
                 $this->validate_or_change = true;
             }
 
         } else if ($this->is_translation_locked_for_review($last_translation_log_entry)) {
-            $this->sentence = 'translation_being_reviewed_by_another_translator';
+            $this->status = 'translation_being_reviewed_by_another_translator';
             $this->set_next_action();
             $this->no_display_translation_input = true;
 
         } else  { // reviewed or validated
             if ($this->is_translation_to_validate(false, $translation_log_entries)) {
-                $this->sentence = 'translation_needs_validation';
+                $this->status = 'translation_needs_validation';
                 $this->validate_or_change = true;
 
             } else if ($this->is_translation_to_validate(true, $translation_log_entries)) {
-                $this->sentence = 'you_could_double_check_this_translation';
+                $this->status = 'you_could_double_check_this_translation';
                 $this->validate_or_change = true;
 
             } else {
-                $this->sentence = 'you_already_validated_this_translation';
+                $this->status = 'you_already_validated_this_translation';
                 $this->set_next_action();
             }
         }
@@ -427,7 +432,7 @@ class translation extends action
         $this->display_selects = true;
 
         if ($this->_language->language_id == 'en') {
-            $this->sentence = 'no_translation_language';
+            $this->status = 'no_translation_language';
             $this->no_additional_action = true;
             $this->display_selects = false;
 

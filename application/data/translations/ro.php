@@ -20,10 +20,10 @@ return array (
   1109 => 'Lista de funcții disponibile',
 
   1200 => 'Bottom bar',
-  1201 => 'acasă',
+  1201 => 'Acasă',
   1202 => 'Ajutor',
-  1203 => 'despre',
-  1204 => 'test',
+  1203 => 'Despre',
+  1204 => 'Test',
 
   1300 => 'PHP manual location',
   1301 => 'Copie locală a manual PHP',

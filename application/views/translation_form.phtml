@@ -9,6 +9,7 @@
 ?>
 
 <form action="<?=$this->_output->display_url('translation');?>"
+      id="form"
       method="post"
 >
 
@@ -28,6 +29,21 @@
              type="password"
              value="<?=htmlspecialchars($this->_params->translation_key);?>"
       />
+    </div>
+
+    <div class="login">
+      <?php if ($this->status == 'empty_email'):?>
+        <a href="javascript: document.getElementById('form').submit()">Login</a>
+
+      <?php elseif ($this->status == 'invalid_translator' or $this->status == 'invalid_translation_key'):?>
+        <a href="javascript: document.getElementById('form').submit()">Login</a>
+        or
+        <a href="<?=$this->_output->display_url('translation');?>?logoff=1">reset credentials</a>
+
+      <?php else:?>
+        <a href="<?=$this->_output->display_url('translation');?>?logoff=1">Log off</a>
+        (recommended when finished if you share this computer)
+      <?php endif;?>
     </div>
   </div>
 

@@ -108,7 +108,7 @@ div.block_translation
 
 div.block_translation button
 {
-    color: white; 
+    color: white;
     font-weight: bold;
     white-space: nowrap;
     width: 19em;
@@ -117,7 +117,7 @@ div.block_translation button
 div.block_translation button
 {
     background-color: #0000BB; /* blue */
-    margin-top: .2em;    
+    margin-top: .2em;
 }
 
 div.block_translation button.validate_message
@@ -167,14 +167,14 @@ div.changelog div.translated_message
 {
     background-color: white;
     border: solid 1px #CCC; /* light gray */
-    margin-top: .8em;    
+    margin-top: .8em;
     padding-left: .5em;
 }
 
 div.changelog div.translation_action
 {
     color: #656565; /* gray */
-    margin-top: .2em;    
+    margin-top: .2em;
     padding-left: .5em;
 }
 
@@ -182,7 +182,7 @@ div.changelog div.translation_comment
 {
     background-color: white;
     color: #656565; /* gray */
-    margin-top: .1em;    
+    margin-top: .1em;
     padding-left: .5em;
 }
 
@@ -234,6 +234,17 @@ div.links
 div.links a
 {
     margin-right: .2em;
+}
+
+div.login
+{
+    color: #656565; /* gray */
+    margin-top: 1em;
+}
+
+div.login a
+{
+    color: #656565; /* gray */
 }
 
 div.title

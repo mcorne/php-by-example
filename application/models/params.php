@@ -79,7 +79,7 @@ class params extends object
             setcookie($param_name, $value, time() + 60*60*24*30, '/');
 
         } else {
-            setcookie($param_name, '', 1);
+            setcookie($param_name, '', 1, '/');
         }
 
         return $value;
@@ -91,5 +91,11 @@ class params extends object
         $exists = (array_key_exists($param_name, $this->params) and trim($this->params[$param_name]) !== '');
 
         return $exists;
+    }
+
+    function reset_cookie_param($param_name)
+    {
+        $this->$param_name = null;
+        setcookie($param_name, '', 1, '/');
     }
 }

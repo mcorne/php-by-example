@@ -20,10 +20,10 @@ return array (
   1109 => 'Lista de las funciones disponibles',
 
   1200 => 'Bottom bar',
-  1201 => 'casa',
-  1202 => 'ayudar',
-  1203 => 'acerca de',
-  1204 => 'prueba',
+  1201 => 'Página de inicio',
+  1202 => 'Ayuda',
+  1203 => 'Acerca de',
+  1204 => 'Prueba',
 
   1300 => 'PHP manual location',
   1301 => 'Copia local del manual de PHP',
@@ -47,10 +47,10 @@ return array (
   1701 => 'error',
   1702 => 'error de PHP',
   1703 => 'aviso PHP',
-  1704 => 'advertencia PHP',
+  1704 => 'Advertencia PHP',
   1705 => 'error PHPbEx',
   1706 => 'aviso PHPbEx',
-  1707 => 'advertencia PHPbEx',
+  1707 => 'Advertencia PHPbEx',
 
   1800 => 'Parser errors',
   1801 => 'matriz no válido',

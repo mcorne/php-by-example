@@ -20,10 +20,10 @@ return array (
   1109 => 'Lista de funções disponíveis',
 
   1200 => 'Bottom bar',
-  1201 => 'casa',
-  1202 => 'ajudar',
-  1203 => 'sobre',
-  1204 => 'teste',
+  1201 => 'Casa',
+  1202 => 'Ajuda',
+  1203 => 'Sobre',
+  1204 => 'Teste',
 
   1300 => 'PHP manual location',
   1301 => 'Cópia local do manual do PHP',

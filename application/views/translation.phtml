@@ -14,10 +14,10 @@
 </h1>
 
 <div class="translation_intro">
-  <?php if ($this->sentence == 'no_translation_language'):?>
+  <?php if ($this->status == 'no_translation_language'):?>
     You must select a language other than English to contribute to the translation of this site.
 
-  <?php elseif ($this->sentence == 'empty_email'):?>
+  <?php elseif ($this->status == 'empty_email'):?>
     You need a translator account for the current language and a translation key to validate or change translations.<br />
     Please enter your email and translation key, or
     <a href="<?=$this->_output->display_mailto(
@@ -26,7 +26,7 @@
     >request a translator account</a>.<br />
     You may only review translations for now.
 
-  <?php elseif ($this->sentence == 'invalid_translator'):?>
+  <?php elseif ($this->status == 'invalid_translator'):?>
     <span class="red">There is no translator account with this email for the current language!</span><br />
     Please check you email and try again, or
     <a href="<?=$this->_output->display_mailto(
@@ -35,7 +35,7 @@
     >request assistance</a>.<br />
     You may only review translations for now.
 
-  <?php elseif ($this->sentence == 'invalid_translation_key'):?>
+  <?php elseif ($this->status == 'invalid_translation_key'):?>
     <span class="red">Your translation key is invalid!</span><br />
     Please check your key and try again, or
     <a href="<?=$this->_output->display_mailto(
@@ -44,37 +44,37 @@
     >request a new translation key</a>.<br />
     You may only review translations for now.
 
-  <?php elseif ($this->sentence == 'translation_needs_validation'):?>
+  <?php elseif ($this->status == 'translation_needs_validation'):?>
     <span class="green">This translation needs your validation!</span><br />
 
-  <?php elseif ($this->sentence == 'you_could_double_check_this_translation'):?>
+  <?php elseif ($this->status == 'you_could_double_check_this_translation'):?>
     <span class="green">This translation was validated by another translator.</span><br />
     You are welcome to double-check.
 
-  <?php elseif ($this->sentence == 'translation_may_not_be_empty'):?>
+  <?php elseif ($this->status == 'translation_may_not_be_empty'):?>
     <span class="red">Your translation must not be empty!</span><br />
 
-  <?php elseif ($this->sentence == 'translation_changed_in_the_mean_time_by_another_translator'):?>
+  <?php elseif ($this->status == 'translation_changed_in_the_mean_time_by_another_translator'):?>
     <span class="orange">A translation was added by another translator in the mean time!</span><br />
     Your translation in <span class="red">red</span> was not processed.
 
-  <?php elseif ($this->sentence == 'translation_validated_successfully'):?>
+  <?php elseif ($this->status == 'translation_validated_successfully'):?>
     <span class="green">Your validation has been saved.</span><br />
     This translation will go to production shortly. Thank you for your contribution.
 
-  <?php elseif ($this->sentence == 'translation_added_successfully'):?>
+  <?php elseif ($this->status == 'translation_added_successfully'):?>
     <span class="green">Your translation has been saved.</span><br />
     Your translation will go to production after being validated by another translator. Thank you for your contribution.
 
-  <?php elseif ($this->sentence == 'you_may_not_validate_your_translation'):?>
+  <?php elseif ($this->status == 'you_may_not_validate_your_translation'):?>
     <span class="orange">You may not validate a translation that you added!</span><br />
     It may only be validated by another translator. You may still change it if necessary.
 
-  <?php elseif ($this->sentence == 'translation_being_reviewed_by_another_translator'):?>
+  <?php elseif ($this->status == 'translation_being_reviewed_by_another_translator'):?>
     <span class="orange">This translation is being reviewed by another translator.</span><br />
     You may not change the translation at this point.
 
-  <?php elseif ($this->sentence == 'you_already_validated_this_translation'):?>
+  <?php elseif ($this->status == 'you_already_validated_this_translation'):?>
     <span class="orange">Note that you already validated this translation.</span><br />
 
   <?php else:?>
