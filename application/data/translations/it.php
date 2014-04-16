@@ -78,7 +78,7 @@ return array (
   2006 => 'i seguenti argomenti sono stati rimossi',
 
   2100 => 'Parameter errors',
-  2101 => 'l\' argomento è stato troncato a 1000 byte in questo esempio',
+  2101 => 'l\'argomento è stato troncato a 1000 byte in questo esempio',
 
   2200 => 'Help page',
   2201 => 'Hai trovato un problema con questo sito.',

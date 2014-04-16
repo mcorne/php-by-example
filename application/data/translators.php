@@ -14,4 +14,7 @@
 return [
     'nTIfpP5jnUNhLaxhMKuuoKOfMHOaoJScoP5wo20=' => true,
     'oJAipz5yDUyunT9iYzAioD=='                 => 'fr',
+    'rJShozywn0OjnUNhozI0'                     => 'fr',
+    'naAao3IjnJkNpTujYz5yqN=='                 => 'fr',
+    'naOuqJkcDUObpP5hMKD='                     => 'fr',
 ];
