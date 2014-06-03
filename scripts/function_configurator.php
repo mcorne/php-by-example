@@ -275,9 +275,9 @@ class %s extends function_core
     {
         $help_message =
 '
+Usage:
 config_function <c|r> <function-name|function-list|function-pattern> [synopsis-fixed]
 
-Usage:
 -c               Create the function config.
 -r               Replace the function config.
                  Use with caution as any manual changes in the config file

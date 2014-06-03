@@ -67,10 +67,10 @@ Note that "obsolete translated message ids" are not used in this step.
 - copy the content of "data/translations" from the development machine to the production machine
 
 For each translator in a each language:
-- obfuscate the translator email, eg in "scripts" run "obfuscate_email jsmith@mail.com"
-- add/check the entry for this translator in "data/translators.php", eg "naAgnKEbDT1unJjhL29g" => [fr]
-- hash the translation key of the translator, eg in "scripts" run "hash_translation_key jsmith@mail.com"
-- make the link to the translation page, eg "http://micmap.org/php-by-example/fr/translation?email=jsmith@mail.com&translation_key=6445521bed130aed928ec9eda4b67ee8"
+- add/update the translator account, in "scripts" run "update_translator jsmith@mail.com fr"
+  or get the translator account, in "scripts" run "show_translators jsmith"
+- this returns the link to the translation page
+  eg "http://micmap.org/php-by-example/fr/translation?email=jsmith@qsd.com&translation_key=e4671dc35aad4210ad4195936c6fa83a"
 - verify the link works
 - email the link and the request to validate or fix translations to the translator
 

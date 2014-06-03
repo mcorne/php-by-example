@@ -6,7 +6,9 @@
 @rem @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
 @rem
 
-@rem obfuscates a translator email
-@rem run "obfuscate_email <email> [-d]"
+@rem shows the translators details
+@rem run "show_translators john.smith@mail.com"
+@rem run "show_translators john"
+@rem run "show_translators *"
 
-@php obfuscate_email.php %*
+@php show_translators.php %*

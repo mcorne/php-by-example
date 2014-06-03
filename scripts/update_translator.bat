@@ -6,7 +6,7 @@
 @rem @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
 @rem
 
-@rem hashes the translation key
-@rem run "hash_translation_key <email>"
+@rem adds, updates or removes a translator
+@rem run "update_translator <email> [language]"
 
-@php hash_translation_key.php %*
+@php update_translator.php %*

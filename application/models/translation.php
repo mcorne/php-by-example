@@ -15,6 +15,7 @@ require_once 'action.php';
 
 class translation extends action
 {
+    const ANY_LANGUAGE = '*';
     const MAX_LOCK_DURATION = 180; // seconds
 
     public $keys = ['message_id', 'date', 'translator', 'action', 'translated_message', 'comment'];
@@ -115,6 +116,14 @@ class translation extends action
         return $action;
     }
 
+    function get_login_url($email, $language_id)
+    {
+        $translation_key = $this->hash_translation_key($email);
+        $url = "http://micmap.org/php-by-example/$language_id/translation?email=$email&translation_key=$translation_key";
+
+        return $url;
+    }
+
     function get_message_id($select_action)
     {
         $message_id = $this->_params->get_param($select_action);
@@ -196,10 +205,17 @@ class translation extends action
 
     function get_translators()
     {
-        $translators_filename = sprintf('%s/data/translators.php', $this->application_path);
+        $translators_filename = $this->get_translators_filename();
         $translators = $this->_file->read_array($translators_filename);
 
         return $translators;
+    }
+
+    function get_translators_filename()
+    {
+        $translators_filename = sprintf('%s/data/translators.php', $this->application_path);
+
+        return $translators_filename;
     }
 
     function get_validated_translation($translation_log_entries)
@@ -293,7 +309,7 @@ class translation extends action
         }
 
         $translator_allowed_languages = $translators[$email];
-        $is_valid_translator = ($translator_allowed_languages === true or in_array($this->_language->language_id, (array) $translator_allowed_languages));
+        $is_valid_translator = ($translator_allowed_languages == self::ANY_LANGUAGE or in_array($this->_language->language_id, (array) $translator_allowed_languages));
 
         return $is_valid_translator;
     }
@@ -477,5 +493,54 @@ class translation extends action
         } else {
              $this->next_action = 'no_validation_needed';
         }
+    }
+
+    function show_translators($email_pattern = null)
+    {
+        $translators = $this->get_translators();
+        $translators_details = [];
+
+        foreach ($translators as $obfuscated_email => $language_id) {
+            $email = $this->deobfuscate_email($obfuscated_email);
+
+            if (! $email_pattern or preg_match("~" . preg_quote($email_pattern) . "~", $email)) {
+                $hashed_translation_key = $this->hash_translation_key($email);
+                $login_url = $this->get_login_url($email, $language_id);
+                $translators_details[$email] = [$email, $obfuscated_email, $language_id, $hashed_translation_key, $login_url];
+            }
+        }
+
+        ksort($translators_details);
+
+        return $translators_details;
+    }
+
+    function update_translator($email, $language_id)
+    {
+        $translators = $this->get_translators();
+        $obfuscated_email = $this->obfuscate_email($email);
+
+        if ($language_id and $language_id != self::ANY_LANGUAGE and ! $this->_language->is_valid_language($language_id)) {
+            throw new Exception('unexpected language id');
+        }
+
+        $updated_translators = $translators;
+
+        if ($language_id) {
+            $updated_translators[$obfuscated_email] = $language_id;
+            asort($updated_translators, SORT_STRING);
+        } else {
+            unset($updated_translators[$obfuscated_email]);
+        }
+
+        if ($updated_translators !=  $translators) {
+            $translators_filename = $this->get_translators_filename();
+            $this->_file->write_array($translators_filename, $updated_translators);
+            $is_translator_updated = true;
+        } else {
+            $is_translator_updated = false;
+        }
+
+        return $is_translator_updated;
     }
 }
