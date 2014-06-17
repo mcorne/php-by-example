@@ -22,9 +22,7 @@ return [
 
 1100 => "Home page",
 1101 => 'home',
-1102 => 'home',
 1103 => 'home',
-1104 => 'home',
 1105 => 'home',
 1106 => 'home',
 1107 => 'home',
@@ -32,15 +30,14 @@ return [
 1109 => 'home',
 
 1200 => "Bottom bar",
-1201 => 'home',
 1202 => 'home',
-1203 => 'home',
 1204 => ['function', 'abs'],
+1205 => 'misc',
 
 1300 => "PHP manual location",
-1301 => ['function', 'abs', '?php_manual_location=local_copy&no_auto_highlight=1'],
-1302 => ['function', 'abs', '?php_manual_location=php.net&no_auto_highlight=1'],
-1303 => ['function', 'abs', '?php_manual_location=none&no_auto_highlight=1'],
+1304 => ['function', 'abs', '?php_manual_location=local_copy&no_auto_highlight=1'],
+1305 => ['function', 'abs', '?php_manual_location=php.net&no_auto_highlight=1'],
+1306 => ['function', 'abs', '?php_manual_location=none&no_auto_highlight=1'],
 
 1400 => "Function page",
 1401 => ['function', 'abs', '?no_auto_highlight=1'],

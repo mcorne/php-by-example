@@ -50,10 +50,10 @@ class application extends object
             $this->action_name = isset($this->uri[1]) ? $this->uri[1] : null;
 
             switch ($this->action_name) {
-                case 'about':
                 case 'function_list':
                 case 'help':
                 case 'home':
+                case 'misc':
                     $action = $this->_action;
                     break;
 

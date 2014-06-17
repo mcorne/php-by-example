@@ -11,9 +11,15 @@
 <?php if ($this->_params->php_manual_location != 'none'):?>
 
   <?php if ($url = $this->_output->display_function_manual_page_url() and ! in_array($this->_params->translation_in_action, [2501, 2502])):?>
-    <iframe id="php_manual"
-            onload="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
-            src="<?=$url;?>"></iframe>
+
+    <?php if ($this->_params->php_manual_location == 'php.net'):?>
+      <div id="php_manual_new_tab" style="display:none"><?=$url;?></div>
+
+    <?php else:?>
+      <iframe id="php_manual"
+              onload="set_php_manual_size()"
+              src="<?=$url;?>"></iframe>
+    <?php endif;?>
 
   <?php else:?>
     <div class="block red_border red">

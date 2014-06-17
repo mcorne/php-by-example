@@ -35,8 +35,11 @@ class update_translations extends object
         $validated_translations = [];
         $updated_translation_ids = [];
 
-        foreach (array_keys($this->_translator->english_messages) as $message_id) {
-            if (isset($translations_log_entries[$message_id]) and
+        foreach ($this->_translator->english_messages as $message_id => $english_message) {
+            if (! ($message_id % 100)) {
+                $validated_translation = $english_message;
+
+            } else if (isset($translations_log_entries[$message_id]) and
                 $validated_translation = $this->_translation->get_validated_translation($translations_log_entries[$message_id]))
             {
                 if ($validated_translation != $this->_translator->get_translated_message($message_id)) {
@@ -65,11 +68,16 @@ class update_translations extends object
 
                list($validated_translations, $updated_translation_ids[$language_id]) = $this->get_validated_translations();
 
-                $this->_file->write_array(
-                    $this->_translator->translated_messages_filename,
+               if ($validated_translations != $this->_translator->translated_messages) {
+                    $this->_file->write_array(
+                        $this->_translator->translated_messages_filename,
                         $validated_translations,
-                        ['~^ *\d\d00 =>~um' => "\n" . '$0'], // adds a blank line before a section, eg "1000 => ..."
+                        [
+                            '~^ *\d\d00 =>~um' => "\n" . '$0', // adds a blank line before a section, eg "1000 => ..."
+                            '~^ +~m'           => '',          // removes leading spaces
+                        ],
                         'preg_replace');
+               }
             }
         }
 

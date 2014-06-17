@@ -15,16 +15,31 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>PHP By Example</title>
+    <link rel="shortcut icon" href="<?=$this->base_url;?>/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?=$this->base_url;?>/interface.css" />
   </head>
 
   <body <?php if ($this->_params->search_method == 'input'):?>
-           onload="set_function_input('<?=$this->_synopsis->function_name;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
+           onload="set_function_input('<?=$this->_synopsis->function_name;?>');
+                   <?php if ($this->_params->php_manual_location == 'local_copy'):?>
+                     set_php_manual_size();
+                   <?php elseif ($this->_params->php_manual_location == 'php.net'):?>
+                     open_php_manual_in_new_tab();
+                   <?php endif;?>
+                   "
         <?php else:?>
-           onload="set_function_select('<?=$this->_synopsis->function_name;?>', '<?=$this->_params->translation_in_action == 1003 ? 'highlight_translation_in_action' : null;?>'); set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)"
+           onload="set_function_select('<?=$this->_synopsis->function_name;?>', '<?=$this->_params->translation_in_action == 1003 ? 'highlight_translation_in_action' : null;?>');
+                   <?php if ($this->_params->php_manual_location == 'local_copy'):?>
+                     set_php_manual_size()"
+                   <?php elseif ($this->_params->php_manual_location == 'php.net'):?>
+                     open_php_manual_in_new_tab();
+                   <?php endif;?>
+                   "
         <?php endif;?>
 
-        onresize="set_php_manual_size(<?=(int) ($this->_params->php_manual_location == 'local_copy');?>)">
+        <?php if ($this->_params->php_manual_location == 'local_copy'):?>
+          onresize="set_php_manual_size()">
+        <?php endif;?>
 
     <?php require "$this->application_path/views/top_bar.phtml";?>
     <?php require "$this->application_path/views/{$this->action_name}.phtml";?>

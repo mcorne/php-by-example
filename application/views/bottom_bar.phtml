@@ -23,9 +23,8 @@
 
   </select>
 
-  <a href="<?=$this->_output->display_url();?>"><?=$this->_translator->translate('Home');?></a>
   <a href="<?=$this->_output->display_url('help');?>"><?=$this->_translator->translate('Help');?></a>
-  <a href="<?=$this->_output->display_url('about');?>"><?=$this->_translator->translate('About');?></a>
+  <a href="<?=$this->_output->display_url('misc');?>"><?=$this->_translator->translate('Misc');?></a>
 
   <?php if ($this->action_name == 'function' or $this->action_name == 'test'):?>
     <a href="<?=$this->_output->display_url('test', $this->_synopsis->function_name);?>"><?=$this->_translator->translate('Test');?></a>

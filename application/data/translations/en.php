@@ -29,15 +29,19 @@ return [
 1109 => "List of available functions",
 
 1200 => "Bottom bar",
-1201 => "Home",
+// 1201 => "Home",
 1202 => "Help",
-1203 => "About",
+// 1203 => "About",
 1204 => "Test",
+1205 => "Misc",
 
 1300 => "PHP manual location",
-1301 => "Local copy of PHP manual",
-1302 => "PHP Manual at php.net",
-1303 => "No display of PHP manual",
+// 1301 => "Local copy of PHP manual",
+// 1302 => "PHP Manual at php.net",
+// 1303 => "No display of PHP manual","Misc"
+1304 => "PHP Manual in the current tab",
+1305 => "php.net in a separate tab",
+1306 => "No display of the PHP Manual",
 
 1400 => "Function page",
 1401 => "Execute the function",
@@ -100,17 +104,16 @@ return [
 2209 => "If you have a question related to PHP, please consult the PHP manual.",
 2210 => "Open the PHP manual",
 
-2300 => "About page",
+2300 => "Misc page",
 2301 => "Source code",
 2302 => "Stats",
 2303 => "Test of all functions",
 2304 => "Messages translation",
 
-2400 => "Miscellaneous",
+2400 => "Other items",
 2401 => "This page is available in English only.",
 
 2500 => "Unavailable PHP manual notice",
 2501 => "This page of the PHP manual is not available.",
 2502 => "Sorry for the inconvenience.",
-
 ];
