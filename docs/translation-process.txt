@@ -56,7 +56,7 @@ For each "missing english messages" reported:
 -------------------------------------
 
 - run "check_translations" (again)
-- verify that no "obsolete english message ids", "missing english messages" and "missing translated message ids" are reported
+- verify that no "missing translated message ids", "obsolete english message ids", "missing english messages" are reported
 
 Note that "obsolete translated message ids" are not used in this step.
 
@@ -88,6 +88,7 @@ Note: the translators inputs (validations and changes) are stored in the "data/t
 7. Update translations
 ----------------------
 
+- remove the content of "data/translations.development.log" on the development machine
 - copy the content of "data/translations.production.log" from the production machine to "data/translations.development.log" on the development machine
 - update the translations with the translators inputs, in "scripts", run "update_translations" 
 - run "check_translations" (again) which should report no issues if all translations have been validated

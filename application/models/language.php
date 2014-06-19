@@ -46,13 +46,6 @@ class language extends object
         return $language_id;
     }
 
-    function get_language_english_name()
-    {
-        $language_english_name = $this->languages[$this->language_id]['english_name'];
-
-        return $language_english_name;
-    }
-
     function fix_language_id($language_id)
     {
         $language_id = strtolower($language_id);
@@ -88,6 +81,13 @@ class language extends object
         return $language_ids;
     }
 
+    function get_language_english_name()
+    {
+        $language_english_name = $this->languages[$this->language_id]['english_name'];
+
+        return $language_english_name;
+    }
+
     function get_valid_browser_language()
     {
         $language_ids = $this->get_browser_languages();
@@ -108,5 +108,21 @@ class language extends object
         $is_valid = isset($this->languages[$language_id]);
 
         return $is_valid;
+    }
+
+    function is_valid_languages($language_ids)
+    {
+        $language_ids = preg_split('~\W~', $language_ids, -1, PREG_SPLIT_NO_EMPTY);
+
+        foreach ($language_ids as $language_id) {
+            if (! $this->is_valid_language($language_id)) {
+                return false;
+            }
+        }
+
+        sort($language_ids);
+        $language_ids = implode(',', $language_ids);
+
+        return $language_ids;
     }
 }

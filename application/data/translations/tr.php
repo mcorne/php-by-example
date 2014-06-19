@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-15T17:09:21+00:00
+// generated automatically 2014-06-18T18:06:15+00:00
 return array (
 
 1000 => 'Top bar',
@@ -20,19 +20,14 @@ return array (
 1109 => 'Kullanılabilir işlevlerin listesi',
 
 1200 => 'Bottom bar',
-1201 => 'Ana sayfa',
 1202 => 'Yardım',
-1203 => 'Hakkında',
 1204 => 'Test',
-1205 => "Çeşitli",
+1205 => 'Çeşitli',
 
 1300 => 'PHP manual location',
-1301 => 'PHP Kılavuzun yerel kopyası',
-1302 => 'Php.net de PHP Manual',
-1303 => 'PHP Kılavuzun görüntü yok',
-1304 => "Geçerli sekmede PHP Manual",
-1305 => "Ayrı bir sekmede php.net",
-1306 => "PHP Manual görüntü yok",
+1304 => 'Geçerli sekmede PHP Manual',
+1306 => 'PHP Manual gösterme',
+1307 => 'Yeni sekmede php.net',
 
 1400 => 'Function page',
 1401 => 'Işlevi yürütmek',
@@ -95,13 +90,13 @@ return array (
 2209 => 'PHP ile ilgili bir sorunuz varsa,PHP kılavuzuna başvurun.',
 2210 => 'PHP kitabını açın',
 
-2300 => 'About page',
+2300 => 'Misc page',
 2301 => 'kaynak kodu',
 2302 => 'İstatistikler',
 2303 => 'Tüm fonksiyonların Testi',
 2304 => 'Mesajlar çeviri',
 
-2400 => 'Miscellaneous',
+2400 => 'Other items',
 2401 => 'Bu sayfa sadece İngilizce olarak mevcuttur.',
 
 2500 => 'Unavailable PHP manual notice',

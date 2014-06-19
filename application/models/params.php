@@ -31,7 +31,7 @@ class params extends object
 
     function _get_params()
     {
-        return $_POST + $_GET;
+        return $_GET + $_POST; // utl params are to be picked up first
     }
 
     function _get_php_manual_location()

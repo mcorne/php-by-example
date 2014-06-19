@@ -16,14 +16,15 @@ if (empty($argv[1])) {
     $help =
 "
 Usage:
-update_translator <email> [language]
+update_translator <email> [languages]
 
 email      the translator email
-language   the translator language, eg 'fr',
+languages  the translator language, eg 'fr' or 'ro,ru'
            or leave empty to remove the translator
 
 Examples:
-update_translator jsmith@email.com 'fr'
+update_translator jsmith@email.com fr
+update_translator jsmith@email.com 'ro,ru'
 update_translator jsmith@email.com
 ";
     exit($help);
@@ -36,10 +37,10 @@ require_once 'models/translation.php';
 try {
     $translation = new translation(['application_path' => $application_path]);
     $email = $argv[1];
-    $language_id = isset($argv[2]) ? $argv[2] : null;
-    $is_translator_updated = $translation->update_translator($email, $language_id);
+    $language_ids = isset($argv[2]) ? $argv[2] : null;
+    list($is_translator_updated, $updated_language_ids) = $translation->update_translator($email, $language_ids);
 
-    if ($language_id) {
+    if ($language_ids) {
         $result = $is_translator_updated ? 'translator added/updated successfully' : 'no change';
     } else {
         $result = $is_translator_updated ? 'translator removed successfully' : 'unknown translator';
@@ -47,8 +48,9 @@ try {
 
     echo $result;
 
-    if ($language_id and $language_id != translation::ANY_LANGUAGE) {
-        echo "\n" . $translation->get_login_url($email, $language_id);
+    if ($updated_language_ids) {
+        $urls = $translation->get_login_urls($email, $updated_language_ids);
+        echo "\n" . implode("\n", $urls);
     }
 
 } catch (Exception $e) {

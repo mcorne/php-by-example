@@ -116,12 +116,21 @@ class translation extends action
         return $action;
     }
 
-    function get_login_url($email, $language_id)
+    function get_login_urls($email, $language_ids)
     {
-        $translation_key = $this->hash_translation_key($email);
-        $url = "http://micmap.org/php-by-example/$language_id/translation?email=$email&translation_key=$translation_key";
+        if ($language_ids == self::ANY_LANGUAGE) {
+            $language_ids = ['fr'];
+        } else {
+            $language_ids = explode(',', $language_ids);
+        }
 
-        return $url;
+        $translation_key = $this->hash_translation_key($email);
+
+        foreach ($language_ids as $language_id) {
+            $urls[$language_id] = "http://micmap.org/php-by-example/$language_id/translation?email=$email&translation_key=$translation_key";
+        }
+
+        return $urls;
     }
 
     function get_message_id($select_action)
@@ -309,7 +318,7 @@ class translation extends action
         }
 
         $translator_allowed_languages = $translators[$email];
-        $is_valid_translator = ($translator_allowed_languages == self::ANY_LANGUAGE or in_array($this->_language->language_id, (array) $translator_allowed_languages));
+        $is_valid_translator = ($translator_allowed_languages == self::ANY_LANGUAGE or preg_match("~\b{$this->_language->language_id}\b~", $translator_allowed_languages));
 
         return $is_valid_translator;
     }
@@ -500,13 +509,14 @@ class translation extends action
         $translators = $this->get_translators();
         $translators_details = [];
 
-        foreach ($translators as $obfuscated_email => $language_id) {
+        foreach ($translators as $obfuscated_email => $language_ids) {
             $email = $this->deobfuscate_email($obfuscated_email);
 
             if (! $email_pattern or preg_match("~" . preg_quote($email_pattern) . "~", $email)) {
                 $hashed_translation_key = $this->hash_translation_key($email);
-                $login_url = $this->get_login_url($email, $language_id);
-                $translators_details[$email] = [$email, $obfuscated_email, $language_id, $hashed_translation_key, $login_url];
+                $login_urls = $this->get_login_urls($email, $language_ids);
+                $login_urls = implode("\n", $login_urls);
+                $translators_details[$email] = [$email, $obfuscated_email, $language_ids, $hashed_translation_key, $login_urls];
             }
         }
 
@@ -515,19 +525,22 @@ class translation extends action
         return $translators_details;
     }
 
-    function update_translator($email, $language_id)
+    function update_translator($email, $language_ids)
     {
         $translators = $this->get_translators();
         $obfuscated_email = $this->obfuscate_email($email);
 
-        if ($language_id and $language_id != self::ANY_LANGUAGE and ! $this->_language->is_valid_language($language_id)) {
+        if ($language_ids and
+            $language_ids != self::ANY_LANGUAGE and
+            ! $language_ids = $this->_language->is_valid_languages($language_ids))
+        {
             throw new Exception('unexpected language id');
         }
 
         $updated_translators = $translators;
 
-        if ($language_id) {
-            $updated_translators[$obfuscated_email] = $language_id;
+        if ($language_ids) {
+            $updated_translators[$obfuscated_email] = $language_ids;
             asort($updated_translators, SORT_STRING);
         } else {
             unset($updated_translators[$obfuscated_email]);
@@ -541,6 +554,6 @@ class translation extends action
             $is_translator_updated = false;
         }
 
-        return $is_translator_updated;
+        return [$is_translator_updated, $language_ids];
     }
 }

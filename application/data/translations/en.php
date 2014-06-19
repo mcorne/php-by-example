@@ -18,7 +18,7 @@ return [
 1006 => "Display the text box",
 
 1100 => "Home page",
-1101 => "Welcome to the world of the PHP functions",
+1101 => "Welcome to the world of PHP functions",
 1102 => "Here you can test PHP functions online.",
 1103 => "You won't have to write a single line of code.",
 1104 => "You just need to select a function to get the result.",
@@ -40,8 +40,9 @@ return [
 // 1302 => "PHP Manual at php.net",
 // 1303 => "No display of PHP manual","Misc"
 1304 => "PHP Manual in the current tab",
-1305 => "php.net in a separate tab",
-1306 => "No display of the PHP Manual",
+// 1305 => "php.net in a separate tab",
+1306 => "Don't display the PHP Manual",
+1307 => "php.net in a new tab",
 
 1400 => "Function page",
 1401 => "Execute the function",

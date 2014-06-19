@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-15T17:09:21+00:00
+// generated automatically 2014-06-18T18:06:15+00:00
 return array (
 
 1000 => 'Top bar',
@@ -20,19 +20,14 @@ return array (
 1109 => 'Elenco delle funzioni disponibili',
 
 1200 => 'Bottom bar',
-1201 => 'Casa',
 1202 => 'Guida',
-1203 => 'Informazioni',
 1204 => 'Prova',
-1205 => "Varie",
+1205 => 'Varie',
 
 1300 => 'PHP manual location',
-1301 => 'Copia locale del manuale PHP',
-1302 => 'Manuale PHP a php.net',
-1303 => 'Nessuna indicazione di manuale PHP',
-1304 => "Manuale PHP nella scheda corrente",
-1305 => "php.net in una scheda separata",
-1306 => "Nessuna indicazione del manuale PHP",
+1304 => 'Manuale PHP nella scheda corrente',
+1306 => 'Non visualizzare il Manuale PHP',
+1307 => 'php.net in una nuova scheda',
 
 1400 => 'Function page',
 1401 => 'Eseguire la funzione',
@@ -95,13 +90,13 @@ return array (
 2209 => 'Se hai una domanda relativa a PHP, consultare il manuale PHP.',
 2210 => 'Aprire il manuale PHP',
 
-2300 => 'About page',
+2300 => 'Misc page',
 2301 => 'Il codice sorgente',
 2302 => 'Statistiche',
 2303 => 'Prova di tutte le funzioni',
 2304 => 'traduzione messaggi',
 
-2400 => 'Miscellaneous',
+2400 => 'Other items',
 2401 => 'Questa pagina è disponibile solo in inglese.',
 
 2500 => 'Unavailable PHP manual notice',

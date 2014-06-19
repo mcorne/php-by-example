@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-15T17:09:21+00:00
+// generated automatically 2014-06-18T18:06:15+00:00
 return array (
 
 1000 => 'Top bar',
@@ -20,19 +20,14 @@ return array (
 1109 => 'Lista de funcții disponibile',
 
 1200 => 'Bottom bar',
-1201 => 'Acasă',
 1202 => 'Ajutor',
-1203 => 'Despre',
 1204 => 'Test',
-1205 => "Misc",
+1205 => 'Misc',
 
 1300 => 'PHP manual location',
-1301 => 'Copie locală a manual PHP',
-1302 => 'Manual PHP la php.net',
-1303 => 'Nici un afișaj de manual PHP',
-1304 => "Manual PHP în fila curentă",
-1305 => "php.net într-o filă separată",
-1306 => "Nu se afișează din Manualul PHP",
+1304 => 'Manual PHP în fila curentă',
+1306 => 'Nu afișează Manualul PHP',
+1307 => 'php.net într-o filă nouă',
 
 1400 => 'Function page',
 1401 => 'Executa funcția',
@@ -95,13 +90,13 @@ return array (
 2209 => 'Dacă aveți o întrebare legată de PHP, vă rugăm să consultați manualul de PHP.',
 2210 => 'Deschide manualul de PHP',
 
-2300 => 'About page',
+2300 => 'Misc page',
 2301 => 'codul sursă',
 2302 => 'Statistici',
 2303 => 'De testare a tuturor funcțiilor',
 2304 => 'mesaje de traducere',
 
-2400 => 'Miscellaneous',
+2400 => 'Other items',
 2401 => 'Această pagină este disponibilă doar în limba engleză.',
 
 2500 => 'Unavailable PHP manual notice',

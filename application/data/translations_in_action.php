@@ -36,8 +36,8 @@ return [
 
 1300 => "PHP manual location",
 1304 => ['function', 'abs', '?php_manual_location=local_copy&no_auto_highlight=1'],
-1305 => ['function', 'abs', '?php_manual_location=php.net&no_auto_highlight=1'],
 1306 => ['function', 'abs', '?php_manual_location=none&no_auto_highlight=1'],
+1307 => ['function', 'abs', '?php_manual_location=php.net&no_auto_highlight=1'],
 
 1400 => "Function page",
 1401 => ['function', 'abs', '?no_auto_highlight=1'],

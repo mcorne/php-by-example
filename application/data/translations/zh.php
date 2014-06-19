@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-15T17:09:21+00:00
+// generated automatically 2014-06-18T18:06:15+00:00
 return array (
 
 1000 => 'Top bar',
@@ -20,19 +20,14 @@ return array (
 1109 => '可用功能列表',
 
 1200 => 'Bottom bar',
-1201 => '首页',
 1202 => '帮助',
-1203 => '关于',
 1204 => '测试',
-1205 => "杂项",
+1205 => '杂项',
 
 1300 => 'PHP manual location',
-1301 => 'PHP手册的本地副本',
-1302 => 'PHP手册在php.net',
-1303 => 'PHP手册中无显示',
-1304 => "在当前选项卡PHP手册",
-1305 => "php.net在一个单独的标签",
-1306 => "PHP手册中无显示",
+1304 => '在当前选项卡PHP手册',
+1306 => '不显示PHP手册',
+1307 => 'php.net在新标签页',
 
 1400 => 'Function page',
 1401 => '执行该函数',
@@ -95,13 +90,13 @@ return array (
 2209 => '如果您有关于PHP的一个问题，请参考PHP手册。',
 2210 => '打开PHP手册',
 
-2300 => 'About page',
+2300 => 'Misc page',
 2301 => '源代码',
 2302 => '统计',
 2303 => '所有功能测试',
 2304 => '消息翻译',
 
-2400 => 'Miscellaneous',
+2400 => 'Other items',
 2401 => '本页面仅提供英文版本。',
 
 2500 => 'Unavailable PHP manual notice',
