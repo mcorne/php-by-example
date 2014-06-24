@@ -95,6 +95,7 @@ return array (
 2302 => 'Stats',
 2303 => 'Teste de todas as funções',
 2304 => 'Mensagens de tradução',
+2305 => "A tradução de mensagens",
 
 2400 => 'Other items',
 2401 => 'Esta página está disponível apenas em Inglês.',

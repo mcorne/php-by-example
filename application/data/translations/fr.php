@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-06-18T18:06:15+00:00
+// generated automatically 2014-06-19T17:07:31+00:00
 return array (
 
 1000 => 'Top bar',
@@ -40,7 +40,7 @@ return array (
 
 1600 => 'Search function page',
 1601 => 'Liste des fonctions disponibles',
-1602 => 'Aucune fonction n\'a été trouvée qui correspond à ce modèle.',
+1602 => 'Aucune fonction n\'a été trouvée qui corresponde à ce motif.',
 
 1700 => 'Error types',
 1701 => 'Erreur',
@@ -61,7 +61,7 @@ return array (
 
 1900 => 'Argument filter errors',
 1901 => 'le nom du fichier doit commencer par l\'une des chaînes suivantes dans cet exemple',
-1902 => 'cette valeur d\'argument n\'est pas autorisé dans cet exemple',
+1902 => 'cette valeur d\'argument n\'est pas autorisée dans cet exemple',
 1903 => 'cette fonction de rappel ne peut être utilisée dans cet exemple',
 1904 => 'cette fonction de rappel n\'est pas valide ou n\'est pas disponible sur ce serveur',
 1905 => 'la longueur doit être définie et inférieure à 1000 octets dans cet exemple',
@@ -69,10 +69,10 @@ return array (
 1907 => 'cet argument ne peut pas être vide dans cet exemple',
 
 2000 => 'Function errors',
-2001 => 'une valeur ne peut pas être passé par référence',
+2001 => 'une valeur ne peut pas être passée par référence',
 2002 => 'cette classe n\'est pas disponible dans la version de PHP en cours d\'exécution sur ce serveur',
 2003 => 'cette fonction n\'est pas disponible dans la version de PHP en cours d\'exécution sur ce serveur',
-2004 => 'cette méthode ne sont pas disponibles dans la version de PHP fonctionnant sur ce serveur',
+2004 => 'cette méthode n\'est pas disponible dans la version de PHP fonctionnant sur ce serveur',
 2005 => 'l\'argument suivant a été supprimé',
 2006 => 'les arguments suivants ont été supprimés',
 
@@ -91,10 +91,11 @@ return array (
 2210 => 'Ouvrir le manuel PHP',
 
 2300 => 'Misc page',
-2301 => 'Le code source',
+2301 => 'Code source',
 2302 => 'Statistiques',
 2303 => 'Test de toutes les fonctions',
 2304 => 'Traduction des messages',
+2305 => "Traduction des messages",
 
 2400 => 'Other items',
 2401 => 'Cette page est disponible en anglais seulement.',

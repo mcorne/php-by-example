@@ -95,6 +95,7 @@ return array (
 2302 => 'Statistik',
 2303 => 'Testen aller Funktionen',
 2304 => 'Nachrichten -Übersetzung',
+2305 => "Übersetzung von Nachrichten",
 
 2400 => 'Other items',
 2401 => 'Diese Seite ist nur in englischer Sprache verfügbar.',

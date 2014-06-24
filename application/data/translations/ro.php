@@ -1,9 +1,9 @@
 <?php
-// generated automatically 2014-06-18T18:06:15+00:00
+// generated automatically 2014-06-19T17:07:31+00:00
 return array (
 
 1000 => 'Top bar',
-1001 => 'Cauta o funcție',
+1001 => 'Caută o funcție',
 1003 => 'Alegeți o funcție',
 1005 => 'Afișa lista drop-down',
 1006 => 'Afișează caseta de text',
@@ -95,6 +95,7 @@ return array (
 2302 => 'Statistici',
 2303 => 'De testare a tuturor funcțiilor',
 2304 => 'mesaje de traducere',
+2305 => "Traducere de mesaje",
 
 2400 => 'Other items',
 2401 => 'Această pagină este disponibilă doar în limba engleză.',

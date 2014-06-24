@@ -95,6 +95,7 @@ return array (
 2302 => 'İstatistikler',
 2303 => 'Tüm fonksiyonların Testi',
 2304 => 'Mesajlar çeviri',
+2305 => "Mesajlarının yaptı",
 
 2400 => 'Other items',
 2401 => 'Bu sayfa sadece İngilizce olarak mevcuttur.',

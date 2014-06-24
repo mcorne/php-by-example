@@ -50,6 +50,18 @@ class check_translations
         return [$missing_translated_message_ids, $obsolete_translated_message_ids];
     }
 
+    function check_translations_in_action()
+    {
+        $translations_in_action = require __DIR__ . '/../application/data/translations_in_action.php';
+        $translations_in_action_ids = array_keys($translations_in_action);
+        $english_message_ids = array_keys($this->english_messages);
+
+        $missing_translation_in_action_ids = array_diff($english_message_ids, $translations_in_action_ids);
+        $obsolete_translation_in_action_ids = array_diff($translations_in_action_ids, $english_message_ids);
+
+        return [$missing_translation_in_action_ids, $obsolete_translation_in_action_ids];
+    }
+
     function display_messages($messages)
     {
         if (! $messages) {
@@ -110,9 +122,14 @@ class check_translations
         $source_code_messages = $this->get_source_code_messages();
         $missing_english_messages = array_diff($source_code_messages, $this->english_messages);
         $obsolete_english_message_ids = $this->get_obsolete_english_messages($source_code_messages);
+        list($missing_translation_in_action_ids, $obsolete_translation_in_action_ids) = $this->check_translations_in_action();
 
         echo 'missing translated message ids  : ' . ($this->display_message_ids($missing_translated_message_ids) ?: 'none') . "\n";
         echo 'obsolete translated message ids : ' . ($this->display_message_ids($obsolete_translated_message_ids) ?: 'none') . "\n";
+
+        echo 'missing translation in action ids  : ' . (implode(', ', $missing_translation_in_action_ids) ?: 'none') . "\n";
+        echo 'obsolete translation in action ids : ' . (implode(', ', $obsolete_translation_in_action_ids) ?: 'none') . "\n";
+
         echo 'obsolete english message ids    : ' . (implode(', ', $obsolete_english_message_ids) ?: 'none') . "\n";
         echo 'missing english messages        : ' . ($this->display_messages($missing_english_messages) ?: 'none') . "\n";
     }

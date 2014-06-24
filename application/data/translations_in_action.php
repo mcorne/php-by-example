@@ -12,21 +12,25 @@
  * sets the url parameters passed to output::display_url() in translation_form.phtml
  */
 
+define('USE_INFINITIVE', 'Use the infinitive (prefered way) or the <a class="gray" href="http://en.wikipedia.org/wiki/T%E2%80%93V_distinction">formal way</a>, if applicable in your language.');
+define('USE_TV_DISTINCTION', 'Use the <a class="gray" href="http://en.wikipedia.org/wiki/T%E2%80%93V_distinction">formal way</a>, if applicable in your language.');
+
 return [
 
 1000 => "Top bar",
-1001 => ['function', null, '?search_method=input&no_auto_highlight=1'],
-1003 => ['function', null, '?search_method=select&no_auto_highlight=1'],
-1005 => ['function', null, '?search_method=input'],
-1006 => ['function', null, '?search_method=select'],
+1001 => ['function', null, '?search_method=input&no_auto_highlight=1' , 'translation_note' => USE_INFINITIVE],
+1003 => ['function', null, '?search_method=select&no_auto_highlight=1', 'translation_note' => USE_INFINITIVE],
+1005 => ['function', null, '?search_method=input' , 'translation_note' => USE_INFINITIVE],
+1006 => ['function', null, '?search_method=select', 'translation_note' => USE_INFINITIVE],
 
 1100 => "Home page",
 1101 => 'home',
-1103 => 'home',
+1102 => ['home', 'translation_note' => USE_TV_DISTINCTION],
+1103 => ['home', 'translation_note' => USE_TV_DISTINCTION],
+1104 => ['home', 'translation_note' => USE_TV_DISTINCTION],
 1105 => 'home',
-1106 => 'home',
+1106 => ['home', 'translation_note' => USE_TV_DISTINCTION],
 1107 => 'home',
-1108 => 'home',
 1109 => 'home',
 
 1200 => "Bottom bar",
@@ -36,19 +40,17 @@ return [
 
 1300 => "PHP manual location",
 1304 => ['function', 'abs', '?php_manual_location=local_copy&no_auto_highlight=1'],
-1306 => ['function', 'abs', '?php_manual_location=none&no_auto_highlight=1'],
+1306 => ['function', 'abs', '?php_manual_location=none&no_auto_highlight=1', 'translation_note' => USE_INFINITIVE],
 1307 => ['function', 'abs', '?php_manual_location=php.net&no_auto_highlight=1'],
 
 1400 => "Function page",
-1401 => ['function', 'abs', '?no_auto_highlight=1'],
+1401 => ['function', 'abs', '?no_auto_highlight=1', 'translation_note' => USE_INFINITIVE],
 1402 => ['function', 'abs'],
 1403 => ['function', 'abs'],
-1404 => ['function', 'abs'],
+1404 => ['function', 'abs', 'translation_note' => USE_INFINITIVE],
 
 1500 => "Function input",
-1501 => ['function', 'preg_match_all',
-         'translation_note' => 'Click on the blue question mark in the separate tab.',
-        ],
+1501 => ['function', 'preg_match_all', 'translation_note' => 'Click on the blue question mark in the separate tab.'],
 
 1600 => "Search function page",
 1601 => ['function', 'xyz'],
@@ -92,24 +94,23 @@ return [
 2101 => ['function', 'abs', '?example=10'],
 
 2200 => "Help page",
-2201 => "help",
-2202 => "help",
-2203 => "help",
-2204 => "help",
-2205 => "help",
-2206 => "help",
-2207 => "help",
-2208 => "help",
-2209 => "help",
-2210 => "help",
+2201 => ["help", 'translation_note' => USE_TV_DISTINCTION],
+2202 => ["help", 'translation_note' => USE_TV_DISTINCTION],
+2203 => ["help", 'translation_note' => USE_TV_DISTINCTION],
+2204 => ["help", 'translation_note' => USE_INFINITIVE],
+2206 => ["help", 'translation_note' => USE_TV_DISTINCTION],
+2207 => ["help", 'translation_note' => USE_INFINITIVE],
+2208 => ["help", 'translation_note' => USE_TV_DISTINCTION],
+2209 => ["help", 'translation_note' => USE_TV_DISTINCTION],
+2210 => ["help", 'translation_note' => USE_INFINITIVE],
 
-2300 => "About page",
+2300 => "Misc page",
 2301 => "about",
 2302 => "about",
 2303 => "about",
-2304 => "about",
+2305 => "about",
 
-2400 => "Miscellaneous",
+2400 => "Other items",
 2401 => ['test', 'abs'],
 
 2500 => "Unavailable PHP manual notice",

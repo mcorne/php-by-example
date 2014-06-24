@@ -25,7 +25,7 @@ return [
 1105 => "Each function comes with a few examples.",
 1106 => "You may of course change the function arguments at will.",
 1107 => "The corresponding page of the manual is also displayed automatically.",
-1108 => "So go ahead, and start playing...",
+// 1108 => "So go ahead, and start playing...",
 1109 => "List of available functions",
 
 1200 => "Bottom bar",
@@ -109,7 +109,8 @@ return [
 2301 => "Source code",
 2302 => "Stats",
 2303 => "Test of all functions",
-2304 => "Messages translation",
+// 2304 => "Messages translation",
+2305 => "Translation of messages",
 
 2400 => "Other items",
 2401 => "This page is available in English only.",
