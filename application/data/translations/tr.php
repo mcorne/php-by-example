@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-06-18T18:06:15+00:00
+// generated automatically 2014-06-24T11:07:18+00:00
 return array (
 
 1000 => 'Top bar',
@@ -16,7 +16,6 @@ return array (
 1105 => 'Her fonksiyon bir kaç örnekle geliyor.',
 1106 => 'Sen elbette iradeişlevi argümanları değişebilir.',
 1107 => 'Kılavuzunilgili sayfası da otomatik olarak görüntülenir.',
-1108 => 'Durmayın, ve oynamaya başlayın...',
 1109 => 'Kullanılabilir işlevlerin listesi',
 
 1200 => 'Bottom bar',
@@ -94,8 +93,7 @@ return array (
 2301 => 'kaynak kodu',
 2302 => 'İstatistikler',
 2303 => 'Tüm fonksiyonların Testi',
-2304 => 'Mesajlar çeviri',
-2305 => "Mesajlarının yaptı",
+2305 => 'Mesajlarının yaptı',
 
 2400 => 'Other items',
 2401 => 'Bu sayfa sadece İngilizce olarak mevcuttur.',

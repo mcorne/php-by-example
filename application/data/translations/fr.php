@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-06-19T17:07:31+00:00
+// generated automatically 2014-06-24T17:42:53+00:00
 return array (
 
 1000 => 'Top bar',
@@ -10,13 +10,12 @@ return array (
 
 1100 => 'Home page',
 1101 => 'Bienvenue dans le monde des fonctions PHP',
-1102 => 'Ici, vous pouvez tester les fonctions de PHP en ligne.',
+1102 => 'Ici, vous pouvez tester les fonctions PHP en ligne.',
 1103 => 'Vous n\'aurez pas à écrire une seule ligne de code.',
 1104 => 'Vous avez juste besoin de sélectionner une fonction pour obtenir le résultat.',
 1105 => 'Chaque fonction est livrée avec quelques exemples.',
 1106 => 'Vous pouvez bien sûr changer les arguments de la fonction à volonté.',
 1107 => 'La page correspondante du manuel est également affichée automatiquement.',
-1108 => 'Alors allez-y, et commencer à jouer...',
 1109 => 'Liste des fonctions disponibles',
 
 1200 => 'Bottom bar',
@@ -52,9 +51,9 @@ return array (
 1707 => 'Alerte PHPbEx',
 
 1800 => 'Parser errors',
-1801 => 'tableau invalide',
-1802 => 'constante invalide',
-1803 => 'nombre négatif invalide',
+1801 => 'tableau non valide',
+1802 => 'constante non valide',
+1803 => 'nombre négatif non valide',
 1804 => 'valeur non valide',
 1805 => 'constante indéfinie',
 1806 => 'données inattendues',
@@ -94,8 +93,7 @@ return array (
 2301 => 'Code source',
 2302 => 'Statistiques',
 2303 => 'Test de toutes les fonctions',
-2304 => 'Traduction des messages',
-2305 => "Traduction des messages",
+2305 => 'Traduction des messages',
 
 2400 => 'Other items',
 2401 => 'Cette page est disponible en anglais seulement.',

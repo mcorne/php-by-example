@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-06-18T18:06:15+00:00
+// generated automatically 2014-06-24T11:07:18+00:00
 return array (
 
 1000 => 'Top bar',
@@ -16,7 +16,6 @@ return array (
 1105 => 'Cada función viene con algunos ejemplos.',
 1106 => 'Usted puede cambiar por supuesto los argumentos de las funciones a voluntad.',
 1107 => 'La página correspondiente del manual también se muestra automáticamente.',
-1108 => 'Así que adelante y empezar a jugar...',
 1109 => 'Lista de las funciones disponibles',
 
 1200 => 'Bottom bar',
@@ -94,7 +93,6 @@ return array (
 2301 => 'El código fuente',
 2302 => 'Estadísticas',
 2303 => 'Prueba de todas las funciones',
-2304 => 'traducción de mensajes',
 2305 => 'Traducción de mensajes',
 
 2400 => 'Other items',

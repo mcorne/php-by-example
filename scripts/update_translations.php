@@ -68,7 +68,7 @@ class update_translations extends object
 
                list($validated_translations, $updated_translation_ids[$language_id]) = $this->get_validated_translations();
 
-               if ($validated_translations != $this->_translator->translated_messages) {
+               if ($validated_translations != $this->_translator->_get_translated_messages(true)) {
                     $this->_file->write_array(
                         $this->_translator->translated_messages_filename,
                         $validated_translations,

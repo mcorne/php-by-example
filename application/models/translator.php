@@ -46,11 +46,14 @@ class translator extends object
         return $message_ids;
     }
 
-    function _get_translated_messages()
+    function _get_translated_messages($including_obsolete = false)
     {
         $translated_messages_filename = $this->translated_messages_filename;
         $translated_messages = $this->_file->read_array($translated_messages_filename);
-        $translated_messages = array_intersect_key($translated_messages, $this->english_messages);
+
+        if (! $including_obsolete) {
+            $translated_messages = array_intersect_key($translated_messages, $this->english_messages);
+        }
 
         return $translated_messages;
     }
