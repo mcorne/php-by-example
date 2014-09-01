@@ -259,6 +259,18 @@ div.translation_intro
     margin-bottom: 2em;
 }
 
+div.translations_stats, div.translators_stats
+{
+    color: #656565; /* gray */
+    font-size: .8em;
+    margin-left: 1.2em;
+}
+
+div.translators_stats
+{
+    margin-top: 2em;    
+}
+
 div.top_bar a, div.top_bar input
 {
     vertical-align: middle;
@@ -381,6 +393,21 @@ table.errors td.error_code
     color: #DD0000; /* red */
     font-weight: bold;
     white-space:nowrap;
+}
+
+table.translations_stats
+{
+    border-spacing: .8em .5em;
+}
+
+table.translators_stats
+{
+    border-spacing: .8em 0em;
+}
+
+table.translations_stats td.center, table.translators_stats td.center
+{
+    text-align: center;
 }
 
 textarea.arg

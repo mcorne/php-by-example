@@ -23,11 +23,11 @@
 
   </select>
 
-  <a href="<?=$this->_output->display_url('help');?>"><?=$this->_translator->translate('Help');?></a>
-  <a href="<?=$this->_output->display_url('misc');?>"><?=$this->_translator->translate('Misc');?></a>
+  <a href="<?=$this->_output->display_url('help');?>"><?=$this->_message_translation->translate('Help');?></a>
+  <a href="<?=$this->_output->display_url('misc');?>"><?=$this->_message_translation->translate('Misc');?></a>
 
   <?php if ($this->action_name == 'function' or $this->action_name == 'test'):?>
-    <a href="<?=$this->_output->display_url('test', $this->_synopsis->function_name);?>"><?=$this->_translator->translate('Test');?></a>
+    <a href="<?=$this->_output->display_url('test', $this->_synopsis->function_name);?>"><?=$this->_message_translation->translate('Test');?></a>
     <?php require "$this->application_path/views/php_manual_location.phtml";?>
   <?php endif;?>
 

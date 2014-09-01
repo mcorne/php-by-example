@@ -105,12 +105,12 @@ return [
 2209 => "If you have a question related to PHP, please consult the PHP manual.",
 2210 => "Open the PHP manual",
 
-2300 => "Misc page",
-2301 => "Source code",
-2302 => "Stats",
-2303 => "Test of all functions",
+// 2300 => "Misc page",
+// 2301 => "Source code",
+// 2302 => "Stats",
+// 2303 => "Test of all functions",
 // 2304 => "Messages translation",
-2305 => "Translation of messages",
+// 2305 => "Translation of messages",
 
 2400 => "Other items",
 2401 => "This page is available in English only.",

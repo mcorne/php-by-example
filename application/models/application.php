@@ -77,8 +77,18 @@ class application extends object
                     $action = $this->_function_test_all;
                     break;
 
-                case 'translation':
-                    $action = $this->_translation;
+                case 'translation': // TODO: remove when not needed anymore for portability reason
+                    $this->action_name = 'messages_translation';
+                case 'messages_translation':
+                    $action = $this->_messages_translation;
+                    break;
+
+                case 'translations_stats':
+                    $action = $this->_translations_stats;
+                    break;
+
+                case 'translators_stats':
+                    $action = $this->_translators_stats;
                     break;
             }
 

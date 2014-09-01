@@ -96,7 +96,7 @@ class input extends object
     {
         if (substr($arg_name, -1) == 's') {
             $multiple = 'multiple';
-            $empty_option = $this->_translator->translate('multi-select');
+            $empty_option = $this->_message_translation->translate('multi-select');
             $vertical_align = 'style="vertical-align: .2em"';
 
         } else {

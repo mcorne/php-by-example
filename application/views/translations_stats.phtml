@@ -1,0 +1,55 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<h1>
+  Translations stats
+  <?php require "$this->application_path/views/english_only.phtml";?>
+</h1>
+
+<div class="block blue_border">
+  <table class="translations_stats">
+
+    <tr>
+      <td></td>
+      <td class="center">Machine</td>
+      <td class="center">Fixed</td>
+      <td class="center red">To validate *</td>
+      <td class="center green">Validated</td>
+      <td class="center">Total</td>
+      <td class="center">Messages to validate</td>
+    </tr>
+
+      <?php foreach($this->translations_stats as $language_english_name => $translation_stats):?>
+        <tr>
+          <td>
+            <a href="<?=$this->_output->display_url('messages_translation', null, null, $translation_stats['language_id']);?>"><?=$language_english_name;?></a>
+          </td>
+          <td class="center gray"><?=$translation_stats['machine_translations_count'];?></td>
+          <td class="center gray"><?=$translation_stats['fixed_translations_count'];?></td>
+          <td class="center <?php if ($translation_stats['translations_to_validate_count']):?>red<?php else:?>gray<?php endif;?>">
+            <?=$translation_stats['translations_to_validate_count'];?>
+          </td>
+          <td class="center <?php if ($translation_stats['validated_translations_count']):?>green<?php else:?>gray<?php endif;?>">
+            <?=$translation_stats['validated_translations_count'];?>
+          </td>
+          <td class="center gray"><?=$translation_stats['translations_total'];?></td>
+          <td>
+            <?php foreach (array_slice($translation_stats['translations_to_validate_ids'], 0, 3) as $index => $message_id):?>
+              <a href="<?=$this->_output->display_url('messages_translation', null, "?translation_action=select_message&select_message=$message_id", $translation_stats['language_id']);?>"><?=$message_id;?></a>
+            <?php endforeach;?>
+            <?php if ($translation_stats['translations_to_validate_count'] > 3):?>...<?php endif;?>
+          </td>
+        </tr>
+      <?php endforeach;?>
+
+  </table>
+
+  <div class="translations_stats">* To validate = Machine + Fixed</div>
+</div>

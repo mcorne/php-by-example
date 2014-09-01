@@ -32,13 +32,13 @@ update_translator jsmith@email.com
 
 $application_path = realpath(__DIR__ . '/../application');
 set_include_path("$application_path");
-require_once 'models/translation.php';
+require_once 'models/translator.php';
 
 try {
-    $translation = new translation(['application_path' => $application_path]);
+    $translator = new translator(['application_path' => $application_path]);
     $email = $argv[1];
     $language_ids = isset($argv[2]) ? $argv[2] : null;
-    list($is_translator_updated, $updated_language_ids) = $translation->update_translator($email, $language_ids);
+    list($is_translator_updated, $updated_language_ids) = $translator->update_translator($email, $language_ids);
 
     if ($language_ids) {
         $result = $is_translator_updated ? 'translator added/updated successfully' : 'no change';
@@ -49,7 +49,7 @@ try {
     echo $result;
 
     if ($updated_language_ids) {
-        $urls = $translation->get_login_urls($email, $updated_language_ids);
+        $urls = $translator->get_login_urls($email, $updated_language_ids);
         echo "\n" . implode("\n", $urls);
     }
 

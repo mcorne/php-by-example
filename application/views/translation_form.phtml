@@ -8,7 +8,7 @@
  */
 ?>
 
-<form action="<?=$this->_output->display_url('translation');?>"
+<form action="<?=$this->_output->display_url('messages_translation');?>"
       id="form"
       method="post"
 >
@@ -38,10 +38,10 @@
       <?php elseif ($this->status == 'invalid_translator' or $this->status == 'invalid_translation_key'):?>
         <a href="javascript: document.getElementById('form').submit()">Login</a>
         or
-        <a href="<?=$this->_output->display_url('translation');?>?logoff=1">reset credentials</a>
+        <a href="<?=$this->_output->display_url('messages_translation');?>?logoff=1">reset credentials</a>
 
       <?php else:?>
-        <a href="<?=$this->_output->display_url('translation');?>?logoff=1">Log off</a>
+        <a href="<?=$this->_output->display_url('messages_translation');?>?logoff=1">Log off</a>
         (recommended when finished if you share this computer)
       <?php endif;?>
     </div>
@@ -58,7 +58,7 @@
               name="select_message"
               onchange="set_translation_selects('select_translation_in_production', 'select_translation_lastest_version', this.value)"
       >
-        <?php $this->_output->display_translation_selection($this->message_id, $this->_translator->english_messages);?>
+        <?php $this->_output->display_translation_selection($this->message_id, $this->_message_translation->english_messages);?>
       </select>
     </div>
 
@@ -68,17 +68,17 @@
       <select id="select_translation_in_production"
               onchange="set_translation_selects('select_english_message', 'select_translation_lastest_version', this.value)"
       >
-        <?php $this->_output->display_translation_selection($this->message_id, $this->_translator->translated_messages);?>
+        <?php $this->_output->display_translation_selection($this->message_id, $this->_message_translation->translated_messages);?>
       </select>
     </div>
 
     <div>
       <div class="gray">
         <?php
-            if (! isset($this->translations_last_version[$this->message_id]) or ! isset($this->_translator->translated_messages[$this->message_id])) {
+            if (! isset($this->_translation->translations_last_version[$this->message_id]) or ! isset($this->_message_translation->translated_messages[$this->message_id])) {
                 $display_in_production     = 'none';
                 $display_not_in_production = 'none';
-            } else if ($this->translations_last_version[$this->message_id] == $this->_translator->translated_messages[$this->message_id]) {
+            } else if ($this->_translation->translations_last_version[$this->message_id] == $this->_message_translation->translated_messages[$this->message_id]) {
                 $display_in_production     = 'inline';
                 $display_not_in_production = 'none';
             } else {
@@ -102,7 +102,7 @@
       <select id="select_translation_lastest_version"
               onchange="set_translation_selects('select_english_message', 'select_translation_in_production', this.value)"
       >
-        <?php $this->_output->display_translation_selection($this->message_id, $this->translations_last_version);?>
+        <?php $this->_output->display_translation_selection($this->message_id, $this->_translation->translations_last_version);?>
       </select>
     </div>
 
@@ -117,7 +117,7 @@
   <?php if ($this->message_id):?>
 
     <?php if (! $this->no_additional_action and ! $this->no_display_translation_input):
-              $last_translated_message = end($this->translations_log_entries[$this->message_id]);?>
+              $last_translated_message = end($this->_translation->translations_log_entries[$this->message_id]);?>
 
       <input name="previous_translated_message"
              type="hidden"
@@ -193,11 +193,11 @@
 
     <div class="block_translation gray_border">
       <?php $previous_translated_messaged = null;
-            foreach ($this->translations_log_entries[$this->message_id] as $entry_id => $translation_log_entry):
-                $last_entry_id = count($this->translations_log_entries[$this->message_id]) - 1;?>
+            foreach ($this->_translation->translations_log_entries[$this->message_id] as $entry_id => $translation_log_entry):
+                $last_entry_id = count($this->_translation->translations_log_entries[$this->message_id]) - 1;?>
 
         <?php if ($translation_log_entry['action'] != 'reviewed' or
-                 $entry_id == $last_entry_id and $timeout = $this->is_translation_locked_for_review($translation_log_entry)):?>
+                 $entry_id == $last_entry_id and $timeout = $this->_translation->is_translation_locked_for_review($translation_log_entry)):?>
           <div class="changelog">
 
             <?php if ($translation_log_entry['translated_message'] != $previous_translated_messaged):?>

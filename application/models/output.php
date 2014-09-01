@@ -15,6 +15,13 @@ require_once 'object.php';
 
 class output extends object
 {
+    function display_date($date)
+    {
+        list($date) = explode(' ', $date);
+
+        return $date;
+    }
+
     function display_duration()
     {
         $duration = (microtime(true) - $this->start_time);
@@ -33,19 +40,19 @@ class output extends object
     function display_error_code($code)
     {
         $messages = [
-            E_ERROR        => $this->_translator->translate('PHP error'),
-            E_NOTICE       => $this->_translator->translate('PHP notice'),
-            E_USER_ERROR   => $this->_translator->translate('PHPbEx error'),
-            E_USER_NOTICE  => $this->_translator->translate('PHPbEx notice'),
-            E_USER_WARNING => $this->_translator->translate('PHPbEx warning'),
-            E_WARNING      => $this->_translator->translate('PHP warning'),
+            E_ERROR        => $this->_message_translation->translate('PHP error'),
+            E_NOTICE       => $this->_message_translation->translate('PHP notice'),
+            E_USER_ERROR   => $this->_message_translation->translate('PHPbEx error'),
+            E_USER_NOTICE  => $this->_message_translation->translate('PHPbEx notice'),
+            E_USER_WARNING => $this->_message_translation->translate('PHPbEx warning'),
+            E_WARNING      => $this->_message_translation->translate('PHP warning'),
         ];
 
         if (isset($messages[$code])) {
             $message = $messages[$code];
         } else {
             // this is an internal exception without an error code, see function_core.php
-            $message = $this->_translator->translate('Error');
+            $message = $this->_message_translation->translate('Error');
         }
 
         return $message;

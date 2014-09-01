@@ -9,138 +9,162 @@
 
 require_once 'object.php';
 
-/**
- * message translation
- *
- * the translations are located in the "data/translations" directory
- */
-
 class translator extends object
 {
-    function _get_english_messages()
-    {
-        $english_messages_filename = sprintf('%s/data/translations/en.php', $this->application_path);
-        $english_messages = $this->_file->read_array($english_messages_filename);
+    const ANY_LANGUAGE = '*';
 
-        return $english_messages;
+    function _get_translators()
+    {
+        $translators_filename = $this->get_translators_filename();
+        $translators = $this->_file->read_array($translators_filename);
+
+        return $translators;
     }
 
-    function _get_message_count()
+    function deobfuscate_email($obfuscated_email)
     {
-        $message_count = 0;
+        $email = base64_decode(str_rot13($obfuscated_email));
 
-        foreach (array_keys($this->english_messages) as $message_id) {
-            if ($message_id % 100) {
-                $message_count++;
+        return $email;
+    }
+
+    function get_inactive_translators($active_translators, $language_id)
+    {
+        $inactive_translators = [];
+
+        foreach ($this->translators as $obfuscated_email => $language_ids) {
+            $email = $this->deobfuscate_email($obfuscated_email);
+
+            if (! isset($active_translators[$email]) and preg_match("~\b$language_id\b~", $language_ids)) {
+                $inactive_translators[] = $email;
             }
         }
 
-        return $message_count;
+        return $inactive_translators;
     }
 
-    function _get_message_ids()
+    function get_login_urls($email, $language_ids)
     {
-        $english_messages = $this->english_messages;
-        $message_ids = array_flip($english_messages);
-
-        return $message_ids;
-    }
-
-    function _get_translated_messages($including_obsolete = false)
-    {
-        $translated_messages_filename = $this->translated_messages_filename;
-        $translated_messages = $this->_file->read_array($translated_messages_filename);
-
-        if (! $including_obsolete) {
-            $translated_messages = array_intersect_key($translated_messages, $this->english_messages);
-        }
-
-        return $translated_messages;
-    }
-
-    function _get_translated_messages_filename()
-    {
-        $translated_messages_filename = sprintf('%s/data/translations/%s.php', $this->application_path, $this->_language->language_id);
-
-        return $translated_messages_filename;
-    }
-
-    function get_message_last_proposed_translation($message, $message_id)
-    {
-        if ($this->_language->language_id != 'en') {
-            // gets the current translation of the message
-            $translation_log_entries = $this->_translation->get_translation_log_entries($message_id);
-            $last_translation_log_entry = end($translation_log_entries);
-            $message = $last_translation_log_entry['translated_message'];
-        }
-
-        $message = htmlspecialchars($message);
-
-        if (! $this->_params->no_auto_highlight) {
-            // hightlights the message
-            $message = "<span class='highlight_translation_in_action'>$message</span>";
-        }
-        // else: the message must be highlighted specifically if the span ag may not be added within another tag, eg "option", "input" etc.
-
-        return $message;
-    }
-
-    function get_message_translation_in_production($message)
-    {
-        if ($this->_language->language_id != 'en' and isset($this->message_ids[$message])) {
-            $message_id = $this->message_ids[$message];
-
-            if (isset($this->translated_messages[$message_id])) {
-                // the message has a translation, returns the translation
-                $message = $this->translated_messages[$message_id];
-            }
-        }
-
-        $message = htmlspecialchars($message);
-
-        return $message;
-    }
-
-    function get_translated_message($message_id)
-    {
-        if (! $message_id or ! isset($this->translated_messages[$message_id])) {
-            $translated_message = null;
+        if ($language_ids == self::ANY_LANGUAGE) {
+            $language_ids = ['fr'];
         } else {
-            $translated_message = $this->translated_messages[$message_id];
+            $language_ids = explode(',', $language_ids);
         }
 
-        return $translated_message;
-    }
+        $translation_key = $this->hash_translation_key($email);
 
-    function get_translated_messages_filemtime()
-    {
-        if (! file_exists($this->translated_messages_filename)) {
-            return null;
+        foreach ($language_ids as $language_id) {
+            $urls[$language_id] = "http://micmap.org/php-by-example/$language_id/messages_translation?email=$email&translation_key=$translation_key";
         }
 
-        $translated_messages_filename = filemtime($this->translated_messages_filename);
-
-        return $translated_messages_filename;
+        return $urls;
     }
 
-    function translate($message, $not_translated_part = null)
+    function get_translation_key()
     {
-        if ($this->_params->translation_in_action and
-            isset($this->message_ids[$message]) and
-            $this->message_ids[$message] == $this->_params->translation_in_action)
+        $translation_key = require sprintf('%s/data/translation_key.php', $this->application_path);
+
+        return $translation_key;
+    }
+
+    function get_translators_filename()
+    {
+        $translators_filename = sprintf('%s/data/translators.php', $this->application_path);
+
+        return $translators_filename;
+    }
+
+    function hash_translation_key($email)
+    {
+        $translation_key = $this->get_translation_key();
+        $hashed_translation_key = hash_hmac('md5', $translation_key, $email);
+
+        return $hashed_translation_key;
+    }
+
+    function is_valid_translation_key($hashed_translation_key, $email)
+    {
+        $is_valid_translation_key = $hashed_translation_key == $this->hash_translation_key($email);
+
+        return $is_valid_translation_key;
+    }
+
+    function is_valid_translator($email, $language_id = null)
+    {
+        if (! $language_id) {
+            $language_id = $this->_language->language_id;
+        }
+
+        $translators = $this->_get_translators();
+        $email = $this->obfuscate_email($email);
+
+        if (! isset($translators[$email])) {
+            return false;
+        }
+
+        $translator_allowed_languages = $translators[$email];
+        $is_valid_translator = ($translator_allowed_languages == self::ANY_LANGUAGE or preg_match("~\b$language_id\b~", $translator_allowed_languages));
+
+        return $is_valid_translator;
+    }
+
+    function obfuscate_email($email)
+    {
+        $obfuscated_email = str_rot13(base64_encode($email));
+
+        return $obfuscated_email;
+    }
+
+    function show_translators($email_pattern = null)
+    {
+        $translators = $this->_get_translators();
+        $translators_details = [];
+
+        foreach ($translators as $obfuscated_email => $language_ids) {
+            $email = $this->deobfuscate_email($obfuscated_email);
+
+            if (! $email_pattern or preg_match("~" . preg_quote($email_pattern) . "~", $email)) {
+                $hashed_translation_key = $this->hash_translation_key($email);
+                $login_urls = $this->get_login_urls($email, $language_ids);
+                $login_urls = implode("\n", $login_urls);
+                $translators_details[$email] = [$email, $obfuscated_email, $language_ids, $hashed_translation_key, $login_urls];
+            }
+        }
+
+        ksort($translators_details);
+
+        return $translators_details;
+    }
+
+    function update_translator($email, $language_ids)
+    {
+        $translators = $this->_get_translators();
+        $obfuscated_email = $this->obfuscate_email($email);
+
+        if ($language_ids and
+            $language_ids != self::ANY_LANGUAGE and
+            ! $language_ids = $this->_language->is_valid_languages($language_ids))
         {
-            // this is a translation request for the given message as part of the translation process, see translation_form.phtml
-            $message = $this->get_message_last_proposed_translation($message, $this->message_ids[$message]);
+            throw new Exception('unexpected language id');
+        }
 
+        $updated_translators = $translators;
+
+        if ($language_ids) {
+            $updated_translators[$obfuscated_email] = $language_ids;
+            asort($updated_translators, SORT_STRING);
         } else {
-            // this a regular translation request
-            $message = $this->get_message_translation_in_production($message);
+            unset($updated_translators[$obfuscated_email]);
         }
 
-        if ($not_translated_part) {
-            $message .= htmlspecialchars(" ($not_translated_part)");
+        if ($updated_translators !=  $translators) {
+            $translators_filename = $this->get_translators_filename();
+            $this->_file->write_array($translators_filename, $updated_translators);
+            $is_translator_updated = true;
+        } else {
+            $is_translator_updated = false;
         }
 
-        return $message;
+        return [$is_translator_updated, $language_ids];
     }
 }

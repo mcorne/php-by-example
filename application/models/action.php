@@ -18,6 +18,7 @@ class action extends object
 {
     function run()
     {
+        $this->_params->set_cookie_params();
         require "$this->application_path/views/layout.phtml";
     }
 }

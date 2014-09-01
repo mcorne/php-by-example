@@ -104,12 +104,6 @@ return [
 2209 => ["help", 'translation_note' => USE_TV_DISTINCTION],
 2210 => ["help", 'translation_note' => USE_INFINITIVE],
 
-2300 => "Misc page",
-2301 => "about",
-2302 => "about",
-2303 => "about",
-2305 => "about",
-
 2400 => "Other items",
 2401 => ['test', 'abs'],
 

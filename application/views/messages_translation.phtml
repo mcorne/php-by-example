@@ -9,7 +9,7 @@
 ?>
 
 <h1>
-  Translation of messages (<?=$this->_translator->message_count;?>)
+  Translation of messages (<?=$this->_message_translation->message_count;?>)
   <?php require "$this->application_path/views/english_only.phtml";?>
 </h1>
 
@@ -93,11 +93,11 @@
 
   <?php elseif ($this->next_action == 'translations_need_your_validation'):?>
     Some translations (<?=$this->translations_count;?>) need your validation.<br />
-    <a href="<?=$this->_output->display_url('translation');?>?translation_action=get_next_translation_to_validate">Get the next translation to validate</a>
+    <a href="<?=$this->_output->display_url('messages_translation');?>?translation_action=get_next_translation_to_validate">Get the next translation to validate</a>
 
   <?php elseif ($this->next_action == 'translations_could_be_double_checked_by_you'):?>
     All translations have been validated by at least one translator. You welcome to double-check those (<?=$this->translations_count;?>) you have not.<br />
-    <a href="<?=$this->_output->display_url('translation');?>?translation_action=get_next_translation_to_validate">Get the next translation to validate</a>
+    <a href="<?=$this->_output->display_url('messages_translation');?>?translation_action=get_next_translation_to_validate">Get the next translation to validate</a>
 
   <?php else:?>
     There are no translation that you need to validate.<br />

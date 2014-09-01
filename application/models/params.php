@@ -15,7 +15,16 @@ require_once 'object.php';
 
 class params extends object
 {
-    public $cookie_params = ['email', 'translation_key'];
+    /**
+     * all params using cookies must be listed below so cookies can be sent before headers, see set_cookie_params()
+     */
+    public $cookie_params = [
+        'email',
+        'password',
+        'php_manual_location',
+        'search_method',
+        'translation_key',
+    ];
 
     function _get($name)
     {
@@ -31,7 +40,7 @@ class params extends object
 
     function _get_params()
     {
-        return $_GET + $_POST; // utl params are to be picked up first
+        return $_GET + $_POST; // url params are to be picked up first
     }
 
     function _get_php_manual_location()
@@ -97,5 +106,14 @@ class params extends object
     {
         $this->$param_name = null;
         setcookie($param_name, '', 1, '/');
+    }
+
+    function set_cookie_params()
+    {
+        foreach ($this->cookie_params as $name) {
+            if (! property_exists($this, $name)) {
+                $this->$name = $this->get_param_or_cookie($name);
+            }
+        }
     }
 }

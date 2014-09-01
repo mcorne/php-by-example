@@ -127,14 +127,14 @@ class function_core extends action
             list($classname, $method_name) = $parts;
 
             if (! class_exists($classname, false) or $this->_params->translation_in_action == 2002) {
-                $message = $this->_translator->translate('this class is not available in the PHP version running on this server');
+                $message = $this->_message_translation->translate('this class is not available in the PHP version running on this server');
 
             } else if (! method_exists($classname, $method_name) or $this->_params->translation_in_action == 2004) {
-                $message = $this->_translator->translate('this method is not available in the PHP version running on this server');
+                $message = $this->_message_translation->translate('this method is not available in the PHP version running on this server');
             }
 
         } else if (! function_exists($this->_synopsis->function_name) or in_array($this->_params->translation_in_action, [1701, 2003])) {
-            $message = $this->_translator->translate('this function is not available in the PHP version running on this server');
+            $message = $this->_message_translation->translate('this function is not available in the PHP version running on this server');
         }
 
         if (! isset($message)) {
@@ -196,12 +196,12 @@ class function_core extends action
             if (count($reset_args) == 1) {
                 // there is a reset arg, captures the name of the arg to display
                 $reset_args = current($reset_args);
-                $message = $this->_translator->translate('the following argument has been removed', $reset_args);
+                $message = $this->_message_translation->translate('the following argument has been removed', $reset_args);
 
             } else {
                 // there are reset args, captures the name of the args to display
                 $reset_args = implode(', ', $reset_args);
-                $message = $this->_translator->translate('the following arguments have been removed', $reset_args);
+                $message = $this->_message_translation->translate('the following arguments have been removed', $reset_args);
             }
 
             trigger_error($message, E_USER_NOTICE);
@@ -226,7 +226,7 @@ class function_core extends action
             if (! $this->_function_params->is_param_var($arg_name)) {
                 // a value instead of a var name was passed, triggers an error
                 $value = $this->_converter->convert_value_to_text($arg_name, true);
-                $message = $this->_translator->translate('a value cannot be passed by reference', $value);
+                $message = $this->_message_translation->translate('a value cannot be passed by reference', $value);
                 throw new Exception($message, E_USER_ERROR);
             }
 

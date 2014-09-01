@@ -24,15 +24,15 @@
            <?php endif;?>
            name="submit"
            type="submit"
-           value="<?=$this->_translator->translate('Execute the function');?>" />
+           value="<?=$this->_message_translation->translate('Execute the function');?>" />
   </div>
 
 </form>
 
 <?php if ($this->errors):?>
-  <div class="title red"><?=$this->_translator->translate('Result');?></div>
+  <div class="title red"><?=$this->_message_translation->translate('Result');?></div>
 <?php else:?>
-  <div class="title green"><?=$this->_translator->translate('Result');?></div>
+  <div class="title green"><?=$this->_message_translation->translate('Result');?></div>
 <?php endif;?>
 
 <?php if ($this->result):?>
@@ -80,7 +80,7 @@
 
 <?php if ($this->examples):?>
 
-  <div class="title blue"><?=$this->_translator->translate('Examples');?></div>
+  <div class="title blue"><?=$this->_message_translation->translate('Examples');?></div>
 
   <div class="block blue_border">
        <table>
@@ -116,7 +116,7 @@
 if ($this->see_also_functions) {
     $this->_output->display_function_list(
         $this->see_also_functions,
-        $this->_translator->translate('See also'),
+        $this->_message_translation->translate('See also'),
         'blue');
 }
 ?>

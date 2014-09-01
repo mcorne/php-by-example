@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-06-24T11:07:18+00:00
+// generated automatically 2014-09-01T14:56:31+00:00
 return array (
 
 1000 => 'Top bar',
@@ -88,12 +88,6 @@ return array (
 2208 => 'İngilizce sayesinde isteğinizi olun.',
 2209 => 'PHP ile ilgili bir sorunuz varsa,PHP kılavuzuna başvurun.',
 2210 => 'PHP kitabını açın',
-
-2300 => 'Misc page',
-2301 => 'kaynak kodu',
-2302 => 'İstatistikler',
-2303 => 'Tüm fonksiyonların Testi',
-2305 => 'Mesajlarının yaptı',
 
 2400 => 'Other items',
 2401 => 'Bu sayfa sadece İngilizce olarak mevcuttur.',

@@ -35,18 +35,18 @@ class update_translations extends object
         $validated_translations = [];
         $updated_translation_ids = [];
 
-        foreach ($this->_translator->english_messages as $message_id => $english_message) {
+        foreach ($this->_message_translation->english_messages as $message_id => $english_message) {
             if (! ($message_id % 100)) {
                 $validated_translation = $english_message;
 
             } else if (isset($translations_log_entries[$message_id]) and
                 $validated_translation = $this->_translation->get_validated_translation($translations_log_entries[$message_id]))
             {
-                if ($validated_translation != $this->_translator->get_translated_message($message_id)) {
+                if ($validated_translation != $this->_message_translation->get_translated_message($message_id)) {
                     $updated_translation_ids[] = $message_id;
                 }
             } else {
-                $validated_translation = $this->_translator->get_translated_message($message_id);
+                $validated_translation = $this->_message_translation->get_translated_message($message_id);
             }
 
             $validated_translations[$message_id] = $validated_translation;
@@ -62,15 +62,15 @@ class update_translations extends object
                $this->_language->language_id = $language_id;
 
                unset(
-                   $this->_translation->translations_log_filename,
-                   $this->_translator->translated_messages_filename,
-                   $this->_translator->translated_messages);
+                   $this->_translation->translations_log_entries,
+                   $this->_message_translation->translated_messages_filename,
+                   $this->_message_translation->translated_messages);
 
                list($validated_translations, $updated_translation_ids[$language_id]) = $this->get_validated_translations();
 
-               if ($validated_translations != $this->_translator->_get_translated_messages(true)) {
+               if ($validated_translations != $this->_message_translation->_get_translated_messages(true)) {
                     $this->_file->write_array(
-                        $this->_translator->translated_messages_filename,
+                        $this->_message_translation->translated_messages_filename,
                         $validated_translations,
                         [
                             '~^ *\d\d00 =>~um' => "\n" . '$0', // adds a blank line before a section, eg "1000 => ..."

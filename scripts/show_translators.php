@@ -31,12 +31,12 @@ show_translators *
 
 $application_path = realpath(__DIR__ . '/../application');
 set_include_path("$application_path");
-require_once 'models/translation.php';
+require_once 'models/translator.php';
 
 try {
-    $translation = new translation(['application_path' => $application_path]);
+    $translator = new translator(['application_path' => $application_path]);
     $email_pattern = (isset($argv[1]) and $argv[1] != '*') ? $argv[1] : null;
-    $translators_details = $translation->show_translators($email_pattern);
+    $translators_details = $translator->show_translators($email_pattern);
 
     foreach ($translators_details as &$translator_details) {
         $translator_details = implode("\n", $translator_details);

@@ -9,27 +9,27 @@
 ?>
 
 <h1>
-  <?=$this->_translator->translate('Help');?>
+  <?=$this->_message_translation->translate('Help');?>
 </h1>
 
-<?=$this->_translator->translate('You found a problem with this site.');?><br/>
-<?=$this->_translator->translate('You need a new feature.');?><br/>
-<?=$this->_translator->translate('You have a suggestion to improve this site.');?><br/>
-<a href="http://code.google.com/p/php-by-example/issues/list"><?=$this->_translator->translate('Open a support ticket');?></a><br />
+<?=$this->_message_translation->translate('You found a problem with this site.');?><br/>
+<?=$this->_message_translation->translate('You need a new feature.');?><br/>
+<?=$this->_message_translation->translate('You have a suggestion to improve this site.');?><br/>
+<a href="http://code.google.com/p/php-by-example/issues/list"><?=$this->_message_translation->translate('Open a support ticket');?></a><br />
 
 <br />
 
-<?=$this->_translator->translate('You may otherwise send your request by email.');?><br/>
+<?=$this->_message_translation->translate('You may otherwise send your request by email.');?><br/>
 <a href="<?=$this->_output->display_mailto(
             'Support request',
             '<<< Please describe your problem or suggestion here, then send the email. Thank you. >>>');?>"
-><?=$this->_translator->translate('Send an email');?></a><br/>
+><?=$this->_message_translation->translate('Send an email');?></a><br/>
 
 <br/>
 
-<?=$this->_translator->translate('Please, make your request in English, thanks.');?><br/>
+<?=$this->_message_translation->translate('Please, make your request in English, thanks.');?><br/>
 
 <br/>
 
-<?=$this->_translator->translate('If you have a question related to PHP, please consult the PHP manual.');?><br/>
-<a href="http://php.net/manual/<?=$this->_language->language_id;?>"><?=$this->_translator->translate('Open the PHP manual');?></a>
+<?=$this->_message_translation->translate('If you have a question related to PHP, please consult the PHP manual.');?><br/>
+<a href="http://php.net/manual/<?=$this->_language->language_id;?>"><?=$this->_message_translation->translate('Open the PHP manual');?></a>

@@ -69,14 +69,14 @@ class filter extends object
         $callback_function_name =  $this->_function_params->get_param($arg_name);
 
         if (! function_exists($callback_function_name)) {
-            $message = $this->_translator->translate('this callback function is invalid or not available on this server');
+            $message = $this->_message_translation->translate('this callback function is invalid or not available on this server');
             throw new Exception($message, E_USER_WARNING);
         }
 
         $valid_callback_functions = '~(cmp$|^ctype_|^gmp|^is_|^str[ifprst])~';
 
         if (! is_string($callback_function_name) or ! preg_match($valid_callback_functions, $callback_function_name)) {
-            $message = $this->_translator->translate('this callback function may not be used in this example');
+            $message = $this->_message_translation->translate('this callback function may not be used in this example');
             throw new Exception($message, E_USER_WARNING);
         }
 
@@ -115,7 +115,7 @@ class filter extends object
 
         if (preg_match('~^https?://~', $filename) and (is_null($length) or is_numeric($length) and $length > 1000)) {
             // the file is external and the length is null or too large
-            $message = $this->_translator->translate('the length must be defined and lower than 1000 bytes in this example', '$' . $arg_name);
+            $message = $this->_message_translation->translate('the length must be defined and lower than 1000 bytes in this example', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
 
@@ -142,7 +142,7 @@ class filter extends object
 
         if (! $is_temp_file_allowed) {
             // only http files are allowed
-            $message = $this->_translator->translate('the filename must start with one of the following strings in this example')
+            $message = $this->_message_translation->translate('the filename must start with one of the following strings in this example')
                      . " (http://, https://)";
             throw new Exception($message, E_USER_WARNING);
         }
@@ -156,7 +156,7 @@ class filter extends object
             return $filename;
         }
 
-        $message = $this->_translator->translate('the filename must start with one of the following strings in this example')
+        $message = $this->_message_translation->translate('the filename must start with one of the following strings in this example')
                  . " ({$this->_file->temp_file_prefix}, http://, https://)";
         throw new Exception($message, E_USER_WARNING);
     }
@@ -172,7 +172,7 @@ class filter extends object
         if (! is_int($count) or $count > 10) {
             // the number of iterations is not an integer or too large
             $arg_name = preg_replace('~^_+~', '', $arg_name);
-            $message = $this->_translator->translate('the number of iterations must be an integer lower than 10 in this example', '$' . $arg_name);
+            $message = $this->_message_translation->translate('the number of iterations must be an integer lower than 10 in this example', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
 
@@ -183,7 +183,7 @@ class filter extends object
     {
         if (! $this->_function_params->param_exists($arg_name)) {
             if (! $is_empty_arg_allowed) {
-                $message = $this->_translator->translate('this argument may not be empty in this example', '$' . $arg_name);
+                $message = $this->_message_translation->translate('this argument may not be empty in this example', '$' . $arg_name);
                 throw new Exception($message, E_USER_WARNING);
             }
 
@@ -193,7 +193,7 @@ class filter extends object
         $value = $this->_function_params->get_param($arg_name);
 
         if (! is_null($value) and ! in_array($value, (array) $allowed_values, true)) {
-            $message = $this->_translator->translate('this argument value is not allowed in this example', '$' . $arg_name);
+            $message = $this->_message_translation->translate('this argument value is not allowed in this example', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
     }

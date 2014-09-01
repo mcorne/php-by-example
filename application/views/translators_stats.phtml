@@ -1,0 +1,68 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<h1>
+  Translators stats
+  <?php require "$this->application_path/views/english_only.phtml";?>
+</h1>
+
+<div class="block blue_border">
+  <table class="translators_stats">
+
+    <tr>
+      <td></td>
+      <td>Translator *</td>
+      <td class="center gray">Fixed</td>
+      <td class="center gray">Validated</td>
+      <td class="center green">Total</td>
+      <td class="center">Last input</td>
+      <td class="center">Account</td>
+    </tr>
+
+      <?php foreach($this->translators_stats as $language_english_name => $translators_stats):?>
+        <tr><td>&nbsp;</td></tr>
+
+        <?php if (! $translators_stats):?>
+          <tr>
+            <td>
+              <a href="<?=$this->_output->display_url('messages_translation', null, null, $translator_stats['language_id']);?>"><?=$language_english_name;?></a>
+            </td>
+            <td class="red">None</td>
+          </tr>
+
+        <?php else:?>
+          <?php foreach($translators_stats as $index => $translator_stats):?>
+            <tr <?php if (! $translator_stats['has_account']):?>class="gray"<?php endif;?>>
+              <td>
+                <?php if (! $index):?>
+                  <a href="<?=$this->_output->display_url('messages_translation', null, null, $translator_stats['language_id']);?>"><?=$language_english_name;?></a>
+                <?php endif;?>
+              </td>
+              <td><?=$this->_output->display_translator_name($translator_stats['email'], $translator_stats['obfuscate_email']);?></td>
+              <td class="center gray"><?=$translator_stats['fixed_translations_count'];?></td>
+              <td class="center gray"><?=$translator_stats['validated_translations_count'];?></td>
+              <td class="center <?php if ($translator_stats['translations_total']):?>green<?php else:?>red<?php endif;?>">
+                <?=$translator_stats['translations_total'];?>
+              </td>
+              <td class="center"><?=$this->_output->display_date($translator_stats['last_input_date']);?></td>
+              <td class="center"><?php if ($translator_stats['has_account']):?>On<?php else:?>Off<?php endif;?></td>
+            </tr>
+          <?php endforeach;?>
+
+        <?php endif;?>
+      <?php endforeach;?>
+
+  </table>
+
+  <div class="translators_stats">
+    * You must be
+    <a class="gray" href="<?=$this->_output->display_url('messages_translation');?>">logged on</a>
+    as a translator to see names</div>
+</div>

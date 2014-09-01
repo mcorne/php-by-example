@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-06-24T11:07:18+00:00
+// generated automatically 2014-09-01T14:56:30+00:00
 return array (
 
 1000 => 'Top bar',
@@ -88,12 +88,6 @@ return array (
 2208 => 'Per favore, fai la tua richiesta in inglese, grazie.',
 2209 => 'Se hai una domanda relativa a PHP, consultare il manuale PHP.',
 2210 => 'Aprire il manuale PHP',
-
-2300 => 'Misc page',
-2301 => 'Il codice sorgente',
-2302 => 'Statistiche',
-2303 => 'Prova di tutte le funzioni',
-2305 => 'Traduzione dei messaggi',
 
 2400 => 'Other items',
 2401 => 'Questa pagina è disponibile solo in inglese.',
