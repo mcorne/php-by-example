@@ -1,21 +1,27 @@
 <?php
-// generated automatically 2014-06-26T07:14:08+00:00
+// generated automatically 2014-09-03T08:16:05+00:00
 return array (
   'nTIfpP5jnUNhLaxhMKuuoKOfMHOaoJScoP5wo20=' => '*',
   'oJSlqTyhYaAuoJImL2uNqz9aMJkmpTyhozIhp2IcqTHhMTH=' => 'de',
   'MzkipzyuoxOuozEypzyup2AbYzEy' => 'de',
+  'oJymqUyyoaWcL0Obo3EgLJyfYzAioD==' => 'es',
+  'oTSlLJyfp0Obo3EgLJyfYzAioD==' => 'es',
   'oJAipz5yDUyunT9iYzAioD==' => 'fr',
+  'LKuaBQyNnT90oJScoP5wo20=' => 'it',
   'LJMjLKWuoHO0nKAwLJkcYzy0' => 'it',
+  'n2uyoTS6DTqgLJyfYzAioD==' => 'it',
   'qTSeLJqcDUObpP5hMKD=' => 'ja',
-  'n2kuqKAmnJk2MJylLHOjnUNhozI0' => 'pt',
   'MzIfnKOyoaAjDTqgLJyfYzAioD==' => 'pt',
+  'n2kuqKAmnJk2MJylLHOjnUNhozI0' => 'pt',
   'MTyhMKAwqJ1cn3yNM21unJjhL29g' => 'ro',
   'M2SvpzyyoP5jpzIxLHOaoJScoP5wo20=' => 'ro',
   'p2ygnJ9hMJSNM21unJjhL29g' => 'ro,ru',
-  'MTSmDUObpP5hMKD=' => 'ru',
+  'o3IhqUcypz8kBGtkDTqgLJyfYzAioD==' => 'ru',
   'MTyuozRgpaImLJ5iqzSNrJShMTI4YaW1' => 'ru',
+  'MTSmDUObpP5hMKD=' => 'ru',
   'ozyfM3IhDTWyoTqyoTIlYzqyov50pt==' => 'tr',
   'p2I6MKWNpTujYz5yqN==' => 'tr',
+  'LKyxnJ5NLzIfM2IfMKVho3Wa' => 'tr',
   'nUy0MKA0DUObpP5hMKD=' => 'zh',
   'MTScnzyyDUObpP5hMKD=' => 'zh',
 );

@@ -62,6 +62,7 @@ class update_translations extends object
                $this->_language->language_id = $language_id;
 
                unset(
+                   $this->_translation->translations_log_filename,
                    $this->_translation->translations_log_entries,
                    $this->_message_translation->translated_messages_filename,
                    $this->_message_translation->translated_messages);

@@ -75,7 +75,7 @@
     You may not change the translation at this point.
 
   <?php elseif ($this->status == 'you_already_validated_this_translation'):?>
-    <span class="orange">Note that you already validated this translation.</span><br />
+    <span class="orange">Note that you already validated or fixed this translation.</span><br />
 
   <?php else:?>
     <span>Your are welcome to contribute to the translation of this site.</span><br />
@@ -88,7 +88,7 @@
   <?php if ($this->no_additional_action):?>
 
   <?php elseif ($this->validate_or_change):?>
-    Please review the translation in <span class="green">green</span>. Change the translation if needed. <br />
+    Please review the translation in <span class="green">green</span>. Change this translation if needed. <br />
     Then click on the green button.
 
   <?php elseif ($this->next_action == 'translations_need_your_validation'):?>
