@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-01T14:56:31+00:00
+// generated automatically 2014-09-04T18:08:51+00:00
 return array (
 
 1000 => 'Top bar',
@@ -15,7 +15,7 @@ return array (
 1104 => 'Sadecesonuç almak için bir işlev seçmek gerekir.',
 1105 => 'Her fonksiyon bir kaç örnekle geliyor.',
 1106 => 'Sen elbette iradeişlevi argümanları değişebilir.',
-1107 => 'Kılavuzunilgili sayfası da otomatik olarak görüntülenir.',
+1107 => 'Kullanım kılavuzunun ilgili sayfası da otomatik olarak görüntülenir.',
 1109 => 'Kullanılabilir işlevlerin listesi',
 
 1200 => 'Bottom bar',
