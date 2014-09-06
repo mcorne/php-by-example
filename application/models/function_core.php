@@ -50,7 +50,7 @@ class function_core extends action
         for ($arg_number = 0; $arg_number <= 9; $arg_number++) {
             if (! isset($this->_synopsis->arg_names[$arg_number]) or ! $this->_function_params->param_exists($this->_synopsis->arg_names[$arg_number])) {
                 // there is no more args passed to the function
-                $function = $this->_synopsis->method_name;
+                $function = isset($this->method_to_exec) ? $this->method_to_exec : $this->_synopsis->method_name;
 
                 if (isset($this->object)) {
                     $return = $this->exec_method($function, $arg_number, $arg_values);

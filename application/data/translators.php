@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-04T18:02:22+00:00
+// generated automatically 2014-09-06T12:35:18+00:00
 return array (
   'nTIfpP5jnUNhLaxhMKuuoKOfMHOaoJScoP5wo20=' => '*',
   'oS9vqJEcoxO5LJuiol5xMD==' => 'de',
@@ -16,9 +16,9 @@ return array (
   'MTyhMKAwqJ1cn3yNM21unJjhL29g' => 'ro',
   'M2SvpzyyoP5jpzIxLHOaoJScoP5wo20=' => 'ro',
   'p2ygnJ9hMJSNM21unJjhL29g' => 'ro,ru',
+  'o3IhqUcypz8kBGtkDTqgLJyfYzAioD==' => 'ru',
   'MTSmDUObpP5hMKD=' => 'ru',
   'MTyuozRgpaImLJ5iqzSNrJShMTI4YaW1' => 'ru',
-  'o3IhqUcypz8kBGtkDTqgLJyfYzAioD==' => 'ru',
   'LKyxnJ5NLzIfM2IfMKVho3Wa' => 'tr',
   'ozyfM3IhDTWyoTqyoTIlYzqyov50pt==' => 'tr',
   'p2I6MKWNpTujYz5yqN==' => 'tr',

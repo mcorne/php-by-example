@@ -24,14 +24,15 @@ other properties
 ----------------
 
 - examples:
+public $constant_prefix = ['calendar' => 'CAL'];
 public $helper_callbacks = ['index_in_example' => 2, 'function_name_pattern' => '~(cmp$)~'];
 public $input_args = ['__array1', '__array2', '__array3'];
-public $test_not_validated = true;
+public $method_to_exec = 'getBrowser';
 public $no_input_args = 'use_include_path';
-public $test_not_to_run = true;
 public $options_getter = ['encoding' => 'mb_list_encodings'];
-public $constant_prefix = ['calendar' => 'CAL'];
 public $synopsis_fixed
+public $test_not_to_run = true;
+public $test_not_validated = true;
 
 
 Example values

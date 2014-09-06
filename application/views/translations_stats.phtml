@@ -41,10 +41,16 @@
           </td>
           <td class="center gray"><?=$translation_stats['translations_total'];?></td>
           <td>
-            <?php foreach (array_slice($translation_stats['translations_to_validate_ids'], 0, 3) as $index => $message_id):?>
-              <a href="<?=$this->_output->display_url('messages_translation', null, "?translation_action=select_message&select_message=$message_id", $translation_stats['language_id']);?>"><?=$message_id;?></a>
-            <?php endforeach;?>
-            <?php if ($translation_stats['translations_to_validate_count'] > 3):?>...<?php endif;?>
+            <?php if ($translation_stats['translations_to_validate_count']):?>
+              <?php foreach (array_slice($translation_stats['translations_to_validate_ids'], 0, 3) as $index => $message_id):?>
+                <a href="<?=$this->_output->display_url('messages_translation', null, "?translation_action=select_message&select_message=$message_id", $translation_stats['language_id']);?>"><?=$message_id;?></a>
+              <?php endforeach;?>
+
+              <?php if ($translation_stats['translations_to_validate_count'] > 3):?>...<?php endif;?>
+
+            <?php else:?>
+              <span class="green">All validated</span>
+            <?php endif;?>
           </td>
         </tr>
       <?php endforeach;?>

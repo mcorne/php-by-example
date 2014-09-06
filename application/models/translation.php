@@ -215,13 +215,19 @@ class translation extends object
 
     function get_validated_translation($translation_log_entries)
     {
+        $last_added_translation = null;
+
         while ($translation_log_entry = array_pop($translation_log_entries)) {
             if ($translation_log_entry['action'] == 'validated') {
                 return $translation_log_entry['translated_message'];
+
+            } else if (! isset($last_added_translation)) {
+                $last_added_translation = $translation_log_entry['translated_message'];
             }
         }
 
-        return null;
+        // returns the last added translation if none has been validated yet as it is assumed to be better than the machine translation
+        return $last_added_translation;
     }
 
     function is_translation_locked_for_review($translation_log_entry)
