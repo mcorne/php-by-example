@@ -1,20 +1,20 @@
 <?php
-// generated automatically 2014-09-01T14:56:30+00:00
+// generated automatically 2014-09-06T14:16:23+00:00
 return array (
 
 1000 => 'Top bar',
 1001 => 'Suchen Sie eine Funktion',
 1003 => 'Wählen Sie eine Funktion',
-1005 => 'Zeigen Sie die Dropdown-Liste',
-1006 => 'Zeigen Sie das Textfeld',
+1005 => 'Dropdown-Liste anzeigen',
+1006 => 'Textfeld anzeigen',
 
 1100 => 'Home page',
 1101 => 'Willkommen in der Welt der PHP-Funktionen',
-1102 => 'Hier können Sie Online- PHP-Funktionen zu testen.',
-1103 => 'Sie müssen nicht auf eine einzige Zeile Code zu schreiben.',
-1104 => 'Sie müssen nur eine Funktion auszuwählen, um das Ergebnis zu erhalten.',
-1105 => 'Jede Funktion kommt mit ein paar Beispiele.',
-1106 => 'Natürlich können Sie die Funktion Argumente ändern am Willen.',
+1102 => 'Hier können Sie online PHP-Funktionen testen.',
+1103 => 'Sie müssen nicht eine einzige Zeile Code schreiben.',
+1104 => 'Sie müssen nur eine Funktion auszählen, um das Ergebnis zu erhalten.',
+1105 => 'Jede Funktion kommt mit ein paar Beispielen.',
+1106 => 'Natürlich können Sie die Funktions-Argumente beliebig ändern.',
 1107 => 'Die entsprechende Seite des Handbuchs wird auch automatisch angezeigt.',
 1109 => 'Liste der verfügbaren Funktionen',
 
@@ -83,10 +83,10 @@ return array (
 2202 => 'Sie brauchen eine neue Funktion.',
 2203 => 'Sie haben einen Vorschlag, diese Website zu verbessern.',
 2204 => 'Öffnen Sie ein Support-Ticket',
-2206 => 'Sie können sonst senden Sie Ihre Anfrage per E-Mail.',
+2206 => 'Sie können sonst Ihre Anfrage per E-Mail senden.',
 2207 => 'Senden Sie eine E-Mail',
 2208 => 'Bitte stellen Sie Ihre Anfrage auf Englisch, danke.',
-2209 => 'Wenn Sie eine Frage zu PHP haben, nehmen Sie bitte die PHP-Handbuch.',
+2209 => 'Wenn Sie eine Frage zu PHP haben, benutzen Sie bitte das PHP-Handbuch.',
 2210 => 'Öffnen Sie das PHP-Handbuch',
 
 2400 => 'Other items',

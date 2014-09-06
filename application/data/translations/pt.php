@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-01T14:56:30+00:00
+// generated automatically 2014-09-06T14:16:23+00:00
 return array (
 
 1000 => 'Top bar',
@@ -15,7 +15,7 @@ return array (
 1104 => 'Você só precisa selecionar uma função para obter o resultado.',
 1105 => 'Cada função vem com alguns exemplos.',
 1106 => 'Você pode, claro, alterar os argumentos da função à vontade.',
-1107 => 'A página correspondente do manual também é exibido automaticamente.',
+1107 => 'A página correspondente do manual também é exibida automaticamente.',
 1109 => 'Lista de funções disponíveis',
 
 1200 => 'Bottom bar',
@@ -32,27 +32,27 @@ return array (
 1401 => 'Execute a função',
 1402 => 'resultado',
 1403 => 'Exemplos',
-1404 => 'veja também',
+1404 => 'Veja também',
 
 1500 => 'Function input',
 1501 => 'multi- select',
 
 1600 => 'Search function page',
 1601 => 'Lista de todas as funções disponíveis',
-1602 => 'Sem função se que corresponda a esse padrão.',
+1602 => 'Nenhuma função foi encontrada que corresponda a esse critério.',
 
 1700 => 'Error types',
-1701 => 'erro',
-1702 => 'erro PHP',
-1703 => 'aviso PHP',
-1704 => 'aviso PHP',
-1705 => 'erro PHPbEx',
-1706 => 'aviso PHPbEx',
-1707 => 'aviso PHPbEx',
+1701 => 'Erro',
+1702 => 'Erro PHP',
+1703 => 'Notícia PHP',
+1704 => 'Aviso PHP',
+1705 => 'Erro PHPbEx',
+1706 => 'Notícia PHPbEx',
+1707 => 'Aviso PHPbEx',
 
 1800 => 'Parser errors',
-1801 => 'disposição inválida',
-1802 => 'constante inválido',
+1801 => 'arranjo inválido',
+1802 => 'constante inválida',
 1803 => 'número negativo inválido',
 1804 => 'valor inválido',
 1805 => 'constante indefinida',
@@ -61,11 +61,11 @@ return array (
 1900 => 'Argument filter errors',
 1901 => 'o nome do arquivo deve começar com um dos seguintes textos neste exemplo',
 1902 => 'este valor argumento não é permitido neste exemplo',
-1903 => 'esta função de retorno não pode ser usada no presente exemplo',
-1904 => 'essa função de retorno de chamada é inválido ou não disponível neste servidor',
+1903 => 'esta função de retorno não pode ser usada neste exemplo',
+1904 => 'essa função de retorno de chamada é inválida ou não está disponível neste servidor',
 1905 => 'o comprimento deve ser definido e menor do que 1000 bytes neste exemplo',
 1906 => 'o número de iterações deve ser um número inteiro menor do que 10, neste exemplo,',
-1907 => 'este argumento pode não estar vazia neste exemplo',
+1907 => 'este argumento não pode estar vazio neste exemplo',
 
 2000 => 'Function errors',
 2001 => 'um valor não pode ser passado por referência',
@@ -86,11 +86,11 @@ return array (
 2206 => 'De contrário pode enviar o seu pedido por e-mail.',
 2207 => 'Enviar um email',
 2208 => 'Por favor, faça o seu pedido em Inglês, obrigado.',
-2209 => 'Se você tem uma pergunta relacionada com o PHP, por favor consulte o manual do PHP.',
-2210 => 'Abra o manual do PHP',
+2209 => 'Se você tem uma pergunta relacionada ao PHP, por favor consulte o manual do PHP.',
+2210 => 'Abrir o manual do PHP',
 
 2400 => 'Other items',
-2401 => 'Esta página está disponível apenas em Inglês.',
+2401 => 'Esta página está disponível apenas em inglês.',
 
 2500 => 'Unavailable PHP manual notice',
 2501 => 'Esta página do manual do PHP não está disponível.',

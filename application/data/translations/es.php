@@ -1,10 +1,10 @@
 <?php
-// generated automatically 2014-09-03T18:36:25+00:00
+// generated automatically 2014-09-06T14:16:23+00:00
 return array (
 
 1000 => 'Top bar',
 1001 => 'Buscar una función',
-1003 => 'Elija una función',
+1003 => 'Elegir una función',
 1005 => 'Mostrar lista de opciones',
 1006 => 'Mostrar el cuadro de texto',
 
@@ -51,7 +51,7 @@ return array (
 1707 => 'Advertencia PHPbEx',
 
 1800 => 'Parser errors',
-1801 => 'matriz no válido',
+1801 => 'array inválido',
 1802 => 'constante no válida',
 1803 => 'número negativo no válido',
 1804 => 'valor no válido',
@@ -59,10 +59,10 @@ return array (
 1806 => 'Datos imprevistos',
 
 1900 => 'Argument filter errors',
-1901 => 'el nombre del archivo debe empezar por una de las siguientes cadenas en este ejemplo',
+1901 => 'el nombre del archivo debe empezar por una de las siguientes cadenas de este ejemplo',
 1902 => 'este valor del argumento no está permitido en este ejemplo',
-1903 => 'esta función de devolución de llamada no puede ser utilizado en este ejemplo',
-1904 => 'esta función de devolución de llamada no es válida o no está disponible en este servidor',
+1903 => 'esta llamada de retorno no puede ser utilizada en este ejemplo',
+1904 => 'esta llamada de retorno no es válida o no está disponible en este servidor',
 1905 => 'la longitud debe ser definida e inferior a 1000 bytes en este ejemplo',
 1906 => 'el número de iteraciones debe ser un número entero menor que 10 en este ejemplo',
 1907 => 'este argumento no puede estar vacío en este ejemplo',
@@ -79,15 +79,15 @@ return array (
 2101 => 'el argumento fue truncado a 1000 bytes en este ejemplo',
 
 2200 => 'Help page',
-2201 => '¿Has encontrado un problema con este sitio.',
+2201 => 'Has encontrado un problema con este sitio.',
 2202 => 'Se necesita una nueva característica.',
-2203 => 'Usted tiene una sugerencia para mejorar este sitio.',
+2203 => 'Tienes una sugerencia para mejorar este sitio.',
 2204 => 'Abrir un ticket de soporte',
 2206 => 'De lo contrario, usted puede enviar su solicitud por correo electrónico.',
 2207 => 'Enviar un correo electrónico',
 2208 => 'Por favor, haga su solicitud en Inglés, gracias.',
-2209 => 'Si usted tiene una pregunta relacionada con PHP, por favor consulte el manual de PHP.',
-2210 => 'Abra el manual de PHP',
+2209 => 'Si tienes una pregunta relacionada con PHP, por favor consulta el manual de PHP.',
+2210 => 'Abrir el manual de PHP',
 
 2400 => 'Other items',
 2401 => 'Esta página está disponible sólo en inglés.',

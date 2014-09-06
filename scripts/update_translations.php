@@ -55,30 +55,36 @@ class update_translations extends object
         return [$validated_translations, $updated_translation_ids];
     }
 
-    function run()
+    function run($selected_language_ids)
     {
-        foreach (array_keys($this->_language->languages) as $language_id) {
-            if ($language_id != 'en') {
-               $this->_language->language_id = $language_id;
+        $languages = $this->_language->languages;
+        unset($languages['en']);
+        $language_ids = array_keys($this->_language->languages);
 
-               unset(
-                   $this->_translation->translations_log_filename,
-                   $this->_translation->translations_log_entries,
-                   $this->_message_translation->translated_messages_filename,
-                   $this->_message_translation->translated_messages);
+        if ($selected_language_ids) {
+            $language_ids = array_intersect($language_ids, $selected_language_ids);
+        }
 
-               list($validated_translations, $updated_translation_ids[$language_id]) = $this->get_validated_translations();
+        foreach ($language_ids as $language_id) {
+            $this->_language->language_id = $language_id;
 
-               if ($validated_translations != $this->_message_translation->_get_translated_messages(true)) {
-                    $this->_file->write_array(
-                        $this->_message_translation->translated_messages_filename,
-                        $validated_translations,
-                        [
-                            '~^ *\d\d00 =>~um' => "\n" . '$0', // adds a blank line before a section, eg "1000 => ..."
-                            '~^ +~m'           => '',          // removes leading spaces
-                        ],
-                        'preg_replace');
-               }
+            unset(
+                $this->_translation->translations_log_filename,
+                $this->_translation->translations_log_entries,
+                $this->_message_translation->translated_messages_filename,
+                $this->_message_translation->translated_messages);
+
+            list($validated_translations, $updated_translation_ids[$language_id]) = $this->get_validated_translations();
+
+            if ($validated_translations != $this->_message_translation->_get_translated_messages(true)) {
+                 $this->_file->write_array(
+                     $this->_message_translation->translated_messages_filename,
+                     $validated_translations,
+                     [
+                         '~^ *\d\d00 =>~um' => "\n" . '$0', // adds a blank line before a section, eg "1000 => ..."
+                         '~^ +~m'           => '',          // removes leading spaces
+                     ],
+                     'preg_replace');
             }
         }
 
@@ -86,9 +92,27 @@ class update_translations extends object
     }
 }
 
+if (empty($argv[1])) {
+    $help =
+"
+Usage:
+update_translations <languages|*>
+
+languages  the translation languages, eg 'fr' or 'ro,ru'
+*          update all languages
+
+Examples:
+update_translations fr
+update_translations 'ro,ru'
+update_translations *
+";
+    exit($help);
+}
+
 try {
     $update_translations = new update_translations(['application_path' => $application_path, 'application_env' => 'development']);
-    $updated_translation_ids = $update_translations->run();
+    $language_ids = $argv[1] != '*' ? explode(',' , $argv[1]) : null;
+    $updated_translation_ids = $update_translations->run($language_ids);
     echo $update_translations->display_updated_translation_ids($updated_translation_ids);
 
 } catch (Exception $e) {

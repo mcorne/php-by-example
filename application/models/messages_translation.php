@@ -58,13 +58,15 @@ class messages_translation extends action
             unset($url['translation_note']);
         }
 
-        // gets the url params to be passed to output::display_url() in translation_form.phtml
-        $url = array_pad($url, 3, null);
-        $url = array_combine(['action', 'function_name', 'params'], $url);
+        if ($url) {
+            // gets the url params to be passed to output::display_url() in translation_form.phtml
+            $url = array_pad($url, 3, null);
+            $url = array_combine(['action', 'function_name', 'params'], $url);
 
-        // passes the translation in action id as a param to output::display_url()
-        $url['params'] .= $url['params'] ? '&' : '?';
-        $url['params'] .= "translation_in_action=$message_id";
+            // passes the translation in action id as a param to output::display_url()
+            $url['params'] .= $url['params'] ? '&' : '?';
+            $url['params'] .= "translation_in_action=$message_id";
+        }
 
         if (isset($translation_note)) {
             $url['translation_note'] = $translation_note;

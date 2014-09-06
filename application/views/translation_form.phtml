@@ -165,19 +165,23 @@
 
           <?php if ($url = $this->get_translation_in_action_url($this->message_id)):?>
             <div class="translation_in_action gray">
-
-              See the
-              <a class="gray" href="<?=$this->_output->display_url($url['action'], $url['function_name'], $url['params']);?>"
-                 target="translation_in_action"
-              >current translation in action</a>
-              or the
-              <a class="gray" href="<?=$this->_output->display_url($url['action'], $url['function_name'], $url['params'], 'en');?>"
-                 target="translation_in_action"
-              >message in English</a>
-              highlighted in a fuchsia in a separate tab.
+              <?php if (isset($url['action'])):?>
+                  See the
+                  <a class="gray" href="<?=$this->_output->display_url($url['action'], $url['function_name'], $url['params']);?>"
+                     target="translation_in_action"
+                  >current translation in action</a>
+                  or the
+                  <a class="gray" href="<?=$this->_output->display_url($url['action'], $url['function_name'], $url['params'], 'en');?>"
+                     target="translation_in_action"
+                  >message in English</a>
+                  highlighted in a fuchsia in a separate tab.
+              <?php endif;?>
 
               <?php if (isset($url['translation_note'])):?>
-                <br />
+                <?php if (isset($url['action'])):?>
+                  <br />
+                <?php endif;?>
+
                 Additional information!
                 <?=$url['translation_note'];?>
               <?php endif;?>

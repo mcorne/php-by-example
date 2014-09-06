@@ -7,6 +7,6 @@
 @rem
 
 @rem updates the translation of the source code messages
-@rem run "update_translations"
+@rem run "update_translations <languages|*>"
 
-@php update_translations.php
+@php update_translations.php %*
