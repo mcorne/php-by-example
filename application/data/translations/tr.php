@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-06T14:16:23+00:00
+// generated automatically 2014-09-07T13:26:56+00:00
 return array (
 
 1000 => 'Top bar',
@@ -43,11 +43,11 @@ return array (
 
 1700 => 'Error types',
 1701 => 'Hata',
-1702 => 'PHP hatası',
-1703 => 'PHP haber',
-1704 => 'PHP uyarısı',
-1705 => 'PHPbEx hatası',
-1706 => 'PHPbEx haber',
+1702 => 'PHP hata',
+1703 => 'PHP bildirim',
+1704 => 'PHP uyarı',
+1705 => 'PHPbEx hata',
+1706 => 'PHPbEx bildirim',
 1707 => 'PHPbEx uyarı',
 
 1800 => 'Parser errors',
@@ -61,16 +61,16 @@ return array (
 1900 => 'Argument filter errors',
 1901 => 'Dosya ismi aşağıdaki dizelerden biri ile başlamalıdır',
 1902 => 'Bu argüman değerine bu örnekte izin verilmez',
-1903 => 'Bu geri arama işlevi bu örnekte kullanılamaz',
-1904 => 'bu geri çağırma işlevi bu sunucuda kullanılabilir geçersiz ya da değildir',
+1903 => 'bu geri çağırma işlevi bu örnekte kullanılamaz',
+1904 => 'bu geri çağırma işlevi bu sunucuda geçersiz ya da kullanılabilir değildir',
 1905 => 'uzunluk tanımlı ve en çok 1000 bayt olmalıdır',
-1906 => 'yineleme sayısı, 10\'dan düşük bir tamsayı olmalıdır',
+1906 => 'yineleme sayısı, 10\'dan küçük bir tamsayı olmalıdır',
 1907 => 'bu argüman, bu örnekte boş olmayabilir',
 
 2000 => 'Function errors',
 2001 => 'Bir değer referans olarak aktarılamaz',
 2002 => 'bu sınıf sunucu üzerinde çalışan PHP sürümünde mevcut değildir',
-2003 => 'bu fonksiyon sunucu üzerinde çalışan PHP sürümünde mevcut değildir',
+2003 => 'bu işlev sunucu üzerinde çalışan PHP sürümünde mevcut değildir',
 2004 => 'bu yöntem, sunucu üzerinde çalışan PHP sürümünde mevcut değildir',
 2005 => 'Aşağıdaki argüman kaldırıldı',
 2006 => 'Aşağıdaki argümanlar kaldırıldı',
@@ -80,7 +80,7 @@ return array (
 
 2200 => 'Help page',
 2201 => 'Bu sitede bir sorun buldunuz.',
-2202 => 'Yeni bir özelliğe ihtiyacınız varç',
+2202 => 'Yeni bir özelliğe ihtiyacınız var.',
 2203 => 'Bu siteyi geliştirmek için bir öneriniz var.',
 2204 => 'Bir destek bileti alın',
 2206 => 'Aksi takdirde e-posta ile isteğinizi gönderebilirsiniz.',
