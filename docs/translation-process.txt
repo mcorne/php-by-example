@@ -99,7 +99,7 @@ Note: the translators inputs (validations and changes) are stored in the "data/t
 
 - remove the content of "data/translations.development.log" on the development machine
 - copy the content of "data/translations.production.log" from the production machine to "data/translations.development.log" on the development machine
-- update the translations with the translators inputs, in "scripts", run "update_translations" 
+- update the translations with the translators inputs, in "scripts", run "update_translations *" 
 - run "check_translations" (again) which should report no issues if all translations have been validated
 - copy the content of "data/translations" from the development machine to the production machine
 
