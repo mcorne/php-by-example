@@ -48,8 +48,10 @@ Example values
 - a constant must be enclosed with quotes, eg 'E_ERROR', it will converted to its value automatically
 - a list of constants must be enclosed with quotes and separated with "|", eg 'ENT_QUOTES | ENT_IGNORE'
 - false, true, null must not be enclosed with quotes, otherwise there are considered as string
- 
+
+- use _NO_CHANGE_ to display the string as it is, for example to force invalid input, eg '_NO_CHANGE_123"456'
 - use _DOUBLE_QUOTES_ to force the string to be enclosed with double quotes, eg '_DOUBLE_QUOTES_\n_DOUBLE_QUOTES_'
 - use _SINGLE_QUOTE_ to force the string to be enclosed with single quotes, eg '_SINGLE_QUOTE_/\d/_SINGLE_QUOTE_'
+- use _NO_QUOTE_ to force the string not to be enclosed with quotes, eg '_NO_QUOTE_0x30'
 - a regex pattern should ideally be enclosed between single quotes, eg '_SINGLE_QUOTE_/(<([\w]+)[^>]*>)(.*?)(<\/\2>)/_SINGLE_QUOTE_'
 - a regex pattern entered between double quotes may produce unexpected behavior for parsing reasons, see parser::parse_string()

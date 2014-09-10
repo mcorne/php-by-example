@@ -194,6 +194,26 @@ class parser extends object
         return $constants;
     }
 
+    function parse_integer($value)
+    {
+        // see http://php.net/manual/en/language.types.integer.php
+        if (preg_match('~^0[xX]([0-9a-fA-F]+)$~', $value, $match)) {
+            $integer = hexdec($match[1]);
+
+        } else if (preg_match('~^0([0-7]+)$~', $value, $match)) {
+            $integer = octdec($match[1]);
+
+        } else if (preg_match('~^0b([01]+)$~', $value, $match)) {
+            $integer = bindec($match[1]);
+
+        } else {
+            $integer = $value + 0; // trick to convert to an integer or float depending on size
+        }
+
+        // returns an integer or a float if too large
+        return $integer;
+    }
+
     function parse_negative_number()
     {
         $token = $this->get_next_token();
@@ -286,7 +306,7 @@ class parser extends object
                 break;
 
             case T_LNUMBER:
-                $value = (int) $value;
+                $value = $this->parse_integer($value);
                 break;
 
             case T_STRING:

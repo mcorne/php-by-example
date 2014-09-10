@@ -9,7 +9,12 @@
 
 class chr extends function_core
 {
-    public $examples = [48];
+    public $examples = [
+        48,
+        '_NO_QUOTE_0x30',
+        '_NO_QUOTE_060',
+        '_NO_QUOTE_0b110000',
+    ];
 
     public $synopsis = 'string chr ( int $ascii )';
 }

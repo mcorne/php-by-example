@@ -96,6 +96,10 @@ class converter extends object
                 // this is a value to display between double quotes
                 $text = str_replace('_SINGLE_QUOTE_', "'", $value);
 
+            } else if (strpos($value, '_NO_QUOTE_') === 0) {
+                // this is a value not to display between quotes, eg 0x30
+                $text = str_replace('_NO_QUOTE_', '', $value);
+
             } else if (strpos($value, '$') !== false) {
                 // there are "$" in the string, note that parser::get_next_token() would not return a T_STRING if it was enclosed with double quotes
                 // see http://fr2.php.net/manual/en/regexp.reference.delimiters.php on regex pattern delimiters
