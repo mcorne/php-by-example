@@ -88,12 +88,15 @@
   <?php if ($this->no_additional_action):?>
 
   <?php elseif ($this->validate_or_change):?>
-    Please review the translation in <span class="green">green</span>. Change this translation if needed. <br />
-    Then click on the green button.
+    <b>
+      Please review the translation in <span class="green">green</span>. Change this translation if needed. <br />
+      Then click on the green button.
+    </b>
 
   <?php elseif ($this->next_action == 'translations_need_your_validation'):?>
     Some translations (<?=$this->translations_count;?>) need your validation.<br />
-    <a href="<?=$this->_output->display_url('messages_translation');?>?translation_action=get_next_translation_to_validate">Get the next translation to validate</a>
+    <a href="<?=$this->_output->display_url('messages_translation');?>?translation_action=get_next_translation_to_validate"><b>Get the next translation to validate</b></a>
+    <span class="gray">(this is the recommended way)</span>
 
   <?php elseif ($this->next_action == 'translations_could_be_double_checked_by_you'):?>
     All translations have been validated by at least one translator. You welcome to double-check those (<?=$this->translations_count;?>) you have not.<br />

@@ -47,9 +47,9 @@
     </div>
   </div>
 
-  <div class="title blue">Three ways to select a message to translate</div>
+  <div class="title gray">Three ways to select a message to translate</div>
 
-  <div class="block_translation blue_border">
+  <div class="block_translation gray_border">
 
     <div>
       <div class="gray">The original message in English</div>
@@ -112,6 +112,8 @@
     >Select message
     </button>
 
+    <span class="gray">(select a specific message or go back to a translation already validated)</span>
+
   </div>
 
   <?php if ($this->message_id):?>
@@ -147,6 +149,8 @@
                   type="submit"
                   value="save_translation">Validate or Change
           </button>
+
+          <span class="gray">(change the translation above if needed, then click on the green button)</span>
 
           <?php if ($this->translation_not_processed):?>
             <div>
