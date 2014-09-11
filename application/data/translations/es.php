@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-06T14:16:23+00:00
+// generated automatically 2014-09-11T07:40:26+00:00
 return array (
 
 1000 => 'Top bar',
@@ -56,7 +56,7 @@ return array (
 1803 => 'número negativo no válido',
 1804 => 'valor no válido',
 1805 => 'constante indefinida',
-1806 => 'Datos imprevistos',
+1806 => 'datos imprevistos',
 
 1900 => 'Argument filter errors',
 1901 => 'el nombre del archivo debe empezar por una de las siguientes cadenas de este ejemplo',

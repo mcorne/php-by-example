@@ -152,7 +152,7 @@ class translator extends object
 
         if ($language_ids) {
             $updated_translators[$obfuscated_email] = $language_ids;
-            asort($updated_translators, SORT_STRING);
+            ksort($updated_translators);
         } else {
             unset($updated_translators[$obfuscated_email]);
         }
