@@ -17,7 +17,8 @@ the $synopsis property
 - this property has a copy of the synopsis extracted from the function manual page
 - the synopsis is used to extract arg names, arg types etc.
 - eg public $synopsis = 'number abs ( mixed $number )';
-- the synopsis is occasionally altered for parsing purposes, eg array_diff_uassoc.php
+- the synopsis is occasionally altered for parsing purposes
+  eg public $synopsis_fixed = 'array array_merge_recursive ( array $array1 , array $array2 [, array $... ] )';
 
 
 other properties

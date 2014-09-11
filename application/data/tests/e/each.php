@@ -1,11 +1,20 @@
 <?php
-// generated automatically 2014-01-29T18:45:15+00:00
+// generated automatically 2014-09-11T20:50:04+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
       'array' => 
+      array (
+        0 => 'bob',
+        1 => 'fred',
+        2 => 'jussi',
+        3 => 'jouni',
+        4 => 'egon',
+        5 => 'marliese',
+      ),
+      'mixed' => 
       array (
         1 => 'bob',
         'value' => 'bob',
@@ -19,6 +28,11 @@ return array (
     'result' => 
     array (
       'array' => 
+      array (
+        'Robert' => 'Bob',
+        'Seppo' => 'Sepi',
+      ),
+      'mixed' => 
       array (
         1 => 'Bob',
         'value' => 'Bob',

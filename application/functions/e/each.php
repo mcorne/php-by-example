@@ -9,7 +9,7 @@
 
 require_once 'functions/a/array_pop.php';
 
-class each extends function_core
+class each extends array_pop
 {
     public $examples = [
         [
@@ -32,10 +32,6 @@ class each extends function_core
         ]
     ];
 
-    public $synopsis = 'array each ( array &$array )';
-
-    function pre_exec_function()
-    {
-        $this->returned_params['array'] = $this->_filter->filter_arg_value('__array');
-    }
+    public $synopsis       = 'array each ( array &$array )';
+    public $synopsis_fixed = 'mixed each ( array &$array )';
 }

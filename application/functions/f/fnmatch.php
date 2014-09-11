@@ -9,6 +9,8 @@
 
 class fnmatch extends function_core
 {
+    public $constant_prefix = ['flags' => 'FNM'];
+
     public $examples = [
         ["*gr[ae]y", 'gray']
     ];

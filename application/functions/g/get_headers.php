@@ -14,6 +14,8 @@ class get_headers extends function_core
         ["http://www.example.com", 1],
     ];
 
+    public $options_range = ['format' => [0, 1]];
+
     public $synopsis = 'array get_headers ( string $url [, int $format = 0 ] )';
 
     public $test_not_to_run = true;
