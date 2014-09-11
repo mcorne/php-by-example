@@ -9,6 +9,8 @@
 
 class php_uname extends function_core
 {
+    public $options_list = ['mode' => ['a', 'm', 'n', 'r', 's', 'v']];
+
     public $synopsis = 'string php_uname ([ string $mode = &quot;a&quot; ] )';
 
     public $test_not_validated = true;

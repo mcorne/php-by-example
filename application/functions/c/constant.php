@@ -11,5 +11,7 @@ class constant extends function_core
 {
     public $examples = ["E_ALL"];
 
+    public $options_getter = ['name' => ['get_defined_constants', 'array_keys']];
+
     public $synopsis = 'mixed constant ( string $name )';
 }

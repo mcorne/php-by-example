@@ -30,6 +30,8 @@ public $input_args = ['__array1', '__array2', '__array3'];
 public $method_to_exec = 'getBrowser';
 public $no_input_args = 'use_include_path';
 public $options_getter = ['encoding' => 'mb_list_encodings'];
+public $options_list = ['mode' => ['a', 'a+', 'c', 'c+', 'r', 'r+', 'w', 'w+', 'x', 'x+']];
+public $options_range = ['mode' => [0, 4]];
 public $synopsis_fixed
 public $test_not_to_run = true;
 public $test_not_validated = true;

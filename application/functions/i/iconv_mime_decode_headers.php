@@ -9,6 +9,8 @@
 
 class iconv_mime_decode_headers extends function_core
 {
+    public $constant_prefix = ['mode' => 'ICONV_MIME'];
+
     public $examples = [
         [
 'Subject: =?UTF-8?B?UHLDvGZ1bmcgUHLDvGZ1bmc=?=

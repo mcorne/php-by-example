@@ -13,5 +13,7 @@ class jdmonthname extends function_core
         [2451545, 0]
     ];
 
+    public $options_range = ['mode' => [0, 5]];
+
     public $synopsis = 'string jdmonthname ( int $julianday , int $mode )';
 }

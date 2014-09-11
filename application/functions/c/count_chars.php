@@ -13,5 +13,7 @@ class count_chars extends function_core
         ["Two Ts and one F.", 1]
     ];
 
+    public $options_range = ['mode' => [0, 4]];
+
     public $synopsis = 'mixed count_chars ( string $string [, int $mode = 0 ] )';
 }

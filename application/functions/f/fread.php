@@ -11,19 +11,6 @@ require_once 'models/filter.php';
 
 class fread extends function_core
 {
-    public $source_code = '
-$_filename = tempnam(sys_get_temp_dir(), "pbe");
-file_put_contents($_filename, "Hello world !");
-$_mode =
-    $mode; // string $mode
-$_handle = fopen(
-    $filename, // string $filename
-    "$mode");
-inject_function_call
-fclose($_handle);
-unlink($_filename);
-';
-
     public $examples = [
         [
             'filename' => filter::DEFAULT_FILENAME,
@@ -51,6 +38,21 @@ unlink($_filename);
     ];
 
     public $input_args = 'filename';
+
+    public $options_list = ['mode' => ['a', 'a+', 'c', 'c+', 'r', 'r+', 'w', 'w+', 'x', 'x+']];
+
+    public $source_code = '
+$_filename = tempnam(sys_get_temp_dir(), "pbe");
+file_put_contents($_filename, "Hello world !");
+$_mode =
+    $mode; // string $mode
+$_handle = fopen(
+    $filename, // string $filename
+    "$mode");
+inject_function_call
+fclose($_handle);
+unlink($_filename);
+';
 
     public $synopsis = 'string fread ( resource $handle , int $length )';
 

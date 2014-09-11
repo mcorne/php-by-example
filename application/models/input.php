@@ -60,14 +60,20 @@ class input extends object
 
     function display_arg_helper($arg_type, $arg_name)
     {
-        if ($constant_prefix = $this->_synopsis->get_arg_constant_name_prefix($arg_name)) {
+        if (isset($this->options_getter[$arg_name])) {
+            $arg_helper_options = $this->get_helper_options_from_getter($this->options_getter[$arg_name]);
+
+        } else if (isset($this->options_list[$arg_name])) {
+            $arg_helper_options = $this->enclose_options_with_quotes($this->options_list[$arg_name]);
+
+        } else if (isset($this->options_range[$arg_name])) {
+            $arg_helper_options = $this->get_helper_options_from_range($this->options_range[$arg_name]);
+
+        } else if ($constant_prefix = $this->_synopsis->get_arg_constant_name_prefix($arg_name)) {
             $arg_helper_options = $this->_synopsis->get_arg_constant_names($constant_prefix);
 
         } else if ($arg_type == 'callable') {
             $arg_helper_options = $this->get_helper_callbacks();
-
-        } else if (isset($this->options_getter[$arg_name])) {
-            $arg_helper_options = $this->get_helper_options($this->options_getter[$arg_name]);
 
         } else {
             return null;
@@ -183,6 +189,17 @@ class input extends object
         return $highlighted_code;
     }
 
+    function enclose_options_with_quotes($options)
+    {
+        foreach ($options as &$option) {
+            if (is_string($option)) {
+                $option = "'$option'";
+            }
+        }
+
+        return $options;
+    }
+
     function get_callbacks_in_examples($callback_index)
     {
         $callbacks_in_examples = [];
@@ -234,17 +251,32 @@ class input extends object
         return $callbacks;
     }
 
-    function get_helper_options($getter_function)
+    function get_helper_options_from_getter($getter_function)
     {
-        $options = $getter_function();
-
-        foreach ($options as &$option) {
-            if (is_string($option)) {
-                $option = "'$option'";
-            }
+        if (is_array($getter_function)) {
+            list($getter_function, $post_getter_function) = $getter_function;
         }
 
+        $options = $getter_function();
+
+        if (isset($post_getter_function)) {
+            $options = $post_getter_function($options);
+        }
+
+        $options = $this->enclose_options_with_quotes($options);
         sort($options, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return $options;
+    }
+
+    function get_helper_options_from_range($range)
+    {
+        list($start, $end) = $range;
+        $options = range($start, $end);
+
+        if (is_string($start)) {
+            $options = $this->enclose_options_with_quotes($options);
+        }
 
         return $options;
     }
