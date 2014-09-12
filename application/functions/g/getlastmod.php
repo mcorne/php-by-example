@@ -7,9 +7,14 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class getlastmod extends function_core
+require_once 'functions/m/mktime.php';
+
+class getlastmod extends mktime
 {
-    public $synopsis = 'int getlastmod ( void )';
+    public $examples = null;
+
+    public $synopsis       = 'int getlastmod ( void )';
+    public $synopsis_fixed = null;
 
     public $test_not_validated = true;
 }

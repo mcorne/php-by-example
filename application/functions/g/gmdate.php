@@ -9,6 +9,8 @@
 
 class gmdate extends function_core
 {
+    public $constant_prefix = ['format' => 'DATE'];
+
     public $examples = [
         ["M d Y H:i:s", 946684800]
     ];

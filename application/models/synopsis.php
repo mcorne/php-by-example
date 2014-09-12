@@ -173,6 +173,13 @@ class synopsis extends object
         return $optional_args_description;
     }
 
+    function is_boolean_arg($arg_name)
+    {
+        $is_boolean_arg =  preg_match("~bool +\\$$arg_name\b~", $this->synopsis_fixed);
+
+        return $is_boolean_arg;
+    }
+
     function is_input_arg($arg_name)
     {
         $is_input_arg =  preg_match("~(array|callable|bool|float|int|mixed|number|string) +\\$$arg_name~", $this->synopsis_fixed);

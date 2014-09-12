@@ -13,5 +13,7 @@ class hash_hmac extends function_core
         ["ripemd160", "The quick brown fox jumped over the lazy dog.", "secret"]
     ];
 
+    public $options_getter = ['algo' => 'hash_algos'];
+
     public $synopsis = 'string hash_hmac ( string $algo , string $data , string $key [, bool $raw_output = false ] )';
 }

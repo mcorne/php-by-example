@@ -13,5 +13,7 @@ class hash extends function_core
         ["ripemd160", "The quick brown fox jumped over the lazy dog."]
     ];
 
+    public $options_getter = ['algo' => 'hash_algos'];
+
     public $synopsis = 'string hash ( string $algo , string $data [, bool $raw_output = false ] )';
 }

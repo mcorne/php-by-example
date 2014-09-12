@@ -14,4 +14,17 @@ class getenv extends function_core
     public $synopsis = 'string getenv ( string $varname )';
 
     public $test_not_validated = true;
+
+    function _get_options_list()
+    {
+        foreach (array_keys($_ENV + $_SERVER) as $var_name) {
+            if (getenv($var_name)) {
+                $var_names[] = $var_name;
+            }
+        }
+
+        $options_list = isset($var_names) ? ['varname' => $var_names] : [];
+
+        return $options_list;
+    }
 }

@@ -60,14 +60,21 @@ class input extends object
 
     function display_arg_helper($arg_type, $arg_name)
     {
+        $single_select = null;
+
         if (isset($this->options_getter[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_getter($this->options_getter[$arg_name]);
 
         } else if (isset($this->options_list[$arg_name])) {
             $arg_helper_options = $this->enclose_options_with_quotes($this->options_list[$arg_name]);
+            sort($arg_helper_options, SORT_NATURAL | SORT_FLAG_CASE);
 
         } else if (isset($this->options_range[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_range($this->options_range[$arg_name]);
+
+        } else if ($constant_prefix = $this->_synopsis->is_boolean_arg($arg_name)) {
+            $arg_helper_options = ['false', 'true'];
+            $single_select = true;
 
         } else if ($constant_prefix = $this->_synopsis->get_arg_constant_name_prefix($arg_name)) {
             $arg_helper_options = $this->_synopsis->get_arg_constant_names($constant_prefix);
@@ -79,7 +86,7 @@ class input extends object
             return null;
         }
 
-        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options);
+        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options, $single_select);
         $html .= $this->display_arg_helper_mark($arg_name);
 
         return $html;
@@ -98,29 +105,34 @@ class input extends object
         return $helper_mark;
     }
 
-    function display_arg_helper_select($arg_name, $arg_helper_options)
+    function display_arg_helper_select($arg_name, $arg_helper_options, $single_select)
     {
-        if (substr($arg_name, -1) == 's') {
-            $multiple = 'multiple';
+        if (! $single_select and substr($arg_name, -1) == 's') {
+            // displays a multi-select with a checkmark to validate the selection
             $empty_option = '-- ' . $this->_message_translation->translate('multi-select') . ' --';
-            $vertical_align = 'style="vertical-align: .2em"';
+
+            $format = '<select
+                         class="helper"
+                         id="select_%1$s"
+                         multiple
+                       >%2$s</select>';
 
         } else {
-            $multiple = null;
             $empty_option = null;
-            $vertical_align = null;
+
+            $format = '<select
+                         class="helper"
+                         id="select_%1$s"
+                         onchange="set_arg_value(\'%1$s\')"
+                       >%2$s</select>';
         }
 
-        $format = '<select
-                     class="helper"
-                     id="select_%1$s"
-                     %2$s
-                   >%3$s</select>
-                   <span
+        // the separation between the select and the span must not be removed
+        $format .= "\n";
+        $format .= '<span
                      class="helper_submit"
                      id="helper_submit_%1$s"
                      onclick="set_arg_value(\'%1$s\')"
-                     %4$s
                    >✓</span>';
 
         $options = "<option value=''>$empty_option</option>";
@@ -129,7 +141,7 @@ class input extends object
             $options .= "<option>$option</option>";
         }
 
-        $helper_select = sprintf($format, $arg_name, $multiple, $options, $vertical_align);
+        $helper_select = sprintf($format, $arg_name, $options);
 
         return $helper_select;
     }

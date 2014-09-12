@@ -11,5 +11,7 @@ class html_entity_decode extends function_core
 {
     public $examples = ["I'll &quot;walk&quot; the &lt;b&gt;dog&lt;/b&gt; now"];
 
+    public $options_getter = ['encoding' => 'mb_list_encodings'];
+
     public $synopsis = 'string html_entity_decode ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = &#039;UTF-8&#039; ]] )';
 }

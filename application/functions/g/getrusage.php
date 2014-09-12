@@ -9,6 +9,8 @@
 
 class getrusage extends function_core
 {
+    public $options_range = ['who' => [0, 1]];
+
     public $synopsis = 'array getrusage ([ int $who = 0 ] )';
 
     public $test_not_validated = true;
