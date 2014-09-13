@@ -7,8 +7,12 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class mb_detect_encoding extends function_core
+require_once 'mb_check_encoding.php';
+
+class mb_detect_encoding extends mb_check_encoding
 {
+    public $options_getter = ['encoding_list' => 'mb_list_encodings'];
+
     public $examples = [
         "éléphant",
         "house",

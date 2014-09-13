@@ -7,12 +7,10 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-// changes to this class may affect other classes
+require_once 'mb_check_encoding.php';
 
-class mb_strtolower extends function_core
+class mb_strtolower extends mb_check_encoding
 {
-    public $options_getter = ['encoding' => 'mb_list_encodings'];
-
     public $examples = [
         "Mary Had A Little Lamb and She LOVED It So",
         ["Τάχιστη αλώπηξ βαφής ψημένη γη, δρασκελίζει υπέρ νωθρού κυνός", "UTF-8"]

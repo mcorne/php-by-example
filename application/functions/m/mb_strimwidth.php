@@ -7,10 +7,10 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class mb_strimwidth extends function_core
-{
-    public $options_getter = ['encoding' => 'mb_list_encodings'];
+require_once 'mb_check_encoding.php';
 
+class mb_strimwidth extends mb_check_encoding
+{
     public $examples = [
         ["Hello World", 0, 10, '...', 'UTF-8']
     ];
