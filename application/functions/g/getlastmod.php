@@ -11,7 +11,7 @@ require_once 'functions/m/mktime.php';
 
 class getlastmod extends mktime
 {
-    public $examples = null;
+    public $examples = [[]]; // resets examples as in function_core
 
     public $synopsis       = 'int getlastmod ( void )';
     public $synopsis_fixed = null;

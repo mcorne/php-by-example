@@ -9,12 +9,6 @@
 
 class settype extends function_core
 {
-    public $source_code = '
-$_var =
-    $__var; // mixed $__var
-inject_function_call
-';
-
     public $examples = [
         [
             '__var' => "5bar",
@@ -29,6 +23,13 @@ inject_function_call
     ];
 
     public $input_args = '__var';
+
+    public $source_code = '
+$_var =
+    $__var; // mixed $__var
+
+inject_function_call
+';
 
     public $synopsis = 'bool settype ( mixed &$var , string $type )';
 

@@ -7,6 +7,8 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+// changes to this class may affect other classes
+
 require_once 'functions/a/array_pop.php';
 
 class sort extends array_pop

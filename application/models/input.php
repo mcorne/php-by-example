@@ -153,7 +153,7 @@ class input extends object
 
         foreach ($this->_synopsis->arg_names as $index => $arg_name) {
             $comma = $index == $last_index ? ' ' : ',';
-            $args .= sprintf("\n    $%s%s // %s", $arg_name, $comma, $this->_synopsis->arg_descriptions[$index]);
+            $args .= sprintf("_ARG_LINE_BREAK_\n    $%s%s // %s", $arg_name, $comma, $this->_synopsis->arg_descriptions[$index]);
         }
 
         if ($args) {
@@ -346,7 +346,7 @@ class input extends object
         // removes "_" used to prefix var names not be replaced by a textarea, eg "$_filename"
         $highlighted_code = preg_replace('~\$_+~', '$', $highlighted_code);
         // replaces html line breaks by resizable empty div's
-        $highlighted_code = preg_replace('~<br />~', '<div class="linebreak">&nbsp;</div>', $highlighted_code);
+        $highlighted_code = preg_replace('~_ARG_LINE_BREAK_<br />~', '<div class="linebreak">&nbsp;</div>', $highlighted_code);
 
         return $highlighted_code;
     }

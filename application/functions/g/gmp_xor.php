@@ -9,13 +9,16 @@
 
 class gmp_xor extends function_core
 {
-    public $source_code = '
-inject_function_call
-$string = gmp_strval($resource, 2);
-';
     public $examples = [
         ["0b1101101110011101", "0b0110011001011001"],
     ];
+
+    public $source_code = '
+inject_function_call
+
+// shows the result
+$string = gmp_strval($resource, 2);
+';
 
     public $synopsis = 'resource gmp_xor ( resource $a , resource $b )';
 

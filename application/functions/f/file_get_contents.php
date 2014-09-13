@@ -11,13 +11,6 @@ require_once 'models/filter.php';
 
 class file_get_contents extends function_core
 {
-    public $source_code = '
-$_filename = tempnam(sys_get_temp_dir(), "pbe");
-file_put_contents($_filename, "Hello world !");
-inject_function_call
-unlink($_filename);
-';
-
     public $examples = [
         [
             filter::DEFAULT_FILENAME,
@@ -79,6 +72,18 @@ unlink($_filename);
     ];
 
     public $no_input_args = 'use_include_path';
+
+    public $source_code = '
+// loads custom data in a temp file
+$_filename = tempnam(sys_get_temp_dir(), "pbe");
+file_put_contents($_filename, "Hello world !");
+
+// reads the file or a url
+inject_function_call
+
+// removes the temp file
+unlink($_filename);
+';
 
     public $synopsis = 'string file_get_contents ( string $filename [, bool $use_include_path = false [, resource $context [, int $offset = -1 [, int $maxlen ]]]] )';
 

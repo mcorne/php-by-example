@@ -7,18 +7,10 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+// changes to this class may affect other classes
+
 class uasort extends function_core
 {
-    public $source_code = '
-$_array =
-    $__array; // array $__array
-$_compare_func = function ($a, $b) {
-    if ($a === $b) { return 0; }
-    return ($a > $b)? 1 : -1;
-};
-inject_function_call
-';
-
     public $examples = [
         [
             '__array' => [
@@ -37,6 +29,22 @@ inject_function_call
     ];
 
     public $helper_callbacks = ['index_in_example' => 1, 'function_name_pattern' => '~(cmp$)~'];
+
+    public $input_args = '__array';
+
+    public $source_code = '
+// custom callback function
+$_compare_func = function ($a, $b) {
+    if ($a === $b) return 0;
+    if ($a > $b)   return 1;
+    return -1;
+};
+
+$_array =
+    $__array; // array $__array
+
+inject_function_call
+';
 
     public $synopsis = 'bool uasort ( array &$array , callable $value_compare_func )';
 

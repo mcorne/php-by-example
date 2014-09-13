@@ -13,5 +13,7 @@ class iconv_strlen extends function_core
         ["hello world", "UTF-8"],
     ];
 
+    public $options_getter = ['charset'  => 'mb_list_encodings'];
+
     public $synopsis = 'int iconv_strlen ( string $str [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;) ] )';
 }

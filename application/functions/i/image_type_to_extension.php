@@ -7,6 +7,8 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+// changes to this class may affect other classes
+
 class image_type_to_extension extends function_core
 {
     public $constant_prefix = ['imagetype' => 'IMAGETYPE'];

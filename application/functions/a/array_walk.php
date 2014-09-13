@@ -7,16 +7,10 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+// changes to this class may affect other classes
+
 class array_walk extends function_core
 {
-    public $source_code = '
-$_test_alter = function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; };
-$_test_print = function (&$item, $key) { $item = "$key holds $item\n"; };
-$_array =
-    $__array; // array $__array
-inject_function_call
-';
-
     public $examples = [
         [
             '__array' => [
@@ -44,6 +38,17 @@ inject_function_call
     public $helper_callbacks = ['index_in_example' => 1];
 
     public $input_args = '__array';
+
+    public $source_code = '
+// custom callback functions
+$_test_alter = function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; };
+$_test_print = function (&$item, $key) { $item = "$key holds $item\n"; };
+
+$_array =
+    $__array; // array $__array
+
+inject_function_call
+';
 
     public $synopsis = 'bool array_walk ( array &$array , callable $callback [, mixed $userdata = NULL ] )';
 

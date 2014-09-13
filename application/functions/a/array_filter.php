@@ -9,12 +9,6 @@
 
 class array_filter extends function_core
 {
-    public $source_code = '
-$odd  = function($var) { return($var & 1); };
-$even = function($var) { return(!($var & 1)); };
-inject_function_call
-';
-
     public $examples = [
         [
             [
@@ -75,6 +69,14 @@ inject_function_call
     ];
 
     public $helper_callbacks = ['index_in_example' => 1, 'function_name_pattern' => '~(^ctype_|^is_)~'];
+
+    public $source_code = '
+// custom callback functions
+$odd  = function($var) { return($var & 1); };
+$even = function($var) { return(!($var & 1)); };
+
+inject_function_call
+';
 
     public $synopsis = 'array array_filter ( array $array [, callable $callback ] )';
 

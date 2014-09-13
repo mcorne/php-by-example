@@ -9,14 +9,6 @@
 
 class money_format extends function_core
 {
-    public $source_code = '
-$string = setlocale (
-    LC_MONETARY, // int $category
-    $locale // string $locale
-);
-inject_function_call
-';
-
     public $examples = [
         [
             'locale' => 'en_US',
@@ -49,6 +41,15 @@ inject_function_call
             1234.56
         ]
     ];
+
+    public $source_code = '
+$string = setlocale (
+    LC_MONETARY, // int $category
+    $locale // string $locale
+);
+
+inject_function_call
+';
 
     public $synopsis = 'string money_format ( string $format , float $number )';
 

@@ -9,12 +9,6 @@
 
 class strtotime extends function_core
 {
-    public $source_code = '
-date_default_timezone_set ("UTC");
-inject_function_call
-$date = date("l dS \o\f F Y h:i:s A", $int);
-';
-
     public $examples = [
             "now",
             "10 September 2000",
@@ -24,6 +18,15 @@ $date = date("l dS \o\f F Y h:i:s A", $int);
             "next Thursday",
             "last Monday",
     ];
+
+    public $source_code = '
+date_default_timezone_set ("UTC");
+
+inject_function_call
+
+// shows the datetime in a readable format
+$date = date("l dS \o\f F Y h:i:s A", $int);
+';
 
     public $synopsis = 'int strtotime ( string $time [, int $now = time() ] )';
 

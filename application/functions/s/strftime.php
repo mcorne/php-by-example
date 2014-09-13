@@ -7,16 +7,10 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+// changes to this class may affect other classes
+
 class strftime extends function_core
 {
-    public $source_code = '
-date_default_timezone_set ("UTC");
-$_timestamp = strtotime(
-    $time // string $time
-);
-inject_function_call
-';
-
     public $examples = [
         [
             'time' => "12/28/2002",
@@ -39,6 +33,19 @@ inject_function_call
             '$timestamp',
         ],
     ];
+
+    public $source_code = '
+date_default_timezone_set ("UTC");
+
+// returns a timestamp from a date
+$_timestamp = strtotime(
+    $time // string $time
+);
+
+inject_function_call
+
+// enter either a $_time or a timestamp
+';
 
     public $synopsis = 'string strftime ( string $format [, int $timestamp = time() ] )';
 

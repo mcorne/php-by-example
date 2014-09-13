@@ -7,10 +7,11 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class iconv_mime_decode_headers extends function_core
-{
-    public $constant_prefix = ['mode' => 'ICONV_MIME'];
 
+require_once 'iconv_mime_decode.php';
+
+class iconv_mime_decode_headers extends iconv_mime_decode
+{
     public $examples = [
         [
 'Subject: =?UTF-8?B?UHLDvGZ1bmcgUHLDvGZ1bmc=?=

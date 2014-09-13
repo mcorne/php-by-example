@@ -7,6 +7,8 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+// changes to this class may affect other classes
+
 class is_int extends function_core
 {
     public $examples = [23, "23", 23.5, "23.5", null, true, false];

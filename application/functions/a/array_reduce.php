@@ -9,12 +9,6 @@
 
 class array_reduce extends function_core
 {
-    public $source_code = '
-$rsum = function ($v, $w) { $v += $w; return $v; };
-$rmul = function ($v, $w) { $v *= $w; return $v; };
-inject_function_call
-';
-
     public $examples = [
         [
             [1, 2, 3, 4, 5],
@@ -33,6 +27,14 @@ inject_function_call
     ];
 
     public $helper_callbacks = ['index_in_example' => 1];
+
+    public $source_code = '
+// custom callback functions
+$rsum = function ($v, $w) { $v += $w; return $v; };
+$rmul = function ($v, $w) { $v *= $w; return $v; };
+
+inject_function_call
+';
 
     public $synopsis = 'mixed array_reduce ( array $array , callable $callback [, mixed $initial = NULL ] )';
 

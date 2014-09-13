@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-01T14:50:03+00:00
+// generated automatically 2014-09-13T12:45:38+00:00
 return array (
   0 => 
   array (
@@ -27,6 +27,20 @@ return array (
     'result' => 
     array (
       'string' => '!!!',
+    ),
+  ),
+  4 => 
+  array (
+    'result' => 
+    array (
+      'string' => '&#039;&agrave;&#039; is not &#039;a&#039;',
+    ),
+  ),
+  5 => 
+  array (
+    'result' => 
+    array (
+      'string' => '&#039;&agrave;&#039; is not &#039;a&#039;',
     ),
   ),
 );

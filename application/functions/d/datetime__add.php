@@ -9,19 +9,6 @@
 
 class datetime__add extends function_core
 {
-    public $source_code = '
-$date = new DateTime(
-    $time // [string $time = "now"]
-);
-$_interval = new DateInterval(
-    $interval_spec // string $interval_spec
-);
-$date->inject_function_call
-$_format =
-    $format; // string $format
-$string = $date->format($format);
-';
-
     public $examples = [
         [
             'time'          => '2000-01-01',
@@ -57,6 +44,22 @@ $string = $date->format($format);
     ];
 
     public $input_args = ['time', 'interval_spec'];
+
+    public $source_code = '
+$date = new DateTime(
+    $time // [string $time = "now"]
+);
+$_interval = new DateInterval(
+    $interval_spec // string $interval_spec
+);
+
+$date->inject_function_call
+
+// shows the new datetime
+$_format =
+    $format; // string $format
+$string = $date->format($format);
+';
 
     public $synopsis = 'public DateTime DateTime::add ( DateInterval $interval )';
 
