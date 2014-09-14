@@ -11,5 +11,7 @@ class interface_exists extends function_core
 {
     public $examples = ["MyInterface", "ArrayAccess"];
 
+    public $options_getter = ['interface_name' => 'get_declared_interfaces'];
+
     public $synopsis = 'bool interface_exists ( string $interface_name [, bool $autoload = true ] )';
 }

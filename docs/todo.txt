@@ -1,17 +1,6 @@
 Things to do
 ------------
 
-- fix the height of the select helper to 1.8em or more if multiselect
-- fix the placement of the helper button for IE
-- fix long input arg values as they do not wrap with IE
-- fix test of all functions not working with IE
-- fix the oversized width of the helper select box for linux
-- fix scrollbar issue in test results with chrome
-
-- add helpers eg algo for hash_mac(), time formats, charsets ...
-- add source code to trigger errors for error reporting function eg json_last_error
-- display readable time/date to some date/time functions, eg unixtojd()
-
 - offer users the ability to upload manuals from php.net to this site if they are more recent
 - look for outdated functions (synopsis)
 - move scripts to interface

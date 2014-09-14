@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-11T07:11:06+00:00
+// generated automatically 2014-09-14T12:42:35+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -247,6 +247,7 @@ return array (
   'iconv_substr' => 'iconv_substr',
   'idate' => 'idate',
   'idn_to_ascii' => 'idn_to_ascii',
+  'idn_to_unicode' => 'idn_to_unicode',
   'idn_to_utf8' => 'idn_to_utf8',
   'ignore_user_abort' => 'ignore_user_abort',
   'image_type_to_extension' => 'image_type_to_extension',

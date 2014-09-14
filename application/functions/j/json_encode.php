@@ -9,6 +9,8 @@
 
 class json_encode extends function_core
 {
+    public $constant_prefix = ['options' => 'JSON'];
+
     public $examples = [
         [
             [

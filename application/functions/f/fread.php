@@ -42,7 +42,7 @@ class fread extends function_core
     public $options_list = ['mode' => ['a', 'a+', 'c', 'c+', 'r', 'r+', 'w', 'w+', 'x', 'x+']];
 
     public $source_code = '
-// loads custom data in a temp file
+// loads some data in a temp file
 $_filename = tempnam(sys_get_temp_dir(), "pbe");
 file_put_contents($_filename, "Hello world !");
 

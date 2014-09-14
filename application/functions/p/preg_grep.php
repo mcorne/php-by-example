@@ -8,7 +8,10 @@
  */
 
 class preg_grep extends function_core
-{public $examples = [
+{
+    public $constant_prefix = ['flags' => 'PREG_GREP'];
+
+    public $examples = [
         [
             '_SINGLE_QUOTE_/^(\d+)?\.\d+$/_SINGLE_QUOTE_',
             [
@@ -18,5 +21,6 @@ class preg_grep extends function_core
             ],
         ]
     ];
+
     public $synopsis = 'array preg_grep ( string $pattern , array $input [, int $flags = 0 ] )';
 }

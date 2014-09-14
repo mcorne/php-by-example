@@ -18,5 +18,7 @@ class str_word_count extends function_core
        looking          good today!", 1, 'àáãç3'],
     ];
 
+    public $options_range = ['format' => [0, 2]];
+
     public $synopsis = 'mixed str_word_count ( string $string [, int $format = 0 [, string $charlist ]] )';
 }

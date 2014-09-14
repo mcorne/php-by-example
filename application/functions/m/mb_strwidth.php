@@ -7,9 +7,9 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'mb_check_encoding.php';
+require_once 'mb_strlen.php';
 
-class mb_strwidth extends mb_check_encoding
+class mb_strwidth extends mb_strlen
 {
     public $examples = [
         ["ñ", 'UTF-8'],

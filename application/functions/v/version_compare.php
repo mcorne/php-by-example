@@ -30,6 +30,8 @@ class version_compare extends function_core
         ]
     ];
 
+    public $options_list = ['operator' => ['<', 'lt', '<=', 'le', '>', 'gt', '>=', 'ge', '==', '=', 'eq', '!=', '<>', 'ne']];
+
     public $synopsis = 'mixed version_compare ( string $version1 , string $version2 [, string $operator ] )';
 
     public $test_not_validated = true;

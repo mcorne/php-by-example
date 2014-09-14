@@ -7,8 +7,6 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-// changes to this class may affect other classes
-
 class mb_check_encoding extends function_core
 {
     public $options_getter = ['encoding' => 'mb_list_encodings'];
@@ -22,7 +20,7 @@ class mb_check_encoding extends function_core
     public $source_code = '
 inject_function_call
 
-// enter non UTF-8 characters in hex
+// enter non ASCII characters in hex in $_var if $_encoding is not UTF-8
 ';
 
     public $synopsis = 'bool mb_check_encoding ([ string $var = NULL [, string $encoding = mb_internal_encoding() ]] )';

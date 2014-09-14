@@ -11,7 +11,12 @@ class is_callable extends function_core
 {
     public $examples = [
         ["someFunction", false],
-        ['is_callable']
+        ['is_callable'],
+        [
+            ['Exception', 'getMessage'],
+            true,
+            '$callable_name',
+        ]
     ];
 
     public $helper_callbacks = ['function_name_pattern' => '~(cmp$|^ctype_|^gmp|^is_|^str[ifprst])~'];

@@ -9,6 +9,8 @@
 
 class preg_split extends function_core
 {
+    public $constant_prefix = ['flags' => 'PREG_SPLIT'];
+
     public $examples = [
         ['_SINGLE_QUOTE_/[\s,]+/_SINGLE_QUOTE_', "hypertext language, programming"],
         ['//', "string", -1, 'PREG_SPLIT_NO_EMPTY'],

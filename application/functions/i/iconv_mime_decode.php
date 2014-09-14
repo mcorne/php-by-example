@@ -20,5 +20,11 @@ class iconv_mime_decode extends function_core
 
     public $options_getter = ['charset'  => 'mb_list_encodings'];
 
+    public $source_code = '
+inject_function_call
+
+// the result may not display properly if $_charset is not UTF-8
+';
+
     public $synopsis = 'string iconv_mime_decode ( string $encoded_header [, int $mode = 0 [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;) ]] )';
 }

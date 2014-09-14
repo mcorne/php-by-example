@@ -1,32 +1,7 @@
 <?php
-// generated automatically 2014-02-13T12:04:35+00:00
+// generated automatically 2014-09-14T15:15:20+00:00
 return array (
   0 => 
-  array (
-    'result' => 
-    array (
-      'matches' => 
-      array (
-      ),
-      'int' => 0,
-    ),
-  ),
-  1 => 
-  array (
-    'result' => 
-    array (
-      'matches' => 
-      array (
-        0 => 
-        array (
-          0 => 'def',
-          1 => 0,
-        ),
-      ),
-      'int' => 1,
-    ),
-  ),
-  2 => 
   array (
     'result' => 
     array (
@@ -37,7 +12,7 @@ return array (
       'int' => 1,
     ),
   ),
-  3 => 
+  1 => 
   array (
     'result' => 
     array (
@@ -48,7 +23,7 @@ return array (
       'int' => 1,
     ),
   ),
-  4 => 
+  2 => 
   array (
     'result' => 
     array (
@@ -58,7 +33,7 @@ return array (
       'int' => 0,
     ),
   ),
-  5 => 
+  3 => 
   array (
     'result' => 
     array (
@@ -70,7 +45,7 @@ return array (
       'int' => 1,
     ),
   ),
-  6 => 
+  4 => 
   array (
     'result' => 
     array (
@@ -81,7 +56,7 @@ return array (
       'int' => 1,
     ),
   ),
-  7 => 
+  5 => 
   array (
     'result' => 
     array (
@@ -92,6 +67,31 @@ return array (
         1 => 'foobar',
         'digit' => '2008',
         2 => '2008',
+      ),
+      'int' => 1,
+    ),
+  ),
+  6 => 
+  array (
+    'result' => 
+    array (
+      'matches' => 
+      array (
+      ),
+      'int' => 0,
+    ),
+  ),
+  7 => 
+  array (
+    'result' => 
+    array (
+      'matches' => 
+      array (
+        0 => 
+        array (
+          0 => 'def',
+          1 => 0,
+        ),
       ),
       'int' => 1,
     ),

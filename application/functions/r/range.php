@@ -29,5 +29,6 @@ class range extends function_core
         ]
     ];
 
-    public $synopsis = 'array range ( mixed $start , mixed $end [, number $step = 1 ] )';
+    public $synopsis       = 'array range ( mixed $start , mixed $end [, number $step = 1 ] )';
+    public $synopsis_fixed = 'array range ( mixed $start , mixed $end [, int $step = 1 ] )';
 }

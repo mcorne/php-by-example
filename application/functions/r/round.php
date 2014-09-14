@@ -9,6 +9,8 @@
 
 class round extends function_core
 {
+    public $constant_prefix = ['mode' => 'PHP_ROUND'];
+
     public $examples = [
         3.4,
         3.5,

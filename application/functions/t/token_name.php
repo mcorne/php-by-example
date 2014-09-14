@@ -9,6 +9,8 @@
 
 class token_name extends function_core
 {
+    public $constant_prefix = ['token' => 'T'];
+
     public $examples = [260, 'T_FUNCTION'];
 
     public $synopsis = 'string token_name ( int $token )';

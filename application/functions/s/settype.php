@@ -24,6 +24,8 @@ class settype extends function_core
 
     public $input_args = '__var';
 
+    public $options_list = ['type' => ['boolean', 'bool', 'integer', 'int', 'float', 'double', 'string', 'array', 'object', 'null']];
+
     public $source_code = '
 $_var =
     $__var; // mixed $__var

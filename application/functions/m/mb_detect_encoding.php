@@ -7,9 +7,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'mb_check_encoding.php';
-
-class mb_detect_encoding extends mb_check_encoding
+class mb_detect_encoding extends function_core
 {
     public $options_getter = ['encoding_list' => 'mb_list_encodings'];
 
@@ -25,6 +23,12 @@ class mb_detect_encoding extends mb_check_encoding
             ['ASCII', 'UTF-8'],
         ],
     ];
+
+    public $source_code = '
+inject_function_call
+
+// enter non UTF-8 characters in hex in $_str
+';
 
     public $synopsis = 'string mb_detect_encoding ( string $str [, mixed $encoding_list = mb_detect_order() [, bool $strict = false ]] )';
 }

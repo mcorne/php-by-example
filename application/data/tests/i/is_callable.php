@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-01T19:05:02+00:00
+// generated automatically 2014-09-14T13:15:05+00:00
 return array (
   0 => 
   array (
@@ -12,6 +12,14 @@ return array (
   array (
     'result' => 
     array (
+      'bool' => true,
+    ),
+  ),
+  2 => 
+  array (
+    'result' => 
+    array (
+      'callable_name' => 'Exception::getMessage',
       'bool' => true,
     ),
   ),

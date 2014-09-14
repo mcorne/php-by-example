@@ -9,6 +9,8 @@
 
 class json_decode extends function_core
 {
+    public $constant_prefix = ['options' => 'JSON'];
+
     public $examples = [
         '_SINGLE_QUOTE_{"a":1,"b":2,"c":3,"d":4,"e":5}_SINGLE_QUOTE_',
         [

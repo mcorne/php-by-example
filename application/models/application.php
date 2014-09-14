@@ -77,8 +77,6 @@ class application extends object
                     $action = $this->_function_test_all;
                     break;
 
-                case 'translation': // TODO: remove when not needed anymore for portability reason
-                    $this->action_name = 'messages_translation';
                 case 'messages_translation':
                     $action = $this->_messages_translation;
                     break;

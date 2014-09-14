@@ -1,11 +1,11 @@
 <?php
-// generated automatically 2014-02-03T18:44:51+00:00
+// generated automatically 2014-09-14T10:46:57+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => '=?UTF-7?Q?+AMMAqQ-l+AMMAqQ-phant?=',
+      'string' => '=?UTF-8?Q?=C3=83=C2=A9l=C3=83=C2=A9phant?=',
     ),
   ),
 );

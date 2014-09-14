@@ -60,7 +60,7 @@ class input extends object
 
     function display_arg_helper($arg_type, $arg_name)
     {
-        $single_select = null;
+        $multi_select = isset($this->multi_select[$arg_name]) ? $this->multi_select[$arg_name] : null;
 
         if (isset($this->options_getter[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_getter($this->options_getter[$arg_name]);
@@ -74,7 +74,7 @@ class input extends object
 
         } else if ($constant_prefix = $this->_synopsis->is_boolean_arg($arg_name)) {
             $arg_helper_options = ['false', 'true'];
-            $single_select = true;
+            $multi_select = false;
 
         } else if ($constant_prefix = $this->_synopsis->get_arg_constant_name_prefix($arg_name)) {
             $arg_helper_options = $this->_synopsis->get_arg_constant_names($constant_prefix);
@@ -86,7 +86,7 @@ class input extends object
             return null;
         }
 
-        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options, $single_select);
+        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options, $multi_select);
         $html .= $this->display_arg_helper_mark($arg_name);
 
         return $html;
@@ -105,9 +105,9 @@ class input extends object
         return $helper_mark;
     }
 
-    function display_arg_helper_select($arg_name, $arg_helper_options, $single_select)
+    function display_arg_helper_select($arg_name, $arg_helper_options, $multi_select)
     {
-        if (! $single_select and substr($arg_name, -1) == 's') {
+        if ($multi_select === true or $multi_select === null and substr($arg_name, -1) == 's') {
             // displays a multi-select with a checkmark to validate the selection
             $empty_option = '-- ' . $this->_message_translation->translate('multi-select') . ' --';
 

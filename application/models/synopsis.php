@@ -19,7 +19,9 @@ class synopsis extends object
     {
         list(, $function_description) = explode('(', $this->synopsis_fixed, 2);
         $function_description = ltrim($function_description);
-        $function_description = rtrim($function_description, '] )');
+        // right trims in 2 steps so it does not affect the last param with a default function, eg "...string $encoding = mb_internal_encoding() ]] )"
+        $function_description = rtrim($function_description, ' )');
+        $function_description = rtrim($function_description, ' ]');
 
         $parts = explode('[', $function_description, 2);
 

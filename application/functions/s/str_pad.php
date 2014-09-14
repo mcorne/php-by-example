@@ -9,6 +9,8 @@
 
 class str_pad extends function_core
 {
+    public $constant_prefix = ['pad_type' => 'STR_PAD'];
+
     public $examples = [
         [
             "Alien",

@@ -29,6 +29,7 @@ public $constant_prefix = ['calendar' => 'CAL'];
 public $helper_callbacks = ['index_in_example' => 2, 'function_name_pattern' => '~(cmp$)~'];
 public $input_args = ['__array1', '__array2', '__array3'];
 public $method_to_exec = 'getBrowser';
+public $multi_select = ['fl' => true];
 public $no_input_args = 'use_include_path';
 public $options_getter = ['encoding' => 'mb_list_encodings'];
 public $options_list = ['mode' => ['a', 'a+', 'c', 'c+', 'r', 'r+', 'w', 'w+', 'x', 'x+']];

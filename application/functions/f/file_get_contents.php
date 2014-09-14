@@ -74,7 +74,7 @@ class file_get_contents extends function_core
     public $no_input_args = 'use_include_path';
 
     public $source_code = '
-// loads custom data in a temp file
+// loads some data in a temp file
 $_filename = tempnam(sys_get_temp_dir(), "pbe");
 file_put_contents($_filename, "Hello world !");
 

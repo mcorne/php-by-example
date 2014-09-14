@@ -9,11 +9,12 @@
 
 class jdmonthname extends function_core
 {
-    public $examples = [
-        [2451545, 0]
-    ];
+    public $constant_prefix = ['mode' => 'CAL_MONTH'];
 
-    public $options_range = ['mode' => [0, 5]];
+    public $examples = [
+        [2451545, 0],
+        [2451545, 'CAL_MONTH_GREGORIAN_LONG']
+    ];
 
     public $synopsis = 'string jdmonthname ( int $julianday , int $mode )';
 }

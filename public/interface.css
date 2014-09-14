@@ -361,7 +361,7 @@ span.helper_submit
     color: white;
     display: none;
     font-weight: bolder;
-    padding: .2em .3em .1em .3em;
+    padding: .3em .3em .2em .4em;
     /* vertical-align: set in input.php display_arg_helper_select() */
 }
 

@@ -9,6 +9,8 @@
 
 class http_build_query extends function_core
 {
+    public $constant_prefix = ['enc_type' => 'PHP_QUERY'];
+
     public $examples = [
         [
             [
@@ -81,7 +83,18 @@ class http_build_query extends function_core
                 0 => 'CEO',
             ],
             "flags_"
-        ]
+        ],
+        [
+            [
+                'foo' => 'bar',
+                'baz' => 'boom',
+                'cow' => 'milk',
+                'php' => 'hypertext processor',
+            ],
+            null,
+            '&',
+            'PHP_QUERY_RFC3986',
+        ],
     ];
 
     public $synopsis = 'string http_build_query ( mixed $query_data [, string $numeric_prefix [, string $arg_separator [, int $enc_type = PHP_QUERY_RFC1738 ]]] )';
