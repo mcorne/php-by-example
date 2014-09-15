@@ -67,7 +67,7 @@ class input extends object
 
         } else if (isset($this->options_list[$arg_name])) {
             $arg_helper_options = $this->enclose_options_with_quotes($this->options_list[$arg_name]);
-            sort($arg_helper_options, SORT_NATURAL | SORT_FLAG_CASE);
+            asort($arg_helper_options, SORT_NATURAL | SORT_FLAG_CASE);
 
         } else if (isset($this->options_range[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_range($this->options_range[$arg_name]);
@@ -137,8 +137,15 @@ class input extends object
 
         $options = "<option value=''>$empty_option</option>";
 
-        foreach ($arg_helper_options as $option) {
-            $options .= "<option>$option</option>";
+        foreach ($arg_helper_options as $value => $text) {
+            $text = htmlspecialchars($text);
+
+            if (is_string($value)) {
+                $value = htmlspecialchars($value);
+                $options .= "<option value=\"$value\">$text</option>";
+            } else {
+                $options .= "<option>$text</option>";
+            }
         }
 
         $helper_select = sprintf($format, $arg_name, $options);
@@ -205,7 +212,7 @@ class input extends object
     {
         foreach ($options as &$option) {
             if (is_string($option)) {
-                $option = "'$option'";
+                $option = '"' . $option . '"';
             }
         }
 
@@ -265,16 +272,7 @@ class input extends object
 
     function get_helper_options_from_getter($getter_function)
     {
-        if (is_array($getter_function)) {
-            list($getter_function, $post_getter_function) = $getter_function;
-        }
-
-        $options = $getter_function();
-
-        if (isset($post_getter_function)) {
-            $options = $post_getter_function($options);
-        }
-
+        $options = call_user_func($getter_function);
         $options = $this->enclose_options_with_quotes($options);
         sort($options, SORT_NATURAL | SORT_FLAG_CASE);
 

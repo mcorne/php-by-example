@@ -76,7 +76,7 @@ class converter extends object
 
         } else if ($this->_function_params->is_param_var($value) or $this->is_constant($value)) {
             // this is a var, eg '$var', or a constant name, eg 'SORT_ASC'
-            $text = $force_quotes ? "'$value'" : $value;
+            $text = $force_quotes ? "\"$value\"" : $value;
 
         } else {
             if ($no_linebreak) {

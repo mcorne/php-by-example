@@ -74,7 +74,6 @@ curl_setopt
 curl_setopt_array
 curl_version
 
-date
 date_add
 date_create
 date_create_from_format
@@ -92,7 +91,6 @@ date_offset_get
 date_parse
 date_parse_from_format
 date_sub
-date_sun_info
 date_sunrise
 date_sunset
 date_time_set

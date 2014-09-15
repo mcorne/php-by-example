@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-11T11:36:51+00:00
+// generated automatically 2014-09-15T08:05:42+00:00
 return array (
   'L2SloT9mDUObpP5hMKD=' => 'es',
   'LJMjLKWuoHO0nKAwLJkcYzy0' => 'it',
@@ -17,6 +17,7 @@ return array (
   'nTIfpP5jnUNhLaxhMKuuoKOfMHOaoJScoP5wo20=' => '*',
   'nUy0MKA0DUObpP5hMKD=' => 'zh',
   'nz9jpTIlqROaoJScoP5wo20=' => 'pt',
+  'nz9uoz5urz91DQRlAv5wo20=' => 'zh',
   'o2q1pzymqHOwMJ50MKVhq2SeLKyuoJRgqF5uLl5dpN==' => 'ja',
   'o3IhqUcypz8kBGtkDTqgLJyfYzAioD==' => 'ru',
   'oJAipz5yDUyunT9iYzAioD==' => 'fr',

@@ -35,7 +35,7 @@ class strftime extends function_core
     ];
 
     public $source_code = '
-date_default_timezone_set ("UTC");
+date_default_timezone_set("UTC");
 
 // returns a timestamp from a date
 $_timestamp = strtotime(
@@ -51,6 +51,8 @@ inject_function_call
 
     function pre_exec_function()
     {
+        date_default_timezone_set("UTC");
+
         $time = $this->_filter->filter_arg_value('time');
         $this->returned_params['timestamp'] = strtotime($time);
     }
