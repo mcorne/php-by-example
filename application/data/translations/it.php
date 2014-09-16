@@ -46,9 +46,9 @@ return array (
 1702 => 'Errore PHP',
 1703 => 'Avviso PHP',
 1704 => 'Avvertimento PHP',
-1705 => 'Errore PHPbEx',
-1706 => 'Avviso PHPbEx',
-1707 => 'Avvertimento PHPbEx',
+1705 => 'Errore PBX',
+1706 => 'Avviso PBX',
+1707 => 'Avvertimento PBX',
 
 1800 => 'Parser errors',
 1801 => 'matrice non valida',

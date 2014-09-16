@@ -46,9 +46,9 @@ return array (
 1702 => 'PHP hata',
 1703 => 'PHP bildirim',
 1704 => 'PHP uyarı',
-1705 => 'PHPbEx hata',
-1706 => 'PHPbEx bildirim',
-1707 => 'PHPbEx uyarı',
+1705 => 'PBX hata',
+1706 => 'PBX bildirim',
+1707 => 'PBX uyarı',
 
 1800 => 'Parser errors',
 1801 => 'geçersiz dizi',

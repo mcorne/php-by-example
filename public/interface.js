@@ -100,7 +100,7 @@ function open_php_manual_in_new_tab()
     var php_manual_new_tab = document.getElementById('php_manual_new_tab');
     
     if (php_manual_new_tab) {
-        window.open(php_manual_new_tab.innerHTML, 'phpbexmanual');
+        window.open(php_manual_new_tab.innerHTML, 'pbxmanual');
     }
 }
 

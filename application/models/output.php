@@ -42,9 +42,9 @@ class output extends object
         $messages = [
             E_ERROR        => $this->_message_translation->translate('PHP error'),
             E_NOTICE       => $this->_message_translation->translate('PHP notice'),
-            E_USER_ERROR   => $this->_message_translation->translate('PHPbEx error'),
-            E_USER_NOTICE  => $this->_message_translation->translate('PHPbEx notice'),
-            E_USER_WARNING => $this->_message_translation->translate('PHPbEx warning'),
+            E_USER_ERROR   => $this->_message_translation->translate('PBX error'),
+            E_USER_NOTICE  => $this->_message_translation->translate('PBX notice'),
+            E_USER_WARNING => $this->_message_translation->translate('PBX warning'),
             E_WARNING      => $this->_message_translation->translate('PHP warning'),
         ];
 

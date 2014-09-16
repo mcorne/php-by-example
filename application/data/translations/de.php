@@ -46,9 +46,9 @@ return array (
 1702 => 'PHP Fehler',
 1703 => 'PHP Ankündigung',
 1704 => 'PHP Warnung',
-1705 => 'PHPbEx Fehler',
-1706 => 'PHPbEx Ankündigung',
-1707 => 'PHPbEx Warnung',
+1705 => 'PBX Fehler',
+1706 => 'PBX Ankündigung',
+1707 => 'PBX Warnung',
 
 1800 => 'Parser errors',
 1801 => 'Array ungültig',

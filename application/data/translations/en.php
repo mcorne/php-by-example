@@ -62,9 +62,9 @@ return [
 1702 => "PHP error",
 1703 => "PHP notice",
 1704 => "PHP warning",
-1705 => "PHPbEx error",
-1706 => "PHPbEx notice",
-1707 => "PHPbEx warning",
+1705 => "PBX error",
+1706 => "PBX notice",
+1707 => "PBX warning",
 
 1800 => "Parser errors",
 1801 => "invalid array",
