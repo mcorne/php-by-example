@@ -48,7 +48,7 @@ class array_udiff_uassoc extends array_diff_uassoc
 
     function pre_exec_function()
     {
-        $this->returned_params['key_compare_func'] = $this->_filter->filter_callback('key_compare_func');
-        $this->returned_params['value_compare_func'] = $this->_filter->filter_callback('value_compare_func');
+        $this->_filter->filter_callback('key_compare_func');
+        $this->_filter->filter_callback('value_compare_func');
     }
 }

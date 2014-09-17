@@ -28,9 +28,4 @@ inject_function_call
 ';
 
     public $synopsis = 'mixed array_pop ( array &$array )';
-
-    function pre_exec_function()
-    {
-        $this->returned_params['array'] = $this->_filter->filter_arg_value('__array');
-    }
 }

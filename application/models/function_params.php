@@ -70,27 +70,18 @@ class function_params extends object
     {
         $var_name = $this->get_var_name($value);
 
-        if (isset($this->returned_params[$var_name])) {
-            // the variable has a (returned) value linked to the var name itself,
-            // eg the resource "handle" linked to the param name "handle" in fread()
-            $value =  $this->returned_params[$var_name];
-
-        } else  if (isset($this->returned_params[$param_name])) {
-            // the variable has a (returned) value linked to the param name,
-            // eg the closure "$odd" linked to param name "callback" in array_filter()
-            $value =  $this->returned_params[$param_name];
-
-        } else  if (isset($this->params["__$var_name"])) {
+        if (isset($this->params["__$var_name"])) {
             // the variable is set from another (pseudo) variable invisible to the user, prefixed with "__",
-            // eg "$__array" linked to param name "$array" in sort()
+            // eg "$__array" linked to param name "$array" in array_pop()
             $value =  $this->get_param("__$var_name");
 
-        } else  if ($var_name == $param_name) {
-            // the param value is the same as the param name, eg $param['match'] = '$match'
-            // this is typically the case for an arg passed by reference
-            $value = null;
+        } else if (isset($this->returned_params[$var_name])) {
+            // the variable has a (returned) value linked to the var name itself,
+            // eg the resource "handle" linked to the param name "handle" in fread()
+            // eg a callback as a closure "callback" => "$odd", see filter_callback()
+            $value =  $this->returned_params[$var_name];
 
-        } else {
+        } else   {
             $value = null;
         }
 

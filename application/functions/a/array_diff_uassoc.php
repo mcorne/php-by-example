@@ -57,6 +57,6 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $this->returned_params['key_compare_func'] = $this->_filter->filter_callback('key_compare_func');
+        $this->_filter->filter_callback('key_compare_func');
     }
 }

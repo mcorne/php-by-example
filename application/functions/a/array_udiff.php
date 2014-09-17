@@ -35,6 +35,6 @@ class array_udiff extends function_core
 
     function pre_exec_function()
     {
-        $this->returned_params['value_compare_func'] = $this->_filter->filter_callback('value_compare_func');
+        $this->_filter->filter_callback('value_compare_func');
     }
 }

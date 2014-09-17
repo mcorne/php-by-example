@@ -72,11 +72,4 @@ inject_function_call
 
     public $synopsis       = 'bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, mixed $... ]]] )';
     public $synopsis_fixed = 'bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, array &$array2 [, mixed $array2_sort_order = SORT_ASC [, mixed $array2_sort_flags = SORT_REGULAR [, array &$array3 [, mixed $array3_sort_order = SORT_ASC [, mixed $array3_sort_flags = SORT_REGULAR [, mixed $... ]]]]]]]]] )';
-
-    function pre_exec_function()
-    {
-        $this->returned_params['array1'] = $this->_filter->filter_arg_value('array1');
-        $this->returned_params['array2'] = $this->_filter->filter_arg_value('array2');
-        $this->returned_params['array3'] = $this->_filter->filter_arg_value('array3');
-    }
 }

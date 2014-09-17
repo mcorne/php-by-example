@@ -33,54 +33,62 @@ class filter extends object
 
     function filter_callback($arg_name)
     {
+        static $available_closures;
+
+        if (! isset($available_closures)) {
+            $available_closures = [
+                '$cb1'                => function ($a)                     { return array ($a); },
+                '$cb2'                => function ($a, $b)                 { return array ($a, $b); },
+                '$compare_func'       => function($a, $b)                  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
+                '$cube'               => function ($n)                     { return($n * $n * $n); },
+                '$double'             => function($value)                  { return $value * 2; },
+                '$even'               => function($var)                    { return(!($var & 1)); },
+                '$map_Spanish'        => function ($n, $m)                 { return(array($n => $m)); },
+                '$next_year'          => function ($matches)               { return $matches[1] . ($matches[2] + 1); },
+                '$odd'                => function($var)                    { return($var & 1); },
+                '$rmul'               => function ($v, $w)                 { $v *= $w; return $v; },
+                '$rsum'               => function ($v, $w)                 { $v += $w; return $v; },
+                '$show_Spanish'       => function ($n, $m)                 { return("The number $n is called $m in Spanish"); },
+                '$test_alter'         => function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; },
+                '$test_print'         => function (&$item, $key)           { $item = "$key holds $item\n"; },
+                '$to_lower'           => function ($matches)               { return strtolower($matches[0]); },
+            ];
+        }
+
         if (! $this->_function_params->param_exists($arg_name)) {
              return null;
         }
 
-        $closure_var_name = $this->_function_params->get_param($arg_name, false);
+        $callback_name = $this->_function_params->get_param($arg_name, false);
 
-        if (is_null($closure_var_name)) {
+        if (is_null($callback_name)) {
             return null;
         }
 
-        $available_closures = [
-            '$cb1'                => function ($a)                     { return array ($a); },
-            '$cb2'                => function ($a, $b)                 { return array ($a, $b); },
-            '$compare_func'       => function($a, $b)                  { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
-            '$cube'               => function ($n)                     { return($n * $n * $n); },
-            '$double'             => function($value)                  { return $value * 2; },
-            '$even'               => function($var)                    { return(!($var & 1)); },
-            '$map_Spanish'        => function ($n, $m)                 { return(array($n => $m)); },
-            '$next_year'          => function ($matches)               { return $matches[1] . ($matches[2] + 1); },
-            '$odd'                => function($var)                    { return($var & 1); },
-            '$rmul'               => function ($v, $w)                 { $v *= $w; return $v; },
-            '$rsum'               => function ($v, $w)                 { $v += $w; return $v; },
-            '$show_Spanish'       => function ($n, $m)                 { return("The number $n is called $m in Spanish"); },
-            '$test_alter'         => function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; },
-            '$test_print'         => function (&$item, $key)           { $item = "$key holds $item\n"; },
-            '$to_lower'           => function ($matches)               { return strtolower($matches[0]); },
-        ];
+        if ($this->_function_params->is_param_var($callback_name)) {
+            // the callback is a variable set to a closure
+            if (isset($available_closures[$callback_name])) {
+                // this is an existing closure, adds a param with the closure name
+                $param_name = substr($callback_name, 1);
+                $this->_parent->returned_params[$param_name] = $available_closures[$callback_name]; // TODO: quick fix
+            }
+            // else: the callback is an unset variable, this will be caught by the function itself
 
-        if ($this->_function_params->is_param_var($closure_var_name)) {
-            // the callback is a variable set to a closure, returns wether the closure is in the list of available closures or not
-            return isset($available_closures[$closure_var_name]) ? $available_closures[$closure_var_name] : null;
+        } else {
+            if (! function_exists($callback_name)) {
+                $message = $this->_message_translation->translate('this callback function is invalid or not available on this server');
+                throw new Exception($message, E_USER_WARNING);
+            }
+
+            $valid_callback_pattern = '~(cmp$|^ctype_|^gmp|^is_|^str[ifprst])~';
+
+            if (! is_string($callback_name) or ! preg_match($valid_callback_pattern, $callback_name)) {
+                $message = $this->_message_translation->translate('this callback function may not be used in this example');
+                throw new Exception($message, E_USER_WARNING);
+            }
         }
 
-        $callback_function_name =  $this->_function_params->get_param($arg_name);
-
-        if (! function_exists($callback_function_name)) {
-            $message = $this->_message_translation->translate('this callback function is invalid or not available on this server');
-            throw new Exception($message, E_USER_WARNING);
-        }
-
-        $valid_callback_functions = '~(cmp$|^ctype_|^gmp|^is_|^str[ifprst])~';
-
-        if (! is_string($callback_function_name) or ! preg_match($valid_callback_functions, $callback_function_name)) {
-            $message = $this->_message_translation->translate('this callback function may not be used in this example');
-            throw new Exception($message, E_USER_WARNING);
-        }
-
-        return $callback_function_name;
+        return $callback_name;
     }
 
     function filter_date_interval($arg_name)

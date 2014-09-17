@@ -40,6 +40,6 @@ inject_function_call
 
     function pre_exec_function()
     {
-        $this->returned_params['callback'] = $this->_filter->filter_callback('callback');
+        $this->_filter->filter_callback('callback');
     }
 }

@@ -34,9 +34,4 @@ inject_function_call
 ';
 
     public $synopsis = 'bool settype ( mixed &$var , string $type )';
-
-    function pre_exec_function()
-    {
-        $this->returned_params['var'] = $this->_filter->filter_arg_value('__var');
-    }
 }

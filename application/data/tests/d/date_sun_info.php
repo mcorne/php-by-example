@@ -1,33 +1,36 @@
 <?php
-// generated automatically 2014-09-15T20:23:59+00:00
+// generated automatically 2014-09-17T11:34:44+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
+      'timestamp' => 1410953684,
+      'latitude' => 48.85,
+      'longitude' => 2.35,
       'array' => 
       array (
-        'sunrise' => 1410758863,
-        'sunset' => 1410804217,
-        'transit' => 1410781540,
-        'civil_twilight_begin' => 1410756964,
-        'civil_twilight_end' => 1410806117,
-        'nautical_twilight_begin' => 1410754698,
-        'nautical_twilight_end' => 1410808382,
-        'astronomical_twilight_begin' => 1410752326,
-        'astronomical_twilight_end' => 1410810755,
+        'sunrise' => 1410931834,
+        'sunset' => 1410976761,
+        'transit' => 1410954298,
+        'civil_twilight_begin' => 1410929940,
+        'civil_twilight_end' => 1410978655,
+        'nautical_twilight_begin' => 1410927686,
+        'nautical_twilight_end' => 1410980909,
+        'astronomical_twilight_begin' => 1410925336,
+        'astronomical_twilight_end' => 1410983259,
       ),
       'date_sun_info' => 
       array (
-        'sunrise' => '07:27:43',
-        'sunset' => '20:03:37',
-        'transit' => '13:45:40',
-        'civil_twilight_begin' => '06:56:04',
-        'civil_twilight_end' => '20:35:17',
-        'nautical_twilight_begin' => '06:18:18',
-        'nautical_twilight_end' => '21:13:02',
-        'astronomical_twilight_begin' => '05:38:46',
-        'astronomical_twilight_end' => '21:52:35',
+        'sunrise' => '07:30:34',
+        'sunset' => '19:59:21',
+        'transit' => '13:44:58',
+        'civil_twilight_begin' => '06:59:00',
+        'civil_twilight_end' => '20:30:55',
+        'nautical_twilight_begin' => '06:21:26',
+        'nautical_twilight_end' => '21:08:29',
+        'astronomical_twilight_begin' => '05:42:16',
+        'astronomical_twilight_end' => '21:47:39',
       ),
     ),
   ),
@@ -35,6 +38,7 @@ return array (
   array (
     'result' => 
     array (
+      'timestamp' => 1165881600,
       'array' => 
       array (
         'sunrise' => 1165897782,

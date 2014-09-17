@@ -7,13 +7,15 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+require_once 'custom-functions/pbx_cities_lat_lng.php';
+
 class date_sun_info extends function_core
 {
     public $examples = [
         [
             'timezone' => "Europe/Paris",
             'time' => "now",
-            'city' => '48.85, 2.35', // Paris
+            'city' => 'Paris',
             '$timestamp',
             '$latitude',
             '$longitude',
@@ -35,9 +37,15 @@ class date_sun_info extends function_core
 
     public $input_args = ['timezone'];
 
-    public $options_getter = ['timezone' => ['DateTimeZone', 'listIdentifiers']];
+    public $options_getter = [
+        'city'     => 'pbx_get_city_names',
+        'timezone' => ['DateTimeZone', 'listIdentifiers'],
+    ];
 
     public $source_code = '
+// enter a $_time or a $_timestamp
+// select a $_city or enter the $_latitude and $_longitude
+
 // gets a timestamp from a date
 date_default_timezone_set(
     $timezone // string $timezone
@@ -47,14 +55,11 @@ $_timestamp = strtotime(
 );
 
 // gets the latitude and longitude of a city
-list($_latitude, $_longitude) = @explode(", " ,
+list($_latitude, $_longitude) = pbx_get_city_lat_lng(
     $city // string $city
 );
 
 inject_function_call
-
-// enter a $_time or a $_timestamp
-// select a $_city or enter the $_latitude and $_longitude
 
 // shows the times in a readable format
 $date_sun_info = array_map(
@@ -68,54 +73,17 @@ $date_sun_info = array_map(
 
     public $test_not_validated = [0];
 
-    function _get_options_list()
-    {
-        $cities_lat_lng = $this->_file->read_csv_lines($this->application_path . '/data/cities-lat-lng.csv');
-
-        foreach ($cities_lat_lng as $city_lat_lgn) {
-            list($city, $country, $state, $latitude, $longitude) = $city_lat_lgn;
-            $latitude  = $this->parse_coordinate($latitude);
-            $longitude = $this->parse_coordinate($longitude);
-
-            if ($latitude !== null and $longitude !== null) {
-                $value = "\"$latitude, $longitude\"";
-                $text = "$city, $country";
-
-                if ($state) {
-                    $text .= "/$state";
-                }
-
-                $options[$value] = $text;
-            }
-        }
-
-        $options_list = isset($options) ? ['city' => $options] : [];
-
-        return $options_list;
-    }
-
-    function parse_coordinate($coordinate)
-    {
-        // eg "51°29′N", "0°00′E/W"
-        if (! preg_match("~^(\d+)°(\d+)′([NESW])~", $coordinate, $match)) {
-            return null;
-        }
-
-        list(, $degrees, $minutes, $direction) = $match;
-        $coordinate = round($degrees + $minutes / 60, 2);
-
-        if ($direction == 'S' or $direction == 'W') {
-            $coordinate = -$coordinate;
-        }
-
-        return $coordinate;
-    }
-
     function post_exec_function()
     {
-        $this->result['date_sun_info'] = array_map(
-            function($timestamp) { return date("H:i:s", $timestamp); },
-            $this->result['array']);
+        if ($this->returned_params) {
+            $this->result = $this->returned_params + $this->result;
+        }
+
+        if ($this->result['array']) {
+            $this->result['date_sun_info'] = array_map(
+                function($timestamp) { return date("H:i:s", $timestamp); },
+                $this->result['array']);
+        }
     }
 
     function pre_exec_function()
@@ -128,7 +96,9 @@ $date_sun_info = array_map(
         }
 
         if ($city = $this->_filter->filter_arg_value('city')) {
-            list($this->returned_params['latitude'], $this->returned_params['longitude']) = @explode(", " , $city);
+            list($latitude, $longitude) = pbx_get_city_lat_lng($city);
+            $this->returned_params['latitude']  = $latitude;
+            $this->returned_params['longitude'] = $longitude;
         }
     }
 }

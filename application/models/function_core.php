@@ -186,8 +186,8 @@ class function_core extends action
                 $this->_function_params->params[$arg_name] = '';
                 $reset_args[] = "\$$arg_name";
 
-            } else if (! $this->_function_params->param_exists($arg_name)) {
-                // this is the (first) empty arg
+            } else if (! isset($reset_args) and ! $this->_function_params->param_exists($arg_name)) {
+                // this is the (first) empty arg, creates the list of params to reset
                 $reset_args = [];
             }
         }
