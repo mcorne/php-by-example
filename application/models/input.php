@@ -160,7 +160,7 @@ class input extends object
 
         foreach ($this->_synopsis->arg_names as $index => $arg_name) {
             $comma = $index == $last_index ? ' ' : ',';
-            $args .= sprintf("_ARG_LINE_BREAK_\n    $%s%s // %s", $arg_name, $comma, $this->_synopsis->arg_descriptions[$index]);
+            $args .= sprintf("\n    $%s%s // %s", $arg_name, $comma, $this->_synopsis->arg_descriptions[$index]);
         }
 
         if ($args) {
@@ -293,7 +293,7 @@ class input extends object
 
     function get_vars_to_replace_by_inputs($source_code)
     {
-        preg_match_all('~^ +\$(\w+)[,;]? +// \[?(array|callable|bool|float|int|mixed|resource|string|DateInterval) &?\$\w+.*$~m', $source_code, $matches, PREG_SET_ORDER);
+        preg_match_all('~^    \$(\w+)[,;]? +// \[?(array|callable|bool|float|int|mixed|resource|string|DateInterval) &?\$\w+.*$~m', $source_code, $matches, PREG_SET_ORDER);
 
         return $matches;
     }
@@ -311,6 +311,9 @@ class input extends object
             // uses the function call as the source code
             $source_code = $function_call;
         }
+
+        // prefixes the additional params to get a proper line break, eg "    $mode; // string $mode"
+        $source_code = str_replace("\n    $", "_ARG_LINE_BREAK_\n    $", $source_code);
 
         return $source_code;
     }

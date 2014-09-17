@@ -372,8 +372,8 @@ span.helper_submit:hover
 
 span.method_name
 {
-    font-size: 1.1em;
-    font-weight: bold;
+    font-size: 1.3em;
+    font-weight: bolder;
 }
 
 span.prev_next_functions
