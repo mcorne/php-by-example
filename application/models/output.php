@@ -24,7 +24,7 @@ class output extends object
 
     function display_duration()
     {
-        $duration = (microtime(true) - $this->start_time);
+        $duration = (microtime(true) - $this->_application->start_time);
 
         // rounds the duration to one digit
         $rounded = (float)round($duration, 1) or

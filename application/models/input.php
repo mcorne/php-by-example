@@ -44,7 +44,7 @@ class input extends object
                      name="%2$s" style="height: %3$sem"
                    >%4$s</textarea>';
 
-        if (in_array($arg_name, (array) $this->no_input_args) or ! $this->_synopsis->is_input_arg($arg_name) and ! in_array($arg_name, (array) $this->input_args)) {
+        if (in_array($arg_name, (array) $this->_function->no_input_args) or ! $this->_synopsis->is_input_arg($arg_name) and ! in_array($arg_name, (array) $this->_function->input_args)) {
             // this is an arg that is not meant to be changed by the user, forces the html class of the arg to no_imput (gray color etc.)
             $arg_type = 'no_input';
         }
@@ -60,17 +60,17 @@ class input extends object
 
     function display_arg_helper($arg_type, $arg_name)
     {
-        $multi_select = isset($this->multi_select[$arg_name]) ? $this->multi_select[$arg_name] : null;
+        $multi_select = isset($this->_function->multi_select[$arg_name]) ? $this->_function->multi_select[$arg_name] : null;
 
-        if (isset($this->options_getter[$arg_name])) {
-            $arg_helper_options = $this->get_helper_options_from_getter($this->options_getter[$arg_name]);
+        if (isset($this->_function->options_getter[$arg_name])) {
+            $arg_helper_options = $this->get_helper_options_from_getter($this->_function->options_getter[$arg_name]);
 
-        } else if (isset($this->options_list[$arg_name])) {
-            $arg_helper_options = $this->enclose_options_with_quotes($this->options_list[$arg_name]);
+        } else if (isset($this->_function->options_list[$arg_name])) {
+            $arg_helper_options = $this->enclose_options_with_quotes($this->_function->options_list[$arg_name]);
             asort($arg_helper_options, SORT_NATURAL | SORT_FLAG_CASE);
 
-        } else if (isset($this->options_range[$arg_name])) {
-            $arg_helper_options = $this->get_helper_options_from_range($this->options_range[$arg_name]);
+        } else if (isset($this->_function->options_range[$arg_name])) {
+            $arg_helper_options = $this->get_helper_options_from_range($this->_function->options_range[$arg_name]);
 
         } else if ($constant_prefix = $this->_synopsis->is_boolean_arg($arg_name)) {
             $arg_helper_options = ['false', 'true'];
@@ -223,7 +223,7 @@ class input extends object
     {
         $callbacks_in_examples = [];
 
-        foreach ($this->examples as $example) {
+        foreach ($this->_function->examples as $example) {
             if (isset($example[$callback_index]) and $example[$callback_index]) {
                 $callback = $example[$callback_index];
 
@@ -254,13 +254,13 @@ class input extends object
     {
         $callbacks = [];
 
-        if (isset($this->helper_callbacks['index_in_example'])) {
-            $callbacks_in_examples = $this->get_callbacks_in_examples($this->helper_callbacks['index_in_example']);
+        if (isset($this->_function->helper_callbacks['index_in_example'])) {
+            $callbacks_in_examples = $this->get_callbacks_in_examples($this->_function->helper_callbacks['index_in_example']);
             $callbacks = array_merge($callbacks, $callbacks_in_examples);
         }
 
-        if (isset($this->helper_callbacks['function_name_pattern'])) {
-            $defined_function_callbacks = $this->get_defined_function_callbacks($this->helper_callbacks['function_name_pattern']);
+        if (isset($this->_function->helper_callbacks['function_name_pattern'])) {
+            $defined_function_callbacks = $this->get_defined_function_callbacks($this->_function->helper_callbacks['function_name_pattern']);
             $callbacks = array_merge($callbacks, $defined_function_callbacks);
         }
 
@@ -302,10 +302,10 @@ class input extends object
     {
         $function_call = $this->display_function_call();
 
-        if ($this->source_code) {
+        if ($this->_function->source_code) {
             // the function has some specific source code to display, eg "functions/datetime__add.php"
             // inject the funcion call in the source code
-            $source_code = str_replace('inject_function_call', $function_call, $this->source_code);
+            $source_code = str_replace('inject_function_call', $function_call, $this->_function->source_code);
         } else {
             // the function has no specific source code to display, eg 'functions/abs.php"
             // uses the function call as the source code

@@ -42,7 +42,7 @@
         <?php endif;?>
 
     <?php require "$this->application_path/views/top_bar.phtml";?>
-    <?php require "$this->application_path/views/{$this->action_name}.phtml";?>
+    <?php require "$this->application_path/views/{$this->_application->action_name}.phtml";?>
     <?php require "$this->application_path/views/bottom_bar.phtml";?>
 
     <script type="text/javascript" src="<?=$this->base_url;?>/interface.js"></script>

@@ -75,11 +75,11 @@ class function_params extends object
             // eg "$__array" linked to param name "$array" in array_pop()
             $value =  $this->get_param("__$var_name");
 
-        } else if (isset($this->returned_params[$var_name])) {
+        } else if (isset($this->_function->returned_params[$var_name])) {
             // the variable has a (returned) value linked to the var name itself,
             // eg the resource "handle" linked to the param name "handle" in fread()
             // eg a callback as a closure "callback" => "$odd", see filter_callback()
-            $value =  $this->returned_params[$var_name];
+            $value = $this->_function->returned_params[$var_name];
 
         } else   {
             $value = null;

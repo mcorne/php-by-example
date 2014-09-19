@@ -95,14 +95,13 @@ class translator extends object
             $language_id = $this->_language->language_id;
         }
 
-        $translators = $this->_get_translators();
         $email = $this->obfuscate_email($email);
 
-        if (! isset($translators[$email])) {
+        if (! isset($this->translators[$email])) {
             return false;
         }
 
-        $translator_allowed_languages = $translators[$email];
+        $translator_allowed_languages = $this->translators[$email];
         $is_valid_translator = ($translator_allowed_languages == self::ANY_LANGUAGE or preg_match("~\b$language_id\b~", $translator_allowed_languages));
 
         return $is_valid_translator;
@@ -117,10 +116,9 @@ class translator extends object
 
     function show_translators($email_pattern = null)
     {
-        $translators = $this->_get_translators();
         $translators_details = [];
 
-        foreach ($translators as $obfuscated_email => $language_ids) {
+        foreach ($this->translators as $obfuscated_email => $language_ids) {
             $email = $this->deobfuscate_email($obfuscated_email);
 
             if (! $email_pattern or preg_match("~" . preg_quote($email_pattern) . "~", $email)) {
@@ -138,7 +136,6 @@ class translator extends object
 
     function update_translator($email, $language_ids)
     {
-        $translators = $this->_get_translators();
         $obfuscated_email = $this->obfuscate_email($email);
 
         if ($language_ids and
@@ -148,7 +145,7 @@ class translator extends object
             throw new Exception('unexpected language id');
         }
 
-        $updated_translators = $translators;
+        $updated_translators = $this->translators;
 
         if ($language_ids) {
             $updated_translators[$obfuscated_email] = $language_ids;
@@ -157,7 +154,7 @@ class translator extends object
             unset($updated_translators[$obfuscated_email]);
         }
 
-        if ($updated_translators !=  $translators) {
+        if ($updated_translators !=  $this->translators) {
             $translators_filename = $this->get_translators_filename();
             $this->_file->write_array($translators_filename, $updated_translators);
             $is_translator_updated = true;

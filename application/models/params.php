@@ -40,7 +40,9 @@ class params extends object
 
     function _get_params()
     {
-        return $_GET + $_POST; // url params are to be picked up first
+        $params = $_GET + $_POST; // url params are to be picked up first
+
+        return $params;
     }
 
     function _get_php_manual_location()

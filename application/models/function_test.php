@@ -57,13 +57,13 @@ class function_test extends action
     function process($function_basename = null)
     {
         if (! $function_basename) {
-            $function_basename = $this->function_basename;
+            $function_basename = $this->_application->function_basename;
         }
 
         list($test_results, $is_function_available) = $this->test_examples($function_basename);
         $expected_results = $this->get_expected_results($function_basename, $test_results);
         $test_validations = $this->validate_test_results($test_results, $expected_results);
-        $obsolete_expected_results = count($expected_results) - count($this->examples) > 0;
+        $obsolete_expected_results = count($expected_results) - count($this->_function->examples) > 0;
 
         return [$test_validations, $obsolete_expected_results, $is_function_available];
     }
@@ -74,18 +74,22 @@ class function_test extends action
         parent::run();
     }
 
-    function test_example($function_basename, $example_id)
+    function test_example($example_id)
     {
-        $function = $this->_function_factory->create_function_object($function_basename);
-        $function->test_example_id = $example_id;
-        $function->process();
+        $this->_function_params->reset_dynamic_properties();
+        $this->_function->reset_dynamic_properties();
 
-        if($function->result) {
-            $test_result['result'] = $this->_converter->convert_resource_to_text($function->result);
+        // resets the function params to be set from the given example
+        $this->_function_params->test_example_id = $example_id;
+
+        $this->_function->process();
+
+        if($this->_function->result) {
+            $test_result['result'] = $this->_converter->convert_resource_to_text($this->_function->result);
         }
 
-        if($function->errors) {
-            $test_result['errors'] = $function->errors;
+        if($this->_function->errors) {
+            $test_result['errors'] = $this->_function->errors;
         }
 
         return $test_result;
@@ -93,39 +97,30 @@ class function_test extends action
 
     function test_examples($function_basename)
     {
-        // resets some inherited properties
-        // eg the synopsis, so the actual function synopsis will be fetched if needed
-        // note that it would have been set by the first function that needed it, eg "acos",
-        // and inherited as such when the test is run through test_all
-        unset($this->_synopsis, $this->test_not_validated, $this->test_not_to_run);
-
         // forces the test to run in english so the returned messages are always validated in English
         $language_id = $this->_language->language_id;
         $this->_language->language_id = 'en';
 
-        $function = $this->_function_factory->create_function_object($function_basename);
-        $this->set_properties($function);
+        $this->_function_factory->create_function_object($function_basename);
         $test_results = [];
 
-        foreach (array_keys($this->examples) as $example_id) {
-            $example = print_r($this->examples[$example_id], true);
-
-            if (! ($this->test_not_to_run === true or in_array($example_id, (array) $this->test_not_to_run))) {
-                $test_results[$example_id] = $this->test_example($function_basename, $example_id);
+        foreach (array_keys($this->_function->examples) as $example_id) {
+            if (! ($this->_function->test_not_to_run === true or in_array($example_id, (array) $this->_function->test_not_to_run))) {
+                $test_results[$example_id] = $this->test_example($example_id);
             }
         }
 
-        $is_function_available = $function->function_exists(true);
-
         // restores the user language
         $this->_language->language_id = $language_id;
+
+        $is_function_available = $this->_function->function_exists(true);
 
         return [$test_results, $is_function_available];
     }
 
     function validate_test_result($test_result, $expected_result, $example_id)
     {
-        if ($this->test_not_validated === true or in_array($example_id, (array) $this->test_not_validated)) {
+        if ($this->_function->test_not_validated === true or in_array($example_id, (array) $this->_function->test_not_validated)) {
             // the test is considered always valid for this function, eg random generators, list of functions or constants etc.
             $test_validation['status'] = 'test_not_validated';
 

@@ -50,7 +50,15 @@ class function_test_all extends action
         $function_list = $this->_function_list->function_list;
         $function_basenames = array_keys($function_list);
 
-        $functions_test_results = array_map([$this->_function_test, 'process'], $function_basenames);
+        foreach ($function_basenames as $function_basename) {
+            $this->_examples->reset_dynamic_properties();
+            $this->_filter->reset_dynamic_properties();
+            $this->_function_test->reset_dynamic_properties();
+            $this->_input->reset_dynamic_properties();
+            $this->_synopsis->reset_dynamic_properties();
+            $functions_test_results[] = $this->_function_test->process($function_basename);
+        }
+
         $functions_test_results = array_combine($function_basenames, $functions_test_results);
 
         list($this->functions, $this->totals, $this->test_count_by_function, $this->test_failed_counts) =

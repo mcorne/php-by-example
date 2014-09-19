@@ -54,7 +54,7 @@ class function_list extends object
 
     function _get_function_matches()
     {
-        $pattern = preg_quote($this->function_basename, '~');
+        $pattern = preg_quote($this->_application->function_basename, '~');
         $function_matches = preg_grep("~$pattern~i", $this->function_list);
 
         return $function_matches;
@@ -99,7 +99,7 @@ class function_list extends object
     function get_function_name_around($direction)
     {
         $function_basenames = array_keys($this->function_list);
-        $index = array_search($this->function_basename, $function_basenames) + $direction;
+        $index = array_search($this->_application->function_basename, $function_basenames) + $direction;
         $function_name = isset($function_basenames[$index]) ? $this->function_list[ $function_basenames[$index] ] : null;
 
         return $function_name;

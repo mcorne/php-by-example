@@ -62,7 +62,9 @@ class synopsis extends object
             throw new Exception('cannot get function name');
         }
 
-        return $match[1];
+        $function_name = $match[1];
+
+        return $function_name;
     }
 
     function _get_manual_function_name()
@@ -111,11 +113,15 @@ class synopsis extends object
 
     function _get_synopsis_fixed()
     {
-        if ($this->_parent and isset($this->_parent->synopsis_fixed)) {
-            $synopsis_fixed = $this->_parent->synopsis_fixed;
+        if (! isset(self::$objects['function'])) {
+            // eg called from the layout to set the onload() when no function is selected
+            $synopsis_fixed = null;
 
-        } else if ($this->synopsis) {
-            $synopsis_fixed = $this->synopsis;
+        } else if ($this->_function->synopsis_fixed) {
+            $synopsis_fixed = $this->_function->synopsis_fixed;
+
+        } else if ($this->_function->synopsis) {
+            $synopsis_fixed = $this->_function->synopsis;
             $synopsis_fixed = str_replace('[, array $... ]', '', $synopsis_fixed);
             $synopsis_fixed = str_replace(['&quot;', '&#039;'], ['"', "'"], $synopsis_fixed);
 
@@ -128,8 +134,8 @@ class synopsis extends object
 
     function get_arg_constant_name_prefix($arg_name)
     {
-        if (isset($this->constant_prefix[$arg_name])) {
-            $constant_prefix = $this->constant_prefix[$arg_name];
+        if (isset($this->_function->constant_prefix[$arg_name])) {
+            $constant_prefix = $this->_function->constant_prefix[$arg_name];
 
         } else if (preg_match('~(int|mixed) \$' . $arg_name . ' = ([A-Z]+)_~', $this->synopsis_fixed, $match)) {
             $constant_prefix = $constant_prefix = $match[2];

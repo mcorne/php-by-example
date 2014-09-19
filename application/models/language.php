@@ -37,7 +37,7 @@ class language extends object
 
     function _get_language_id()
     {
-        $language_id = isset($this->uri[0]) ? $this->uri[0] : null;
+        $language_id = isset($this->_application->uri[0]) ? $this->_application->uri[0] : null;
 
         if (! $this->is_valid_language($language_id)) {
             $language_id = $this->get_valid_browser_language();

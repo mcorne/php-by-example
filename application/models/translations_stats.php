@@ -14,12 +14,14 @@ class translations_stats extends action
 {
     function run()
     {
+        $current_language_id = $this->_language->language_id;
+
         foreach ($this->_language->languages as $language_id => $language) {
             if ($language_id != 'en') {
-                $translation = new translation(['application_path' => $this->application_path, 'application_env' => $this->application_env]);
-                $translation->_language->language_id = $language_id;
+                $this->_translation->reset_dynamic_properties();
+                $this->_language->language_id = $language_id;
 
-                list($machine_translation_ids, $fixed_translation_ids, $validated_translation_ids) = $translation->calculate_language_translation_stats();
+                list($machine_translation_ids, $fixed_translation_ids, $validated_translation_ids) = $this->_translation->calculate_language_translation_stats();
 
                 $language_english_name = $language['english_name'];
 
@@ -42,6 +44,8 @@ class translations_stats extends action
 
         ksort($translations_stats);
         $this->translations_stats = $translations_stats;
+
+        $this->_language->language_id = $current_language_id;
 
         parent::run();
     }

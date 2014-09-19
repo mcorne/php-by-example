@@ -23,9 +23,9 @@ class abs extends function_core
         null, // placeholder, see below
     ];
 
-    function __construct($mixed = null)
+    function __construct($config = null)
     {
-        parent::__construct($mixed);
+        parent::__construct($config);
 
         $this->examples[9] = str_repeat('a', 1000 + 1);
     }

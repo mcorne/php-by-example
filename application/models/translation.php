@@ -15,10 +15,10 @@ class translation extends object
 
     public $keys = ['message_id', 'date', 'translator', 'action', 'translated_message', 'comment'];
 
-    function __construct($mixed = null)
+    function __construct($config = null)
     {
         date_default_timezone_get('UTC');
-        parent::__construct($mixed);
+        parent::__construct($config);
     }
 
     function _get_translations_last_version()
@@ -104,12 +104,12 @@ class translation extends object
         return [$machine_translation_ids, $fixed_translation_ids, $validated_translation_ids];
     }
 
-    function calculate_language_translators_stats($language_id)
+    function calculate_language_translators_stats()
     {
         $translations_log_entries = $this->_file->read_csv_lines($this->translations_log_filename, $this->keys);
         rsort($translations_log_entries);
 
-        $obfuscate_email = (! $this->_translator->is_valid_translator($this->_params->email, $language_id) or
+        $obfuscate_email = (! $this->_translator->is_valid_translator($this->_params->email, $this->_language->language_id) or
                             ! $this->_translator->is_valid_translation_key($this->_params->translation_key, $this->_params->email));
 
         $translators_stats = [];
@@ -125,8 +125,8 @@ class translation extends object
                 $translators_stats[$translator] = [
                     'email'                        => $translator,
                     'fixed_translations_count'     => 0,
-                    'has_account'                  => $this->_translator->is_valid_translator($translator, $language_id),
-                    'language_id'                  => $language_id,
+                    'has_account'                  => $this->_translator->is_valid_translator($translator, $this->_language->language_id),
+                    'language_id'                  => $this->_language->language_id,
                     'last_input_date'              => $translation_log_entry['date'],
                     'obfuscate_email'              => $obfuscate_email,
                     'translations_total'           => 0,
@@ -144,14 +144,14 @@ class translation extends object
             $translators_stats[$translator]['translations_total']++;
         }
 
-        $inactive_translators = $this->_translator->get_inactive_translators($translators_stats, $language_id);
+        $inactive_translators = $this->_translator->get_inactive_translators($translators_stats, $this->_language->language_id);
 
         foreach ($inactive_translators as $inactive_translator) {
                 $translators_stats[$inactive_translator] = [
                     'email'                        => $inactive_translator,
                     'fixed_translations_count'     => 0,
                     'has_account'                  => true,
-                    'language_id'                  => $language_id,
+                    'language_id'                  => $this->_language->language_id,
                     'last_input_date'              => null,
                     'obfuscate_email'              => $obfuscate_email,
                     'translations_total'           => 0,

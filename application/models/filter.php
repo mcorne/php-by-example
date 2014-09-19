@@ -70,7 +70,7 @@ class filter extends object
             if (isset($available_closures[$callback_name])) {
                 // this is an existing closure, adds a param with the closure name
                 $param_name = substr($callback_name, 1);
-                $this->_parent->returned_params[$param_name] = $available_closures[$callback_name]; // TODO: quick fix
+                $this->_function->returned_params[$param_name] = $available_closures[$callback_name];
             }
             // else: the callback is an unset variable, this will be caught by the function itself
 

@@ -61,16 +61,16 @@ class examples extends object
 
     function get_example($example_id)
     {
-        if (! $this->examples) {
+        if (! $this->_function->examples) {
             return [];
         }
 
-        if (! $example_id or ! array_key_exists($example_id, $this->examples)) {
+        if (! $example_id or ! array_key_exists($example_id, $this->_function->examples)) {
             // the example id is empty or invalid, defaults to the first example
-            $example_id = key($this->examples);
+            $example_id = key($this->_function->examples);
         }
 
-        $example = $this->examples[$example_id];
+        $example = $this->_function->examples[$example_id];
         $example = $this->combine_arg_names_to_example_values($example);
 
         return $example;
