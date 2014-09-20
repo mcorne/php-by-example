@@ -25,8 +25,14 @@ class object
             self::$config = $config;
         }
 
-        $class = get_class($this);
-        self::$objects[$class] = $this;
+        $classname = get_class($this);
+        self::$objects[$classname] = $this;
+    }
+
+    function __destruct()
+    {
+        $classname = get_class($this);
+        unset(self::$objects[$classname]);
     }
 
     function __get($name)
@@ -104,5 +110,16 @@ class object
         foreach ($dynamic_properties as $property) {
             unset($this->$property);
         }
+    }
+
+    function reset_references_to_object($object_name)
+    {
+        $property = "_$object_name";
+
+        foreach (self::$objects as $object) {
+            unset($object->$property);
+        }
+
+        unset(self::$objects[$object_name]);
     }
 }

@@ -51,12 +51,9 @@ class function_test_all extends action
         $function_basenames = array_keys($function_list);
 
         foreach ($function_basenames as $function_basename) {
-            $this->_examples->reset_dynamic_properties();
-            $this->_filter->reset_dynamic_properties();
-            $this->_function_test->reset_dynamic_properties();
-            $this->_input->reset_dynamic_properties();
-            $this->_synopsis->reset_dynamic_properties();
             $functions_test_results[] = $this->_function_test->process($function_basename);
+            $this->_synopsis->reset_dynamic_properties();
+            $this->_function_test->reset_references_to_object('function');
         }
 
         $functions_test_results = array_combine($function_basenames, $functions_test_results);

@@ -76,11 +76,11 @@ class function_test extends action
 
     function test_example($example_id)
     {
-        $this->_function_params->reset_dynamic_properties();
-        $this->_function->reset_dynamic_properties();
-
         // resets the function params to be set from the given example
+        $this->_function_params->reset_dynamic_properties();
         $this->_function_params->test_example_id = $example_id;
+        // resets the function result or errors
+        $this->_function->reset_dynamic_properties();
 
         $this->_function->process();
 

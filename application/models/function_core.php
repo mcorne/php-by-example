@@ -155,11 +155,12 @@ class function_core extends action
 
     function process()
     {
-        try {
-            $this->errors = [];
-            $this->returned_params = [];
+        $this->errors = [];
+        $this->returned_params = [];
 
-            set_error_handler([$this, 'add_error']);
+        set_error_handler([$this, 'add_error']);
+
+        try {
 
             $this->function_exists();
 
@@ -169,11 +170,11 @@ class function_core extends action
             $this->result = $this->exec_function();
             $this->post_exec_function();
 
-            restore_error_handler();
-
         } catch (Exception $e) {
             $this->add_error($e->getCode(), $e->getMessage());
         }
+
+        restore_error_handler();
     }
 
     function reset_args_after_first_empty_arg()
