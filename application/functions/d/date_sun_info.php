@@ -7,6 +7,8 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+// changes to this class may affect other classes
+
 require_once 'custom-functions/pbx_cities_lat_lng.php';
 
 class date_sun_info extends function_core
@@ -88,8 +90,9 @@ $date_sun_info = array_map(
 
     function pre_exec_function()
     {
-        $timezone = $this->_filter->filter_arg_value('timezone');
-        date_default_timezone_set($timezone);
+        if ($timezone = $this->_filter->filter_arg_value('timezone')) {
+            date_default_timezone_set($timezone);
+        }
 
         if ($time = $this->_filter->filter_arg_value('time')) {
             $this->returned_params['timestamp'] = strtotime($time);

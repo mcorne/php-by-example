@@ -33,7 +33,7 @@ class parser extends object
         $this->tokens = token_get_all('<?php ' . $value);
         array_shift($this->tokens);
         $this->current = 0;
-        $this->constants = null;
+        unset($this->constants);
     }
 
     function get_next_token()

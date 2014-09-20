@@ -61,16 +61,20 @@ class input extends object
     function display_arg_helper($arg_type, $arg_name)
     {
         $multi_select = isset($this->_function->multi_select[$arg_name]) ? $this->_function->multi_select[$arg_name] : null;
+        $indexed_options = true;
 
         if (isset($this->_function->options_getter[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_getter($this->_function->options_getter[$arg_name]);
 
         } else if (isset($this->_function->options_list[$arg_name])) {
             $arg_helper_options = $this->enclose_options_with_quotes($this->_function->options_list[$arg_name]);
-            asort($arg_helper_options, SORT_NATURAL | SORT_FLAG_CASE);
 
         } else if (isset($this->_function->options_range[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_range($this->_function->options_range[$arg_name]);
+
+        } else if (isset($this->_function->commented_options[$arg_name])) {
+            $arg_helper_options = $this->format_commented_options($this->_function->commented_options[$arg_name]);
+            $indexed_options = false;
 
         } else if ($constant_prefix = $this->_synopsis->is_boolean_arg($arg_name)) {
             $arg_helper_options = ['false', 'true'];
@@ -86,10 +90,36 @@ class input extends object
             return null;
         }
 
-        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options, $multi_select);
+        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options, $multi_select, $indexed_options);
         $html .= $this->display_arg_helper_mark($arg_name);
 
         return $html;
+    }
+
+    function display_arg_helper_assoc_options($arg_helper_options)
+    {
+        $options = '';
+
+        foreach ($arg_helper_options as $text => $value) {
+            $text = htmlspecialchars($text);
+            $text = str_replace(' ', '&nbsp;', $text);
+            $value = htmlspecialchars($value);
+            $options .= "<option value=\"$value\">$text</option>";
+        }
+
+        return $options;
+    }
+
+    function display_arg_helper_indexed_options($arg_helper_options)
+    {
+        $options = '';
+
+        foreach ($arg_helper_options as $option) {
+            $option = htmlspecialchars($option);
+            $options .= "<option>$option</option>";
+        }
+
+        return $options;
     }
 
     function display_arg_helper_mark($arg_name)
@@ -105,7 +135,7 @@ class input extends object
         return $helper_mark;
     }
 
-    function display_arg_helper_select($arg_name, $arg_helper_options, $multi_select)
+    function display_arg_helper_select($arg_name, $arg_helper_options, $multi_select, $indexed_options)
     {
         if ($multi_select === true or $multi_select === null and substr($arg_name, -1) == 's') {
             // displays a multi-select with a checkmark to validate the selection
@@ -127,7 +157,7 @@ class input extends object
                        >%2$s</select>';
         }
 
-        // the separation between the select and the span must not be removed
+        // the separation between the select and the span must not be removed for alignment purposes
         $format .= "\n";
         $format .= '<span
                      class="helper_submit"
@@ -137,15 +167,10 @@ class input extends object
 
         $options = "<option value=''>$empty_option</option>";
 
-        foreach ($arg_helper_options as $value => $text) {
-            $text = htmlspecialchars($text);
-
-            if (is_string($value)) {
-                $value = htmlspecialchars($value);
-                $options .= "<option value=\"$value\">$text</option>";
-            } else {
-                $options .= "<option>$text</option>";
-            }
+        if ($indexed_options) {
+            $options .= $this->display_arg_helper_indexed_options($arg_helper_options);
+        } else {
+            $options .= $this->display_arg_helper_assoc_options($arg_helper_options);
         }
 
         $helper_select = sprintf($format, $arg_name, $options);
@@ -216,6 +241,34 @@ class input extends object
             }
         }
 
+        sort($options, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return $options;
+    }
+
+    function format_commented_options($commented_options)
+    {
+        $options = [];
+
+        foreach ($commented_options as $commented_option) {
+            list($value, $comment) = $commented_option;
+
+            if (is_string($value)) {
+                $value = '"' . $value . '"';
+            }
+
+            if ($comment[0] == ' ') {
+                $comment = preg_replace('~^( +)~', '$1 // ', $comment);
+            } else {
+                $comment = " // $comment";
+            }
+
+            $text = $value . $comment;
+            $options[$text] = $value;
+        }
+
+        ksort($options, SORT_NATURAL | SORT_FLAG_CASE);
+
         return $options;
     }
 
@@ -274,7 +327,6 @@ class input extends object
     {
         $options = call_user_func($getter_function);
         $options = $this->enclose_options_with_quotes($options);
-        sort($options, SORT_NATURAL | SORT_FLAG_CASE);
 
         return $options;
     }

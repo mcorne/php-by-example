@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-15T10:02:41+00:00
+// generated automatically 2014-09-20T15:52:48+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -110,6 +110,8 @@ return array (
   'current' => 'current',
   'date' => 'date',
   'date_sun_info' => 'date_sun_info',
+  'date_sunrise' => 'date_sunrise',
+  'date_sunset' => 'date_sunset',
   'datetime__add' => 'DateTime::add',
   'decbin' => 'decbin',
   'dechex' => 'dechex',
