@@ -74,13 +74,11 @@ class function_test extends action
         parent::run();
     }
 
-    function test_example($example_id)
+    function test_example($example_id, $function_basename)
     {
-        // resets the function params to be set from the given example
-        $this->_function_params->reset_dynamic_properties();
+        $this->_function_factory->create_function_object($function_basename);
+        // sets the function params to the given example
         $this->_function_params->test_example_id = $example_id;
-        // resets the function result or errors
-        $this->_function->reset_dynamic_properties();
 
         $this->_function->process();
 
@@ -106,7 +104,7 @@ class function_test extends action
 
         foreach (array_keys($this->_function->examples) as $example_id) {
             if (! ($this->_function->test_not_to_run === true or in_array($example_id, (array) $this->_function->test_not_to_run))) {
-                $test_results[$example_id] = $this->test_example($example_id);
+                $test_results[$example_id] = $this->test_example($example_id, $function_basename);
             }
         }
 

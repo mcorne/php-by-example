@@ -334,12 +334,8 @@ config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixe
     {
         $option = ltrim($option, '-');
 
-        if ($option == 'h') {
-            throw new Exception($this->get_help());
-        }
-
         if (! in_array($option, ['c', 'r'])) {
-            throw new Exception('bad option');
+            throw new Exception($this->get_help());
         }
 
         $function_manual_pagenames = $this->get_function_manual_pagenames($functions);

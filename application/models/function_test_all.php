@@ -49,17 +49,14 @@ class function_test_all extends action
     {
         $function_list = $this->_function_list->function_list;
         $function_basenames = array_keys($function_list);
-
-        foreach ($function_basenames as $function_basename) {
-            $functions_test_results[] = $this->_function_test->process($function_basename);
-            $this->_synopsis->reset_dynamic_properties();
-            $this->_function_test->reset_references_to_object('function');
-        }
-
+        $functions_test_results = array_map([$this->_function_test, 'process'], $function_basenames);
         $functions_test_results = array_combine($function_basenames, $functions_test_results);
 
         list($this->functions, $this->totals, $this->test_count_by_function, $this->test_failed_counts) =
             $this->summarize_test_results($functions_test_results, $function_list);
+
+        // resets the function name that has been set by the last test for displaying purposes
+        $this->_synopsis->function_name = null;
 
         parent::run();
     }

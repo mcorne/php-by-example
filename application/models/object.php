@@ -25,21 +25,14 @@ class object
             self::$config = $config;
         }
 
-        $classname = get_class($this);
-        self::$objects[$classname] = $this;
-    }
-
-    function __destruct()
-    {
-        $classname = get_class($this);
-        unset(self::$objects[$classname]);
+        $this->register_object();
     }
 
     function __get($name)
     {
         if ($name[0] == '_') {
             // this is the name of an object as it is prefixed with "_", eg "_parser", gets or creates the object
-            $this->$name = $this->get_object($name);
+            $this->$name = &$this->get_object($name);
 
         } else if (isset(self::$config[$name])) {
             // this is a config entry, creates a shorcut to the config entry, eg $this->application_path
@@ -53,7 +46,16 @@ class object
         return $this->$name;
     }
 
-    function create_object($classname, $directory = null, $object_name = null)
+    function create_dependant_objects()
+    {
+        foreach ($this->dependants as $classname) {
+            if (isset(self::$objects[$classname])) {
+                $this->create_object($classname);
+            }
+        }
+    }
+
+    function create_object($classname, $directory = null, $alias = null)
     {
         if (! $directory) {
             // defaults to the "models" directory
@@ -63,17 +65,17 @@ class object
         require_once "$directory/$classname.php";
         $object = new $classname();
 
-        if ($object_name) {
-            self::$objects[$object_name] = $object;
+        if ($alias) {
+            $object->set_alias_object($alias);
         }
 
         return $object;
     }
 
-    function get_object($name)
+    function &get_object($object_name)
     {
         // the class name is meant to be the same as the object name without the "_" prefix, eg "parser", removes the "_" prefix
-        $classname = substr($name, 1);
+        $classname = substr($object_name, 1);
 
         if (! isset(self::$objects[$classname])) {
             $this->create_object($classname);
@@ -82,9 +84,9 @@ class object
         return self::$objects[$classname];
     }
 
-    function get_property($name)
+    function get_property($property_name)
     {
-        $get_method = "_get_$name";
+        $get_method = "_get_$property_name";
 
         if (method_exists($this, $get_method)) {
             // there is a getter method to get the property, gets the property
@@ -92,7 +94,7 @@ class object
 
         } else if (method_exists($this, '_get')) {
             // there is a getter method for the class, gets the property
-            $property = $this->_get($name);
+            $property = $this->_get($property_name);
 
         } else {
             $property = null;
@@ -101,25 +103,27 @@ class object
         return $property;
     }
 
-    function reset_dynamic_properties()
+    function register_object()
     {
-        $object_properties = array_keys(get_object_vars($this));
-        $fixed_properties = array_keys(get_class_vars(get_class($this)));
-        $dynamic_properties = array_diff($object_properties, $fixed_properties);
-
-        foreach ($dynamic_properties as $property) {
-            unset($this->$property);
-        }
+        $classname = get_class($this);
+        self::$objects[$classname] = $this;
     }
 
-    function reset_references_to_object($object_name)
+    function set_alias_object($alias)
     {
-        $property = "_$object_name";
-
-        foreach (self::$objects as $object) {
-            unset($object->$property);
+        if (isset(self::$objects[$alias])) {
+            $previous_object = self::$objects[$alias];
+            $previous_object->unregister_object();
         }
 
-        unset(self::$objects[$object_name]);
+        $this->alias = $alias;
+        $this->create_dependant_objects();
+        self::$objects[$alias] = $this;
+    }
+
+    function unregister_object()
+    {
+        $classname = get_class($this);
+        unset(self::$objects[$classname]);
     }
 }

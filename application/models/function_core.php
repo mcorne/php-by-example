@@ -20,7 +20,10 @@ require_once 'action.php';
 
 class function_core extends action
 {
+    public $dependants = ['function_params', 'synopsis'];
+
     public $examples = [[]]; // one example with no arg by default
+    public $alias; // a fixed propertty, must not be reset
 
     function _get_see_also_functions()
     {

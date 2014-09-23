@@ -67,12 +67,8 @@ class update_translations extends object
 
         foreach ($language_ids as $language_id) {
             $this->_language->language_id = $language_id;
-
-            unset(
-                $this->_translation->translations_log_filename,
-                $this->_translation->translations_log_entries,
-                $this->_message_translation->translated_messages_filename,
-                $this->_message_translation->translated_messages);
+            $this->create_object('translation');
+            $this->create_object('message_translation');
 
             list($validated_translations, $updated_translation_ids[$language_id]) = $this->get_validated_translations();
 
