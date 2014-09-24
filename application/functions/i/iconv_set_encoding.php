@@ -19,11 +19,11 @@ class iconv_set_encoding extends function_core
     public $options_list = ['type' => ['input_encoding', 'output_encoding', 'internal_encoding']];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// shows the new encoding
-$mixed = iconv_get_encoding();
-';
+        // shows the new encoding
+        $mixed = iconv_get_encoding();
+    ';
 
     public $synopsis = 'bool iconv_set_encoding ( string $type , string $charset )';
 

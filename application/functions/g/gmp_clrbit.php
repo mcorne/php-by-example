@@ -20,16 +20,16 @@ class gmp_clrbit extends function_core
     ];
 
     public $source_code = '
-$_a = gmp_init(
-    $number, // mixed $number
-    $base // [int $base = 0]
-);
+        $_a = gmp_init(
+            $number, // mixed $number
+            $base // [int $base = 0]
+        );
 
-inject_function_call
+        inject_function_call
 
-// shows the result
-$string = gmp_strval($a, 2);
-';
+        // shows the result
+        $string = gmp_strval($a, 2);
+    ';
 
     public $synopsis = 'void gmp_clrbit ( resource $a , int $index )';
 

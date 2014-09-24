@@ -40,15 +40,15 @@ class array_walk extends function_core
     public $input_args = '__array';
 
     public $source_code = '
-// custom callback functions
-$_test_alter = function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; };
-$_test_print = function (&$item, $key) { $item = "$key holds $item\n"; };
+        // custom callback functions
+        $_test_alter = function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; };
+        $_test_print = function (&$item, $key) { $item = "$key holds $item\n"; };
 
-$_array =
-    $__array; // array $__array
+        $_array =
+            $__array; // array $__array
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'bool array_walk ( array &$array , callable $callback [, mixed $userdata = NULL ] )';
 

@@ -44,14 +44,14 @@ class iconv extends function_core
     ];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// enter non ASCII characters in hex in $_str if $_in_charset is not UTF-8
-// the converted $_string may not display properly if $_out_charset is not UTF-8
+        // enter non ASCII characters in hex in $_str if $_in_charset is not UTF-8
+        // the converted $_string may not display properly if $_out_charset is not UTF-8
 
-// shows the encoding difference in hexadecimal
-$hex = unpack("H*in_charset", $_str) + unpack("H*out_charset", $_string);
-';
+        // shows the encoding difference in hexadecimal
+        $hex = unpack("H*in_charset", $_str) + unpack("H*out_charset", $_string);
+    ';
 
     public $synopsis = 'string iconv ( string $in_charset , string $out_charset , string $str )';
 

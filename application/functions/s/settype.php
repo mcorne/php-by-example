@@ -27,11 +27,11 @@ class settype extends function_core
     public $options_list = ['type' => ['boolean', 'bool', 'integer', 'int', 'float', 'double', 'string', 'array', 'object', 'null']];
 
     public $source_code = '
-$_var =
-    $__var; // mixed $__var
+        $_var =
+            $__var; // mixed $__var
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'bool settype ( mixed &$var , string $type )';
 }

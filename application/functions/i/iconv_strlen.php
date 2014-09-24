@@ -16,10 +16,10 @@ class iconv_strlen extends function_core
     public $options_getter = ['charset'  => 'mb_list_encodings'];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// enter non ASCII characters in hex in $_str if $_charset is not UTF-8
-';
+        // enter non ASCII characters in hex in $_str if $_charset is not UTF-8
+    ';
 
     public $synopsis = 'int iconv_strlen ( string $str [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;) ] )';
 }

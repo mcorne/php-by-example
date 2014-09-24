@@ -23,12 +23,12 @@ class jdtojewish extends function_core
     public $multi_select = ['fl' => true];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// converts the date to UTF-8 for readability if $_hebrew is true
-if ($_hebrew)
-    $date = iconv("ISO-8859-8", "UTF-8", $string);
-';
+        // converts the date to UTF-8 for readability if $_hebrew is true
+        if ($_hebrew)
+            $date = iconv("ISO-8859-8", "UTF-8", $string);
+    ';
 
     public $synopsis = 'string jdtojewish ( int $juliandaycount [, bool $hebrew = false [, int $fl = 0 ]] )';
 

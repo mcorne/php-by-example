@@ -33,18 +33,18 @@ class uasort extends function_core
     public $input_args = '__array';
 
     public $source_code = '
-// custom callback function
-$_compare_func = function ($a, $b) {
-    if ($a === $b) return 0;
-    if ($a > $b)   return 1;
-    return -1;
-};
+        // custom callback function
+        $_compare_func = function ($a, $b) {
+            if ($a === $b) return 0;
+            if ($a > $b)   return 1;
+            return -1;
+        };
 
-$_array =
-    $__array; // array $__array
+        $_array =
+            $__array; // array $__array
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'bool uasort ( array &$array , callable $value_compare_func )';
 

@@ -15,11 +15,11 @@ class gmp_or extends function_core
     ];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// shows the result
-$string = gmp_strval($resource, 16);
-';
+        // shows the result
+        $string = gmp_strval($resource, 16);
+    ';
 
     public $synopsis = 'resource gmp_or ( resource $a , resource $b )';
 

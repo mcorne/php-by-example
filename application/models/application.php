@@ -27,6 +27,10 @@ class application extends object
 
     function _get_uri()
     {
+        if (! isset($_SERVER['REQUEST_URI'])) {
+            return null;
+        }
+
         list($uri) = explode('?', $_SERVER['REQUEST_URI'], 2);
         $uri = str_replace('/php-by-example', '', $uri);
         $uri = trim($uri, '/');

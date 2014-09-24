@@ -18,7 +18,7 @@ class translators_stats extends action
 
         foreach ($this->_language->languages as $language_id => $language) {
             if ($language_id != 'en') {
-                $this->_translation->reset_dynamic_properties();
+                $this->create_object('translation');
                 $this->_language->language_id = $language_id;
 
                 $language_english_name = $language['english_name'];

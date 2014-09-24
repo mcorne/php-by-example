@@ -25,12 +25,12 @@ class preg_replace_callback extends function_core
     public $helper_callbacks = ['index_in_example' => 1];
 
     public $source_code = '
-// custom callback functions
-$to_lower  = function ($matches) { return strtolower($matches[0]); };
-$next_year = function ($matches) { return $matches[1] . ($matches[2] + 1); };
+        // custom callback functions
+        $to_lower  = function ($matches) { return strtolower($matches[0]); };
+        $next_year = function ($matches) { return $matches[1] . ($matches[2] + 1); };
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'mixed preg_replace_callback ( mixed $pattern , callable $callback , mixed $subject [, int $limit = -1 [, int &$count ]] )';
 

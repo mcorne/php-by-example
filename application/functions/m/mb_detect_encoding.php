@@ -25,10 +25,10 @@ class mb_detect_encoding extends function_core
     ];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// enter non UTF-8 characters in hex in $_str
-';
+        // enter non UTF-8 characters in hex in $_str
+    ';
 
     public $synopsis = 'string mb_detect_encoding ( string $str [, mixed $encoding_list = mb_detect_order() [, bool $strict = false ]] )';
 }

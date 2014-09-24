@@ -60,15 +60,15 @@ class array_multisort extends function_core
     public $input_args = ['__array1', '__array2', '__array3'];
 
     public $source_code = '
-$_array1 =
-    $__array1; // array $__array1;
-$_array2 =
-    $__array2; // array $__array2;
-$_array3 =
-    $__array3; // array $__array3;
+        $_array1 =
+            $__array1; // array $__array1;
+        $_array2 =
+            $__array2; // array $__array2;
+        $_array3 =
+            $__array3; // array $__array3;
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis       = 'bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, mixed $... ]]] )';
     public $synopsis_fixed = 'bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, array &$array2 [, mixed $array2_sort_order = SORT_ASC [, mixed $array2_sort_flags = SORT_REGULAR [, array &$array3 [, mixed $array3_sort_order = SORT_ASC [, mixed $array3_sort_flags = SORT_REGULAR [, mixed $... ]]]]]]]]] )';

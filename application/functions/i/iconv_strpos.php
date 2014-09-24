@@ -23,10 +23,10 @@ class iconv_strpos extends function_core
     public $options_getter = ['charset'  => 'mb_list_encodings'];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// enter non ASCII chars in hex in $_haystack or $_needle if $_charset is not UTF-8
-';
+        // enter non ASCII chars in hex in $_haystack or $_needle if $_charset is not UTF-8
+    ';
 
     public $synopsis = 'int iconv_strpos ( string $haystack , string $needle [, int $offset = 0 [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;) ]] )';
 }

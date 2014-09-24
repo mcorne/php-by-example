@@ -45,30 +45,29 @@ class date_sun_info extends function_core
     ];
 
     public $source_code = '
-// enter a $_time or a $_timestamp
-// select a $_city or enter the $_latitude and $_longitude
+        // enter a $_time or a $_timestamp
+        // select a $_city or enter the $_latitude and $_longitude
 
-// gets a timestamp from a date
-date_default_timezone_set(
-    $timezone // string $timezone
-);
-$_timestamp = strtotime(
-    $time // string $time
-);
+        // gets a timestamp from a date
+        date_default_timezone_set(
+            $timezone // string $timezone
+        );
+        $_timestamp = strtotime(
+            $time // string $time
+        );
 
-// gets the latitude and longitude of a city
-list($_latitude, $_longitude) = pbx_get_city_lat_lng(
-    $city // string $city
-);
+        // gets the latitude and longitude of a city
+        list($_latitude, $_longitude) = pbx_get_city_lat_lng(
+            $city // string $city
+        );
 
-inject_function_call
+        inject_function_call
 
-// shows the times in a readable format
-$date_sun_info = array_map(
-    function($_timestamp) { return date("H:i:s", $_timestamp); },
-    $_array);
-
-';
+        // shows the times in a readable format
+        $date_sun_info = array_map(
+            function($_timestamp) { return date("H:i:s", $_timestamp); },
+            $_array);
+    ';
 
     public $synopsis       = 'array date_sun_info ( int $time , float $latitude , float $longitude )';
     public $synopsis_fixed = 'array date_sun_info ( int $timestamp , float $latitude , float $longitude )';

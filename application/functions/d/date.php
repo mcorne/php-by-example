@@ -30,10 +30,10 @@ class date extends function_core
     ];
 
     public $source_code = '
-date_default_timezone_set("UTC");
+        date_default_timezone_set("UTC");
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'string date ( string $format [, int $timestamp = time() ] )';
 

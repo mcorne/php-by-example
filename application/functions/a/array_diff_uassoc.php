@@ -43,15 +43,15 @@ class array_diff_uassoc extends function_core
     public $helper_callbacks = ['index_in_example' => 2, 'function_name_pattern' => '~(cmp$)~'];
 
     public $source_code = '
-// custom callback function
-$_compare_func = function ($a, $b) {
-    if ($a === $b) return 0;
-    if ($a > $b)   return 1;
-    return -1;
-};
+        // custom callback function
+        $_compare_func = function ($a, $b) {
+            if ($a === $b) return 0;
+            if ($a > $b)   return 1;
+            return -1;
+        };
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'array array_diff_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )';
 

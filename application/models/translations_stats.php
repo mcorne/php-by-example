@@ -18,7 +18,7 @@ class translations_stats extends action
 
         foreach ($this->_language->languages as $language_id => $language) {
             if ($language_id != 'en') {
-                $this->_translation->reset_dynamic_properties();
+                $this->create_object('translation');
                 $this->_language->language_id = $language_id;
 
                 list($machine_translation_ids, $fixed_translation_ids, $validated_translation_ids) = $this->_translation->calculate_language_translation_stats();

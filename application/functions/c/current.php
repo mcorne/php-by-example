@@ -63,18 +63,18 @@ class current extends function_core
     public $input_args = ['__array', '__count'];
 
     public $source_code = '
-$_array =
-    $__array; // array $__array
+        $_array =
+            $__array; // array $__array
 
-$count =
-    $__count; // int $__count
+        $count =
+            $__count; // int $__count
 
-for ($i = 0; $i < $count; $i++) {
-    next($_array);
-}
+        for ($i = 0; $i < $count; $i++) {
+            next($_array);
+        }
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'mixed current ( array &$array )';
 

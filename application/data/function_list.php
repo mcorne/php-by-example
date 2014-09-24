@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-20T15:52:48+00:00
+// generated automatically 2014-09-24T11:45:02+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -82,11 +82,17 @@ return array (
   'cal_from_jd' => 'cal_from_jd',
   'cal_info' => 'cal_info',
   'cal_to_jd' => 'cal_to_jd',
+  'call_user_func' => 'call_user_func',
+  'call_user_func_array' => 'call_user_func_array',
   'ceil' => 'ceil',
   'checkdate' => 'checkdate',
   'chop' => 'chop',
   'chr' => 'chr',
   'chunk_split' => 'chunk_split',
+  'class_alias' => 'class_alias',
+  'class_exists' => 'class_exists',
+  'class_implements' => 'class_implements',
+  'class_parents' => 'class_parents',
   'constant' => 'constant',
   'convert_uudecode' => 'convert_uudecode',
   'convert_uuencode' => 'convert_uuencode',

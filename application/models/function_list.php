@@ -70,7 +70,7 @@ class function_list extends object
             if ($this->is_class_method($function_basename)) {
                 // this is a class method, extracts the exact class and method names from the synopsis
                 $this->_function_factory->create_function_object($function_basename);
-                $this->_synopsis->reset_dynamic_properties();
+                $this->create_object('synopsis');
                 $function_list[$function_basename] = $this->_synopsis->function_name;
 
             } else {

@@ -43,13 +43,13 @@ class money_format extends function_core
     ];
 
     public $source_code = '
-$string = setlocale (
-    LC_MONETARY, // int $category
-    $locale // string $locale
-);
+        $string = setlocale (
+            LC_MONETARY, // int $category
+            $locale // string $locale
+        );
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'string money_format ( string $format , float $number )';
 

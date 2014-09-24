@@ -74,16 +74,16 @@ class file_get_contents extends function_core
     public $no_input_args = 'use_include_path';
 
     public $source_code = '
-// loads some data in a temp file
-$_filename = tempnam(sys_get_temp_dir(), "pbe");
-file_put_contents($_filename, "Hello world !");
+        // loads some data in a temp file
+        $_filename = tempnam(sys_get_temp_dir(), "pbe");
+        file_put_contents($_filename, "Hello world !");
 
-// reads the file or a url
-inject_function_call
+        // reads the file or a url
+        inject_function_call
 
-// removes the temp file
-unlink($_filename);
-';
+        // removes the temp file
+        unlink($_filename);
+    ';
 
     public $synopsis = 'string file_get_contents ( string $filename [, bool $use_include_path = false [, resource $context [, int $offset = -1 [, int $maxlen ]]]] )';
 

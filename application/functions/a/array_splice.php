@@ -47,11 +47,11 @@ class array_splice extends function_core
     public $input_args = '__input';
 
     public $source_code = '
-$_input =
-    $__input; // array $__input;
+        $_input =
+            $__input; // array $__input;
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'array array_splice ( array &$input , int $offset [, int $length [, mixed $replacement = array() ]] )';
 

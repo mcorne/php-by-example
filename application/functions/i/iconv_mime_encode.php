@@ -33,10 +33,10 @@ class iconv_mime_encode extends function_core
     ];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// enter non ASCII chars in hex in the fields if the charset is not UTF-8
-';
+        // enter non ASCII chars in hex in the fields if the charset is not UTF-8
+    ';
 
     public $synopsis = 'string iconv_mime_encode ( string $field_name , string $field_value [, array $preferences = NULL ] )';
 }

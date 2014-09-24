@@ -39,10 +39,10 @@ class htmlentities extends function_core
     public $options_getter = ['encoding' => 'mb_list_encodings'];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// enter non ASCII characters in hex in $_string if $_encoding is not UTF-8
-';
+        // enter non ASCII characters in hex in $_string if $_encoding is not UTF-8
+    ';
 
     public $synopsis = 'string htmlentities ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = &#039;UTF-8&#039; [, bool $double_encode = true ]]] )';
 }

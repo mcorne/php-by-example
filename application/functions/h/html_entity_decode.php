@@ -25,15 +25,15 @@ class html_entity_decode extends function_core
     public $synopsis = 'string html_entity_decode ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = &#039;UTF-8&#039; ]] )';
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// enter non ASCII characters in hex in $_string if $_encoding is not UTF-8
-// the returned $_string may not display properly if $_encoding is not UTF-8
+        // enter non ASCII characters in hex in $_string if $_encoding is not UTF-8
+        // the returned $_string may not display properly if $_encoding is not UTF-8
 
-// shows the returned $string in UTF-8 if $_encoding is not UTF-8
-if ($_encoding and $_encoding != "UTF-8")
-    $utf8 = mb_convert_encoding($_string, "UTF-8", $_encoding);
-';
+        // shows the returned $string in UTF-8 if $_encoding is not UTF-8
+        if ($_encoding and $_encoding != "UTF-8")
+            $utf8 = mb_convert_encoding($_string, "UTF-8", $_encoding);
+    ';
 
     function post_exec_function()
     {

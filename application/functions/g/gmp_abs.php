@@ -14,11 +14,11 @@ class gmp_abs extends function_core
     public $examples = ["274982683358", "-274982683358"];
 
     public $source_code = '
-inject_function_call
+        inject_function_call
 
-// shows the result
-$string = gmp_strval($resource);
-';
+        // shows the result
+        $string = gmp_strval($resource);
+    ';
 
     public $synopsis = 'resource gmp_abs ( resource $a )';
 

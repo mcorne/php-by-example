@@ -23,12 +23,12 @@ class mb_convert_case extends function_core
     public $options_getter = ['encoding' => 'mb_list_encodings'];
 
     public $source_code = '
-mb_internal_encoding("UTF-8");
+        mb_internal_encoding("UTF-8");
 
-inject_function_call
+        inject_function_call
 
-// enter non ASCII characters in hex in $_str if $_encoding is not UTF-8
-// the result $_string may not display properly if $_encoding is not UTF-8
+        // enter non ASCII characters in hex in $_str if $_encoding is not UTF-8
+        // the result $_string may not display properly if $_encoding is not UTF-8
 ';
 
     public $synopsis = 'string mb_convert_case ( string $str , int $mode [, string $encoding = mb_internal_encoding() ] )';

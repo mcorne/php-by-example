@@ -57,16 +57,16 @@ class array_map extends function_core
     public $helper_callbacks = ['index_in_example' => 0, 'function_name_pattern' => '~(^str[ifprst])~'];
 
     public $source_code = '
-// custom callback functions
-$cube         = function ($n)     { return($n * $n * $n); };
-$double       = function ($value) { return $value * 2; };
-$show_Spanish = function ($n, $m) { return("The number $n is called $m in Spanish"); };
-$map_Spanish  = function ($n, $m) { return(array($n => $m)); };
-$cb1          = function ($a)     { return array ($a); };
-$cb2          = function ($a, $b) { return array ($a, $b); };
+        // custom callback functions
+        $cube         = function ($n)     { return($n * $n * $n); };
+        $double       = function ($value) { return $value * 2; };
+        $show_Spanish = function ($n, $m) { return("The number $n is called $m in Spanish"); };
+        $map_Spanish  = function ($n, $m) { return(array($n => $m)); };
+        $cb1          = function ($a)     { return array ($a); };
+        $cb2          = function ($a, $b) { return array ($a, $b); };
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis       = 'array array_map ( callable $callback , array $array1 [, array $... ] )';
     public $synopsis_fixed = 'array array_map ( callable $callback , array $array1 [, array $array2 [, array $array3 ]] )';

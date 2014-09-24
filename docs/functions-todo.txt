@@ -14,15 +14,6 @@ bzopen
 bzread
 bzwrite
 
-call_user_func
-call_user_func_array
-call_user_method
-call_user_method_array
-
-class_alias
-class_exists
-class_implements
-class_parents
 class_uses
 
 clearstatcache

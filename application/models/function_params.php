@@ -57,16 +57,22 @@ class function_params extends object
 
         $value = $this->_parser->parse_value($value, $param_name);
 
-        if ($indirect_get_param_from_var and $this->is_param_var($value)) {
-            // the param values is actually a variable name, gets the value of that variable
-            // eg "$handle" returned by fopen() and used by fread($handle, ...)
-            $value = $this->get_param_var($value, $param_name);
+        if ($indirect_get_param_from_var) {
+            if ($this->is_param_var($value)) {
+                // the param values is actually a variable name, gets the value of that variable
+                // eg "$handle" returned by fopen() and used by fread($handle, ...)
+                $value = $this->get_param_var($value);
+
+            } else if (is_array($value) and isset($value[0]) and $this->is_param_var($value[0])) {
+                // this is (most likely) a callback object method, eg [$object, 'foobar'], gets the object instance
+                $value[0] = $this->get_param_var($value[0]);
+            }
         }
 
         return $value;
     }
 
-    function get_param_var($value, $param_name)
+    function get_param_var($value)
     {
         $var_name = $this->get_var_name($value);
 

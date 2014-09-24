@@ -21,11 +21,11 @@ class array_pop extends function_core
     public $input_args = '__array';
 
     public $source_code = '
-$_array =
-    $__array; // array $__array
+        $_array =
+            $__array; // array $__array
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'mixed array_pop ( array &$array )';
 }

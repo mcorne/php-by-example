@@ -35,17 +35,17 @@ class strftime extends function_core
     ];
 
     public $source_code = '
-date_default_timezone_set("UTC");
+        date_default_timezone_set("UTC");
 
-// returns a timestamp from a date
-$_timestamp = strtotime(
-    $time // string $time
-);
+        // returns a timestamp from a date
+        $_timestamp = strtotime(
+            $time // string $time
+        );
 
-inject_function_call
+        inject_function_call
 
-// enter either a $_time or a timestamp
-';
+        // enter either a $_time or a timestamp
+    ';
 
     public $synopsis = 'string strftime ( string $format [, int $timestamp = time() ] )';
 

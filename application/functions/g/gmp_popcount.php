@@ -25,13 +25,13 @@ class gmp_popcount extends function_core
     ];
 
     public $source_code = '
-$_a = gmp_init(
-    $number, // mixed $number
-    $base // [int $base = 0]
-);
+        $_a = gmp_init(
+            $number, // mixed $number
+            $base // [int $base = 0]
+        );
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $synopsis = 'int gmp_popcount ( resource $a )';
 

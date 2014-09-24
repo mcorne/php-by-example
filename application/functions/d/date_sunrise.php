@@ -49,25 +49,25 @@ class date_sunrise extends date_sun_info
     public $options_range = ['gmt_offset' => [-12, 12]];
 
     public $source_code = '
-// select a $_timezone or enter $_gmt_offset
-// enter a $_time or a $_timestamp
-// select a $_city or enter the $_latitude and $_longitude
+        // select a $_timezone or enter $_gmt_offset
+        // enter a $_time or a $_timestamp
+        // select a $_city or enter the $_latitude and $_longitude
 
-// gets a timestamp from a date
-date_default_timezone_set(
-    $timezone // string $timezone
-);
-$_timestamp = strtotime(
-    $time // string $time
-);
+        // gets a timestamp from a date
+        date_default_timezone_set(
+            $timezone // string $timezone
+        );
+        $_timestamp = strtotime(
+            $time // string $time
+        );
 
-// gets the latitude and longitude of a city
-list($_latitude, $_longitude) = pbx_get_city_lat_lng(
-    $city // string $city
-);
+        // gets the latitude and longitude of a city
+        list($_latitude, $_longitude) = pbx_get_city_lat_lng(
+            $city // string $city
+        );
 
-inject_function_call
-';
+        inject_function_call
+    ';
 
     public $test_not_validated = [0];
 

@@ -137,8 +137,8 @@ class input extends object
 
     function display_arg_helper_select($arg_name, $arg_helper_options, $multi_select, $indexed_options)
     {
-        if ($multi_select === true or $multi_select === null and substr($arg_name, -1) == 's') {
-            // displays a multi-select with a checkmark to validate the selection
+        if ($multi_select === true or $multi_select === null and substr($arg_name, -1) == 's' and substr($arg_name, -2) != 'ss') {
+            // this is a multi-select or the arg name is plural and the ending is different from "ss" as in "class", displays a multi-select
             $empty_option = '-- ' . $this->_message_translation->translate('multi-select') . ' --';
 
             $format = '<select
@@ -148,6 +148,7 @@ class input extends object
                        >%2$s</select>';
 
         } else {
+            // this is a single select
             $empty_option = null;
 
             $format = '<select
@@ -157,7 +158,7 @@ class input extends object
                        >%2$s</select>';
         }
 
-        // the separation between the select and the span must not be removed for alignment purposes
+        // the separation between the select and the span of the checkmark must not be removed for alignment purposes
         $format .= "\n";
         $format .= '<span
                      class="helper_submit"
@@ -280,8 +281,18 @@ class input extends object
             if (isset($example[$callback_index]) and $example[$callback_index]) {
                 $callback = $example[$callback_index];
 
-                if ($callback[0] != '$') {
-                    $callback = "'$callback'";
+                if (is_array($callback)) {
+                    $classname = current($callback);
+                    $method = next($callback);
+
+                    if ($classname[0] == '$') {
+                        $callback = sprintf('[%s, "%s"]', $classname, $method);
+                    } else {
+                        $callback = sprintf('["%s", "%s"]', $classname, $method);
+                    }
+
+                } else if ($callback[0] != '$') {
+                    $callback = '"' . $callback . '"';
                 }
 
                 $callbacks_in_examples[] = $callback;
@@ -356,8 +367,10 @@ class input extends object
 
         if ($this->_function->source_code) {
             // the function has some specific source code to display, eg "functions/datetime__add.php"
+            // removes the extra leading spaces used for alignement purposes in the class definition
+            $source_code = preg_replace('~^        ~m', '', $this->_function->source_code);
             // inject the funcion call in the source code
-            $source_code = str_replace('inject_function_call', $function_call, $this->_function->source_code);
+            $source_code = str_replace('inject_function_call', $function_call, $source_code);
         } else {
             // the function has no specific source code to display, eg 'functions/abs.php"
             // uses the function call as the source code
@@ -365,7 +378,7 @@ class input extends object
         }
 
         // prefixes the additional params to get a proper line break, eg "    $mode; // string $mode"
-        $source_code = str_replace("\n    $", "_ARG_LINE_BREAK_\n    $", $source_code);
+        $source_code = preg_replace('~^\n    \$\w+; // ~m', '_ARG_LINE_BREAK_$0', $source_code);
 
         return $source_code;
     }
