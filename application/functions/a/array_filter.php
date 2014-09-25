@@ -18,11 +18,11 @@ class array_filter extends function_core
                 "d" => 4,
                 "e" => 5
             ],
-            '$odd',
+            'odd',
         ],
         [
             [6, 7, 8, 9, 10, 11, 12],
-            '$even',
+            'even',
         ],
         [
             [
@@ -72,8 +72,8 @@ class array_filter extends function_core
 
     public $source_code = '
         // custom callback functions
-        $odd  = function($var) { return($var & 1); };
-        $even = function($var) { return(!($var & 1)); };
+        function odd($var)  { return($var & 1); };
+        function even($var) { return(!($var & 1)); };
 
         inject_function_call
     ';

@@ -12,12 +12,12 @@ class preg_replace_callback extends function_core
     public $examples = [
         [
             '_SINGLE_QUOTE_|<p>\s*\w|_SINGLE_QUOTE_',
-            '$to_lower',
+            'to_lower',
             "<p>There is an elephant</p>",
         ],
         [
             '_SINGLE_QUOTE_|(\d{2}/\d{2}/)(\d{4})|_SINGLE_QUOTE_',
-            '$next_year',
+            'next_year',
             "April fools day is 04/01/2002\nLast christmas was 12/24/2001\n",
         ]
     ];
@@ -26,8 +26,8 @@ class preg_replace_callback extends function_core
 
     public $source_code = '
         // custom callback functions
-        $to_lower  = function ($matches) { return strtolower($matches[0]); };
-        $next_year = function ($matches) { return $matches[1] . ($matches[2] + 1); };
+        function to_lower($matches)  { return strtolower($matches[0]); };
+        function next_year($matches) { return $matches[1] . ($matches[2] + 1); };
 
         inject_function_call
     ';

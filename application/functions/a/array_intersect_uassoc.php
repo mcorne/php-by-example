@@ -39,7 +39,7 @@ class array_intersect_uassoc extends array_diff_uassoc
                 "yellow",
                 "red"
             ],
-            '$compare_func',
+            'compare_func',
         ],
         [
             [

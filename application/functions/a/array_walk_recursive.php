@@ -21,7 +21,7 @@ class array_walk_recursive extends array_walk
                 'sour' => 'lemon'
             ],
             '$array',
-            '$test_print'
+            'test_print'
         ],
         [
             '__array' => [
@@ -31,7 +31,7 @@ class array_walk_recursive extends array_walk
                 "c" => "apple"
             ],
             '$array',
-            '$test_alter',
+            'test_alter',
             'fruit'
         ],
     ];

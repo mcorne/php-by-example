@@ -20,7 +20,7 @@ class uksort extends uasort
                 "a banana" => 4,
             ],
             '$array',
-            '$compare_func',
+            'compare_func',
         ]
     ];
 

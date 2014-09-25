@@ -11,20 +11,20 @@ class array_map extends function_core
 {
     public $examples = [
         [
-            '$cube',
+            'cube',
             [1, 2, 3, 4, 5],
         ],
         [
-            '$double',
+            'double',
             [1, 2, 3, 4, 5],
         ],
         [
-            '$show_Spanish',
+            'show_Spanish',
             [1, 2, 3, 4, 5],
             ["uno", "dos", "tres", "cuatro", "cinco"],
         ],
         [
-            '$map_Spanish',
+            'map_Spanish',
             [1, 2, 3, 4, 5],
             ["uno", "dos", "tres", "cuatro", "cinco"],
         ],
@@ -35,11 +35,11 @@ class array_map extends function_core
             ["uno", "dos", "tres", "cuatro", "cinco"],
         ],
         [
-            '$cb1',
+            'cb1',
             ["stringkey" => "value"],
         ],
         [
-            '$cb2',
+            'cb2',
             ["stringkey" => "value"],
             ["stringkey" => "value"],
         ],
@@ -58,12 +58,12 @@ class array_map extends function_core
 
     public $source_code = '
         // custom callback functions
-        $cube         = function ($n)     { return($n * $n * $n); };
-        $double       = function ($value) { return $value * 2; };
-        $show_Spanish = function ($n, $m) { return("The number $n is called $m in Spanish"); };
-        $map_Spanish  = function ($n, $m) { return(array($n => $m)); };
-        $cb1          = function ($a)     { return array ($a); };
-        $cb2          = function ($a, $b) { return array ($a, $b); };
+        function cube($n)             { return($n * $n * $n); };
+        function double($value)       { return $value * 2; };
+        function show_Spanish($n, $m) { return("The number $n is called $m in Spanish"); };
+        function map_Spanish($n, $m)  { return(array($n => $m)); };
+        function cb1($a)              { return array ($a); };
+        function cb2($a, $b)          { return array ($a, $b); };
 
         inject_function_call
     ';

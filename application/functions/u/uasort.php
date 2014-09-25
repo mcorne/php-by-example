@@ -24,7 +24,7 @@ class uasort extends function_core
                 "h" => -4,
             ],
             '$array',
-            '$compare_func',
+            'compare_func',
         ]
     ];
 
@@ -34,7 +34,7 @@ class uasort extends function_core
 
     public $source_code = '
         // custom callback function
-        $_compare_func = function ($a, $b) {
+        function compare_func($a, $b) {
             if ($a === $b) return 0;
             if ($a > $b)   return 1;
             return -1;

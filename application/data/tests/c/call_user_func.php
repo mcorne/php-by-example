@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-24T20:06:53+00:00
+// generated automatically 2014-09-25T13:41:47+00:00
 return array (
   0 => 
   array (
@@ -82,16 +82,12 @@ return array (
   ),
   9 => 
   array (
-    'result' => 
-    array (
-      'mixed' => NULL,
-    ),
     'errors' => 
     array (
       0 => 
       array (
-        'code' => 2,
-        'message' => 'call_user_func_array() expects parameter 1 to be a valid callback, no array or string given',
+        'code' => 512,
+        'message' => 'this callback function may not be used in this example',
       ),
     ),
   ),
@@ -106,7 +102,7 @@ return array (
       0 => 
       array (
         'code' => 2,
-        'message' => 'call_user_func() expects parameter 1 to be a valid callback, first array member is not a valid class name or object',
+        'message' => 'call_user_func() expects parameter 1 to be a valid callback, class \'pbx_callbacks\' does not have a method \'xyz\'',
       ),
     ),
   ),
@@ -121,11 +117,26 @@ return array (
       0 => 
       array (
         'code' => 2,
-        'message' => 'call_user_func() expects parameter 1 to be a valid callback, array must have exactly two members',
+        'message' => 'call_user_func() expects parameter 1 to be a valid callback, first array member is not a valid class name or object',
       ),
     ),
   ),
   12 => 
+  array (
+    'result' => 
+    array (
+      'mixed' => NULL,
+    ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 2,
+        'message' => 'call_user_func() expects parameter 1 to be a valid callback, array must have exactly two members',
+      ),
+    ),
+  ),
+  13 => 
   array (
     'result' => 
     array (
@@ -136,7 +147,7 @@ return array (
       0 => 
       array (
         'code' => 2,
-        'message' => 'Missing argument 1 for filter::{closure}()',
+        'message' => 'Missing argument 1 for pbx_callbacks::say_goodbye()',
       ),
       1 => 
       array (
@@ -145,7 +156,7 @@ return array (
       ),
     ),
   ),
-  13 => 
+  14 => 
   array (
     'result' => 
     array (
@@ -160,7 +171,7 @@ return array (
       ),
     ),
   ),
-  14 => 
+  15 => 
   array (
     'errors' => 
     array (

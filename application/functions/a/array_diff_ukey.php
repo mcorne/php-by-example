@@ -25,7 +25,7 @@ class array_diff_ukey extends array_diff_uassoc
                 'yellow' => 7,
                 'cyan'   => 8
             ],
-            '$compare_func',
+            'compare_func',
         ],
         [
             [

@@ -7,48 +7,17 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'callback.php';
-require_once 'object.php';
-
 /**
  * arg value filters
  * a filter is meant to called from the pre_exec() method in a function config
  * there is a default filter to use as needed: filter_arg_value()
  */
 
+require_once 'custom-functions/pbx_callbacks.php';
+
 class filter extends object
 {
     const DEFAULT_FILENAME = 'tempname';
-
-    public $valid_callback_classes = ['myclass'];
-    public $valid_callback_closures;
-
-    function __construct($config = null)
-    {
-        parent::__construct($config);
-
-        $this->valid_callback_closures = [
-            'barber'             => function($type)                  { return "You wanted a $type haircut, no problem"; },
-            'cb1'                => function($a)                     { return array ($a); },
-            'cb2'                => function($a, $b)                 { return array ($a, $b); },
-            'compare_func'       => function($a, $b)                 { if ($a === $b) { return 0; } return ($a > $b)? 1 : -1; },
-            'cube'               => function($n)                     { return($n * $n * $n); },
-            'double'             => function($value)                 { return $value * 2; },
-            'even'               => function($var)                   { return(!($var & 1)); },
-            'foobar'             => function($arg, $arg2)            { return "foobar got $arg and $arg2"; },
-            'map_Spanish'        => function($n, $m)                 { return(array($n => $m)); },
-            'next_year'          => function($matches)               { return $matches[1] . ($matches[2] + 1); },
-            'odd'                => function($var)                   { return($var & 1); },
-            'rmul'               => function($v, $w)                 { $v *= $w; return $v; },
-            'rsum'               => function($v, $w)                 { $v += $w; return $v; },
-            'say_goodbye'        => function($name)                  { return "Goodbye $name!"; },
-            'say_hello'          => function()                       { return "Hello!"; },
-            'show_Spanish'       => function($n, $m)                 { return("The number $n is called $m in Spanish"); },
-            'test_alter'         => function(&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; },
-            'test_print'         => function(&$item, $key)           { $item = "$key holds $item\n"; },
-            'to_lower'           => function($matches)               { return strtolower($matches[0]); },
-        ];
-    }
 
     function filter_arg_value($arg_name)
     {
@@ -62,7 +31,7 @@ class filter extends object
         return $array;
     }
 
-    function filter_callback($arg_name)
+    function filter_callback($arg_name, $class_alias = null)
     {
         if (! $this->_function_params->param_exists($arg_name)) {
              return;
@@ -75,29 +44,29 @@ class filter extends object
         }
 
         if (is_array($callback_name)) {
-            $this->filter_method_callback($callback_name);
+            $this->filter_method_callback($callback_name, $class_alias);
 
         } else if ($this->_function_params->is_param_var($callback_name)) {
             $this->filter_closure_callback($callback_name);
 
         } else if (strpos($callback_name, '::')) {
             $callback_name = explode('::', $callback_name);
-            $this->filter_method_callback($callback_name);
+            $this->filter_method_callback($callback_name, $class_alias);
 
         } else {
             $this->filter_function_callback($callback_name);
         }
     }
 
-    function filter_closure_callback($callback_name)
+    function filter_closure_callback($closure_name)
     {
-        $param_name = substr($callback_name, 1);
+        $closure_name = substr($closure_name, 1);
 
-        if (isset($this->valid_callback_closures[$param_name])) {
-            // this is an existing closure, adds a param with the closure name
-            $this->_function->returned_params[$param_name] = $this->valid_callback_closures[$param_name];
+        if ($this->is_custom_callback_function($closure_name) and isset($GLOBALS[$closure_name])) {
+            // this is a valid and existing closure, adds a param with the closure
+            $this->_function->returned_params[$closure_name] = $GLOBALS[$closure_name];
         }
-        // else: the callback is an unset variable, this will be caught by the function itself
+        // else: the closure is an unset variable, this will be caught by the function itself
     }
 
     function filter_date_interval($arg_name)
@@ -178,16 +147,20 @@ class filter extends object
         throw new Exception($message, E_USER_WARNING);
     }
 
-    function filter_function_callback($callback_name)
+    function filter_function_callback($function_name)
     {
-        if (! function_exists($callback_name)) {
+        if (! function_exists($function_name)) {
             $message = $this->_message_translation->translate('this callback function is invalid or not available on this server');
             throw new Exception($message, E_USER_WARNING);
         }
 
+        if ($this->is_custom_callback_function($function_name)) {
+            return;
+        }
+
         $valid_callback_pattern = '~(cmp$|^ctype_|^gmp|^is_|^str[ifprst])~';
 
-        if (! is_string($callback_name) or ! preg_match($valid_callback_pattern, $callback_name)) {
+        if (! is_string($function_name) or ! preg_match($valid_callback_pattern, $function_name)) {
             $message = $this->_message_translation->translate('this callback function may not be used in this example');
             throw new Exception($message, E_USER_WARNING);
         }
@@ -211,33 +184,28 @@ class filter extends object
         return $count;
     }
 
-    function filter_method_callback($callback_name)
+    function filter_method_callback($callback_name, $class_alias = null)
     {
-        $class_name  = current($callback_name);
-
-        if (in_array($class_name, $this->valid_callback_classes)) {
-            if (! class_exists($class_name)) {
-                class_alias('callback', $class_name);
-            }
-
-            $is_object = false;
-
-        } else if ($class_name == '$object') {
-            $is_object = true;
-
-        } else {
-            // the object or class is invalid or unusable, this will be caught by the function itself
-            return;
+        if ($class_alias and ! class_exists($class_alias)) {
+            class_alias('pbx_callbacks', $class_alias);
         }
 
-        // the class must be instanciated to set the methods with the closures regardless
-        $object = new callback($this->valid_callback_closures);
+        $class_name = current($callback_name);
 
-        if ($is_object) {
-            $this->_function->returned_params['object'] = $object;
+        if ($class_name == '$object') {
+            // an object is actually passed in the callback, adds a param with the object
+            $class_name = $class_alias ? $class_alias : 'pbx_callbacks';
+            $this->_function->returned_params['object'] = new $class_name();
+
+        } else if ($class_name[0] != '$' and class_exists($class_name, false) and
+                   $class_name != 'pbx_callbacks' and (! $class_alias or $class_name != $class_alias))
+        {
+            // this is a class name and the class exists but is not the custom class or an alias
+            $message = $this->_message_translation->translate('this callback function may not be used in this example');
+            throw new Exception($message, E_USER_WARNING);
         }
 
-        // note that if the method is invalid, this will be caught by the function itself
+        // note that if an object, class or method is invalid, this will be caught by the function itself
     }
 
     function is_allowed_arg_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)
@@ -257,5 +225,12 @@ class filter extends object
             $message = $this->_message_translation->translate('this argument value is not allowed in this example', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
+    }
+
+    function is_custom_callback_function($function_name)
+    {
+        $is_custom_callback_function = method_exists('pbx_callbacks', $function_name);
+
+        return $is_custom_callback_function;
     }
 }

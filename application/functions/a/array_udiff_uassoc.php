@@ -39,8 +39,8 @@ class array_udiff_uassoc extends array_diff_uassoc
                 "B" => "brown",
                 "yellow", "red"
             ],
-            '$compare_func',
-            '$compare_func',
+            'compare_func',
+            'compare_func',
         ],
     ];
 

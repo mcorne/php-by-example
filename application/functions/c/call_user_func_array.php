@@ -13,7 +13,7 @@ class call_user_func_array extends call_user_func
 {
     public $examples = [
         [
-            '$foobar',
+            'foobar',
             [
                 0 => "one",
                 1 => "two",
@@ -44,7 +44,11 @@ class call_user_func_array extends call_user_func
             ]
         ],
         [
-            '$foobar',
+            'foobar',
+        ],
+        [
+            'foobar',
+            123
         ],
     ];
 

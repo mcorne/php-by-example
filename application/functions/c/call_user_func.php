@@ -13,7 +13,7 @@ class call_user_func extends function_core
 {
     public $examples = [
         [
-            '$barber',
+            'barber',
             "mushroom"
         ],
         [
@@ -31,7 +31,7 @@ class call_user_func extends function_core
             'Bob'
         ],
         [
-            '$foobar',
+            'foobar',
             "one",
             "two",
         ],
@@ -47,6 +47,9 @@ class call_user_func extends function_core
         ],
         [
             ['xyz', 'say_hello'],
+        ],
+        [
+            ['Closure', 'bind'],
         ],
         [
             'myclass::xyz',
@@ -78,15 +81,13 @@ class call_user_func extends function_core
     public $helper_callbacks = ['index_in_example' => 0, 'function_name_pattern' => '~(cmp$|^ctype_|^is_|^str[ifprst])~'];
 
     public $source_code = '
-        // custom callback functions
-        $_barber = function($type)       { return "You wanted a $type haircut, no problem"; };
-        $_foobar = function($arg, $arg2) { return __FUNCTION__ . " got $arg and $arg2"; };
+        _DOUBLE_SLASH_ function barber($type)       { return "You wanted a $type haircut, no problem"; };
+        _DOUBLE_SLASH_ function foobar($arg, $arg2) { return __FUNCTION__ . " got $arg and $arg2"; };
 
-        class myclass {
-            static function say_hello() { return "Hello!"; }
-            function say_goobye($name)  { return "Goodbye $name!"; };
-        }
-        $object  = new myclass();
+        // adds custom callback functions, closures and methods
+        require "pbx_callbacks.php";
+        class_alias("pbx_callbacks", "myclass");
+        $object = new myclass();
 
         inject_function_call
     ';
@@ -96,6 +97,6 @@ class call_user_func extends function_core
 
     function pre_exec_function()
     {
-        $this->_filter->filter_callback('callback');
+        $this->_filter->filter_callback('callback', 'myclass');
     }
 }

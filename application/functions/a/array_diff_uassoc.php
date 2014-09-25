@@ -24,7 +24,7 @@ class array_diff_uassoc extends function_core
                 "yellow",
                 "red"
             ],
-            '$compare_func',
+            'compare_func',
         ],
         [
             [
@@ -44,7 +44,7 @@ class array_diff_uassoc extends function_core
 
     public $source_code = '
         // custom callback function
-        $_compare_func = function ($a, $b) {
+        function compare_func($a, $b) {
             if ($a === $b) return 0;
             if ($a > $b)   return 1;
             return -1;

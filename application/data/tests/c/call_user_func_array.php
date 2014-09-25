@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-24T20:07:34+00:00
+// generated automatically 2014-09-25T13:43:42+00:00
 return array (
   0 => 
   array (
@@ -55,6 +55,21 @@ return array (
       array (
         'code' => 2,
         'message' => 'call_user_func_array() expects exactly 2 parameters, 1 given',
+      ),
+    ),
+  ),
+  7 => 
+  array (
+    'result' => 
+    array (
+      'mixed' => NULL,
+    ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 2,
+        'message' => 'call_user_func_array() expects parameter 2 to be array, integer given',
       ),
     ),
   ),

@@ -17,8 +17,23 @@ require_once 'object.php';
 class input extends object
 {
     const CHARACTER_COUNT_BY_EM = 1.5; // about 30 characters for a 20em line
-    const LINE_HEIGHT_IN_EM     = 1.2;
     const INPUT_WIDTH_IN_EM     = 20;  // must be the same as CSS textarea.arg width
+    const LINE_HEIGHT_IN_EM     = 1.2;
+
+    function _get_double_slash()
+    {
+        $highlighted = highlight_string("<?php\n//?>", true);
+
+        if (preg_match('~color: #([[:xdigit:]]+)">//~', $highlighted, $match)) {
+            list(, $color) = $match;
+        } else {
+            $color = 'FF8000'; // orange
+        }
+
+        $double_slash = sprintf('<span style="color: #%s">//</span>', $color);
+
+        return $double_slash;
+    }
 
     function calculate_input_height($arg_value)
     {
@@ -273,6 +288,25 @@ class input extends object
         return $options;
     }
 
+    function get_callback_in_example($callback)
+    {
+        if (is_array($callback)) {
+            $classname = current($callback);
+            $method = next($callback);
+
+            if ($classname[0] == '$') {
+                $callback = sprintf('[%s, "%s"]', $classname, $method);
+            } else {
+                $callback = sprintf('["%s", "%s"]', $classname, $method);
+            }
+
+        } else if ($callback[0] != '$') {
+            $callback = '"' . $callback . '"';
+        }
+
+        return $callback;
+    }
+
     function get_callbacks_in_examples($callback_index)
     {
         $callbacks_in_examples = [];
@@ -280,22 +314,7 @@ class input extends object
         foreach ($this->_function->examples as $example) {
             if (isset($example[$callback_index]) and $example[$callback_index]) {
                 $callback = $example[$callback_index];
-
-                if (is_array($callback)) {
-                    $classname = current($callback);
-                    $method = next($callback);
-
-                    if ($classname[0] == '$') {
-                        $callback = sprintf('[%s, "%s"]', $classname, $method);
-                    } else {
-                        $callback = sprintf('["%s", "%s"]', $classname, $method);
-                    }
-
-                } else if ($callback[0] != '$') {
-                    $callback = '"' . $callback . '"';
-                }
-
-                $callbacks_in_examples[] = $callback;
+                $callbacks_in_examples[] = $this->get_callback_in_example($callback);
             }
         }
 
@@ -308,7 +327,7 @@ class input extends object
         $defined_function_callbacks = preg_grep($defined_functions_pattern, $defined_functions['internal']);
 
         foreach ($defined_function_callbacks as &$defined_callback) {
-            $defined_callback = "'$defined_callback'";
+            $defined_callback = '"' . $defined_callback . '"';
         }
 
         return $defined_function_callbacks;
@@ -399,6 +418,9 @@ class input extends object
 
         // restores the backslash of characters in octal notation
         $highlighted_code = str_replace('_BACKSLASH_', '\\', $highlighted_code);
+
+        // adds a double slash before commented functions
+        $highlighted_code = str_replace('_DOUBLE_SLASH_', $this->double_slash, $highlighted_code);
 
         return $highlighted_code;
     }

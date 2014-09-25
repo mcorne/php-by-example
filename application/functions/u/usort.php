@@ -21,7 +21,7 @@ class usort extends uasort
                 4 => 1,
             ],
             '$array',
-            '$compare_func',
+            'compare_func',
         ],
     ];
 

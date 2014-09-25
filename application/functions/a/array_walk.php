@@ -20,7 +20,7 @@ class array_walk extends function_core
                 "c" => "apple"
             ],
             '$array',
-            '$test_print'
+            'test_print'
         ],
         [
             '__array' => [
@@ -30,7 +30,7 @@ class array_walk extends function_core
                 "c" => "apple"
             ],
             '$array',
-            '$test_alter',
+            'test_alter',
             'fruit'
         ],
     ];
@@ -41,8 +41,8 @@ class array_walk extends function_core
 
     public $source_code = '
         // custom callback functions
-        $_test_alter = function (&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; };
-        $_test_print = function (&$item, $key) { $item = "$key holds $item\n"; };
+        function test_alter(&$item1, $key, $prefix) { $item1 = "$prefix: $item1"; };
+        function test_print(&$item, $key)           { $item = "$key holds $item\n"; };
 
         $_array =
             $__array; // array $__array

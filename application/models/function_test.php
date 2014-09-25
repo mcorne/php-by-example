@@ -126,6 +126,13 @@ class function_test extends action
             // both test and expected results are strickly the same
             $test_validation['status'] = 'test_success';
 
+        } else if (! isset($expected_result['result'])) {
+            $test_validation['status'] = 'test_failed';
+
+        } else if (! isset($test_result['result'])) {
+            $test_validation['status'] = 'test_failed';
+            $expected_value = current($expected_result['result']);
+
         } else  {
             $test_value = current($test_result['result']);
             $expected_value = current($expected_result['result']);

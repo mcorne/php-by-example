@@ -48,7 +48,13 @@
          <?php if ($status == 'test_success' or $status == 'test_not_validated'):?>
            <td class="variable">$test_output</td>
          <?php elseif ($status == 'test_failed'):?>
-           <td><?=$this->_output->display_var_value($validation['expected_result']);?></td>
+           <td>
+             <?php if (isset($validation['expected_result'])):?>
+               <?=$this->_output->display_var_value($validation['expected_result']);?>
+             <?php else:?>
+               none
+             <?php endif;?>
+           </td>
          <?php else:?>
            <td>MISSING</td>
          <?php endif;?>

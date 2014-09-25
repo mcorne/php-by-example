@@ -12,16 +12,16 @@ class array_reduce extends function_core
     public $examples = [
         [
             [1, 2, 3, 4, 5],
-            '$rsum',
+            'rsum',
         ],
         [
             [1, 2, 3, 4, 5],
-            '$rmul',
+            'rmul',
             10
         ],
         [
             [],
-            '$rsum',
+            'rsum',
             "No data to reduce"
         ],
     ];
@@ -30,8 +30,8 @@ class array_reduce extends function_core
 
     public $source_code = '
         // custom callback functions
-        $rsum = function ($v, $w) { $v += $w; return $v; };
-        $rmul = function ($v, $w) { $v *= $w; return $v; };
+        function rsum($v, $w) { $v += $w; return $v; };
+        function rmul($v, $w) { $v *= $w; return $v; };
 
         inject_function_call
     ';
