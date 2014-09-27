@@ -86,6 +86,43 @@ class messages_translation extends action
         return $action;
     }
 
+    function process()
+    {
+        $this->display_selects = true;
+
+        if ($this->_language->language_id == 'en') {
+            $this->status = 'no_translation_language';
+            $this->no_additional_action = true;
+            $this->display_selects = false;
+
+        } else if (! $this->process_credentials()) {
+            if ($action = $this->is_select_message_action()) {
+                $this->message_id = $this->get_message_id($action);
+                $this->_translation->get_translation_log_entries($this->message_id);
+            }
+
+        } else if (! $action = $this->get_action()) {
+            $this->set_next_action();
+
+        } else if ($action == 'get_next_translation_to_validate') {
+            $this->process_next_translation_to_validate();
+
+        } else if ($action == 'save_translation') {
+            if ($message_id = $this->_params->message_to_validate_id) {
+                $this->process_save_translation($message_id);
+            } else {
+                $this->set_next_action();
+            }
+
+        } else { // message selection
+            if ($message_id = $this->get_message_id($action)) {
+                $this->process_selected_message($message_id);
+            } else {
+                $this->set_next_action();
+            }
+        }
+    }
+
     function process_credentials()
     {
         if ($this->_params->logoff) {
@@ -206,45 +243,6 @@ class messages_translation extends action
         }
 
         $this->message_id = $message_id;
-    }
-
-    function run()
-    {
-        $this->display_selects = true;
-
-        if ($this->_language->language_id == 'en') {
-            $this->status = 'no_translation_language';
-            $this->no_additional_action = true;
-            $this->display_selects = false;
-
-        } else if (! $this->process_credentials()) {
-            if ($action = $this->is_select_message_action()) {
-                $this->message_id = $this->get_message_id($action);
-                $this->_translation->get_translation_log_entries($this->message_id);
-            }
-
-        } else if (! $action = $this->get_action()) {
-            $this->set_next_action();
-
-        } else if ($action == 'get_next_translation_to_validate') {
-            $this->process_next_translation_to_validate();
-
-        } else if ($action == 'save_translation') {
-            if ($message_id = $this->_params->message_to_validate_id) {
-                $this->process_save_translation($message_id);
-            } else {
-                $this->set_next_action();
-            }
-
-        } else { // message selection
-            if ($message_id = $this->get_message_id($action)) {
-                $this->process_selected_message($message_id);
-            } else {
-                $this->set_next_action();
-            }
-        }
-
-        parent::run();
     }
 
     function set_next_action()

@@ -60,18 +60,12 @@ class function_test extends action
             $function_basename = $this->_application->function_basename;
         }
 
-        list($test_results, $is_function_available) = $this->test_examples($function_basename);
+        list($test_results, $this->is_function_available) = $this->test_examples($function_basename);
         $expected_results = $this->get_expected_results($function_basename, $test_results);
-        $test_validations = $this->validate_test_results($test_results, $expected_results);
-        $obsolete_expected_results = count($expected_results) - count($this->_function->examples) > 0;
+        $this->test_validations = $this->validate_test_results($test_results, $expected_results);
+        $this->obsolete_expected_results = count($expected_results) - count($this->_function->examples) > 0;
 
-        return [$test_validations, $obsolete_expected_results, $is_function_available];
-    }
-
-    function run()
-    {
-        list($this->test_validations , $this->obsolete_expected_results, $this->is_function_available) = $this->process();
-        parent::run();
+        return [$this->test_validations, $this->obsolete_expected_results, $this->is_function_available];
     }
 
     function test_example($example_id, $function_basename)

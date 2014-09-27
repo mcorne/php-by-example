@@ -44,9 +44,8 @@ class see_also_function extends object
 
         sort($see_also_functions);
 
-        if ($key = array_search($this->_application->function_basename, $see_also_functions)) {
-            unset($see_also_functions[$key]);
-        }
+        $key = array_search($this->_application->function_basename, $see_also_functions);
+        unset($see_also_functions[$key]);
 
         return $see_also_functions;
     }

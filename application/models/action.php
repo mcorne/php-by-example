@@ -16,8 +16,12 @@ require_once 'object.php';
 
 class action extends object
 {
+    function process()
+    {}
+
     function run()
     {
+        $this->process();
         $this->_params->set_cookie_params();
         require "$this->application_path/views/layout.phtml";
     }

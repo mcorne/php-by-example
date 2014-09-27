@@ -34,10 +34,4 @@ class custom_function extends action
             $this->error = 'File not found: ' . $this->filename;
         }
     }
-
-    function run()
-    {
-        $this->process();
-        parent::run();
-    }
 }

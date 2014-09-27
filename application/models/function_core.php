@@ -202,12 +202,6 @@ class function_core extends action
         }
     }
 
-    function run()
-    {
-        $this->process();
-        parent::run();
-    }
-
     function set_arg_value($arg_number, &$arg_values, &$result)
     {
         $arg_name = $copy = $this->_synopsis->arg_names[$arg_number];

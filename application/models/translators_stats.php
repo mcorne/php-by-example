@@ -12,7 +12,7 @@ require_once 'translation.php';
 
 class translators_stats extends action
 {
-    function run()
+    function process()
     {
         $current_language_id = $this->_language->language_id;
 
@@ -30,7 +30,5 @@ class translators_stats extends action
         $this->translators_stats = $translators_stats;
 
         $this->_language->language_id = $current_language_id;
-
-        parent::run();
     }
 }

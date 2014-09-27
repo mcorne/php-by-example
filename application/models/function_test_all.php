@@ -45,7 +45,7 @@ class function_test_all extends action
         return $count;
     }
 
-    function run()
+    function process()
     {
         $function_list = $this->_function_list->function_list;
         $function_basenames = array_keys($function_list);
@@ -57,8 +57,6 @@ class function_test_all extends action
 
         // resets the function name that has been set by the last test for displaying purposes
         $this->_synopsis->function_name = null;
-
-        parent::run();
     }
 
     function summarize_test_results($functions_test_results, $function_list)
