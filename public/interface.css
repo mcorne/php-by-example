@@ -8,7 +8,7 @@
 body
 {
     font-family: arial, Lucida Console;
-    font-size: .9em;
+    font-size: 1em;
     margin: 1em;
     margin-left: 1em;  /* needed in interface.js fix_php_manual() */
     margin-right: 1em; /* needed in interface.js fix_php_manual() */
@@ -98,7 +98,7 @@ div.block, div.block_translation
     margin-top: 0em;
     overflow: auto;
     padding: .5em;
-    width: 40em;
+    width: 45em;
 }
 
 div.block_translation
@@ -143,14 +143,16 @@ div.block_translation div.translation_in_action
 
 div.block_translation input
 {
-    width: 54.6em;
+    font-size: 1em;    
+    width: 50.6em;
 }
 
 div.block_translation select
 {
+    font-size: 1em;    
     height: 1.7em;
     margin-bottom: .8em;
-    width: 55em;
+    width: 51em;
 }
 
 div.block_translation td.blank_line
@@ -160,7 +162,7 @@ div.block_translation td.blank_line
 
 div.changelog
 {
-    font-size: .9em;
+    font-size: 1em;
 }
 
 div.changelog div.translated_message
@@ -221,7 +223,7 @@ div.email
 div.h1
 {
     margin-bottom: 1.5em;
-    width: 40em;
+    width: 45em;
 }
 
 div.h1 h1

@@ -119,6 +119,7 @@ function pbx_index_lat_lng()
  * Loads the latitudes and longitudes of the major cities
  *
  * @return array
+ * @see https://code.google.com/p/php-by-example/source/browse/trunk/application/custom-functions/cities-lat-lng.csv
  * @see http://en.wikipedia.org/wiki/List_of_cities_by_longitude#Sources
  */
 function pbx_load_cities_lat_lng()
