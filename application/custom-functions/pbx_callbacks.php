@@ -7,7 +7,7 @@
  */
 
 /*
- * the custom functions and methods used for callbacks in examples are defined below
+ * Custom functions and methods used for callbacks in examples
  *
  * a callback may be done in 4 ways:
  *
@@ -26,7 +26,7 @@
  */
 
 /**
- * list of all custom functions used for callbacks
+ * List of all custom functions used for callbacks
  */
 
 function barber($type) {
@@ -111,7 +111,7 @@ function to_lower($matches) {
 }
 
 /**
- * list of all closures used for callbacks
+ * List of all closures used for callbacks
  */
 
 $GLOBALS['barber'] = function ($type) {
@@ -196,13 +196,13 @@ $GLOBALS['to_lower'] = function ($matches) {
 };
 
 /**
- * list of all methods used for callbacks
+ * List of all methods used for callbacks
  */
 class pbx_callbacks
 {
     /**
-     * calls the corresponding static method when the callback is called from an instance of this class
-     * this is the prefered way vs calling the function directly to report a call to an invalid callback as an "invalid" method
+     * Calls the corresponding static method when the callback is called from an instance of this class
+     * this is the prefered way vs calling the function directly in order to report a call to an invalid callback as an "invalid" method
      *
      * @param string $name
      * @param array $arguments
@@ -214,7 +214,7 @@ class pbx_callbacks
     }
 
     /**
-     * list of all static methods used for callbacks
+     * List of all static methods used for callbacks
      */
     static function barber($type) {
         return "You wanted a $type haircut, no problem";

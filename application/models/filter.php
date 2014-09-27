@@ -33,6 +33,9 @@ class filter extends object
 
     function filter_callback($arg_name, $class_alias = null)
     {
+        $this->_function->see_also or $this->_function->see_also = [];
+        $this->_function->see_also[] = 'call_user_func';
+
         if (! $this->_function_params->param_exists($arg_name)) {
              return;
         }

@@ -23,16 +23,6 @@ class function_core extends action
     public $dependants = ['function_params', 'synopsis'];
 
     public $examples = [[]]; // one example with no arg by default
-    public $alias; // a fixed propertty, must not be reset
-
-    function _get_see_also_functions()
-    {
-        $manual_see_also_functions = $this->_see_also_function->get_manual_see_also_functions() ?: [];
-        $function_matches_excluding_basename = array_diff($this->_function_list->function_matches, [$this->_application->function_basename]);
-        $see_also_functions = array_intersect($this->_function_list->function_list, $manual_see_also_functions + $function_matches_excluding_basename);
-
-        return $see_also_functions;
-    }
 
     /**
      * the error handler

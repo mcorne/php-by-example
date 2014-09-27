@@ -113,9 +113,9 @@
 <?php endif;?>
 
 <?php
-if ($this->see_also_functions) {
+if ($this->_see_also_function->see_also_functions) {
     $this->_output->display_function_list(
-        $this->see_also_functions,
+        $this->_see_also_function->see_also_functions,
         $this->_message_translation->translate('See also'),
         'blue');
 }

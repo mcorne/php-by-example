@@ -231,7 +231,7 @@ class input extends object
     {
         $format = '<span class="method_name">%s</span>';
         $html = sprintf($format, $this->_synopsis->method_name);
-        $highlighted_code = preg_replace("~{$this->_synopsis->method_name}~", $html, $highlighted_code, 1);
+        $highlighted_code = preg_replace("~\b{$this->_synopsis->method_name}\b~", $html, $highlighted_code, 1);
 
         return $highlighted_code;
     }
@@ -245,6 +245,9 @@ class input extends object
         $highlighted_code = highlight_string($source_code, true);
         $highlighted_code = $this->replace_vars_by_inputs($highlighted_code, $vars_to_replace);
         $highlighted_code = $this->display_method_name($highlighted_code);
+
+        // adds a double slash before commented functions
+        $highlighted_code = str_replace('_DOUBLE_SLASH_', $this->double_slash, $highlighted_code);
 
         return $highlighted_code;
     }
@@ -418,9 +421,6 @@ class input extends object
 
         // restores the backslash of characters in octal notation
         $highlighted_code = str_replace('_BACKSLASH_', '\\', $highlighted_code);
-
-        // adds a double slash before commented functions
-        $highlighted_code = str_replace('_DOUBLE_SLASH_', $this->double_slash, $highlighted_code);
 
         return $highlighted_code;
     }

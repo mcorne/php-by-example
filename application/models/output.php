@@ -15,6 +15,21 @@ require_once 'object.php';
 
 class output extends object
 {
+    function display_custom_function_title($function_name, $filename, $type)
+    {
+        if ($type == 'function') {
+            $title = sprintf('%s() -- a custom function in %s', $function_name, $filename);
+
+        } else if ($type == 'class') {
+            $title = sprintf('%s -- a custom class in %s', $function_name, $filename);
+
+        } else {
+            $title = 'Custom function';
+        }
+
+        return $title;
+    }
+
     function display_date($date)
     {
         list($date) = explode(' ', $date);
@@ -107,6 +122,8 @@ class output extends object
 
     function display_function_list($functions, $title, $color)
     {
+        $functions = array_values($functions);
+        $last_index = count($functions) - 1;
         require __DIR__ . '/../views/listed_functions.phtml';
     }
 
@@ -163,6 +180,7 @@ class output extends object
 
     function display_tested_function_list($functions, $title, $color, $test_count_by_function = null, $test_subset_count_by_function = null)
     {
+        $last_function_name = end($functions);
         require __DIR__ . '/../views/tested_functions.phtml';
     }
 

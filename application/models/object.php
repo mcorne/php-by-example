@@ -116,7 +116,6 @@ class object
             $previous_object->unregister_object();
         }
 
-        $this->alias = $alias;
         $this->create_dependant_objects();
         self::$objects[$alias] = $this;
     }

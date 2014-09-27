@@ -46,6 +46,13 @@ class application extends object
         return $function_exists;
     }
 
+    function is_custom_function()
+    {
+        $is_custom_function = strpos($this->function_basename, 'pbx_') === 0;
+
+        return $is_custom_function;
+    }
+
     function run()
     {
         try {
@@ -54,6 +61,24 @@ class application extends object
             $this->action_name = isset($this->uri[1]) ? $this->uri[1] : null;
 
             switch ($this->action_name) {
+                case 'custom_function':
+                    $action = $this->_custom_function;
+                    break;
+
+                case 'function':
+                    if ($this->is_custom_function()) {
+                        $action = $this->_custom_function;
+                        $this->action_name = 'custom_function';
+
+                    } else if ($this->function_exists()) {
+                        $action = $this->_function_factory->create_function_object();
+
+                    } else if ($this->function_basename) {
+                        $this->action_name = 'search_function';
+                        $action = $this->_action;
+                    }
+                    break;
+
                 case 'function_list':
                 case 'help':
                 case 'home':
@@ -61,14 +86,8 @@ class application extends object
                     $action = $this->_action;
                     break;
 
-                case 'function':
-                    if ($this->function_exists()) {
-                        $action = $this->_function_factory->create_function_object();
-
-                    } else if ($this->function_basename) {
-                        $this->action_name = 'search_function';
-                        $action = $this->_action;
-                    }
+                case 'messages_translation':
+                    $action = $this->_messages_translation;
                     break;
 
                 case 'test':
@@ -79,10 +98,6 @@ class application extends object
 
                 case 'test_all':
                     $action = $this->_function_test_all;
-                    break;
-
-                case 'messages_translation':
-                    $action = $this->_messages_translation;
                     break;
 
                 case 'translations_stats':
