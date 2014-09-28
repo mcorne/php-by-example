@@ -42,7 +42,7 @@ class function_params extends object
         return $params;
     }
 
-    function get_param($param_name, $indirect_get_param_from_var = true)
+    function get_param($param_name, $indirect_get_param = true)
     {
         if (! $this->param_exists($param_name)) {
             return null;
@@ -57,7 +57,12 @@ class function_params extends object
 
         $value = $this->_parser->parse_value($value, $param_name);
 
-        if ($indirect_get_param_from_var) {
+        if ($indirect_get_param) {
+            if (isset($this->_function->returned_params[$param_name])) {
+                // the value is passed as a returned param, the value (possibly) passed as a param is ignored
+                $value = $this->_function->returned_params[$param_name];
+            }
+
             if ($this->is_param_var($value)) {
                 // the param values is actually a variable name, gets the value of that variable
                 // eg "$handle" returned by fopen() and used by fread($handle, ...)
@@ -66,6 +71,7 @@ class function_params extends object
             } else if (is_array($value) and isset($value[0]) and $this->is_param_var($value[0])) {
                 // this is (most likely) a callback object method, eg [$object, 'foobar'], gets the object instance
                 $value[0] = $this->get_param_var($value[0]);
+
             }
         }
 

@@ -54,9 +54,4 @@ class array_splice extends function_core
     ';
 
     public $synopsis = 'array array_splice ( array &$input , int $offset [, int $length [, mixed $replacement = array() ]] )';
-
-    function pre_exec_function()
-    {
-        $this->returned_params['input'] = $this->_filter->filter_arg_value('input');
-    }
 }

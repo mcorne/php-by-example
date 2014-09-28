@@ -178,12 +178,9 @@ filesize
 filetype
 
 filter_has_var
-filter_id
 filter_input
-filter_input_array
-filter_list
 filter_var
-filter_var_array
+
 finfo_buffer
 finfo_close
 finfo_file

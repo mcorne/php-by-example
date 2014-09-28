@@ -76,16 +76,22 @@ class input extends object
     function display_arg_helper($arg_type, $arg_name)
     {
         $multi_select = isset($this->_function->multi_select[$arg_name]) ? $this->_function->multi_select[$arg_name] : null;
-        $indexed_options = true;
 
         if (isset($this->_function->options_getter[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_getter($this->_function->options_getter[$arg_name]);
+            $indexed_options = true;
 
         } else if (isset($this->_function->options_list[$arg_name])) {
-            $arg_helper_options = $this->enclose_options_with_quotes($this->_function->options_list[$arg_name]);
+            $arg_helper_options = $this->enclose_indexed_options_with_quotes($this->_function->options_list[$arg_name]);
+            $indexed_options = true;
+
+        } else if (isset($this->_function->options_assoc_list[$arg_name])) {
+            $arg_helper_options = $this->enclose_assoc_options_with_quotes($this->_function->options_assoc_list[$arg_name]);
+            $indexed_options = false;
 
         } else if (isset($this->_function->options_range[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_range($this->_function->options_range[$arg_name]);
+            $indexed_options = true;
 
         } else if (isset($this->_function->commented_options[$arg_name])) {
             $arg_helper_options = $this->format_commented_options($this->_function->commented_options[$arg_name]);
@@ -93,19 +99,22 @@ class input extends object
 
         } else if ($constant_prefix = $this->_synopsis->is_boolean_arg($arg_name)) {
             $arg_helper_options = ['false', 'true'];
+            $indexed_options = true;
             $multi_select = false;
 
         } else if ($constant_prefix = $this->_synopsis->get_arg_constant_name_prefix($arg_name)) {
+            $indexed_options = true;
             $arg_helper_options = $this->_synopsis->get_arg_constant_names($constant_prefix);
 
         } else if ($arg_type == 'callable') {
             $arg_helper_options = $this->get_helper_callbacks();
+            $indexed_options = true;
 
         } else {
             return null;
         }
 
-        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options, $multi_select, $indexed_options);
+        $html = $this->display_arg_helper_select($arg_name, $arg_helper_options, $arg_type, $multi_select, $indexed_options);
         $html .= $this->display_arg_helper_mark($arg_name);
 
         return $html;
@@ -150,14 +159,14 @@ class input extends object
         return $helper_mark;
     }
 
-    function display_arg_helper_select($arg_name, $arg_helper_options, $multi_select, $indexed_options)
+    function display_arg_helper_select($arg_name, $arg_helper_options, $arg_type, $multi_select = false, $indexed_options = true)
     {
         if ($multi_select === true or $multi_select === null and substr($arg_name, -1) == 's' and substr($arg_name, -2) != 'ss') {
             // this is a multi-select or the arg name is plural and the ending is different from "ss" as in "class", displays a multi-select
             $empty_option = '-- ' . $this->_message_translation->translate('multi-select') . ' --';
 
             $format = '<select
-                         class="helper"
+                         class="helper %3$s"
                          id="select_%1$s"
                          multiple
                        >%2$s</select>';
@@ -167,7 +176,7 @@ class input extends object
             $empty_option = null;
 
             $format = '<select
-                         class="helper"
+                         class="helper %3$s"
                          id="select_%1$s"
                          onchange="set_arg_value(\'%1$s\')"
                        >%2$s</select>';
@@ -189,7 +198,7 @@ class input extends object
             $options .= $this->display_arg_helper_assoc_options($arg_helper_options);
         }
 
-        $helper_select = sprintf($format, $arg_name, $options);
+        $helper_select = sprintf($format, $arg_name, $options, $arg_type);
 
         return $helper_select;
     }
@@ -236,6 +245,22 @@ class input extends object
         return $highlighted_code;
     }
 
+    function display_changeable_vars($highlighted_code)
+    {
+        if (! preg_match_all('~CHANGEABLE_VAR_(\w+)~', $highlighted_code, $matches, PREG_SET_ORDER)) {
+            return $highlighted_code;
+        }
+
+        foreach ($matches as $match) {
+            list($prefixed_var_name, $var_name) = $match;
+            $html = $this->display_arg('var', $var_name);
+            $html .= $this->display_arg_helper('var', $var_name);
+            $highlighted_code = str_replace($prefixed_var_name, $html, $highlighted_code);
+        }
+
+        return $highlighted_code;
+    }
+
     function display_source_code()
     {
         $source_code = $this->inject_function_call();
@@ -248,14 +273,32 @@ class input extends object
 
         // adds a double slash before commented functions
         $highlighted_code = str_replace('_DOUBLE_SLASH_', $this->double_slash, $highlighted_code);
+        $highlighted_code = $this->display_changeable_vars($highlighted_code);
 
         return $highlighted_code;
     }
 
-    function enclose_options_with_quotes($options)
+    function enclose_assoc_options_with_quotes($assoc_options)
+    {
+        $enclosed = [];
+
+        foreach ($assoc_options as $text => $value) {
+            if (is_string($text) and $text[0] != '$') {
+                $text = '"' . $text . '"';
+            }
+
+            $enclosed[$text] = $value;
+        }
+
+        ksort($enclosed, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return $enclosed;
+    }
+
+    function enclose_indexed_options_with_quotes($options)
     {
         foreach ($options as &$option) {
-            if (is_string($option)) {
+            if (is_string($option) and $option[0] != '$') {
                 $option = '"' . $option . '"';
             }
         }
@@ -267,7 +310,7 @@ class input extends object
 
     function format_commented_options($commented_options)
     {
-        $options = [];
+        $formatted = [];
 
         foreach ($commented_options as $commented_option) {
             list($value, $comment) = $commented_option;
@@ -283,12 +326,12 @@ class input extends object
             }
 
             $text = $value . $comment;
-            $options[$text] = $value;
+            $formatted[$text] = $value;
         }
 
-        ksort($options, SORT_NATURAL | SORT_FLAG_CASE);
+        ksort($formatted, SORT_NATURAL | SORT_FLAG_CASE);
 
-        return $options;
+        return $formatted;
     }
 
     function get_callback_in_example($callback)
@@ -359,7 +402,7 @@ class input extends object
     function get_helper_options_from_getter($getter_function)
     {
         $options = call_user_func($getter_function);
-        $options = $this->enclose_options_with_quotes($options);
+        $options = $this->enclose_indexed_options_with_quotes($options);
 
         return $options;
     }
@@ -370,7 +413,7 @@ class input extends object
         $options = range($start, $end);
 
         if (is_string($start)) {
-            $options = $this->enclose_options_with_quotes($options);
+            $options = $this->enclose_indexed_options_with_quotes($options);
         }
 
         return $options;

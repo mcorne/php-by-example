@@ -34,7 +34,9 @@ public $multi_select = ['fl' => true];
 public $no_input_args = 'use_include_path';
 public $options_getter = ['encoding' => 'mb_list_encodings'];
 public $options_list = ['mode' => ['a', 'a+', 'c', 'c+', 'r', 'r+', 'w', 'w+', 'x', 'x+']];
-  see also public function _get_options_list()
+  see also public function _get_options_list();
+public $options_assoc_list = [];
+  see also public function _get_options_assoc_list()
 public $options_range = ['mode' => [0, 4]];
 public $see_also = ['call_user_funct'];
   see also filter_callback()
@@ -63,3 +65,10 @@ Example values
 - use _NO_QUOTE_ to force the string not to be enclosed with quotes, eg '_NO_QUOTE_0x30'
 - a regex pattern should ideally be enclosed between single quotes, eg '_SINGLE_QUOTE_/(<([\w]+)[^>]*>)(.*?)(<\/\2>)/_SINGLE_QUOTE_'
 - a regex pattern entered between double quotes may produce unexpected behavior for parsing reasons, see parser::parse_string()
+
+
+Source code
+-----------
+
+- CHANGEABLE_VAR_
+- _DOUBLE_SLASH_

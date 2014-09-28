@@ -143,13 +143,13 @@ div.block_translation div.translation_in_action
 
 div.block_translation input
 {
-    font-size: 1em;    
+    font-size: 1em;
     width: 50.6em;
 }
 
 div.block_translation select
 {
-    font-size: 1em;    
+    font-size: 1em;
     height: 1.7em;
     margin-bottom: .8em;
     width: 51em;
@@ -344,6 +344,11 @@ select.helper
     width: 20em;
 }
 
+select.var
+{
+    width: 7.1em;
+}
+
 span.english_only
 {
     color: #CCC; /* light gray */
@@ -434,6 +439,12 @@ textarea.array, textarea.callable, textarea.int, textarea.mixed
 textarea.string
 {
     color: #DD0000; /* red */
+}
+
+textarea.var
+{
+    color: #0000BB; /* blue */
+    width: 7em;
 }
 
 textarea.no_input

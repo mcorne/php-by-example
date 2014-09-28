@@ -19,16 +19,16 @@ class filter extends object
 {
     const DEFAULT_FILENAME = 'tempname';
 
-    function filter_arg_value($arg_name)
+    function filter_arg_value($arg_name, $indirect_get_param = true)
     {
         if ($this->_function_params->param_exists($arg_name)) {
-            $array = $this->_function_params->get_param($arg_name);
+            $value = $this->_function_params->get_param($arg_name, $indirect_get_param);
 
         } else {
-            $array = null;
+            $value = null;
         }
 
-        return $array;
+        return $value;
     }
 
     function filter_callback($arg_name, $class_alias = null)
@@ -204,11 +204,26 @@ class filter extends object
                    $class_name != 'pbx_callbacks' and (! $class_alias or $class_name != $class_alias))
         {
             // this is a class name and the class exists but is not the custom class or an alias
-            $message = $this->_message_translation->translate('this callback function may not be used in this example');
+            $message = $this->_message_translation->translate('this class may not be used in this example');
             throw new Exception($message, E_USER_WARNING);
         }
 
         // note that if an object, class or method is invalid, this will be caught by the function itself
+    }
+
+    function filter_var_name($arg_name)
+    {
+        if ($this->_function_params->param_exists($arg_name)) {
+            $var_name = $this->_function_params->get_param($arg_name, false);
+
+            if ($this->_function_params->is_param_var($var_name)) {
+                return $var_name;
+            }
+        }
+
+        isset($var_name) or $var_name = null;
+        $message = $this->_message_translation->translate('this variable name is invalid', $var_name);
+        throw new Exception($message, E_USER_ERROR);
     }
 
     function is_allowed_arg_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)
