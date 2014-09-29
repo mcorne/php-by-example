@@ -1,9 +1,6 @@
 Things to do
 ------------
 
-- add link to other functions used in source code, eg "next" in "current"
-- add link to pbx_* functions, display source code in place of manual page
-
 - offer users the ability to upload manuals from php.net to this site if they are more recent
 - look for outdated functions (synopsis)
 - move scripts to interface

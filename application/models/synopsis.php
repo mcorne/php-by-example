@@ -41,9 +41,13 @@ class synopsis extends object
         return $arg_descriptions;
     }
 
-    function _get_arg_names()
+    function _get_arg_names($synopsis = null)
     {
-        if (preg_match_all('~(?<=[a-z] | &)\$([\w]+)~', $this->synopsis_fixed, $matches)) {
+        if (! $synopsis) {
+            $synopsis = $this->synopsis_fixed;
+        }
+
+        if (preg_match_all('~(?<=[a-z] | &)\$([\w]+)~', $synopsis, $matches)) {
             // the function has arguments, extracts the argument names
             $arg_names = $matches[1];
         } else {
@@ -52,6 +56,14 @@ class synopsis extends object
 
         return $arg_names;
     }
+
+    function _get_arg_names_to_exec()
+    {
+        $arg_names_to_exec = $this->_get_arg_names($this->_function->synopsis_to_exec);
+
+        return $arg_names_to_exec;
+    }
+
     function _get_function_name()
     {
         if (! $this->synopsis_fixed) {

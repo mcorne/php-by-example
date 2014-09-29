@@ -177,10 +177,6 @@ fileperms
 filesize
 filetype
 
-filter_has_var
-filter_input
-filter_var
-
 finfo_buffer
 finfo_close
 finfo_file

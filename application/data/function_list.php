@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-27T19:20:44+00:00
+// generated automatically 2014-09-28T17:28:16+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -140,9 +140,12 @@ return array (
   'extension_loaded' => 'extension_loaded',
   'ezmlm_hash' => 'ezmlm_hash',
   'file_get_contents' => 'file_get_contents',
+  'filter_has_var' => 'filter_has_var',
   'filter_id' => 'filter_id',
+  'filter_input' => 'filter_input',
   'filter_input_array' => 'filter_input_array',
   'filter_list' => 'filter_list',
+  'filter_var' => 'filter_var',
   'filter_var_array' => 'filter_var_array',
   'floatval' => 'floatval',
   'floor' => 'floor',

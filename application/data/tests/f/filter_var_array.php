@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-27T19:44:38+00:00
+// generated automatically 2014-09-29T16:14:16+00:00
 return array (
   0 => 
   array (
@@ -19,6 +19,19 @@ return array (
         array (
           0 => 2,
         ),
+      ),
+    ),
+  ),
+  1 => 
+  array (
+    'result' => 
+    array (
+      'mixed' => 
+      array (
+        'width' => 4,
+        'length' => 27,
+        'height' => 8,
+        'weight' => 125,
       ),
     ),
   ),

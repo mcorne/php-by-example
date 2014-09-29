@@ -38,7 +38,7 @@ class function_core extends action
         $arg_values = [];
 
         for ($arg_number = 0; $arg_number <= 9; $arg_number++) {
-            if (! isset($this->_synopsis->arg_names[$arg_number]) or ! $this->_function_params->param_exists($this->_synopsis->arg_names[$arg_number])) {
+            if (! isset($this->_synopsis->arg_names_to_exec[$arg_number]) or ! $this->_function_params->param_exists($this->_synopsis->arg_names_to_exec[$arg_number])) {
                 // there is no more args passed to the function
                 $function = isset($this->method_to_exec) ? $this->method_to_exec : $this->_synopsis->method_name;
 
@@ -204,7 +204,7 @@ class function_core extends action
 
     function set_arg_value($arg_number, &$arg_values, &$result)
     {
-        $arg_name = $copy = $this->_synopsis->arg_names[$arg_number];
+        $arg_name = $copy = $this->_synopsis->arg_names_to_exec[$arg_number];
         $arg_values[$arg_number] = $this->_function_params->get_param($arg_name);
 
         if ($this->_synopsis->is_reference_arg($arg_name)) {

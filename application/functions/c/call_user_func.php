@@ -95,6 +95,8 @@ class call_user_func extends function_core
     public $synopsis       = 'mixed call_user_func ( callable $callback [, mixed $parameter [, mixed $... ]] )';
     public $synopsis_fixed = 'mixed call_user_func ( callable $callback [, mixed $parameter1 [, mixed $parameter2 [, mixed $parameter3 [, mixed $... ]]]] )';
 
+    public $test_not_validated = [9];
+
     function pre_exec_function()
     {
         $this->_filter->filter_callback('callback', 'myclass');

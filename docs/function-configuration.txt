@@ -41,6 +41,7 @@ public $options_range = ['mode' => [0, 4]];
 public $see_also = ['call_user_funct'];
   see also filter_callback()
 public $synopsis_fixed
+public $synopsis_to_exec
 public $test_not_to_run = true;
 public $test_not_validated = true;
 

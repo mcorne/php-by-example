@@ -124,4 +124,9 @@ class function_params extends object
 
         return $exists;
     }
+
+    function set_param($param_name, $value)
+    {
+        $this->params[$param_name] = $this->_converter->convert_value_to_text($value);
+    }
 }

@@ -60,6 +60,23 @@ function even($var) {
     return(!($var & 1));
 }
 
+function foo($value)
+{
+    // Expected format: Surname, GivenNames
+    if (strpos($value, ", ") === false)
+        return false;
+
+    list($surname, $givennames) = explode(", ", $value, 2);
+    $empty = (empty($surname) || empty($givennames));
+    $notstrings = (!is_string($surname) || !is_string($givennames));
+
+    if ($empty || $notstrings) {
+        return false;
+    } else {
+        return $value;
+    }
+}
+
 function foobar($arg, $arg2) {
     return "foobar got $arg and $arg2";
 }
@@ -143,6 +160,23 @@ $GLOBALS['double'] = function ($value) {
 
 $GLOBALS['even'] = function ($var) {
     return(!($var & 1));
+};
+
+$GLOBALS['foo'] = function ($value)
+{
+    // Expected format: Surname, GivenNames
+    if (strpos($value, ", ") === false)
+        return false;
+
+    list($surname, $givennames) = explode(", ", $value, 2);
+    $empty = (empty($surname) || empty($givennames));
+    $notstrings = (!is_string($surname) || !is_string($givennames));
+
+    if ($empty || $notstrings) {
+        return false;
+    } else {
+        return $value;
+    }
 };
 
 $GLOBALS['foobar'] = function ($arg, $arg2) {
@@ -245,6 +279,23 @@ class pbx_callbacks
 
     static function even($var) {
         return(!($var & 1));
+    }
+
+    static function foo($value)
+    {
+        // Expected format: Surname, GivenNames
+        if (strpos($value, ", ") === false)
+            return false;
+
+        list($surname, $givennames) = explode(", ", $value, 2);
+        $empty = (empty($surname) || empty($givennames));
+        $notstrings = (!is_string($surname) || !is_string($givennames));
+
+        if ($empty || $notstrings) {
+            return false;
+        } else {
+            return $value;
+        }
     }
 
     static function foobar($arg, $arg2) {

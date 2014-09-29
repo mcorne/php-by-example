@@ -10,4 +10,6 @@
 class filter_list extends function_core
 {
     public $synopsis = 'array filter_list ( void )';
+
+    public $test_not_validated = true;
 }

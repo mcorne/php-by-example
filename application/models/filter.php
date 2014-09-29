@@ -47,10 +47,11 @@ class filter extends object
         }
 
         if (is_array($callback_name)) {
-            $this->filter_method_callback($callback_name, $class_alias);
+            $object = $this->filter_method_callback($callback_name, $class_alias);
+            $callback_name[0] = $object;
 
         } else if ($this->_function_params->is_param_var($callback_name)) {
-            $this->filter_closure_callback($callback_name);
+            $callback_name = $this->filter_closure_callback($callback_name);
 
         } else if (strpos($callback_name, '::')) {
             $callback_name = explode('::', $callback_name);
@@ -59,6 +60,8 @@ class filter extends object
         } else {
             $this->filter_function_callback($callback_name);
         }
+
+        return $callback_name;
     }
 
     function filter_closure_callback($closure_name)
@@ -68,8 +71,11 @@ class filter extends object
         if ($this->is_custom_callback_function($closure_name) and isset($GLOBALS[$closure_name])) {
             // this is a valid and existing closure, adds a param with the closure
             $this->_function->returned_params[$closure_name] = $GLOBALS[$closure_name];
+            return $GLOBALS[$closure_name];
         }
+
         // else: the closure is an unset variable, this will be caught by the function itself
+        return null;
     }
 
     function filter_date_interval($arg_name)
@@ -198,10 +204,13 @@ class filter extends object
         if ($class_name == '$object') {
             // an object is actually passed in the callback, adds a param with the object
             $class_name = $class_alias ? $class_alias : 'pbx_callbacks';
-            $this->_function->returned_params['object'] = new $class_name();
+            $object = new $class_name();
+            $this->_function->returned_params['object'] = $object;
+            return $object;
+        }
 
-        } else if ($class_name[0] != '$' and class_exists($class_name, false) and
-                   $class_name != 'pbx_callbacks' and (! $class_alias or $class_name != $class_alias))
+        if ($class_name[0] != '$' and class_exists($class_name, false) and
+            $class_name != 'pbx_callbacks' and (! $class_alias or $class_name != $class_alias))
         {
             // this is a class name and the class exists but is not the custom class or an alias
             $message = $this->_message_translation->translate('this class may not be used in this example');
@@ -209,6 +218,7 @@ class filter extends object
         }
 
         // note that if an object, class or method is invalid, this will be caught by the function itself
+        return null;
     }
 
     function filter_var_name($arg_name)
