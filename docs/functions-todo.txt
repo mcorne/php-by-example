@@ -130,9 +130,6 @@ debug_backtrace
 debug_print_backtrace
 debug_zval_dump
 
-define
-defined
-
 dgettext
 
 dir

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-28T17:28:16+00:00
+// generated automatically 2014-09-30T10:55:53+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -122,6 +122,8 @@ return array (
   'decbin' => 'decbin',
   'dechex' => 'dechex',
   'decoct' => 'decoct',
+  'define' => 'define',
+  'defined' => 'defined',
   'deg2rad' => 'deg2rad',
   'dirname' => 'dirname',
   'disk_free_space' => 'disk_free_space',

@@ -31,6 +31,7 @@ class html_entity_decode extends function_core
         // the returned $_string may not display properly if $_encoding is not UTF-8
 
         // shows the returned $string in UTF-8 if $_encoding is not UTF-8
+        // note that $encoding below actually represents an argument
         if ($_encoding and $_encoding != "UTF-8")
             $utf8 = mb_convert_encoding($_string, "UTF-8", $_encoding);
     ';

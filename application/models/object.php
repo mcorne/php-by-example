@@ -55,7 +55,7 @@ class object
         }
     }
 
-    function create_object($classname, $directory = null, $alias = null)
+    function create_object($classname, $directory = null, $alias = null, $fixed_classname = null)
     {
         if (! $directory) {
             // defaults to the "models" directory
@@ -63,6 +63,11 @@ class object
         }
 
         require_once "$directory/$classname.php";
+
+        if ($fixed_classname) {
+            $classname = $fixed_classname;
+        }
+
         $object = new $classname();
 
         if ($alias) {

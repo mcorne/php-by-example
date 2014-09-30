@@ -28,7 +28,7 @@ class examples extends object
             $arg_name = $index;
         }
 
-        $combined[$arg_name] = $this->convert_example_to_text($value, false);
+        $combined[$arg_name] = $this->convert_example_to_text($value, false, $arg_name);
 
         return $combined;
     }
@@ -50,10 +50,9 @@ class examples extends object
         return $combined;
     }
 
-    function convert_example_to_text($value, $no_linebreak = false)
+    function convert_example_to_text($value, $no_linebreak = false, $arg_name)
     {
-        // forces quotes around a constant for the "constant()" function (this is a special case)
-        $force_quotes = $this->_synopsis->function_name == 'constant';
+        $force_quotes = ! empty($this->_function->constant_as_string[$arg_name]);
         $text = $this->_converter->convert_value_to_text($value, $no_linebreak, $force_quotes, true);
 
         return $text;

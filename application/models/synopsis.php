@@ -175,6 +175,13 @@ class synopsis extends object
         return $arg_constant_names;
     }
 
+    function get_arg_name($arg_number)
+    {
+        $arg_name = isset($this->arg_names[$arg_number]) ? $this->arg_names[$arg_number] : null;
+
+        return $arg_name;
+    }
+
     function get_mandatory_args_description($mandatory_args_description)
     {
         $mandatory_args_description = explode(',', $mandatory_args_description);

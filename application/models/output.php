@@ -75,7 +75,15 @@ class output extends object
 
     function display_example_value($key, $value)
     {
-        $value = $this->_examples->convert_example_to_text($value, true);
+        if (is_numeric($key)) {
+            // this is a function argument, gets the arg name
+            $arg_name = $this->_synopsis->get_arg_name($key);
+
+        } else {
+            $arg_name = $key;
+        }
+
+        $value = $this->_examples->convert_example_to_text($value, true, $arg_name);
 
         if (is_numeric($key)) {
             // this is a function argument, appends the arg separator
@@ -85,7 +93,7 @@ class output extends object
             // this is not a function argument, eg "filename" passed to fopen() before fread()
             // removes the underscores prefixing a var name
             $key = ltrim($key, '_');
-            // comments both param name and value
+            // comments both var name and value
             $value = sprintf('/* $%s = %s */', $key, $value);
         }
 

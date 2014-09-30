@@ -50,6 +50,7 @@ class iconv extends function_core
         // the converted $_string may not display properly if $_out_charset is not UTF-8
 
         // shows the encoding difference in hexadecimal
+        // note that $str below actually represents an argument
         $hex = unpack("H*in_charset", $_str) + unpack("H*out_charset", $_string);
     ';
 
