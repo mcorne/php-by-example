@@ -221,7 +221,7 @@ class filter extends object
         return null;
     }
 
-    function filter_var_name($arg_name)
+    function filter_var_name($arg_name, $mandatory = true)
     {
         if ($this->_function_params->param_exists($arg_name)) {
             $var_name = $this->_function_params->get_param($arg_name, false);
@@ -231,9 +231,13 @@ class filter extends object
             }
         }
 
-        isset($var_name) or $var_name = null;
-        $message = $this->_message_translation->translate('this variable name is invalid', $var_name);
-        throw new Exception($message, E_USER_ERROR);
+        if ($mandatory) {
+            isset($var_name) or $var_name = null;
+            $message = $this->_message_translation->translate('this variable name is invalid', $var_name);
+            throw new Exception($message, E_USER_ERROR);
+        }
+
+        return null;
     }
 
     function is_allowed_arg_value($arg_name, $allowed_values = [], $is_empty_arg_allowed = true)

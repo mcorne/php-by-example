@@ -134,9 +134,9 @@ function set_arg_value(arg_name)
         }
 
         if (options) {
-            options += ' | ' + select[i].text;
+            options += ' | ' + select[i].value;
         } else {
-            options = select[i].text;
+            options = select[i].value;
         }
     }
 

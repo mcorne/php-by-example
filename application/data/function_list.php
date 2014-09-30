@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-30T10:55:53+00:00
+// generated automatically 2014-09-30T19:16:26+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -93,6 +93,7 @@ return array (
   'class_exists' => 'class_exists',
   'class_implements' => 'class_implements',
   'class_parents' => 'class_parents',
+  'compact' => 'compact',
   'constant' => 'constant',
   'convert_uudecode' => 'convert_uudecode',
   'convert_uuencode' => 'convert_uuencode',
@@ -119,6 +120,7 @@ return array (
   'date_sunrise' => 'date_sunrise',
   'date_sunset' => 'date_sunset',
   'datetime__add' => 'DateTime::add',
+  'datetime__sub' => 'DateTime::sub',
   'decbin' => 'decbin',
   'dechex' => 'dechex',
   'decoct' => 'decoct',

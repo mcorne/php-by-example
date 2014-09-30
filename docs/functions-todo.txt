@@ -35,8 +35,6 @@ collator_set_strength
 collator_sort
 collator_sort_with_sort_keys
 
-compact
-
 connection_aborted
 connection_status
 

@@ -346,7 +346,7 @@ select.helper
 
 select.var
 {
-    width: 7.1em;
+    width: 8.7em;
 }
 
 span.english_only
@@ -444,7 +444,7 @@ textarea.string
 textarea.var
 {
     color: #0000BB; /* blue */
-    width: 7em;
+    width: 8.5em;
 }
 
 textarea.no_input
