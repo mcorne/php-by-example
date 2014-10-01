@@ -150,8 +150,6 @@ exif_read_data
 exif_tagname
 exif_thumbnail
 
-extract
-
 fclose
 feof
 fflush

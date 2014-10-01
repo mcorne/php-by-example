@@ -26,7 +26,7 @@
       <td class="center">Messages to validate</td>
     </tr>
 
-      <?php foreach($this->translations_stats as $language_english_name => $translation_stats):?>
+      <?php foreach ($this->translations_stats as $language_english_name => $translation_stats):?>
         <tr>
           <td>
             <a href="<?=$this->_output->display_url('messages_translation', null, null, $translation_stats['language_id']);?>"><?=$language_english_name;?></a>

@@ -12,7 +12,7 @@
   <?=$this->_message_translation->translate('List of available functions');?> (<?=count($this->_function_list->function_list);?>)
 </h1>
 
-<?php foreach($this->_function_list->function_list as $function_name):?>
+<?php foreach ($this->_function_list->function_list as $function_name):?>
   <div>
     <a href="<?=$this->_output->display_url('function', $function_name);?>"><?=$function_name;?></a>
   </div>

@@ -26,7 +26,7 @@
       <td class="center">Account</td>
     </tr>
 
-      <?php foreach($this->translators_stats as $language_english_name => $translators_stats):?>
+      <?php foreach ($this->translators_stats as $language_english_name => $translators_stats):?>
         <tr><td>&nbsp;</td></tr>
 
         <?php if (! $translators_stats):?>
@@ -38,7 +38,7 @@
           </tr>
 
         <?php else:?>
-          <?php foreach($translators_stats as $index => $translator_stats):?>
+          <?php foreach ($translators_stats as $index => $translator_stats):?>
             <tr <?php if (! $translator_stats['has_account']):?>class="gray"<?php endif;?>>
               <td>
                 <?php if (! $index):?>

@@ -22,7 +22,7 @@ $php_manual_locations = [
         id="php_manual_location"
         onchange="change_php_manual_location(this)">
 
-  <?php foreach($php_manual_locations as $location_id => $location_name) :?>
+  <?php foreach ($php_manual_locations as $location_id => $location_name) :?>
   <option <?php if($location_id == $this->_params->php_manual_location):?>selected="selected"<?php endif;?>
           value="<?=$location_id;?>">
       <?=$location_name;?>

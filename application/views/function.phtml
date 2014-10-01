@@ -41,7 +41,7 @@
     <code>
       <table>
 
-        <?php foreach($this->result as $var_name => $value):?>
+        <?php foreach ($this->result as $var_name => $value):?>
           <tr>
             <td class="variable">$<?=$var_name;?></td>
             <td class="operator">=</td>
@@ -60,7 +60,7 @@
   <div class="block red_border">
     <table class="errors">
 
-      <?php foreach($this->errors as $error):?>
+      <?php foreach ($this->errors as $error):?>
         <tr>
           <td class="error_code"><?=$this->_output->display_error_code($error['code']);?></td>
           <td>:</td>
@@ -85,7 +85,7 @@
   <div class="block blue_border">
        <table>
 
-         <?php foreach($this->examples as $example_id => $example):?>
+         <?php foreach ($this->examples as $example_id => $example):?>
            <tr>
 
              <td>

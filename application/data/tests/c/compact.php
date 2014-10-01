@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-30T19:08:12+00:00
+// generated automatically 2014-10-01T10:02:06+00:00
 return array (
   0 => 
   array (
@@ -25,11 +25,6 @@ return array (
       array (
         'code' => 2,
         'message' => 'compact() expects at least 1 parameter, 0 given',
-      ),
-      1 => 
-      array (
-        'code' => 8,
-        'message' => 'Undefined variable: varnames',
       ),
     ),
   ),

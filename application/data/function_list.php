@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-30T19:16:26+00:00
+// generated automatically 2014-10-01T06:54:31+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -142,6 +142,7 @@ return array (
   'explode' => 'explode',
   'expm1' => 'expm1',
   'extension_loaded' => 'extension_loaded',
+  'extract' => 'extract',
   'ezmlm_hash' => 'ezmlm_hash',
   'file_get_contents' => 'file_get_contents',
   'filter_has_var' => 'filter_has_var',

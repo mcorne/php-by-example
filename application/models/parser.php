@@ -57,7 +57,7 @@ class parser extends object
     {
         $unparsed_tokens = array_slice($this->tokens, --$this->current, 10);
 
-        foreach($unparsed_tokens as &$unparsed_token) {
+        foreach ($unparsed_tokens as &$unparsed_token) {
             if (is_array($unparsed_token)) {
                 // gets the token value
                 $unparsed_token = $unparsed_token[1];

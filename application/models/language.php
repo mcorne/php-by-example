@@ -66,7 +66,7 @@ class language extends object
         $accepted_languages = explode(",", $_SERVER['HTTP_ACCEPT_LANGUAGE']);
         $language_ids = [];
 
-        foreach($accepted_languages as $accepted_language) {
+        foreach ($accepted_languages as $accepted_language) {
             if (preg_match('~([a-z-]+)(?:;q=([0-9\\.]+))?~i', $accepted_language, $match)) {
                 $language_id = $match[1];
                 $quality  = isset($match[2]) ? (float) $match[2] : 1.0;  // defaults quality to 1

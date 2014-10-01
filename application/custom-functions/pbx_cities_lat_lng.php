@@ -9,7 +9,7 @@
 /**
  * Converts a latitude or longitude to a signed float
  *
- * @param string $coordinate eg "51°29′N", or "0°00′E/W"
+ * @param  string $coordinate eg "51°29′N", or "0°00′E/W"
  * @return float
  */
 function pbx_coordinate_to_float($coordinate)
@@ -31,7 +31,7 @@ function pbx_coordinate_to_float($coordinate)
 /**
  * Returns the latitude and longitude of a city
  *
- * @param string $city eg "Aberdeen, United Kingdom, Scotland", or "Aberdeen, United Kingdom", or "Aberdeen"
+ * @param  string $city eg "Aberdeen, United Kingdom, Scotland", or "Aberdeen, United Kingdom", or "Aberdeen"
  * @return array latitude and longitude, or null for both
  */
 function pbx_get_city_lat_lng($city)

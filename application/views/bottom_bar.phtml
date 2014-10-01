@@ -13,7 +13,7 @@
   <select id="language"
           onchange="change_language(this, '<?=$this->_language->language_id;?>')">
 
-    <?php foreach($this->_language->languages as $language_id => $language) :?>
+    <?php foreach ($this->_language->languages as $language_id => $language) :?>
     <option <?php if($language_id == $this->_language->language_id):?>selected="selected"<?php endif;?>
             title="<?=$language['english_name'];?>"
             value="<?=$language_id;?>">

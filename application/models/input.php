@@ -85,10 +85,6 @@ class input extends object
             $arg_helper_options = $this->enclose_indexed_options_with_quotes($this->_function->options_list[$arg_name]);
             $indexed_options = true;
 
-        } else if (isset($this->_function->options_assoc_list[$arg_name])) {
-            $arg_helper_options = $this->enclose_assoc_options_with_quotes($this->_function->options_assoc_list[$arg_name]);
-            $indexed_options = false;
-
         } else if (isset($this->_function->options_range[$arg_name])) {
             $arg_helper_options = $this->get_helper_options_from_range($this->_function->options_range[$arg_name]);
             $indexed_options = true;
@@ -276,23 +272,6 @@ class input extends object
         $highlighted_code = $this->display_changeable_vars($highlighted_code);
 
         return $highlighted_code;
-    }
-
-    function enclose_assoc_options_with_quotes($assoc_options)
-    {
-        $enclosed = [];
-
-        foreach ($assoc_options as $text => $value) {
-            if (is_string($text) and $text[0] != '$') {
-                $text = '"' . $text . '"';
-            }
-
-            $enclosed[$text] = $value;
-        }
-
-        ksort($enclosed, SORT_NATURAL | SORT_FLAG_CASE);
-
-        return $enclosed;
     }
 
     function enclose_indexed_options_with_quotes($options)

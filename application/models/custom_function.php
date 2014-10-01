@@ -15,6 +15,10 @@ require_once 'action.php';
 
 class custom_function extends action
 {
+    /**
+     * list of classes, and functions in files with a name not based on the function name
+     * @var array
+     */
     public $filenames = [
         'pbx_callbacks'        => ['pbx_callbacks.php'     , 'class'],
         'pbx_get_city_lat_lng' => ['pbx_cities_lat_lng.php', 'function'],
@@ -22,12 +26,15 @@ class custom_function extends action
 
     function process()
     {
-        if (! isset($this->filenames[$this->_application->function_basename])) {
-            $this->error = 'Invalid function or class name: ' . $this->_application->function_basename;
-            return;
+        if (isset($this->filenames[$this->_application->function_basename])) {
+            list($this->filename, $this->type) = $this->filenames[$this->_application->function_basename];
+
+        } else {
+            // defaults the file name to the function name
+            $this->filename = $this->_application->function_basename . '.php';
+            $this->type = 'function';
         }
 
-        list($this->filename, $this->type) = $this->filenames[$this->_application->function_basename];
         $this->filepath = $this->application_path . '/custom-functions/' . $this->filename;
 
         if (! file_exists($this->filepath)) {

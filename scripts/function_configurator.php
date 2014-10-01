@@ -35,7 +35,7 @@ class function_configurator extends object
             }
 
             if ($values = $this->_parser->parse_value("array($function_call)", $function_name, false)) {
-                foreach($values as $index => $value)  {
+                foreach ($values as $index => $value)  {
                     if (isset($arg_names[$index])) {
                         $arg_name = $arg_names[$index];
                         $params[$arg_name] = $value;
@@ -388,7 +388,7 @@ config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixe
     	$function_calls = [];
     	$vars_values = [];
 
-    	foreach($examples as $example) {
+    	foreach ($examples as $example) {
             $function_calls = array_merge($function_calls, $this->parse_example($example, $function_name, $args, $vars_values));
     	}
 
@@ -417,7 +417,7 @@ config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixe
 
         list(, $function_calls) = $matches;
 
-        foreach($function_calls as &$function_call) {
+        foreach ($function_calls as &$function_call) {
             if (preg_match("~[{$this->chars_before_function}]~", $function_call[0])) {
                 // the function is called within another function, ex. print_r()
                 // ex. print_r(array_change_key_case($input_array, CASE_UPPER));
@@ -467,7 +467,7 @@ config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixe
         if (preg_match_all('~\$\w+~s', $function_call, $matches)) {
             list($vars) = $matches;
 
-            foreach($vars as $var) {
+            foreach ($vars as $var) {
                 if (isset($vars_values[$var])) {
                     $function_call = str_replace($var, $vars_values[$var], $function_call);
                 } else {
@@ -481,7 +481,7 @@ config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixe
 
     function replace_functions_vars_with_values($function_calls, $vars_values, $args, $function_name)
     {
-        foreach($function_calls as &$function_call) {
+        foreach ($function_calls as &$function_call) {
             $function_call = $this->replace_function_vars_with_values($function_call, $vars_values);
             $function_call = $this->assign_values_to_args($function_call, $args, $function_name);
         }
