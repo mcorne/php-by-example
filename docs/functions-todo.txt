@@ -158,13 +158,9 @@ fgetcsv
 fgets
 fgetss
 file
-file_exists
 file_put_contents
-fileatime
-filectime
 filegroup
 fileinode
-filemtime
 fileowner
 fileperms
 filesize
