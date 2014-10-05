@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-10-01T20:06:02+00:00
+// generated automatically 2014-10-05T16:08:36+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -148,7 +148,9 @@ return array (
   'file_get_contents' => 'file_get_contents',
   'fileatime' => 'fileatime',
   'filectime' => 'filectime',
+  'filegroup' => 'filegroup',
   'filemtime' => 'filemtime',
+  'fileowner' => 'fileowner',
   'filter_has_var' => 'filter_has_var',
   'filter_id' => 'filter_id',
   'filter_input' => 'filter_input',
@@ -390,6 +392,14 @@ return array (
   'phpversion' => 'phpversion',
   'pi' => 'pi',
   'pos' => 'pos',
+  'posix_getegid' => 'posix_getegid',
+  'posix_geteuid' => 'posix_geteuid',
+  'posix_getgid' => 'posix_getgid',
+  'posix_getgrgid' => 'posix_getgrgid',
+  'posix_getgrnam' => 'posix_getgrnam',
+  'posix_getpwnam' => 'posix_getpwnam',
+  'posix_getpwuid' => 'posix_getpwuid',
+  'posix_getuid' => 'posix_getuid',
   'pow' => 'pow',
   'preg_filter' => 'preg_filter',
   'preg_grep' => 'preg_grep',

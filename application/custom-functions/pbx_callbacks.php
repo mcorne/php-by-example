@@ -29,34 +29,41 @@
  * List of all custom functions used for callbacks
  */
 
-function barber($type) {
+function barber($type)
+{
     return "You wanted a $type haircut, no problem";
 }
 
-function cb1($a) {
+function cb1($a)
+{
     return array ($a);
 }
 
-function cb2($a, $b) {
+function cb2($a, $b)
+{
     return array ($a, $b);
 }
 
-function compare_func($a, $b) {
+function compare_func($a, $b)
+{
     if ($a === $b) {
         return 0;
     }
     return ($a > $b)? 1 : -1;
 }
 
-function cube($n) {
+function cube($n)
+{
     return($n * $n * $n);
 }
 
-function double($value) {
+function double($value)
+{
     return $value * 2;
 }
 
-function even($var) {
+function even($var)
+{
     return(!($var & 1));
 }
 
@@ -77,53 +84,65 @@ function foo($value)
     }
 }
 
-function foobar($arg, $arg2) {
+function foobar($arg, $arg2)
+{
     return "foobar got $arg and $arg2";
 }
 
-function map_Spanish($n, $m) {
+function map_Spanish($n, $m)
+{
     return(array($n => $m));
 }
 
-function next_year($matches) {
+function next_year($matches)
+{
     return $matches[1] . ($matches[2] + 1);
 }
 
-function odd($var) {
+function odd($var)
+{
     return($var & 1);
 }
 
-function rmul($v, $w) {
+function rmul($v, $w)
+{
     $v *= $w;
     return $v;
 }
 
-function rsum($v, $w) {
+function rsum($v, $w)
+{
     $v += $w;
     return $v;
 }
 
-function say_goodbye($name) {
+function say_goodbye($name)
+{
     return "Goodbye $name!";
 }
 
-function say_hello() {
+function say_hello()
+{
     return "Hello!";
 }
 
-function show_Spanish($n, $m) {
+function show_Spanish($n, $m)
+{
     return("The number $n is called $m in Spanish");
 }
 
-function test_alter(&$item1, $key, $prefix) {
+function test_alter(&$item1, $key, $prefix)
+{
     $item1 = "$prefix: $item1";
- }
+}
 
-function test_print(&$item, $key) {
+function test_print(&$item, $key)
+{
     $item = "$key holds $item\n";
- }
+}
 
-function to_lower($matches) {
+function to_lower($matches)
+{
     return strtolower($matches[0]);
 }
 
@@ -131,34 +150,41 @@ function to_lower($matches) {
  * List of all closures used for callbacks
  */
 
-$GLOBALS['barber'] = function ($type) {
+$GLOBALS['barber'] = function ($type)
+{
     return "You wanted a $type haircut, no problem";
 };
 
-$GLOBALS['cb1'] = function ($a) {
+$GLOBALS['cb1'] = function ($a)
+{
     return array ($a);
 };
 
-$GLOBALS['cb2'] = function ($a, $b) {
+$GLOBALS['cb2'] = function ($a, $b)
+{
     return array ($a, $b);
 };
 
-$GLOBALS['compare_func'] = function ($a, $b) {
+$GLOBALS['compare_func'] = function ($a, $b)
+{
     if ($a === $b) {
         return 0;
     }
     return ($a > $b)? 1 : -1;
 };
 
-$GLOBALS['cube'] = function ($n) {
+$GLOBALS['cube'] = function ($n)
+{
     return($n * $n * $n);
 };
 
-$GLOBALS['double'] = function ($value) {
+$GLOBALS['double'] = function ($value)
+{
     return $value * 2;
 };
 
-$GLOBALS['even'] = function ($var) {
+$GLOBALS['even'] = function ($var)
+{
     return(!($var & 1));
 };
 
@@ -179,53 +205,65 @@ $GLOBALS['foo'] = function ($value)
     }
 };
 
-$GLOBALS['foobar'] = function ($arg, $arg2) {
+$GLOBALS['foobar'] = function ($arg, $arg2)
+{
     return "foobar got $arg and $arg2";
 };
 
-$GLOBALS['map_Spanish'] = function ($n, $m) {
+$GLOBALS['map_Spanish'] = function ($n, $m)
+{
     return(array($n => $m));
 };
 
-$GLOBALS['next_year'] = function ($matches) {
+$GLOBALS['next_year'] = function ($matches)
+{
     return $matches[1] . ($matches[2] + 1);
 };
 
-$GLOBALS['odd'] = function ($var) {
+$GLOBALS['odd'] = function ($var)
+{
     return($var & 1);
 };
 
-$GLOBALS['rmul'] = function ($v, $w) {
+$GLOBALS['rmul'] = function ($v, $w)
+{
     $v *= $w;
     return $v;
 };
 
-$GLOBALS['rsum'] = function ($v, $w) {
+$GLOBALS['rsum'] = function ($v, $w)
+{
     $v += $w;
     return $v;
 };
 
-$GLOBALS['say_goodbye'] = function ($name) {
+$GLOBALS['say_goodbye'] = function ($name)
+{
     return "Goodbye $name!";
 };
 
-$GLOBALS['say_hello'] = function () {
+$GLOBALS['say_hello'] = function ()
+{
     return "Hello!";
 };
 
-$GLOBALS['show_Spanish'] = function ($n, $m) {
+$GLOBALS['show_Spanish'] = function ($n, $m)
+{
     return("The number $n is called $m in Spanish");
 };
 
-$GLOBALS['test_alter'] = function (&$item1, $key, $prefix) {
+$GLOBALS['test_alter'] = function (&$item1, $key, $prefix)
+{
     $item1 = "$prefix: $item1";
 };
 
-$GLOBALS['test_print'] = function (&$item, $key) {
+$GLOBALS['test_print'] = function (&$item, $key)
+{
     $item = "$key holds $item\n";
 };
 
-$GLOBALS['to_lower'] = function ($matches) {
+$GLOBALS['to_lower'] = function ($matches)
+{
     return strtolower($matches[0]);
 };
 
@@ -250,34 +288,41 @@ class pbx_callbacks
     /**
      * List of all static methods used for callbacks
      */
-    static function barber($type) {
+    static function barber($type)
+    {
         return "You wanted a $type haircut, no problem";
     }
 
-    static function cb1($a) {
+    static function cb1($a)
+    {
         return array ($a);
     }
 
-    static function cb2($a, $b) {
+    static function cb2($a, $b)
+    {
         return array ($a, $b);
     }
 
-    static function compare_func($a, $b) {
+    static function compare_func($a, $b)
+    {
         if ($a === $b) {
             return 0;
         }
         return ($a > $b)? 1 : -1;
     }
 
-    static function cube($n) {
+    static function cube($n)
+    {
         return($n * $n * $n);
     }
 
-    static function double($value) {
+    static function double($value)
+    {
         return $value * 2;
     }
 
-    static function even($var) {
+    static function even($var)
+    {
         return(!($var & 1));
     }
 
@@ -298,53 +343,65 @@ class pbx_callbacks
         }
     }
 
-    static function foobar($arg, $arg2) {
+    static function foobar($arg, $arg2)
+    {
         return "foobar got $arg and $arg2";
     }
 
-    static function map_Spanish($n, $m) {
+    static function map_Spanish($n, $m)
+    {
         return(array($n => $m));
     }
 
-    static function next_year($matches) {
+    static function next_year($matches)
+    {
         return $matches[1] . ($matches[2] + 1);
     }
 
-    static function odd($var) {
+    static function odd($var)
+    {
         return($var & 1);
     }
 
-    static function rmul($v, $w) {
+    static function rmul($v, $w)
+    {
         $v *= $w;
         return $v;
     }
 
-    static function rsum($v, $w) {
+    static function rsum($v, $w)
+    {
         $v += $w;
         return $v;
     }
 
-    static function say_goodbye($name) {
+    static function say_goodbye($name)
+    {
         return "Goodbye $name!";
     }
 
-    static function say_hello() {
+    static function say_hello()
+    {
         return "Hello!";
     }
 
-    static function show_Spanish($n, $m) {
+    static function show_Spanish($n, $m)
+    {
         return("The number $n is called $m in Spanish");
     }
 
-    static function test_alter(&$item1, $key, $prefix) {
+    static function test_alter(&$item1, $key, $prefix)
+    {
         $item1 = "$prefix: $item1";
-     }
+    }
 
-    static function test_print(&$item, $key) {
+    static function test_print(&$item, $key)
+    {
         $item = "$key holds $item\n";
-     }
+    }
 
-    static function to_lower($matches) {
+    static function to_lower($matches)
+    {
         return strtolower($matches[0]);
     }
 }
