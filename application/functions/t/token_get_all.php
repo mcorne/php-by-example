@@ -12,4 +12,6 @@ class token_get_all extends function_core
     public $examples = ["<?php echo; ?>", '/* comment */'];
 
     public $synopsis = 'array token_get_all ( string $source )';
+
+    public $test_not_validated = true;
 }

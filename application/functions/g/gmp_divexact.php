@@ -17,4 +17,6 @@ class gmp_divexact extends gmp_abs
     ];
 
     public $synopsis = 'resource gmp_divexact ( resource $n , resource $d )';
+
+    public $test_not_validated = 1;
 }

@@ -32,4 +32,6 @@ class json_decode extends function_core
     ];
 
     public $synopsis = 'mixed json_decode ( string $json [, bool $assoc = false [, int $depth = 512 [, int $options = 0 ]]] )';
+
+    public $test_not_validated = 7;
 }

@@ -56,8 +56,6 @@ class application extends object
     function run()
     {
         try {
-            $this->start_time = microtime(true);
-
             $this->action_name = isset($this->uri[1]) ? $this->uri[1] : null;
 
             switch ($this->action_name) {

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-15T11:38:22+00:00
+// generated automatically 2014-10-05T17:28:33+00:00
 return array (
   0 => 
   array (
@@ -41,91 +41,91 @@ return array (
   array (
     'result' => 
     array (
-      'string' => '%b = \'10100111101010011010101101\'',
+      'string' => '10100111101010011010101101',
     ),
   ),
   6 => 
   array (
     'result' => 
     array (
-      'string' => '%c = \'A\'',
+      'string' => 'A',
     ),
   ),
   7 => 
   array (
     'result' => 
     array (
-      'string' => '%d = \'43951789\'',
+      'string' => '43951789',
     ),
   ),
   8 => 
   array (
     'result' => 
     array (
-      'string' => '%e = \'4.395179e+7\'',
+      'string' => '4.395179e+7',
     ),
   ),
   9 => 
   array (
     'result' => 
     array (
-      'string' => '%u = \'43951789\'',
+      'string' => '43951789',
     ),
   ),
   10 => 
   array (
     'result' => 
     array (
-      'string' => '%u = \'4251015507\'',
+      'string' => '4251015507',
     ),
   ),
   11 => 
   array (
     'result' => 
     array (
-      'string' => '%f = \'43951789.000000\'',
+      'string' => '43951789.000000',
     ),
   ),
   12 => 
   array (
     'result' => 
     array (
-      'string' => '%o = \'247523255\'',
+      'string' => '247523255',
     ),
   ),
   13 => 
   array (
     'result' => 
     array (
-      'string' => '%s = \'43951789\'',
+      'string' => '43951789',
     ),
   ),
   14 => 
   array (
     'result' => 
     array (
-      'string' => '%x = \'29ea6ad\'',
+      'string' => '29ea6ad',
     ),
   ),
   15 => 
   array (
     'result' => 
     array (
-      'string' => '%X = \'29EA6AD\'',
+      'string' => '29EA6AD',
     ),
   ),
   16 => 
   array (
     'result' => 
     array (
-      'string' => '%+d = \'+43951789\'',
+      'string' => '+43951789',
     ),
   ),
   17 => 
   array (
     'result' => 
     array (
-      'string' => '%+d = \'-43951789\'',
+      'string' => '-43951789',
     ),
   ),
   18 => 

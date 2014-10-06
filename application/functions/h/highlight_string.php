@@ -15,6 +15,8 @@ class highlight_string extends function_core
 
     public $synopsis = 'mixed highlight_string ( string $str [, bool $return = false ] )';
 
+    public $test_not_validated = true;
+
     function pre_exec_function()
     {
         $this->_filter->is_allowed_arg_value('return', true, false);
