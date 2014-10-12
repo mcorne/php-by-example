@@ -1,0 +1,36 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<div class="title <?=$color;?>"><?=$title;?></div>
+
+<div class="block <?=$color;?>_border">
+  <?php foreach ($items as $item_basename => $item_name):
+            is_numeric($item_basename) and $item_basename = $item_name;?>
+
+    <span class="nowrap">
+
+      <a href="<?=$this->display_url($action, $item_name);?>"><?=$item_name;?></a>
+
+      <?php if (! empty($tests_counts[$item_basename])):?>
+
+        <?php if (isset($tests_sub_counts[$item_basename])):?>
+          <span class="gray">(<?=($tests_sub_counts[$item_basename]);?>/<?=($tests_counts[$item_basename]);?>)</span>
+        <?php else:?>
+          <span class="gray">(<?=($tests_counts[$item_basename]);?>)</span>
+        <?php endif;?>
+
+      <?php endif;?>
+
+      <?php if ($item_name != $last_item_name):?>,<?php endif;?>
+
+    </span>
+
+  <?php endforeach;?>
+</div>

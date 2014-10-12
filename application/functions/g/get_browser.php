@@ -8,6 +8,8 @@ use phpbrowscap\Browscap;
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+require_once 'external/Browscap.php';
+
 class get_browser extends function_core
 {
     public $examples = [
@@ -22,7 +24,6 @@ class get_browser extends function_core
 
     function pre_exec_function()
     {
-        require_once $this->application_path . '/models/Browscap.php';
         $cache_dir = $this->application_path . '/data/browscap';
         $this->object = new Browscap($cache_dir);
     }

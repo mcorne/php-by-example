@@ -426,6 +426,16 @@ table.translations_stats td.center, table.translators_stats td.center
     text-align: center;
 }
 
+table.test-summary td
+{
+    padding-right: 1em;
+}
+
+table.test-summary td.count
+{
+    text-align: right;
+}
+
 textarea.arg
 {
     width: 20em; /* must be the same as input::INPUT_WIDTH_IN_EM */
@@ -481,6 +491,18 @@ textarea.no_input
     border: 1px solid gray;
     float: right;
     overflow: auto;
+}
+
+#unit_test
+{
+    font-size: .9em;
+    font-weight: bold;
+}
+
+#unit_test option
+{
+    font-size: 1em; 
+    font-weight: bold;
 }
 
 #php_manual_location

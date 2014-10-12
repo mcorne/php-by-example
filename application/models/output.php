@@ -186,10 +186,10 @@ class output extends object
         return $mailto;
     }
 
-    function display_tested_function_list($functions, $title, $color, $test_count_by_function = null, $test_subset_count_by_function = null)
+    function display_tested_items_list($action, $items, $title, $color, $tests_counts = null, $tests_sub_counts = null)
     {
-        $last_function_name = end($functions);
-        require __DIR__ . '/../views/tested_functions.phtml';
+        $last_item_name = end($items);
+        require __DIR__ . '/../views/tested_items_list.phtml';
     }
 
     function display_translation_selection($selected_message_id, $messages)

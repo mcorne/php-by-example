@@ -126,3 +126,47 @@ function pbx_hash_to_ascii($hash)
 
     return $ascii;
 }
+
+/**
+ * Provides access to the functions above through class or object methods
+ *
+ * This class is used for unit testing.
+ *
+ */
+class pbx_hash
+{
+    function __call($name, $arguments)
+    {
+        return call_user_func_array(self::$name, $arguments);
+    }
+
+    static function hash($mixed, $excluded_keys = null)
+    {
+        return pbx_hash($mixed, $excluded_keys);
+    }
+
+    static function hash_array($array, $excluded_keys = null)
+    {
+        return pbx_hash_array($array, $excluded_keys);
+    }
+
+    static function hash_list($list, $separator)
+    {
+        return pbx_hash_list($list, $separator);
+    }
+
+    static function hash_number($number)
+    {
+        return pbx_hash_number($number);
+    }
+
+    static function hash_string($string)
+    {
+        return pbx_hash_string($string);
+    }
+
+    static function hash_to_ascii($hash)
+    {
+        return pbx_hash_to_ascii($hash);
+    }
+}

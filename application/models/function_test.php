@@ -11,7 +11,6 @@ require_once 'action.php';
 
 /**
  * function test, all the function examples are tested
- * entry points: run(), process()
  *
  * note that the function test result is saved automatically the first time in the "data/tests" directory, see get_expected_results()
  * the first test result is used as a reference (the expected test result) to validate subsequent test runs
@@ -63,9 +62,11 @@ class function_test extends action
         list($test_results, $this->is_function_available) = $this->test_examples($function_basename);
         $expected_results = $this->get_expected_results($function_basename, $test_results);
         $this->test_validations = $this->validate_test_results($test_results, $expected_results);
-        $this->obsolete_expected_results = count($expected_results) - count($this->_function->examples) > 0;
 
-        return [$this->test_validations, $this->obsolete_expected_results, $this->is_function_available];
+        $test_obsolete_count = count($expected_results) - count($this->_function->examples);
+        $this->test_obsolete_count = $test_obsolete_count > 0 ? $test_obsolete_count : 0;
+
+        return [$this->test_validations, $this->test_obsolete_count, $this->is_function_available];
     }
 
     function test_example($example_id, $function_basename)

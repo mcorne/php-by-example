@@ -14,85 +14,117 @@
 </h1>
 
 <div class="block blue_border">
-  <table>
+  <table class="test-summary">
 
     <tr>
-      <?php if (empty($this->functions['test_success'])):?>
+      <?php if (! $this->test_success_counts):?>
         <td class="red">Functions tested successfully</td>
-        <td class="red">0</td>
+        <td class="red count">0</td>
 
       <?php else:?>
         <td class="green">Functions tested successfully</td>
-        <td class="green"><?=count($this->functions['test_success']);?></td>
-        <td class="gray">(<?=$this->totals['test_success'];?> tests)</td>
+        <td class="green count"><?=count($this->test_success_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_success_counts)) == 1):?>
+            (1 successful test)
+          <?php else:?>
+            (<?=$sum;?> successful tests)
+          <?php endif;?>
+        </td>
       <?php endif;?>
     </tr>
 
     <tr>
-      <?php if (empty($this->functions['test_failed'])):?>
+      <?php if (! $this->test_failed_counts):?>
         <td class="gray">Functions with failed tests</td>
-        <td class="gray">-</td>
+        <td class="gray count">-</td>
 
       <?php else:?>
         <td class="red">Functions with failed tests</td>
-        <td class="red"><?=count($this->functions['test_failed']);?></td>
-        <td class="gray">(<?=array_sum($this->test_failed_counts);?>/<?=$this->totals['test_failed'];?> tests)</td>
+        <td class="red count"><?=count($this->test_failed_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_failed_counts)) == 1):?>
+            (1 failed test out of <?=array_sum($this->test_counts);?>)
+          <?php else:?>
+            (<?=$sum;?> failed tests out of <?=array_sum($this->test_counts);?>)
+          <?php endif;?>
+        </td>
       <?php endif;?>
     </tr>
 
     <tr>
-      <?php if (empty($this->functions['test_missing'])):?>
+      <?php if (! $this->test_missing_counts):?>
         <td class="gray">Functions with missing tests</td>
-        <td class="gray">-</td>
+        <td class="gray count">-</td>
 
       <?php else:?>
         <td class="orange">Functions with missing tests</td>
-        <td class="orange"><?=count($this->functions['test_missing']);?></td>
+        <td class="orange count"><?=count($this->test_missing_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_missing_counts)) == 1):?>
+            (1 missing test)
+          <?php else:?>
+            (<?=$sum;?> missing tests)
+          <?php endif;?>
+        </td>
       <?php endif;?>
     </tr>
 
     <tr>
-      <?php if (empty($this->functions['test_obsolete'])):?>
+      <?php if (! $this->test_obsolete_counts):?>
         <td class="gray">Functions with obsolete tests</td>
-        <td class="gray">-</td>
+        <td class="gray count">-</td>
 
       <?php else:?>
         <td class="orange">Functions with obsolete tests</td>
-        <td class="orange"><?=count($this->functions['test_obsolete']);?></td>
+        <td class="orange count"><?=count($this->test_obsolete_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_obsolete_counts)) == 1):?>
+            (1 obsolete test)
+          <?php else:?>
+            (<?=$sum;?> obsolete tests)
+          <?php endif;?>
+        </td>
       <?php endif;?>
     </tr>
 
     <tr>
       <td class="gray">Functions with unvalidated tests</td>
 
-      <?php if (empty($this->functions['test_not_validated'])):?>
-        <td class="gray">-</td>
+      <?php if (! $this->test_not_validated_counts):?>
+        <td class="gray count">-</td>
 
       <?php else:?>
-        <td class="gray"><?=count($this->functions['test_not_validated']);?></td>
-        <td class="gray">(<?=$this->totals['test_not_validated'];?> tests)</td>
+        <td class="gray count"><?=count($this->test_not_validated_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_not_validated_counts)) == 1):?>
+            (1 unvalidated test)
+          <?php else:?>
+            (<?=$sum;?> unvalidated tests)
+          <?php endif;?>
+        </td>
       <?php endif;?>
     </tr>
 
     <tr>
       <td class="gray">Functions not tested</td>
 
-      <?php if (empty($this->functions['not_tested'])):?>
-        <td class="gray">-</td>
+      <?php if (empty($this->function_names['not_tested'])):?>
+        <td class="gray count">-</td>
 
       <?php else:?>
-        <td class="gray"><?=count($this->functions['not_tested']);?></td>
+        <td class="gray count"><?=count($this->function_names['not_tested']);?></td>
       <?php endif;?>
     </tr>
 
     <tr>
       <td class="gray">Functions not available</td>
 
-      <?php if (empty($this->functions['not_available'])):?>
-        <td class="gray">-</td>
+      <?php if (empty($this->function_names['not_available'])):?>
+        <td class="gray count">-</td>
 
       <?php else:?>
-        <td class="gray"><?=count($this->functions['not_available']);?></td>
+        <td class="gray count"><?=count($this->function_names['not_available']);?></td>
       <?php endif;?>
     </tr>
 
@@ -100,63 +132,70 @@
 </div>
 
 <?php
-if (! empty($this->functions['test_success'])) {
-    $this->_output->display_tested_function_list(
-        $this->functions['test_success'],
+if ($this->test_success_counts) {
+    $this->_output->display_tested_items_list(
+        'test',
+        $this->function_names['test_success'],
         'Functions tested successfully',
         'green',
-        $this->test_count_by_function
+        $this->test_success_counts
     );
 }
 
-if (! empty($this->functions['test_failed'])) {
-    $this->_output->display_tested_function_list(
-        $this->functions['test_failed'],
+if ($this->test_failed_counts) {
+    $this->_output->display_tested_items_list(
+        'test',
+        $this->function_names['test_failed'],
         'Functions with failed tests',
         'red',
-        $this->test_count_by_function,
+        $this->test_counts,
         $this->test_failed_counts
     );
 }
 
-if (! empty($this->functions['test_missing'])) {
-    $this->_output->display_tested_function_list(
-        $this->functions['test_missing'],
+if ($this->test_missing_counts) {
+    $this->_output->display_tested_items_list(
+        'test',
+        $this->function_names['test_missing'],
         'Functions with missing tests',
         'orange',
-        $this->test_count_by_function
+        $this->test_missing_counts
     );
 }
 
-if (! empty($this->functions['test_obsolete'])) {
-    $this->_output->display_tested_function_list(
-        $this->functions['test_obsolete'],
+if ($this->test_obsolete_counts) {
+    $this->_output->display_tested_items_list(
+        'test',
+        $this->function_names['test_obsolete'],
         'Functions with obsolete tests',
         'orange',
-        $this->test_count_by_function
+        $this->test_obsolete_counts
     );
 }
 
-if (! empty($this->functions['test_not_validated'])) {
-    $this->_output->display_tested_function_list(
-        $this->functions['test_not_validated'],
+if ($this->test_not_validated_counts) {
+    $this->_output->display_tested_items_list(
+        'test',
+        $this->function_names['test_not_validated'],
         'Functions with unvalidated tests',
         'gray',
-        $this->test_count_by_function
+        $this->test_not_validated_counts
     );
 }
 
-if (! empty($this->functions['not_tested'])) {
-    $this->_output->display_tested_function_list(
-        $this->functions['not_tested'],
+if (! empty($this->function_names['not_tested'])) {
+    $this->_output->display_tested_items_list(
+        'test',
+        $this->function_names['not_tested'],
         'Functions not tested',
         'gray'
     );
 }
 
-if (! empty($this->functions['not_available'])) {
-    $this->_output->display_tested_function_list(
-        $this->functions['not_available'],
+if (! empty($this->function_names['not_available'])) {
+    $this->_output->display_tested_items_list(
+        'test',
+        $this->function_names['not_available'],
         'Functions not available',
         'gray'
     );

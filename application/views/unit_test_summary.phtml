@@ -1,0 +1,59 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<table>
+
+  <?php foreach ($this->class_test_results as $method_name => $method_test_results):?>
+      <tr>
+
+        <td><?=$method_name;?>()</td>
+
+        <td>:</td>
+
+        <td>
+          <?php if ($method_test_results['status'] == 'test_missing'):?>
+            <span class="orange">test missing</span>
+
+          <?php elseif ($method_test_results['status'] == 'test_obsolete'):?>
+            <span class="gray">test obsolete</span>
+
+          <?php elseif ($method_test_results['status'] == 'test_success'):?>
+            <span class="green">test success</span>
+
+          <?php else:?>
+            <span class="red">test failed</span>
+          <?php endif;?>
+        </td>
+
+        <?php if (in_array($method_test_results['status'], ['test_failed', 'test_success'])):
+                  $is_first = true;?>
+          <td>
+            <span class="gray">(</span>
+
+            <?php foreach ($method_test_results['results'] as $test_name => $method_test_result):?>
+
+              <?php if (! $is_first):?><span class="gray">,</span><?php endif;?>
+
+              <a class="<?php if ($method_test_result['status'] == 'test_success'):?>green<?php else:?>red<?php endif;?>"
+                 href="#<?=$method_name;?>-<?=$test_name;?>"
+              ><?=$test_name;?></a>
+
+
+            <?php $is_first = false;
+                  endforeach;?>
+
+            <span class="gray">)</span>
+          </td>
+        <?php endif;?>
+
+      </tr>
+  <?php endforeach;?>
+
+</table>

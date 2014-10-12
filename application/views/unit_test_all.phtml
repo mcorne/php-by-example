@@ -1,0 +1,162 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<h1>
+  Unit test of all classes
+  <?php require "$this->application_path/views/english_only.phtml";?>
+</h1>
+
+
+<div class="block blue_border">
+  <table class="test-summary">
+
+    <tr>
+      <?php if (! $this->test_success_counts):?>
+        <td class="red">Classes tested successfully</td>
+        <td class="red count">0</td>
+
+      <?php else:?>
+        <td class="green">Classes tested successfully</td>
+        <td class="green count"><?=count($this->test_success_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_success_counts)) == 1):?>
+            (1 successful test)
+          <?php else:?>
+            (<?=$sum;?> successful tests)
+          <?php endif;?>
+        </td>
+      <?php endif;?>
+    </tr>
+
+    <tr>
+      <?php if (! $this->test_failed_counts):?>
+        <td class="gray">Classes with failed tests</td>
+        <td class="gray count">-</td>
+
+      <?php else:?>
+        <td class="red">Classes with failed tests</td>
+        <td class="red count"><?=count($this->test_failed_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_failed_counts)) == 1):?>
+            (1 failed test out of <?=array_sum($this->test_counts);?>)
+          <?php else:?>
+            (<?=$sum;?> failed tests out of <?=array_sum($this->test_counts);?>)
+          <?php endif;?>
+      <?php endif;?>
+    </tr>
+
+    <tr>
+      <?php if (! $this->test_missing_counts):?>
+        <td class="gray">Classes with missing tests</td>
+        <td class="gray count">-</td>
+
+      <?php else:?>
+        <td class="orange">Classes with missing tests</td>
+        <td class="orange count"><?=count($this->test_missing_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_missing_counts)) == 1):?>
+            (1 method to test out of <?=array_sum($this->methods_counts);?>)
+          <?php else:?>
+            (<?=$sum;?> methods to test out of <?=array_sum($this->methods_counts);?>)
+          <?php endif;?>
+      <?php endif;?>
+    </tr>
+
+    <tr>
+      <?php if (! $this->test_obsolete_counts):?>
+        <td class="gray count">Classes with obsolete tests</td>
+        <td class="gray count">-</td>
+
+      <?php else:?>
+        <td class="gray">Classes with obsolete tests</td>
+        <td class="gray count"><?=count($this->test_obsolete_counts);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->test_obsolete_counts)) == 1):?>
+            (1 obsolete method)
+          <?php else:?>
+            (<?=$sum;?> obsolete methods)
+          <?php endif;?>
+      <?php endif;?>
+    </tr>
+
+    <tr>
+      <?php if (! $this->classes_not_tested):?>
+        <td class="gray">Classes not tested</td>
+        <td class="gray count">-</td>
+
+      <?php else:?>
+        <td class="orange">Classes not tested</td>
+        <td class="orange count"><?=count($this->classes_not_tested);?></td>
+        <td class="gray">
+          <?php if (($sum = array_sum($this->classes_not_tested)) == 1):?>
+            (1 method to test)
+          <?php else:?>
+            (<?=$sum;?> methods to test)
+          <?php endif;?>
+      <?php endif;?>
+    </tr>
+
+  </table>
+</div>
+
+<?php
+
+if ($this->test_success_counts) {
+    $this->_output->display_tested_items_list(
+        'unit_test',
+        array_keys($this->test_success_counts),
+        'Classes tested successfully',
+        'green',
+        $this->test_success_counts
+    );
+}
+
+if ($this->test_failed_counts) {
+    $this->_output->display_tested_items_list(
+        'unit_test',
+        array_keys($this->test_failed_counts),
+        'Classes with failed tests',
+        'red',
+        $this->test_counts,
+        $this->test_failed_counts
+    );
+}
+
+if ($this->test_missing_counts) {
+    $this->_output->display_tested_items_list(
+        'unit_test',
+        array_keys($this->test_missing_counts),
+        'Classes with missing tests',
+        'orange',
+        $this->methods_counts,
+        $this->test_missing_counts
+    );
+}
+
+if ($this->test_obsolete_counts) {
+    $this->_output->display_tested_items_list(
+        'unit_test',
+        array_keys($this->test_obsolete_counts),
+        'Classes with obsolete tests',
+        'gray',
+        $this->test_obsolete_counts
+    );
+}
+
+if (! empty($this->classes_not_tested)) {
+    $this->_output->display_tested_items_list(
+        'unit_test',
+        array_keys($this->classes_not_tested),
+        'Classes not tested',
+        'orange',
+        $this->classes_not_tested
+    );
+}
+?>

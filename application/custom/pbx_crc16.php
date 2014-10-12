@@ -64,3 +64,22 @@ function pbx_crc16($string)
 
     return $crc16;
 }
+
+/**
+ * Provides access to the functions above through class or object methods
+ *
+ * This class is used for unit testing.
+ *
+ */
+class pbx_crc16
+{
+    function __call($name, $arguments)
+    {
+        return call_user_func_array(self::$name, $arguments);
+    }
+
+    static function crc16($string)
+    {
+        return pbx_crc16($string);
+    }
+}

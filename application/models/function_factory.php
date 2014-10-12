@@ -23,8 +23,8 @@ class function_factory extends object
         }
 
         $function_sub_directory = $function_basename[0];
-        $classname = isset($this->fixed_classnames[$function_basename]) ? $this->fixed_classnames[$function_basename] : null;
-        $function = $this->create_object($function_basename, "functions/$function_sub_directory", 'function', $classname);
+        $class_name = isset($this->fixed_classnames[$function_basename]) ? $this->fixed_classnames[$function_basename] : null;
+        $function = $this->create_object($function_basename, "functions/$function_sub_directory", 'function', $class_name);
 
         // sets the php manual location here before sending headers as it sets a cookie
         $function->_params->php_manual_location;

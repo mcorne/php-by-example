@@ -13,7 +13,7 @@
  * there is a default filter to use as needed: filter_arg_value()
  */
 
-require_once 'custom-functions/pbx_callbacks.php';
+require_once 'custom/pbx_callbacks.php';
 
 class filter extends object
 {

@@ -73,3 +73,32 @@ function pbx_filter_imported_vars_with_prefix($defined_vars, $prefix)
 
     return $imported_vars;
 }
+
+/**
+ * Provides access to the functions above through class or object methods
+ *
+ * This class is used for unit testing.
+ *
+ */
+class pbx_filter_imported_vars
+{
+    function __call($name, $arguments)
+    {
+        return call_user_func_array(self::$name, $arguments);
+    }
+
+    static function filter_imported_vars($defined_vars, $var_names = null, $prefix = null)
+    {
+        return pbx_filter_imported_vars($defined_vars, $var_names, $prefix);
+    }
+
+    static function filter_imported_vars_by_names($defined_vars, $var_names)
+    {
+        return pbx_filter_imported_vars_by_names($defined_vars, $var_names);
+    }
+
+    static function filter_imported_vars_with_prefix($defined_vars, $prefix)
+    {
+        return pbx_filter_imported_vars_with_prefix($defined_vars, $prefix);
+    }
+}

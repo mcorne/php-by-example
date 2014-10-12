@@ -9,7 +9,7 @@
 /**
  * Converts a latitude or longitude to a signed float
  *
- * @param  string $coordinate eg "51°29′N", or "0°00′E/W"
+ * @param  string $coordinate eg "51°29'N", or "0°00'E/W"
  * @return float
  */
 function pbx_coordinate_to_float($coordinate)
@@ -119,7 +119,7 @@ function pbx_index_lat_lng()
  * Loads the latitudes and longitudes of the major cities
  *
  * @return array
- * @see https://code.google.com/p/php-by-example/source/browse/trunk/application/custom-functions/cities-lat-lng.csv
+ * @see https://code.google.com/p/php-by-example/source/browse/trunk/application/custom/cities-lat-lng.csv
  * @see http://en.wikipedia.org/wiki/List_of_cities_by_longitude#Sources
  */
 function pbx_load_cities_lat_lng()
@@ -132,4 +132,43 @@ function pbx_load_cities_lat_lng()
         array_shift($cities_lat_lng);
     }
     return $cities_lat_lng;
+}
+
+/**
+ * Provides access to the functions above through class or object methods
+ *
+ * This class is used for unit testing.
+ *
+ */
+class pbx_cities_lat_lng
+{
+    function __call($name, $arguments)
+    {
+        return call_user_func_array(self::$name, $arguments);
+    }
+
+    static function coordinate_to_float($coordinate)
+    {
+        return pbx_coordinate_to_float($coordinate);
+    }
+
+    static function get_city_lat_lng($city)
+    {
+        return pbx_get_city_lat_lng($city);
+    }
+
+    static function get_city_names()
+    {
+        return pbx_get_city_names();
+    }
+
+    static function index_lat_lng()
+    {
+        return pbx_index_lat_lng();
+    }
+
+    static function load_cities_lat_lng()
+    {
+        return pbx_load_cities_lat_lng();
+    }
 }

@@ -7,7 +7,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'custom-functions/pbx_hash.php';
+require_once 'custom/pbx_hash.php';
 
 class posix_getgrgid extends function_core
 {
@@ -26,10 +26,8 @@ class posix_getgrgid extends function_core
 
     public $test_not_validated = true;
 
-    function __construct($config = null)
+    function init()
     {
-        parent::__construct($config);
-
         // gets the current group id, hashes the group id, sets the hash in the first example
         $this->examples[0] = pbx_hash_number(getmygid());
     }

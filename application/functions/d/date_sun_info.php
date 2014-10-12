@@ -8,8 +8,7 @@
  */
 
 // changes to this class may affect other classes
-
-require_once 'custom-functions/pbx_cities_lat_lng.php';
+require_once 'custom/pbx_cities_lat_lng.php';
 
 class date_sun_info extends function_core
 {

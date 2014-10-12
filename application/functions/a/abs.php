@@ -23,12 +23,10 @@ class abs extends function_core
         null, // placeholder, see below
     ];
 
-    function __construct($config = null)
-    {
-        parent::__construct($config);
+    public $synopsis = 'number abs ( mixed $number )';
 
+    function init()
+    {
         $this->examples[9] = str_repeat('a', 1000 + 1);
     }
-
-    public $synopsis = 'number abs ( mixed $number )';
 }

@@ -11,7 +11,6 @@ require_once 'models/object.php';
 
 /**
  * function configurator
- * entry points: make_functions_configs(), display_configs()
  *
  * creates a function configuration file in the "functions" directory to be adjusted manually as needed
  * see get_help()

@@ -54,12 +54,18 @@
 
 </div>
 
-<?php if ($this->obsolete_expected_results) :?>
+<?php if ($this->test_obsolete_count) :?>
 
   <div class="block red_border">
     <div>
       <span class="red">Warning! </span>
-      There is one or more obsolete expected test results, please remove or fix !
+
+      <?php if ($this->test_obsolete_count == 1) :?>
+        There is one obsolete test, please remove it or fix it!
+
+      <?php else:?>
+        There are <?=$this->test_obsolete_count;?> obsolete tests, please remove them or fix them!
+      <?php endif;?>
     </div>
   </div>
 

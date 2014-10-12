@@ -12,7 +12,6 @@ require_once 'action.php';
 /**
  * function execution
  * all function configs must extend this class
- * main entry points: run(), process()
  *
  * other methods may be called directly, eg add_error(), function_exists()
  * some methods are meant to be overloaded as needed: post_exec_function(), pre_exec_function()
@@ -20,9 +19,19 @@ require_once 'action.php';
 
 class function_core extends action
 {
-    public $dependants = ['function_params', 'synopsis'];
+    public $dependant_objects = ['function_params', 'synopsis'];
+
+    public $errors = [];
 
     public $examples = [[]]; // one example with no arg by default
+
+    public $returned_params = [];
+
+    function __construct($config = null)
+    {
+        parent::__construct($config);
+        $this->init();
+    }
 
     /**
      * the error handler
@@ -120,12 +129,12 @@ class function_core extends action
 
         if (isset($parts[1])) {
             // this is a class, extracts the class and method name
-            list($classname, $method_name) = $parts;
+            list($class_name, $method_name) = $parts;
 
-            if (! class_exists($classname, false) or $this->_params->translation_in_action == 2002) {
+            if (! class_exists($class_name, false) or $this->_params->translation_in_action == 2002) {
                 $message = $this->_message_translation->translate('this class is not available in the PHP version running on this server');
 
-            } else if (! method_exists($classname, $method_name) or $this->_params->translation_in_action == 2004) {
+            } else if (! method_exists($class_name, $method_name) or $this->_params->translation_in_action == 2004) {
                 $message = $this->_message_translation->translate('this method is not available in the PHP version running on this server');
             }
 
@@ -146,6 +155,9 @@ class function_core extends action
         return $message;
     }
 
+    function init()
+    {}
+
     function post_exec_function()
     {}
 
@@ -154,9 +166,6 @@ class function_core extends action
 
     function process()
     {
-        $this->errors = [];
-        $this->returned_params = [];
-
         set_error_handler([$this, 'add_error']);
 
         try {

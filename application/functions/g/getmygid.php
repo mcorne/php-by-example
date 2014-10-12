@@ -9,7 +9,7 @@
 
 // changes to this class may affect other classes
 
-require_once 'custom-functions/pbx_hash.php';
+require_once 'custom/pbx_hash.php';
 
 class getmygid extends function_core
 {

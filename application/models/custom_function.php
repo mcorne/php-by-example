@@ -38,7 +38,7 @@ class custom_function extends action
             $this->type = 'function';
         }
 
-        $this->filepath = $this->application_path . '/custom-functions/' . $this->filename;
+        $this->filepath = $this->application_path . '/custom/' . $this->filename;
 
         if (! file_exists($this->filepath)) {
             $this->error = 'File not found: ' . $this->filename;

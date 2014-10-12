@@ -20,9 +20,12 @@ class input extends object
     const INPUT_WIDTH_IN_EM     = 20;  // must be the same as CSS textarea.arg width
     const LINE_HEIGHT_IN_EM     = 1.2;
 
-    function _get_double_slash()
+    function _get_double_slash($highlighted = null)
     {
-        $highlighted = highlight_string("<?php\n//?>", true);
+        if (! $highlighted) {
+            $highlighted = highlight_string("<?php\n//?>", true);
+        }
+        // else: highlighted may be passed only for unit testing purposes
 
         if (preg_match('~color: #([[:xdigit:]]+)">//~', $highlighted, $match)) {
             list(, $color) = $match;
@@ -316,13 +319,13 @@ class input extends object
     function get_callback_in_example($callback)
     {
         if (is_array($callback)) {
-            $classname = current($callback);
-            $method = next($callback);
+            $class_name = current($callback);
+            $method_name = next($callback);
 
-            if ($classname[0] == '$') {
-                $callback = sprintf('[%s, "%s"]', $classname, $method);
+            if ($class_name[0] == '$') {
+                $callback = sprintf('[%s, "%s"]', $class_name, $method_name);
             } else {
-                $callback = sprintf('["%s", "%s"]', $classname, $method);
+                $callback = sprintf('["%s", "%s"]', $class_name, $method_name);
             }
 
         } else if ($callback[0] != '$') {

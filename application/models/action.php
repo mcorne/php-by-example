@@ -19,7 +19,7 @@ class action extends object
     function process()
     {}
 
-    function run()
+    final function run()
     {
         $this->process();
         $this->_params->set_cookie_params();

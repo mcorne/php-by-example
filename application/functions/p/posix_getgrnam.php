@@ -7,7 +7,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'custom-functions/pbx_hash.php';
+require_once 'custom/pbx_hash.php';
 
 class posix_getgrnam extends function_core
 {
@@ -26,14 +26,6 @@ class posix_getgrnam extends function_core
 
     public $test_not_validated = true;
 
-    function __construct($config = null)
-    {
-        parent::__construct($config);
-
-        // gets the current group name, hashes the group name, sets the hash in the first example
-        $this->examples[0] = pbx_hash_string($this->current_group);
-    }
-
     function _get_current_group()
     {
         $gid = getmygid();
@@ -45,6 +37,12 @@ class posix_getgrnam extends function_core
         }
 
         return $current_group;
+    }
+
+    function init()
+    {
+        // gets the current group name, hashes the group name, sets the hash in the first example
+        $this->examples[0] = pbx_hash_string($this->current_group);
     }
 
     function post_exec_function()

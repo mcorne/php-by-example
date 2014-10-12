@@ -25,6 +25,14 @@ class application extends object
         return $function_basename;
     }
 
+    function _get_unit_test_name()
+    {
+        $unit_test_name = array_slice($this->uri, 2);
+        $unit_test_name = implode('/', $unit_test_name);
+
+        return $unit_test_name;
+    }
+
     function _get_uri()
     {
         if (! isset($_SERVER['REQUEST_URI'])) {
@@ -37,13 +45,6 @@ class application extends object
         $uri = explode('/', $uri);
 
         return $uri;
-    }
-
-    function function_exists()
-    {
-        $function_exists = ($this->function_basename and isset($this->_function_list->function_list[$this->function_basename]));
-
-        return $function_exists;
     }
 
     function is_custom_function()
@@ -60,7 +61,11 @@ class application extends object
 
             switch ($this->action_name) {
                 case 'custom_function':
-                    $action = $this->_custom_function;
+                case 'messages_translation':
+                case 'translations_stats':
+                case 'translators_stats':
+                    $object_name = '_' . $this->action_name;
+                    $action = $this->$object_name;
                     break;
 
                 case 'function':
@@ -68,7 +73,7 @@ class application extends object
                         $action = $this->_custom_function;
                         $this->action_name = 'custom_function';
 
-                    } else if ($this->function_exists()) {
+                    } else if ($this->_function_list->function_exists($this->function_basename)) {
                         $action = $this->_function_factory->create_function_object();
 
                     } else if ($this->function_basename) {
@@ -84,12 +89,8 @@ class application extends object
                     $action = $this->_action;
                     break;
 
-                case 'messages_translation':
-                    $action = $this->_messages_translation;
-                    break;
-
                 case 'test':
-                    if ($this->function_exists()) {
+                    if ($this->_function_list->function_exists($this->function_basename)) {
                         $action = $this->_function_test;
                     }
                     break;
@@ -98,12 +99,14 @@ class application extends object
                     $action = $this->_function_test_all;
                     break;
 
-                case 'translations_stats':
-                    $action = $this->_translations_stats;
-                    break;
+                case 'unit_test':
+                    if (! $this->unit_test_name) {
+                        $action = $this->_unit_test_all;
+                        $this->action_name = 'unit_test_all';
 
-                case 'translators_stats':
-                    $action = $this->_translators_stats;
+                    } else if ($this->_unit_test_list->is_testable_class($this->unit_test_name)) {
+                        $action = $this->_unit_test;
+                    }
                     break;
             }
 

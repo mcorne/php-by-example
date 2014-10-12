@@ -7,7 +7,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'custom-functions/pbx_filter_imported_vars.php';
+require_once 'custom/pbx_filter_imported_vars.php';
 
 class extract extends function_core
 {

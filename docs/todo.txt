@@ -4,4 +4,3 @@ Things to do
 - offer users the ability to upload manuals from php.net to this site if they are more recent
 - look for outdated functions (synopsis)
 - move scripts to interface
-- add unit tests

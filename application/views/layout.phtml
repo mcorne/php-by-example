@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" href="<?=$this->base_url;?>/interface.css" />
   </head>
 
-  <body <?php if ($this->_params->search_method == 'input'):?>
+  <body id="top"
+        <?php if ($this->_params->search_method == 'input'):?>
            onload="set_function_input('<?=$this->_synopsis->function_name;?>');
                    <?php if ($this->_params->php_manual_location == 'local_copy'):?>
                      set_php_manual_size();

@@ -1,0 +1,31 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+
+?>
+
+<select class="blue"
+        id="unit_test"
+        onchange="run_selected_unit_test('<?=$this->_output->display_url('unit_test');?>')"
+>
+
+  <option value="">-- All unit tests --</option>
+
+  <?php if (! isset($this->_unit_test_list->unit_test_list[$this->_application->unit_test_name])) {
+            $this->_unit_test_list->unit_test_list[$this->_application->unit_test_name] = true;
+            ksort($this->_unit_test_list->unit_test_list);
+        }
+  ?>
+
+  <?php foreach (array_keys($this->_unit_test_list->unit_test_list) as $unit_test_name) :?>
+    <option <?php if($unit_test_name == $this->_application->unit_test_name):?>selected="selected"<?php endif;?>>
+      <?=$unit_test_name;?>
+    </option>
+  <?php endforeach;?>
+
+</select>

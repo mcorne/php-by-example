@@ -12,15 +12,15 @@ function change_language(select, current_language)
     var new_href;
     var language_ending_url = new RegExp('/' + current_language + '/?$');
     var language_inside_url = new RegExp('/' + current_language + '/');
-    
+
     if (language_inside_url.test(location.href)) {
         // eg "http://micmap.org/php-by-example/fr/function/abs"
         new_href = location.href.replace(language_inside_url, '/' + select.value + '/');
-    
+
     } else if (language_ending_url.test(location.href)) {
         // eg "http://micmap.org/php-by-example/fr"
         new_href = location.href.replace(language_ending_url, '/' + select.value);
-    
+
     } else {
         // eg "http://micmap.org/php-by-example"
         new_href = location.href + select.value;
@@ -64,7 +64,7 @@ function get_selected_text(id)
     var selectedIndex = select.selectedIndex;
     var options = select.options;
     var text = options[selectedIndex].text;
-    
+
     return text;
 }
 
@@ -98,7 +98,7 @@ function is_submit_enter_key(event)
 function open_php_manual_in_new_tab()
 {
     var php_manual_new_tab = document.getElementById('php_manual_new_tab');
-    
+
     if (php_manual_new_tab) {
         window.open(php_manual_new_tab.innerHTML, 'pbxmanual');
     }
@@ -121,6 +121,18 @@ function run_selected_function(url)
     if (function_name) {
         location.assign(url + '/' + function_name);
     }
+}
+
+function run_selected_unit_test(url)
+{
+    var select = document.getElementById('unit_test');
+    var unit_test_name = select.options[select.selectedIndex].value;
+
+    if (unit_test_name) {
+        url += '/' + unit_test_name
+    }
+
+    location.assign(url);
 }
 
 function set_arg_value(arg_name)
@@ -183,7 +195,7 @@ function set_lastest_version_in_production()
 {
     var translation_lastest_version = get_selected_text('select_translation_lastest_version');
     var translation_in_production   = get_selected_text('select_translation_in_production');
-    
+
     var display_in_production     = document.getElementById('display_in_production');
     var display_not_in_production = document.getElementById('display_not_in_production');
 
@@ -209,48 +221,48 @@ function set_php_manual_size()
     if (! php_manual) {
         return;
     }
-    
-    if (window.getComputedStyle) {                                                                                                               
-        doc_style = window.getComputedStyle(document.body, null);                                                                                
-        doc_margin_left = doc_style.getPropertyValue('margin-left').replace('px', '');                                                           
-        doc_margin_right = doc_style.getPropertyValue('margin-right').replace('px', '');                                                         
-        font_family = doc_style.getPropertyValue('font-family');                                                                                 
-                                                                                                                                             
-    } else {                                                                                                                                     
-        // for older versions of IE                                                                                                              
-        doc_style = document.body.currentStyle;                                                                                                  
-        doc_margin_left = 10;                                                                                                                    
-        doc_margin_right = 10;                                                                                                                   
-        font_family = doc_style.fontFamily;                                                                                                      
-    }                                                                                                                                            
-                                                                                                                                             
-    if (document.getElementsByClassName) {                                                                                                       
-        block = document.getElementsByClassName('block')[0];                                                                                     
-        input_style = window.getComputedStyle(block, null);                                                                                      
-        input_margin_right = input_style.getPropertyValue('margin-right').replace('px', '');                                                     
-                                                                                                                                             
-    } else {                                                                                                                                     
-        // for older versions of IE                                                                                                              
-        block = document.querySelectorAll('.' + 'block')[0];                                                                                     
-        input_margin_right = 10;                                                                                                                 
-    }                                                                                                                                            
-                                                                                                                                             
-    input_width = block.clientWidth;                                                                                                             
-    scrollbar_thickness = 40;                                                                                                                    
-    adjustement = 20;                                                                                                                            
-                                                                                                                                             
-    if ( window.innerWidth) {                                                                                                                    
-        innerWidth = window.innerWidth;                                                                                                          
-    } else {                                                                                                                                     
-        innerWidth = document.documentElement.clientWidth;                                                                                       
-    }                                                                                                                                            
-                                                                                                                                             
-    // changes the php manual iframe width, note that it must be done before setting the page height                                             
-    php_manual.width = innerWidth - doc_margin_left - doc_margin_right - input_width - input_margin_right - adjustement;                         
-                                                                                                                                             
-    // changes the php manual font (child doc), note that it must be done before setting the page height                                         
-    php_manual.contentWindow.document.body.style.fontFamily = font_family;                                                                       
-    php_manual.height = php_manual.contentWindow.document.body.scrollHeight + scrollbar_thickness;                                               
+
+    if (window.getComputedStyle) {
+        doc_style = window.getComputedStyle(document.body, null);
+        doc_margin_left = doc_style.getPropertyValue('margin-left').replace('px', '');
+        doc_margin_right = doc_style.getPropertyValue('margin-right').replace('px', '');
+        font_family = doc_style.getPropertyValue('font-family');
+
+    } else {
+        // for older versions of IE
+        doc_style = document.body.currentStyle;
+        doc_margin_left = 10;
+        doc_margin_right = 10;
+        font_family = doc_style.fontFamily;
+    }
+
+    if (document.getElementsByClassName) {
+        block = document.getElementsByClassName('block')[0];
+        input_style = window.getComputedStyle(block, null);
+        input_margin_right = input_style.getPropertyValue('margin-right').replace('px', '');
+
+    } else {
+        // for older versions of IE
+        block = document.querySelectorAll('.' + 'block')[0];
+        input_margin_right = 10;
+    }
+
+    input_width = block.clientWidth;
+    scrollbar_thickness = 40;
+    adjustement = 20;
+
+    if ( window.innerWidth) {
+        innerWidth = window.innerWidth;
+    } else {
+        innerWidth = document.documentElement.clientWidth;
+    }
+
+    // changes the php manual iframe width, note that it must be done before setting the page height
+    php_manual.width = innerWidth - doc_margin_left - doc_margin_right - input_width - input_margin_right - adjustement;
+
+    // changes the php manual font (child doc), note that it must be done before setting the page height
+    php_manual.contentWindow.document.body.style.fontFamily = font_family;
+    php_manual.height = php_manual.contentWindow.document.body.scrollHeight + scrollbar_thickness;
 }
 
 function set_selected_value(id, selected)

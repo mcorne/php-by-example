@@ -11,98 +11,82 @@ require_once 'action.php';
 
 /**
  * all functions test
- * entry points: run()
  */
 
 class function_test_all extends action
 {
-    function consolidate_test_validations($test_validations)
+    function compute_test_results($functions_test_results)
     {
-        $has_test_success = false;
+        $this->function_names = [];
+        $this->test_counts = [];
+        $this->test_failed_counts = [];
+        $this->test_missing_counts = [];
+        $this->test_not_validated_counts = [];
+        $this->test_obsolete_counts = [];
+        $this->test_success_counts = [];
 
-        foreach ($test_validations as $test_validation) {
-            if ($test_validation['status'] == 'test_success') {
-                $has_test_success = true;
+        foreach ($functions_test_results as $function_basename => $function_test_results) {
+            list($test_validations , $test_obsolete_count, $is_function_available) = $function_test_results;
+            $function_name = $this->_function_list->function_list[$function_basename];
 
-            } else if ($test_validation['status'] != 'test_not_validated') {
-                return $test_validation['status'];
+            if ($is_function_available !== true) {
+                $this->function_names['not_available'][$function_basename] = $function_name;
+                continue;
+            }
+
+            if (! $test_validations) {
+                $this->function_names['not_tested'][$function_basename] = $function_name;
+            }
+
+            if ($test_obsolete_count) {
+                $this->function_names['test_obsolete'][$function_basename] = $function_name;
+                $this->test_obsolete_counts[$function_basename] = $test_obsolete_count;
+            }
+
+            $status_counts = $this->count_test_status($test_validations);
+
+            if ($status_counts['test_success'] and ! $status_counts['test_failed']) {
+                $this->function_names['test_success'][$function_basename] = $function_name;
+                $this->test_success_counts[$function_basename] = $status_counts['test_success'];
+
+            } else if ($status_counts['test_failed']) {
+                $this->function_names['test_failed'][$function_basename] = $function_name;
+                $this->test_failed_counts[$function_basename] = $status_counts['test_failed'];
+                $this->test_counts[$function_basename] = $status_counts['test_success'] + $status_counts['test_failed'];
+            }
+
+            if ($status_counts['test_missing']) {
+                $this->function_names['test_missing'][$function_basename] = $function_name;
+                $this->test_missing_counts[$function_basename] = $status_counts['test_missing'];
+            }
+
+            if ($status_counts['test_not_validated']) {
+                $this->function_names['test_not_validated'][$function_basename] = $function_name;
+                $this->test_not_validated_counts[$function_basename] = $status_counts['test_not_validated'];
             }
         }
-
-        return $has_test_success ? 'test_success' : 'test_not_validated';
     }
 
-    function count_failed_tests($test_validations)
+    function count_test_status($test_validations)
     {
-        $count = 0;
+        $status_counts = array_fill_keys(['test_failed', 'test_missing', 'test_not_validated', 'test_success'], 0);
 
         foreach ($test_validations as $test_validation) {
-            if ($test_validation['status'] == 'test_failed') {
-                $count++;
-            }
+            $status = $test_validation['status'];
+            $status_counts[$status]++;
         }
 
-        return $count;
+        return $status_counts;
     }
 
     function process()
     {
-        $function_list = $this->_function_list->function_list;
-        $function_basenames = array_keys($function_list);
+        $function_basenames = array_keys($this->_function_list->function_list);
         $functions_test_results = array_map([$this->_function_test, 'process'], $function_basenames);
         $functions_test_results = array_combine($function_basenames, $functions_test_results);
-
-        list($this->functions, $this->totals, $this->test_count_by_function, $this->test_failed_counts) =
-            $this->summarize_test_results($functions_test_results, $function_list);
+        $this->compute_test_results($functions_test_results);
 
         // resets the function name that has been set by the last test for displaying purposes
         $this->_synopsis->function_name = null;
-    }
-
-    function summarize_test_results($functions_test_results, $function_list)
-    {
-        $test_count_by_function = [];
-        $test_failed_counts = [];
-
-        foreach ($functions_test_results as $function_basename => $function_test_results) {
-            list($test_validations , $obsolete_expected_results, $is_function_available) = $function_test_results;
-            $function_name = $function_list[$function_basename];
-            $status = $this->consolidate_test_validations($test_validations);
-            $test_count = count($test_validations);
-            isset($totals[$status]) or $totals[$status] = 0;
-
-            if ($is_function_available !== true) {
-                $functions['not_available'][$function_basename] = $function_name;
-
-            } else if ($status == 'test_failed') {
-                $functions['test_failed'][$function_basename] = $function_name;
-                $totals['test_failed'] += $test_count;
-                $test_failed_counts[$function_basename] = $this->count_failed_tests($test_validations);
-
-            } else if ($status == 'test_missing') {
-                $functions['test_missing'][$function_basename] = $function_name;
-
-            } else if ($obsolete_expected_results) {
-                $functions['test_obsolete'][$function_basename] = $function_name;
-
-            } else if (! $test_validations) {
-                $functions['not_tested'][$function_basename] = $function_name;
-
-            } else if ($status == 'test_success') {
-                $functions['test_success'][$function_basename] = $function_name;
-                $totals['test_success'] += $test_count;
-
-            } else if ($status == 'test_not_validated') {
-                $functions['test_not_validated'][$function_basename] = $function_name;
-                $totals['test_not_validated'] += $test_count;
-
-            } else {
-                throw new Exception('unexpected test status');
-            }
-
-            $test_count_by_function[$function_basename] = $test_count;
-        }
-
-        return [$functions, $totals, $test_count_by_function, $test_failed_counts];
     }
 }

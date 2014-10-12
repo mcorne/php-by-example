@@ -7,7 +7,7 @@
  */
 
 /*
- * Custom functions and methods used for callbacks in examples
+ * Custom functions and methods used as callbacks in examples
  *
  * a callback may be done in 4 ways:
  *
@@ -21,12 +21,12 @@
  * a call to an objet method : $object = new pbx_callbacks();
  *                             $result = call_user_func([$object, "barber"], "shave");
  *
- * note that all functions and closures must have a corresponding method so they can be elligible to run
- * see filter::is_custom_callback_function()
+ * Note that all functions and closures must have a corresponding method so they can be elligible to run,
+ * see filter::is_custom_callback_function().
  */
 
 /**
- * List of all custom functions used for callbacks
+ * List of all custom functions used as callbacks
  */
 
 function barber($type)
@@ -147,7 +147,7 @@ function to_lower($matches)
 }
 
 /**
- * List of all closures used for callbacks
+ * List of all closures used as callbacks
  */
 
 $GLOBALS['barber'] = function ($type)
@@ -268,12 +268,15 @@ $GLOBALS['to_lower'] = function ($matches)
 };
 
 /**
- * List of all methods used for callbacks
+ * List of all methods used as callbacks
+ *
+ * This class is used for unit testing.
  */
 class pbx_callbacks
 {
     /**
      * Calls the corresponding static method when the callback is called from an instance of this class
+     *
      * this is the prefered way vs calling the function directly in order to report a call to an invalid callback as an "invalid" method
      *
      * @param string $name

@@ -12,7 +12,6 @@ require_once 'object.php';
 /**
  * returns the list of functions
  * updates the list automatically when functions are added or removed
- * entry points: _get_function_list() etc.
  */
 
 class function_list extends object
@@ -20,7 +19,6 @@ class function_list extends object
     function _get_function_list()
     {
         $function_list_filename = sprintf('%s/data/function_list.php', $this->application_path);
-        $function_sub_directories = sprintf('%s/functions/*', $this->application_path);
 
         if (! file_exists($function_list_filename) or filemtime($function_list_filename) < $this->get_function_sub_directories_max_time()) {
             // the file does not exist or is obsolete, creates and stores the function list in the file
@@ -95,6 +93,13 @@ class function_list extends object
         $function_list = "var function_list = '$options';";
 
         return $function_list;
+    }
+
+    function function_exists($function_basename)
+    {
+        $function_exists = isset($this->function_list[$function_basename]);
+
+        return $function_exists;
     }
 
     function get_function_name_around($direction)

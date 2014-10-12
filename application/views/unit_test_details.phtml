@@ -1,0 +1,103 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @author    Michel Corne <mcorne@yahoo.com>
+ * @copyright 2014 Michel Corne
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<?php foreach ($this->class_test_results as $method_name => $method_test_results):
+          if (! in_array($method_test_results['status'], ['test_failed', 'test_success'])) continue;?>
+
+  <?php foreach ($method_test_results['results'] as $test_name => $method_test_result):
+            if ($method_test_result['status'] == 'test_success')  {
+                $color = 'green';
+                $border_color = 'green_border';
+            } else {
+                $color = 'red';
+                $border_color = 'red_border';
+            }
+  ?>
+
+    <div id="<?=$method_name;?>-<?=$test_name;?>"
+         class="title <?=$color;?>">
+      <?=$method_name?>() #<a class="<?=$color;?>" href="#top"><?=$test_name;?></a>
+    </div>
+
+  <div class="block <?=$border_color;?>">
+
+    <table>
+
+       <tr>
+         <td class="variable">$args</td>
+         <td class="operator">=</td>
+         <td><?=$this->_output->display_var_value($method_test_result['params']);?></td>
+       </tr>
+
+       <tr>
+         <td class="variable">$expected</td>
+
+         <td class="operator">=</td>
+
+         <?php if ($method_test_result['status'] == 'test_success'):?>
+           <td class="variable">$returned</td>
+
+         <?php else:?>
+           <td>
+             <?=$this->_output->display_var_value($method_test_result['expected']);?>
+           </td>
+         <?php endif;?>
+       </tr>
+
+       <tr>
+
+         <td class="<?=$color;?>">$returned</td>
+
+         <td class="operator">=</td>
+
+         <td><?=$this->_output->display_var_value($method_test_result['returned']);?></td>
+       </tr>
+
+       <?php if (isset($method_test_result['properties'])):?>
+         <?php foreach ($method_test_result['properties'] as $property_test_result):?>
+
+             <tr>
+               <td class="gray" colspan="4">
+                 property <?=$property_test_result['class'];?>::<?=$property_test_result['property'];?> value
+               </td>
+             </tr>
+
+             <tr>
+               <td class="variable">$expected</td>
+
+               <td class="operator">=</td>
+
+               <?php if ($property_test_result['status'] == 'test_success'):?>
+                 <td class="variable">$returned</td>
+               <?php else:?>
+                 <td>
+                   <?=$this->_output->display_var_value($property_test_result['expected']);?>
+                 </td>
+               <?php endif;?>
+             </tr>
+
+             <tr>
+               <td class="<?php if ($property_test_result['status'] == 'test_success'):?>green<?php else:?>red<?php endif;?>">
+                 $returned
+               </td>
+
+               <td class="operator">=</td>
+
+               <td><?=$this->_output->display_var_value($property_test_result['value']);?></td>
+             </tr>
+
+         <?php endforeach;?>
+       <?php endif;?>
+
+     </table>
+  </div>
+
+  <?php endforeach;?>
+<?php endforeach;?>
