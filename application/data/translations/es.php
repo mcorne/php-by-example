@@ -66,6 +66,8 @@ return array (
 1905 => 'la longitud debe ser definida e inferior a 1000 bytes en este ejemplo',
 1906 => 'el número de iteraciones debe ser un número entero menor que 10 en este ejemplo',
 1907 => 'este argumento no puede estar vacío en este ejemplo',
+1908 => "esta clase no puede ser utilizado en este ejemplo",
+1909 => "este nombre de la variable no es válido",
 
 2000 => 'Function errors',
 2001 => 'un valor no puede ser pasado por referencia',

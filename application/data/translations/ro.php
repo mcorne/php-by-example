@@ -66,6 +66,8 @@ return array (
 1905 => 'în acest exemplu lungimea trebuie să fie definită și mai mică de 1000 octeți',
 1906 => 'numărul de iterații trebuie să fie un număr întreg mai mic decât 10, în acest exemplu',
 1907 => 'acest argument nu poate fi gol în acest exemplu',
+1908 => "această clasă nu pot fi utilizate în acest exemplu",
+1909 => "acest nume de variabilă este invalid",
 
 2000 => 'Function errors',
 2001 => 'o valoare nu poate fi transmisă prin referință',

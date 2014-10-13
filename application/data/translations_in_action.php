@@ -83,6 +83,8 @@ return [
 1905 => ['function', 'file_get_contents', '?example=8' , 'translation_note' => FIRST_LETTER_LOWERCASE],
 1906 => ['function', 'current'          , '?example=9' , 'translation_note' => FIRST_LETTER_LOWERCASE],
 1907 => ['function', 'print_r'          , '?example=3' , 'translation_note' => FIRST_LETTER_LOWERCASE],
+1908 => ['function', 'array_filter'     , '?example=8' , 'translation_note' => FIRST_LETTER_LOWERCASE],
+1909 => ['function', 'filter_input'     , '?example=4' , 'translation_note' => FIRST_LETTER_LOWERCASE],
 
 2000 => "Function errors",
 2001 => ['function', 'sort'             , '?example=3', 'translation_note' => FIRST_LETTER_LOWERCASE],

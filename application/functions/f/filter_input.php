@@ -44,6 +44,19 @@ class filter_input extends filter_var
                 "options" => "cube",
             ]
         ],
+        // used in translations_in_action.php
+        [
+            'predefined_var' => 'xyz',
+            'data' => [
+                'number'    => 3,
+            ],
+            "INPUT_POST",
+            "number",
+            "FILTER_CALLBACK",
+            [
+                "options" => "cube",
+            ]
+        ],
     ];
 
     public $input_args = ['data', 'predefined_var'];

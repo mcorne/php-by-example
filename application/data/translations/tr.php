@@ -66,6 +66,8 @@ return array (
 1905 => 'uzunluk tanımlı ve en çok 1000 bayt olmalıdır',
 1906 => 'yineleme sayısı, 10\'dan küçük bir tamsayı olmalıdır',
 1907 => 'bu argüman, bu örnekte boş olmayabilir',
+1908 => "bu sınıf, bu örnekte kullanılamaz",
+1909 => "bu değişken adı geçersiz",
 
 2000 => 'Function errors',
 2001 => 'Bir değer referans olarak aktarılamaz',

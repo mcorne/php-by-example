@@ -66,6 +66,12 @@ class array_filter extends function_core
             ],
             'time',
         ],
+        [
+            [
+                "a" => 1,
+            ],
+            'exception::getMessage',
+        ],
     ];
 
     public $helper_callbacks = ['index_in_example' => 1, 'function_name_pattern' => '~(^ctype_|^is_)~'];

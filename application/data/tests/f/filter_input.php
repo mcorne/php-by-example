@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-29T13:59:18+00:00
+// generated automatically 2014-10-13T08:23:44+00:00
 return array (
   0 => 
   array (
@@ -20,6 +20,17 @@ return array (
     'result' => 
     array (
       'mixed' => 27,
+    ),
+  ),
+  3 => 
+  array (
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 256,
+        'message' => 'this variable name is invalid (xyz)',
+      ),
     ),
   ),
 );

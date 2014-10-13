@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-11T20:08:19+00:00
+// generated automatically 2014-10-13T08:14:19+00:00
 return array (
   0 => 
   array (
@@ -77,6 +77,17 @@ return array (
       array (
         'code' => 512,
         'message' => 'this callback function may not be used in this example',
+      ),
+    ),
+  ),
+  7 => 
+  array (
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 512,
+        'message' => 'this class may not be used in this example',
       ),
     ),
   ),

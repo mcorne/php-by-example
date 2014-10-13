@@ -43,6 +43,8 @@ For each new message:
 - add the translation in each language in the corresponding translation file, eg "data/translations/fr.php" for French
   use the same message id as the original message in English in "data/translations/en.php"
 
+- run "check_translations" (again)
+
 
 3. Updade the translations in action
 ------------------------------------

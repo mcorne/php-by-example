@@ -82,6 +82,8 @@ return [
 1905 => "the length must be defined and lower than 1000 bytes in this example",
 1906 => "the number of iterations must be an integer lower than 10 in this example",
 1907 => "this argument may not be empty in this example",
+1908 => "this class may not be used in this example",
+1909 => "this variable name is invalid",
 
 2000 => "Function errors",
 2001 => "a value cannot be passed by reference",
