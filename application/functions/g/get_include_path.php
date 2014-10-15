@@ -9,6 +9,8 @@
 
 class get_include_path extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'string get_include_path ( void )';
 
     public $test_not_validated = true;

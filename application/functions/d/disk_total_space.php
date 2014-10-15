@@ -9,6 +9,8 @@
 
 class disk_total_space extends function_core
 {
+    public $hash_result = true;
+
     public $examples = ["/", "C:", "D:"];
 
     public $synopsis = 'float disk_total_space ( string $directory )';

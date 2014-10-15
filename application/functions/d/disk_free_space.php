@@ -11,6 +11,8 @@
 
 class disk_free_space extends function_core
 {
+    public $hash_result = true;
+
     public $examples = ["/", "C:", "D:"];
 
     public $synopsis = 'float disk_free_space ( string $directory )';

@@ -21,10 +21,25 @@ function pbx_hash($mixed, $excluded_keys = null)
     if (is_array($mixed)) {
         $hash = pbx_hash_array($mixed, $excluded_keys);
 
+    } else if ($mixed === '') {
+        // this is an empty string, leaves it empty, this is better when called recursively
+        // for a hashed list starting with a separator, eg "/home/..."
+        $hash = '';
+
+    } else if (in_array($mixed, [0, 1, '0', '1', false, true], true)) {
+        $hash = pbx_hash_boolean($mixed);
+
+    } else if (preg_match('~^(exe|htm|html|ini|log|php|phtml|pxml|sh|sock|text|tmp|xhtml|xml)$~', $mixed)) {
+        // this is a file extension, leaves the extension untouched
+        $hash = $mixed;
+
     } else if (is_numeric($mixed)) {
         $hash = pbx_hash_number($mixed);
 
-    } else if (preg_match('~[/,;]~', $mixed, $separator)) {
+    } else if (preg_match('~[/\\\\,;:=.]~', $mixed, $separator)) {
+        // this is a list of strings, eg a path "/home/john"
+        // warning! leave the "." in the list of separators above as the last entry, so a numeric string is pick up as such
+        // note that a list with different separators is hashed recursively for each separator, eg getenv("HTTP_ACCEPT")
         $hash = pbx_hash_list($mixed, current($separator));
 
     } else if (is_string($mixed)) {
@@ -56,6 +71,36 @@ function pbx_hash_array($array, $excluded_keys = null)
 }
 
 /**
+ * Hashes a boolean or equivalent into false or equivalent
+ *
+ * @param  mixed $boolean
+ * @return mixed
+ */
+function pbx_hash_boolean($boolean)
+{
+    $hash = 0;
+    $type = gettype($boolean);
+    settype($hash, $type);
+
+    return $hash;
+}
+
+/**
+ * Hashes an integer into another integer of the same size
+ *
+ * @param  int $integer
+ * @return int
+ */
+function pbx_hash_integer($integer)
+{
+    $hash    = pbx_crc16($integer);
+    $decimal = hexdec($hash);
+    $decimal = substr($decimal, 0, strlen($integer));
+
+    return $decimal;
+}
+
+/**
  * Hashes a list of separated strings or numbers
  *
  * @param  string $list
@@ -79,14 +124,15 @@ function pbx_hash_list($list, $separator)
  */
 function pbx_hash_number($number)
 {
-    $hash    = pbx_crc16($number);
-    $decimal = hexdec($hash);
+    $integers = explode('.', $number);
+    $decimals = array_map('pbx_hash_integer', $integers);
+    $decimal = implode('.', $decimals);
 
     return $decimal;
 }
 
 /**
- * Hashes a string into an ascii string
+ * Hashes a string into an ascii string or a similar length
  *
  * @param  string $string
  * @return string
@@ -99,6 +145,7 @@ function pbx_hash_string($string)
 
     $hash  = pbx_crc16($string);
     $ascii = pbx_hash_to_ascii($hash);
+    $ascii = substr($ascii, 0, strlen($string));
 
     return $ascii;
 }
@@ -148,6 +195,16 @@ class pbx_hash
     static function hash_array($array, $excluded_keys = null)
     {
         return pbx_hash_array($array, $excluded_keys);
+    }
+
+    static function hash_boolean($boolean)
+    {
+        return pbx_hash_boolean($boolean);
+    }
+
+    static function hash_integer($integer)
+    {
+        return pbx_hash_integer($integer);
     }
 
     static function hash_list($list, $separator)

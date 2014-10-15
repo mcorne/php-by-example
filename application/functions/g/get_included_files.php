@@ -11,6 +11,8 @@
 
 class get_included_files extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'array get_included_files ( void )';
 
     public $test_not_validated = true;

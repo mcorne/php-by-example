@@ -1,11 +1,19 @@
 <?php
-// generated automatically 2014-02-01T17:56:10+00:00
+// generated automatically 2014-10-15T15:00:22+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => '1',
+      'string' => '0',
+    ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 1024,
+        'message' => 'the result is hashed with pbx_hash for security reasons.',
+      ),
     ),
   ),
   1 => 
@@ -19,14 +27,15 @@ return array (
   array (
     'result' => 
     array (
-      'string' => '100M',
+      'string' => 'lezt',
     ),
-  ),
-  3 => 
-  array (
-    'result' => 
+    'errors' => 
     array (
-      'string' => '100M',
+      0 => 
+      array (
+        'code' => 1024,
+        'message' => 'the result is hashed with pbx_hash for security reasons.',
+      ),
     ),
   ),
 );

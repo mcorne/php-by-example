@@ -8,6 +8,7 @@
  */
 
 require_once 'action.php';
+require_once 'custom/pbx_hash.php';
 
 /**
  * function execution
@@ -155,11 +156,32 @@ class function_core extends action
         return $message;
     }
 
+    function hash($mixed, $excluded_keys = null)
+    {
+        $hashed = pbx_hash($mixed, $excluded_keys);
+
+        if (! $this->is_hashed_result_notice and $hashed !== $mixed) {
+            $this->add_error(E_USER_NOTICE, $this->_message_translation->translate('the result is hashed with pbx_hash for security reasons.'));
+            $this->is_hashed_result_notice = true;
+        }
+
+        return $hashed;
+    }
+
     function init()
     {}
 
     function post_exec_function()
-    {}
+    {
+        if ($this->hash_result) {
+            $mixed = $this->result[$this->_synopsis->return_var];
+
+            if ($mixed !== false) {
+                $this->result[$this->_synopsis->return_var] = $this->hash($mixed);
+            }
+            // else: this is most likely an error, false is not hashed
+        }
+    }
 
     function pre_exec_function()
     {}

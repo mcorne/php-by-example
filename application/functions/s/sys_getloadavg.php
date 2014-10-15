@@ -9,6 +9,8 @@
 
 class sys_getloadavg extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'array sys_getloadavg ( void )';
 
     public $test_not_validated = true;

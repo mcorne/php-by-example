@@ -9,6 +9,8 @@
 
 class getcwd extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'string getcwd ( void )';
 
     public $test_not_validated = true;

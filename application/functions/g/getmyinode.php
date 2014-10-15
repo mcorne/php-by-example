@@ -7,9 +7,9 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-class getmyinode extends function_core
+require_once 'getmypid.php';
+
+class getmyinode extends getmypid
 {
     public $synopsis = 'int getmyinode ( void )';
-
-    public $test_not_validated = true;
 }

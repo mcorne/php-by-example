@@ -11,5 +11,7 @@ class extension_loaded extends function_core
 {
     public $examples = ["gd"];
 
+    public $options_getter = ['name' => 'get_loaded_extensions'];
+
     public $synopsis = 'bool extension_loaded ( string $name )';
 }

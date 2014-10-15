@@ -9,6 +9,8 @@
 
 class gethostname extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'string gethostname ( void )';
 
     public $test_not_validated = true;

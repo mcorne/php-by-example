@@ -7,20 +7,12 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'custom/pbx_hash.php';
-
 class posix_getgrnam extends function_core
 {
     public $examples = [
         null, // placeholder, see below
         "toons",
     ];
-
-    public $source_code = '
-        inject_function_call
-
-        // note that the result is hashed with pbx_hash_array() for security
-    ';
 
     public $synopsis = 'array posix_getgrnam ( string $name )';
 
@@ -42,7 +34,7 @@ class posix_getgrnam extends function_core
     function init()
     {
         // gets the current group name, hashes the group name, sets the hash in the first example
-        $this->examples[0] = pbx_hash_string($this->current_group);
+        $this->examples[0] = $this->hash($this->current_group);
     }
 
     function post_exec_function()
@@ -50,10 +42,10 @@ class posix_getgrnam extends function_core
         if ($array = $this->result['array']) {
             if ($this->result['array']['name'] == $this->current_group) {
                 // this is the current group name, hashes the result
-                $this->result['array'] = pbx_hash_array($array);
+                $this->result['array'] = $this->hash($array);
             } else {
                 // another group name was passed, hashes the result except the group name for consistency
-                $this->result['array'] = pbx_hash_array($array, 'name');
+                $this->result['array'] = $this->hash($array, 'name');
             }
         }
     }

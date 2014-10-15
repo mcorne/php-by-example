@@ -9,6 +9,8 @@
 
 class getenv extends function_core
 {
+    public $hash_result = true;
+
     public $examples = ["REMOTE_ADDR"];
 
     public $synopsis = 'string getenv ( string $varname )';

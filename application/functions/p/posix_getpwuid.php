@@ -7,20 +7,12 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'custom/pbx_hash.php';
-
 class posix_getpwuid extends function_core
 {
     public $examples = [
         null, // placeholder, see below
         10000,
     ];
-
-    public $source_code = '
-        inject_function_call
-
-        // note that the result is hashed with pbx_hash_array() for security
-    ';
 
     public $synopsis = 'array posix_getpwuid ( int $uid )';
 
@@ -29,7 +21,7 @@ class posix_getpwuid extends function_core
     function init()
     {
         // gets the current user id, hashes the user id, sets the hash in the first example
-        $this->examples[0] = pbx_hash_number(getmyuid());
+        $this->examples[0] = $this->hash(getmyuid());
     }
 
     function post_exec_function()
@@ -37,10 +29,10 @@ class posix_getpwuid extends function_core
         if ($array = $this->result['array']) {
             if ($this->result['array']['uid'] == getmyuid()) {
                 // this is the current user id, hashes the result
-                $this->result['array'] = pbx_hash_array($array);
+                $this->result['array'] = $this->hash($array);
             } else {
                 // another user id was passed, hashes the result except the user id for consistency
-                $this->result['array'] = pbx_hash_array($array, 'uid');
+                $this->result['array'] = $this->hash($array, 'uid');
             }
         }
     }

@@ -9,6 +9,8 @@
 
 class ini_get_all extends function_core
 {
+    public $hash_result = true;
+
     public $examples = [
         "pcre",
         ["pcre", false],

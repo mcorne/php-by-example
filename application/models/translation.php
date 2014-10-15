@@ -89,14 +89,14 @@ class translation extends object
                     $translation_log_entry = array_pop($this->translations_log_entries[$message_id]);
                 } while ($translation_log_entry['action'] == 'reviewed');
 
-                if (count($translation_log_entry) == 1) {
-                    $machine_translation_ids[] = $message_id;
-
-                } else if ($translation_log_entry['action'] == 'validated') {
+                if ($translation_log_entry['action'] == 'validated') {
                     $validated_translation_ids[] = $message_id;
 
-                } else {
+                } else if (count($this->translations_log_entries[$message_id])) {
                     $fixed_translation_ids[] = $message_id;
+
+                } else {
+                    $machine_translation_ids[] = $message_id;
                 }
             }
         }

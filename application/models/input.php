@@ -228,9 +228,7 @@ class input extends object
             $function_call .= sprintf('$_%s = ', $this->_synopsis->return_var);
         }
 
-        $function_call .= $this->_synopsis->method_name . ' (';
-        $function_call .= $this->display_args();
-        $function_call .= ');';
+        $function_call .= $this->_synopsis->method_name . ' ('. $this->display_args() . ');';
 
         return $function_call;
     }

@@ -22,9 +22,6 @@ class custom_function extends action
     public $filenames = [
         'pbx_callbacks'        => ['pbx_callbacks.php'     , 'class'],
         'pbx_get_city_lat_lng' => ['pbx_cities_lat_lng.php', 'function'],
-        'pbx_hash_array'       => ['pbx_hash.php'          , 'function'],
-        'pbx_hash_int'         => ['pbx_hash.php'          , 'function'],
-        'pbx_hash_string'      => ['pbx_hash.php'          , 'function'],
     ];
 
     function process()

@@ -9,6 +9,8 @@
 
 class sys_get_temp_dir extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'string sys_get_temp_dir ( void )';
 
     public $test_not_validated = true;

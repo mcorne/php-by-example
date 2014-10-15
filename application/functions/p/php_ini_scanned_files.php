@@ -9,6 +9,8 @@
 
 class php_ini_scanned_files extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'string php_ini_scanned_files ( void )';
 
     public $test_not_validated = true;

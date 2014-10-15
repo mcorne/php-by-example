@@ -9,6 +9,8 @@
 
 class php_ini_loaded_file extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'string php_ini_loaded_file ( void )';
 
     public $test_not_validated = true;

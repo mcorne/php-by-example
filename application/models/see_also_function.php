@@ -42,6 +42,10 @@ class see_also_function extends object
             $see_also_functions = array_merge($see_also_functions, $source_code_custom_functions);
         }
 
+        if ($this->_function->is_hashed_result_notice) {
+            $see_also_functions[] = 'pbx_hash';
+        }
+
         sort($see_also_functions);
 
         $key = array_search($this->_application->function_basename, $see_also_functions);

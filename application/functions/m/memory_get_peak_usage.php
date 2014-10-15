@@ -9,6 +9,8 @@
 
 class memory_get_peak_usage extends function_core
 {
+    public $hash_result = true;
+
     public $synopsis = 'int memory_get_peak_usage ([ bool $real_usage = false ] )';
 
     public $test_not_validated = true;
