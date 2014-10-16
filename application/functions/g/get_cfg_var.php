@@ -11,8 +11,6 @@
 
 class get_cfg_var extends function_core
 {
-    public $hash_result = true;
-
     public $examples = ['register_globals'];
 
     public $synopsis = 'string get_cfg_var ( string $option )';
@@ -37,5 +35,19 @@ class get_cfg_var extends function_core
         ];
 
         return $options_list;
+    }
+
+    function post_exec_function()
+    {
+        $string = $this->result['string'];
+
+        if ($string !== false) {
+            $option = $this->_filter->filter_arg_value('option') or // used by get_cfg_var()
+            $option = $this->_filter->filter_arg_value('varname');   // used by ini_get()
+
+            $excluded_keys = '~^(arg_separator|bcmath|date|default_charset|highlight|iconv|intl|mbstring|pcre|precision|zlib)~';
+            $hash = $this->hash([$option => $string], $excluded_keys);
+            $this->result['string'] = current($hash);
+        }
     }
 }

@@ -16,7 +16,7 @@ require_once 'pbx_crc16.php';
  * @param  array $excluded_keys
  * @return mixed
  */
-function pbx_hash($mixed, $excluded_keys = null)
+function pbx_hash($mixed, $excluded_keys = true)
 {
     if (is_array($mixed)) {
         $hash = pbx_hash_array($mixed, $excluded_keys);
@@ -59,30 +59,30 @@ function pbx_hash($mixed, $excluded_keys = null)
  * @param  array $excluded_keys
  * @return array
  */
-function pbx_hash_array($array, $excluded_keys = null)
+function pbx_hash_array($array, $excluded_keys = true)
 {
-    foreach ($array as $key => &$value) {
-        if (! in_array($key, (array) $excluded_keys)) {
-            $value = pbx_hash($value, $excluded_keys);
-        }
+    $hash = [];
+
+    foreach ($array as $key => $value) {
+        if (pbx_is_value_to_hash($key, $excluded_keys)) {
+            $value = pbx_hash($value, true);
+        };
+
+        $hash[$key] = $value;
     }
 
-    return $array;
+    return $hash;
 }
 
 /**
- * Hashes a boolean or equivalent into false or equivalent
+ * Hashes a boolean or equivalent into a start
  *
  * @param  mixed $boolean
  * @return mixed
  */
 function pbx_hash_boolean($boolean)
 {
-    $hash = 0;
-    $type = gettype($boolean);
-    settype($hash, $type);
-
-    return $hash;
+    return '*';
 }
 
 /**
@@ -175,6 +175,41 @@ function pbx_hash_to_ascii($hash)
 }
 
 /**
+ * Determines if a value is to be hashed depending on the key
+ *
+ * @param string $key
+ * @param mixed $excluded_keys
+ * @return bool
+ */
+function pbx_is_value_to_hash($key, $excluded_keys)
+{
+    $hash_value = false;
+
+    if ($excluded_keys === true) {
+        // the value is to be hashed regardless of the key
+        $hash_value = true;
+
+    } else if (! $excluded_keys) {
+        // the value is not to be hashed
+        $hash_value = false;
+
+    } else if (is_array($excluded_keys)) {
+        // the value is to be hashed id the key is not in the list of excluded keys
+        $hash_value = ! in_array($key, $excluded_keys);
+
+    } else if (preg_match('~^([^a-z \\\\]).+\1$~', $excluded_keys)) {
+        // the value is to hashed if keu does not match the pattern of excluded keys
+        $hash_value = ! preg_match($excluded_keys, $key);
+
+    } else {
+        // the key is to hashed if the key is not the excluded key
+        $hash_value = $key != $excluded_keys;
+    }
+
+    return $hash_value;
+}
+
+/**
  * Provides access to the functions above through class or object methods
  *
  * This class is used for unit testing.
@@ -187,12 +222,12 @@ class pbx_hash
         return call_user_func_array(self::$name, $arguments);
     }
 
-    static function hash($mixed, $excluded_keys = null)
+    static function hash($mixed, $excluded_keys = true)
     {
         return pbx_hash($mixed, $excluded_keys);
     }
 
-    static function hash_array($array, $excluded_keys = null)
+    static function hash_array($array, $excluded_keys = true)
     {
         return pbx_hash_array($array, $excluded_keys);
     }
@@ -225,5 +260,10 @@ class pbx_hash
     static function hash_to_ascii($hash)
     {
         return pbx_hash_to_ascii($hash);
+    }
+
+    static function is_value_to_hash($key, $excluded_keys)
+    {
+        return pbx_is_value_to_hash($key, $excluded_keys);
     }
 }

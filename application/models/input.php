@@ -20,20 +20,13 @@ class input extends object
     const INPUT_WIDTH_IN_EM     = 20;  // must be the same as CSS textarea.arg width
     const LINE_HEIGHT_IN_EM     = 1.2;
 
-    function _get_double_slash($highlighted = null)
+    function _get_double_slash()
     {
-        if (! $highlighted) {
-            $highlighted = highlight_string("<?php\n//?>", true);
-        }
-        // else: highlighted may be passed only for unit testing purposes
-
-        if (preg_match('~color: #([[:xdigit:]]+)">//~', $highlighted, $match)) {
-            list(, $color) = $match;
-        } else {
-            $color = 'FF8000'; // orange
+        if (! $color = ini_get('highlight.comment')) {
+            $color = '#FF8000'; // orange
         }
 
-        $double_slash = sprintf('<span style="color: #%s">//</span>', $color);
+        $double_slash = sprintf('<span style="color: %s">//</span>', $color);
 
         return $double_slash;
     }

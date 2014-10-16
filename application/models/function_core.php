@@ -156,16 +156,16 @@ class function_core extends action
         return $message;
     }
 
-    function hash($mixed, $excluded_keys = null)
+    function hash($mixed, $excluded_keys = true)
     {
-        $hashed = pbx_hash($mixed, $excluded_keys);
+        $hash = pbx_hash($mixed, $excluded_keys);
 
-        if (! $this->is_hashed_result_notice and $hashed !== $mixed) {
+        if (! $this->is_hashed_result_notice and $hash !== $mixed) {
             $this->add_error(E_USER_NOTICE, $this->_message_translation->translate('the result is hashed with pbx_hash for security reasons.'));
             $this->is_hashed_result_notice = true;
         }
 
-        return $hashed;
+        return $hash;
     }
 
     function init()
@@ -177,7 +177,7 @@ class function_core extends action
             $mixed = $this->result[$this->_synopsis->return_var];
 
             if ($mixed !== false) {
-                $this->result[$this->_synopsis->return_var] = $this->hash($mixed);
+                $this->result[$this->_synopsis->return_var] = $this->hash($mixed, $this->hash_result);
             }
             // else: this is most likely an error, false is not hashed
         }

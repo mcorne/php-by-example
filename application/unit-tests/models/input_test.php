@@ -11,9 +11,10 @@ class input_test extends unit_test_core
 {
     function _get_double_slash_test()
     {
-        $results['no-arg']  = $this->test_method([null                ], '<span style="color: #FF8000">//</span>');
-        $results['color']   = $this->test_method(['color: #123123">//'], '<span style="color: #123123">//</span>');
-        $results['default'] = $this->test_method(['xyz'               ], '<span style="color: #FF8000">//</span>');
+        ini_set('highlight.comment', '#123123');
+        $results['color']   = $this->test_method([], '<span style="color: #123123">//</span>');
+        ini_set('highlight.comment', '');
+        $results['default'] = $this->test_method([], '<span style="color: #FF8000">//</span>');
 
         return $results;
     }
