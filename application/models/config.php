@@ -34,7 +34,7 @@ class config extends action
         }
 
         $function_sub_directory = $this->_application->function_basename[0];
-        $sub_path = "functions/$function_sub_directory/{$this->_application->function_basename}.php";
+        $sub_path = sprintf('functions/%s/%s.php', $function_sub_directory, $this->_application->function_basename);
         $filename = "$this->application_path/$sub_path";
 
         if (! file_exists($filename)) {

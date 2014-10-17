@@ -50,11 +50,11 @@ class application extends object
         return $function_name;
     }
 
-    function _get_function_name_pattern()
+    function _get_function_name_part()
     {
-        $function_name_pattern = isset($this->uri[2]) ? $this->uri[2] : null;
+        $function_name_part = isset($this->uri[2]) ? $this->uri[2] : null;
 
-        return $function_name_pattern;
+        return $function_name_part;
     }
 
     function _get_unit_test_name()
@@ -109,8 +109,10 @@ class application extends object
 
                     } else if ($this->function_basename) {
                         $action = $this->_function_factory->create_function_object($this->function_basename);
+                        // sets the php manual location here before sending headers as it sets a cookie
+                        $this->_params->php_manual_location;
 
-                    } else if ($this->function_name_pattern) {
+                    } else if ($this->function_name_part) {
                         $this->action_name = 'search_function';
                         $action = $this->_action;
                     }
@@ -126,6 +128,8 @@ class application extends object
                 case 'test':
                     if ($this->_function_list->function_exists($this->function_basename)) {
                         $action = $this->_function_test;
+                        // sets the php manual location here before sending headers as it sets a cookie
+                        $this->_params->php_manual_location;
                     }
                     break;
 

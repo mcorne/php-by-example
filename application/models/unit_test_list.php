@@ -70,7 +70,7 @@ class unit_test_list extends object
     function get_function_unit_test_name($function_basename)
     {
         $function_sub_directory = $function_basename[0];
-        $unit_test_name = "functions/$function_sub_directory/$function_basename";
+        $unit_test_name = sprintf('functions/%s/%s', $function_sub_directory, $function_basename);
 
         return $unit_test_name;
     }

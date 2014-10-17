@@ -51,7 +51,7 @@ class function_list extends object
 
     function _get_function_matches()
     {
-        $pattern = preg_quote($this->_application->function_name_pattern, '~');
+        $pattern = preg_quote($this->_application->function_name_part, '~');
         $function_matches = preg_grep("~$pattern~i", $this->function_list);
 
         return $function_matches;
