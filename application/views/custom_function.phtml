@@ -2,14 +2,13 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 ?>
 
 <h1>
-  <?=$this->_output->display_custom_function_title($this->_application->function_basename, $this->filename, $this->type);?>
+  <?=$this->_output->display_custom_function_title($this->_application->custom_function_name, $this->basename, $this->type);?>
   <?php require "$this->application_path/views/english_only.phtml";?>
 </h1>
 
@@ -17,6 +16,6 @@
   <span class="red"><?=$this->error;?></span>
 
 <?php else:?>
-  <div class="custom_function blue_border"><?php highlight_file($this->filepath);?></div>
+  <div class="custom_function blue_border"><?=$this->highlighted_code;?></div>
 
 <?php endif;?>

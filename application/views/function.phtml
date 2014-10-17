@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 ?>
@@ -90,7 +89,7 @@
 
              <td>
                <code>
-                 <a class="blue" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?example=<?=$example_id + 1;?>">
+                 <a class="blue" href="<?=$this->_output->display_url('function', $this->_application->function_name);?>?example=<?=$example_id + 1;?>">
                    #<?=$example_id + 1;?>
                  </a>
                </code>
@@ -98,7 +97,7 @@
 
              <td>
                <code class="blue">
-                 <?=$this->_synopsis->function_name;?>
+                 <?=$this->_application->function_name;?>
                </code>
              </td>
 

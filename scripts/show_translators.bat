@@ -1,8 +1,7 @@
 @rem
 @rem PHP By Example
 @rem
-@rem @author    Michel Corne <mcorne@yahoo.com>
-@rem @copyright 2014 Michel Corne
+@rem @copyright 2014 Michel Corne <mcorne@yahoo.com>
 @rem @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
 @rem
 

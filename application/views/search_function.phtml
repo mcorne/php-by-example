@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 ?>
@@ -20,7 +19,7 @@
 
   <?php foreach ($this->_function_list->function_matches as $function_name):?>
     <div>
-      <a href="<?=$this->_output->display_url('function', $function_name);?>"><?=$this->_output->highlight_pattern_in_function_name($function_name, $this->_application->function_basename);?></a>
+      <a href="<?=$this->_output->display_url('function', $function_name);?>"><?=$this->_output->highlight_pattern_in_function_name($function_name, $this->_application->function_name_pattern);?></a>
     </div>
   <?php endforeach;?>
 

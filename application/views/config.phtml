@@ -1,0 +1,21 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<h1>
+  Configuration of <?=$this->_output->display_function_name();?>
+  <?php require "$this->application_path/views/english_only.phtml";?>
+</h1>
+
+<?php if ($this->error):?>
+  <span class="red"><?=$this->error;?></span>
+
+<?php else:?>
+  <div class="custom_function blue_border"><?=$this->highlighted_code;?></div>
+
+<?php endif;?>

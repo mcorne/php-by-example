@@ -2,12 +2,10 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'function_core.php';
 require_once 'object.php';
 
 /**
@@ -58,6 +56,23 @@ class unit_test_list extends object
         }
 
         return $unit_test_list;
+    }
+
+    function get_function_name($unit_test_name)
+    {
+        $parts = explode('/', $unit_test_name);
+        $function_basename = end($parts);
+        $function_name = $this->_function_list->get_function_name($function_basename);
+
+        return $function_name;
+    }
+
+    function get_function_unit_test_name($function_basename)
+    {
+        $function_sub_directory = $function_basename[0];
+        $unit_test_name = "functions/$function_sub_directory/$function_basename";
+
+        return $unit_test_name;
     }
 
     function is_testable_class($unit_test_name)

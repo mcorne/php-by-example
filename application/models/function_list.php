@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -52,7 +51,7 @@ class function_list extends object
 
     function _get_function_matches()
     {
-        $pattern = preg_quote($this->_application->function_basename, '~');
+        $pattern = preg_quote($this->_application->function_name_pattern, '~');
         $function_matches = preg_grep("~$pattern~i", $this->function_list);
 
         return $function_matches;
@@ -100,6 +99,13 @@ class function_list extends object
         $function_exists = isset($this->function_list[$function_basename]);
 
         return $function_exists;
+    }
+
+    function get_function_name($function_basename)
+    {
+        $function_name = isset($this->function_list[$function_basename]) ? $this->function_list[$function_basename] : null;
+
+        return $function_name;
     }
 
     function get_function_name_around($direction)

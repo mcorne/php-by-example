@@ -2,13 +2,18 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
 
 require_once 'iconv_mime_decode.php';
+
+/**
+ * Function configuration
+ *
+ * @see docs/function-configuration.txt
+ */
 
 class iconv_mime_decode_headers extends iconv_mime_decode
 {

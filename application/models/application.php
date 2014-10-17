@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -16,13 +15,46 @@ require_once 'object.php';
 
 class application extends object
 {
+
+    function _get_custom_function_name()
+    {
+        $custom_function_name = (isset($this->uri[2]) and strpos($this->uri[2], 'pbx_') === 0) ? $this->uri[2] : null;
+
+        return $custom_function_name;
+    }
+
     function _get_function_basename()
     {
-        $function_basename = isset($this->uri[2]) ? $this->uri[2] : null;
-        $function_basename = str_replace('::', '__', $function_basename);
+        if (! isset($this->uri[2])) {
+            return null;
+        }
+
+        $function_basename = str_replace('::', '__', $this->uri[2]);
         $function_basename = strtolower($function_basename);
 
+        if (! $this->_function_list->function_exists($function_basename)) {
+            return null;
+        }
+
         return $function_basename;
+    }
+
+    function _get_function_name()
+    {
+        if (! $this->function_basename) {
+            return null;
+        }
+
+        $function_name = $this->_function_list->get_function_name($this->function_basename);
+
+        return $function_name;
+    }
+
+    function _get_function_name_pattern()
+    {
+        $function_name_pattern = isset($this->uri[2]) ? $this->uri[2] : null;
+
+        return $function_name_pattern;
     }
 
     function _get_unit_test_name()
@@ -47,11 +79,13 @@ class application extends object
         return $uri;
     }
 
-    function is_custom_function()
+    function create_function()
     {
-        $is_custom_function = strpos($this->function_basename, 'pbx_') === 0;
+        $function_basename = end($this->uri);
 
-        return $is_custom_function;
+        if ($this->_function_list->function_exists($function_basename)) {
+            $this->_function_factory->create_function_object($function_basename);
+        }
     }
 
     function run()
@@ -60,7 +94,7 @@ class application extends object
             $this->action_name = isset($this->uri[1]) ? $this->uri[1] : null;
 
             switch ($this->action_name) {
-                case 'custom_function':
+                case 'config':
                 case 'messages_translation':
                 case 'translations_stats':
                 case 'translators_stats':
@@ -69,14 +103,14 @@ class application extends object
                     break;
 
                 case 'function':
-                    if ($this->is_custom_function()) {
+                    if ($this->custom_function_name) {
                         $action = $this->_custom_function;
                         $this->action_name = 'custom_function';
 
-                    } else if ($this->_function_list->function_exists($this->function_basename)) {
-                        $action = $this->_function_factory->create_function_object();
-
                     } else if ($this->function_basename) {
+                        $action = $this->_function_factory->create_function_object($this->function_basename);
+
+                    } else if ($this->function_name_pattern) {
                         $this->action_name = 'search_function';
                         $action = $this->_action;
                     }
@@ -104,8 +138,20 @@ class application extends object
                         $action = $this->_unit_test_all;
                         $this->action_name = 'unit_test_all';
 
-                    } else if ($this->_unit_test_list->is_testable_class($this->unit_test_name)) {
-                        $action = $this->_unit_test;
+                    } else {
+                        if ($this->function_name) {
+                            $this->unit_test_name = $this->_unit_test_list->get_function_unit_test_name($this->function_basename);
+                        } else {
+                            $this->function_name = $this->_unit_test_list->get_function_name($this->unit_test_name);
+                        }
+
+                        if ($this->_unit_test_list->is_testable_class($this->unit_test_name)) {
+                            $action = $this->_unit_test;
+
+                        } else {
+                            $this->action_name = 'unit_test';
+                            $action = $this->_action;
+                        }
                     }
                     break;
             }

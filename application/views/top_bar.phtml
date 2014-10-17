@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 ?>
@@ -22,14 +21,14 @@
            onkeydown="is_submit_enter_key(event) && run_searched_function('<?=$this->_output->display_url('function');?>')"
            placeholder="<?=$this->_message_translation->translate('Search a function');?>"
            type="text"
-           value="<?=$this->_synopsis->function_name;?>" />
+           value="<?=$this->_application->function_name;?>" />
 
     <input class="button search"
            onclick="run_searched_function('<?=$this->_output->display_url('function');?>')"
            type="button"
            value="↩" />
 
-    <a class="search_method_switch" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?search_method=select"
+    <a class="search_method_switch" href="<?=$this->_output->display_url('function', $this->_application->function_name);?>?search_method=select"
       ><?=$this->_message_translation->translate('Display the drop-down list');?></a>
 
   <?php else:?>
@@ -40,8 +39,8 @@
 
         <option value="">-- <?=$this->_message_translation->translate('Choose a function');?> --</option>
 
-        <?php if ($this->_synopsis->function_name):?>
-          <option selected="selected"><?=$this->_synopsis->function_name;?></option>
+        <?php if ($this->_application->function_name):?>
+          <option selected="selected"><?=$this->_application->function_name;?></option>
         <?php endif;?>
 
       </select>
@@ -52,7 +51,7 @@
            type="button"
            value="↩" />
 
-    <a class="search_method_switch" href="<?=$this->_output->display_url('function', $this->_synopsis->function_name);?>?search_method=input"
+    <a class="search_method_switch" href="<?=$this->_output->display_url('function', $this->_application->function_name);?>?search_method=input"
       ><?=$this->_message_translation->translate('Display the text box');?></a>
 
 

@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -19,26 +18,52 @@ class custom_function extends action
      * list of classes, and functions in files with a name not based on the function name
      * @var array
      */
-    public $filenames = [
+    public $basenames = [
         'pbx_callbacks'        => ['pbx_callbacks.php'     , 'class'],
         'pbx_get_city_lat_lng' => ['pbx_cities_lat_lng.php', 'function'],
     ];
 
+    function add_link_to_custom_filename($match)
+    {
+        list(, $require_once, $filename, $custom_function_name) = $match;
+        $href = $this->_output->display_url('function', $custom_function_name);
+        $link = sprintf('%s<a href="%s">%s</a>', $require_once, $href, $filename);
+
+        return $link;
+    }
+
+    function add_link_to_custom_filenames($highlighted_code)
+    {
+        $highlighted_code = preg_replace_callback("~(require_once.+?')((\w+).php)~", [$this, 'add_link_to_custom_filename'], $highlighted_code);
+
+        return $highlighted_code;
+    }
+
     function process()
     {
-        if (isset($this->filenames[$this->_application->function_basename])) {
-            list($this->filename, $this->type) = $this->filenames[$this->_application->function_basename];
+        if (! $this->_application->custom_function_name) {
+            return;
+        }
+
+        if (isset($this->basenames[$this->_application->custom_function_name])) {
+            list($this->basename, $this->type) = $this->basenames[$this->_application->custom_function_name];
 
         } else {
             // defaults the file name to the function name
-            $this->filename = $this->_application->function_basename . '.php';
+            $this->basename = $this->_application->custom_function_name . '.php';
             $this->type = 'function';
         }
 
-        $this->filepath = $this->application_path . '/custom/' . $this->filename;
+        $sub_path = "custom/$this->basename";
+        $filename = "$this->application_path/$sub_path";
 
-        if (! file_exists($this->filepath)) {
-            $this->error = 'File not found: ' . $this->filename;
+        if (! file_exists($filename)) {
+            $this->error = 'File not found: ' . $sub_path;
+            return;
         }
+
+        $highlighted_code = highlight_file($filename, true);
+        $highlighted_code = $this->_output->remove_email_address($highlighted_code);
+        $this->highlighted_code = $this->add_link_to_custom_filenames($highlighted_code);
     }
 }

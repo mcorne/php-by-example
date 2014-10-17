@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -158,7 +157,7 @@ class output extends object
 
     function display_function_name()
     {
-        $function_name = $this->_synopsis->function_name . ' ()';
+        $function_name = $this->_application->function_name . '()';
 
         return $function_name;
     }
@@ -279,5 +278,12 @@ class output extends object
         $html = preg_replace('~;</span>\s</span>\s</code>$~', '</span></span></code>', $html);
 
         return $html;
+    }
+
+    function remove_email_address($content)
+    {
+        $content = preg_replace('~&lt;[\w.-]+@[\w.]+&gt;~', '', $content);
+
+        return $content;
     }
 }

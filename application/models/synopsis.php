@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -125,11 +124,7 @@ class synopsis extends object
 
     function _get_synopsis_fixed()
     {
-        if (! isset(self::$objects['function'])) {
-            // eg called from the layout to set the onload() when no function is selected
-            $synopsis_fixed = null;
-
-        } else if ($this->_function->synopsis_fixed) {
+        if ($this->_function->synopsis_fixed) {
             $synopsis_fixed = $this->_function->synopsis_fixed;
 
         } else if ($this->_function->synopsis) {

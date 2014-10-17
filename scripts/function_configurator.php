@@ -2,8 +2,7 @@
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -55,8 +54,7 @@ class function_configurator extends object
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -100,7 +98,6 @@ class %3$s extends %2$s
 /**
  * PHP By Example
  *
- * @author    Michel Corne <mcorne@yahoo.com>
  * @copyright %s Michel Corne
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
