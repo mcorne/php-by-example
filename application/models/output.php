@@ -14,6 +14,23 @@ require_once 'object.php';
 
 class output extends object
 {
+    function _get_manual_function_name()
+    {
+        $function_name = strtolower($this->_application->function_name);
+
+        if (strpos($function_name, '::')) {
+            // this is a class method, replaces "::" with "."
+            $manual_function_name = str_replace('::', '.', $function_name);
+        } else {
+            // this is a function, prepends the function name with "function."
+            $manual_function_name = "function.$function_name";
+        }
+
+        $manual_function_name = str_replace('_', '-', $manual_function_name);
+
+        return $manual_function_name;
+    }
+
     function display_custom_function_title($function_name, $filename, $type)
     {
         if ($type == 'function') {
@@ -138,11 +155,11 @@ class output extends object
     {
         if ($this->_params->php_manual_location == 'php.net') {
             // displays the official php.net manual page
-            $function_manual_page_url = sprintf('http://php.net/manual/%s.php', $this->_synopsis->manual_function_name);
+            $function_manual_page_url = sprintf('http://php.net/manual/%s.php', $this->manual_function_name);
 
-        } else if (file_exists(sprintf('%s/manual/%s/%s.html', $this->public_path, $this->_language->language_id, $this->_synopsis->manual_function_name))) {
+        } else if (file_exists(sprintf('%s/manual/%s/%s.html', $this->public_path, $this->_language->language_id, $this->manual_function_name))) {
             // displays the local manual function page
-            $function_manual_page_url = sprintf('%s/manual/%s/%s.html', $this->base_url, $this->_language->language_id, $this->_synopsis->manual_function_name);
+            $function_manual_page_url = sprintf('%s/manual/%s/%s.html', $this->base_url, $this->_language->language_id, $this->manual_function_name);
 
         } else if (file_exists(sprintf('%s/manual/%s/index.html', $this->public_path, $this->_language->language_id))) {
             // this function is not in the manual, defaults to the local manual index page

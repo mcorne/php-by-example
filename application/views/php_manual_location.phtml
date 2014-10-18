@@ -5,12 +5,6 @@
  * @copyright 2014 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
-
-$php_manual_locations = [
-    'local_copy'   => $this->_message_translation->translate('PHP Manual in the current tab'),
-    'php.net'      => $this->_message_translation->translate('php.net in a new tab'),
-    'none'         => $this->_message_translation->translate("Don't display the PHP Manual"),
-];
 ?>
 
 <select <?php if ($this->_params->translation_in_action and in_array($this->_params->translation_in_action, [1301, 1302, 1303])):?>
@@ -18,14 +12,29 @@ $php_manual_locations = [
         <?php else:?>
           class="blue"
         <?php endif;?>
+
         id="php_manual_location"
         onchange="change_php_manual_location(this)">
 
-  <?php foreach ($php_manual_locations as $location_id => $location_name) :?>
-    <option <?php if($location_id == $this->_params->php_manual_location):?>selected="selected"<?php endif;?>
-            value="<?=$location_id;?>">
-      <?=$location_name;?>
-    </option>
-  <?php endforeach;?>
+  <option <?php if('local_copy' == $this->_params->php_manual_location):?>selected="selected"<?php endif;?>
+          value="local_copy"
+          title="<?=$this->_message_translation->translate('PHP Manual in the current tab');?>"
+  >
+    <?=$this->_message_translation->translate('PHP Manual');?>
+  </option>
+
+  <option <?php if('php.net' == $this->_params->php_manual_location):?>selected="selected"<?php endif;?>
+          value="php.net"
+          title="<?=$this->_message_translation->translate('php.net in a new tab');?>"
+  >
+    php.net
+  </option>
+
+  <option <?php if('none' == $this->_params->php_manual_location):?>selected="selected"<?php endif;?>
+          value="none"
+          title="<?=$this->_message_translation->translate("Don't display the PHP Manual");?>"
+  >
+    <?=$this->_message_translation->translate('No Manual');?>
+  </option>
 
 </select>

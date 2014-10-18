@@ -109,8 +109,7 @@ class application extends object
 
                     } else if ($this->function_basename) {
                         $action = $this->_function_factory->create_function_object($this->function_basename);
-                        // sets the php manual location here before sending headers as it sets a cookie
-                        $this->_params->php_manual_location;
+                        $this->_params->php_manual_location; // sends cookie before headers
 
                     } else if ($this->function_name_part) {
                         $this->action_name = 'search_function';
@@ -128,8 +127,7 @@ class application extends object
                 case 'test':
                     if ($this->_function_list->function_exists($this->function_basename)) {
                         $action = $this->_function_test;
-                        // sets the php manual location here before sending headers as it sets a cookie
-                        $this->_params->php_manual_location;
+                        $this->_params->php_manual_location; // sends cookie before headers
                     }
                     break;
 
@@ -145,6 +143,7 @@ class application extends object
                     } else {
                         if ($this->function_name) {
                             $this->unit_test_name = $this->_unit_test_list->get_function_unit_test_name($this->function_basename);
+                            $this->_params->php_manual_location; // sends cookie before headers
                         } else {
                             $this->function_name = $this->_unit_test_list->get_function_name($this->unit_test_name);
                         }

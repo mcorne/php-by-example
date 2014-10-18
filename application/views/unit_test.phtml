@@ -13,6 +13,8 @@
   <?php require "$this->application_path/views/english_only.phtml";?>
 </h1>
 
+<?php $this->_application->function_name and require "$this->application_path/views/php_manual.phtml";?>
+
 <div class="block blue_border">
 
   <?php if (! $this->class_test_results):?>
