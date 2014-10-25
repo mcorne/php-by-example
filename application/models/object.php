@@ -57,6 +57,15 @@ class object
         }
     }
 
+    function create_non_object($class_name, $directory = null)
+    {
+        $this->load_class($class_name, $directory);
+        $object = new $class_name();
+        self::$objects[$class_name] = $object;
+
+        return $object;
+    }
+
     function create_object($class_name, $directory = null, $alias = null, $fixed_classname = null)
     {
         $this->load_class($class_name, $directory);

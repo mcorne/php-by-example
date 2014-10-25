@@ -44,6 +44,7 @@ class config extends action
 
         $highlighted_code = highlight_file($filename, true);
         $highlighted_code = $this->_output->remove_email_address($highlighted_code);
+        $highlighted_code = $this->_output->add_link_to_internal_doc($highlighted_code, 'function-configuration');
         $this->highlighted_code = $this->add_link_to_config_filenames($highlighted_code);
     }
 }

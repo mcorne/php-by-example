@@ -44,6 +44,11 @@ body
     border-color: #007700;  /* green */
 }
 
+.light_gray
+{
+    color: #CCC; /* light gray */
+}
+
 .nowrap
 {
     white-space:nowrap;
@@ -212,12 +217,27 @@ div.custom_function
     border-width: 1px;
     overflow: auto;
     padding: .5em;
-    width: 70em;
+    width: 80em;
+}
+
+div.doc
+{
+    color: #CCC; /* light gray */
+    font-size: 1.3em;
+    font-weight: bold;    
+    margin-bottom: 1.5em;
 }
 
 div.email
 {
     margin-bottom: .5em;
+}
+
+div.english_only
+{
+    color: #CCC; /* light gray */
+    font-size: 1em;
+    margin-bottom: 1.5em;    
 }
 
 div.h1

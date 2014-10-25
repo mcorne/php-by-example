@@ -16,6 +16,8 @@ class filter_test extends unit_test_core
         $results['arg-ok'] = $this->test_method(['foo'], 123);
         $results['no-arg'] = $this->test_method(['xyz'], null);
 
+        /**********/
+
         $this->_function_params->params   = ['foo' => '$bar'];
         $this->_function->returned_params = ['bar' => 456];
         $results['var'] = $this->test_method(['foo'], 456);
@@ -26,12 +28,14 @@ class filter_test extends unit_test_core
     function filter_closure_callback_test()
     {
         $this->create_object('function_core', null, "function");
-        $expected_properties = [ ['function', 'returned_params', ['barber' => $GLOBALS['barber']]] ];
-        $results['closure-ok'] = $this->test_method(['$barber'], $GLOBALS['barber'], null, $expected_properties);
+        $expected_properties = [ ['returned_params', ['barber' => $GLOBALS['barber']], 'function'] ];
+        $results['closure-ok'] = $this->test_method(['$barber'], $GLOBALS['barber'], $expected_properties);
+
+        /**********/
 
         $this->create_object('function_core', null, "function");
-        $expected_properties = [ ['function', 'returned_params', []] ];
-        $results['no-closure'] = $this->test_method(['$xyz'], null, false, $expected_properties);
+        $expected_properties = [ ['returned_params', [], 'function'] ];
+        $results['no-closure'] = $this->test_method(['$xyz'], null, $expected_properties);
 
         return $results;
     }

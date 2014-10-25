@@ -1,10 +1,16 @@
 Coding standards
-----------------
+================
 
-self explanatory class, method and var names, underscore separated name compounds
-never return an expression but a variable
-all functions are public, public is always omitted
-most properties are created on the fly, possibly with a getter
-methods must be short, fit for unit testing
-class name and file name must match so the object can be created on the fly
-alpha order except __construct, __destruct at the beginning, followed by magic methods, getters _get_* etc.
+Note that this document is a rough draft and incomplete.
+
+- self explanatory class, method and var names, underscore separated name compounds
+- never return an expression but a variable
+- all functions are public, public is always omitted
+- most properties are created on the fly, possibly with a getter
+- methods must be short, fit for unit testing
+- class name and file name must match so the object can be created on the fly
+- alpha order except __construct, __destruct at the beginning, followed by magic methods, getters _get_* etc.
+
+
+copyright 2014 Michel Corne <mcorne@yahoo.com>
+license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3

@@ -1,0 +1,115 @@
+Text sample
+===========
+
+This is a text sample to illustrate the use of pbx_text_to_html.
+
+Click on the docs/sample.txt link above to display the original text file.
+Click on the HTML link to display the file in HTML.
+
+
+1. Titles and subtitles
+-----------------------
+
+Titles and subtitles are underlined, typically "==========" for the title, and "----------" for a subtitle.
+Only the first two characters of the underline are used to determine the type of title.
+The blank line following a title or subtitle is ignored and not rendered.
+The blank lines preceding a title or subtitle are ignored and not rendered.
+
+Here is the default correspondence between title types and HTML tags.
++----+------+
+| == | <h1> |
++----+------+
+| -- | <h2> |
++----+------+
+| ++ | <h3> |
++----+------+
+| ** | <h4> |
++----+------+
+
+
+2. Table
+--------
+
+There is an example of a table above using data cells. Data cells are rendered with "<td>" by default.
+Cells must be separated with lines starting with "+-", eg "+-----+-----+".
+
+Here is an example of table with column headers, multiple lines per cell, including a list of items.
+The colum headers must be underlined with a line starting with "+=", eg "+=====+=====+". Columns headers are rendered with "<th>" by default.
+Note that a list of items within a table is not rendered with "<ul>" and "<ol>".
++--------+-----------------------------+
+| key    | value                       |
++========+=============================+
+| item 1 | this a short description    |
++--------+-----------------------------+
+| item 2 | this is a long description  |
+|        | over multiple lines         |
+|        | separated with a line break |
+|        | in the same cell            |
++--------+-----------------------------+
+| item 2 | this is a list of things    |
+|        | - this is the first thing   |
+|        | - this is the second thing  |
++--------+-----------------------------+
+
+Here is an example of data alignments in cells with the use of "~".
++~-----------------------+---------~---------+----------------------~+---------------------------+--------------------------+
+| abc                    |        def        |                   ghi | klm                       |                      123 |
++------------------------+-------------------+-----------------------+---------------------------+--------------------------+
+| left aligned data      | centered data     | right aligned data    | string default alignment  | number default alignment |
++------------------------+-------------------+-----------------------+---------------------------+--------------------------+
+
+
+3. Item list
+------------
+
+Here is an example of unordered list:
+- an item must be prefixed with one of the following: "= ", "- ", "+ " and "* "
+- items of the same list must have the same prefix
+- lists and items are rendered by default with "<ul>" and "<ol>"
+- an item may be broken
+  into multiple lines
+- a list of items must be closed with a blank line.
+
+Here is an example of ordered list:
+1. an item must be prefixed with a number or a letter followed by a dot and a space, eg "1. ", "A. " or "a. "
+2. an item may also be prefixed with a dash followed by a number or letter and a space, eg, "#1 ", "#A " or "#a ".
+
+An ordered list may start with a specific number or letter:
+10. the first item starts at 10
+11. and so on...
+
+Lists may be embedded as in the example below:
+- this is the first item of the parent list
+  * this is the first item of the embedded list
+  * this is the second item of the embedded list
+- this is the second item of the parent list
+  a. this is the first item of another embedded list
+  b. which is by the way an ordered list using a letter prefix.
+- a list may also contain a table
+  +-----+-----+
+  | abc | 123 |
+  +-----+-----+
+  | def | 456 |
+  +-----+-----+
+
+
+4. The horizontal line
+----------------------
+
+The horizontal line is like a title underline but after a blank line, typically "----------".
+Only the first two characters of the underline are used to determine that it is an underline.
+
+Here is an example.
+
+----------
+
+
+5. Advanced use
+---------------
+
+Tags are set by default in pbx_text_to_html::$default_tags. You may pass the $tags param to override them.
+Options are set by default in pbx_text_to_html::$default_options. You may pass the $options param to override them.
+
+
+Emails and url's are converted to links automatically.
+John Smith, john@smith.com, at http://www.example.org

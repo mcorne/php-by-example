@@ -12,6 +12,9 @@ class input_test extends unit_test_core
     {
         ini_set('highlight.comment', '#123123');
         $results['color']   = $this->test_method([], '<span style="color: #123123">//</span>');
+
+        /**********/
+
         ini_set('highlight.comment', '');
         $results['default'] = $this->test_method([], '<span style="color: #FF8000">//</span>');
 

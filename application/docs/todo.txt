@@ -1,6 +1,12 @@
 Things to do
-------------
+============
 
+- improve docs
+- add unit tests
 - offer users the ability to upload manuals from php.net to this site if they are more recent
 - look for outdated functions (synopsis)
 - move scripts to interface
+
+
+copyright 2014 Michel Corne <mcorne@yahoo.com>
+license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3

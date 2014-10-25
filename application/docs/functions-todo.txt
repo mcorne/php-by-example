@@ -1,5 +1,5 @@
 Functions to do
----------------
+===============
 
 bcscale
 
@@ -1090,3 +1090,7 @@ zip_read
 zlib_decode
 zlib_encode
 zlib_get_coding_type
+
+
+copyright 2014 Michel Corne <mcorne@yahoo.com>
+license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3

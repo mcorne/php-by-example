@@ -10,10 +10,10 @@ class abs_test extends unit_test_core
 {
     function init_test()
     {
-        $test_examples = $this->_abs->examples;
-        $test_examples[9] = str_repeat('a', 1000 + 1);
-        $expected_properties = [ ['abs', 'examples', $test_examples] ];
-        $results['init'] = $this->test_method([], null, false, $expected_properties);
+        $test_examples       = $this->_abs->examples;
+        $test_examples[9]    = str_repeat('a', 1000 + 1);
+        $expected_properties = [ ['examples', $test_examples] ];
+        $results['init']     = $this->test_method([], null, $expected_properties);
 
         return $results;
     }

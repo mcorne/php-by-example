@@ -126,6 +126,14 @@ class unit_test_core extends object
         return $tested_item_name;
     }
 
+    function set_properties($object, $properties)
+    {
+        foreach ($properties as $property) {
+            list($name, $value) = $property;
+            $object->$name = $value;
+        }
+    }
+
     function test_class($directory)
     {
         $this->directory = $directory;
@@ -137,13 +145,20 @@ class unit_test_core extends object
         return [$methods_test_results, $missing_test_methods, $obsolete_test_methods];
     }
 
-    function test_method($params, $expected_return, $expect_exception = false, $expected_properties = null)
+    function test_method($params, $expected_return, $expected_properties = null, $properties = [], $expect_exception = false)
     {
         $test_method_name = debug_backtrace()[1]['function'];
         $method_name = $this->get_tested_item_name($test_method_name);
 
         $object_name = $this->get_object_name($this->tested_class_name);
-        $object = $this->create_object($this->tested_class_name, $this->directory);
+
+        if ($this->directory == 'custom') {
+            $object = $this->create_non_object($this->tested_class_name, $this->directory);
+        } else {
+            $object = $this->create_object($this->tested_class_name, $this->directory);
+        }
+
+        $this->set_properties($object, $properties);
 
         $result = [
             'class'    => $this->tested_class_name,
@@ -196,7 +211,8 @@ class unit_test_core extends object
         $results = [];
 
         foreach ($expected_properties as $expected_property) {
-            list($class_name, $property_name, $expected_value) = $expected_property;
+            list($property_name, $expected_value) = $expected_property;
+            $class_name = isset($expected_property[2]) ? $expected_property[2] : $this->tested_class_name;
 
             $object_name = $this->get_object_name($class_name);
             $value = $this->$object_name->$property_name;

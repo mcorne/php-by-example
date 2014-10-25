@@ -58,13 +58,28 @@ class unit_test_list extends object
         return $unit_test_list;
     }
 
+    function get_custom_function_unit_test_name($custom_function_name)
+    {
+        $unit_test_name = sprintf('custom/%s', $custom_function_name);
+
+        return $unit_test_name;
+    }
+
     function get_function_name($unit_test_name)
     {
-        $parts = explode('/', $unit_test_name);
-        $function_basename = end($parts);
-        $function_name = $this->_function_list->get_function_name($function_basename);
+        $function_name= null;
+        $custom_function_name = null;
 
-        return $function_name;
+        if (preg_match('~^functions/[a-z]/(.+)$~', $unit_test_name, $match)) {
+            $function_name = $this->_function_list->get_function_name($match[1]);
+
+        } else if (preg_match('~^custom/(pbx_.+)$~', $unit_test_name, $match)) {
+            if ($this->_custom_function->custom_function_exists($match[1])) {
+                $custom_function_name = $match[1];
+            }
+        }
+
+        return [$function_name, $custom_function_name];
     }
 
     function get_function_unit_test_name($function_basename)

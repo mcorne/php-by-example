@@ -23,6 +23,13 @@ class application extends object
         return $custom_function_name;
     }
 
+    function _get_doc_name()
+    {
+        $doc_name = isset($this->uri[2]) ? $this->uri[2] : null;
+
+        return $doc_name;
+    }
+
     function _get_function_basename()
     {
         if (! isset($this->uri[2])) {
@@ -95,6 +102,7 @@ class application extends object
 
             switch ($this->action_name) {
                 case 'config':
+                case 'doc':
                 case 'messages_translation':
                 case 'translations_stats':
                 case 'translators_stats':
@@ -144,8 +152,12 @@ class application extends object
                         if ($this->function_name) {
                             $this->unit_test_name = $this->_unit_test_list->get_function_unit_test_name($this->function_basename);
                             $this->_params->php_manual_location; // sends cookie before headers
+
+                        } else if ($this->custom_function_name) {
+                            $this->unit_test_name = $this->_unit_test_list->get_custom_function_unit_test_name($this->custom_function_name);
+
                         } else {
-                            $this->function_name = $this->_unit_test_list->get_function_name($this->unit_test_name);
+                            list($this->function_name, $this->custom_function_name) = $this->_unit_test_list->get_function_name($this->unit_test_name);
                         }
 
                         if ($this->_unit_test_list->is_testable_class($this->unit_test_name)) {

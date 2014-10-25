@@ -16,7 +16,7 @@
 
         <td>:</td>
 
-        <td>
+        <td class="nowrap">
           <?php if ($method_test_results['status'] == 'test_missing'):?>
             <span class="orange">test missing</span>
 
@@ -32,23 +32,18 @@
         </td>
 
         <?php if (in_array($method_test_results['status'], ['test_failed', 'test_success'])):
-                  $is_first = true;?>
+                  $index = 0;
+                  $last_index = count($method_test_results['results']);?>
           <td>
-            <span class="gray">(</span>
+            <?php foreach ($method_test_results['results'] as $test_name => $method_test_result): $index++;?>
 
-            <?php foreach ($method_test_results['results'] as $test_name => $method_test_result):?>
+              <?php if ($index == 1):?><span class="gray">(</span><?php endif;?><a
+                class="<?php if ($method_test_result['status'] == 'test_success'):?>green<?php else:?>red<?php endif;?>"
+                href="#<?=$method_name;?>-<?=$test_name;?>"
+              ><?=$test_name;?></a><span
+                class="gray"><?php if ($index != $last_index):?>,<?php else:?>)<?php endif;?></span>
 
-              <?php if (! $is_first):?><span class="gray">,</span><?php endif;?>
-
-              <a class="<?php if ($method_test_result['status'] == 'test_success'):?>green<?php else:?>red<?php endif;?>"
-                 href="#<?=$method_name;?>-<?=$test_name;?>"
-              ><?=$test_name;?></a>
-
-
-            <?php $is_first = false;
-                  endforeach;?>
-
-            <span class="gray">)</span>
+            <?php endforeach;?>
           </td>
         <?php endif;?>
 

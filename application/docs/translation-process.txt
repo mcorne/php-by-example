@@ -1,5 +1,5 @@
 Translation process
--------------------
+===================
 
 Note that most of the process must take place in the development environment.
 This ensures that message translations and translators access rights are stored in the version control repository.
@@ -81,7 +81,7 @@ For each translator in a each language:
 - add/update the translator account, in "scripts" run "update_translator jsmith@mail.com fr"
   or get the translator account, in "scripts" run "show_translators jsmith"
 - this returns the link to the translation page
-  eg "http://micmap.org/php-by-example/fr/translation?email=jsmith@qsd.com&translation_key=e4671dc35aad4210ad4195936c6fa83a"
+  eg "http://micmap.org/php-by-example/fr/translation?email=jsmith-at-qsd.com&translation_key=e4671dc35aad4210ad4195936c6fa83a"
 - verify the link works
 - email the link and the request to validate or fix translations to the translator
 
@@ -109,3 +109,7 @@ Notes:
 - there should be no "data/translations.production.log" directory on the development machine
 - the "data/translations.development.log" directory might be present on the production machine but it is ignored on this machine
 - the content of the "data/translations.development.log" is set not to be stored in the version control repository
+
+
+copyright 2014 Michel Corne <mcorne@yahoo.com>
+license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3

@@ -1,0 +1,28 @@
+<?php
+/**
+ * PHP By Example
+ *
+ * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+?>
+
+<div class="doc">
+  <a class="light_gray"
+     href="<?=$this->_output->display_url('doc', $this->_application->doc_name, '/no_text_to_html');?>"
+  >docs/<?=$this->_application->doc_name;?>.txt</a>
+
+  rendered in
+  <a class="light_gray" href="<?=$this->_output->display_url('doc', $this->_application->doc_name);?>">HTML</a>
+  with
+
+  <a class="light_gray" href="<?=$this->_output->display_url('function', 'pbx_text_to_html');?>">pbx_text_to_html</a>
+</div>
+
+<?php if ($this->error):?>
+  <span class="red"><?=$this->error;?></span>
+
+<?php else:?>
+  <div class="custom_function blue_border"><?=$this->html;?></div>
+
+<?php endif;?>

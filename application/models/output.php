@@ -31,6 +31,16 @@ class output extends object
         return $manual_function_name;
     }
 
+    function add_link_to_internal_doc($string, $doc_basename)
+    {
+        $href = $this->_output->display_url('doc', $doc_basename);
+        $doc_filename = "docs/$doc_basename.txt";
+        $link = sprintf('<a href="%s">%s</a>', $href, $doc_filename);
+        $string = str_replace($doc_filename, $link, $string);
+
+        return $string;
+    }
+
     function display_custom_function_title($function_name, $filename, $type)
     {
         if ($type == 'function') {
@@ -299,7 +309,7 @@ class output extends object
 
     function remove_email_address($content)
     {
-        $content = preg_replace('~&lt;[\w.-]+@[\w.]+&gt;~', '', $content);
+        $content = preg_replace('~(<|&lt;)?[\w.-]+@[\w.]+(>|&gt;)?~', '', $content);
 
         return $content;
     }

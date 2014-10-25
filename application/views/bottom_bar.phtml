@@ -33,6 +33,11 @@
     <?php require "$this->application_path/views/php_manual_location.phtml";?>
   <?php endif;?>
 
+  <?php if ($this->_application->custom_function_name):?>
+    <a href="<?=$this->_output->display_url('function', $this->_application->custom_function_name);?>"><?=$this->_message_translation->translate('Source code');?></a>
+    <a href="<?=$this->_output->display_url('unit_test', $this->_application->custom_function_name);?>"><?=$this->_message_translation->translate('Unit test');?></a>
+  <?php endif;?>
+
 </div>
 
 <div class="copyright">

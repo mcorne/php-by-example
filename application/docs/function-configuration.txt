@@ -1,5 +1,7 @@
 Function configuration
-----------------------
+======================
+
+Note that this document is a rough draft and incomplete.
 
 
 the $constant_prefix property
@@ -24,7 +26,6 @@ the $synopsis property
 other properties
 ----------------
 
-- examples:
 public $commented_options = ['zenith' => [ [90, '     horizon'], ...]]
 public $constant_prefix = ['calendar' => 'CAL'];
 public $constant_as_string = ['name' => true];
@@ -73,3 +74,7 @@ Source code
 
 - CHANGEABLE_VAR_
 - _DOUBLE_SLASH_
+
+
+copyright 2014 Michel Corne <mcorne@yahoo.com>
+license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3

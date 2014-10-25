@@ -39,6 +39,14 @@ class custom_function extends action
         return $highlighted_code;
     }
 
+    function custom_function_exists($function_basename)
+    {
+        $filename = "$this->application_path/custom/$function_basename.php";
+        $custom_function_exists = file_exists($filename);
+
+        return $custom_function_exists;
+    }
+
     function process()
     {
         if (! $this->_application->custom_function_name) {
@@ -63,6 +71,11 @@ class custom_function extends action
         }
 
         $highlighted_code = highlight_file($filename, true);
+
+        if ($this->_application->custom_function_name == 'pbx_text_to_html') {
+            $highlighted_code = $this->_output->add_link_to_internal_doc($highlighted_code, 'sample');
+        }
+
         $highlighted_code = $this->_output->remove_email_address($highlighted_code);
         $this->highlighted_code = $this->add_link_to_custom_filenames($highlighted_code);
     }
