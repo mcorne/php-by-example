@@ -22,11 +22,16 @@ return array (
 1202 => 'Yardım',
 1204 => 'Test',
 1205 => 'Diğer',
+1206 => "Yapılandırma",
+1207 => "Birim test",
+1208 => "Kaynak kodu",
 
 1300 => 'PHP manual location',
 1304 => 'Geçerli sekmede PHP Kılavuzu',
 1306 => 'PHP Kılavuzunu gösterme',
 1307 => 'Yeni sekmede php.net',
+1308 => "PHP Kılavuzu",
+1309 => "Hayır Kılavuzu",
 
 1400 => 'Function page',
 1401 => 'İşlevi yürüt',
@@ -93,6 +98,7 @@ return array (
 
 2400 => 'Other items',
 2401 => 'Bu sayfa sadece İngilizce olarak mevcuttur.',
+2402 => "sonuç güvenlik nedenleriyle pbx_hash ile karma edilir.",
 
 2500 => 'Unavailable PHP manual notice',
 2501 => 'PHP Kılavuzunun bu sayfası mevcut değildir.',

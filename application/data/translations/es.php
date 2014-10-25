@@ -22,11 +22,16 @@ return array (
 1202 => 'Ayuda',
 1204 => 'Prueba',
 1205 => 'Varios',
+1206 => "Config",
+1207 => "Unidad de prueba",
+1208 => "El código fuente",
 
 1300 => 'PHP manual location',
 1304 => 'Manual PHP en la pestaña actual',
 1306 => 'No mostrar el Manual de PHP',
 1307 => 'php.net en una nueva pestaña',
+1308 => "Manual de PHP",
+1309 => "No Manual",
 
 1400 => 'Function page',
 1401 => 'Ejecutar la función',
@@ -93,6 +98,7 @@ return array (
 
 2400 => 'Other items',
 2401 => 'Esta página está disponible sólo en inglés.',
+2402 => "el resultado se hash con pbx_hash por razones de seguridad.",
 
 2500 => 'Unavailable PHP manual notice',
 2501 => 'Esta página del manual de PHP no está disponible.',

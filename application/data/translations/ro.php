@@ -22,11 +22,16 @@ return array (
 1202 => 'Ajutor',
 1204 => 'Test',
 1205 => 'Diverse',
+1206 => "Config",
+1207 => "Test de unitate",
+1208 => "Codul sursă",
 
 1300 => 'PHP manual location',
 1304 => 'Manualul PHP în tab-ul curent',
 1306 => 'Nu afișa Manualul PHP',
 1307 => 'php.net într-un tab nou',
+1308 => "Manualul PHP",
+1309 => "Nici un manual",
 
 1400 => 'Function page',
 1401 => 'Execută funcția',
@@ -93,6 +98,7 @@ return array (
 
 2400 => 'Other items',
 2401 => 'Această pagină este disponibilă doar în limba engleză.',
+2402 => "rezultatul este distribuit cu pbx_hash din motive de securitate.",
 
 2500 => 'Unavailable PHP manual notice',
 2501 => 'Această pagină a manualului PHP nu este disponibilă.',

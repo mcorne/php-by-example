@@ -33,6 +33,9 @@ return [
 // 1203 => "About",
 1204 => "Test",
 1205 => "Misc",
+1206 => "Config",
+1207 => "Unit test",
+1208 => "Source code",
 
 1300 => "PHP manual location",
 // 1301 => "Local copy of PHP manual",
@@ -42,6 +45,8 @@ return [
 // 1305 => "php.net in a separate tab",
 1306 => "Don't display the PHP Manual",
 1307 => "php.net in a new tab",
+1308 => "PHP Manual",
+1309 => "No Manual",
 
 1400 => "Function page",
 1401 => "Execute the function",
@@ -115,6 +120,7 @@ return [
 
 2400 => "Other items",
 2401 => "This page is available in English only.",
+2402 => "the result is hashed with pbx_hash for security reasons.",
 
 2500 => "Unavailable PHP manual notice",
 2501 => "This page of the PHP manual is not available.",

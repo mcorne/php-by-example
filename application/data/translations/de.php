@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-10-13T20:29:30+00:00
+// generated automatically 2014-10-25T20:10:00+00:00
 return array (
 
 1000 => 'Top bar',
@@ -12,7 +12,7 @@ return array (
 1101 => 'Willkommen in der Welt der PHP-Funktionen',
 1102 => 'Hier können Sie online PHP-Funktionen testen.',
 1103 => 'Sie müssen nicht eine einzige Zeile Code schreiben.',
-1104 => 'Sie brauchen nur eine Funktion auswählen, um das Ergebnis zu bekommen.',
+1104 => 'Sie brauchen nur eine Funktion auswählen, um das Ergebnis zu erhalten.',
 1105 => 'Jede Funktion kommt mit ein paar Beispielen.',
 1106 => 'Natürlich können Sie die Funktions-Argumente beliebig ändern.',
 1107 => 'Die entsprechende Seite des Handbuchs wird auch automatisch angezeigt.',
@@ -22,14 +22,19 @@ return array (
 1202 => 'Hilfe',
 1204 => 'Test',
 1205 => 'Sonstiges',
+1206 => 'Config',
+1207 => 'Unit-Test',
+1208 => 'Quellcode',
 
 1300 => 'PHP manual location',
 1304 => 'PHP Manual im aktuellen Tab',
-1306 => 'Sie das PHP Handbuch nicht anzeigen',
+1306 => 'Das PHP Handbuch nicht anzeigen.',
 1307 => 'php.net in einem neuen Tab',
+1308 => 'PHP-Handbuch',
+1309 => 'Kein Handbuch',
 
 1400 => 'Function page',
-1401 => 'Führen Sie die Funktion',
+1401 => 'Funktion ausführen',
 1402 => 'Ergebnis',
 1403 => 'Beispiele',
 1404 => 'siehe auch',
@@ -59,26 +64,26 @@ return array (
 1806 => 'unerwartete Daten',
 
 1900 => 'Argument filter errors',
-1901 => 'der Dateiname muss in diesem Beispiel mit einem der folgenden Zeichenketten anfangen',
+1901 => 'Der Dateiname muss in diesem Beispiel mit einer der folgenden Zeichenkette anfangen.',
 1902 => 'dieser Argumentwert ist in diesem Beispiel nicht erlaubt',
-1903 => 'diese Callback-Function darf in diesem Beispiel nicht verwendet werden',
+1903 => 'Diese Callback-Funktion darf in diesem Beispiel nicht verwendet werden.',
 1904 => 'diese Callback-Funktion ist ungültig oder nicht verfügbar auf diesem Server',
-1905 => 'die Länge muss in diesem Beispiel definiert sein und muss weniger als 1000 Bytes sein',
+1905 => 'Die Länge muss in diesem Beispiel definiert sein und muss kleiner als 1000 Bytes sein',
 1906 => 'die Anzahl der Durchläufe muss in diesem Beispiel eine ganze Zahl kleiner als 10 sein',
 1907 => 'dieses Argument darf in diesem Beispiel nicht leer sein',
 1908 => 'diese Klasse kann in diesem Beispiel nicht verwendet werden',
-1909 => 'diese Variable Name ist ungültig',
+1909 => 'Dieser Variablenname ist ungültig.',
 
 2000 => 'Function errors',
-2001 => 'ein Wert darf nicht per Referenz übergeben werden',
+2001 => 'Ein Wert kann nicht per Referenz übergeben werden.',
 2002 => 'diese Klasse ist nicht in der PHP-Version verfügbar, die auf diesem Server läuft',
 2003 => 'diese Funktion ist nicht in der PHP-Version verfügbar, die auf diesem Server läuft',
 2004 => 'diese Methode ist nicht in der PHP-Version verfügbar, die auf diesem Server läuft',
-2005 => 'das folgende Argument ist entfernt worden',
-2006 => 'die folgenden Argument sind entfernt worden',
+2005 => 'Das folgende Argument wurde entfernt.',
+2006 => 'Die folgenden Argumente wurden entfernt.',
 
 2100 => 'Parameter errors',
-2101 => 'Das Argument wurde auf 1000 Bytes in diesem Beispiel abgeschnitten',
+2101 => 'Das Argument wurde in diesem Beispiel auf 1000 Bytes abgeschnitten.',
 
 2200 => 'Help page',
 2201 => 'Sie fanden ein Problem mit dieser Website.',
@@ -88,13 +93,14 @@ return array (
 2206 => 'Sie können sonst Ihre Anfrage per E-Mail senden.',
 2207 => 'Senden Sie eine E-Mail',
 2208 => 'Bitte stellen Sie Ihre Anfrage auf Englisch, danke.',
-2209 => 'Wenn Sie eine Frage zu PHP haben, benutzen Sie bitte das PHP-Handbuch.',
+2209 => 'Fragen zu PHP entnehmen Sie bitte dem PHP-Handbuch.',
 2210 => 'Öffnen Sie das PHP-Handbuch',
 
 2400 => 'Other items',
 2401 => 'Diese Seite ist nur in englischer Sprache verfügbar.',
+2402 => 'das Ergebnis wird mit pbx_hash Sicherheitsgründen gehasht.',
 
 2500 => 'Unavailable PHP manual notice',
-2501 => 'Diese Seite der PHP-Handbuch ist nicht verfügbar.',
-2502 => 'Sorry für die Unannehmlichkeiten.',
+2501 => 'Diese Seite des PHP-Handbuchs ist nicht verfügbar.',
+2502 => 'Entschuldigung für die Unannehmlichkeiten.',
 );

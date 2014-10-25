@@ -19,8 +19,8 @@ define('USE_TV_DISTINCTION', 'Use the <a class="gray" href="http://en.wikipedia.
 return [
 
 1000 => "Top bar",
-1001 => ['function', null, '?search_method=input&no_auto_highlight=1' , 'translation_note' => USE_INFINITIVE],
-1003 => ['function', null, '?search_method=select&no_auto_highlight=1', 'translation_note' => USE_INFINITIVE],
+1001 => ['function', null, '?search_method=input&no_auto_highlight=1' , 'translation_note' => USE_INFINITIVE], // used in top_bar.phtml
+1003 => ['function', null, '?search_method=select&no_auto_highlight=1', 'translation_note' => USE_INFINITIVE], // used in layout.phtml
 1005 => ['function', null, '?search_method=input'                     , 'translation_note' => USE_INFINITIVE],
 1006 => ['function', null, '?search_method=select'                    , 'translation_note' => USE_INFINITIVE],
 
@@ -38,17 +38,22 @@ return [
 1202 => 'home',
 1204 => ['function', 'abs'],
 1205 => 'misc',
+1206 => ['function', 'abs', 'translation_note' => '"Config" as in "Configuration", use the short version if applicable in your language.'],
+1207 => ['function', 'abs'],
+1208 => ['unit_test', 'pbx_crc16'],
 
-1300 => "PHP manual location",
-1304 => ['function', 'abs', '?php_manual_location=local_copy&no_auto_highlight=1'],
-1306 => ['function', 'abs', '?php_manual_location=none&no_auto_highlight=1', 'translation_note' => USE_INFINITIVE],
-1307 => ['function', 'abs', '?php_manual_location=php.net&no_auto_highlight=1'],
+1300 => "PHP manual location", // all items below are used in php_manual_location.phtml
+1304 => ['function', 'acos', '?php_manual_location=local_copy&no_auto_highlight=1' , 'translation_note' => 'Mouse over the "PHP Manual" option to see the message in the tooltip.'],
+1306 => ['function', 'acos', '?php_manual_location=none&no_auto_highlight=1'       , 'translation_note' => USE_INFINITIVE . ' Mouse over the "No Manual" option to see the message in the tooltip.'],
+1307 => ['function', 'acos', '?php_manual_location=php.net&no_auto_highlight=1'    , 'translation_note' => 'Mouse over the "php.net" option to see the message in the tooltip.'],
+1308 => ['function', 'acos', '?php_manual_location=local_copy&no_auto_highlight=1'],
+1309 => ['function', 'acos', '?php_manual_location=none&no_auto_highlight=1'       , 'translation_note' => USE_INFINITIVE],
 
 1400 => "Function page",
-1401 => ['function', 'abs', '?no_auto_highlight=1', 'translation_note' => USE_INFINITIVE],
-1402 => ['function', 'abs'],
-1403 => ['function', 'abs'],
-1404 => ['function', 'abs', 'translation_note' => USE_INFINITIVE],
+1401 => ['function', 'acos', '?no_auto_highlight=1', 'translation_note' => USE_INFINITIVE], // used in function.phtml
+1402 => ['function', 'acos'],
+1403 => ['function', 'acos'],
+1404 => ['function', 'acos', 'translation_note' => USE_INFINITIVE],
 
 1500 => "Function input",
 1501 => ['function', 'preg_match_all', 'translation_note' => 'Click on the blue question mark in the separate tab.'],
@@ -58,7 +63,7 @@ return [
 1602 => ['function', 'xyz'],
 
 1700 => "Error types",
-1701 => ['function', 'abs', '?example=3'],
+1701 => ['function', 'abs', '?example=3'],              // used in function_core.php
 1702 => ['translation_note' => FIRST_LETTER_UPPERCASE], // cannot show example of "PHP error",
 1703 => ['function', 'iconv'              , '?example=3', 'translation_note' => FIRST_LETTER_UPPERCASE],
 1704 => ['function', 'file_get_contents'  , '?example=5', 'translation_note' => FIRST_LETTER_UPPERCASE],
@@ -87,9 +92,9 @@ return [
 
 2000 => "Function errors",
 2001 => ['function', 'sort'             , '?example=3', 'translation_note' => FIRST_LETTER_LOWERCASE],
-2002 => ['function', 'DateTime::add'    , '?example=5', 'translation_note' => FIRST_LETTER_LOWERCASE],
-2003 => ['function', 'abs'              , '?example=3', 'translation_note' => FIRST_LETTER_LOWERCASE],
-2004 => ['function', 'DateTime::add'    , '?example=5', 'translation_note' => FIRST_LETTER_LOWERCASE],
+2002 => ['function', 'DateTime::add'    , '?example=5', 'translation_note' => FIRST_LETTER_LOWERCASE], // used in function_core.php
+2003 => ['function', 'abs'              , '?example=3', 'translation_note' => FIRST_LETTER_LOWERCASE], // used in function_core.php
+2004 => ['function', 'DateTime::add'    , '?example=5', 'translation_note' => FIRST_LETTER_LOWERCASE], // used in function_core.php
 2005 => ['function', 'file_get_contents', '?example=6', 'translation_note' => FIRST_LETTER_LOWERCASE],
 2006 => ['function', 'file_get_contents', '?example=7', 'translation_note' => FIRST_LETTER_LOWERCASE],
 
@@ -108,10 +113,11 @@ return [
 2210 => ["help", 'translation_note' => USE_INFINITIVE],
 
 2400 => "Other items",
-2401 => ['test', 'abs'],
+2401 => ['test'    , 'abs'],             // used in english_only.phtml
+2402 => ['function', 'disk_free_space'],
 
 2500 => "Unavailable PHP manual notice",
-2501 => ['function', 'abs'],
-2502 => ['function', 'abs'],
+2501 => ['function', 'abs'], // used in php_manual.phtml
+2502 => ['function', 'abs'], // used in php_manual.phtml
 
 ];
