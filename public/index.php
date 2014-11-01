@@ -8,19 +8,18 @@
 
 // exit('PHP By Example is down for maintenance. Sorry for the inconvenience. Please, come back soon.');
 
-// sets the application path
-// php-by-example domain subpath autodetection, default is none
-$is_domain_subpath = strpos($_SERVER['REQUEST_URI'], '/php-by-example') === 0;
-$application_path = $is_domain_subpath ? '/../../cgi-bin/php-by-example' : '/../application';
-// $application_path = '/../application';     // installation with no domain subpath, eg local installation
-// $application_path = '/../../cgi-bin/xyz';  // installation with "xyz" domain subpath
+if (getenv('ENVIRONMENT') == 'production') {
+    $application_subpath = '/../../cgi-bin/php-by-example';
+} else {
+    $application_subpath = '/../application';
+}
 
-$application_path = realpath(__DIR__ . $application_path);
+$application_path = realpath(__DIR__ . $application_subpath);
 set_include_path($application_path);
 
-$base_url = sprintf('http://%s', $_SERVER['HTTP_HOST']);
+$base_url = 'http://' . $_SERVER['HTTP_HOST'];
 
-if ($is_domain_subpath) {
+if (strpos($_SERVER['REQUEST_URI'], '/php-by-example') === 0) {
     $base_url .= '/php-by-example';
 }
 

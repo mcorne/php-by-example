@@ -10,5 +10,5 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^.*$ - [NC,L]
 
 # select the proper rule depending if php-by-example is run as a domain subpath, eg my.domain.com/php-by-example or not
-RewriteRule ^.*$ /index.php [NC,L]
-# RewriteRule ^.*$ /php-by-example/index.php [NC,L]
+# RewriteRule ^.*$ /index.php [NC,L]
+RewriteRule ^.*$ /php-by-example/index.php [NC,L]
