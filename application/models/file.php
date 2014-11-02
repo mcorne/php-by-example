@@ -173,6 +173,7 @@ return %s;';
         }
 
         // adds the current date and time in the file header
+        date_default_timezone_set('UTC');
         $content = sprintf($format, date('c'), $exported_array);
         $this->write_content($filename, $content);
     }
