@@ -16,7 +16,7 @@ class translation extends object
 
     function __construct($config = null)
     {
-        date_default_timezone_get('UTC');
+        date_default_timezone_set('UTC');
         parent::__construct($config);
     }
 
