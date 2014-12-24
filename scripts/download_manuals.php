@@ -50,9 +50,10 @@ class download_manuals extends object
         $downloaded_manuals = [];
 
         foreach ($language_ids as $language_id) {
-            echo '.';
+            echo "$language_id ";
 
-            $url = sprintf('http://php.net/get/php_manual_%s.tar.gz/from/this/mirror', $language_id);
+            $fixed_language_id = $language_id == 'pt' ? 'pt_BR' : $language_id;
+            $url = sprintf('http://php.net/get/php_manual_%s.tar.gz/from/this/mirror', $fixed_language_id);
 
             if (! $content = file_get_contents($url)) {
                 throw new Exception("cannot read $url");
