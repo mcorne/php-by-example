@@ -12,5 +12,6 @@ Note that this document is a rough draft and incomplete.
 - alpha order except __construct, __destruct at the beginning, followed by magic methods, getters _get_* etc.
 
 
-copyright 2014 Michel Corne <mcorne@yahoo.com>
-license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+PHP by Example
+Copyright 2014 Michel Corne <mcorne@yahoo.com>
+License   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3

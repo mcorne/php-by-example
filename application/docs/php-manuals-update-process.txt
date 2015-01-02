@@ -1,0 +1,46 @@
+PHP Manuals update process
+==========================
+
+Note that the process must take place in the development environment.
+
+
+1. Download the manuals
+-----------------------
+
+- backup the "public/manual" directory outside of the project directory
+- go to "scripts"
+- run "download_manuals *"
+
+
+2. Update the PHP Manual in English
+-----------------------------------
+
+- go to "scripts"
+- run "update_manuals en"
+
+- go to "http://localhost/php-by-example/en"
+- verify for a few functions that the PHP manual is displayed correctly, including "see also" functions
+- click on "PHP Manual" within the manual to check the date is correct
+
+Note that obsolete files are not removed.
+
+
+3. Update the PHP Manual in other languages
+-------------------------------------------
+
+- go to "scripts"
+- run "update_manuals *"
+
+For each language, for example "fr":
+- go to "http://localhost/php-by-example/fr"
+- verify for a few functions that the PHP manual is displayed correctly, for example "array_diff"
+- click on "PHP Manual" within the manual to check the date is correct
+
+- copy the content of "public/manual" from the development machine to the production machine
+
+Note that obsolete files are not removed.
+
+
+PHP by Example
+Copyright 2015 Michel Corne <mcorne@yahoo.com>
+License   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3

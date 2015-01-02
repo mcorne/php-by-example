@@ -2,7 +2,7 @@
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright 2015 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -16,16 +16,59 @@ require_once 'models/object.php';
 
 class download_manuals extends object
 {
-    function display_downloaded_manuals_status($downloaded_manuals)
+    public $help = "
+        Usage:
+        download_manuals <languages|*>
+
+        languages  the translation languages, eg 'fr' or 'ro,ru'
+        *          download all manuals
+
+        Examples:
+        download_manuals fr
+        download_manuals 'ro,ru'
+        download_manuals *
+        ";
+
+    function download_all_manuals($selected_language_ids)
     {
-        foreach ($downloaded_manuals as $language_id => $is_new_manual) {
-            $status = $is_new_manual ? 'new' : 'no change';
-            $displayed[] = "$language_id : $status";
+        $language_ids = array_keys($this->_language->languages);
+
+        if ($selected_language_ids) {
+            $language_ids = array_intersect($language_ids, $selected_language_ids);
         }
 
-        $displayed = implode("\n", $displayed);
+        foreach ($language_ids as $language_id) {
+            echo "$language_id: ";
+            $is_manual_new = $this->download_manual($language_id);
+            echo $is_manual_new ? 'new manual' : 'manual unchanged';
+            echo "\n";
+        }
+    }
 
-        return $displayed;
+    function download_manual($language_id)
+    {
+        $fixed_language_id = $language_id == 'pt' ? 'pt_BR' : $language_id;
+        $url = sprintf('http://php.net/get/php_manual_%s.tar.gz/from/this/mirror', $fixed_language_id);
+
+        if (! $content = @file_get_contents($url)) {
+            throw new Exception("cannot read $url");
+        }
+
+        $manual_filename = sprintf('%s/../download/php_manual_%s.tar.gz', $this->public_path, $language_id);
+
+        if ($is_manual_new = $this->is_manual_new($manual_filename, $content)) {
+            $this->write_manual($manual_filename, $content);
+        }
+
+        return $is_manual_new;
+    }
+
+    function get_help()
+    {
+        $help = trim($this->help);
+        $help = preg_replace('~^ {8}~m', '', $help);
+
+        return $help;
     }
 
     function is_manual_new($manual_filename, $content)
@@ -39,38 +82,23 @@ class download_manuals extends object
         return $is_manual_new;
     }
 
-    function run($selected_language_ids)
+    static function run()
     {
-        $language_ids = array_keys($this->_language->languages);
+        global $application_path, $argv;
 
-        if ($selected_language_ids) {
-            $language_ids = array_intersect($language_ids, $selected_language_ids);
-        }
+        try {
+            $download_manuals = new download_manuals(['public_path' => "$application_path/../public", 'application_env' => 'development']);
 
-        $downloaded_manuals = [];
-
-        foreach ($language_ids as $language_id) {
-            echo "$language_id ";
-
-            $fixed_language_id = $language_id == 'pt' ? 'pt_BR' : $language_id;
-            $url = sprintf('http://php.net/get/php_manual_%s.tar.gz/from/this/mirror', $fixed_language_id);
-
-            if (! $content = file_get_contents($url)) {
-                throw new Exception("cannot read $url");
+            if (empty($argv[1])) {
+                throw new Exception($download_manuals->get_help());
             }
 
-            $manual_filename = sprintf('%s/manual/download/php_manual_%s.tar.gz', $this->public_path, $language_id);
+            $language_ids = $argv[1] != '*' ? explode(',' , $argv[1]) : null;
+            $download_manuals->download_all_manuals($language_ids);
 
-            if ($is_manual_new = $this->is_manual_new($manual_filename, $content)) {
-                $this->write_manual($manual_filename, $content);
-            }
-
-            $downloaded_manuals[$language_id] = $is_manual_new;
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-
-        echo "\n";
-
-        return $downloaded_manuals;
     }
 
     function write_manual($manual_filename, $content)
@@ -87,31 +115,4 @@ class download_manuals extends object
     }
 }
 
-if (empty($argv[1])) {
-    $help =
-"
-Usage:
-download_manuals <languages|*>
-
-languages  the translation languages, eg 'fr' or 'ro,ru'
-*          download all manuals
-
-Examples:
-download_manuals fr
-download_manuals 'ro,ru'
-download_manuals *
-";
-    exit($help);
-}
-
-try {
-    $download_manuals = new download_manuals(['public_path' => "$application_path/../public", 'application_env' => 'development']);
-    $language_ids = $argv[1] != '*' ? explode(',' , $argv[1]) : null;
-    $downloaded_manuals = $download_manuals->run($language_ids);
-    echo $download_manuals->display_downloaded_manuals_status($downloaded_manuals);
-
-} catch (Exception $e) {
-    echo $e->getMessage();
-}
-
-echo "\n";
+download_manuals::run();
