@@ -2,7 +2,7 @@
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright 2015 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -45,6 +45,13 @@ class function_configurator extends object
         }
 
         return $params;
+    }
+
+    function convert_method_name($function_name)
+    {
+        $function_name = str_replace('.', '__', $function_name);
+
+        return $function_name;
     }
 
     function create_function_alias_config($alias_function_name, $original_function_name)
@@ -124,6 +131,7 @@ class %s extends function_core
             $synopsis_property = $this->create_synopsis_property($synopsis);
         }
 
+        $function_name = $this->convert_method_name($function_name);
         $config = sprintf($format, date('Y'), $function_name, $examples_property, $synopsis_property);
 
         return $config;
@@ -207,6 +215,7 @@ class %s extends function_core
     function get_function_config_filename($function_name)
     {
         $function_sub_directory = $function_name[0];
+        $function_name = $this->convert_method_name($function_name);
         $function_config_filename = __DIR__ . "/../application/functions/$function_sub_directory/$function_name.php";
 
         return $function_config_filename;
@@ -223,14 +232,22 @@ class %s extends function_core
     function get_function_manual_basename($function_name)
     {
         $function_manual_basename = str_replace('_', '-', $function_name);
+        $function_manual_basename = strtolower($function_manual_basename);
 
         return $function_manual_basename;
     }
 
     function get_function_manual_pagename($function_name)
     {
+        if (preg_match('~^(\w+)\.(\w+)$~', $function_name, $match)) {
+            list(, $class_name, $function_name) = $match;
+
+        } else{
+            $class_name = 'function';
+        }
+
         $function_manual_basename = $this->get_function_manual_basename($function_name);
-        $function_manual_pagename = __DIR__ . "/../public/manual/en/function.$function_manual_basename.html";
+        $function_manual_pagename = __DIR__ . "/../public/manual/en/$class_name.$function_manual_basename.html";
 
         if (! file_exists($function_manual_pagename)) {
             throw new Exception("invalid manual page: function.$function_manual_basename.html");
@@ -279,15 +296,17 @@ config_function <c|r> <function-name|function-list|function-pattern> [synopsis-f
                  Use with caution as any manual changes in the config file
                  will be replaced as well.
 
-function-name    A function name, eg "abs"
-function-list    A comma separated list of functions, eg "sin,cos,tan"
-function-pattern A function pattern to match, eg "ctype_*"
+function-name    A function name, eg "abs" or "pdo.query".
+function-list    A comma separated list of functions, eg "sin,cos,tan".
+function-pattern A function pattern to match, eg "ctype_*".
+                 Not available for class methods.
 
 synopsis-fixed   The fixed sysnopsis,
                  eg "string sprintf ( string $format , mixed $arg0 , mixed $arg1 [, mixed $... ] )"
 
 Examples:
 config_function -c abs
+config_function -c pdo.query
 config_function -r sort
 config_function -c sin,cos,tan
 config_function -c ctype_*
@@ -328,6 +347,7 @@ config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixe
 
     function make_functions_configs($option, $functions, $synopsis_fixed = null)
     {
+        date_default_timezone_set('UTC');
         $option = ltrim($option, '-');
 
         if (! in_array($option, ['c', 'r'])) {

@@ -98,6 +98,11 @@ class synopsis extends object
             // the function returns a value of a given type, extracts the type
             // note that the name of the return var is built by default on the type, eg "$int"
             $return_var = $match[1];
+
+        } elseif (preg_match('~^public ([a-z]+)~i', $this->synopsis_fixed, $match)) {
+            // the method returns a predefined type or an object
+            $return_var = $match[1];
+
         } else {
             $return_var = null;
         }

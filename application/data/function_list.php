@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-11-02T10:49:58+00:00
+// generated automatically 2015-01-09T08:37:58+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -384,6 +384,7 @@ return array (
   'parse_str' => 'parse_str',
   'parse_url' => 'parse_url',
   'pathinfo' => 'pathinfo',
+  'pdo__query' => 'PDO::query',
   'php_ini_loaded_file' => 'php_ini_loaded_file',
   'php_ini_scanned_files' => 'php_ini_scanned_files',
   'php_logo_guid' => 'php_logo_guid',
