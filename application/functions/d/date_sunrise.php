@@ -76,13 +76,13 @@ class date_sunrise extends date_sun_info
 
     public $test_not_validated = [0];
 
+    public $synopsis       = 'mixed date_sunrise ( int $timestamp [, int $format = SUNFUNCS_RET_STRING [, float $latitude = ini_get(&quot;date.default_latitude&quot;) [, float $longitude = ini_get(&quot;date.default_longitude&quot;) [, float $zenith = ini_get(&quot;date.sunrise_zenith&quot;) [, float $gmt_offset = 0 ]]]]] )';
+    public $synopsis_fixed = null;
+
     function post_exec_function()
     {
         if ($this->returned_params) {
             $this->result = $this->returned_params + $this->result;
         }
     }
-
-    public $synopsis       = 'mixed date_sunrise ( int $timestamp [, int $format = SUNFUNCS_RET_STRING [, float $latitude = ini_get(&quot;date.default_latitude&quot;) [, float $longitude = ini_get(&quot;date.default_longitude&quot;) [, float $zenith = ini_get(&quot;date.sunrise_zenith&quot;) [, float $gmt_offset = 0 ]]]]] )';
-    public $synopsis_fixed = null;
 }

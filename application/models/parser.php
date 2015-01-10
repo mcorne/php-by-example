@@ -2,7 +2,7 @@
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright 2015 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -32,7 +32,7 @@ class parser extends object
         $this->tokens = token_get_all('<?php ' . $value);
         array_shift($this->tokens);
         $this->current = 0;
-        unset($this->constants);
+        unset($this->is_class_constant, $this->constants);
     }
 
     function get_next_token()
@@ -142,49 +142,77 @@ class parser extends object
         throw new Exception($this->_message_translation->translate('invalid array'));
     }
 
-    function parse_constants($value)
+    function parse_constant($token)
     {
-        if (! defined($value)) {
+        @list(, $value) = $token;
+
+        if (defined($value)) {
+            return $value;
+        }
+
+        $this->is_class_constant = true;
+        $class_name = $value;
+
+        if ($this->get_next_token() !== '::') {
+            throw new Exception($this->_message_translation->translate('invalid constant'));
+        }
+
+        $token = $this->get_next_token();
+
+        if (! is_array($token)) {
+            throw new Exception($this->_message_translation->translate('invalid constant'));
+        }
+
+        @list($type, $value) = $token;
+
+        if ($type != T_STRING) {
+            // this is not a constant
+            throw new Exception($this->_message_translation->translate('invalid constant'));
+        }
+
+        $constant = "$class_name::$value";
+
+        if (! defined($constant)) {
             // the constant is undefined, eg "xyz"
             throw new Exception($this->_message_translation->translate('undefined constant'));
         }
 
-        if ($this->convert_constant_to_int) {
-            $this->constants = constant($value);
-        } else {
-            $this->constants = $value;
-        }
+        unset($this->is_class_constant);
 
+        return $constant;
+    }
+
+    function parse_constants($token)
+    {
+        $constant = $this->parse_constant($token);
+
+        if ($this->convert_constant_to_int) {
+            $this->constants = constant($constant);
+        } else {
+            $this->constants = $constant;
+        }
 
         while (true) {
             $token = $this->get_next_token();
 
-            if ($token == '_NO_TOKEN_') {
+            if ($token === '_NO_TOKEN_') {
                 // there is no more tokens
                 break;
             }
 
-            if ($token != '_OR_') {
+            if ($token !== '_OR_') {
                 // there is no more constants, this is possible within an array, restores the token
                 $this->current--;
                 break;
             }
 
-            @list($type, $value) = $this->get_next_token();
-
-            if ($type != T_STRING) {
-                // this is not a constant, eg "E_ERROR|123"
-                throw new Exception($this->_message_translation->translate('invalid constant'));
-            }
-
-            if (! defined($value)) {
-                throw new Exception($this->_message_translation->translate('undefined constant'));
-            }
+            $token = $this->get_next_token();
+            $constant = $this->parse_constant($token);
 
             if ($this->convert_constant_to_int) {
-                $this->constants |= constant($value);
+                $this->constants |= constant($constant);
             } else {
-                $this->constants .= " | $value";
+                $this->constants .= " | $constant";
             }
         }
 
@@ -305,16 +333,19 @@ class parser extends object
                 $value = '_ARROW_';
                 break;
 
+            case T_DOUBLE_COLON:
+                $value = '::';
+                break;
+
             case T_LNUMBER:
                 $value = $this->parse_integer($value);
                 break;
 
             case T_STRING:
-                if (isset($this->constants)) {
-                    // this is a list of constants being parsed
-                    $value = [T_STRING, $value];
-                } else {
-                    // this is a single constant or the first constant of a list of or'ed constants
+                $value = [T_STRING, $value];
+
+                if (! isset($this->constants) and ! isset($this->is_class_constant)) {
+                    // this is a single constant or the first constant of a list of or'ed constants, and not within a class constant
                     $value = $this->parse_constants($value);
                 }
                 break;

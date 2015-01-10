@@ -6,6 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+require_once 'custom/pbx_get_pdo_defined_constants.php';
 require_once 'object.php';
 
 /**
@@ -144,7 +145,13 @@ class synopsis extends object
 
     function get_arg_constant_names($constant_prefix)
     {
-        $constant_names = array_keys(get_defined_constants());
+        if (is_array($constant_prefix)) {
+            list($constant_prefix, $get_defined_constants) = $constant_prefix;
+        } else {
+            $get_defined_constants = 'get_defined_constants';
+        }
+
+        $constant_names = array_keys($get_defined_constants());
         $arg_constant_names = [];
 
         foreach ($constant_names as $constant_name) {

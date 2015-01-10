@@ -25,6 +25,8 @@ class function_core extends action
 
     public $examples = [[]]; // one example with no arg by default
 
+    public $result = [];
+
     public $returned_params = [];
 
     function __construct($config = null)
@@ -196,7 +198,7 @@ class function_core extends action
             $this->reset_args_after_first_empty_arg();
 
             $this->pre_exec_function();
-            $this->result = $this->exec_function();
+            $this->result += $this->exec_function();
             $this->post_exec_function();
 
         } catch (Exception $e) {
