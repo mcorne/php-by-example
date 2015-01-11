@@ -32,7 +32,7 @@ class parser extends object
         $this->tokens = token_get_all('<?php ' . $value);
         array_shift($this->tokens);
         $this->current = 0;
-        unset($this->is_class_constant, $this->constants);
+        unset($this->constants, $this->is_class_constant, $this->is_object);
     }
 
     function get_next_token()
@@ -144,7 +144,15 @@ class parser extends object
 
     function parse_constant($token)
     {
-        @list(, $value) = $token;
+        if (! is_array($token)) {
+            throw new Exception($this->_message_translation->translate('invalid constant'));
+        }
+
+        list($type, $value) = $token;
+
+        if ($type != T_STRING) {
+            throw new Exception($this->_message_translation->translate('invalid constant'));
+        }
 
         if (defined($value)) {
             return $value;
@@ -163,10 +171,9 @@ class parser extends object
             throw new Exception($this->_message_translation->translate('invalid constant'));
         }
 
-        @list($type, $value) = $token;
+        list($type, $value) = $token;
 
         if ($type != T_STRING) {
-            // this is not a constant
             throw new Exception($this->_message_translation->translate('invalid constant'));
         }
 
@@ -254,6 +261,33 @@ class parser extends object
         return $token * -1;
     }
 
+    function parse_object()
+    {
+        $this->is_object = true;
+        $token = $this->get_next_token();
+
+        if (! is_array($token)) {
+            throw new Exception($this->_message_translation->translate('invalid object'));
+        }
+
+        list($type, $class_name) = $token;
+
+        if ($type != T_STRING or ! class_exists($class_name, false)) {
+            throw new Exception($this->_message_translation->translate('invalid object'));
+        }
+
+        $token = $this->get_next_token();
+
+        if ($token === '_NO_TOKEN_' or
+            ($token === '(' and $this->get_next_token() === ')' and $this->get_next_token() === '_NO_TOKEN_'))
+        {
+            unset($this->is_object);
+            return new $class_name();
+        }
+
+        throw new Exception($this->_message_translation->translate('invalid object'));
+    }
+
     function parse_string($string)
     {
         $quote = $string[0];
@@ -301,10 +335,13 @@ class parser extends object
                 break;
 
             case '(':
-                $value = '_BEGIN_';
+                $value = $this->is_object ? '(' : '_BEGIN_';
                 break;
 
             case ')':
+                $value = $this->is_object ? ')' : '_END_';
+                break;
+
             case ']':
                 $value = '_END_';
                 break;
@@ -341,11 +378,16 @@ class parser extends object
                 $value = $this->parse_integer($value);
                 break;
 
+            case T_NEW:
+                $value = $this->parse_object();
+                break;
+
             case T_STRING:
                 $value = [T_STRING, $value];
 
-                if (! isset($this->constants) and ! isset($this->is_class_constant)) {
-                    // this is a single constant or the first constant of a list of or'ed constants, and not within a class constant
+                if (! isset($this->constants) and ! isset($this->is_class_constant) and ! isset($this->is_object)) {
+                    // this is a single constant or the first constant of a list of or'ed constants,
+                    // and not within a class constant or an object
                     $value = $this->parse_constants($value);
                 }
                 break;

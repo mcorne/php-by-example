@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-10T20:57:43+00:00
+// generated automatically 2015-01-11T18:38:34+00:00
 return array (
   0 => 
   array (
@@ -115,6 +115,59 @@ return array (
            'name' => 'banana',
            'color' => 'yellow',
            'calories' => '250',
+        )),
+        6 => 
+        (object)(array(
+           'name' => 'apple',
+           'color' => 'red',
+           'calories' => '150',
+        )),
+      ),
+    ),
+  ),
+  3 => 
+  array (
+    'result' => 
+    array (
+      'int' => 7,
+      'PDOStatement' => 'PDOStatement',
+      'rows' => 
+      array (
+        0 => 
+        (object)(array(
+           'name' => 'apple',
+           'color' => 'red',
+           'calories' => '150',
+        )),
+        1 => 
+        (object)(array(
+           'name' => 'apple',
+           'color' => 'red',
+           'calories' => '150',
+        )),
+        2 => 
+        (object)(array(
+           'name' => 'apple',
+           'color' => 'red',
+           'calories' => '150',
+        )),
+        3 => 
+        (object)(array(
+           'name' => 'apple',
+           'color' => 'red',
+           'calories' => '150',
+        )),
+        4 => 
+        (object)(array(
+           'name' => 'apple',
+           'color' => 'red',
+           'calories' => '150',
+        )),
+        5 => 
+        (object)(array(
+           'name' => 'apple',
+           'color' => 'red',
+           'calories' => '150',
         )),
         6 => 
         (object)(array(

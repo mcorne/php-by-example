@@ -42,6 +42,48 @@ class function_test extends action
         return $expected_results;
     }
 
+    function is_expected_array($test_array, $expected_array)
+    {
+        if (array_keys($test_array) != array_keys($expected_array)) {
+            return false;
+        }
+
+        foreach ($test_array as $key => $test_value) {
+            $expected_value = $expected_array[$key];
+
+            if (! $this->is_expected_value($test_value, $expected_value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function is_expected_value($test_value, $expected_value)
+    {
+        if ($test_value === $expected_value) {
+            $is_equal = true;
+
+        } else if (is_array($test_value) and is_array($expected_value)) {
+            $is_equal = $this->is_expected_array($test_value, $expected_value);
+
+        } else if (is_float($test_value) and (is_float($expected_value) or is_int($expected_value))) {
+            // the test value is a float and the expected value is an integer or a float
+            // checks whether they are equal with a precision of 5 digits
+            // note that an expected value being store as eg "123" is interpreted as an integer by PHP
+            // note that float numbers might not be strickly equal due to floating precision limitation
+            $is_equal = (is_nan($test_value) and is_nan($expected_value) or abs($test_value - $expected_value) < 0.00001);
+
+        } else if (is_object($test_value) and is_object($expected_value)) {
+            $is_equal = $this->object_export($test_value) == $this->object_export($expected_value);
+
+        } else {
+            $is_equal = false;
+        }
+
+        return $is_equal;
+    }
+
     function object_export($object)
     {
         $exported = var_export($object, true);
@@ -116,40 +158,12 @@ class function_test extends action
             // the test is considered always valid for this function, eg random generators, list of functions or constants etc.
             $test_validation['status'] = 'test_not_validated';
 
-        } else if ($test_result === $expected_result) {
-            // both test and expected results are strickly the same
+        } else if ($this->is_expected_value($test_result, $expected_result)) {
             $test_validation['status'] = 'test_success';
 
-        } else if (! isset($expected_result['result'])) {
+        } else {
             $test_validation['status'] = 'test_failed';
-
-        } else if (! isset($test_result['result'])) {
-            $test_validation['status'] = 'test_failed';
-            $expected_value = current($expected_result['result']);
-
-        } else  {
-            $test_value = current($test_result['result']);
-            $expected_value = current($expected_result['result']);
-
-            if (is_float($test_value) and
-                (is_int($expected_value) or is_float($expected_value)) and
-                (is_nan($test_value) and is_nan($expected_value) or abs($test_value - $expected_value) < 0.00001))
-            {
-                // the test value is a float and the expected value is an integer or a float, they are equal with a precision of 5 digits
-                // note that an expected value being store as eg "123" is interpreted as an integer by PHP
-                // note that float numbers might not be strickly equal due to floating precision limitation
-                $test_validation['status'] = 'test_success';
-
-            } else if (is_object($test_value) and is_object($expected_value) and
-                       $this->object_export($test_value) == $this->object_export($expected_value))
-            {
-                // both test and expected values share the same class and properties
-                $test_validation['status'] = 'test_success';
-
-            } else {
-                $test_validation['status'] = 'test_failed';
-                $test_validation['expected_result'] = $expected_result;
-            }
+            $test_validation['expected_result'] = $expected_result;
         }
 
         return $test_validation;
