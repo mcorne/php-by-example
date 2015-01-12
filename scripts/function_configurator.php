@@ -109,6 +109,8 @@ class %3$s extends %2$s
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+require_once \'models/function_core.php\';
+
 class %s extends function_core
 {
     %s%s
