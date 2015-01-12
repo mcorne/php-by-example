@@ -55,14 +55,15 @@ class datetime__add extends function_core
     public $input_args = ['time', 'interval_spec'];
 
     public $source_code = '
-        $date = new DateTime(
+        date_default_timezone_set("UTC");
+        $datetime = new DateTime(
             $time // [string $time = "now"]
         );
         $_interval = new DateInterval(
             $interval_spec // string $interval_spec
         );
 
-        $date->inject_function_call
+        inject_function_call
 
         // shows the new datetime
         $_format =
@@ -70,7 +71,8 @@ class datetime__add extends function_core
         $string = $date->format($format);
     ';
 
-    public $synopsis = 'public DateTime DateTime::add ( DateInterval $interval )';
+    public $synopsis       = 'public DateTime DateTime::add ( DateInterval $interval )';
+    public $synopsis_fixed = 'DateTime::add ( DateInterval $interval )';
 
     function post_exec_function()
     {
@@ -80,6 +82,7 @@ class datetime__add extends function_core
 
     function pre_exec_function()
     {
+        date_default_timezone_set('UTC');
         $this->returned_params['interval'] = $this->_filter->filter_date_interval('interval_spec');
         $this->object = $this->_filter->filter_date_time('time');
     }

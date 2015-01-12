@@ -162,7 +162,7 @@ class parser extends object
         $class_name = $value;
 
         if ($this->get_next_token() !== '::') {
-            throw new Exception($this->_message_translation->translate('invalid constant'));
+            throw new Exception($this->_message_translation->translate('undefined constant'));
         }
 
         $token = $this->get_next_token();

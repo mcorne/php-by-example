@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-30T20:51:55+00:00
+// generated automatically 2015-01-12T10:27:17+00:00
 return array (
   0 => 
   array (
@@ -14,7 +14,7 @@ return array (
     'result' => 
     array (
       'resource' => 'GMP integer',
-      'string' => '-997',
+      'string' => '2',
     ),
   ),
 );

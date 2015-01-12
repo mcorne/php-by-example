@@ -49,5 +49,6 @@ class datetime__sub extends datetime__add
         ],
     ];
 
-    public $synopsis = 'public DateTime DateTime::sub ( DateInterval $interval )';
+    public $synopsis       = 'public DateTime DateTime::sub ( DateInterval $interval )';
+    public $synopsis_fixed = 'DateTime::sub ( DateInterval $interval )';
 }
