@@ -62,6 +62,10 @@ class function_core extends action
                 if (isset($this->object)) {
                     $return = $this->exec_method($function, $arg_number, $arg_values);
 
+                } elseif ($this->_synopsis->is_static_method)  {
+                    list($class, $method_name) = explode('::', $this->_synopsis->function_name);
+                    $return = $this->exec_static_method($class, $method_name, $arg_number, $arg_values);
+
                 } else {
                     $return = $this->exec_procedure($function, $arg_number, $arg_values);
                 }
@@ -118,6 +122,27 @@ class function_core extends action
             case 8: $return = $procedure($v[0], $v[1], $v[2], $v[3], $v[4], $v[5], $v[6], $v[7]); break;
             case 9: $return = $procedure($v[0], $v[1], $v[2], $v[3], $v[4], $v[5], $v[6], $v[7], $v[8]); break;
             case 10:$return = $procedure($v[0], $v[1], $v[2], $v[3], $v[4], $v[5], $v[6], $v[7], $v[8], $v[9]); break;
+            default:
+                throw new Exception("invalid arg number: $arg_number");
+        }
+
+        return $return;
+    }
+
+    function exec_static_method($class, $method_name, $arg_number, $v)
+    {
+        switch ($arg_number) {
+            case 0: $return = $class::$method_name(); break;
+            case 1: $return = $class::$method_name($v[0]); break;
+            case 2: $return = $class::$method_name($v[0], $v[1]); break;
+            case 3: $return = $class::$method_name($v[0], $v[1], $v[2]); break;
+            case 4: $return = $class::$method_name($v[0], $v[1], $v[2], $v[3]); break;
+            case 5: $return = $class::$method_name($v[0], $v[1], $v[2], $v[3], $v[4]); break;
+            case 6: $return = $class::$method_name($v[0], $v[1], $v[2], $v[3], $v[4], $v[5]); break;
+            case 7: $return = $class::$method_name($v[0], $v[1], $v[2], $v[3], $v[4], $v[5], $v[6]); break;
+            case 8: $return = $class::$method_name($v[0], $v[1], $v[2], $v[3], $v[4], $v[5], $v[6], $v[7]); break;
+            case 9: $return = $class::$method_name($v[0], $v[1], $v[2], $v[3], $v[4], $v[5], $v[6], $v[7], $v[8]); break;
+            case 10:$return = $class::$method_name($v[0], $v[1], $v[2], $v[3], $v[4], $v[5], $v[6], $v[7], $v[8], $v[9]); break;
             default:
                 throw new Exception("invalid arg number: $arg_number");
         }

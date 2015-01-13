@@ -50,6 +50,7 @@ class function_configurator extends object
     function convert_method_name($function_name)
     {
         $function_name = str_replace('.', '__', $function_name);
+        $function_name = strtolower($function_name);
 
         return $function_name;
     }

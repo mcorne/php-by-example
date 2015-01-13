@@ -79,9 +79,16 @@ class synopsis extends object
         return $function_name;
     }
 
+    function _get_is_static_method()
+    {
+        $is_static_method = (bool) preg_match('~^public static~', $this->synopsis_fixed);
+
+        return $is_static_method;
+    }
+
     function _get_method_name()
     {
-        if ($pos = strpos($this->function_name, '::')) {
+        if ($pos = strpos($this->function_name, '::') and ! $this->is_static_method) {
             // this is a class method, extracts the method name
             $method_name = substr($this->function_name, $pos + 2);
 
