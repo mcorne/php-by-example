@@ -10,6 +10,8 @@ require_once 'models/function_core.php';
 
 class pdo__prepare extends function_core
 {
+    public $constant_prefix = ['fetch_style' => 'PDO::FETCH'];
+
     public $examples = [
         [
             'exec_statement' =>

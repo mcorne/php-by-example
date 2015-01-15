@@ -689,7 +689,37 @@ parse_ini_file
 passthru
 pclose
 
-pdo_drivers
+PDO::beginTransaction
+PDO::commit
+PDO::errorCode
+PDO::errorInfo
+PDO::inTransaction
+PDO::lastInsertId
+PDO::rollBack
+
+PDO::sqliteCreateAggregate
+PDO::sqliteCreateFunction
+
+PDOStatement::bindColumn
+PDOStatement::bindParam
+PDOStatement::bindValue
+PDOStatement::closeCursor
+PDOStatement::columnCount
+PDOStatement::debugDumpParams
+PDOStatement::errorCode
+PDOStatement::errorInfo
+PDOStatement::execute
+PDOStatement::fetch
+PDOStatement::fetchAll
+PDOStatement::fetchColumn
+PDOStatement::fetchObject
+PDOStatement::getAttribute
+PDOStatement::getColumnMeta
+PDOStatement::nextRowset
+PDOStatement::rowCount
+PDOStatement::setAttribute
+PDOStatement::setFetchMode
+
 pfsockopen
 
 php_egg_logo_guid
@@ -1093,5 +1123,5 @@ zlib_get_coding_type
 
 
 PHP by Example
-Copyright 2014 Michel Corne <mcorne@yahoo.com>
+Copyright 2015 Michel Corne <mcorne@yahoo.com>
 License   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3

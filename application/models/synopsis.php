@@ -15,6 +15,10 @@ require_once 'object.php';
 
 class synopsis extends object
 {
+    public $constant_getter = [
+        'PDO' => 'pbx_get_pdo_defined_constants',
+    ];
+
     function _get_arg_descriptions()
     {
         list(, $function_description) = explode('(', $this->synopsis_fixed, 2);
@@ -135,12 +139,25 @@ class synopsis extends object
         return $synopsis_fixed;
     }
 
+    function filter_constants($constant_names, $constant_prefix)
+    {
+        $filtered_constant_names = [];
+
+        foreach ($constant_names as $constant_name) {
+            if (preg_match('~^' . $constant_prefix . '_~', $constant_name)) {
+                $filtered_constant_names[] = $constant_name;
+            }
+        }
+
+        return $filtered_constant_names;
+    }
+
     function get_arg_constant_name_prefix($arg_name)
     {
         if (isset($this->_function->constant_prefix[$arg_name])) {
             $constant_prefix = $this->_function->constant_prefix[$arg_name];
 
-        } else if (preg_match('~(int|mixed) \$' . $arg_name . ' = ([A-Z]+)_~', $this->synopsis_fixed, $match)) {
+        } else if (preg_match('~(int|mixed) \$' . $arg_name . ' = ([A-Z:]+)_~', $this->synopsis_fixed, $match)) {
             $constant_prefix = $constant_prefix = $match[2];
 
         } else {
@@ -152,24 +169,32 @@ class synopsis extends object
 
     function get_arg_constant_names($constant_prefix)
     {
-        if (is_array($constant_prefix)) {
-            list($constant_prefix, $get_defined_constants) = $constant_prefix;
-        } else {
-            $get_defined_constants = 'get_defined_constants';
-        }
+        if (preg_match('~^([A-Z]+)::([A-Z]+)?$~', $constant_prefix, $match)) {
+            // this is a class constant, eg "PDO::FETCH" or "PDO::"
+            @list(, $class_name, $is_constant_prefix) = $match;
 
-        $constant_names = array_keys($get_defined_constants());
-        $arg_constant_names = [];
-
-        foreach ($constant_names as $constant_name) {
-            if (preg_match('~^' . $constant_prefix . '_~', $constant_name)) {
-                $arg_constant_names[] = $constant_name;
+            if (! isset($this->constant_getter[$class_name]) or ! function_exists($this->constant_getter[$class_name])) {
+                throw new Exception("constant getter not implemented for class: $class_name");
             }
+
+            $constant_getter = $this->constant_getter[$class_name];
+
+        } else {
+            // this is a reguler constant prefix, eg "SORT"
+            $constant_getter = 'get_defined_constants';
+            $is_constant_prefix = true;
         }
 
-        sort($arg_constant_names, SORT_NATURAL | SORT_FLAG_CASE);
+        $constant_names = array_keys($constant_getter());
 
-        return $arg_constant_names;
+        if ($is_constant_prefix) {
+            // there is a constant prefix, filters out the constants not starting with the prefix
+            $constant_names = $this->filter_constants($constant_names, $constant_prefix);
+        }
+
+        sort($constant_names, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return $constant_names;
     }
 
     function get_arg_name($arg_number)

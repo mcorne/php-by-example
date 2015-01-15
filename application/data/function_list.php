@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-13T09:02:02+00:00
+// generated automatically 2015-01-15T10:40:47+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -385,9 +385,12 @@ return array (
   'parse_url' => 'parse_url',
   'pathinfo' => 'pathinfo',
   'pdo__exec' => 'PDO::exec',
+  'pdo__getattribute' => 'PDO::getAttribute',
   'pdo__getavailabledrivers' => 'PDO::getAvailableDrivers',
   'pdo__prepare' => 'PDO::prepare',
   'pdo__query' => 'PDO::query',
+  'pdo__quote' => 'PDO::quote',
+  'pdo__setattribute' => 'PDO::setAttribute',
   'php_ini_loaded_file' => 'php_ini_loaded_file',
   'php_ini_scanned_files' => 'php_ini_scanned_files',
   'php_logo_guid' => 'php_logo_guid',

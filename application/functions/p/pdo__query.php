@@ -11,8 +11,8 @@ require_once 'models/function_core.php';
 class pdo__query extends function_core
 {
     public $constant_prefix = [
-        'fetch_style' => ['PDO::FETCH', 'pbx_get_pdo_defined_constants'],
-        'mode'        => ['PDO::FETCH', 'pbx_get_pdo_defined_constants'],
+        'fetch_style' => 'PDO::FETCH',
+        'mode'        => 'PDO::FETCH',
     ];
 
     public $examples = [
