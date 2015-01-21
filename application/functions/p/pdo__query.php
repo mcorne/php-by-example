@@ -134,6 +134,9 @@ ORDER BY name DESC",
     {
         $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $statement = $this->_filter->filter_arg_value('exec_statement');
-        $this->result['int'] = $this->object->exec($statement);
+
+        if (! $this->result['int'] = $this->object->exec($statement)) {
+            $this->method_to_exec = false;
+        }
     }
 }

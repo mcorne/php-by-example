@@ -77,6 +77,7 @@ INSERT INTO fruit VALUES
             'driver_options'   => array('PDO::ATTR_CASE' => 'PDO::CASE_UPPER'),
             'PDO::FETCH_OBJ',
         ],
+
         [
             'exec_statement' =>
 "CREATE TABLE fruit
@@ -139,7 +140,11 @@ WHERE calories 150 AND colour = 'red'",
     {
         $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $statement = $this->_filter->filter_arg_value('exec_statement');
-        $this->result['int'] = $pdo->exec($statement);
+
+        if (! $this->result['int'] = $pdo->exec($statement)) {
+            $this->method_to_exec = false;
+            return;
+        }
 
         $statement = $this->_filter->filter_arg_value('statement');
         $driver_options = (array) $this->_filter->filter_arg_value('driver_options');

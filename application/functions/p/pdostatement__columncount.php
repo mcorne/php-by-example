@@ -14,7 +14,7 @@ require_once 'models/function_core.php';
  * @see docs/function-configuration.txt
  */
 
-class pdo__lastinsertid extends function_core
+class pdostatement__columncount extends function_core
 {
     public $examples = [
         [
@@ -30,27 +30,44 @@ INSERT INTO fruit VALUES
     ('orange', 'orange', 300),
     ('pear', 'green', 150),
     ('watermelon', 'pink', 90)",
+            'statement' =>
+"SELECT name, colour, calories FROM fruit",
         ],
     ];
 
+    public $input_args = ['exec_statement', 'statement'];
+
     public $source_code = '
         $pdo = new PDO("sqlite::memory:", null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-        $int = $pdo->exec(
+        $count = $pdo->exec(
             $exec_statement  // string $exec_statement
+        );
+        $pdostatement = $pdo->query(
+            $statement // string $statement
         );
 
         inject_function_call
     ';
 
-    public $synopsis = 'public string PDO::lastInsertId ([ string $name = NULL ] )';
+    public $synopsis = 'public int PDOStatement::columnCount ( void )';
 
     function pre_exec_function()
     {
-        $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $statement = $this->_filter->filter_arg_value('exec_statement');
 
-        if (! $this->result['int'] = $this->object->exec($statement)) {
+        if (! $this->result['count'] = $pdo->exec($statement)) {
+            $this->method_to_exec = false;
+            return;
+        }
+
+        $statement = $this->_filter->filter_arg_value('statement');
+
+        if (! $this->result['pdostatement'] = $pdo->query($statement)) {
             $this->method_to_exec = false;
         }
+
+        $this->object = $this->result['pdostatement'];
+        $this->result['pdostatement'] = get_class($this->object);
     }
 }

@@ -89,6 +89,11 @@ function foobar($arg, $arg2)
     return "foobar got $arg and $arg2";
 }
 
+function fruit($name, $colour)
+{
+    return "{$name}: {$colour}";
+}
+
 function map_Spanish($n, $m)
 {
     return(array($n => $m));
@@ -208,6 +213,11 @@ $GLOBALS['foo'] = function ($value)
 $GLOBALS['foobar'] = function ($arg, $arg2)
 {
     return "foobar got $arg and $arg2";
+};
+
+$GLOBALS['fruit'] = function ($name, $colour)
+{
+    return "{$name}: {$colour}";
 };
 
 $GLOBALS['map_Spanish'] = function ($n, $m)
@@ -349,6 +359,11 @@ class pbx_callbacks
     static function foobar($arg, $arg2)
     {
         return "foobar got $arg and $arg2";
+    }
+
+    static function fruit($name, $colour)
+    {
+        return "{$name}: {$colour}";
     }
 
     static function map_Spanish($n, $m)

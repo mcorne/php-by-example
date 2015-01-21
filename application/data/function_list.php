@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-21T14:42:00+00:00
+// generated automatically 2015-01-21T16:30:12+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -394,7 +394,9 @@ return array (
   'pdo__query' => 'PDO::query',
   'pdo__quote' => 'PDO::quote',
   'pdo__setattribute' => 'PDO::setAttribute',
+  'pdostatement__columncount' => 'PDOStatement::columnCount',
   'pdostatement__fetch' => 'PDOStatement::fetch',
+  'pdostatement__fetchall' => 'PDOStatement::fetchAll',
   'pdostatement__fetchcolumn' => 'PDOStatement::fetchColumn',
   'pdostatement__fetchobject' => 'PDOStatement::fetchObject',
   'php_ini_loaded_file' => 'php_ini_loaded_file',

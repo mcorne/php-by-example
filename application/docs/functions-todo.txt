@@ -701,12 +701,10 @@ PDOStatement::bindColumn
 PDOStatement::bindParam
 PDOStatement::bindValue
 PDOStatement::closeCursor
-PDOStatement::columnCount
 PDOStatement::debugDumpParams
 PDOStatement::errorCode
 PDOStatement::errorInfo
 PDOStatement::execute
-PDOStatement::fetchAll
 PDOStatement::getAttribute
 PDOStatement::getColumnMeta
 PDOStatement::nextRowset
