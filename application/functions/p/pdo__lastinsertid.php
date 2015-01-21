@@ -14,12 +14,13 @@ require_once 'models/function_core.php';
  * @see docs/function-configuration.txt
  */
 
-class pdo__exec extends function_core
+class pdo__lastinsertid extends function_core
 {
     public $examples = [
         [
+            'exec_statement' =>
 "CREATE TABLE fruit
-    (name, color, calories);
+    (name, colour, calories INT);
 
 INSERT INTO fruit VALUES
     ('apple', 'red', 150),
@@ -30,35 +31,23 @@ INSERT INTO fruit VALUES
     ('pear', 'green', 150),
     ('watermelon', 'pink', 90)",
         ],
-
-        [
-"CREATE TABLE fruit
-    (name, color, calories);
-
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250);
-
-UPDATE fruit
-SET name = 'pear'
-WHERE name = 'apple'",
-        ],
-
-        [
-"CREATE TABLE bad ()",
-        ],
     ];
 
     public $source_code = '
         $pdo = new PDO("sqlite::memory:", null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $int = $pdo->exec(
+            $exec_statement  // string $exec_statement
+        );
 
         inject_function_call
     ';
 
-    public $synopsis = 'public int PDO::exec ( string $statement )';
+    public $synopsis = 'public string PDO::lastInsertId ([ string $name = NULL ] )';
 
     function pre_exec_function()
     {
         $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $statement = $this->_filter->filter_arg_value('exec_statement');
+        $this->result['int'] = $this->object->exec($statement);
     }
 }

@@ -62,7 +62,7 @@ class function_configurator extends object
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright %5$s Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -94,7 +94,7 @@ class %3$s extends %2$s
         }
 
         $synopsis = str_replace($original_function_name, $alias_function_name, $match[1]);
-        $config = sprintf($format, $include_file_prefix, $original_function_name, $alias_function_name, $synopsis);
+        $config = sprintf($format, $include_file_prefix, $original_function_name, $alias_function_name, $synopsis, date('Y'));
 
         return $config;
     }
@@ -111,6 +111,12 @@ class %3$s extends %2$s
  */
 
 require_once \'models/function_core.php\';
+
+/**
+ * Function configuration
+ *
+ * @see docs/function-configuration.txt
+ */
 
 class %s extends function_core
 {

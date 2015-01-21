@@ -8,6 +8,12 @@
 
 require_once 'models/function_core.php';
 
+/**
+ * Function configuration
+ *
+ * @see docs/function-configuration.txt
+ */
+
 class pdo__quote extends function_core
 {
     public $examples = [

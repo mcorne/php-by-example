@@ -11,15 +11,18 @@ require_once 'models/function_core.php';
 /**
  * Function configuration
  *
+ * Changes to this class may affect other classes.
+ *
  * @see docs/function-configuration.txt
  */
 
-class pdo__exec extends function_core
+class pdo__errorcode extends function_core
 {
     public $examples = [
         [
+            'exec_statement' =>
 "CREATE TABLE fruit
-    (name, color, calories);
+    (name, colour, calories INT);
 
 INSERT INTO fruit VALUES
     ('apple', 'red', 150),
@@ -32,33 +35,29 @@ INSERT INTO fruit VALUES
         ],
 
         [
-"CREATE TABLE fruit
-    (name, color, calories);
-
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250);
-
-UPDATE fruit
-SET name = 'pear'
-WHERE name = 'apple'",
+            'exec_statement' => "INSERT INTO bones(skull) VALUES ('lucy')",
         ],
 
         [
-"CREATE TABLE bad ()",
+            'exec_statement' => "bogus sql",
         ],
     ];
 
     public $source_code = '
-        $pdo = new PDO("sqlite::memory:", null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $pdo = new PDO("sqlite::memory:");
+        $int = $pdo->exec(
+            $exec_statement  // string $exec_statement
+        );
 
         inject_function_call
     ';
 
-    public $synopsis = 'public int PDO::exec ( string $statement )';
+    public $synopsis = 'public mixed PDO::errorCode ( void )';
 
     function pre_exec_function()
     {
-        $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $this->object = new PDO('sqlite::memory:');
+        $statement = $this->_filter->filter_arg_value('exec_statement');
+        $this->result['int'] = $this->object->exec($statement);
     }
 }

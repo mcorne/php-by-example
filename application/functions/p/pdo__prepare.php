@@ -8,6 +8,14 @@
 
 require_once 'models/function_core.php';
 
+/**
+ * Function configuration
+ *
+ * Changes to this class may affect other classes.
+ *
+ * @see docs/function-configuration.txt
+ */
+
 class pdo__prepare extends function_core
 {
     public $constant_prefix = ['fetch_style' => 'PDO::FETCH'];
@@ -86,17 +94,17 @@ WHERE calories < ? AND colour = ?",
         inject_function_call
 
         // shows the query result
-        $bool = $PDOStatement->execute(
+        $bool = $pdostatement->execute(
             $input_parameters  // array $input_parameters
         );
-        $rows = $PDOStatement->fetchAll(
+        $rows = $pdostatement->fetchAll(
             $fetch_style  // int $fetch_style
         );
     ';
 
     public $synopsis = 'public PDOStatement PDO::prepare ( string $statement [, array $driver_options = array() ] )';
 
-    function fix_driver_options($driver_options)
+    static function fix_driver_options($pdo, $driver_options)
     {
         if (! is_array($driver_options)) {
             return;
@@ -104,15 +112,20 @@ WHERE calories < ? AND colour = ?",
 
         foreach ($driver_options as $key => $value) {
             if (is_int($key) and is_int($value)) {
-                $this->object->setAttribute($key, $value);
+                $pdo->setAttribute($key, $value);
             }
         }
     }
 
     function post_exec_function()
     {
-        if ($statement = $this->result['PDOStatement']) {
-            $this->result['PDOStatement'] = get_class($statement);
+        if ($statement = $this->result['pdostatement']) {
+            if ($driver_options = $this->_filter->filter_arg_value('driver_options')) {
+                // forces the driver options that do not seem to be working as a param of prepare()
+                pdo__prepare::fix_driver_options($this->object, $driver_options);
+            }
+
+            $this->result['pdostatement'] = get_class($statement);
             $input_parameters = $this->_filter->filter_arg_value('input_parameters');
 
             if ($this->result['bool'] = $statement->execute($input_parameters)) {
@@ -127,10 +140,5 @@ WHERE calories < ? AND colour = ?",
         $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $statement = $this->_filter->filter_arg_value('exec_statement');
         $this->result['int'] = $this->object->exec($statement);
-
-        if ($driver_options = $this->_filter->filter_arg_value('driver_options')) {
-            // forces the driver options that do not seem to be working as a param of exectute()
-            $this->fix_driver_options($driver_options);
-        }
     }
 }

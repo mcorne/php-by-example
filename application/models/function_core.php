@@ -54,6 +54,8 @@ class function_core extends action
 
                 if ($this->method_to_exec === false) {
                     // the function must not be executed here, it is meant to be done by post_exec_function()
+                    // it may also be set on the fly not to call the method for example after an error
+                    // eg in pdostatement__fetch::pre_exec_function()
                     return [];
                 }
 

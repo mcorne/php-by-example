@@ -113,7 +113,7 @@ class synopsis extends object
 
         } elseif (preg_match('~^public ([a-z]+)~i', $this->synopsis_fixed, $match)) {
             // the method returns a predefined type or an object
-            $return_var = $match[1];
+            $return_var = strtolower($match[1]);
 
         } else {
             $return_var = null;
@@ -169,7 +169,7 @@ class synopsis extends object
 
     function get_arg_constant_names($constant_prefix)
     {
-        if (preg_match('~^([A-Z]+)::([A-Z]+)?$~', $constant_prefix, $match)) {
+        if (preg_match('~^([A-Z]+)::([A-Z_]+)?$~', $constant_prefix, $match)) {
             // this is a class constant, eg "PDO::FETCH" or "PDO::"
             @list(, $class_name, $is_constant_prefix) = $match;
 

@@ -8,6 +8,12 @@
 
 require_once 'models/function_core.php';
 
+/**
+ * Function configuration
+ *
+ * @see docs/function-configuration.txt
+ */
+
 class pdo__query extends function_core
 {
     public $constant_prefix = [
@@ -96,7 +102,7 @@ ORDER BY name DESC",
         ],
     ];
 
-    public $input_args = ['exec_statement'];
+    public $input_args = ['exec_statement', 'fetch_style'];
 
     public $source_code = '
         $pdo = new PDO("sqlite::memory:", null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -107,7 +113,7 @@ ORDER BY name DESC",
         inject_function_call
 
         // shows the query result
-        $rows = $PDOStatement->fetchAll(
+        $rows = $pdostatement->fetchAll(
             $fetch_style  // int $fetch_style
         );
     ';
@@ -117,8 +123,8 @@ ORDER BY name DESC",
 
     function post_exec_function()
     {
-        if ($statement = $this->result['PDOStatement']) {
-            $this->result['PDOStatement'] = get_class($statement);
+        if ($statement = $this->result['pdostatement']) {
+            $this->result['pdostatement'] = get_class($statement);
             $fetch_style = $this->_filter->filter_arg_value('fetch_style');
             $this->result['rows'] = $statement->fetchAll($fetch_style);
         }

@@ -6,7 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'models/function_core.php';
+require_once 'functions/p/pdo__errorcode.php';
 
 /**
  * Function configuration
@@ -14,7 +14,7 @@ require_once 'models/function_core.php';
  * @see docs/function-configuration.txt
  */
 
-class pdo__getavailabledrivers extends function_core
+class pdo__errorinfo extends pdo__errorcode
 {
-    public $synopsis = 'public static array PDO::getAvailableDrivers ( void )';
+    public $synopsis = 'public array PDO::errorInfo ( void )';
 }

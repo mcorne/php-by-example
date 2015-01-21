@@ -691,10 +691,7 @@ pclose
 
 PDO::beginTransaction
 PDO::commit
-PDO::errorCode
-PDO::errorInfo
 PDO::inTransaction
-PDO::lastInsertId
 PDO::rollBack
 
 PDO::sqliteCreateAggregate
@@ -709,10 +706,7 @@ PDOStatement::debugDumpParams
 PDOStatement::errorCode
 PDOStatement::errorInfo
 PDOStatement::execute
-PDOStatement::fetch
 PDOStatement::fetchAll
-PDOStatement::fetchColumn
-PDOStatement::fetchObject
 PDOStatement::getAttribute
 PDOStatement::getColumnMeta
 PDOStatement::nextRowset
