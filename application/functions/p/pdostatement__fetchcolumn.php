@@ -19,36 +19,33 @@ class pdostatement__fetchcolumn extends pdostatement__fetch
     public $examples = [
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
+                "CREATE TABLE fruit
+                    (name, colour, calories INT);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-            'statement' =>
-"SELECT name, colour, calories FROM fruit",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            'statement'      => "SELECT name, colour, calories FROM fruit",
         ],
-
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
+                "CREATE TABLE fruit
+                    (name, colour, calories INT);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-            'statement' =>
-"SELECT name, colour, calories FROM fruit",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            'statement'      => "SELECT name, colour, calories FROM fruit",
             1,
         ],
     ];

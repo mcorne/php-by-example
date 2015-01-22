@@ -2,7 +2,7 @@
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright 2015 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -36,7 +36,7 @@ class mb_convert_case extends function_core
 
         // enter non ASCII characters in hex in $_str if $_encoding is not UTF-8
         // the result $_string may not display properly if $_encoding is not UTF-8
-';
+    ';
 
     public $synopsis = 'string mb_convert_case ( string $str , int $mode [, string $encoding = mb_internal_encoding() ] )';
 

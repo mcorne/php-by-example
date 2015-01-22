@@ -18,16 +18,18 @@ class pdostatement__rowcount extends function_core
 {
     public $examples = [
         [
-            'exec_statement' => "CREATE TABLE fruit (name, colour, calories INT)",
+            'exec_statement' =>
+                "CREATE TABLE fruit
+                    (name, colour, calories INT)",
             'statement'      =>
-"INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
+                "INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
         ],
     ];
 

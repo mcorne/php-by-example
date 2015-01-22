@@ -24,79 +24,76 @@ class pdo__query extends function_core
     public $examples = [
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, color, calories);
+                "CREATE TABLE fruit
+                    (name, color, calories);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-"SELECT name, color, calories
-FROM fruit
-ORDER BY name",
-            'fetch_style' => 'PDO::FETCH_ASSOC',
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            "SELECT name, color, calories
+            FROM fruit
+            ORDER BY name",
+            'fetch_style'    => 'PDO::FETCH_ASSOC',
         ],
-
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, color, calories);
+                "CREATE TABLE fruit
+                    (name, color, calories);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-"SELECT calories
-FROM fruit
-ORDER BY calories",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            "SELECT calories
+            FROM fruit
+            ORDER BY calories",
             'PDO::FETCH_COLUMN',
             0,
         ],
-
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, color, calories);
+                "CREATE TABLE fruit
+                    (name, color, calories);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-"SELECT name, color, calories
-FROM fruit
-ORDER BY name DESC",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            "SELECT name, color, calories
+            FROM fruit
+            ORDER BY name DESC",
             'PDO::FETCH_CLASS',
             'StdClass',
         ],
-
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, color, calories);
+                "CREATE TABLE fruit
+                    (name, color, calories);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-"SELECT name, color, calories
-FROM fruit
-ORDER BY name DESC",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            "SELECT name, color, calories
+            FROM fruit
+            ORDER BY name DESC",
             'PDO::FETCH_INTO',
             '_NO_QUOTE_new StdClass()',
         ],

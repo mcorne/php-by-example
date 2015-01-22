@@ -69,7 +69,26 @@ class examples extends object
         }
 
         $example = $this->_function->examples[$example_id];
+        $example = $this->remove_extra_indentations($example);
         $example = $this->combine_arg_names_to_example_values($example);
+
+        return $example;
+    }
+
+    function remove_extra_indentations($example)
+    {
+        if (is_null($example)) {
+            return null;
+        }
+
+        $example = (array) $example;
+
+        foreach ($example as $key => &$value) {
+            if (is_string($value) and strpos($value, "\n") !== false) {
+                $extra_identations = is_int($key) ? '~^ {12}~m' : '~^ {16}~m';
+                $value = preg_replace($extra_identations, '', $value);
+            }
+        }
 
         return $example;
     }

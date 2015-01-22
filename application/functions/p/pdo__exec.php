@@ -18,34 +18,32 @@ class pdo__exec extends function_core
 {
     public $examples = [
         [
-"CREATE TABLE fruit
-    (name, color, calories);
+            "CREATE TABLE fruit
+                (name, color, calories);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
+            INSERT INTO fruit VALUES
+                ('apple', 'red', 150),
+                ('banana', 'yellow', 250),
+                ('kiwi', 'brown', 75),
+                ('lemon', 'yellow', 25),
+                ('orange', 'orange', 300),
+                ('pear', 'green', 150),
+                ('watermelon', 'pink', 90)",
         ],
-
         [
-"CREATE TABLE fruit
-    (name, color, calories);
+            "CREATE TABLE fruit
+                (name, color, calories);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250);
+            INSERT INTO fruit VALUES
+                ('apple', 'red', 150),
+                ('banana', 'yellow', 250);
 
-UPDATE fruit
-SET name = 'pear'
-WHERE name = 'apple'",
+            UPDATE fruit
+            SET name = 'pear'
+            WHERE name = 'apple'",
         ],
-
         [
-"CREATE TABLE bad ()",
+            "CREATE TABLE bad ()",
         ],
     ];
 

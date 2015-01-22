@@ -21,27 +21,27 @@ class pdo__errorcode extends function_core
     public $examples = [
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
+                "CREATE TABLE fruit
+                    (name, colour, calories INT);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
         ],
-
         [
             'exec_statement' => "INSERT INTO bones(skull) VALUES ('lucy')",
         ],
-
         [
             'exec_statement' => "bogus sql",
         ],
     ];
+
+    public $input_args = ['exec_statement'];
 
     public $source_code = '
         $pdo = new PDO("sqlite::memory:");

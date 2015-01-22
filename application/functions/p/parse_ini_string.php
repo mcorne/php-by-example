@@ -2,7 +2,7 @@
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright 2015 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -18,36 +18,36 @@ class parse_ini_string extends function_core
 {
     public $examples = [
         [
-'[first_section]
-one = 1
-five = 5
-animal = BIRD
+            '[first_section]
+            one = 1
+            five = 5
+            animal = BIRD
 
-[second_section]
-path = "/usr/local/bin"
-URL = "http://www.example.com/~username"
+            [second_section]
+            path = "/usr/local/bin"
+            URL = "http://www.example.com/~username"
 
-[third_section]
-phpversion[] = "5.0"
-phpversion[] = "5.1"
-phpversion[] = "5.2"
-phpversion[] = "5.3"'
+            [third_section]
+            phpversion[] = "5.0"
+            phpversion[] = "5.1"
+            phpversion[] = "5.2"
+            phpversion[] = "5.3"'
         ],
         [
-'[first_section]
-one = 1
-five = 5
-animal = BIRD
+            '[first_section]
+            one = 1
+            five = 5
+            animal = BIRD
 
-[second_section]
-path = "/usr/local/bin"
-URL = "http://www.example.com/~username"
+            [second_section]
+            path = "/usr/local/bin"
+            URL = "http://www.example.com/~username"
 
-[third_section]
-phpversion[] = "5.0"
-phpversion[] = "5.1"
-phpversion[] = "5.2"
-phpversion[] = "5.3"',
+            [third_section]
+            phpversion[] = "5.0"
+            phpversion[] = "5.1"
+            phpversion[] = "5.2"
+            phpversion[] = "5.3"',
             true
         ],
     ];

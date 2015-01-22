@@ -25,92 +25,85 @@ class pdostatement__fetch extends function_core
     public $examples = [
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
+                "CREATE TABLE fruit
+                    (name, colour, calories INT);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-            'statement' =>
-"SELECT name, colour, calories FROM fruit",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            'statement'      => "SELECT name, colour, calories FROM fruit",
             'PDO::FETCH_ASSOC',
         ],
-
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
+                "CREATE TABLE fruit
+                    (name, colour, calories INT);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-            'statement' =>
-"SELECT name, colour, calories FROM fruit",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            'statement'      => "SELECT name, colour, calories FROM fruit",
             'PDO::FETCH_BOTH',
         ],
-
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
+                "CREATE TABLE fruit
+                    (name, colour, calories INT);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-            'statement' =>
-"SELECT name, colour, calories FROM fruit",
-            'driver_options'   => array('PDO::ATTR_CASE' => 'PDO::CASE_UPPER'),
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            'statement'      => "SELECT name, colour, calories FROM fruit",
+            'driver_options' => array('PDO::ATTR_CASE' => 'PDO::CASE_UPPER'),
             'PDO::FETCH_OBJ',
         ],
-
         [
-            'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
+            'exec_statement'   =>
+                "CREATE TABLE fruit
+                    (name, colour, calories INT);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150),
-    ('banana', 'yellow', 250),
-    ('kiwi', 'brown', 75),
-    ('lemon', 'yellow', 25),
-    ('orange', 'orange', 300),
-    ('pear', 'green', 150),
-    ('watermelon', 'pink', 90)",
-            'statement' =>
-"SELECT name, colour, calories
-FROM fruit
-WHERE calories <= :calories AND colour = :colour",
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150),
+                    ('banana', 'yellow', 250),
+                    ('kiwi', 'brown', 75),
+                    ('lemon', 'yellow', 25),
+                    ('orange', 'orange', 300),
+                    ('pear', 'green', 150),
+                    ('watermelon', 'pink', 90)",
+            'statement'        =>
+                "SELECT name, colour, calories
+                FROM fruit
+                WHERE calories <= :calories AND colour = :colour",
             'input_parameters' => array(':calories' => 150, ':colour' => 'red'),
             'PDO::FETCH_ASSOC',
         ],
-
         [
             'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
+                "CREATE TABLE fruit
+                    (name, colour, calories INT);
 
-INSERT INTO fruit VALUES
-    ('apple', 'red', 150)",
-            'statement' =>
-"SELECT name, colour, calories
-FROM fruit
-WHERE calories 150 AND colour = 'red'",
-            'driver_options'   => array('PDO::ATTR_CURSOR' => 'PDO::CURSOR_SCROLL'),
+                INSERT INTO fruit VALUES
+                    ('apple', 'red', 150)",
+            'statement'      =>
+                "SELECT name, colour, calories
+                FROM fruit
+                WHERE calories 150 AND colour = 'red'",
+            'driver_options' => array('PDO::ATTR_CURSOR' => 'PDO::CURSOR_SCROLL'),
         ],
     ];
 
