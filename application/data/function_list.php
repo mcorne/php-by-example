@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-22T15:42:02+00:00
+// generated automatically 2015-01-22T16:04:58+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -121,6 +121,8 @@ return array (
   'date_sunset' => 'date_sunset',
   'datetime__add' => 'DateTime::add',
   'datetime__sub' => 'DateTime::sub',
+  'datetimezone__listabbreviations' => 'DateTimeZone::listAbbreviations',
+  'datetimezone__listidentifiers' => 'DateTimeZone::listIdentifiers',
   'decbin' => 'decbin',
   'dechex' => 'dechex',
   'decoct' => 'decoct',

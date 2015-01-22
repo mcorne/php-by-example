@@ -965,8 +965,6 @@ textdomain
 
 time_sleep_until
 
-timezone_abbreviations_list
-timezone_identifiers_list
 timezone_location_get
 timezone_name_from_abbr
 timezone_name_get

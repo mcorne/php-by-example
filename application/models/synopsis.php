@@ -6,6 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+require_once 'custom/pbx_get_datetimezone_defined_constants.php';
 require_once 'custom/pbx_get_pdo_defined_constants.php';
 require_once 'object.php';
 
@@ -16,7 +17,8 @@ require_once 'object.php';
 class synopsis extends object
 {
     public $constant_getter = [
-        'PDO' => 'pbx_get_pdo_defined_constants',
+        'DateTimeZone' => 'pbx_get_datetimezone_defined_constants',
+        'PDO'          => 'pbx_get_pdo_defined_constants',
     ];
 
     function _get_arg_descriptions()
@@ -169,7 +171,7 @@ class synopsis extends object
 
     function get_arg_constant_names($constant_prefix)
     {
-        if (preg_match('~^([A-Z]+)::([A-Z_]+)?$~', $constant_prefix, $match)) {
+        if (preg_match('~^([A-Za-z]+)::([A-Z_]+)?$~', $constant_prefix, $match)) {
             // this is a class constant, eg "PDO::FETCH" or "PDO::"
             @list(, $class_name, $is_constant_prefix) = $match;
 
