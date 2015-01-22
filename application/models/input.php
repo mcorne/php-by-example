@@ -267,6 +267,9 @@ class input extends object
 
         // adds a double slash before commented functions
         $highlighted_code = str_replace('_DOUBLE_SLASH_', $this->double_slash, $highlighted_code);
+        // restores method names not to be boldened
+        $highlighted_code = str_replace('_NO_BOLD_', '', $highlighted_code);
+
         $highlighted_code = $this->display_changeable_vars($highlighted_code);
 
         return $highlighted_code;

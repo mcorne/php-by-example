@@ -708,14 +708,10 @@ PDOStatement::execute
 PDOStatement::getAttribute
 PDOStatement::getColumnMeta
 PDOStatement::nextRowset
-PDOStatement::rowCount
 PDOStatement::setAttribute
 PDOStatement::setFetchMode
 
 pfsockopen
-
-php_egg_logo_guid
-php_real_logo_guid
 
 php_strip_whitespace
 

@@ -77,7 +77,7 @@ class current extends function_core
             $__count; // int $__count
 
         for ($i = 0; $i < $count; $i++) {
-            next($_array);
+            _NO_BOLD_next($_array);
         }
 
         inject_function_call

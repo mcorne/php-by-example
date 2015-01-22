@@ -74,6 +74,7 @@ Source code
 
 - CHANGEABLE_VAR_
 - _DOUBLE_SLASH_
+- _NO_BOLD_
 
 
 PHP by Example

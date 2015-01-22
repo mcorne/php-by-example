@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-21T16:30:12+00:00
+// generated automatically 2015-01-22T08:17:24+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -399,6 +399,7 @@ return array (
   'pdostatement__fetchall' => 'PDOStatement::fetchAll',
   'pdostatement__fetchcolumn' => 'PDOStatement::fetchColumn',
   'pdostatement__fetchobject' => 'PDOStatement::fetchObject',
+  'pdostatement__rowcount' => 'PDOStatement::rowCount',
   'php_ini_loaded_file' => 'php_ini_loaded_file',
   'php_ini_scanned_files' => 'php_ini_scanned_files',
   'php_logo_guid' => 'php_logo_guid',

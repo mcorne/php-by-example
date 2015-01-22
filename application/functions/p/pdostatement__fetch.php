@@ -140,8 +140,9 @@ WHERE calories 150 AND colour = 'red'",
     {
         $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $statement = $this->_filter->filter_arg_value('exec_statement');
+        $this->result['int'] = $pdo->exec($statement);
 
-        if (! $this->result['int'] = $pdo->exec($statement)) {
+        if ($this->result['int'] === false) {
             $this->method_to_exec = false;
             return;
         }

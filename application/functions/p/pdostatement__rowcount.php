@@ -14,15 +14,13 @@ require_once 'models/function_core.php';
  * @see docs/function-configuration.txt
  */
 
-class pdostatement__columncount extends function_core
+class pdostatement__rowcount extends function_core
 {
     public $examples = [
         [
-            'exec_statement' =>
-"CREATE TABLE fruit
-    (name, colour, calories INT);
-
-INSERT INTO fruit VALUES
+            'exec_statement' => "CREATE TABLE fruit (name, colour, calories INT)",
+            'statement'      =>
+"INSERT INTO fruit VALUES
     ('apple', 'red', 150),
     ('banana', 'yellow', 250),
     ('kiwi', 'brown', 75),
@@ -30,8 +28,6 @@ INSERT INTO fruit VALUES
     ('orange', 'orange', 300),
     ('pear', 'green', 150),
     ('watermelon', 'pink', 90)",
-            'statement' =>
-"SELECT name, colour, calories FROM fruit",
         ],
     ];
 
@@ -42,14 +38,15 @@ INSERT INTO fruit VALUES
         $count = $pdo->exec(
             $exec_statement  // string $exec_statement
         );
+
         $pdostatement = $pdo->query(
-            $statement // string $statement
+            $statement  // string $statement
         );
 
         inject_function_call
     ';
 
-    public $synopsis = 'public int PDOStatement::columnCount ( void )';
+    public $synopsis = 'public int PDOStatement::rowCount ( void )';
 
     function pre_exec_function()
     {
