@@ -1,12 +1,12 @@
 <?php
-// generated automatically 2015-01-21T09:48:54+00:00
+// generated automatically 2015-01-22T14:42:24+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'int' => 7,
-      'mixed' => '00000',
+      'int' => false,
+      'mixed' => 'HY000',
     ),
   ),
   1 => 
@@ -21,8 +21,8 @@ return array (
   array (
     'result' => 
     array (
-      'int' => false,
-      'mixed' => 'HY000',
+      'int' => 7,
+      'mixed' => '00000',
     ),
   ),
 );

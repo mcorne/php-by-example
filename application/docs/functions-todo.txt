@@ -702,9 +702,6 @@ PDOStatement::bindParam
 PDOStatement::bindValue
 PDOStatement::closeCursor
 PDOStatement::debugDumpParams
-PDOStatement::errorCode
-PDOStatement::errorInfo
-PDOStatement::execute
 PDOStatement::getAttribute
 PDOStatement::getColumnMeta
 PDOStatement::nextRowset

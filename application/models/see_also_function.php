@@ -16,7 +16,7 @@ class see_also_function extends object
 {
     function _get_see_also_functions()
     {
-        $see_also_functions = $this->_function->see_also ?: [];
+        $see_also_functions = (array) $this->_function->see_also ?: [];
 
         if ($manual_see_also_functions = $this->get_manual_see_also_functions()) {
             $see_also_functions = array_merge($see_also_functions, $manual_see_also_functions);
@@ -28,6 +28,10 @@ class see_also_function extends object
 
         if ($source_code_functions = $this->get_source_code_functions()) {
             $see_also_functions = array_merge($see_also_functions, $source_code_functions);
+        }
+
+        if ($source_code_methods = $this->get_source_code_methods()) {
+            $see_also_functions = array_merge($see_also_functions, $source_code_methods);
         }
 
         if ($parent_function = $this->get_parent_function()) {
@@ -45,10 +49,8 @@ class see_also_function extends object
             $see_also_functions[] = 'pbx_hash';
         }
 
+        $see_also_functions = array_diff($see_also_functions, [$this->_synopsis->function_name]);
         sort($see_also_functions);
-
-        $key = array_search($this->_application->function_basename, $see_also_functions);
-        unset($see_also_functions[$key]);
 
         return $see_also_functions;
     }
@@ -101,13 +103,35 @@ class see_also_function extends object
 
     function get_source_code_functions()
     {
-        if (! preg_match_all('~(\w+)\(~s', $this->_function->source_code, $match)) {
+        // matches function names excluding method names
+        if (! preg_match_all('~(?<!->)\b(\w+)\(~s', $this->_function->source_code, $match)) {
             return null;
         }
 
         $source_code_functions = array_unique($match[1]);
 
         return $source_code_functions;
+    }
+
+    function get_source_code_methods()
+    {
+        // eg "pdo->exec"
+        if (! preg_match_all('~(\w+->\w+)\(~s', $this->_function->source_code, $match)) {
+            return null;
+        }
+
+        $source_code_methods = [];
+
+        foreach (array_unique($match[1]) as $source_code_method) {
+            $function_basename = str_replace('->', '__', $source_code_method);
+            $function_basename = strtolower($function_basename);
+
+            if (isset($this->_function_list->function_list[$function_basename])) {
+                $source_code_methods[] = $this->_function_list->function_list[$function_basename];
+            }
+        }
+
+        return $source_code_methods;
     }
 
     function read_manual_page_content($must_exist = false)

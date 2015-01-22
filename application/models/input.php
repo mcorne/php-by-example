@@ -220,7 +220,10 @@ class input extends object
             $function_call .= sprintf('$_%s = ', $this->_synopsis->return_var);
         }
 
-        if ($this->_function->object) {
+        if ($this->_function->object_name) {
+            $function_call .= sprintf('$%s->', $this->_function->object_name);
+
+        } elseif ($this->_function->object) {
             $object_name = get_class($this->_function->object);
             $function_call .= sprintf('$%s->', strtolower($object_name));
         }

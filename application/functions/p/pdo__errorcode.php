@@ -20,6 +20,12 @@ class pdo__errorcode extends function_core
 {
     public $examples = [
         [
+            'exec_statement' => "INSERT INTO bones(skull) VALUES ('lucy')",
+        ],
+        [
+            'exec_statement' => "bogus sql",
+        ],
+        [
             'exec_statement' =>
                 "CREATE TABLE fruit
                     (name, colour, calories INT);
@@ -32,12 +38,6 @@ class pdo__errorcode extends function_core
                     ('orange', 'orange', 300),
                     ('pear', 'green', 150),
                     ('watermelon', 'pink', 90)",
-        ],
-        [
-            'exec_statement' => "INSERT INTO bones(skull) VALUES ('lucy')",
-        ],
-        [
-            'exec_statement' => "bogus sql",
         ],
     ];
 
