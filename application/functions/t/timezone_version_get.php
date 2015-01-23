@@ -11,12 +11,10 @@ require_once 'models/function_core.php';
 /**
  * Function configuration
  *
- * Changes to this class may affect other classes.
- *
  * @see docs/function-configuration.txt
  */
 
-class datetimezone__listabbreviations extends function_core
+class timezone_version_get extends function_core
 {
-    public $synopsis = 'public static array DateTimeZone::listAbbreviations ( void )';
+    public $synopsis = 'string timezone_version_get ( void )';
 }

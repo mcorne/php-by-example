@@ -6,8 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'custom/pbx_get_datetimezone_defined_constants.php';
-require_once 'custom/pbx_get_pdo_defined_constants.php';
+require_once 'custom/pbx_get_classes_defined_constants.php';
 require_once 'object.php';
 
 /**
@@ -16,11 +15,6 @@ require_once 'object.php';
 
 class synopsis extends object
 {
-    public $constant_getter = [
-        'DateTimeZone' => 'pbx_get_datetimezone_defined_constants',
-        'PDO'          => 'pbx_get_pdo_defined_constants',
-    ];
-
     function _get_arg_descriptions()
     {
         list(, $function_description) = explode('(', $this->synopsis_fixed, 2);
@@ -146,7 +140,7 @@ class synopsis extends object
         $filtered_constant_names = [];
 
         foreach ($constant_names as $constant_name) {
-            if (preg_match('~^' . $constant_prefix . '_~', $constant_name)) {
+            if (preg_match('~^' . $constant_prefix . '~', $constant_name)) {
                 $filtered_constant_names[] = $constant_name;
             }
         }
@@ -171,25 +165,22 @@ class synopsis extends object
 
     function get_arg_constant_names($constant_prefix)
     {
-        if (preg_match('~^([A-Za-z]+)::([A-Z_]+)?$~', $constant_prefix, $match)) {
+        if (preg_match('~^[A-Za-z]+::([A-Z_]+)?$~', $constant_prefix, $match)) {
             // this is a class constant, eg "PDO::FETCH" or "PDO::"
-            @list(, $class_name, $is_constant_prefix) = $match;
-
-            if (! isset($this->constant_getter[$class_name]) or ! function_exists($this->constant_getter[$class_name])) {
-                throw new Exception("constant getter not implemented for class: $class_name");
-            }
-
-            $constant_getter = $this->constant_getter[$class_name];
+            $constant_getter = 'pbx_get_classes_defined_constants';
 
         } else {
             // this is a reguler constant prefix, eg "SORT"
             $constant_getter = 'get_defined_constants';
-            $is_constant_prefix = true;
+
+            if ($constant_prefix) {
+                $constant_prefix .= '_';
+            }
         }
 
         $constant_names = array_keys($constant_getter());
 
-        if ($is_constant_prefix) {
+        if ($constant_prefix) {
             // there is a constant prefix, filters out the constants not starting with the prefix
             $constant_names = $this->filter_constants($constant_names, $constant_prefix);
         }

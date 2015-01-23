@@ -965,13 +965,10 @@ textdomain
 
 time_sleep_until
 
-timezone_location_get
 timezone_name_from_abbr
-timezone_name_get
 timezone_offset_get
 timezone_open
 timezone_transitions_get
-timezone_version_get
 
 tmpfile
 touch

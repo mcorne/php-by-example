@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-22T16:04:58+00:00
+// generated automatically 2015-01-23T14:16:31+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -121,6 +121,8 @@ return array (
   'date_sunset' => 'date_sunset',
   'datetime__add' => 'DateTime::add',
   'datetime__sub' => 'DateTime::sub',
+  'datetimezone__getlocation' => 'DateTimeZone::getLocation',
+  'datetimezone__getname' => 'DateTimeZone::getName',
   'datetimezone__listabbreviations' => 'DateTimeZone::listAbbreviations',
   'datetimezone__listidentifiers' => 'DateTimeZone::listIdentifiers',
   'decbin' => 'decbin',
@@ -508,6 +510,12 @@ return array (
   'tempnam' => 'tempnam',
   'time' => 'time',
   'time_nanosleep' => 'time_nanosleep',
+  'timezone_abbreviations_list' => 'timezone_abbreviations_list',
+  'timezone_identifiers_list' => 'timezone_identifiers_list',
+  'timezone_location_get' => 'timezone_location_get',
+  'timezone_name_from_abbr' => 'timezone_name_from_abbr',
+  'timezone_name_get' => 'timezone_name_get',
+  'timezone_version_get' => 'timezone_version_get',
   'token_get_all' => 'token_get_all',
   'token_name' => 'token_name',
   'trigger_error' => 'trigger_error',

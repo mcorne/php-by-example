@@ -27,6 +27,7 @@ other properties
 ----------------
 
 public $commented_options = ['zenith' => [ [90, '     horizon'], ...]]
+public $commented_options_getter = ['country' => 'pbx_get_two_letter_country_codes'];
 public $constant_prefix = ['calendar' => 'CAL']; or ['fetch_style' => 'PDO::FETCH']; or ['value' => 'PDO::'];
 public $constant_as_string = ['name' => true];
 public $hash_result = true; or 'pcre', ['pcre', ...] or '~^(pcre|...)~'

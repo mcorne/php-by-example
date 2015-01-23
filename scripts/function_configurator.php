@@ -49,7 +49,7 @@ class function_configurator extends object
 
     function convert_method_name($function_name)
     {
-        $function_name = str_replace('.', '__', $function_name);
+        $function_name = str_replace(['.', '::'], '__', $function_name);
         $function_name = strtolower($function_name);
 
         return $function_name;
@@ -248,10 +248,18 @@ class %s extends function_core
 
     function get_function_manual_pagename($function_name)
     {
-        if (preg_match('~^(\w+)\.(\w+)$~', $function_name, $match)) {
+        if (preg_match('~^(\w+)::(\w+)$~', $function_name, $match)) {
+            // eg "DateTimeZone::getLocation"
+            list(, $class_name, $function_name) = $match;
+            $class_name = strtolower($class_name);
+            $function_name = strtolower($function_name);
+
+        } elseif (preg_match('~^(\w+)\.(\w+)$~', $function_name, $match)) {
+            // eg "datetimezone.getlocation"
             list(, $class_name, $function_name) = $match;
 
         } else{
+            // eg "timezone_location_get"
             $class_name = 'function';
         }
 
@@ -316,6 +324,7 @@ synopsis-fixed   The fixed sysnopsis,
 Examples:
 config_function -c abs
 config_function -c pdo.query
+config_function -c PDO::query
 config_function -r sort
 config_function -c sin,cos,tan
 config_function -c ctype_*

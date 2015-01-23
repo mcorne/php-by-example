@@ -88,6 +88,11 @@ class input extends object
             $arg_helper_options = $this->format_commented_options($this->_function->commented_options[$arg_name]);
             $indexed_options = false;
 
+        } else if (isset($this->_function->commented_options_getter[$arg_name])) {
+            $arg_helper_options = $this->get_helper_options_from_getter($this->_function->commented_options_getter[$arg_name]);
+            $arg_helper_options = $this->format_commented_options($arg_helper_options);
+            $indexed_options = false;
+
         } else if ($constant_prefix = $this->_synopsis->is_boolean_arg($arg_name)) {
             $arg_helper_options = ['false', 'true'];
             $indexed_options = true;
@@ -286,7 +291,7 @@ class input extends object
             }
         }
 
-        sort($options, SORT_NATURAL | SORT_FLAG_CASE);
+        asort($options, SORT_NATURAL | SORT_FLAG_CASE);
 
         return $options;
     }
@@ -295,8 +300,14 @@ class input extends object
     {
         $formatted = [];
 
-        foreach ($commented_options as $commented_option) {
-            list($value, $comment) = $commented_option;
+        foreach ($commented_options as $value => $mixed) {
+            if (is_array($mixed)) {
+                // this is an array, eg [90, '     horizon']
+                list($value, $comment) = $mixed;
+            } else {
+                // this is a key => value list, eg 'AF' => "Afghanistan"
+                $comment = $mixed;
+            }
 
             if (is_string($value)) {
                 $value = '"' . $value . '"';
@@ -404,7 +415,7 @@ class input extends object
 
     function get_vars_to_replace_by_inputs($source_code)
     {
-        preg_match_all('~^    \$(\w+)[,;]? +// \[?(array|callable|bool|float|int|mixed|resource|string|DateInterval) &?\$\w+.*$~m', $source_code, $matches, PREG_SET_ORDER);
+        preg_match_all('~^    \$(\w+)[,;]? +// \[?(array|callable|bool|float|int|mixed|resource|string|[A-Z][A-Za-z]+) &?\$\w+.*$~m', $source_code, $matches, PREG_SET_ORDER);
 
         return $matches;
     }
