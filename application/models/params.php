@@ -18,11 +18,11 @@ class params extends object
      * all params using cookies must be listed below so cookies can be sent before headers, see set_cookie_params()
      */
     public $cookie_params = [
-        'email',
-        'password',
-        'php_manual_location',
-        'search_method',
-        'translation_key',
+        'email'               => true,
+        'password'            => true,
+        'php_manual_location' => true,
+        'search_method'       => 'get_search_method',
+        'translation_key'     => true,
     ];
 
     function _get($name)
@@ -55,17 +55,6 @@ class params extends object
         return $php_manual_location;
     }
 
-    function _get_search_method()
-    {
-        $search_method = $this->get_param_or_cookie('search_method');
-
-        if (is_null($search_method) or $search_method != 'select') {
-            $search_method = 'input';
-        }
-
-        return $search_method;
-    }
-
     function get_param($param_name)
     {
         if ($this->param_exists($param_name)) {
@@ -75,6 +64,17 @@ class params extends object
         }
 
         return $value;
+    }
+
+    function get_search_method()
+    {
+        $search_method = $this->get_param_or_cookie('search_method');
+
+        if (is_null($search_method) or $search_method != 'select') {
+            $search_method = 'input';
+        }
+
+        return $search_method;
     }
 
     function get_param_or_cookie($param_name)
@@ -111,9 +111,13 @@ class params extends object
 
     function set_cookie_params()
     {
-        foreach ($this->cookie_params as $name) {
-            if (! property_exists($this, $name)) {
-                $this->$name = $this->get_param_or_cookie($name);
+        foreach ($this->cookie_params as $name => $method_name) {
+            if (! property_exists($this, $name) and $method_name) {
+                if (! method_exists($this, $method_name)) {
+                    $method_name = 'get_param_or_cookie';
+                }
+                
+                $this->$name = $this->$method_name($name);
             }
         }
     }
