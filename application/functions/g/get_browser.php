@@ -31,6 +31,13 @@ class get_browser extends function_core
     function pre_exec_function()
     {
         $cache_dir = $this->application_path . '/data/browscap';
+
+        if (! file_exists($cache_dir) and ! @mkdir($cache_dir)) {
+            throw new Exception('Cannot create cache directory');
+        }
+
+        date_default_timezone_set('UTC'); // prevents the no time zone notice
+        set_time_limit(5 * 60);           // increases the exec time for a slow download
         $this->object = new Browscap($cache_dir);
     }
 }

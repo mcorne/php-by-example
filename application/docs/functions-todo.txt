@@ -965,7 +965,6 @@ textdomain
 
 time_sleep_until
 
-timezone_name_from_abbr
 timezone_offset_get
 timezone_open
 timezone_transitions_get
