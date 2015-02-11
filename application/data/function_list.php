@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-02-07T08:43:26+00:00
+// generated automatically 2015-02-11T16:18:36+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -148,6 +148,9 @@ return array (
   'extension_loaded' => 'extension_loaded',
   'extract' => 'extract',
   'ezmlm_hash' => 'ezmlm_hash',
+  'fgetc' => 'fgetc',
+  'fgets' => 'fgets',
+  'fgetss' => 'fgetss',
   'file_exists' => 'file_exists',
   'file_get_contents' => 'file_get_contents',
   'fileatime' => 'fileatime',
