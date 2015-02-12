@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-02-11T16:18:36+00:00
+// generated automatically 2015-02-12T13:23:27+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -149,6 +149,7 @@ return array (
   'extract' => 'extract',
   'ezmlm_hash' => 'ezmlm_hash',
   'fgetc' => 'fgetc',
+  'fgetcsv' => 'fgetcsv',
   'fgets' => 'fgets',
   'fgetss' => 'fgetss',
   'file_exists' => 'file_exists',

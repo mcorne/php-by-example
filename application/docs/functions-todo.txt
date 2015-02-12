@@ -153,10 +153,6 @@ exif_thumbnail
 fclose
 feof
 fflush
-fgetc
-fgetcsv
-fgets
-fgetss
 file
 file_put_contents
 fileinode
