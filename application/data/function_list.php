@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-02-13T15:03:19+00:00
+// generated automatically 2015-02-13T16:33:59+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -347,10 +347,16 @@ return array (
   'mb_detect_encoding' => 'mb_detect_encoding',
   'mb_encode_mimeheader' => 'mb_encode_mimeheader',
   'mb_encoding_aliases' => 'mb_encoding_aliases',
+  'mb_ereg' => 'mb_ereg',
+  'mb_ereg_match' => 'mb_ereg_match',
+  'mb_ereg_replace' => 'mb_ereg_replace',
+  'mb_ereg_search' => 'mb_ereg_search',
+  'mb_ereg_search_init' => 'mb_ereg_search_init',
   'mb_get_info' => 'mb_get_info',
   'mb_http_input' => 'mb_http_input',
   'mb_http_output' => 'mb_http_output',
   'mb_internal_encoding' => 'mb_internal_encoding',
+  'mb_language' => 'mb_language',
   'mb_list_encodings' => 'mb_list_encodings',
   'mb_regex_encoding' => 'mb_regex_encoding',
   'mb_strcut' => 'mb_strcut',
