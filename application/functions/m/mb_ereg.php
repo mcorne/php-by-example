@@ -58,8 +58,15 @@ class mb_ereg extends function_core
     public $synopsis       = 'int mb_ereg ( string $pattern , string $string [, array $regs ] )';
     public $synopsis_fixed = 'int mb_ereg ( string $pattern , string $string [, array &$regs ] )';
 
+    function post_exec_function()
+    {
+        mb_regex_encoding($this->encoding);
+    }
+
     function pre_exec_function()
     {
+        $this->encoding =  mb_regex_encoding();
+
         $encoding = $this->_filter->filter_arg_value('encoding');
         $this->result['mixed'] = mb_regex_encoding($encoding);
     }
