@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-02-12T13:23:27+00:00
+// generated automatically 2015-02-13T15:03:19+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -369,11 +369,26 @@ return array (
   'mb_strwidth' => 'mb_strwidth',
   'mb_substr' => 'mb_substr',
   'mb_substr_count' => 'mb_substr_count',
+  'mcrypt_create_iv' => 'mcrypt_create_iv',
+  'mcrypt_decrypt' => 'mcrypt_decrypt',
+  'mcrypt_encrypt' => 'mcrypt_encrypt',
+  'mcrypt_get_block_size' => 'mcrypt_get_block_size',
+  'mcrypt_get_cipher_name' => 'mcrypt_get_cipher_name',
+  'mcrypt_get_iv_size' => 'mcrypt_get_iv_size',
+  'mcrypt_get_key_size' => 'mcrypt_get_key_size',
+  'mcrypt_list_algorithms' => 'mcrypt_list_algorithms',
+  'mcrypt_list_modes' => 'mcrypt_list_modes',
+  'mcrypt_module_self_test' => 'mcrypt_module_self_test',
   'md5' => 'md5',
   'memory_get_peak_usage' => 'memory_get_peak_usage',
   'memory_get_usage' => 'memory_get_usage',
   'metaphone' => 'metaphone',
   'method_exists' => 'method_exists',
+  'mhash' => 'mhash',
+  'mhash_count' => 'mhash_count',
+  'mhash_get_block_size' => 'mhash_get_block_size',
+  'mhash_get_hash_name' => 'mhash_get_hash_name',
+  'mhash_keygen_s2k' => 'mhash_keygen_s2k',
   'microtime' => 'microtime',
   'min' => 'min',
   'mktime' => 'mktime',
