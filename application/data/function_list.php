@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-02-13T16:33:59+00:00
+// generated automatically 2015-02-16T13:18:30+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -351,7 +351,13 @@ return array (
   'mb_ereg_match' => 'mb_ereg_match',
   'mb_ereg_replace' => 'mb_ereg_replace',
   'mb_ereg_search' => 'mb_ereg_search',
+  'mb_ereg_search_getpos' => 'mb_ereg_search_getpos',
+  'mb_ereg_search_getregs' => 'mb_ereg_search_getregs',
   'mb_ereg_search_init' => 'mb_ereg_search_init',
+  'mb_ereg_search_pos' => 'mb_ereg_search_pos',
+  'mb_ereg_search_regs' => 'mb_ereg_search_regs',
+  'mb_eregi' => 'mb_eregi',
+  'mb_eregi_replace' => 'mb_eregi_replace',
   'mb_get_info' => 'mb_get_info',
   'mb_http_input' => 'mb_http_input',
   'mb_http_output' => 'mb_http_output',
@@ -359,6 +365,7 @@ return array (
   'mb_language' => 'mb_language',
   'mb_list_encodings' => 'mb_list_encodings',
   'mb_regex_encoding' => 'mb_regex_encoding',
+  'mb_split' => 'mb_split',
   'mb_strcut' => 'mb_strcut',
   'mb_strimwidth' => 'mb_strimwidth',
   'mb_stripos' => 'mb_stripos',
@@ -384,6 +391,12 @@ return array (
   'mcrypt_get_key_size' => 'mcrypt_get_key_size',
   'mcrypt_list_algorithms' => 'mcrypt_list_algorithms',
   'mcrypt_list_modes' => 'mcrypt_list_modes',
+  'mcrypt_module_get_algo_block_size' => 'mcrypt_module_get_algo_block_size',
+  'mcrypt_module_get_algo_key_size' => 'mcrypt_module_get_algo_key_size',
+  'mcrypt_module_get_supported_key_sizes' => 'mcrypt_module_get_supported_key_sizes',
+  'mcrypt_module_is_block_algorithm' => 'mcrypt_module_is_block_algorithm',
+  'mcrypt_module_is_block_algorithm_mode' => 'mcrypt_module_is_block_algorithm_mode',
+  'mcrypt_module_is_block_mode' => 'mcrypt_module_is_block_mode',
   'mcrypt_module_self_test' => 'mcrypt_module_self_test',
   'md5' => 'md5',
   'memory_get_peak_usage' => 'memory_get_peak_usage',

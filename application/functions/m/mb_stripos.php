@@ -25,13 +25,5 @@ class mb_stripos extends mb_convert_case
         ["español", 'pa', 4, 'UTF-8']
     ];
 
-    public $source_code = '
-        mb_internal_encoding("UTF-8");
-
-        inject_function_call
-
-        // enter non ASCII chars in hex in $_haystack or $_needle if $_encoding is not UTF-8
-    ';
-
     public $synopsis = 'int mb_stripos ( string $haystack , string $needle [, int $offset = 0 [, string $encoding = mb_internal_encoding() ]] )';
 }

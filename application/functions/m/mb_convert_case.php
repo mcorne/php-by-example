@@ -34,8 +34,8 @@ class mb_convert_case extends function_core
 
         inject_function_call
 
-        // enter non ASCII characters in hex in $_str if $_encoding is not UTF-8
-        // the result $_string may not display properly if $_encoding is not UTF-8
+        // enter non ASCII characters in hex if $_encoding is not UTF-8
+        // the result may not display properly if $_encoding is not UTF-8
     ';
 
     public $synopsis = 'string mb_convert_case ( string $str , int $mode [, string $encoding = mb_internal_encoding() ] )';

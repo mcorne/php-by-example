@@ -27,7 +27,7 @@ class mb_check_encoding extends function_core
     public $source_code = '
         inject_function_call
 
-        // enter non ASCII characters in hex in $_var if $_encoding is not UTF-8
+        // enter non ASCII characters in hex if $_encoding is not UTF-8
     ';
 
     public $synopsis = 'bool mb_check_encoding ([ string $var = NULL [, string $encoding = mb_internal_encoding() ]] )';

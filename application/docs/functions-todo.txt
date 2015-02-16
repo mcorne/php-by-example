@@ -548,20 +548,12 @@ mb_encode_numericentity
 mb_decode_numericentity
 mb_detect_order
 mb_ereg_replace_callback
-mb_ereg_search_getpos
-mb_ereg_search_getregs
-mb_ereg_search_pos
-mb_ereg_search_regs
 mb_ereg_search_setpos
-mb_eregi
-mb_eregi_replace
 mb_output_handler
 mb_parse_str
 mb_preferred_mime_name
-mb_regex_encoding
 mb_regex_set_options
 mb_send_mail
-mb_split
 
 mcrypt_enc_get_algorithms_name
 mcrypt_enc_get_block_size
@@ -578,12 +570,6 @@ mcrypt_generic_deinit
 mcrypt_generic_end
 mcrypt_generic_init
 mcrypt_module_close
-mcrypt_module_get_algo_block_size
-mcrypt_module_get_algo_key_size
-mcrypt_module_get_supported_key_sizes
-mcrypt_module_is_block_algorithm
-mcrypt_module_is_block_algorithm_mode
-mcrypt_module_is_block_mode
 mcrypt_module_open
 mdecrypt_generic
 

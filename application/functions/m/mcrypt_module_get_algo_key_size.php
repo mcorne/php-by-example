@@ -14,7 +14,7 @@ require_once 'mcrypt_module_get_algo_block_size.php';
  * @see docs/function-configuration.txt
  */
 
-class mcrypt_module_self_test extends mcrypt_module_get_algo_block_size
+class mcrypt_module_get_algo_key_size extends mcrypt_module_get_algo_block_size
 {
-    public $synopsis = 'bool mcrypt_module_self_test ( string $algorithm [, string $lib_dir ] )';
+    public $synopsis = 'int mcrypt_module_get_algo_key_size ( string $algorithm [, string $lib_dir ] )';
 }

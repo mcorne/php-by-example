@@ -25,14 +25,5 @@ class mb_stristr extends mb_convert_case
         ["española", 'an', false, 'UTF-8'],
     ];
 
-    public $source_code = '
-        mb_internal_encoding("UTF-8");
-
-        inject_function_call
-
-        // enter non ASCII chars in hex in $_haystack or $_needle if $_encoding is not UTF-8
-        // the result $_string may not display properly if $_encoding is not UTF-8
-    ';
-
     public $synopsis = 'string mb_stristr ( string $haystack , string $needle [, bool $before_needle = false [, string $encoding = mb_internal_encoding() ]] )';
 }

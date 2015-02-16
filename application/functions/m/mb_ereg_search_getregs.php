@@ -6,7 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'mcrypt_module_get_algo_block_size.php';
+require_once 'mb_ereg_search_getpos.php';
 
 /**
  * Function configuration
@@ -14,7 +14,7 @@ require_once 'mcrypt_module_get_algo_block_size.php';
  * @see docs/function-configuration.txt
  */
 
-class mcrypt_module_self_test extends mcrypt_module_get_algo_block_size
+class mb_ereg_search_getregs extends mb_ereg_search_getpos
 {
-    public $synopsis = 'bool mcrypt_module_self_test ( string $algorithm [, string $lib_dir ] )';
+    public $synopsis = 'array mb_ereg_search_getregs ( void )';
 }

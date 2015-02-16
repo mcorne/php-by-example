@@ -224,7 +224,7 @@ div.doc
 {
     color: #CCC; /* light gray */
     font-size: 1.3em;
-    font-weight: bold;    
+    font-weight: bold;
     margin-bottom: 1.5em;
 }
 
@@ -237,7 +237,7 @@ div.english_only
 {
     color: #CCC; /* light gray */
     font-size: 1em;
-    margin-bottom: 1.5em;    
+    margin-bottom: 1.5em;
 }
 
 div.h1
@@ -489,13 +489,13 @@ textarea.no_input
     margin-left: 2em;
     margin-right: .5em;
     vertical-align: middle;
-    width: 15em;
+    width: 20em;
 }
 
 #function_select
 {
     height: 2em;
-    width: 15.3em;
+    width: 20.3em;
 }
 
 #language
@@ -521,7 +521,7 @@ textarea.no_input
 
 #unit_test option
 {
-    font-size: 1em; 
+    font-size: 1em;
     font-weight: bold;
 }
 
