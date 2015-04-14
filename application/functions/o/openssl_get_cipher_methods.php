@@ -17,4 +17,6 @@ require_once 'models/function_core.php';
 class openssl_get_cipher_methods extends function_core
 {
     public $synopsis = 'array openssl_get_cipher_methods ([ bool $aliases = false ] )';
+
+    public $test_not_to_run = true;
 }
