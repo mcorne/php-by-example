@@ -30,7 +30,7 @@ class mcrypt_decrypt extends function_core
             'e_data'   => 'This string was AES-128 / CBC / ZeroBytePadding encrypted.',
             'e_mode'   => 'MCRYPT_MODE_CBC',
             'e_iv'     => 'some 16 byte iv.',
-            'hex'      => '$hex',
+            'base64'   => '$base64',
             'MCRYPT_RIJNDAEL_128',
             'some 16 byte key',
             '$data',
@@ -43,7 +43,7 @@ class mcrypt_decrypt extends function_core
             'e_data'   => null,
             'e_mode'   => 'MCRYPT_MODE_CBC',
             'e_iv'     => 'some 16 byte iv.',
-            'hex'      => 'b321df8a1e52b524a6aee756800ff45403478f0628fc63828c81467233a9401d7bd0c12c465b659731ed533fa4a1d7143d63a5ce3539316fb05b672e7502a263',
+            'base64'   => 'syHfih5StSSmrudWgA/0VANHjwYo/GOCjIFGcjOpQB170MEsRltllzHtUz+kodcUPWOlzjU5MW+wW2cudQKiYw==',
             'MCRYPT_RIJNDAEL_128',
             'some 16 byte key',
             '$data',
@@ -56,7 +56,7 @@ class mcrypt_decrypt extends function_core
             'e_data'   => null,
             'e_mode'   => 'MCRYPT_MODE_NOFB',
             'e_iv'     => 'some 16 byte iv.',
-            'hex'      => null,
+            'base64'   => null,
             'MCRYPT_RIJNDAEL_128',
             'some 16 byte key',
             '_DOUBLE_QUOTES_\x94\x60\x54_DOUBLE_QUOTES_',
@@ -77,7 +77,7 @@ class mcrypt_decrypt extends function_core
 
     public $source_code = '
         // enter a string to encrypt ($_e_data),
-        // or a string encrypted in hexadecimal ($_hex) or binary ($_data)
+        // or a string encrypted in base64 ($_base64) or binary ($_data)
 
         $_encrypted = mcrypt_encrypt(
             $e_cipher, // string $e_cipher
@@ -87,10 +87,10 @@ class mcrypt_decrypt extends function_core
             $e_iv // [string $e_iv]
         );
 
-        $_hex = bin2hex($_encrypted);
+        $_base64 = base64_encode($_encrypted);
 
-        $_data = hex2bin(
-            $hex  // string $hex
+        $_data = base64_decode(
+            $base64  // string $base64
         );
 
         inject_function_call
@@ -104,8 +104,8 @@ class mcrypt_decrypt extends function_core
             return;
         }
 
-        if ($hex = $this->_filter->filter_arg_value('hex')) {
-            $this->returned_params['data'] = hex2bin($hex);
+        if ($base64 = $this->_filter->filter_arg_value('base64')) {
+            $this->returned_params['data'] = base64_decode($base64);
             return;
         }
 
@@ -121,6 +121,6 @@ class mcrypt_decrypt extends function_core
             $this->returned_params['data'] = mcrypt_encrypt($cipher, $key, $data, $mode, $iv);
         }
 
-        $this->result['hex'] = bin2hex($this->returned_params['data']);
+        $this->result['base64'] = base64_encode($this->returned_params['data']);
     }
 }

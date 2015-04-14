@@ -34,8 +34,8 @@ class mcrypt_encrypt extends function_core
     public $source_code = '
         inject_function_call
 
-        // shows the result in hexadecimal and decrypted
-        $hex = bin2hex($string);
+        // shows the result in base64 and decrypted
+        $base64 = base64_encode($string);
         $decrypted = mcrypt_decrypt($cipher, $key, $string, $mode, $iv);
     ';
 
@@ -43,7 +43,7 @@ class mcrypt_encrypt extends function_core
 
     function post_exec_function()
     {
-        $this->result['hex'] = bin2hex($this->result['string']);
+        $this->result['base64'] = base64_encode($this->result['string']);
 
         $cipher = $this->_filter->filter_arg_value('cipher');
         $key    = $this->_filter->filter_arg_value('key');
