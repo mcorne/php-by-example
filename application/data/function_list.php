@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-02-16T13:18:30+00:00
+// generated automatically 2015-04-14T13:04:03+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -421,6 +421,7 @@ return array (
   'nl2br' => 'nl2br',
   'number_format' => 'number_format',
   'octdec' => 'octdec',
+  'openssl_get_cipher_methods' => 'openssl_get_cipher_methods',
   'ord' => 'ord',
   'parse_ini_string' => 'parse_ini_string',
   'parse_str' => 'parse_str',
