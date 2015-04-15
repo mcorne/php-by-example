@@ -359,9 +359,10 @@ select.helper
 {
     border: solid 2px #007700;  /* green */
     color: #0000BB; /* blue */
-    font-family: Lucida Console;
+    font-family: Lucida Console, Nimbus Sans L;
     display: none;
-    width: 20em;
+    height: 2em;
+    width: 20.5em;
 }
 
 select.var
