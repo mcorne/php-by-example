@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 /**
  * PHP By Example
@@ -89,7 +90,7 @@ class download_manuals extends object
         try {
             $download_manuals = new download_manuals(['public_path' => "$application_path/../public", 'application_env' => 'development']);
 
-            if (empty($argv[1])) {
+            if (empty($argv[1]) or in_array($argv[1], ['h', '-h'])) {
                 throw new Exception($download_manuals->get_help());
             }
 
