@@ -361,7 +361,7 @@ select.helper
     color: #0000BB; /* blue */
     font-family: Lucida Console, Nimbus Sans L;
     display: none;
-    height: 2em;
+    /* no height that screws multiselect */
     width: 20.5em;
 }
 

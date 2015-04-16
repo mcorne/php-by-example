@@ -17,4 +17,6 @@ require_once 'models/function_core.php';
 class pdo__getavailabledrivers extends function_core
 {
     public $synopsis = 'public static array PDO::getAvailableDrivers ( void )';
+    
+    public $test_not_validated = true;
 }

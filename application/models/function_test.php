@@ -35,6 +35,7 @@ class function_test extends action
             }
 
             $this->_file->write_array($expected_results_filename, $test_results, ['stdClass::__set_state' => '(object)']);
+            chmod($expected_results_filename, 0666);
         }
 
         $expected_results = $this->_file->read_array($expected_results_filename);

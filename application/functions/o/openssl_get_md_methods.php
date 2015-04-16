@@ -18,5 +18,5 @@ class openssl_get_md_methods extends function_core
 {
     public $synopsis = 'array openssl_get_md_methods ([ bool $aliases = false ] )';
 
-    public $test_not_to_run = true;
+    public $test_not_validated = true;
 }
