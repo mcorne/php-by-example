@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-15T10:32:09+00:00
+// generated automatically 2015-04-19T20:03:12+00:00
 return array (
   0 => 
   array (
@@ -15,7 +15,7 @@ return array (
     array (
       0 => 
       array (
-        'code' => 'HY000',
+        'code' => 0,
         'message' => 'SQLSTATE[HY000]: General error: invalid case folding mode',
       ),
     ),

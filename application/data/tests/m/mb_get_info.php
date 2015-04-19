@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-03T19:01:49+00:00
+// generated automatically 2015-04-19T19:41:07+00:00
 return array (
   0 => 
   array (
@@ -7,8 +7,8 @@ return array (
     array (
       'mixed' => 
       array (
-        'internal_encoding' => 'ISO-8859-1',
-        'http_output' => 'pass',
+        'internal_encoding' => 'UTF-8',
+        'http_output' => 'UTF-8',
         'http_output_conv_mimetypes' => '^(text/|application/xhtml\\+xml)',
         'func_overload' => 0,
         'func_overload_list' => 'no overload',

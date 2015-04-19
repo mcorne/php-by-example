@@ -21,13 +21,15 @@ class filter_has_var extends function_core
     public $examples = [
         [
             "INPUT_COOKIE",
-            'search_method',
+            'test_cookie',
         ],
         [
             "INPUT_POST",
             'xyz',
         ],
     ];
+
+    public $synopsis = 'bool filter_has_var ( int $type , string $variable_name )';
 
     function _get_options_list()
     {
@@ -37,5 +39,8 @@ class filter_has_var extends function_core
         return $options_list;
     }
 
-    public $synopsis = 'bool filter_has_var ( int $type , string $variable_name )';
+    function init()
+    {
+        setcookie('test_cookie', 123, null, '/');
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-12T10:57:15+00:00
+// generated automatically 2015-04-19T20:01:14+00:00
 return array (
   0 => 
   array (
@@ -21,7 +21,7 @@ return array (
     array (
       0 => 
       array (
-        'code' => 'HY000',
+        'code' => 0,
         'message' => 'SQLSTATE[HY000]: General error: 1 near ")": syntax error',
       ),
     ),

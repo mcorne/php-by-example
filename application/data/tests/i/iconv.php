@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-13T09:12:32+00:00
+// generated automatically 2015-04-19T19:02:45+00:00
 return array (
   0 => 
   array (
@@ -17,11 +17,11 @@ return array (
   array (
     'result' => 
     array (
-      'string' => 'This is the Euro symbol \'\'.',
+      'string' => 'This is the British Pound symbol \'£\'.',
       'hex' => 
       array (
-        'in__charset' => '5468697320697320746865204575726f2073796d626f6c2027e282ac272e',
-        'out_charset' => '5468697320697320746865204575726f2073796d626f6c2027272e',
+        'in__charset' => '5468697320697320746865204272697469736820506f756e642073796d626f6c2027c2a3272e',
+        'out_charset' => '5468697320697320746865204272697469736820506f756e642073796d626f6c2027a3272e',
       ),
     ),
   ),

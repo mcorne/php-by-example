@@ -17,4 +17,6 @@ require_once 'models/function_core.php';
 class timezone_version_get extends function_core
 {
     public $synopsis = 'string timezone_version_get ( void )';
+
+    public $test_not_validated = true;
 }

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-19T19:55:43+00:00
+// generated automatically 2015-04-19T20:33:03+00:00
 return array (
   0 => 
   array (
@@ -21,7 +21,7 @@ return array (
   array (
     'result' => 
     array (
-      'mixed' => '3.1',
+      'mixed' => '3.1000000000000001',
     ),
   ),
 );

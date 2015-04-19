@@ -16,7 +16,9 @@ require_once 'models/function_core.php';
 
 class mb_decode_mimeheader extends function_core
 {
-    public $examples = ["=?UTF-7?Q?+AMMAqQ-l+AMMAqQ-phant?="];
+    public $examples = ["=?UTF-8?Q?=C3=A9l=C3=A9phant?="];
 
     public $synopsis = 'string mb_decode_mimeheader ( string $str )';
+
+    public $test_not_validated = true;
 }

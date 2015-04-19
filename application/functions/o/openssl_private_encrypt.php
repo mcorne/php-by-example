@@ -40,6 +40,8 @@ class openssl_private_encrypt extends function_core
     ';
 
     public $synopsis = 'bool openssl_private_encrypt ( string $data , string &$crypted , mixed $key [, int $padding = OPENSSL_PKCS1_PADDING ] )';
+    
+    public $test_not_validated = true;
 
     function post_exec_function()
     {

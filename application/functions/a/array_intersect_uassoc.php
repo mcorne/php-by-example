@@ -56,7 +56,7 @@ class array_intersect_uassoc extends array_diff_uassoc
                 "a" => 2,
                 "c" => "3",
             ],
-            'gmp_cmp',
+            'strcmp',
         ],
     ];
 

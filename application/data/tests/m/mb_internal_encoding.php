@@ -1,11 +1,11 @@
 <?php
-// generated automatically 2014-02-03T12:33:48+00:00
+// generated automatically 2015-04-19T19:47:46+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'mixed' => 'ISO-8859-1',
+      'mixed' => 'UTF-8',
     ),
   ),
   1 => 

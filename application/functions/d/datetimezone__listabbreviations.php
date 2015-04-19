@@ -19,4 +19,6 @@ require_once 'models/function_core.php';
 class datetimezone__listabbreviations extends function_core
 {
     public $synopsis = 'public static array DateTimeZone::listAbbreviations ( void )';
+
+    public $test_not_validated = true;
 }

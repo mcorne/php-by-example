@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-10-13T08:14:19+00:00
+// generated automatically 2015-04-19T18:22:41+00:00
 return array (
   0 => 
   array (
@@ -54,7 +54,6 @@ return array (
       'array' => 
       array (
         0 => 'foo',
-        2 => -1,
       ),
     ),
   ),

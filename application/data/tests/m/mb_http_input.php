@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-03T19:00:52+00:00
+// generated automatically 2015-04-19T19:44:25+00:00
 return array (
   0 => 
   array (
@@ -7,7 +7,7 @@ return array (
     array (
       'mixed' => 
       array (
-        0 => 'pass',
+        0 => 'UTF-8',
       ),
     ),
   ),

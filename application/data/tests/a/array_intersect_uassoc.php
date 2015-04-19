@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-17T18:45:23+00:00
+// generated automatically 2015-04-19T18:26:03+00:00
 return array (
   0 => 
   array (
@@ -27,7 +27,6 @@ return array (
     array (
       'array' => 
       array (
-        'b' => 2,
         'c' => 3,
       ),
     ),

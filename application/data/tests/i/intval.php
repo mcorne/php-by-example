@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-01T18:46:11+00:00
+// generated automatically 2015-04-19T19:18:48+00:00
 return array (
   0 => 
   array (
@@ -54,7 +54,7 @@ return array (
   array (
     'result' => 
     array (
-      'int' => 1410065408,
+      'int' => 10000000000,
     ),
   ),
   8 => 
@@ -82,14 +82,14 @@ return array (
   array (
     'result' => 
     array (
-      'int' => 0,
+      'int' => -4275113695319687168,
     ),
   ),
   12 => 
   array (
     'result' => 
     array (
-      'int' => 2147483647,
+      'int' => 9223372036854775807,
     ),
   ),
   13 => 

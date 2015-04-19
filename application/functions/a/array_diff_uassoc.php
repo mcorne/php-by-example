@@ -43,7 +43,7 @@ class array_diff_uassoc extends function_core
                 "a" => 2,
                 "c" => "3",
             ],
-            'gmp_cmp',
+            'strcmp',
         ],
     ];
 
