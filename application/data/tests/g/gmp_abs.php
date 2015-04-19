@@ -1,19 +1,19 @@
 <?php
-// generated automatically 2014-01-30T14:09:03+00:00
+// generated automatically 2015-04-19T12:20:44+00:00
 return array (
-  0 => 
+  0 =>
   array (
-    'result' => 
+    'result' =>
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => '274982683358',
     ),
   ),
   1 => 
   array (
-    'result' => 
+    'result' =>
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => '274982683358',
     ),
   ),

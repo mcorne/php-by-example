@@ -7,9 +7,9 @@ return array (
     array (
       'array' => 
       array (
-        'g' => 'GMP integer',
-        's' => 'GMP integer',
-        't' => 'GMP integer',
+        'g' => 'GMP',
+        's' => 'GMP',
+        't' => 'GMP',
       ),
       'string' => 
       array (

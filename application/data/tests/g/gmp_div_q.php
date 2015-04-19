@@ -5,7 +5,7 @@ return array (
   array (
     'result' => 
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => '20',
     ),
   ),
@@ -13,7 +13,7 @@ return array (
   array (
     'result' => 
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => '0',
     ),
   ),
@@ -21,7 +21,7 @@ return array (
   array (
     'result' => 
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => '1',
     ),
   ),
@@ -29,7 +29,7 @@ return array (
   array (
     'result' => 
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => '0',
     ),
   ),
@@ -37,7 +37,7 @@ return array (
   array (
     'result' => 
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => '-1',
     ),
   ),

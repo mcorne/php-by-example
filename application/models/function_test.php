@@ -120,7 +120,8 @@ class function_test extends action
         $this->_function->process();
 
         if($this->_function->result) {
-            $test_result['result'] = $this->_converter->convert_resource_to_text($this->_function->result);
+            $result = $this->_converter->convert_resource_to_text($this->_function->result);
+            $test_result['result'] = $this->_converter->convert_object_to_text($result);
         }
 
         if($this->_function->errors) {

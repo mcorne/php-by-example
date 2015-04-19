@@ -5,7 +5,7 @@ return array (
   array (
     'result' => 
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => 'fffffff6',
     ),
   ),
@@ -13,7 +13,7 @@ return array (
   array (
     'result' => 
     array (
-      'resource' => 'GMP integer',
+      'resource' => 'GMP',
       'string' => 'fffffff2',
     ),
   ),

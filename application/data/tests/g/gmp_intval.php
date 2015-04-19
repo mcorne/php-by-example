@@ -1,18 +1,18 @@
 <?php
 // generated automatically 2014-01-30T20:43:31+00:00
 return array (
-  0 => 
+  0 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'int' => 2147483647,
     ),
   ),
-  1 => 
+  1 =>
   array (
-    'result' => 
+    'result' =>
     array (
-      'int' => 2147483647,
+      'int' => 2147483648,
     ),
   ),
 );

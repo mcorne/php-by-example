@@ -7,8 +7,8 @@ return array (
     array (
       'array' => 
       array (
-        0 => 'GMP integer',
-        1 => 'GMP integer',
+        0 => 'GMP',
+        1 => 'GMP',
       ),
       'string' => 
       array (
@@ -23,8 +23,8 @@ return array (
     array (
       'array' => 
       array (
-        0 => 'GMP integer',
-        1 => 'GMP integer',
+        0 => 'GMP',
+        1 => 'GMP',
       ),
       'string' => 
       array (
@@ -39,8 +39,8 @@ return array (
     array (
       'array' => 
       array (
-        0 => 'GMP integer',
-        1 => 'GMP integer',
+        0 => 'GMP',
+        1 => 'GMP',
       ),
       'string' => 
       array (

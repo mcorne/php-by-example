@@ -49,6 +49,24 @@ class converter extends object
         return $text;
     }
 
+    function convert_object_to_text($value)
+    {
+        if (is_array($value)) {
+            // recursively converts objects
+            $text = array_map([$this, 'convert_object_to_text'], $value);
+
+        } else if (is_object($value) and ! $value instanceof stdClass) {
+            // replaces non standard object by its name and properties
+            $text = get_class($value);
+
+        } else {
+            // this is not a resource, no change
+            $text = $value;
+        }
+
+        return $text;
+    }
+
     function convert_resource_to_text($value)
     {
         if (is_array($value)) {
