@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-04-19T20:25:13+00:00
+// generated automatically 2015-04-20T07:51:36+00:00
 return array (
   0 => 
   array (
@@ -27,7 +27,7 @@ return array (
     'result' => 
     array (
       'string' => 'The tree contains 5 monkeys.
-           That\'s a nice tree full of 5 monkeys.',
+That\'s a nice tree full of 5 monkeys.',
     ),
   ),
   4 => 

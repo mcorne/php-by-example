@@ -261,24 +261,26 @@ class output extends object
         return $url;
     }
 
-    function display_var_value($value)
+    function display_var_value($value, $fix_exported_array = true)
     {
-        $string = $this->export_var_value($value);
+        $string = $this->export_var_value($value, $fix_exported_array);
         $html = $this->highlight_source_code_piece($string);
 
         return $html;
     }
 
-    function export_var_value($value)
+    function export_var_value($value, $fix_exported_array = true)
     {
         $value = $this->_converter->convert_resource_to_text($value);
         $string = '<?php ' . var_export($value, true) . ';';
 
-        // converts "array(...)" to "[...]"
-        $string = str_replace('<?php array (', '<?php [', $string);
-        $string = preg_replace('~[\n] +array \(~', '[', $string);
-        $string = str_replace('),', '],', $string);
-        $string = str_replace(');', '];', $string);
+        if ($fix_exported_array) {
+            // converts "array(...)" to "[...]"
+            $string = str_replace('<?php array (', '<?php [', $string);
+            $string = preg_replace('~[\n] +array \(~', '[', $string);
+            $string = str_replace('),', '],', $string);
+            $string = str_replace(');', '];', $string);
+        }
 
         return $string;
     }

@@ -2,7 +2,7 @@
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright 2015 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 ?>
@@ -32,30 +32,35 @@
        <tr>
          <td class="variable">$input</td>
          <td class="operator">=</td>
-         <td><?=$this->_output->display_var_value($this->_function->examples[$example_id]);?></td>
+         <td><?=$this->_output->display_var_value($this->_function->examples[$example_id], $this->_application->function_name != 'var_export');?></td>
        </tr>
 
        <tr>
-         <?php if ($status != 'test_missing'):?>
+         <?php if ($status == 'test_success'):?>
            <td class="variable">$expected_output</td>
-         <?php else:?>
-           <td class="orange">$expected_output</td>
-         <?php endif;?>
-
-         <td class="operator">=</td>
-
-         <?php if ($status == 'test_success' or $status == 'test_not_validated'):?>
+           <td class="operator">=</td>
            <td class="variable">$test_output</td>
+
+         <?php elseif ($status == 'test_not_validated'):?>
+           <td class="gray">test</td>
+           <td></td>
+           <td class="gray">not validated (platform dependant or random result etc.)</td>
+
          <?php elseif ($status == 'test_failed'):?>
+           <td class="variable">$expected_output</td>
+           <td class="operator">=</td>
            <td>
              <?php if (isset($validation['expected_result'])):?>
-               <?=$this->_output->display_var_value($validation['expected_result']);?>
+               <?=$this->_output->display_var_value($validation['expected_result'], $this->_application->function_name != 'var_export');?>
              <?php else:?>
                none
              <?php endif;?>
            </td>
+
          <?php else:?>
-           <td>MISSING</td>
+           <td class="orange">$expected_output</td>
+           <td></td>
+           <td class="orange">missing</td>
          <?php endif;?>
        </tr>
 
@@ -72,7 +77,7 @@
 
          <td class="operator">=</td>
 
-         <td><?=$this->_output->display_var_value($validation['test_result']);?></td>
+         <td><?=$this->_output->display_var_value($validation['test_result'], $this->_application->function_name != 'var_export');?></td>
        </tr>
 
      </table>

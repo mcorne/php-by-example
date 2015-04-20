@@ -18,5 +18,19 @@ class crc32 extends function_core
 {
     public $examples = ["The quick brown fox jumped over the lazy dog."];
 
+    public $source_code = '
+        inject_function_call
+
+        // shows the result in hexadecimal
+        $hex = dechex($int);
+    ';
+
     public $synopsis = 'int crc32 ( string $str )';
+
+    public $test_not_validated = true; // result either positive or negative depending on the platform
+
+    function post_exec_function()
+    {
+        $this->result['hex'] = dechex($this->result['int']);
+    }
 }

@@ -34,7 +34,7 @@ class sprintf extends function_core
         ],
         [
             'The %2$s contains %1$d monkeys.
-           That\'s a nice %2$s full of %1$d monkeys.',
+            That\'s a nice %2$s full of %1$d monkeys.',
             5,
             "tree"
         ],
@@ -137,4 +137,6 @@ class sprintf extends function_core
 
     public $synopsis       = 'string sprintf ( string $format [, mixed $args [, mixed $... ]] )';
     public $synopsis_fixed = 'string sprintf ( string $format , mixed $arg0 , mixed $arg1 , mixed $arg2 [, mixed $... ] )';
+
+    public $test_not_validated = 10; // result either positive or negative depending on the platform
 }

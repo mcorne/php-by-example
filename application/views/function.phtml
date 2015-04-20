@@ -2,7 +2,7 @@
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright 2015 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 ?>
@@ -44,7 +44,7 @@
           <tr>
             <td class="variable">$<?=$var_name;?></td>
             <td class="operator">=</td>
-            <td><?=$this->_output->display_var_value($value);?></td>
+            <td><?=$this->_output->display_var_value($value, $this->_application->function_name != 'var_export');?></td>
           </tr>
         <?php endforeach;?>
 
