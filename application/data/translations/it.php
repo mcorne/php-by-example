@@ -68,7 +68,7 @@ return array (
 1902 => 'in questo esempio non è consentito questo valore come argomento',
 1903 => 'questa funzione di callback non può essere utilizzata in questo esempio',
 1904 => 'questa funzione di callback non è valida o non è disponibile su questo server',
-1905 => 'la lunghezza deve essere definito e inferiore a 1000 byte in questo esempio',
+1905 => 'la lunghezza deve essere definito e inferiore a 10000 byte in questo esempio',
 1906 => 'il numero di iterazioni deve essere un numero intero inferiore a 10 in questo esempio',
 1907 => 'Questo argomento non può essere vuoto in questo esempio',
 1908 => "questa classe non può essere utilizzato in questo esempio",
@@ -83,7 +83,7 @@ return array (
 2006 => 'i seguenti argomenti sono stati eliminati',
 
 2100 => 'Parameter errors',
-2101 => 'l\'argomento è stato troncato a 1000 byte in questo esempio',
+2101 => 'l\'argomento è stato troncato a 10000 byte in questo esempio',
 
 2200 => 'Help page',
 2201 => 'Hai trovato un problema con questo sito.',

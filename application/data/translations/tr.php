@@ -68,7 +68,7 @@ return array (
 1902 => 'Bu argüman değerine bu örnekte izin verilmez',
 1903 => 'bu geri çağırma işlevi bu örnekte kullanılamaz',
 1904 => 'bu geri çağırma işlevi bu sunucuda geçersiz ya da kullanılabilir değildir',
-1905 => 'uzunluk tanımlı ve en çok 1000 bayt olmalıdır',
+1905 => 'uzunluk tanımlı ve en çok 10000 bayt olmalıdır',
 1906 => 'yineleme sayısı, 10\'dan küçük bir tamsayı olmalıdır',
 1907 => 'bu argüman, bu örnekte boş olmayabilir',
 1908 => "bu sınıf, bu örnekte kullanılamaz",
@@ -83,7 +83,7 @@ return array (
 2006 => 'Aşağıdaki argümanlar kaldırıldı',
 
 2100 => 'Parameter errors',
-2101 => 'argüman bu örnekte 1000 bayt\'a kısaltıldı',
+2101 => 'argüman bu örnekte 10000 bayt\'a kısaltıldı',
 
 2200 => 'Help page',
 2201 => 'Bu sitede bir sorun buldunuz.',

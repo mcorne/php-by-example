@@ -68,7 +68,7 @@ return array (
 1902 => 'este valor del argumento no está permitido en este ejemplo',
 1903 => 'esta llamada de retorno no puede ser utilizada en este ejemplo',
 1904 => 'esta llamada de retorno no es válida o no está disponible en este servidor',
-1905 => 'la longitud debe ser definida e inferior a 1000 bytes en este ejemplo',
+1905 => 'la longitud debe ser definida e inferior a 10000 bytes en este ejemplo',
 1906 => 'el número de iteraciones debe ser un número entero menor que 10 en este ejemplo',
 1907 => 'este argumento no puede estar vacío en este ejemplo',
 1908 => "esta clase no puede ser utilizado en este ejemplo",
@@ -83,7 +83,7 @@ return array (
 2006 => 'los siguientes argumentos han sido eliminados',
 
 2100 => 'Parameter errors',
-2101 => 'el argumento fue truncado a 1000 bytes en este ejemplo',
+2101 => 'el argumento fue truncado a 10000 bytes en este ejemplo',
 
 2200 => 'Help page',
 2201 => 'Has encontrado un problema con este sitio.',

@@ -107,9 +107,9 @@ class filter extends object
     {
         $length = $this->_function_params->get_param($arg_name);
 
-        if (preg_match('~^https?://~', $filename) and (is_null($length) or is_numeric($length) and $length > 1000)) {
+        if (preg_match('~^https?://~', $filename) and (is_null($length) or is_numeric($length) and $length > 10000)) {
             // the file is external and the length is null or too large
-            $message = $this->_message_translation->translate('the length must be defined and lower than 1000 bytes in this example', '$' . $arg_name);
+            $message = $this->_message_translation->translate('the length must be defined and lower than 10000 bytes in this example', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
 

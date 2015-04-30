@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-04-20T09:20:36+00:00
+// generated automatically 2015-04-28T07:14:46+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -430,6 +430,7 @@ return array (
   'openssl_get_md_methods' => 'openssl_get_md_methods',
   'openssl_pkey_export' => 'openssl_pkey_export',
   'openssl_pkey_get_details' => 'openssl_pkey_get_details',
+  'openssl_pkey_get_public' => 'openssl_pkey_get_public',
   'openssl_pkey_new' => 'openssl_pkey_new',
   'openssl_private_encrypt' => 'openssl_private_encrypt',
   'ord' => 'ord',

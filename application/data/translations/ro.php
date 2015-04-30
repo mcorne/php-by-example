@@ -68,7 +68,7 @@ return array (
 1902 => 'această valoare a argumentului nu este admisibilă în acest exemplu',
 1903 => 'această funcție callback nu poate fi utilizată în acest exemplu',
 1904 => 'această funcție callback nu este validă sau nu este disponibilă pe acest server',
-1905 => 'în acest exemplu lungimea trebuie să fie definită și mai mică de 1000 octeți',
+1905 => 'în acest exemplu lungimea trebuie să fie definită și mai mică de 10000 octeți',
 1906 => 'numărul de iterații trebuie să fie un număr întreg mai mic decât 10, în acest exemplu',
 1907 => 'acest argument nu poate fi gol în acest exemplu',
 1908 => "această clasă nu pot fi utilizate în acest exemplu",
@@ -83,7 +83,7 @@ return array (
 2006 => 'următoarele argumente au fost eliminate',
 
 2100 => 'Parameter errors',
-2101 => 'argumentul a fost redus la 1000 octeți în acest exemplu',
+2101 => 'argumentul a fost redus la 10000 octeți în acest exemplu',
 
 2200 => 'Help page',
 2201 => 'Ați găsit o problemă cu acest site.',

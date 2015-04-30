@@ -68,7 +68,7 @@ return array (
 1902 => 'dieser Argumentwert ist in diesem Beispiel nicht erlaubt',
 1903 => 'Diese Callback-Funktion darf in diesem Beispiel nicht verwendet werden.',
 1904 => 'diese Callback-Funktion ist ungültig oder nicht verfügbar auf diesem Server',
-1905 => 'Die Länge muss in diesem Beispiel definiert sein und muss kleiner als 1000 Bytes sein',
+1905 => 'Die Länge muss in diesem Beispiel definiert sein und muss kleiner als 10000 Bytes sein',
 1906 => 'die Anzahl der Durchläufe muss in diesem Beispiel eine ganze Zahl kleiner als 10 sein',
 1907 => 'dieses Argument darf in diesem Beispiel nicht leer sein',
 1908 => 'diese Klasse kann in diesem Beispiel nicht verwendet werden',
@@ -83,7 +83,7 @@ return array (
 2006 => 'Die folgenden Argumente wurden entfernt.',
 
 2100 => 'Parameter errors',
-2101 => 'Das Argument wurde in diesem Beispiel auf 1000 Bytes abgeschnitten.',
+2101 => 'Das Argument wurde in diesem Beispiel auf 10000 Bytes abgeschnitten.',
 
 2200 => 'Help page',
 2201 => 'Sie fanden ein Problem mit dieser Website.',

@@ -68,7 +68,7 @@ return array (
 1902 => 'cette valeur d\'argument n\'est pas autorisée dans cet exemple',
 1903 => 'cette fonction de rappel ne peut être utilisée dans cet exemple',
 1904 => 'cette fonction de rappel n\'est pas valide ou n\'est pas disponible sur ce serveur',
-1905 => 'la longueur doit être définie et inférieure à 1000 octets dans cet exemple',
+1905 => 'la longueur doit être définie et inférieure à 10000 octets dans cet exemple',
 1906 => 'le nombre d\'itérations doit être un nombre entier inférieur à 10 dans cet exemple',
 1907 => 'cet argument ne peut pas être vide dans cet exemple',
 1908 => "cette classe ne peut être utilisée dans cet exemple",
@@ -83,7 +83,7 @@ return array (
 2006 => 'les arguments suivants ont été supprimés',
 
 2100 => 'Parameter errors',
-2101 => 'l\'argument a été tronqué à 1000 octets dans cet exemple',
+2101 => 'l\'argument a été tronqué à 10000 octets dans cet exemple',
 
 2200 => 'Help page',
 2201 => 'Vous avez trouvé un problème sur ce site.',

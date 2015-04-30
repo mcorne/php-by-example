@@ -83,7 +83,7 @@ return [
 1902 => "this argument value is not allowed in this example",
 1903 => "this callback function may not be used in this example",
 1904 => "this callback function is invalid or not available on this server",
-1905 => "the length must be defined and lower than 1000 bytes in this example",
+1905 => "the length must be defined and lower than 10000 bytes in this example",
 1906 => "the number of iterations must be an integer lower than 10 in this example",
 1907 => "this argument may not be empty in this example",
 1908 => "this class may not be used in this example",
@@ -98,7 +98,7 @@ return [
 2006 => "the following arguments have been removed",
 
 2100 => "Parameter errors",
-2101 => "the argument was truncated to 1000 bytes in this example",
+2101 => "the argument was truncated to 10000 bytes in this example",
 
 2200 => "Help page",
 2201 => "You found a problem with this site.",
