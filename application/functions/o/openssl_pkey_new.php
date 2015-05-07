@@ -11,6 +11,8 @@ require_once 'models/function_core.php';
 /**
  * Function configuration
  *
+ * Changes to this class may affect other classes.
+ *
  * @see docs/function-configuration.txt
  */
 

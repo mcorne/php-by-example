@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-04-28T07:14:46+00:00
+// generated automatically 2015-05-07T15:16:35+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -428,6 +428,7 @@ return array (
   'openssl_get_cert_locations' => 'openssl_get_cert_locations',
   'openssl_get_cipher_methods' => 'openssl_get_cipher_methods',
   'openssl_get_md_methods' => 'openssl_get_md_methods',
+  'openssl_get_publickey' => 'openssl_get_publickey',
   'openssl_pkey_export' => 'openssl_pkey_export',
   'openssl_pkey_get_details' => 'openssl_pkey_get_details',
   'openssl_pkey_get_public' => 'openssl_pkey_get_public',

@@ -648,7 +648,6 @@ openssl_dh_compute_key
 openssl_error_string
 openssl_free_key
 openssl_get_privatekey
-openssl_get_publickey
 openssl_open
 openssl_pbkdf2
 openssl_pkcs12_export_to_file
@@ -661,7 +660,6 @@ openssl_pkcs7_verify
 openssl_pkey_export_to_file
 openssl_pkey_free
 openssl_pkey_get_private
-openssl_pkey_get_public
 openssl_private_decrypt
 openssl_public_decrypt
 openssl_public_encrypt
