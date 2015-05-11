@@ -61,16 +61,6 @@ class openssl_pkey_get_private extends openssl_pkey_new
 
     public $synopsis = 'resource openssl_pkey_get_private ( mixed $key [, string $passphrase = &quot;&quot; ] )';
 
-    function copy_key_to_temp($basename)
-    {
-        $key_filename  = "$this->application_path/data/$basename";
-        $temp_filename = "/tmp/$basename";
-
-        if (! file_exists($temp_filename) or filemtime($key_filename) > filemtime($temp_filename)) {
-            copy($key_filename, $temp_filename);
-        }
-    }
-
     function pre_exec_function()
     {
         $key = $this->_filter->filter_arg_value('key', false);
@@ -79,7 +69,7 @@ class openssl_pkey_get_private extends openssl_pkey_new
             $this->_filter->is_temp_filename($key);
         }
 
-        $this->copy_key_to_temp('private-key.pem');
-        $this->copy_key_to_temp('private-key-with-pass.pem');
+        $this->copy_file_to_temp('private-key.pem');
+        $this->copy_file_to_temp('private-key-with-pass.pem');
     }
 }

@@ -44,7 +44,7 @@ class openssl_pkey_get_public extends openssl_pkey_get_private
 
     function pre_exec_function()
     {
-        $this->copy_key_to_temp('public-key.pem');
-        $this->copy_key_to_temp('public-key-with-pass.pem');
+        $this->copy_file_to_temp('public-key.pem');
+        $this->copy_file_to_temp('public-key-with-pass.pem');
     }
 }

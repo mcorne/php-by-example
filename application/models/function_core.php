@@ -43,6 +43,16 @@ class function_core extends action
         $this->errors[] = ['code' => $errno, 'message' => $message];
     }
 
+    function copy_file_to_temp($basename)
+    {
+        $source_filename  = "$this->application_path/data/$basename";
+        $temp_filename = "/tmp/$basename";
+
+        if (! file_exists($temp_filename) or filemtime($source_filename) > filemtime($temp_filename)) {
+            copy($source_filename, $temp_filename);
+        }
+    }
+
     function exec_function()
     {
         $result = [];
