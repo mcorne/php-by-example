@@ -33,8 +33,10 @@ class openssl_pkey_new extends function_core
         inject_function_call
 
         // shows the key details, plus the rsa, dsa or dh key details in hexadecimal
-        $array = openssl_pkey_get_details($resource);
-        $hex = array_map("bin2hex", $this->result["array"]["rsa"]);
+        if ($resource) {
+            $array = openssl_pkey_get_details($resource);
+            $hex = array_map("bin2hex", $this->result["array"]["rsa"]);
+        }
     ';
 
     public $synopsis = 'resource openssl_pkey_new ([ array $configargs ] )';

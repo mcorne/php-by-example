@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-05-07T15:16:35+00:00
+// generated automatically 2015-05-11T12:25:05+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -428,9 +428,11 @@ return array (
   'openssl_get_cert_locations' => 'openssl_get_cert_locations',
   'openssl_get_cipher_methods' => 'openssl_get_cipher_methods',
   'openssl_get_md_methods' => 'openssl_get_md_methods',
+  'openssl_get_privatekey' => 'openssl_get_privatekey',
   'openssl_get_publickey' => 'openssl_get_publickey',
   'openssl_pkey_export' => 'openssl_pkey_export',
   'openssl_pkey_get_details' => 'openssl_pkey_get_details',
+  'openssl_pkey_get_private' => 'openssl_pkey_get_private',
   'openssl_pkey_get_public' => 'openssl_pkey_get_public',
   'openssl_pkey_new' => 'openssl_pkey_new',
   'openssl_private_encrypt' => 'openssl_private_encrypt',
@@ -527,6 +529,7 @@ return array (
   'strchr' => 'strchr',
   'strcmp' => 'strcmp',
   'strcspn' => 'strcspn',
+  'stream_get_wrappers' => 'stream_get_wrappers',
   'strftime' => 'strftime',
   'strip_tags' => 'strip_tags',
   'stripcslashes' => 'stripcslashes',

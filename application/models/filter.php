@@ -264,4 +264,17 @@ class filter extends object
 
         return $is_custom_callback_function;
     }
+
+    function is_temp_filename($filename)
+    {
+        $filename = preg_replace('~^file://~', '', $filename);
+        $temp_dir = sys_get_temp_dir() . DIRECTORY_SEPARATOR;
+
+        if (! substr($filename, 0, strlen($temp_dir) != $temp_dir)) {
+            $message = $this->_message_translation->translate('the file must be a temporary file in this example');
+            throw new Exception($message, E_USER_WARNING);
+        }
+
+        return true;
+    }
 }
