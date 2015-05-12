@@ -23,6 +23,11 @@ class openssl_decrypt extends function_core
 
     public $examples = [
         [
+            'eXIp3BnsELdTuTvVkpoFqXuYoP6zd73ETDXiNcMhXUiuAm0ju4ufdX9Yxai4X7S3',
+            'AES-128-ECB',
+            'some password',
+        ],
+        [
             'e_data'     => 'This string was AES-128 / ECB encrypted.',
             'e_method'   => 'AES-128-ECB',
             'e_password' => 'some password',

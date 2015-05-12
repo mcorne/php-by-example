@@ -17,4 +17,6 @@ require_once 'models/function_core.php';
 class mcrypt_list_algorithms extends function_core
 {
     public $synopsis = 'array mcrypt_list_algorithms ([ string $lib_dir = ini_get(&quot;mcrypt.algorithms_dir&quot;) ] )';
+
+    public $test_not_validated = true;
 }

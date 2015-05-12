@@ -25,24 +25,13 @@ class mcrypt_decrypt extends function_core
 
     public $examples = [
         [
-            'e_cipher' => 'MCRYPT_RIJNDAEL_128',
-            'e_key'    => 'some 16 byte key',
-            'e_data'   => 'This string was AES-128 / CBC / ZeroBytePadding encrypted.',
-            'e_mode'   => 'MCRYPT_MODE_CBC',
-            'e_iv'     => 'some 16 byte iv.',
-            'base64'   => '$base64',
             'MCRYPT_RIJNDAEL_128',
             'some 16 byte key',
-            '$data',
-            'MCRYPT_MODE_CBC',
+            '_DOUBLE_QUOTES_\x94\x60\x54_DOUBLE_QUOTES_',
+            'MCRYPT_MODE_NOFB',
             'some 16 byte iv.',
         ],
         [
-            'e_cipher' => 'MCRYPT_RIJNDAEL_128',
-            'e_key'    => 'some 16 byte key',
-            'e_data'   => null,
-            'e_mode'   => 'MCRYPT_MODE_CBC',
-            'e_iv'     => 'some 16 byte iv.',
             'base64'   => 'syHfih5StSSmrudWgA/0VANHjwYo/GOCjIFGcjOpQB170MEsRltllzHtUz+kodcUPWOlzjU5MW+wW2cudQKiYw==',
             'MCRYPT_RIJNDAEL_128',
             'some 16 byte key',
@@ -53,14 +42,14 @@ class mcrypt_decrypt extends function_core
         [
             'e_cipher' => 'MCRYPT_RIJNDAEL_128',
             'e_key'    => 'some 16 byte key',
-            'e_data'   => null,
-            'e_mode'   => 'MCRYPT_MODE_NOFB',
+            'e_data'   => 'This string was AES-128 / CBC / ZeroBytePadding encrypted.',
+            'e_mode'   => 'MCRYPT_MODE_CBC',
             'e_iv'     => 'some 16 byte iv.',
-            'base64'   => null,
+            'base64'   => '$base64',
             'MCRYPT_RIJNDAEL_128',
             'some 16 byte key',
-            '_DOUBLE_QUOTES_\x94\x60\x54_DOUBLE_QUOTES_',
-            'MCRYPT_MODE_NOFB',
+            '$data',
+            'MCRYPT_MODE_CBC',
             'some 16 byte iv.',
         ],
     ];
@@ -105,7 +94,7 @@ class mcrypt_decrypt extends function_core
         }
 
         if ($base64 = $this->_filter->filter_arg_value('base64')) {
-            $this->returned_params['data'] = base64_decode($base64);
+            $this->result['data'] =  $this->returned_params['data'] = base64_decode($base64);
             return;
         }
 
@@ -121,6 +110,6 @@ class mcrypt_decrypt extends function_core
             $this->returned_params['data'] = mcrypt_encrypt($cipher, $key, $data, $mode, $iv);
         }
 
-        $this->result['base64'] = base64_encode($this->returned_params['data']);
+        $this->result['data'] =  $this->result['base64'] = base64_encode($this->returned_params['data']);
     }
 }
