@@ -46,7 +46,7 @@ class function_core extends action
     function copy_file_to_temp($basename)
     {
         $source_filename  = "$this->application_path/data/$basename";
-        $temp_filename = "/tmp/$basename";
+        $temp_filename = sys_get_temp_dir() . DIRECTORY_SEPARATOR . $basename;
 
         if (! file_exists($temp_filename) or filemtime($source_filename) > filemtime($temp_filename)) {
             copy($source_filename, $temp_filename);
