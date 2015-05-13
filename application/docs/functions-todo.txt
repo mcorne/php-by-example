@@ -645,7 +645,6 @@ openssl_csr_get_subject
 openssl_csr_new
 openssl_csr_sign
 openssl_dh_compute_key
-openssl_error_string
 openssl_free_key
 openssl_open
 openssl_pbkdf2
@@ -658,11 +657,6 @@ openssl_pkcs7_sign
 openssl_pkcs7_verify
 openssl_pkey_export_to_file
 openssl_pkey_free
-openssl_private_decrypt
-openssl_private_encrypt
-openssl_public_decrypt
-openssl_public_encrypt
-openssl_random_pseudo_bytes
 openssl_seal
 openssl_sign
 openssl_spki_export_challenge

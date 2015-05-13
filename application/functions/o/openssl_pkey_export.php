@@ -22,6 +22,15 @@ class openssl_pkey_export extends function_core
             '$out',
             'this is a passphrase',
         ],
+        [
+            'n_configargs' => [
+                'digest_alg'       => 'sha512',
+                'private_key_bits' => 4096,
+                'private_key_type' => 'OPENSSL_KEYTYPE_RSA',
+            ],
+            '$key',
+            '$out',
+        ],
     ];
 
     public $input_args = ['n_configargs'];

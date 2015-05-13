@@ -12,6 +12,8 @@ require_once 'models/function_core.php';
 /**
  * Function configuration
  *
+ * Changes to this class may affect other classes.
+ *
  * @see docs/function-configuration.txt
  */
 
@@ -142,10 +144,12 @@ class openssl_private_decrypt extends function_core
         $e_key     = $this->_filter->filter_arg_value('e_key');
         $e_padding = $this->_filter->filter_arg_value('e_padding');
 
+        $encrypt_method = $this->encrypt_method ?: 'openssl_public_encrypt';
+
         if (is_null($e_padding)) {
-            $this->result['e_bool'] = openssl_public_encrypt($e_data, $crypted, $e_key);
+            $this->result['e_bool'] = $encrypt_method($e_data, $crypted, $e_key);
         } else {
-            $this->result['e_bool'] = openssl_public_encrypt($e_data, $crypted, $e_key, $e_padding);
+            $this->result['e_bool'] = $encrypt_method($e_data, $crypted, $e_key, $e_padding);
         }
 
         $this->result['data'] = $this->returned_params['data'] = $crypted;
