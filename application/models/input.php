@@ -415,7 +415,7 @@ class input extends object
 
     function get_vars_to_replace_by_inputs($source_code)
     {
-        preg_match_all('~^    \$(\w+)[,;]? +// \[?(array|callable|bool|float|int|mixed|resource|string|[A-Z][A-Za-z]+) &?\$\w+.*$~m', $source_code, $matches, PREG_SET_ORDER);
+        preg_match_all('~^(?:    ){1,2}\$(\w+)[,;]? +// \[?(array|callable|bool|float|int|mixed|resource|string|[A-Z][A-Za-z]+) &?\$\w+.*$~m', $source_code, $matches, PREG_SET_ORDER);
 
         return $matches;
     }

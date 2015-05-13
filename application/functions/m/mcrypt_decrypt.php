@@ -6,6 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+require_once 'custom/pbx_base64_to_hex.php';
 require_once 'models/function_core.php';
 
 /**
@@ -27,8 +28,9 @@ class mcrypt_decrypt extends function_core
         [
             'MCRYPT_RIJNDAEL_128',
             'some 16 byte key',
-            '_DOUBLE_QUOTES_\x94\x60\x54_DOUBLE_QUOTES_',
-            'MCRYPT_MODE_NOFB',
+            // base 64 data to be converted to hexadecimal notation, see init()
+            'syHfih5StSSmrudWgA/0VANHjwYo/GOCjIFGcjOpQB170MEsRltllzHtUz+kodcUPWOlzjU5MW+wW2cudQKiYw==',
+            'MCRYPT_MODE_CBC',
             'some 16 byte iv.',
         ],
         [
@@ -55,14 +57,13 @@ class mcrypt_decrypt extends function_core
     ];
 
     public $input_args = [
+        'base64',
         'e_cipher',
         'e_key',
         'e_data',
         'e_mode',
         'e_iv',
     ];
-
-    public $no_input_args = 'data';
 
     public $source_code = '
         // enter a string to encrypt ($_e_data),
@@ -86,6 +87,11 @@ class mcrypt_decrypt extends function_core
     ';
 
     public $synopsis = 'string mcrypt_decrypt ( string $cipher , string $key , string $data , string $mode [, string $iv ] )';
+
+    function init()
+    {
+        $this->examples[0][2] = '_DOUBLE_QUOTES_' . pbx_base64_to_hex($this->examples[0][2], true) . '_DOUBLE_QUOTES_';
+    }
 
     function pre_exec_function()
     {

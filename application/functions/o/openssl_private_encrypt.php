@@ -76,9 +76,11 @@ class openssl_private_encrypt extends function_core
         // shows the result in base64 and decrypted
         if ($bool) {
             $base64 = base64_encode($crypted);
-            $d_bool = openssl_public_decrypt($crypted, $decrypted,
-            $d_key, // mixed $d_key
-            $d_padding // [int $d_padding]);
+            $d_bool = openssl_public_decrypt(
+                $crypted,
+                $decrypted,
+                $d_key, // mixed $d_key
+                $d_padding // [int $d_padding]);
         }
     ';
 
@@ -90,15 +92,16 @@ class openssl_private_encrypt extends function_core
             return;
         }
 
-        $this->result['base64'] = base64_encode($this->result['crypted']);
+        $crypted = isset($this->result['crypted']) ? $this->result['crypted'] : null;
+        $this->result['base64'] = base64_encode($crypted);
 
         $d_key     = $this->_filter->filter_arg_value('d_key');
         $d_padding = $this->_filter->filter_arg_value('d_padding');
 
         if (is_null($d_padding)) {
-            $this->result['d_bool'] = openssl_public_decrypt($this->result['crypted'], $decrypted, $d_key);
+            $this->result['d_bool'] = openssl_public_decrypt($crypted, $decrypted, $d_key);
         } else {
-            $this->result['d_bool'] = openssl_public_decrypt($this->result['crypted'], $decrypted, $d_key, $d_padding);
+            $this->result['d_bool'] = openssl_public_decrypt($crypted, $decrypted, $d_key, $d_padding);
         }
 
         $this->result['decrypted'] = $decrypted;

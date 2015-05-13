@@ -1,11 +1,11 @@
 <?php
-// generated automatically 2015-05-12T13:41:34+00:00
+// generated automatically 2015-05-13T09:09:56+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => 'abc',
+      'string' => 'This string was AES-128 / CBC / ZeroBytePadding encrypted.' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '',
     ),
   ),
   1 => 

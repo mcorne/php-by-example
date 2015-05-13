@@ -6,6 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+require_once 'custom/pbx_base64_to_hex.php';
 require_once 'models/function_core.php';
 
 /**
@@ -26,6 +27,13 @@ class openssl_decrypt extends function_core
             'eXIp3BnsELdTuTvVkpoFqXuYoP6zd73ETDXiNcMhXUiuAm0ju4ufdX9Yxai4X7S3',
             'AES-128-ECB',
             'some password',
+        ],
+        [
+            // base 64 data to be converted to hexadecimal notation, see init()
+            'eXIp3BnsELdTuTvVkpoFqXuYoP6zd73ETDXiNcMhXUiuAm0ju4ufdX9Yxai4X7S3',
+            'AES-128-ECB',
+            'some password',
+            'OPENSSL_RAW_DATA',
         ],
         [
             'e_data'     => 'This string was AES-128 / ECB encrypted.',
@@ -80,6 +88,11 @@ class openssl_decrypt extends function_core
     ';
 
     public $synopsis = 'string openssl_decrypt ( string $data , string $method , string $password [, int $options = 0 [, string $iv = &quot;&quot; ]] )';
+
+    function init()
+    {
+        $this->examples[1][0] = '_DOUBLE_QUOTES_' . pbx_base64_to_hex($this->examples[1][0], true) . '_DOUBLE_QUOTES_';
+    }
 
     function pre_exec_function()
     {

@@ -6,6 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
+require_once 'custom/pbx_base64_to_hex.php';
 require_once 'models/function_core.php';
 
 /**
@@ -20,8 +21,21 @@ class openssl_private_decrypt extends function_core
 
     public $examples = [
         [
+            // base 64 data to be converted to hexadecimal notation, see init()
+            'uJqMJhkKJMHzep104yj/95mYHdHvvI41VtVB5Af2qbfFZ76cwZFhvmYZEW1BuhLeAoETVDfua0wq4W6BAjVB3OqBf8vkSOhZb2fUmMBHb2w8E/hZSXNGedJFXxM2WRuX/bQWo6Qx7g8suzCVB6H+jugd0tfOIn++ndlsQlWU+FEUHff1KSfmha5G6fqT+PAE0GybXxyCiqd6w6kWUdD0cBfWVuw79v8o8DoX5LbHoKh1DXEtMP3dW/3XSSygUJUCzmjsCcfWQJuyQqDk3WAQZWC64Vau7eGo8kZaVJsO+rTpb6qOzv+IyjPWTDn7jvwzRAt5mI8ZSjSA1RFKeJIYiw==',
+            '$decrypted',
+            'file:///tmp/private-key.pem',
+        ],
+        [
+            'base64' => 'uJqMJhkKJMHzep104yj/95mYHdHvvI41VtVB5Af2qbfFZ76cwZFhvmYZEW1BuhLeAoETVDfua0wq4W6BAjVB3OqBf8vkSOhZb2fUmMBHb2w8E/hZSXNGedJFXxM2WRuX/bQWo6Qx7g8suzCVB6H+jugd0tfOIn++ndlsQlWU+FEUHff1KSfmha5G6fqT+PAE0GybXxyCiqd6w6kWUdD0cBfWVuw79v8o8DoX5LbHoKh1DXEtMP3dW/3XSSygUJUCzmjsCcfWQJuyQqDk3WAQZWC64Vau7eGo8kZaVJsO+rTpb6qOzv+IyjPWTDn7jvwzRAt5mI8ZSjSA1RFKeJIYiw==',
+            '$data',
+            '$decrypted',
+            'file:///tmp/private-key.pem',
+        ],
+        [
             'e_data' => 'this is some data',
-            'e_key' => 'file:///tmp/public-key.pem',
+            'e_key'  => 'file:///tmp/public-key.pem',
+            'base64' => '$base64',
             '$data',
             '$decrypted',
             'file:///tmp/private-key.pem',
@@ -70,7 +84,12 @@ class openssl_private_decrypt extends function_core
         ],
     ];
 
-    public $input_args = ['e_data', 'e_key', 'e_padding'];
+    public $input_args = [
+        'base64',
+        'e_data',
+        'e_key',
+        'e_padding',
+    ];
 
     public $source_code = '
         // enter a string to encrypt ($_e_data),
@@ -98,6 +117,13 @@ class openssl_private_decrypt extends function_core
 
     public $synopsis = 'bool openssl_private_decrypt ( string $data , string &$decrypted , mixed $key [, int $padding = OPENSSL_PKCS1_PADDING ] )';
 
+    function init()
+    {
+        $this->examples[0][0] = '_DOUBLE_QUOTES_' . pbx_base64_to_hex($this->examples[0][0], true) . '_DOUBLE_QUOTES_';
+    }
+
+    public $test_not_validated = [2, 3];
+
     function pre_exec_function()
     {
         $this->copy_file_to_temp('private-key.pem');
@@ -108,7 +134,7 @@ class openssl_private_decrypt extends function_core
         }
 
         if ($base64 = $this->_filter->filter_arg_value('base64')) {
-            $this->returned_params['data'] = base64_decode($base64);
+            $this->result['data'] = $this->returned_params['data'] = base64_decode($base64);
             return;
         }
 
