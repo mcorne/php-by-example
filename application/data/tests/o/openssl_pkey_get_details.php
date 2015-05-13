@@ -1,50 +1,35 @@
 <?php
-// generated automatically 2015-04-17T07:18:46+00:00
+// generated automatically 2015-05-13T15:38:59+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
+      'key' => 'OpenSSL key',
       'array' => 
       array (
         'bits' => 2048,
         'key' => '-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzsE2psFECG9cShmnnPRB
-xxMrbOwCVM+CE4MZj8EB2Bap10Vk6B+86i+NzC/HUAlIGnWSVik6F45NVGDWAQcu
-fE0SVim+jplke2IFLaO/RbE4TZ7yD2YSztGAwRAqnRlQ4wNMPCw+Kfgt/48cIiPw
-YglPMULQAFLiW+jRAFEFXIjlTmy0LMvzMmc0SNxGz+Xi2nTXf1+XfxDmYP2CZYv3
-ee7hkiSq1yF5p9GglE0hYD3nHZaVBMJ3QgekERK+Je5XtkGMxXrhcuTFk6gzICNO
-hdS5WjkQ/ooEV71p/7ZpA+/aoZbnlqYEddg7q9P0sfojNxtmOe8w+LjiwrQKZOJ3
-7wIDAQAB
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0llCeBjy18RylTdBih9G
+MUSZIC3GzeN0vQ9W8E3nwy2jdeUnH3GBXWpMo3F43V68zM2Qz5epRNmlLSkY/PJU
+fJIC8Yc1VEokT52q87hH/XJ5eS8heZnjuSlPAGi8oZ3ImVbruzV7XmlD+QsCSxJW
+7tBv0dqJ71e1gAAisCXK2m7iyf/ul6rT0Zz0ptYH4IZfwc/hQ9JcMg69uM+3bb4o
+BFsixMmEQwxKZsXk3YmO/YRjRbay+6+79bSV/frW+lWhknyGSIJp2CJArYcOdbK1
+bXx1dRWpbNSExo7dWwuPC0Y7a5AEeoZofieQPPBhXlp1hPgLYGat71pDqBjKLvF5
+GwIDAQAB
 -----END PUBLIC KEY-----
 ',
         'rsa' => 
         array (
-          'n' => 'ÎÁ6¦ÁDo\\J§œôAÇ+lìTÏ‚ƒÁØ©×Edè¼ê/Ì/ÇP	Hu’V):ŽMT`Ö.|MV)¾Ž™d{b-£¿E±8MžòfÎÑ€Á*PãL<,>)ø-ÿ"#ðb	O1BÐ' . "\0" . 'Râ[èÑ' . "\0" . 'Q\\ˆåNl´,Ëó2g4HÜFÏåâÚt×_—æ`ý‚e‹÷yîá’$ª×!y§Ñ ”M!`=ç–•ÂwB¤¾%îW¶AŒÅzáräÅ“¨3 #N…Ô¹Z9þŠW½iÿ¶iïÚ¡–ç–¦uØ;«Óô±ú#7f9ï0ø¸âÂ´
-dâwï',
+          'n' => 'ÒYBxò×Är•7AŠF1D™ -ÆÍãt½VðMçÃ-£uå\'q]jL£qxÝ^¼ÌÍÏ—©DÙ¥-)üòT|’ñ‡5TJ$Oªó¸Gýryy/!y™ã¹)O' . "\0" . 'h¼¡È™Vë»5{^iCùKVîÐoÑÚ‰ïWµ€' . "\0" . '"°%ÊÚnâÉÿî—ªÓÑœô¦Öà†_ÁÏáCÒ\\2½¸Ï·m¾(["ÄÉ„CJfÅäÝ‰Žý„cE¶²û¯»õ´•ýúÖúU¡’|†H‚iØ"@­‡u²µm|uu©lÔ„ÆŽÝ[F;kz†h~\'<ða^Zu„ø`f­ïZC¨Ê.ñy',
           'e' => '' . "\0" . '',
-          'd' => '½­C‚ûçŸ2Ø¿Ï\'µn§—«†8ªßê*ÌVÖXL5…H³¨ìïHIå¢ý\'EëÃ†åÌ@’åZl4w|Çª\'\\9?Ù¤<?ë£bŠç|hL¤×@²ZVš±pÓ:e8^–ÍÜ¶#D=ÿî;Ýj“>„3 „l?uA”/¹¯.÷ìÝ\\Äö7†:íÝÊM8ë˜>û)†ë“º/]â6í,ømØ`»éÞ}»æô’p÷U|ÑÁ¯y•L€F™„.$Ðý£šk½#ÕÝ•4çv' . "\0" . 'Á¬xRÑ¾k¹Vé
-ã¿bc$ƒZ•ƒMiïS£Y:NHÔ^j',
-          'p' => 'ë²V”ìÇÑñE·îß•yOÛ`ÌÅŒƒk õ¸rg@5“}PhUI©?F!ÍGhGÝxˆ0¹ûZÙ_ñ-“É¹yŸ' . "\0" . 'S9÷¹O0‡æœr|žlA±àáW*ãæª^ÊÂ"DtUo^øY¾*E¨ìé«íÞÖ0÷‘‚A',
-          'q' => 'à£ §úLOe,Q §“\'/áÛšIŸª÷ÖÑ¥bnßÿ<vßøÔœîSÜÏYÒsJtaõOáÙ!ãûy€%‰S[ùç
-3ç‰Mã.EMð˜cZËi¼š®Eë-Ð?0pèÇÃ5uÓ¬¤n!a:fU¥¾¬lJ;Òú,øF¡/',
-          'dmp1' => 'Ñ}åÁ/B·ó' . "\0" . 'ûaŠ¸uƒRrÕÑE.:O3NÝë©¸•íi½ŸçŽÎdÖSîÈÔð¢2T·áC\\Öáb+M®M7OùTb‡t*\\/>”öq$àó\'’i^\'hNäaCä³Í¾Ö¼B¨X3L5@çÁÓ½ygÿ',
-          'dmq1' => '¡‰ŠÜ¡ßÏ­\'[DŒ¦¾î£²›¦ÐSdÚÃŽc¤î×¸??yïº¥Ádë®*9Óéià—ËïžŠ¸òR“I%Œ©xscß’”×G¼…ròî	¼Ç¤)Ÿ˜Œhü£1ü#€Dæ„´°b|é}0\\îR€ÒÍœ~ú9',
-          'iqmp' => 'Ç›9ê?aÚ10µ/4õIü»3"Qû\\Úê”í,«»Ûaµ¬¢&ÔßNþ8“z1‹šôDš]ðç\'­e,Ik3Ù\'Ü' . "\0" . '.Ou“ G¡3¡
-ÿ‹¢0P½YIŒ~øqÉˆ¨]]LÖŸMŠÐ¥=©ÌxŒÉâyB@©US²>',
         ),
         'type' => 0,
       ),
       'hex' => 
       array (
-        'n' => 'cec136a6c144086f5c4a19a79cf441c7132b6cec0254cf821383198fc101d816a9d74564e81fbcea2f8dcc2fc75009481a759256293a178e4d5460d601072e7c4d125629be8e99647b62052da3bf45b1384d9ef20f6612ced180c1102a9d1950e3034c3c2c3e29f82dff8f1c2223f062094f3142d00052e25be8d10051055c88e54e6cb42ccbf332673448dc46cfe5e2da74d77f5f977f10e660fd82658bf779eee19224aad72179a7d1a0944d21603de71d969504c2774207a41112be25ee57b6418cc57ae172e4c593a83320234e85d4b95a3910fe8a0457bd69ffb66903efdaa196e796a60475d83babd3f4b1fa23371b6639ef30f8b8e2c2b40a64e277ef',
+        'n' => 'd259427818f2d7c4729537418a1f46314499202dc6cde374bd0f56f04de7c32da375e5271f71815d6a4ca37178dd5ebccccd90cf97a944d9a52d2918fcf2547c9202f18735544a244f9daaf3b847fd7279792f217999e3b9294f0068bca19dc89956ebbb357b5e6943f90b024b1256eed06fd1da89ef57b5800022b025cada6ee2c9ffee97aad3d19cf4a6d607e0865fc1cfe143d25c320ebdb8cfb76dbe28045b22c4c984430c4a66c5e4dd898efd846345b6b2fbafbbf5b495fdfad6fa55a1927c86488269d82240ad870e75b2b56d7c757515a96cd484c68edd5b0b8f0b463b6b90047a86687e27903cf0615e5a7584f80b6066adef5a43a818ca2ef1791b',
         'e' => '010001',
-        'd' => 'bd11ad4382fb0ee79f32d8111213bfcf27b58f6ea7971d07ab8638aadfea2acc56d6584c35854881b3a8ecef4849e5a2fd274501ebc386e507cc409d92e5195a6c34777cc718aa275c393fd903a4173c3feba38d620d8ae77c684ca4d70340b25a569ab170180cd33a65385e96cddcb61a23443dffee3bdd6a0516933e8433a00b840f6c3f7541942fb9af2ef7ecdd5cc4f637863aedddca4d38eb983efb298605eb93ba2f5de2021836ed2cf86dd860bbe9de7dbbe6f49270f7557cd1c1af7995111f4c80461e99842e24d0fda39a6b7fbd23d5dd9534e70b7600c1ac7852d1be6bb956e90ae3bf626324835a810c1d95834d69ef53a3593a4e48d41c5e6a81',
-        'p' => 'ebb2567f94ecc7d1f145b7eedf95794fdb6012ccc58c191283176ba0f5b872674035937d5001685549a93f194621cd476817471fdd0478140d8d8830b9fb5ad95ff12d9304c9b9798d9f005339f70bb94f3087e69c0f727c9e6c41b1e006e1572ae3e6aa5ecac215224474556f5ef859be2a45a8ece9abed01ded630f7918241',
-        'q' => 'e090a3a0a7fa4c4f0c65012c51a0a793272fe1db9a499faaf7d6d1a5626edfff3c76dff8d49cee53dccf59d2737f4a7461f54fe1d9211de3fb79151580259089535bf9e70a33e7894de32e454df098635acb69bc9a8dae45eb2dd03f3070e8c7c33575d3aca46e21613a668d55a5beac6c4a3b8fd2900206fa2cf846a10c0e2f',
-        'dmp1' => 'd118191c7de5c12f42b7f300fb61038a10b81e75831b5272d5d1452e3a4f334eddeba9b895ed69bd9fe7818ece64d653eec817d4f0a23254b7e1435cd6e1622b4dae0c1c4d37184ff98f811e5462120887742a5c2f3e94f67124e0f3082792695e27684ee46143e4b3cdbed6bc42a8581518334c3540e7c10ed3bd791b67ff01',
-        'dmq1' => 'a1898a1adc1aa1dfcf13ad275b448ca6beeea3b29ba6d05364dac38e0b63a47feed7b83f3f79efbaa5c10664ebae2a39d3e969e01597cbef9e8ab80ef2529349258ca914787363df920694d747bc85721af2ee09bcc7a410299f98088c68fc1a0ea31b31fc23801144e684b4b0627ce97d305cee15528012d2cd9c7efa043903',
-        'iqmp' => 'c79b39ea3f8d61da3130b5132f34f50449fcbb332251fb5c0fdaea94ed172cabbbdb61b5aca226d4118fdf4efe38101b937a318b9af4449a5df0e727ad650d2c49186b33d927dc002e4f7593a047a13319a10aff8ba23050bd5949058c137ef8710e15c988a85d5d4cd6089f4d8ad0a53d7fa9cc788cc9e2794240a95553b23e',
       ),
     ),
   ),
@@ -52,57 +37,175 @@ dâwï',
   array (
     'result' => 
     array (
+      'key' => 'OpenSSL key',
       'array' => 
       array (
-        'bits' => 4096,
+        'bits' => 2048,
         'key' => '-----BEGIN PUBLIC KEY-----
-MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAr+k5TuKVBZx1XvxU7zQy
-ZB8zf9bEDkq6gPn39ccr0/7l2eV9YoQvfIOWxJH6eD39dgDI1v3zfQT8i3e9iNk3
-VTLFVz6UcqYqYgLaATWxiP98YcsqrUQKm74GdXqblpxcPSGkuMKLNj9XRjBTs2hi
-TBNFUWtVWpm/ILbjOuFA2HC4sc/1eFCY5weBqJLZiT5TnXXIuTVoOzWdRbQis4gT
-o5svOd0MCE5FDBGZ97lj7TAfh2nJkehW9JgKFi8Nt4CZaTl4i5RJA8YrPSD6MVJl
-3fg2QQhkz26532seplOpeQIO4/0Jm4p7b41PXGhoQ4yf+U0eROm8ajOVEA09SzQZ
-r1QE2n8NrlhF8asIsLGajlDs6gKjn2i3E4reTLvnmHsVdbGvAl0exUEx1igu+wF4
-v3/2faAzFrn17afEnx/9HClua82qb4nnvw2CII4eXe2OWd645C+FlYcZIpp59Q/v
-D0Jl5PgFCgooyrsfadPAwQSFy5OTsHNs1FlMQoHCAtkIxTIQzOD4pcKH/57+ldsS
-05C9mHvIkU5TyYmPV05dcIOmzFCQBmO0AWatenYShFF3l1RqBpFZ8OMmoFa3uXNC
-6Aiu3p3BenU9amJXsxc4Ij21dAq6ky62znAk6CHfkfzuuZ2SsBEn/ffCEdLQScca
-2rjYCB2U+gozSVjWoRB+aPECAwEAAQ==
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0llCeBjy18RylTdBih9G
+MUSZIC3GzeN0vQ9W8E3nwy2jdeUnH3GBXWpMo3F43V68zM2Qz5epRNmlLSkY/PJU
+fJIC8Yc1VEokT52q87hH/XJ5eS8heZnjuSlPAGi8oZ3ImVbruzV7XmlD+QsCSxJW
+7tBv0dqJ71e1gAAisCXK2m7iyf/ul6rT0Zz0ptYH4IZfwc/hQ9JcMg69uM+3bb4o
+BFsixMmEQwxKZsXk3YmO/YRjRbay+6+79bSV/frW+lWhknyGSIJp2CJArYcOdbK1
+bXx1dRWpbNSExo7dWwuPC0Y7a5AEeoZofieQPPBhXlp1hPgLYGat71pDqBjKLvF5
+GwIDAQAB
 -----END PUBLIC KEY-----
 ',
         'rsa' => 
         array (
-          'n' => '¯é9Nâ•œu^üTï42d3ÖÄJº€ù÷õÇ+ÓþåÙå}b„/|ƒ–Ä‘úx=ýv' . "\0" . 'ÈÖýó}ü‹w½ˆÙ7U2ÅW>”r¦*bÚ5±ˆÿ|aË*­D
-›¾uz›–œ\\=!¤¸Â‹6?WF0S³hbLEQkUZ™¿ ¶ã:á@Øp¸±ÏõxP˜ç¨’Ù‰>SuÈ¹5h;5E´"³ˆ£›/9ÝNE™÷¹cí0‡iÉ‘èVô˜
-/·€™i9x‹”IÆ+= ú1ReÝø6AdÏn¹ßk¦S©yãý	›Š{oO\\hhCŒŸùMDé¼j3•=K4¯TÚ®XEñ«°±šŽPìê£Ÿh·ŠÞL»ç˜{u±¯]ÅA1Ö(.ûx¿ö} 3¹õí§ÄŸý)nkÍªo‰ç¿‚ Ž]íŽYÞ¸ä/…•‡"šyõïBeäø
-
-(Ê»iÓÀÁ…Ë““°slÔYLBÂÙÅ2Ìàø¥Â‡ÿžþ•ÛÓ½˜{È‘NSÉ‰WN]pƒ¦ÌPc´f­zv„Qw—Tj‘Yðã& V·¹sBè®ÞÁzu=jbW³8"=µt
-º“.¶Îp$è!ß‘üî¹’°\'ý÷ÂÒÐIÇÚ¸Ø”ú
-3IXÖ¡~hñ',
+          'n' => 'ÒYBxò×Är•7AŠF1D™ -ÆÍãt½VðMçÃ-£uå\'q]jL£qxÝ^¼ÌÍÏ—©DÙ¥-)üòT|’ñ‡5TJ$Oªó¸Gýryy/!y™ã¹)O' . "\0" . 'h¼¡È™Vë»5{^iCùKVîÐoÑÚ‰ïWµ€' . "\0" . '"°%ÊÚnâÉÿî—ªÓÑœô¦Öà†_ÁÏáCÒ\\2½¸Ï·m¾(["ÄÉ„CJfÅäÝ‰Žý„cE¶²û¯»õ´•ýúÖúU¡’|†H‚iØ"@­‡u²µm|uu©lÔ„ÆŽÝ[F;kz†h~\'<ða^Zu„ø`f­ïZC¨Ê.ñy',
           'e' => '' . "\0" . '',
-          'd' => '1s7wô{ýÚÐ§Åù>Q\\<èá®>Õ”â08OÆ!éù S–aÃ@¼!“á¡9¥ØÏþŒNUwÃ[„‘·7âPª¶	^	ý,¯â[g®˜si¢wË€WP"à‹‘g¾½mzââo¦°0ÓÜ&˜¼Ý–]ä°tÊÔ¯½˜“ÿƒü' . "\0" . '@¹ô¶6ãÆPðãÃo•\'ºàÇ5p#£Ê3+Š\'Z¬BvZs^7™OóX¢ÙSjªŽH©(jº	z=ˆõíìà;ž^“MŒç†‰:OÇ8šÚsñepçÔòÞ»ÚWxÆ `®ÌÑ<1ÿuU·¶Æ6Iªõ\'+šýgf‰¿ITÍKàzúÇÍ' . "\0" . 'Ì¯«þo_Îú÷mü4Í@­£cÝ¶máîJªðdåŠAå¢ï˜[vL5óáDh?p×vš!¬ÈP»T@Pêš¡Y¾9›70ÓZ»þ$éþ÷™ð€¤¶üÔè°Eçæý[#Š\\u–Ò
-$p§c€Rþœ<ÝÞ¥a†þVsR8³›%†ü»Ñ#bú("«õßçke=þ—MUHJøR	ø¬Sãñ¸ÈöÄÛK9Zu²°X¡5ª`~âÂ˜’3s’‘–ñZ´Rp­¿³ê!óí„ÃÔPCàKŒ)Ä[˜&F`ôA–i Á',
-          'p' => 'ÖÈÚ½‚W¦ÿe~%ÂÔð±?zM¾JÑ{ÑLì,¶Z@tw‰òGPº…`/<Æ…ºÈÍïº!„õÀ)´ÞªHº ¿Ø6éàŸ¥CD¹åvK½\'ø6ûÄkÃÁûa­57ìžiSüSväÇ” I‰0=û­f—½M`Ç]ºØJÃ5%‚TÑ²Lœ˜¦NEÛýhÅ¥ög 6ü”æ‰ÛýÒÔçòdË¿Ì‰?FÍz¸B©ç[ŽâJÎ)œ€%ñ]–ÊÉÙ‹mî	J]}@[²ziùw2$´,õFåé’M“¬³*Z-DmÚ­ÕyTQ{„¾¦à	KÕÝwºÛæ}ªI',
-          'q' => 'Ñª»ŠÝò:X«
-Q¯Iê|2VÖUûdEFÙ“ü`	:eä#íÓÍ× î†À’Ú”!}Þ¹¦‡dŽåâI%hÅ.i¹ôê ìªö¸1Äœcÿ=y}ºßèïÚ=' . "\0" . '§ƒõbWEª¯öåèj®qJ#Fá}d’h%(éòº‘#î[\\U‚ïF²Ð"h"ªLw¨' . "\0" . '­™¾Ž  À	' . "\0" . 'Ò~³K¹¦_£8•}x¹Ö›®`déò—GM•í¬œŒ$þ—ØÎu®û¶.\\)²V[KZÎUÇs[¦¬&"díà.nÀ/‰\'ÕhOÑBô<yQó€!‰É/¾<0ÓF”?	i',
-          'dmp1' => 'S£
-‚*GöŸ‡Í>~;‡,hù ÈÒ>…ù#I!°8œNëÖÑ±³çÚªÑøßPëœŠÕ®®.ð-k}±1.DZÀª)aq<ÁO\\™ÍréWTõŽ£”¢îLµ—œ(À·¢s' . "\0" . '(øùøë›÷«LÍ–+õrc«ÑŽßïüäY\\“z|èËrž}1\\ï0ø§û—úÙÈIñFÈŽÀ¸¶.ŒßôGßÙFí&47ƒOö–„ÈvÑ­.»àoCåVqTwÆ:Þs­3¶ôÜãôl!í^¨(o«U°P$™d(Út§$š=ªQË“%½é',
-          'dmq1' => '}Øœ`’b½ÏTxÍ¤²+xF2h<î¯mÈÿZ‚ ãˆ4˜ÏGjB¨|ur' . "\0" . '| Ëúîú’ž_¶†X,ÚÈºJÕ~`6½ÂÇf‡KÓÉ‚Áÿé UäŠgtûV53MÁ¦ïœ|Ò(Æ4u¯*ËûyMìÄ©nùNá˜®<|Iû²ü¯ÈmùCõDù¨OÚ2›&/¥VØü°…9q¬ü=5´RÉÜ	\\]\\÷[œù›µB?L\'ÈÑöuï¼T|p8¯Àžÿ0$faí“i.ª‚àÿ›äÐBX]—ÕÛ«+5r¡"­Ã;&ÿ]:ûA',
-          'iqmp' => 'Æb|uâÑOgÌi£‹VvhçYÅëcykˆœy#­˜*×)¡Œ^‚@ßY÷±à#ýˆÇæ¬&øðlW' . "\0" . '÷BÄŸW‰‚þ½\'»‘&½~õ*èéÜ%ü>×­Qêz†´ùkM¬’Ñg<<!üÒ1†ÕJÚnØæôy˜Êíæ2éÒhzIáxäÜw¤K]¯ö9%Î–~,i;j«˜#A’)õ5.A4Á«˜\'ðð´ŽLc¢¼¼Ø¨r£hG]¶®Ås¤' . "\0" . 'Òs¤÷Iªëë«ÏÞwSnÓ}jÆf0Žaÿ„$•Ý÷
-¦„ò`ÓÆ£ÚB„þš/p´Ç¨ÍèÏü',
+          'd' => '#Èµ‹Ëu3a>Ë8¦­ðA¸?*”êù¼ƒkS×“ýØÊû—CZŸ-½©&º-ÑrþƒÌöÑ˜õ<JÉ^«Ä>lßæo©!îä]^L6œqêz¶DT@DýÉz~¯0ÿ4EÐ-@¤½æ×ïr™¹õ‚td<ù¦pùÂ2ÿ³ï•¼!/áj1{¼X>:d:D‚BTÎfÕ« 2Z‡@I])àiðœÒó¶„ŸÄ,zï“ûoÆ•˜=ïÚåÈz[ÈÊØÆ!š>œØ`]®¼ê×inCÝê‚e‰|HÚ%ÆeÒ†ùoxÏI' . "\0" . ',Â™µÍÙëò¾Ii',
+          'p' => 'ìSnuÄäDõ|O2¡\'P3<7UÉëiˆXð‰MÅ¹;EQËvJ·	?˜‰žQ
+ŒýWä¿CíUoðBm-¸ù³ø¨5LEÃ¢x[z•)¶½5ä¨ G%"S´ßûÝ x-ë#Þ˜Id.D&®SÍˆ×Lñ¤÷Î\'',
+          'q' => 'ãÜ3Íó`ü‡‚úæ¿Þ%‚/
+o‚K`i‹áŠ3·©öRYo˜×ØÂ~y®X:Æ@À›-úÕqÖ:ê[¬Îˆ1”"ÐZÀ8hßìåH#‰ü’4¼‘”¶ 0Á{×TµV1­Ú^)·sÐ%œ±u||¿
+N)\'ÝÉí',
+          'dmp1' => '[Ö`J«äùW\\£zM]õ°¡‹mžj8n7«cé¾}æOFüªè&Sìw.MÎ }ý$FÂKìv^8¡s€œäóÉ5”9‚IW¶)ßH·ôôÂk†IÁe¼"	ÉìÖnW³”Mˆ5!öcí~Ã%úÿOktŒ²La-)Ý…°€WŒi',
+          'dmq1' => 'u{ÿ2ë0s”2%ù´bõzÖÔQJßÙ6D€”q¨5a4˜’ƒ4œÛGb|äO•Ë' . "\0" . '“9à¢…V-¿³0$B:ÅE7D§¾>eqÇ:ñ–«rý¨É+¨åM¹Ö¦gëpç2+´8 ‹Ü›Éæn»`—Þ?1¢Z¯jaàíê ™b\\=',
+          'iqmp' => '!Ô»öÍ*HøUUê+ŽÙpŽã¾à/.OpÃUóÌp
+€àõ’¦µ€?šr{ãé¡ç¨¾|^!ôù±4.ÝÉùNè—¥A¯€è ÁaàZC]Å]k¼AÞ²·ÂŠ›‹ÇÍ†¿6ì}¦k>ÕF÷Ÿæ½$ç=I­Ùëß†TšÐºS”',
         ),
         'type' => 0,
       ),
       'hex' => 
       array (
-        'n' => 'afe9394ee295059c755efc54ef3432641f337fd6c40e4aba80f9f7f5c72bd3fee5d9e57d62842f7c8396c491fa783dfd7600c8d6fdf37d04fc8b77bd88d9375532c5573e9472a62a6202da0135b188ff7c61cb2aad440a9bbe06757a9b969c5c3d21a4b8c28b363f57463053b368624c1345516b555a99bf20b6e33ae140d870b8b1cff5785098e70781a892d9893e539d75c8b935683b359d45b422b38813a39b2f39dd0c084e450c1199f7b963ed301f8769c991e856f4980a162f0db780996939788b944903c62b3d20fa315265ddf836410864cf6eb9df6b1ea653a979020ee3fd099b8a7b6f8d4f5c6868438c9ff94d1e44e9bc6a3395100d3d4b3419af5404da7f0dae5845f1ab08b0b19a8e50ecea02a39f68b7138ade4cbbe7987b1575b1af025d1ec54131d6282efb0178bf7ff67da03316b9f5eda7c49f1ffd1c296e6bcdaa6f89e7bf0d82208e1e5ded8e59deb8e42f85958719229a79f50fef0f4265e4f8050a0a28cabb1f69d3c0c10485cb9393b0736cd4594c4281c202d908c53210cce0f8a5c287ff9efe95db12d390bd987bc8914e53c9898f574e5d7083a6cc50900663b40166ad7a761284517797546a069159f0e326a056b7b97342e808aede9dc17a753d6a6257b31738223db5740aba932eb6ce7024e821df91fceeb99d92b01127fdf7c211d2d049c71adab8d8081d94fa0a334958d6a1107e68f1',
+        'n' => 'd259427818f2d7c4729537418a1f46314499202dc6cde374bd0f56f04de7c32da375e5271f71815d6a4ca37178dd5ebccccd90cf97a944d9a52d2918fcf2547c9202f18735544a244f9daaf3b847fd7279792f217999e3b9294f0068bca19dc89956ebbb357b5e6943f90b024b1256eed06fd1da89ef57b5800022b025cada6ee2c9ffee97aad3d19cf4a6d607e0865fc1cfe143d25c320ebdb8cfb76dbe28045b22c4c984430c4a66c5e4dd898efd846345b6b2fbafbbf5b495fdfad6fa55a1927c86488269d82240ad870e75b2b56d7c757515a96cd484c68edd5b0b8f0b463b6b90047a86687e27903cf0615e5a7584f80b6066adef5a43a818ca2ef1791b',
         'e' => '010001',
-        'd' => '31733777f47bfddad0a7c5f93e5107055c3c06e8e1ae3ed594e23011384f1ac621e911f920539661c34003bc2193e1a139a5d8cf8f0dfe8c034e5577c35b84917fb737e250aab6095e09fd2cafe25b67ae98731b691fa277cb8057500322e08b9167bebd6d7ae2e2056fa6b030d3dc261498bcdd965de4b074cad4afbd9893ff83fc0040b9f4b636e3c650140ff0e3c36f9527bae0c78f357023a312ca332b8a275aac42765a735e37994f15f358a2d98f536aaa8e48a90113286aba097a173d88f5edec16e03b9e5e934d8ce786893a4fc7389ada73f16570e7d4f2debbda5778c62060ae07ccd13c011e31ff7555b7b6c636071b49aaf51b272b019afd676689bf4954cd4be07afa8fc7cd00ccafabfe811c6f5fcefaf76dfc34cd40ada36303ddb66de1ee0b4aaa0cf064e58a411ce58fa2ef985b764c35f3e144683f700fd7769a1721ac0ec85015bb544050ea9aa159be14399b37301f0e10d30d5abbfe24e9fef799f080a4b6fcd40ce8b045e7e61ffd5b02238a5c7596d20a2470a7638052fe9c3cdddea5619d0b86fe567381520238b39b2586fc18bbd123628ffa281c22ab06f5dfe7196b65193dfe974d55484af85209f8ac53e3f1b8c807f6c4db4b391f5a75b20cb058a135aa05607ee2c29892337392911396f15ab4065270ad04bf0db3ea2181f3ed84c3d450431a8de04b8c29c45b98264660f4419669a0c1',
-        'p' => 'd6c8dabd1f82577fa6ff651b7e25c2d4f0b13f7a4dbe4ad17bd14cec2cb65a40747789f247500cba85602f3cc6851f04bac8cdefba2184f5c00e29b4de1faa48ba1fa0bfd836e9e01d9f1403a54344b9e5764bbd1827f836fbc46bc3c110fb61ad3537ec9e6953fc5376e4c794a04989303dfbad6697bd4d60c75dbad84ac335258254d1b24c9c98a6164e45dbfd681ac5a5f6672036fc94e689dbfd1dd2d4e7f264cbbfcc893f46cd7ab81a42a9e75b8e1de24ace299c8025f15d960bcac9d98b6dee094a5d7d405bb2187a69f9773224b42c90f59d46e5e9924d8f93acb32a5a2d446ddaad0fd5795451177b84bea602e009010e4bd5dd77ba8fdbe67daa49',
-        'q' => 'd1aabb8addf23a58ab0a51af49ea7c13320d56d67f55fb644546d993fc60093a65e423edd3cdd7a0ee86c092da94217ddeb9a687648ee5e21e492568c52e691e9db98df41cea20ecaaf6b831c49c63ff3d791f7d7fbadf08e8efda3d00a783f5620d5745aaaff601e508e86aae714a2346e17d1f6492682528e9f2ba91231207ee5b5c5582ef1346b2d02268220caa0b4c77a800ad8199be8ea020c00900d27eb34bb9a65fa338957d781e18b9d69bae606415e9f297474d95edac9c8c24fe97d8ce758daefb07b6812e5c29b2565b4b5a90ce55c7730d5ba6ac262264ede02e6ec02f89270cd5684fd142f43c7951f3802189c92fbe7f3c1730d346943f0969',
-        'dmp1' => '53a3030a822a8f47f60f9d9f870fcd3e7e3b872c68f9a0c8d21e3e85f9234921b0389c4eebd6101ed1b112b3e7da0eaa18d1f8df50eb9c8ad5aeae2ef010048f2d6b037db104312e445a9dc08daa14290f61713cc11b4f5c99cd72e95754f58ea39405a2ee4cb5979c28c00db7a2730028f8f9f81beb1a9bf703ab4c06cd96162bf5047263abd18edf9deffce41d595c937a7ce8cb729e089d7d315cef301a17f81ba7fb97fa19d9c849f146c88ec0b8b62e8cdff447dfd946ed263437834ff69684c81c7608d1ad2e07bbe06f43e556715477c63ade73ad33b6f4dce3f46c1021ed5ea8286f1bab5503b05024991c6428da74a7249a033daa51cb9325bde981',
-        'dmq1' => '0b7dd8199c60926219bdcf0c5478cda41fb22b784632683ceeaf1b6dc8ff5a8220e3883498cf476a42a890157c7572007c1ca0cbfaeefa1a929e5fb686582cdac8ba4ad57e6036bdc20113c766874bd3c982c1ff16e91f2055e40f8a1867160c74fb5635334dc1a608ef9c0d7cd228c6163475af2acbfb794decc4a9051b6ef9904ee198ae3c7c49fbb2fcafc86df943f544f9a84fda329b07262fa556d8fcb085133971acfc3d35b452c91381dc095c5d5c1ef75b9c7f03f99bb5423f4c27c81ad1f60f75efbc547c70160d130138afc09eff30246661ed0c0d93697f2eaa82e0ff179be4d00742585d97d5db1aab2b3572a122adc33b2607ff5d15193afb41',
-        'iqmp' => 'c61019627c75e20cd14f67cc690ba38b567668e759c5eb63796b889c9d792313ad982ad729a18c5e8240df59f7b1e023fd88c7e6ac0326f817f0036c5700f742c49f57190c8982febd27bb917f7f8126bd7ef52ae8e9dc25fc3ed7ad1f51ea7a86b4f90b6b4dac92d1673c3c21fcd2318614d54ada076ed81ee6f47998ca7fede632e9d2687a49e178e40fdc77a44b5daff639258fce961b7e2c69113b6aab9823419229f5352e4134c1ab981627f0f0b4048e4c637fa2bc0d1bbcd8a872a368475db618aec573a40e8100d273a4f749aaebebabcfde77536e11d37d6ac666308e61ff842495ddf7130aa684f260d3c6a3da4284fe9a132f70b4c7a8cde8cffc',
+        'd' => '23c8b58b12cb7533613ecb38a613adf041b83f062a94ea05f907bc05836b5303d793fdd8cafb97435a0b119f032dbda926ba2dd172fe83ccf6d198f53c4ac95eabc43e6c7f0108dfe67f6f0ea921ee16e45d5e4c36909c71ea7a1b1ab644544044fdc97a7e9daf30ff3445d02d0f40a4bde6d7ef7299b9f5118274643cf9a670f9c232ff17b3ef95bc212fe16a03317bbc583e3a643a4482084254ce66d5aba0325a8740495d29e07f69f08f9cd2f3b6849fc42c9d7aef0e93fb6fc695983defdae5c87a135bc8cad816c621119a3e8f9cd8600d5daebcead7696e43ddea8265897c0148da25c665d286f96f7816cf140249002cc299b5cd8fd907ebf2be4969',
+        'p' => 'ec536e75c4e444f57c4f32a12750330e3c3755c9eb698858f0894dc5b93b4551cb764a14b7093f98899e06511f0a8cfd57e4bf81181e43ed556ff0426d2db8f9b37ff881a835114c45c3a2785b7a9505298fb6bd35e4a82047251a052253b411df11fbdd2078182deb8123de1c9849642e4426ae53cd88d74cf18fa410f7ce27',
+        'q' => 'e3dc33cdf3036081fc8782fae6bfde25821b2f0a6f824b60698be18a33b7a9f652596f98d7d8c2067e797fae583a13c64011c09b2d1ffad57114d67f3aea5bac0208ce88319422181cd05ac038681cdfec077fe548102389fc9234bc91940eb6a00d30c17bd754b55631adda5e29b773d0259cb1757c7c1cbf0a4e2927ddc9ed',
+        'dmp1' => '5bd6604aabe4f9575ca37a4d5df5b0a18b8d056d9e6a386e37ab63e9be7de6064f46fcaae82653ec772e4dce207dfd24468fc24bec8f765e38a173809ce4f3c9359439824957b60d29df48b7f4f4c20c6b8649c165bc2209c91c05ec90d66e57b3944d883521f66381ed817ec325faff4f6b748cb24c612d29dd85b080578c69',
+        'dmq1' => '75087bff32eb301d7394329d25f9b462f5817ad6d4514adfd93644809471a835613498921b83349cdb4712627ce44f95cb009339e0a285562dbfb33024158d423ac5453744a7be1f3e6571c73af196ab1872fda8c92ba8e54db9d6a667eb70e7322bb4381ca08bdc9bc9e66ebb6097de3f31a25aaf6a61e0edeaa01c99625c3d',
+        'iqmp' => '21d4bbf6cd152a48f85555ea2b8ed9708ee318be15e02f2e8d4f1870c355f3cc700a80e0f59205a6b5803f9a7f727be3e9a1e7a8be7c5e21f4f9b1342eddc9f94e8de897a54107af8011e8a0c161e05a435dc55d6bbc41deb2b7c28a9b8bc7cd86bf36ec7da66b12193ed546f79fe6bd1e24e73d49add9ebdf86549ad0ba5394',
+      ),
+    ),
+  ),
+  2 => 
+  array (
+    'result' => 
+    array (
+      'key' => 'OpenSSL key',
+      'array' => 
+      array (
+        'bits' => 2048,
+        'key' => '-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4TIqUYxpMhciWFFSFKdF
+PfpGKlyfk1Uv0RpfmTEgKbxZELV4r2tVTK6WtTVF+z+PK/w/YinncVRwN6PlC1W0
+W1OkHNJ9hoEqhAgI46Ts/1OHbqQIj6KTuMvpbw8yi8Vg1MjZ4+PNawgHNoYJvip9
+YM35dlb6b9bcbPXtIHv50VgIMLgIo9VtLBkHdQs9TPHkZzH+AmqZP9oe9wiMgvq3
+ipGz6ErhKOBzps0p9fyCUzTDgnfn1N9qjZX/b72S5naMYMlBkCuhCNYvfdM3zkYN
+Ay10YX+O3kVuzBsgNhj9rj0eiKTI4edTLaLtus20EaH71MiSz7DnKTRUJC4zARqy
+TwIDAQAB
+-----END PUBLIC KEY-----
+',
+        'rsa' => 
+        array (
+          'n' => 'á2*QŒi2"XQR§E=úF*\\Ÿ“U/Ñ_™1 )¼Yµx¯kUL®–µ5Eû?+ü?b)çqTp7£åU´[S¤Ò}†*„ã¤ìÿS‡n¤¢“¸Ëéo2‹Å`ÔÈÙããÍk6†	¾*}`ÍùvVúoÖÜlõí {ùÑX0¸£Õm,u=Lñäg1þj™?Ú÷Œ‚ú·Š‘³èJá(às¦Í)õü‚S4Ã‚wçÔßj•ÿo½’ævŒ`ÉA+¡Ö/}Ó7ÎF-taŽÞEnÌ 6ý®=ˆ¤ÈáçS-¢íºÍ´¡ûÔÈ’Ï°ç)4T$.3²O',
+          'e' => '' . "\0" . '',
+          'd' => 'YØlßÚ8BÎº¿¾³¹Áoo½õ5à"ùõ¸%Ìb:^w”mÐQØå3šú²	üzÁL\\¥o}Ò¥¾ÕþùÓñúØÆÓim:}›|†³Úå ðÅyPZ2ˆ÷´?å€«„rÂ$)Ùûgºtz¥sC/KŠšBKñ@ðÙký’áêZS	´·@+f(ÿN7Y›§Á{Æé´´u›D´¤K
+]pFˆç]$@ŸgZàgT²¿2ÿÎüéÐ6GH´êÒ«+?‘¬€ÈöáH–Œ¡x‹E:°©Swz\\sï‰“MH_RS¹ATÙÍÆc÷¤ÈÙžA/aÆœn=ÏõA',
+          'p' => 'ûäUC`:F·"µ-majûÕ(9ññç.²N	Xk|·`½ðFc¹¦‘™ˆ,‘1‚·kíëJx2¤' . "\0" . 'à¢~@bxwc"Ó|žu==¸-šktXˆ.>ÍØãµÜÃ œºÇÅo;Å¥3#T7n‡ë]ÑÃò4ÏI!',
+          'q' => 'äÞ¬+øAºøõnrºm«ÑýØÏGv5ŠA­|—È¦‚“ uÄÜ]ó™äµˆE4 I¥öë>R¨Hí¿š•$ ;]ç:˜
+X>	¡|×XHÑBc!‡gxrLÈnMdš7ÖÈ¨áþ' . "\0" . 'üCéÒ×»}RÑT`dÚU$K‰]o',
+          'dmp1' => 'Ì6QŽZM1¿wëX^>iäª40ºuœ&Ÿt¥+ÖV¦ÑªOüð‰ö:ù\\®iÁ\\8\\%/ŸrLè\\ÁYsñ¦êèK‚\'ÝåŽaæ$‹©	7‚*á`U\'ˆëAXž ¼#¥Ô1©{2Ð¶ÎA28ª!¡é>ÇÞxãa,ŸûÝ',
+          'dmq1' => 'DŸG<?Ée‡ìÊ÷ÜTCÛ
+£±2šß‘eµÅ‡·kù»áÑ^x[ù(Q\\ä¨äa9³Ù@ØSNEß“-`²ÞÿþÎ »©M ‘œ¤‘d½‚v­å‚™»\'fŸõ­Ö…b›3ºÿW«o÷äéäé@`N™Y¹·ƒE»uxu]',
+          'iqmp' => ')–ÖRÕ!·Âà~’zç5©Ç<G§ 9!œ2¤[dË{³ž(°O3Ú=öÿBKFnm.À
+rƒT¹}%­2’+<ý&ÃÐhà(T²ÎÃÐÖ?¡)‚H^I¿Î €Ì(mk§åÜ' . "\0" . '‹Ø ÿ‚§‡gsÞ’Æ‡Vîéxñlì‰“®ä',
+        ),
+        'type' => 0,
+      ),
+      'hex' => 
+      array (
+        'n' => 'e1322a518c6932172258515214a7453dfa462a5c9f93552fd11a5f99312029bc5910b578af6b554cae96b53545fb3f8f2bfc3f6229e771547037a3e50b55b45b53a41cd27d86812a840808e3a4ecff53876ea4088fa293b8cbe96f0f328bc560d4c8d9e3e3cd6b0807368609be2a7d60cdf97656fa6fd6dc6cf5ed207bf9d1580830b808a3d56d2c1907750b3d4cf1e46731fe026a993fda1ef7088c82fab78a91b3e84ae128e073a6cd29f5fc825334c38277e7d4df6a8d95ff6fbd92e6768c60c941902ba108d62f7dd337ce460d032d74617f8ede456ecc1b203618fdae3d1e88a4c8e1e7532da2edbacdb411a1fbd4c892cfb0e7293454242e33011ab24f',
+        'e' => '010001',
+        'd' => '59d86cdfda38421eceba13bfbeb3b9c16f6fbd08f5358fe022f9f5b825cc623a5e0277946dd051d8e533059afa8fb21d09fc7ac14c5ca56f7dd20516a5be0cd5fef9d3f1fad8c601d3696d3a7d9b7c86b3dae5a0f0c579505a3288f7b43fe580ab8472c22429d990fb67ba747aa5731e432f4b128a9a424bf140f0d96bfd1092e1ea5a5309b4b71d402b6628ff8d4e37599ba7c17bc618e9b4b4759b44b4a44b160a5d704688e70e5d24409f67135ae06754b2bf32ffcefce9d036074748b418ead2ab0e2b3f91ac80c8f6e1481b96178ca1788b90453ab0a953777a5c73ef891f931a054d485f5253b94154d9cdc663f7a4c8d99e412f61c69c6e3dcff51b41',
+        'p' => 'fbe4015543603a46b722b52d6d616afbd52839f1f1e72eb24e09586b7cb760bdf04663b9a69d91998801172c913182b76bedeb4a0b789d32a41000e0a2147e40628178776322d37c9e753d1b3db80f1c2d9a126b1a7458882e3ecdd80c060ee3b59ddcc3a09cbac7c56f3b1ac515a533231b54376e87eb5dd18fc3f234cf4921',
+        'q' => 'e4deac2bf841baf807f56e0572ba6dabd1fdd8cf4776358a41ad7c97c8a68293a0127f75c408dc035df399e4b588451c34a049a5f6eb3e0f52a848edbf9a1e9524203b5de73a980a583e09a17c12d758481bd1420d632187076778720b4cc86e4d649a3718d6c8a8e1fe00fc43e9d2d7bb7d52d190540b6064da55244b895d6f',
+        'dmp1' => 'cc36518e5a8d4d31bf8f77eb585e3e69e4aa34301eba1a759c269f74a52bd656a6d1aa4ffcf089f63af9075cae69c15c0b385c252f9f9d724ce85c8dc15973f1a6eae84b8227dde58e61e6248ba90937031182152ae160552788eb41589e20bc23a5d43115a97b1432d0b6ce41320738aa21a1e93ec71ade78e3612c9ffbdd81',
+        'dmq1' => '449f473c3fc96587eccaf7dc06544381db0aa3b1329a0cdf9165b50fc587b76b0ff9bbe1d18f5e785bf928515ce4a8e4161b6139b3d940d8534e45df932d60b2130cdefffecea0bba94da0919ca4019164bd8276ad90e5829903bb27669ff510ad7fd685629b33baff57ab6ff7e4e9e4e940604e9959b9b78345bb759078755d',
+        'iqmp' => '29961912d652d521b7c2e07e927ae735a9c73c47a7a039219c32a45b64cb7bb39e28b04f33da3df6ff4205184b469d6e6d2ec00a728354b97d250fad32928f2b3cfd26c3d068e02854b2cec3d0d63fa102298248145e49bfce2080cc286d1d6ba7e51ddc008bd820ff0b82a7876773de92c6870856eee978f16cec8993ae04e4',
+      ),
+    ),
+  ),
+  3 => 
+  array (
+    'result' => 
+    array (
+      'key' => 'OpenSSL key',
+      'array' => 
+      array (
+        'bits' => 2048,
+        'key' => '-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0llCeBjy18RylTdBih9G
+MUSZIC3GzeN0vQ9W8E3nwy2jdeUnH3GBXWpMo3F43V68zM2Qz5epRNmlLSkY/PJU
+fJIC8Yc1VEokT52q87hH/XJ5eS8heZnjuSlPAGi8oZ3ImVbruzV7XmlD+QsCSxJW
+7tBv0dqJ71e1gAAisCXK2m7iyf/ul6rT0Zz0ptYH4IZfwc/hQ9JcMg69uM+3bb4o
+BFsixMmEQwxKZsXk3YmO/YRjRbay+6+79bSV/frW+lWhknyGSIJp2CJArYcOdbK1
+bXx1dRWpbNSExo7dWwuPC0Y7a5AEeoZofieQPPBhXlp1hPgLYGat71pDqBjKLvF5
+GwIDAQAB
+-----END PUBLIC KEY-----
+',
+        'rsa' => 
+        array (
+          'n' => 'ÒYBxò×Är•7AŠF1D™ -ÆÍãt½VðMçÃ-£uå\'q]jL£qxÝ^¼ÌÍÏ—©DÙ¥-)üòT|’ñ‡5TJ$Oªó¸Gýryy/!y™ã¹)O' . "\0" . 'h¼¡È™Vë»5{^iCùKVîÐoÑÚ‰ïWµ€' . "\0" . '"°%ÊÚnâÉÿî—ªÓÑœô¦Öà†_ÁÏáCÒ\\2½¸Ï·m¾(["ÄÉ„CJfÅäÝ‰Žý„cE¶²û¯»õ´•ýúÖúU¡’|†H‚iØ"@­‡u²µm|uu©lÔ„ÆŽÝ[F;kz†h~\'<ða^Zu„ø`f­ïZC¨Ê.ñy',
+          'e' => '' . "\0" . '',
+        ),
+        'type' => 0,
+      ),
+      'hex' => 
+      array (
+        'n' => 'd259427818f2d7c4729537418a1f46314499202dc6cde374bd0f56f04de7c32da375e5271f71815d6a4ca37178dd5ebccccd90cf97a944d9a52d2918fcf2547c9202f18735544a244f9daaf3b847fd7279792f217999e3b9294f0068bca19dc89956ebbb357b5e6943f90b024b1256eed06fd1da89ef57b5800022b025cada6ee2c9ffee97aad3d19cf4a6d607e0865fc1cfe143d25c320ebdb8cfb76dbe28045b22c4c984430c4a66c5e4dd898efd846345b6b2fbafbbf5b495fdfad6fa55a1927c86488269d82240ad870e75b2b56d7c757515a96cd484c68edd5b0b8f0b463b6b90047a86687e27903cf0615e5a7584f80b6066adef5a43a818ca2ef1791b',
+        'e' => '010001',
+      ),
+    ),
+  ),
+  4 => 
+  array (
+    'result' => 
+    array (
+      'key' => 'OpenSSL key',
+      'array' => 
+      array (
+        'bits' => 2048,
+        'key' => '-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0llCeBjy18RylTdBih9G
+MUSZIC3GzeN0vQ9W8E3nwy2jdeUnH3GBXWpMo3F43V68zM2Qz5epRNmlLSkY/PJU
+fJIC8Yc1VEokT52q87hH/XJ5eS8heZnjuSlPAGi8oZ3ImVbruzV7XmlD+QsCSxJW
+7tBv0dqJ71e1gAAisCXK2m7iyf/ul6rT0Zz0ptYH4IZfwc/hQ9JcMg69uM+3bb4o
+BFsixMmEQwxKZsXk3YmO/YRjRbay+6+79bSV/frW+lWhknyGSIJp2CJArYcOdbK1
+bXx1dRWpbNSExo7dWwuPC0Y7a5AEeoZofieQPPBhXlp1hPgLYGat71pDqBjKLvF5
+GwIDAQAB
+-----END PUBLIC KEY-----
+',
+        'rsa' => 
+        array (
+          'n' => 'ÒYBxò×Är•7AŠF1D™ -ÆÍãt½VðMçÃ-£uå\'q]jL£qxÝ^¼ÌÍÏ—©DÙ¥-)üòT|’ñ‡5TJ$Oªó¸Gýryy/!y™ã¹)O' . "\0" . 'h¼¡È™Vë»5{^iCùKVîÐoÑÚ‰ïWµ€' . "\0" . '"°%ÊÚnâÉÿî—ªÓÑœô¦Öà†_ÁÏáCÒ\\2½¸Ï·m¾(["ÄÉ„CJfÅäÝ‰Žý„cE¶²û¯»õ´•ýúÖúU¡’|†H‚iØ"@­‡u²µm|uu©lÔ„ÆŽÝ[F;kz†h~\'<ða^Zu„ø`f­ïZC¨Ê.ñy',
+          'e' => '' . "\0" . '',
+          'd' => '#Èµ‹Ëu3a>Ë8¦­ðA¸?*”êù¼ƒkS×“ýØÊû—CZŸ-½©&º-ÑrþƒÌöÑ˜õ<JÉ^«Ä>lßæo©!îä]^L6œqêz¶DT@DýÉz~¯0ÿ4EÐ-@¤½æ×ïr™¹õ‚td<ù¦pùÂ2ÿ³ï•¼!/áj1{¼X>:d:D‚BTÎfÕ« 2Z‡@I])àiðœÒó¶„ŸÄ,zï“ûoÆ•˜=ïÚåÈz[ÈÊØÆ!š>œØ`]®¼ê×inCÝê‚e‰|HÚ%ÆeÒ†ùoxÏI' . "\0" . ',Â™µÍÙëò¾Ii',
+          'p' => 'ìSnuÄäDõ|O2¡\'P3<7UÉëiˆXð‰MÅ¹;EQËvJ·	?˜‰žQ
+ŒýWä¿CíUoðBm-¸ù³ø¨5LEÃ¢x[z•)¶½5ä¨ G%"S´ßûÝ x-ë#Þ˜Id.D&®SÍˆ×Lñ¤÷Î\'',
+          'q' => 'ãÜ3Íó`ü‡‚úæ¿Þ%‚/
+o‚K`i‹áŠ3·©öRYo˜×ØÂ~y®X:Æ@À›-úÕqÖ:ê[¬Îˆ1”"ÐZÀ8hßìåH#‰ü’4¼‘”¶ 0Á{×TµV1­Ú^)·sÐ%œ±u||¿
+N)\'ÝÉí',
+          'dmp1' => '[Ö`J«äùW\\£zM]õ°¡‹mžj8n7«cé¾}æOFüªè&Sìw.MÎ }ý$FÂKìv^8¡s€œäóÉ5”9‚IW¶)ßH·ôôÂk†IÁe¼"	ÉìÖnW³”Mˆ5!öcí~Ã%úÿOktŒ²La-)Ý…°€WŒi',
+          'dmq1' => 'u{ÿ2ë0s”2%ù´bõzÖÔQJßÙ6D€”q¨5a4˜’ƒ4œÛGb|äO•Ë' . "\0" . '“9à¢…V-¿³0$B:ÅE7D§¾>eqÇ:ñ–«rý¨É+¨åM¹Ö¦gëpç2+´8 ‹Ü›Éæn»`—Þ?1¢Z¯jaàíê ™b\\=',
+          'iqmp' => '!Ô»öÍ*HøUUê+ŽÙpŽã¾à/.OpÃUóÌp
+€àõ’¦µ€?šr{ãé¡ç¨¾|^!ôù±4.ÝÉùNè—¥A¯€è ÁaàZC]Å]k¼AÞ²·ÂŠ›‹ÇÍ†¿6ì}¦k>ÕF÷Ÿæ½$ç=I­Ùëß†TšÐºS”',
+        ),
+        'type' => 0,
+      ),
+      'hex' => 
+      array (
+        'n' => 'd259427818f2d7c4729537418a1f46314499202dc6cde374bd0f56f04de7c32da375e5271f71815d6a4ca37178dd5ebccccd90cf97a944d9a52d2918fcf2547c9202f18735544a244f9daaf3b847fd7279792f217999e3b9294f0068bca19dc89956ebbb357b5e6943f90b024b1256eed06fd1da89ef57b5800022b025cada6ee2c9ffee97aad3d19cf4a6d607e0865fc1cfe143d25c320ebdb8cfb76dbe28045b22c4c984430c4a66c5e4dd898efd846345b6b2fbafbbf5b495fdfad6fa55a1927c86488269d82240ad870e75b2b56d7c757515a96cd484c68edd5b0b8f0b463b6b90047a86687e27903cf0615e5a7584f80b6066adef5a43a818ca2ef1791b',
+        'e' => '010001',
+        'd' => '23c8b58b12cb7533613ecb38a613adf041b83f062a94ea05f907bc05836b5303d793fdd8cafb97435a0b119f032dbda926ba2dd172fe83ccf6d198f53c4ac95eabc43e6c7f0108dfe67f6f0ea921ee16e45d5e4c36909c71ea7a1b1ab644544044fdc97a7e9daf30ff3445d02d0f40a4bde6d7ef7299b9f5118274643cf9a670f9c232ff17b3ef95bc212fe16a03317bbc583e3a643a4482084254ce66d5aba0325a8740495d29e07f69f08f9cd2f3b6849fc42c9d7aef0e93fb6fc695983defdae5c87a135bc8cad816c621119a3e8f9cd8600d5daebcead7696e43ddea8265897c0148da25c665d286f96f7816cf140249002cc299b5cd8fd907ebf2be4969',
+        'p' => 'ec536e75c4e444f57c4f32a12750330e3c3755c9eb698858f0894dc5b93b4551cb764a14b7093f98899e06511f0a8cfd57e4bf81181e43ed556ff0426d2db8f9b37ff881a835114c45c3a2785b7a9505298fb6bd35e4a82047251a052253b411df11fbdd2078182deb8123de1c9849642e4426ae53cd88d74cf18fa410f7ce27',
+        'q' => 'e3dc33cdf3036081fc8782fae6bfde25821b2f0a6f824b60698be18a33b7a9f652596f98d7d8c2067e797fae583a13c64011c09b2d1ffad57114d67f3aea5bac0208ce88319422181cd05ac038681cdfec077fe548102389fc9234bc91940eb6a00d30c17bd754b55631adda5e29b773d0259cb1757c7c1cbf0a4e2927ddc9ed',
+        'dmp1' => '5bd6604aabe4f9575ca37a4d5df5b0a18b8d056d9e6a386e37ab63e9be7de6064f46fcaae82653ec772e4dce207dfd24468fc24bec8f765e38a173809ce4f3c9359439824957b60d29df48b7f4f4c20c6b8649c165bc2209c91c05ec90d66e57b3944d883521f66381ed817ec325faff4f6b748cb24c612d29dd85b080578c69',
+        'dmq1' => '75087bff32eb301d7394329d25f9b462f5817ad6d4514adfd93644809471a835613498921b83349cdb4712627ce44f95cb009339e0a285562dbfb33024158d423ac5453744a7be1f3e6571c73af196ab1872fda8c92ba8e54db9d6a667eb70e7322bb4381ca08bdc9bc9e66ebb6097de3f31a25aaf6a61e0edeaa01c99625c3d',
+        'iqmp' => '21d4bbf6cd152a48f85555ea2b8ed9708ee318be15e02f2e8d4f1870c355f3cc700a80e0f59205a6b5803f9a7f727be3e9a1e7a8be7c5e21f4f9b1342eddc9f94e8de897a54107af8011e8a0c161e05a435dc55d6bbc41deb2b7c28a9b8bc7cd86bf36ec7da66b12193ed546f79fe6bd1e24e73d49add9ebdf86549ad0ba5394',
       ),
     ),
   ),
