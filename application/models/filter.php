@@ -63,6 +63,26 @@ class filter extends object
         return $callback_name;
     }
 
+    function filter_certificate($arg_name)
+    {
+        if (! $this->_function_params->param_exists($arg_name)) {
+             return null;
+        }
+
+        $certificate = $this->_function_params->get_param($arg_name);
+
+        if (! is_string($certificate)) {
+            // the file name is not a string, this will be caught by the function itself
+            return $certificate;
+        }
+
+        if (preg_match('~^file://~', $certificate)) {
+            $this->_filter->is_temp_filename($certificate);
+        }
+
+        return $certificate;
+    }
+
     function filter_closure_callback($closure_name)
     {
         $closure_name = substr($closure_name, 1);
@@ -270,11 +290,9 @@ class filter extends object
         $filename = preg_replace('~^file://~', '', $filename);
         $temp_dir = sys_get_temp_dir() . DIRECTORY_SEPARATOR;
 
-        if (! substr($filename, 0, strlen($temp_dir) != $temp_dir)) {
+        if (substr($filename, 0, strlen($temp_dir)) != $temp_dir) {
             $message = $this->_message_translation->translate('the file must be a temporary file in this example');
             throw new Exception($message, E_USER_WARNING);
         }
-
-        return true;
     }
 }

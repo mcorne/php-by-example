@@ -63,13 +63,9 @@ class openssl_pkey_get_private extends openssl_pkey_new
 
     function pre_exec_function()
     {
-        $key = $this->_filter->filter_arg_value('key', false);
-
-        if (is_string($key) and preg_match('~^file://~', $key)) {
-            $this->_filter->is_temp_filename($key);
-        }
-
         $this->copy_file_to_temp('private-key.pem');
         $this->copy_file_to_temp('private-key-with-pass.pem');
+
+        $this->_filter->filter_certificate('key');
     }
 }

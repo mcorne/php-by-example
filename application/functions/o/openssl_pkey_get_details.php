@@ -123,12 +123,13 @@ class openssl_pkey_get_details extends function_core
         $this->copy_file_to_temp('public-key-with-pass.pem');
 
         $function = $this->_filter->filter_arg_value('__function');
-        $certificate = $this->_filter->filter_arg_value('certificate');
 
         if ($function == 'openssl_pkey_get_public') {
+            $certificate = $this->_filter->filter_arg_value('certificate');
             $this->returned_params['key'] = openssl_pkey_get_public($certificate);
 
         } elseif ($function == 'openssl_pkey_get_private') {
+            $certificate = $this->_filter->filter_certificate('certificate');
             $passphrase  = $this->_filter->filter_arg_value('passphrase');
             $this->returned_params['key'] = openssl_pkey_get_private($certificate, $passphrase);
 
