@@ -29,7 +29,7 @@ class get_browser extends function_core
     public $source_code = '
         inject_function_call
 
-        // displays the HTTP User Agent
+        // shows the HTTP User Agent
         $http_user_agent = $_SERVER["HTTP_USER_AGENT"];
     ';
 

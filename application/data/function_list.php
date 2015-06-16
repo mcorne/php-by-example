@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-05-13T11:20:11+00:00
+// generated automatically 2015-06-16T11:14:40+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -116,6 +116,8 @@ return array (
   'ctype_xdigit' => 'ctype_xdigit',
   'current' => 'current',
   'date' => 'date',
+  'date_default_timezone_get' => 'date_default_timezone_get',
+  'date_default_timezone_set' => 'date_default_timezone_set',
   'date_sun_info' => 'date_sun_info',
   'date_sunrise' => 'date_sunrise',
   'date_sunset' => 'date_sunset',
@@ -200,6 +202,7 @@ return array (
   'gethostbyname' => 'gethostbyname',
   'gethostbynamel' => 'gethostbynamel',
   'gethostname' => 'gethostname',
+  'getimagesize' => 'getimagesize',
   'getlastmod' => 'getlastmod',
   'getmxrr' => 'getmxrr',
   'getmygid' => 'getmygid',
@@ -257,6 +260,15 @@ return array (
   'gmp_testbit' => 'gmp_testbit',
   'gmp_xor' => 'gmp_xor',
   'gmstrftime' => 'gmstrftime',
+  'grapheme_extract' => 'grapheme_extract',
+  'grapheme_stripos' => 'grapheme_stripos',
+  'grapheme_stristr' => 'grapheme_stristr',
+  'grapheme_strlen' => 'grapheme_strlen',
+  'grapheme_strpos' => 'grapheme_strpos',
+  'grapheme_strripos' => 'grapheme_strripos',
+  'grapheme_strrpos' => 'grapheme_strrpos',
+  'grapheme_strstr' => 'grapheme_strstr',
+  'grapheme_substr' => 'grapheme_substr',
   'gregoriantojd' => 'gregoriantojd',
   'hash' => 'hash',
   'hash_algos' => 'hash_algos',
