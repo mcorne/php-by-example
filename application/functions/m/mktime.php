@@ -19,18 +19,26 @@ require_once 'models/function_core.php';
 class mktime extends function_core
 {
     public $examples = [
-        [0, 0, 0, 7, 1, 2000],
-        [1, 2, 3, 4, 5, 2006],
-        [0, 0, 0, 12, 32, 1997],
-        [0, 0, 0, 13, 1, 1997],
-        [0, 0, 0, 1, 1, 1998],
-        [0, 0, 0, 1, 1, 98],
-        [0, 0, 0, 3, 0, 2000],
-        [0, 0, 0, 4, -31, 2000]
+        ['timezone' => 'UTC', 0, 0, 0, 7, 1, 2000],
+        ['timezone' => 'UTC', 1, 2, 3, 4, 5, 2006],
+        ['timezone' => 'UTC', 0, 0, 0, 12, 32, 1997],
+        ['timezone' => 'UTC', 0, 0, 0, 13, 1, 1997],
+        ['timezone' => 'UTC', 0, 0, 0, 1, 1, 1998],
+        ['timezone' => 'UTC', 0, 0, 0, 1, 1, 98],
+        ['timezone' => 'UTC', 0, 0, 0, 3, 0, 2000],
+        ['timezone' => 'UTC', 0, 0, 0, 4, -31, 2000]
+    ];
+
+    public $input_args = ['timezone'];
+
+    public $options_getter = [
+        'timezone' => ['DateTimeZone', 'listIdentifiers'],
     ];
 
     public $source_code = '
-        date_default_timezone_set("UTC");
+        date_default_timezone_set(
+            $timezone // string $timezone
+        );
 
         inject_function_call
 
@@ -48,6 +56,8 @@ class mktime extends function_core
 
     function pre_exec_function()
     {
-        date_default_timezone_set("UTC");
+        if ($timezone = $this->_filter->filter_arg_value('timezone')) {
+            date_default_timezone_set($timezone);
+        }
     }
 }

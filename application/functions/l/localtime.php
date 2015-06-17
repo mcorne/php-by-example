@@ -18,26 +18,41 @@ class localtime extends function_core
 {
     public $examples = [
         [
-            'time' => "2001-01-01 12:00:00",
+            'timezone'    => 'UTC',
+            'time'        => "2000-01-01 12:00:00",
             '$timestamp',
         ],
         [
-            'time' => "2001-01-01 12:00:00",
+            'timezone'    => 'UTC',
+            'time'        => "2000-01-01 12:00:00",
             '$timestamp',
             true,
         ],
         [
-            'time' => '',
-            0,
+            'timezone'    => 'UTC',
+            'time'        => '',
+            946728000, // 2000-01-01 12:00:00
             true,
         ],
         [
-            'time' => '',
+            'timezone'    => 'UTC',
+            'time'        => '',
         ],
+    ];
+
+    public $input_args = ['timezone'];
+
+    public $options_getter = [
+        'timezone' => ['DateTimeZone', 'listIdentifiers'],
     ];
 
     public $source_code = '
         // enter a $_time or a $_timestamp
+        
+        date_default_timezone_set(
+            $timezone // string $timezone
+        );
+
         $_timestamp = strtotime(
             $time // string $time
         );
@@ -47,10 +62,14 @@ class localtime extends function_core
 
     public $synopsis = 'array localtime ([ int $timestamp = time() [, bool $is_associative = false ]] )';
 
-    public $test_not_validated = [1, 2];
+    public $test_not_validated = 3;
 
     function pre_exec_function()
     {
+        if ($timezone = $this->_filter->filter_arg_value('timezone')) {
+            date_default_timezone_set($timezone);
+        }
+
         if ($time = $this->_filter->filter_arg_value('time')) {
             $this->returned_params['timestamp'] = strtotime($time);
         }

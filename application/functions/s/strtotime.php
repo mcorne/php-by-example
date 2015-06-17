@@ -17,17 +17,46 @@ require_once 'models/function_core.php';
 class strtotime extends function_core
 {
     public $examples = [
-            "now",
-            "10 September 2000",
-            "+1 day",
-            "+1 week",
-            "+1 week 2 days 4 hours 2 seconds",
-            "next Thursday",
-            "last Monday",
+        [
+            'timezone' => 'UTC',
+            'now',
+        ],
+        [
+            'timezone' => 'UTC',
+            '10 September 2000',
+        ],
+        [
+            'timezone' => 'UTC',
+            '+1 day',
+        ],
+        [
+            'timezone' => 'UTC',
+            '+1 week',
+        ],
+        [
+            'timezone' => 'UTC',
+            '+1 week 2 days 4 hours 2 seconds',
+        ],
+        [
+            'timezone' => 'UTC',
+            'next Thursday',
+        ],
+        [
+            'timezone' => 'UTC',
+            'last Monday',
+        ],
+    ];
+
+    public $input_args = ['timezone'];
+
+    public $options_getter = [
+        'timezone' => ['DateTimeZone', 'listIdentifiers'],
     ];
 
     public $source_code = '
-        date_default_timezone_set("UTC");
+        date_default_timezone_set(
+            $timezone // string $timezone
+        );
 
         inject_function_call
 
@@ -46,6 +75,8 @@ class strtotime extends function_core
 
     function pre_exec_function()
     {
-        date_default_timezone_set("UTC");
+        if ($timezone = $this->_filter->filter_arg_value('timezone')) {
+            date_default_timezone_set($timezone);
+        }
     }
 }

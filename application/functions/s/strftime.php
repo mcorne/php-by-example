@@ -20,45 +20,58 @@ class strftime extends function_core
 {
     public $examples = [
         [
-            'time' => "12/28/2002",
+            'timezone' => 'UTC',
+            'time'     => "12/28/2002",
             "%U,%Y",
             '$timestamp',
         ],
         [
-            'time' => "12/30/2002",
+            'timezone' => 'UTC',
+            'time'     => "12/30/2002",
             "%U,%Y",
             '$timestamp',
         ],
         [
-            'time' => "1/3/2003",
+            'timezone' => 'UTC',
+            'time'     => "1/3/2003",
             "%U,%Y",
             '$timestamp',
         ],
         [
-            'time' => "1/10/2003",
+            'timezone' => 'UTC',
+            'time'     => "1/10/2003",
             "%U,%Y",
             '$timestamp',
         ],
     ];
 
     public $source_code = '
-        date_default_timezone_set("UTC");
+        // enter a $_time or a $_timestamp
 
-        // returns a timestamp from a date
+        date_default_timezone_set(
+            $timezone // string $timezone
+        );
+
         $_timestamp = strtotime(
             $time // string $time
         );
 
         inject_function_call
-
-        // enter either a $_time or a timestamp
     ';
+
+    public $input_args = ['timezone'];
+
+    public $options_getter = [
+        'timezone' => ['DateTimeZone', 'listIdentifiers'],
+    ];
 
     public $synopsis = 'string strftime ( string $format [, int $timestamp = time() ] )';
 
     function pre_exec_function()
     {
-        date_default_timezone_set("UTC");
+        if ($timezone = $this->_filter->filter_arg_value('timezone')) {
+            date_default_timezone_set($timezone);
+        }
 
         $time = $this->_filter->filter_arg_value('time');
         $this->returned_params['timestamp'] = strtotime($time);

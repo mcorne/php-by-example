@@ -20,24 +20,28 @@ class datetime__add extends function_core
 {
     public $examples = [
         [
+            'timezone'      => 'UTC',
             'time'          => '2000-01-01',
             'interval_spec' => 'P10D',
             '$interval',
             'format'        => 'Y-m-d',
         ],
         [
+            'timezone'      => 'UTC',
             'time'          => '2000-01-01',
             'interval_spec' => 'PT10H30S',
             '$interval',
             'format'        => 'Y-m-d H:i:s',
         ],
         [
+            'timezone'      => 'UTC',
             'time'          => '2000-01-01',
             'interval_spec' => 'P7Y5M4DT4H3M2S',
             '$interval',
             'format'        => 'Y-m-d H:i:s',
         ],
         [
+            'timezone'      => 'UTC',
             'time'          => '2000-12-31',
             'interval_spec' => 'P1M',
             '$interval',
@@ -45,6 +49,7 @@ class datetime__add extends function_core
         ],
         // used in translations_in_action.php
         [
+            'timezone'      => 'UTC',
             'time'          => '2000-12-31',
             'interval_spec' => 'P2M',
             '$interval',
@@ -52,13 +57,23 @@ class datetime__add extends function_core
         ],
     ];
 
-    public $input_args = ['time', 'interval_spec'];
+    public $options_getter = [
+        'timezone' => ['DateTimeZone', 'listIdentifiers'],
+    ];
+
+    public $input_args = ['time', 'interval_spec', 'timezone'];
 
     public $source_code = '
-        date_default_timezone_set("UTC");
+        // enter a $_time or an $_interval_spec
+
+        date_default_timezone_set(
+            $timezone // string $timezone
+        );
+
         $datetime = new DateTime(
             $time // [string $time = "now"]
         );
+
         $_interval = new DateInterval(
             $interval_spec // string $interval_spec
         );
@@ -82,7 +97,10 @@ class datetime__add extends function_core
 
     function pre_exec_function()
     {
-        date_default_timezone_set('UTC');
+        if ($timezone = $this->_filter->filter_arg_value('timezone')) {
+            date_default_timezone_set($timezone);
+        }
+
         $this->returned_params['interval'] = $this->_filter->filter_date_interval('interval_spec');
         $this->object = $this->_filter->filter_date_time('time');
     }
