@@ -503,9 +503,6 @@ linkinfo
 
 locale_accept_from_http
 locale_canonicalize
-locale_compose
-locale_filter_matches
-locale_get_all_variants
 locale_get_default
 locale_get_display_language
 locale_get_display_name
@@ -520,7 +517,6 @@ locale_lookup
 locale_parse
 locale_set_default
 localeconv
-localtime
 
 lstat
 

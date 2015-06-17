@@ -1,11 +1,11 @@
 <?php
-// generated automatically 2015-01-22T16:03:27+00:00
+// generated automatically 2015-06-17T07:35:10+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'static' => 
+      'array' => 
       array (
         'acst' => 
         array (

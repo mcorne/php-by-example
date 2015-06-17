@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-06-16T11:14:40+00:00
+// generated automatically 2015-06-17T09:17:23+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -347,6 +347,13 @@ return array (
   'lcfirst' => 'lcfirst',
   'lcg_value' => 'lcg_value',
   'levenshtein' => 'levenshtein',
+  'locale__composelocale' => 'Locale::composeLocale',
+  'locale__filtermatches' => 'Locale::filterMatches',
+  'locale__getallvariants' => 'Locale::getAllVariants',
+  'locale_compose' => 'locale_compose',
+  'locale_filter_matches' => 'locale_filter_matches',
+  'locale_get_all_variants' => 'locale_get_all_variants',
+  'localtime' => 'localtime',
   'log' => 'log',
   'log10' => 'log10',
   'log1p' => 'log1p',

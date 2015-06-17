@@ -1,11 +1,11 @@
 <?php
-// generated automatically 2015-01-22T16:46:20+00:00
+// generated automatically 2015-06-17T07:35:26+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'static' => 
+      'array' => 
       array (
         0 => 'Africa/Abidjan',
         1 => 'Africa/Accra',
@@ -66,7 +66,7 @@ return array (
   array (
     'result' => 
     array (
-      'static' => 
+      'array' => 
       array (
         0 => 'Europe/Paris',
       ),

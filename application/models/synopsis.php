@@ -107,7 +107,7 @@ class synopsis extends object
             // note that the name of the return var is built by default on the type, eg "$int"
             $return_var = $match[1];
 
-        } elseif (preg_match('~^public ([a-z]+)~i', $this->synopsis_fixed, $match)) {
+        } elseif (preg_match('~^public (?:static )?([a-z]+)~i', $this->synopsis_fixed, $match)) {
             // the method returns a predefined type or an object
             $return_var = strtolower($match[1]);
 

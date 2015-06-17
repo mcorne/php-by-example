@@ -16,7 +16,13 @@ class output extends object
 {
     function _get_manual_function_name()
     {
-        $function_name = strtolower($this->_application->function_name);
+        if ($this->_function->manual_function_name) {
+            $function_name = $this->_function->manual_function_name;
+        } else {
+            $function_name = $this->_application->function_name;
+        }
+
+        $function_name = strtolower($function_name);
 
         if (strpos($function_name, '::')) {
             // this is a class method, replaces "::" with "."

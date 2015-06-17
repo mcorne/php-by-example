@@ -55,7 +55,7 @@ class function_configurator extends object
         return $function_name;
     }
 
-    function create_function_alias_config($alias_function_name, $original_function_name)
+    function create_function_alias_config($alias_function_name, $original_function_name, $method_name = null)
     {
         $format =
 '<?php
@@ -68,8 +68,15 @@ class function_configurator extends object
 
 require_once \'%1$s%2$s.php\';
 
+/**
+ * Function configuration
+ *
+ * @see docs/function-configuration.txt
+ */
+
 class %3$s extends %2$s
 {
+    %6$s
     public $synopsis = \'%4$s\';
 }
 ';
@@ -93,8 +100,18 @@ class %3$s extends %2$s
             throw new Exception("cannot parse function config synopsis for: $original_function_name");
         }
 
-        $synopsis = str_replace($original_function_name, $alias_function_name, $match[1]);
-        $config = sprintf($format, $include_file_prefix, $original_function_name, $alias_function_name, $synopsis, date('Y'));
+        if ($method_name) {
+            $synopsis = str_replace($method_name, $alias_function_name, $match[1]);
+            $synopsis = str_replace('public static ', '', $synopsis);
+            $manual_function_name = "public \$manual_function_name = '$method_name';\n";
+
+        } else {
+            $synopsis = str_replace($original_function_name, $alias_function_name, $match[1]);
+            $manual_function_name = null;
+        }
+
+        $config = sprintf($format,
+                $include_file_prefix, $original_function_name, $alias_function_name, $synopsis, date('Y'), $manual_function_name);
 
         return $config;
     }
@@ -223,8 +240,8 @@ class %s extends function_core
 
     function get_function_config_filename($function_name)
     {
-        $function_sub_directory = $function_name[0];
         $function_name = $this->convert_method_name($function_name);
+        $function_sub_directory = $function_name[0];
         $function_config_filename = __DIR__ . "/../application/functions/$function_sub_directory/$function_name.php";
 
         return $function_config_filename;
@@ -307,16 +324,23 @@ class %s extends function_core
 '
 Usage:
 config_function <c|r> <function-name|function-list|function-pattern> [synopsis-fixed]
+config_function a <procedure-name,method-name>
 
+-a               Create the config of a procedural type function, alias of a class method.
 -c               Create the function config.
 -r               Replace the function config.
-                 Use with caution as any manual changes in the config file
-                 will be replaced as well.
+                 Use with caution as any changes in the config file will be replaced as well.
 
 function-name    A function name, eg "abs" or "pdo.query".
 function-list    A comma separated list of functions, eg "sin,cos,tan".
 function-pattern A function pattern to match, eg "ctype_*".
                  Not available for class methods.
+
+procedure-name   A procedural type function name, eg "locale_compose".
+                 The function is meant to be an alias of a class method, eg "Locale::composeLocale",
+                 and does not have its own manual page.
+method-name      The class method name used to make the alias of the procedural type function,
+                 eg "Locale::composeLocale".
 
 synopsis-fixed   The fixed sysnopsis,
                  eg "string sprintf ( string $format , mixed $arg0 , mixed $arg1 [, mixed $... ] )"
@@ -329,6 +353,7 @@ config_function -r sort
 config_function -c sin,cos,tan
 config_function -c ctype_*
 config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixed $arg1 [, mixed $... ] )"
+config_function -a locale_compose,Locale::composeLocale
 ';
 
         return $help_message;
@@ -368,17 +393,42 @@ config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixe
         date_default_timezone_set('UTC');
         $option = ltrim($option, '-');
 
-        if (! in_array($option, ['c', 'r'])) {
+        if (! in_array($option, ['a', 'c', 'r'])) {
             throw new Exception($this->get_help());
         }
 
-        $function_manual_pagenames = $this->get_function_manual_pagenames($functions);
+        if ($option == 'a') {
+            $configs[] = $this->make_procedure_config($functions);
 
-        foreach ($function_manual_pagenames as $function_name => $function_manual_pagename) {
-            $configs[] = $this->make_function_config($option, $function_name, $function_manual_pagename, $synopsis_fixed);
+        } else {
+            $function_manual_pagenames = $this->get_function_manual_pagenames($functions);
+
+            foreach ($function_manual_pagenames as $function_name => $function_manual_pagename) {
+                $configs[] = $this->make_function_config($option, $function_name, $function_manual_pagename, $synopsis_fixed);
+            }
         }
 
+
         return $configs;
+    }
+
+    function make_procedure_config($procedure)
+    {
+        if (! preg_match('~^(\w+),([\w:]+)$~', $procedure, $match)) {
+            throw new Exception('alias or class method name missing');
+        }
+
+        list(, $function_name, $original_method_name) = $match;
+        $converted_method_name = $this->convert_method_name($original_method_name);
+
+        if (! $config = $this->create_function_alias_config($function_name, $converted_method_name, $original_method_name)) {
+            return "cannot configure function alias: $function_name, config missing for: $original_method_name";
+        }
+
+        $function_config_filename = $this->get_function_config_filename($function_name);
+        $this->write_function_config($function_config_filename, $config);
+
+        return $config;
     }
 
     function parse_args($synopsis, $function_name)
