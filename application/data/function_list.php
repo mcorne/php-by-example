@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-06-17T09:17:23+00:00
+// generated automatically 2015-06-18T13:53:08+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -93,6 +93,12 @@ return array (
   'class_exists' => 'class_exists',
   'class_implements' => 'class_implements',
   'class_parents' => 'class_parents',
+  'collator__asort' => 'Collator::asort',
+  'collator__compare' => 'Collator::compare',
+  'collator__getlocale' => 'Collator::getLocale',
+  'collator_asort' => 'collator_asort',
+  'collator_compare' => 'collator_compare',
+  'collator_get_locale' => 'collator_get_locale',
   'compact' => 'compact',
   'constant' => 'constant',
   'convert_uudecode' => 'convert_uudecode',

@@ -79,6 +79,12 @@ Source code
 - _NO_BOLD_
 
 
+Doc block
+---------
+
+ * Changes to this class may affect other classes.
+
+
 PHP by Example
 Copyright 2015 Michel Corne <mcorne@yahoo.com>
 License   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
