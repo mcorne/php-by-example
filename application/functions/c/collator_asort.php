@@ -11,6 +11,8 @@ require_once 'collator__asort.php';
 /**
  * Function configuration
  *
+ * Changes to this class may affect other classes.
+ *
  * @see docs/function-configuration.txt
  */
 
@@ -29,7 +31,7 @@ class collator_asort extends collator__asort
         inject_function_call
     ';
 
-    public $synopsis = 'public bool collator_asort ( Collator $coll, array &$arr [, int $sort_flag ] )';
+    public $synopsis = 'bool collator_asort ( Collator $coll, array &$arr [, int $sort_flag ] )';
 
     function init()
     {

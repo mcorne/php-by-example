@@ -29,8 +29,6 @@ collator_get_sort_key
 collator_get_strength
 collator_set_attribute
 collator_set_strength
-collator_sort
-collator_sort_with_sort_keys
 
 connection_aborted
 connection_status
