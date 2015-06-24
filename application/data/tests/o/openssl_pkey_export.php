@@ -1,42 +1,36 @@
 <?php
-// generated automatically 2015-04-17T08:32:56+00:00
+// generated automatically 2015-06-24T12:12:09+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'out' => '-----BEGIN ENCRYPTED PRIVATE KEY-----
-MIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQIRDWKLfJ00U0CAggA
-MBQGCCqGSIb3DQMHBAge1+7Mw9FboASCBMgPRHAJ3uV4uE71LhKJ6yBcfQn2XYC6
-pTzQy5+7dWdd2fN8zTSeeRNlPvQo5lV3AyAtdKM/bOO7IGy7UGyg4f1hS/d1tagk
-PfaMNtHn0BzO20u9/oI0P0sEUUGd8Y89yauTRg/3kIwVy0J7g6DgKScqiUAs0MVh
-RmWDjaznfbwqALelvqV7RcCgtbjSJHlx/iFVnSNUxPf3kqDDalN8yQWJ8f1SvjJi
-k2b4KLhDSux0lQwUSYH65enQYgTFtwbrFRlnrEPYDv2wH3tjvWKfaQc2Wd1QJ4mR
-+kCzTLKjzmNYOW8DlNTNKJAItUAFKAHqb4htzACzYbflVTcG8ytBXyIUMWz9vrE7
-x28rhhf7fHJVPi0OwCmBDCUbAAj4tG1qWAjZDIV/2xDJDAC7Jdn+gOs4YWPrR1FB
-dxXX0EUlZjZCim5QyCXaOYk2Gkef0uHFO7OhMsgxJ42iaFbN73gPwHi1qokYJVWD
-Vs/nexpEpYLHiPOVB+yB0OYAkYEBr16a0/TrBzLkWCP0fIrAGnet3iq9/4kO3tF/
-UeUozmj0btaFrhz4eAFMh15jKc/pnhfEf5QNRfjoaoxk3osVzr2g4DIvBBtqf110
-kfdffuLyl/DiMnsQlhtQsirhQ//jXOpwluQImjwte1vhcQ3NbOelDbUMB18oMcGj
-YzgeY2NI4FLBXmVamlYvl45+h1hk+DaMMXn9jlz8AGFCZaH1UTsXMcyTfcZnHBiq
-ywJuj8y/w09jwAaNU/kYr6a/51fpdvM5o0EccfmMCYXwncZKZYUAaGdXG4y5b2BC
-ulc63Js+BjHty13+PgS9xuCDUVT6bwZeMa/9doyXn0xrlMmJbYWEs8BR9Ws9AEgK
-J0tPjTo23Y2KLLUfm9SYsC5oKQ/apZnFPmQq6X3fibWGdP6XMilS0AYj2lRJHktL
-X7wQHZEWmgQ5bMTP+gzC/xlaK+opAHuZzfAx76zfnS8FzDKvaLPdHwcRhKZrVpmb
-osbRaE2rr7RfNX4esm3+31u5jAp4pMF1DXXOd4JLgB8gnRfTrY6TaJyYpBDJmfcO
-/Y/tZaq40h+Fzjvv9RkrPehYazZOTUlrB1yhmrV2CY1cva/4U3ftQIzwY1bWD22D
-VFS2caMnVq7yj28X5ziRaITxEDwPKkGEzstb4tcjwmaFDwDEGDemJbFjftwuS3Rr
-6T/hikwnFAkgrozKTtbQLjYHUCIeNA1Iyh6QRKLi8cZFhnQUgwS410P+bdIElDmJ
-8EJr0kWN+cw1u0tGEoyOHZ2VsT5hKTRMP3fucSZpfcp+Y4sVWrE1lKKK+xQrM+ff
-XjSDEHoU+syHD1b+puwW6lJoPlJkrgNYKpQhPndhUxNwMplV1wi1ZdaV9+1Sr3LL
-A7u2XqNWpU/eRkCkTlTTUEUdz8SwrH9TL9LFtQ2GVWXgnMIL363KbmnWqj90Eq50
-DdVGl82g0FhUontBpifhvpNTp+hYuVCYP1KPvR5C8T/Ujx1xCZdr8NKaMDuMOQbm
-l4HUWn0eJFznrUmOme+qPT4jBUosIY91etnpIALQ9oLqlTrESlBTfUqggb7X88PP
-TXVqx8rrGABZ2K5YgNREPCPFcPf+f8GZOt7DULhttAf52GyQuak5U02fOfMXx21J
-tw0=
------END ENCRYPTED PRIVATE KEY-----
-',
-      'bool' => true,
+      'out' => NULL,
+      'bool' => false,
+    ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 2,
+        'message' => 'openssl_pkey_export(): cannot get key from parameter 1',
+      ),
+    ),
+  ),
+  1 => 
+  array (
+    'result' => 
+    array (
+      'out' => NULL,
+      'bool' => false,
+    ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 2,
+        'message' => 'openssl_pkey_export(): cannot get key from parameter 1',
+      ),
     ),
   ),
 );

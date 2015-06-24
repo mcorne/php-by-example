@@ -288,9 +288,14 @@ class filter extends object
     function is_temp_filename($filename)
     {
         $filename = preg_replace('~^file://~', '', $filename);
-        $temp_dir = sys_get_temp_dir() . DIRECTORY_SEPARATOR;
+        // removes escaped backslashes
+        $filename = str_replace('\\\\', '\\', $filename);
+        // replaces backslashes with a slashes
+        $filename = str_replace('\\', '/', $filename);
 
-        if (substr($filename, 0, strlen($temp_dir)) != $temp_dir) {
+        $temp_dir = sys_get_temp_dir() . '/';
+
+        if (strpos($filename, $temp_dir) === false) {
             $message = $this->_message_translation->translate('the file must be a temporary file in this example');
             throw new Exception($message, E_USER_WARNING);
         }
