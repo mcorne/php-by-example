@@ -70,7 +70,6 @@ class function_params extends object
             } else if (is_array($value) and isset($value[0]) and $this->is_param_var($value[0])) {
                 // this is (most likely) a callback object method, eg [$object, 'foobar'], gets the object instance
                 $value[0] = $this->get_param_var($value[0]);
-
             }
         }
 

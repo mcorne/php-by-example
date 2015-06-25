@@ -78,8 +78,6 @@ class examples extends object
         if (is_string($value)) {
             $value = preg_replace('~^(file://)/tmp~', '$1' . sys_get_temp_dir(), $value);
             $value = preg_replace('~^/tmp~', sys_get_temp_dir(), $value);
-            // doubles backslashes because strings are displayed between double quotes
-            $value = str_replace('\\', '\\\\', $value);
         }
 
         return $value;

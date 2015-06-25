@@ -452,12 +452,15 @@ class input extends object
         // escapes "$" so it is not used as replacement backreferences, eg "$123"
         $input = str_replace('$', '\$', $input);
         // protects characters in octal notation so they are not used as replacement backreference, eg "\061"
-        $input = preg_replace('~\\\\([0-7]{1,3})~', '_BACKSLASH_' . '$1', $input);
+        $input = preg_replace('~\\\\([0-7]{1,3})~', '_OCTAL_BACKSLASH_' . '$1', $input);
+        // protects double backslashes that are changed to single backslashes by preg_replace()
+        $input = str_replace('\\\\', '_DOUBLE_BACKSLASH_', $input);
 
         $highlighted_code = preg_replace("~\\$$var_name\b~", $input, $highlighted_code, 1);
-
+        // restores double backslashes
+        $highlighted_code = str_replace('_DOUBLE_BACKSLASH_', '\\\\', $highlighted_code);
         // restores the backslash of characters in octal notation
-        $highlighted_code = str_replace('_BACKSLASH_', '\\', $highlighted_code);
+        $highlighted_code = str_replace('_OCTAL_BACKSLASH_', '\\', $highlighted_code);
 
         return $highlighted_code;
     }

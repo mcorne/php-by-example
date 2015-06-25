@@ -309,7 +309,7 @@ class parser extends object
         }
 
         // restores double backslashes
-        $string = str_replace('_DOUBLE_BACKSLASH_', '\\\\', $string);
+        $string = str_replace('_DOUBLE_BACKSLASH_', '\\', $string);
 
         return $string;
     }

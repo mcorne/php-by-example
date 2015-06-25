@@ -18,6 +18,13 @@ class filter extends object
 {
     const DEFAULT_FILENAME = 'tempname';
 
+    function convert_backslash_to_slash($string)
+    {
+        $string = str_replace('\\', '/', $string);
+
+        return $string;
+    }
+
     function filter_arg_value($arg_name, $indirect_get_param = true)
     {
         if ($this->_function_params->param_exists($arg_name)) {
@@ -288,12 +295,10 @@ class filter extends object
     function is_temp_filename($filename)
     {
         $filename = preg_replace('~^file://~', '', $filename);
-        // removes escaped backslashes
-        $filename = str_replace('\\\\', '\\', $filename);
-        // replaces backslashes with a slashes
-        $filename = str_replace('\\', '/', $filename);
+        $filename = $this->convert_backslash_to_slash($filename);
 
         $temp_dir = sys_get_temp_dir() . '/';
+        $temp_dir = $this->convert_backslash_to_slash($temp_dir);
 
         if (strpos($filename, $temp_dir) === false) {
             $message = $this->_message_translation->translate('the file must be a temporary file in this example');
