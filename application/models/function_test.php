@@ -19,6 +19,13 @@ require_once 'action.php';
 
 class function_test extends action
 {
+    function _get_php_version()
+    {
+        $php_version = sprintf('%s %s %s', PHP_VERSION, PHP_OS, php_uname('m'));
+
+        return $php_version;
+    }
+
     function get_expected_results($function_basename, $test_results)
     {
         $function_sub_directory = $function_basename[0];
@@ -128,6 +135,8 @@ class function_test extends action
             $test_result['errors'] = $this->_function->errors;
         }
 
+        $test_result['php_version'] = $this->php_version;
+
         return $test_result;
     }
 
@@ -156,6 +165,8 @@ class function_test extends action
 
     function validate_test_result($test_result, $expected_result, $example_id)
     {
+        unset($test_result['php_version'], $expected_result['php_version']);
+
         if ($this->_function->test_not_validated === true or in_array($example_id, (array) $this->_function->test_not_validated)) {
             // the test is considered always valid for this function, eg random generators, list of functions or constants etc.
             $test_validation['status'] = 'test_not_validated';

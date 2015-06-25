@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-05-13T09:11:07+00:00
+// generated automatically 2015-06-25T15:27:21+00:00
 return array (
   0 => 
   array (
@@ -8,6 +8,7 @@ return array (
       'decrypted' => 'this is some data',
       'bool' => true,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -18,29 +19,33 @@ $Áóztã(ÿ÷™˜Ñï¼Ž5VÕAäö©·Åg¾œÁ‘a¾fmAºÞT7îkL*án5AÜêËäHèYogÔ˜ÀGol<øYIs
       'decrypted' => 'this is some data',
       'bool' => true,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
     'result' => 
     array (
       'e_bool' => true,
-      'data' => '‡Áägù¡§D{<UdÙ¼rjA{¥•(†!éaµŠb¡‹Nä’ïB™*ê™8xlÖ8çþ°Â1Ñs+Ü® çÅ¾¨#\'Šzõ9þ	¡žO”9«r8\\Ók	õÊZü{é&xNý ß…Ät¯fðH{kh‚§/¤ïûZÓwÄxiý–Õÿ”AQVR”È&Ù_/ß†à5—½<Äíàó|þiìñ¹4ÐdpÖ•ª~zIN_ÉìÉ×x†Pì¹NH…1ï7!HšìòëßŽbk€%èF”nœé•”z\'8<åÎgáúÆ5`\\¾Ø6ÍÓj’aç’z¾hPÃ[',
-      'base64' => 'h8HkZ/mhp0R7PAdVDmSQD9m8cmpBjXuNEaWVKIYh6WG1imKhi07kku9CmSoM6pmPOHhsF9Y45/6wwjHRcyvcrhmg58W+qCMninr1Of4JoZ5PHpQ5f6tyOFzTawn1ylr8e+kmeE4a/aDfEoURxHSvZvBIF3traIKnjX8vpO/7BVrTnXcMxHhp/ZYM1f+UQVFWUpTIJtlfjS/fDAuG4DWXvTyPxO3g83z+aezxuTTQZHDWlap+eklOX8l/7AHJ13iGUOy5TkiFGzHvNyFImuzy69+OYg5rgCXoRpRunOmVlB96Jzg85QzOZxfh+saQNWBcvtg2zdNqkmHnknq+aFDDWw==',
+      'data' => 'î\'BQÓQO÷§|‹~€~ãaøÚó\\šÍ
+7žöp¤zdóZ/jØÝA¹f#…{6' . "\0" . '7Ì2˜bèÑ
+é"KÐnÝ0ãKl0Öý!Q7¦\\ÉJŸÎQiØYöÀû×q ¼Èþ¸kÚñô8Êí„jn;’÷ÇÖ' . "\0" . 'gFý;"J
+¼`Ú@ýœŸÏÊ¾Ë41£3¤Ð\'am¹f!ë©Å¥ÀN±Ô,¢üYä^§Ë¸ª &v=Ð¬!$Ê°;LrÿQá·S7E&Bj½×y¹¿‚¦Zé`%‚Ö=åS»®xç	k¼*†ÄÒ‘UBÚª^ll:[dÍ|4)Pß',
+      'base64' => 'De4nFEJR01FP96d8i36AjX4O42H4D9rzXJrNkAo3nvadcKR6ZPNaL2rY3UG5ZiOFezYAN8wMHDKYDWLo0QoR6SJLHdBu3TDjS2ww1v0cIRFRCzemXMlKn85RadhZ9sD71xBxILzI/rhr2vH0OMrthGpuO5IZ98fWAGdG/TuQIkoKvB9g2kD9nAKfz8oSvss0MaMzpNAnYW25ZiHrqcUEpcBOsdQOLKL8WeRep8u4GaogJhx2PdCPrCEkyrA7THL/UeG3UzdFJgNCar0WG9d5ub+CplrpYCUUgtY95VO7rngU5wmNa7waKobEFxME0pFVQtqqXmxsOlscZM18NClQ3w==',
       'decrypted' => 'this is some data',
       'bool' => true,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
     'result' => 
     array (
       'e_bool' => true,
-      'data' => 'ÄQ¸è&Ûµ¶}J
-CfTÂb=ÂÅÂüZ¾Ë‚JÛ;lö®ý{vs‹YG[N±–¬b“Æpñ­×ÖT›Ðû×ºd°ËAŒJJ	\'ü£Í7±…$7VÉ"=8Çjy:2d\\§:Väw£Y©„Ýï­Ü/ÈFÓãCyh³v@I©û¸Á	6€9°‚óB™žä[
-•0þ„ýZ§û\' ’ü‰á8NnÉÕ¦‡C:-è+t\\S2Jú˜®Î¿8û±:¢…hâÄ¼ˆñtï-‹Á?+¨³•¸¥ê@¢o† à¢ª*ròOï¹Nk>DP–ÎÑÌ]#ï=FI{±ô"«ù',
-      'base64' => 'xFG46CYO27W2fUoKQ2ZUwmI9wh/FwvxavssSgkrbO2z2rv17dnOLWUdbTrGWrGIPk8Zw8a3X1lSb0PvXug1ksAPLQY+MDQtKSgkQJ/yBo803sYUkN1bJIj2POMdqeToyZFynOlbkd6NZqYTdEe+t3C/IRtMa40N5aLN2B0AOSan7uMEJNoA5sILzQhsNC5me5FsKlTD+hP1aG6f7JyCS/B+JBOE4Tm7J1aaHHAJDOi3oK3RcUzJK+piuzr84+7E6ooVo4sS8iPELdO8ti8E/K6ges5W4peoZQKJvhqDgoqoqcvJP77lOaw0+RFCWzhrRkMwWXSPvDz1GSXux9CKr+Q==',
+      'data' => '÷ÑélnS¶DNtéÙm{±\\¹@¬R<¬Ú]ÕJ*—(=’Œ&Ðëœ¨÷Y³Ð ‡$›–h+¸´¢[Dµ7SÓÁ³ä"ì$¶-ãrÔvÑŽ7£aäBç`C+mW;<+xõÂêöHBçx°ÐÙö&Ç¥\\ÍÐvkjì°ð¶ƒ3Ãév‚ž§—ˆc<K§’þÀö¯•fðf^Ô–aoß”Í_£áOQWnúÑÞê¨Ã:ÂsB`ØT40ŸVjÌ¾.‘›Ï“ºÖT' . "\0" . '\\Õð\\×ñQ0¥I^éÙ ê†aÏ,Ê4+{P ¬gv®lsyÎ•2x†)u?Y',
+      'base64' => 'jffR6WxuU7ZEThl06dlte7FcuUCsUjys2l0dF9VKKpcoPZIHjCbQ65yoGfdZs9CgEh+HJJuNlmgruLSiD1tECLU3U9PBs+Qi7CSNGrYt43LUdtEMjjejYeRC52BDK21XOzwrePUcwuoF9khCned4sNDZ9ibHHKVczdB2a2rssAHwtoMzFcPpdoKeAaeXG4hjPEunkv4HwPYeARyvlWbwZl7UlmGNb9+UzV+j4U9RV24G+tHe6qjDfzoYwnNCYNhUNDCfVmoPzA6+LpGbz5O61lQAXNXwXNcH8VEwpUleDOnZIOqGYc8ULMo0K3tQIKxndq6NbHN5zg2VMniGKXU/WQ==',
       'decrypted' => 'this is some data',
       'bool' => true,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

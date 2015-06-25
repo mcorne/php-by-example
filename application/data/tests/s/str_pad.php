@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-16T09:50:08+00:00
+// generated automatically 2015-06-25T15:27:23+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'string' => 'Alien     ',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -14,6 +15,7 @@ return array (
     array (
       'string' => '-=-=-Alien',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -21,6 +23,7 @@ return array (
     array (
       'string' => '__Alien___',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -28,5 +31,6 @@ return array (
     array (
       'string' => 'Alien_',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

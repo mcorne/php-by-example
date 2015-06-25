@@ -1,25 +1,28 @@
 <?php
-// generated automatically 2014-02-19T18:09:02+00:00
+// generated automatically 2015-06-25T15:27:24+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => '5304f33e1d279',
+      'string' => '558c1ddc0b06d',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
     'result' => 
     array (
-      'string' => 'php_5304f33e1d40f',
+      'string' => 'php_558c1ddc0b455',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
     'result' => 
     array (
-      'string' => '5304f33e1d5f71.03783231',
+      'string' => '558c1ddc0ba310.96905769',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

@@ -1,27 +1,32 @@
 <?php
-// generated automatically 2015-05-13T09:37:41+00:00
+// generated automatically 2015-06-25T15:27:21+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'crypted' => '­Ñk¥Õve1Ñ±Xcü–ºŸ?wærÚüUîÜZé]í<5ÚÌ¹$­&ø©cÓVEÀí‡/±NX.Ê›ýŽ{?‹·¸w4ÓÅŸ|-s' . "\0" . '%ˆÔÈX…‰âxìEç`1ã¼!Éõì&B˜èèÚ³òb²Ù†ªÙpHª·Ù<Í3l®:ÀgiáWø`¬Í‘Íž}ÓÂ_Éf5±\'/¦:›…¬ÃÃ×	2\'ôxB’w‘êjtfŸUBt´c¿ÌàP¡´_t9x+ff<ÄNáÝíú®³ZõØí‘U<³Œ^Ÿ<¤ó÷FZ€ÒÂ/“Eš²¨+jfÙ—‘IDiR;',
+      'crypted' => 'ÅùÝ°8uˆÒë,‚r-è‘1æÛË´{cB1#æO{N=7|?ž“hAÌøŒº]r_#Æ[ìù­‡øn£¨ša	GR`·+©9Pö;d¯—+%)–SÈáØ:Á
+´A‘"Ð!\'.ëë6L¨iQŸ{­Æñ+=)Td&AI´ŒACábøùÏãø½£ÎÂ×ç¹€d))ØÏî3¯¸ì ÄÃïŽ[º›&ŸåÍÌ†#zdêš
+¸Š°êKâ=‘‚(ë×7ðdüy=Âõ¤ÇQ@¸Ùìý ‘‚™Z¶ÇóˆthgjÖâò Ížï{¼9á\'"æ}…¤:-C%ÀÏÐpZga
+',
       'bool' => true,
-      'base64' => 'rRHRa6XVdmUx0bEQWGOB/Ja6nxB/P3fmE3LaH/wFVe7cWuld7Tw1CBPazLkkrRUm+Klj01ZFwO2HHS+xFE5YLsqb/Y57jT+Lt7h3NNPFnxx8LXMAJYjUyFiFieJ47EXnYDHjvCHJ9ewmQgGY6OjaE7PyYgay2YYFqtlwSKoSt9k8zTNsrjrAZ2nhV/hgrM2RzZ5908JfyWY1sScvphc6m4Wsw8ONjdcJf48yJ/R4Qp0IkneR6mp0Zp9VQnS0Y7/M4FChtF90Azl4K2ZmPMRO4d3tf/qus1r12O2RVTyzjBdeFZ88pPP3RlqPgNLCL5NFmrKojytqZtmXkUlEaVI7HQ==',
+      'base64' => 'xfndsH84dYjS6yyCci3okTHm28u0e2NCMSPmT3tOPTcafD+eE5NoQcz4jLoLXXJfI8Zb7Pmth/huE6OommGdCUePUmC3K6k5UPY7ZK+XKyUpllPI4dg6wQq0BkGRItAhGCcu6+s2TKhpUZ97rcbxKz0pVBcPZCYRQUm0jEFDgeFi+Pkaz+P4vaPOEsLX5w25gGQpKdgIz+4zr7ge7KAQxMPvjlu6myaf5c3MhiN6ZOqaCriKsOpLf+I9kYIo69cIN/Bkf/x5kD3C9aTHUUC42ez9oJGCmVq2x/OIdGgTZ2rW4vIgzZ4B73u8jTnhJyLmfYWkOh4tQyXAz9BwWmdhCg==',
       'd_bool' => true,
       'decrypted' => 'this is some data',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
     'result' => 
     array (
-      'crypted' => ';¥j·2³èë®}®9mc·v´$' . "\0" . 'qo+èiÄfn*ÅIæP+rÞö‚*/a>«[ÿ¾GÂ\\5:ïmÊRÐ–¶Á®ÅT¯X|»áÐú1ÓÎÎ/0…M¢iÞD¯§‚+Ñ MšBXìàXÊD	´ðWÌ%ÒÏÀ-ÜkÀ¢O]2â•Š^öÎ.¿¸ë¦ÙèŒ¥!Á8ü¾Š:ŠZÌ—ù™3dø}²b•’ÓùoÜôuUÌü•³0|ÎÇìáÚ:l,†³~èm8ÇrnMÅícðd6<Ý\\Ñ]‡pœcYç×F™žðv
-­ïñ—žç',
+      'crypted' => 'wž=Á”¾ý’%Yò/bƒµ¹Xd¦;' . "\0" . 'šòìºTh»ï¦\\ÄÎ’©þhSèXoñz1-­ªÿ(&v#Le¾L+:NšlÅ„ËŽ^DoÃe”þ„4¶ÎQïA³¯¼ˆ“º”ðÆvku7ÄBÙa¼xF…Û¼*ÚfG0EÍ£™‰ÅúÝ÷XŸrÌ%ù¢¤¯j8·3Æ‹Ê¡	Dgã
+=?,^ö¬öÄçw_ÇìŠÒwqÊ²^	æ27¯Šÿ–«š£ž=híGPd‹Êl½ÚÈÙ3¯ºoX8v„5ŸP5°½C0ò¡]FÙH‰x\\Š–RšVKë†;ý…tž',
       'bool' => true,
-      'base64' => 'O6VqD7cys+jrrn2uFBIGOW1jt3a0JABxbyvoAmnEZm4qxUnmUCtykN72giovYT6rW/++HUePwgdcNTrvbcpS0Ja2wa7FFgVUr1h8u+HQ+jHTzs4vMIVNogtp3kSvp4Ir0aBNkJpCWOzgWMoURAm08FfMJdLPwC3cH2vAoghPXTLilRqKXvbOLr+4H+sQptnoAwgQjKUhG8E4/L6KBQE6BYpazJf5mTNk+B99shRilZLT+QNv3IH0dQ4TVRjM/AaVszB8Bs4Hx+zh2jpsFxcshrN+6G04x3IMbk3F7WPwZBU2PN1c0V0LhxQXcJxjWefXRpkanvB/dgcKrRTv8Zee5w==',
+      'base64' => 'j3cDngiQPcGUvv2SJVnyL2KDtblYZKY7AJry7BO6VGi776ZcxM6Sqf5oU+hYGG8I8XoxLa2q/ygmHnYjTGW+TCsBOghOmmzFhMuOj14DRG8Uw2WU/gUWhDS2zlHvF0Gzr7yIk7qU8MZ2a3UVN8RC2WG8eEaF27wq2mZHMEXNGqOZiY3F+t33WJ8FH3LMJfmipK9qnTi3gTMUHcaLyp2hCURn4wo9Pyxe9qz2xOd3X8fsD4rSd3HKsl4J5jI3r4r/lquao549aO1HUGSLymy92sjZM6+6b1g4dhCENZ9QNbANvRVDMPKhHl1GCNlIiXhcipZSmlYXSxEc64Y7/YV0ng==',
       'd_bool' => true,
       'decrypted' => 'this is some data',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

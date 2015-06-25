@@ -1,11 +1,12 @@
 <?php
-// generated automatically 2014-02-19T16:40:52+00:00
+// generated automatically 2015-06-25T15:27:23+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => 'C:\\WINDOWS\\TEMP',
+      'string' => 'C:\\Users\\mcorne\\AppData\\Local\\Temp',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-30T11:55:33+00:00
+// generated automatically 2015-06-25T15:27:18+00:00
 return array (
   0 => 
   array (
@@ -7,18 +7,19 @@ return array (
     array (
       'array' => 
       array (
-        'seconds' => 33,
-        'minutes' => 55,
-        'hours' => 11,
-        'mday' => 30,
+        'seconds' => 18,
+        'minutes' => 27,
+        'hours' => 15,
+        'mday' => 25,
         'wday' => 4,
-        'mon' => 1,
-        'year' => 2014,
-        'yday' => 29,
+        'mon' => 6,
+        'year' => 2015,
+        'yday' => 175,
         'weekday' => 'Thursday',
-        'month' => 'January',
-        0 => 1391082933,
+        'month' => 'June',
+        0 => 1435246038,
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

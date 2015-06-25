@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-23T10:23:51+00:00
+// generated automatically 2015-06-25T15:27:23+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,45 @@ return array (
     array (
       'array' => 
       array (
+        'acdt' => 
+        array (
+          0 => 
+          array (
+            'dst' => true,
+            'offset' => 37800,
+            'timezone_id' => 'Australia/Adelaide',
+          ),
+          1 => 
+          array (
+            'dst' => true,
+            'offset' => 37800,
+            'timezone_id' => 'Australia/Broken_Hill',
+          ),
+          2 => 
+          array (
+            'dst' => true,
+            'offset' => 37800,
+            'timezone_id' => 'Australia/Darwin',
+          ),
+          3 => 
+          array (
+            'dst' => true,
+            'offset' => 37800,
+            'timezone_id' => 'Australia/North',
+          ),
+          4 => 
+          array (
+            'dst' => true,
+            'offset' => 37800,
+            'timezone_id' => 'Australia/South',
+          ),
+          5 => 
+          array (
+            'dst' => true,
+            'offset' => 37800,
+            'timezone_id' => 'Australia/Yancowinna',
+          ),
+        ),
         'acst' => 
         array (
           0 => 
@@ -17,21 +56,63 @@ return array (
           ),
           1 => 
           array (
-            'dst' => true,
-            'offset' => -14400,
-            'timezone_id' => 'America/Eirunepe',
+            'dst' => false,
+            'offset' => 34200,
+            'timezone_id' => 'Australia/Adelaide',
           ),
           2 => 
           array (
             'dst' => true,
             'offset' => -14400,
-            'timezone_id' => 'America/Rio_Branco',
+            'timezone_id' => 'America/Eirunepe',
           ),
           3 => 
           array (
             'dst' => true,
             'offset' => -14400,
+            'timezone_id' => 'America/Rio_Branco',
+          ),
+          4 => 
+          array (
+            'dst' => true,
+            'offset' => -14400,
             'timezone_id' => 'Brazil/Acre',
+          ),
+          5 => 
+          array (
+            'dst' => false,
+            'offset' => 34200,
+            'timezone_id' => 'Asia/Jayapura',
+          ),
+          6 => 
+          array (
+            'dst' => false,
+            'offset' => 34200,
+            'timezone_id' => 'Australia/Broken_Hill',
+          ),
+          7 => 
+          array (
+            'dst' => false,
+            'offset' => 34200,
+            'timezone_id' => 'Australia/Darwin',
+          ),
+          8 => 
+          array (
+            'dst' => false,
+            'offset' => 34200,
+            'timezone_id' => 'Australia/North',
+          ),
+          9 => 
+          array (
+            'dst' => false,
+            'offset' => 34200,
+            'timezone_id' => 'Australia/South',
+          ),
+          10 => 
+          array (
+            'dst' => false,
+            'offset' => 34200,
+            'timezone_id' => 'Australia/Yancowinna',
           ),
         ),
         'act' => 
@@ -59,6 +140,24 @@ return array (
             'dst' => false,
             'offset' => -18000,
             'timezone_id' => 'Brazil/Acre',
+          ),
+        ),
+        'acwdt' => 
+        array (
+          0 => 
+          array (
+            'dst' => true,
+            'offset' => 35100,
+            'timezone_id' => 'Australia/Eucla',
+          ),
+        ),
+        'acwst' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 31500,
+            'timezone_id' => 'Australia/Eucla',
           ),
         ),
         'addt' => 
@@ -172,18 +271,192 @@ return array (
             'timezone_id' => 'Asia/Baghdad',
           ),
         ),
+        'aedt' => 
+        array (
+          0 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Melbourne',
+          ),
+          1 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Antarctica/Macquarie',
+          ),
+          2 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/ACT',
+          ),
+          3 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Brisbane',
+          ),
+          4 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Canberra',
+          ),
+          5 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Currie',
+          ),
+          6 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Hobart',
+          ),
+          7 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Lindeman',
+          ),
+          8 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/NSW',
+          ),
+          9 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Queensland',
+          ),
+          10 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Sydney',
+          ),
+          11 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Tasmania',
+          ),
+          12 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Victoria',
+          ),
+        ),
+        'aest' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Melbourne',
+          ),
+          1 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Antarctica/Macquarie',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/ACT',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Brisbane',
+          ),
+          4 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Canberra',
+          ),
+          5 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Currie',
+          ),
+          6 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Hobart',
+          ),
+          7 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/LHI',
+          ),
+          8 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Lindeman',
+          ),
+          9 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Lord_Howe',
+          ),
+          10 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/NSW',
+          ),
+          11 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Queensland',
+          ),
+          12 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Sydney',
+          ),
+          13 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Tasmania',
+          ),
+          14 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Australia/Victoria',
+          ),
+        ),
         'aft' => 
         array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 16200,
             'timezone_id' => 'Asia/Kabul',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 16200,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Kabul',
           ),
         ),
@@ -241,6 +514,12 @@ return array (
           array (
             'dst' => true,
             'offset' => -28800,
+            'timezone_id' => 'America/Sitka',
+          ),
+          4 => 
+          array (
+            'dst' => true,
+            'offset' => -28800,
             'timezone_id' => 'America/Yakutat',
           ),
         ),
@@ -268,6 +547,12 @@ return array (
           array (
             'dst' => false,
             'offset' => -32400,
+            'timezone_id' => 'America/Sitka',
+          ),
+          4 => 
+          array (
+            'dst' => false,
+            'offset' => -32400,
             'timezone_id' => 'America/Yakutat',
           ),
         ),
@@ -285,19 +570,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Aqtobe',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Aqtobe',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Aqtobe',
           ),
         ),
@@ -315,13 +600,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Almaty',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Almaty',
           ),
         ),
@@ -330,13 +615,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Yerevan',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Yerevan',
           ),
           2 => 
@@ -387,13 +672,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 10800,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Yerevan',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 10800,
             'timezone_id' => 'Asia/Yerevan',
           ),
           2 => 
@@ -486,19 +771,19 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 43200,
+            'offset' => 50400,
             'timezone_id' => 'Asia/Anadyr',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 46800,
+            'offset' => 43200,
             'timezone_id' => 'Asia/Anadyr',
           ),
           2 => 
           array (
             'dst' => true,
-            'offset' => 50400,
+            'offset' => 46800,
             'timezone_id' => 'Asia/Anadyr',
           ),
         ),
@@ -507,19 +792,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 39600,
+            'offset' => 46800,
             'timezone_id' => 'Asia/Anadyr',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 43200,
+            'offset' => 39600,
             'timezone_id' => 'Asia/Anadyr',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 46800,
+            'offset' => 43200,
             'timezone_id' => 'Asia/Anadyr',
           ),
         ),
@@ -536,6 +821,18 @@ return array (
             'dst' => false,
             'offset' => -16200,
             'timezone_id' => 'America/Aruba',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => -16200,
+            'timezone_id' => 'America/Kralendijk',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => -16200,
+            'timezone_id' => 'America/Lower_Princes',
           ),
         ),
         'aot' => 
@@ -597,13 +894,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Aqtau',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Aqtau',
           ),
           2 => 
@@ -618,13 +915,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Aqtau',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Aqtau',
           ),
           2 => 
@@ -639,13 +936,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => -10800,
+            'offset' => -7200,
             'timezone_id' => 'America/Buenos_Aires',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => -7200,
+            'offset' => -10800,
             'timezone_id' => 'America/Buenos_Aires',
           ),
           2 => 
@@ -1125,13 +1422,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Ashkhabad',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Ashkhabad',
           ),
           2 => 
@@ -1152,13 +1449,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Ashkhabad',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Ashkhabad',
           ),
           2 => 
@@ -1258,145 +1555,193 @@ return array (
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Marigot',
+            'timezone_id' => 'America/Kralendijk',
           ),
           14 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Martinique',
+            'timezone_id' => 'America/Lower_Princes',
           ),
           15 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Miquelon',
+            'timezone_id' => 'America/Marigot',
           ),
           16 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Moncton',
+            'timezone_id' => 'America/Martinique',
           ),
           17 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Montserrat',
+            'timezone_id' => 'America/Miquelon',
           ),
           18 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Pangnirtung',
+            'timezone_id' => 'America/Moncton',
           ),
           19 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Port_of_Spain',
+            'timezone_id' => 'America/Montserrat',
           ),
           20 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Puerto_Rico',
+            'timezone_id' => 'America/Pangnirtung',
           ),
           21 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Santo_Domingo',
+            'timezone_id' => 'America/Port_of_Spain',
           ),
           22 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/St_Barthelemy',
+            'timezone_id' => 'America/Puerto_Rico',
           ),
           23 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/St_Kitts',
+            'timezone_id' => 'America/Santo_Domingo',
           ),
           24 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/St_Lucia',
+            'timezone_id' => 'America/St_Barthelemy',
           ),
           25 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/St_Thomas',
+            'timezone_id' => 'America/St_Kitts',
           ),
           26 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/St_Vincent',
+            'timezone_id' => 'America/St_Lucia',
           ),
           27 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Thule',
+            'timezone_id' => 'America/St_Thomas',
           ),
           28 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Tortola',
+            'timezone_id' => 'America/St_Vincent',
           ),
           29 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'America/Virgin',
+            'timezone_id' => 'America/Thule',
           ),
           30 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'Atlantic/Bermuda',
+            'timezone_id' => 'America/Tortola',
           ),
           31 => 
           array (
             'dst' => false,
             'offset' => -14400,
-            'timezone_id' => 'Canada/Atlantic',
+            'timezone_id' => 'America/Virgin',
           ),
           32 => 
           array (
             'dst' => false,
-            'offset' => 10800,
-            'timezone_id' => 'Asia/Aden',
+            'offset' => -14400,
+            'timezone_id' => 'Atlantic/Bermuda',
           ),
           33 => 
           array (
             'dst' => false,
-            'offset' => 10800,
-            'timezone_id' => 'Asia/Baghdad',
+            'offset' => -14400,
+            'timezone_id' => 'Canada/Atlantic',
           ),
           34 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Asia/Bahrain',
+            'timezone_id' => 'Asia/Aden',
           ),
           35 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Asia/Kuwait',
+            'timezone_id' => 'Asia/Baghdad',
           ),
           36 => 
           array (
             'dst' => false,
             'offset' => 10800,
+            'timezone_id' => 'Asia/Bahrain',
+          ),
+          37 => 
+          array (
+            'dst' => false,
+            'offset' => 10800,
+            'timezone_id' => 'Asia/Kuwait',
+          ),
+          38 => 
+          array (
+            'dst' => false,
+            'offset' => 10800,
             'timezone_id' => 'Asia/Qatar',
+          ),
+        ),
+        'awdt' => 
+        array (
+          0 => 
+          array (
+            'dst' => true,
+            'offset' => 32400,
+            'timezone_id' => 'Australia/Perth',
+          ),
+          1 => 
+          array (
+            'dst' => true,
+            'offset' => 32400,
+            'timezone_id' => 'Australia/West',
+          ),
+        ),
+        'awst' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Australia/Perth',
+          ),
+          1 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Antarctica/Casey',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Australia/West',
           ),
         ),
         'awt' => 
@@ -1458,13 +1803,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => -3600,
+            'offset' => 0,
             'timezone_id' => 'Atlantic/Azores',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 0,
+            'offset' => -3600,
             'timezone_id' => 'Atlantic/Azores',
           ),
         ),
@@ -1488,13 +1833,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Baku',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Baku',
           ),
         ),
@@ -1503,13 +1848,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 10800,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Baku',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 10800,
             'timezone_id' => 'Asia/Baku',
           ),
         ),
@@ -1518,13 +1863,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Baku',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Baku',
           ),
         ),
@@ -1533,13 +1878,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 10800,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Baku',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 10800,
             'timezone_id' => 'Asia/Baku',
           ),
         ),
@@ -1610,21 +1955,21 @@ return array (
           ),
           1 => 
           array (
-            'dst' => true,
-            'offset' => -36000,
-            'timezone_id' => 'America/Atka',
+            'dst' => false,
+            'offset' => 21600,
+            'timezone_id' => 'Asia/Dacca',
           ),
           2 => 
           array (
             'dst' => true,
             'offset' => -36000,
-            'timezone_id' => 'America/Nome',
+            'timezone_id' => 'America/Atka',
           ),
           3 => 
           array (
-            'dst' => false,
-            'offset' => 21600,
-            'timezone_id' => 'Asia/Dacca',
+            'dst' => true,
+            'offset' => -36000,
+            'timezone_id' => 'America/Nome',
           ),
           4 => 
           array (
@@ -1659,19 +2004,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 9885,
+            'offset' => 9900,
             'timezone_id' => 'Africa/Nairobi',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 9885,
+            'offset' => 9900,
             'timezone_id' => 'Africa/Dar_es_Salaam',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 9885,
+            'offset' => 9900,
             'timezone_id' => 'Africa/Kampala',
           ),
         ),
@@ -1680,20 +2025,20 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -14308,
+            'offset' => -14309,
             'timezone_id' => 'America/Barbados',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -17780,
-            'timezone_id' => 'America/Bogota',
+            'offset' => 6264,
+            'timezone_id' => 'Europe/Tiraspol',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => -3996,
-            'timezone_id' => 'Africa/Banjul',
+            'offset' => -17776,
+            'timezone_id' => 'America/Bogota',
           ),
           3 => 
           array (
@@ -1710,8 +2055,8 @@ return array (
           5 => 
           array (
             'dst' => false,
-            'offset' => 6264,
-            'timezone_id' => 'Europe/Tiraspol',
+            'offset' => 25632,
+            'timezone_id' => 'Asia/Jakarta',
           ),
           6 => 
           array (
@@ -1731,13 +2076,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 27000,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Brunei',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 27000,
             'timezone_id' => 'Asia/Brunei',
           ),
         ),
@@ -1755,13 +2100,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 27000,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Kuching',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 27000,
             'timezone_id' => 'Asia/Kuching',
           ),
         ),
@@ -1895,13 +2240,13 @@ return array (
         array (
           0 => 
           array (
-            'dst' => false,
+            'dst' => true,
             'offset' => 3600,
             'timezone_id' => 'Europe/London',
           ),
           1 => 
           array (
-            'dst' => true,
+            'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Europe/London',
           ),
@@ -2098,9 +2443,15 @@ return array (
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Africa/Khartoum',
+            'timezone_id' => 'Africa/Juba',
           ),
           3 => 
+          array (
+            'dst' => true,
+            'offset' => 10800,
+            'timezone_id' => 'Africa/Khartoum',
+          ),
+          4 => 
           array (
             'dst' => false,
             'offset' => 39600,
@@ -2149,27 +2500,33 @@ return array (
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Africa/Kigali',
+            'timezone_id' => 'Africa/Juba',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Africa/Lubumbashi',
+            'timezone_id' => 'Africa/Kigali',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Africa/Lusaka',
+            'timezone_id' => 'Africa/Lubumbashi',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Africa/Maputo',
+            'timezone_id' => 'Africa/Lusaka',
           ),
           10 => 
+          array (
+            'dst' => false,
+            'offset' => 7200,
+            'timezone_id' => 'Africa/Maputo',
+          ),
+          11 => 
           array (
             'dst' => false,
             'offset' => 7200,
@@ -2220,14 +2577,14 @@ return array (
           1 => 
           array (
             'dst' => true,
-            'offset' => -14400,
-            'timezone_id' => 'America/Havana',
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Shanghai',
           ),
           2 => 
           array (
-            'dst' => false,
-            'offset' => -18000,
-            'timezone_id' => 'America/Resolute',
+            'dst' => true,
+            'offset' => -14400,
+            'timezone_id' => 'America/Havana',
           ),
           3 => 
           array (
@@ -2419,73 +2776,73 @@ return array (
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/North_Dakota/Center',
+            'timezone_id' => 'America/North_Dakota/Beulah',
           ),
           35 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/North_Dakota/New_Salem',
+            'timezone_id' => 'America/North_Dakota/Center',
           ),
           36 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/Ojinaga',
+            'timezone_id' => 'America/North_Dakota/New_Salem',
           ),
           37 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/Pangnirtung',
+            'timezone_id' => 'America/Ojinaga',
           ),
           38 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/Rainy_River',
+            'timezone_id' => 'America/Pangnirtung',
           ),
           39 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/Rankin_Inlet',
+            'timezone_id' => 'America/Rainy_River',
           ),
           40 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/Resolute',
+            'timezone_id' => 'America/Rankin_Inlet',
           ),
           41 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/Tegucigalpa',
+            'timezone_id' => 'America/Resolute',
           ),
           42 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'America/Winnipeg',
+            'timezone_id' => 'America/Tegucigalpa',
           ),
           43 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'Canada/Central',
+            'timezone_id' => 'America/Winnipeg',
           ),
           44 => 
           array (
             'dst' => true,
             'offset' => -18000,
-            'timezone_id' => 'Mexico/General',
+            'timezone_id' => 'Canada/Central',
           ),
           45 => 
           array (
             'dst' => true,
-            'offset' => 32400,
-            'timezone_id' => 'Asia/Shanghai',
+            'offset' => -18000,
+            'timezone_id' => 'Mexico/General',
           ),
           46 => 
           array (
@@ -2509,27 +2866,15 @@ return array (
           array (
             'dst' => true,
             'offset' => 32400,
-            'timezone_id' => 'Asia/Kashgar',
+            'timezone_id' => 'Asia/Taipei',
           ),
           50 => 
           array (
             'dst' => true,
             'offset' => 32400,
-            'timezone_id' => 'Asia/Taipei',
-          ),
-          51 => 
-          array (
-            'dst' => true,
-            'offset' => 32400,
-            'timezone_id' => 'Asia/Urumqi',
-          ),
-          52 => 
-          array (
-            'dst' => true,
-            'offset' => 32400,
             'timezone_id' => 'PRC',
           ),
-          53 => 
+          51 => 
           array (
             'dst' => true,
             'offset' => 32400,
@@ -2593,279 +2938,291 @@ return array (
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Arctic/Longyearbyen',
+            'timezone_id' => 'Antarctica/Troll',
           ),
           7 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Atlantic/Jan_Mayen',
+            'timezone_id' => 'Arctic/Longyearbyen',
           ),
           8 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'CET',
+            'timezone_id' => 'Atlantic/Jan_Mayen',
           ),
           9 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Amsterdam',
+            'timezone_id' => 'CET',
           ),
           10 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Andorra',
+            'timezone_id' => 'Europe/Amsterdam',
           ),
           11 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Athens',
+            'timezone_id' => 'Europe/Andorra',
           ),
           12 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Belgrade',
+            'timezone_id' => 'Europe/Athens',
           ),
           13 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Bratislava',
+            'timezone_id' => 'Europe/Belgrade',
           ),
           14 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Brussels',
+            'timezone_id' => 'Europe/Bratislava',
           ),
           15 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Budapest',
+            'timezone_id' => 'Europe/Brussels',
           ),
           16 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Chisinau',
+            'timezone_id' => 'Europe/Budapest',
           ),
           17 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Copenhagen',
+            'timezone_id' => 'Europe/Busingen',
           ),
           18 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Gibraltar',
+            'timezone_id' => 'Europe/Chisinau',
           ),
           19 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Kaliningrad',
+            'timezone_id' => 'Europe/Copenhagen',
           ),
           20 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Kiev',
+            'timezone_id' => 'Europe/Gibraltar',
           ),
           21 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Lisbon',
+            'timezone_id' => 'Europe/Kaliningrad',
           ),
           22 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Ljubljana',
+            'timezone_id' => 'Europe/Kiev',
           ),
           23 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Luxembourg',
+            'timezone_id' => 'Europe/Lisbon',
           ),
           24 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Madrid',
+            'timezone_id' => 'Europe/Ljubljana',
           ),
           25 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Malta',
+            'timezone_id' => 'Europe/Luxembourg',
           ),
           26 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Minsk',
+            'timezone_id' => 'Europe/Madrid',
           ),
           27 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Monaco',
+            'timezone_id' => 'Europe/Malta',
           ),
           28 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Oslo',
+            'timezone_id' => 'Europe/Minsk',
           ),
           29 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Paris',
+            'timezone_id' => 'Europe/Monaco',
           ),
           30 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Podgorica',
+            'timezone_id' => 'Europe/Oslo',
           ),
           31 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Prague',
+            'timezone_id' => 'Europe/Paris',
           ),
           32 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Riga',
+            'timezone_id' => 'Europe/Podgorica',
           ),
           33 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Rome',
+            'timezone_id' => 'Europe/Prague',
           ),
           34 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/San_Marino',
+            'timezone_id' => 'Europe/Riga',
           ),
           35 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Sarajevo',
+            'timezone_id' => 'Europe/Rome',
           ),
           36 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Simferopol',
+            'timezone_id' => 'Europe/San_Marino',
           ),
           37 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Skopje',
+            'timezone_id' => 'Europe/Sarajevo',
           ),
           38 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Sofia',
+            'timezone_id' => 'Europe/Simferopol',
           ),
           39 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Stockholm',
+            'timezone_id' => 'Europe/Skopje',
           ),
           40 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Tallinn',
+            'timezone_id' => 'Europe/Sofia',
           ),
           41 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Tirane',
+            'timezone_id' => 'Europe/Stockholm',
           ),
           42 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Tiraspol',
+            'timezone_id' => 'Europe/Tallinn',
           ),
           43 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Uzhgorod',
+            'timezone_id' => 'Europe/Tirane',
           ),
           44 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Vaduz',
+            'timezone_id' => 'Europe/Tiraspol',
           ),
           45 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Vatican',
+            'timezone_id' => 'Europe/Uzhgorod',
           ),
           46 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Vienna',
+            'timezone_id' => 'Europe/Vaduz',
           ),
           47 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Vilnius',
+            'timezone_id' => 'Europe/Vatican',
           ),
           48 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Warsaw',
+            'timezone_id' => 'Europe/Vienna',
           ),
           49 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Zagreb',
+            'timezone_id' => 'Europe/Vilnius',
           ),
           50 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Zaporozhye',
+            'timezone_id' => 'Europe/Warsaw',
           ),
           51 => 
           array (
             'dst' => true,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Zurich',
+            'timezone_id' => 'Europe/Zagreb',
           ),
           52 => 
+          array (
+            'dst' => true,
+            'offset' => 7200,
+            'timezone_id' => 'Europe/Zaporozhye',
+          ),
+          53 => 
+          array (
+            'dst' => true,
+            'offset' => 7200,
+            'timezone_id' => 'Europe/Zurich',
+          ),
+          54 => 
           array (
             'dst' => true,
             'offset' => 7200,
@@ -2883,320 +3240,326 @@ return array (
           1 => 
           array (
             'dst' => false,
-            'offset' => 3600,
-            'timezone_id' => 'Africa/Algiers',
+            'offset' => 7200,
+            'timezone_id' => 'Europe/Kaliningrad',
           ),
           2 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Africa/Casablanca',
+            'timezone_id' => 'Africa/Algiers',
           ),
           3 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Africa/Ceuta',
+            'timezone_id' => 'Africa/Casablanca',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Africa/Tripoli',
+            'timezone_id' => 'Africa/Ceuta',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Africa/Tunis',
+            'timezone_id' => 'Africa/Tripoli',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Arctic/Longyearbyen',
+            'timezone_id' => 'Africa/Tunis',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Atlantic/Jan_Mayen',
+            'timezone_id' => 'Arctic/Longyearbyen',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'CET',
+            'timezone_id' => 'Atlantic/Jan_Mayen',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Amsterdam',
+            'timezone_id' => 'CET',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Andorra',
+            'timezone_id' => 'Europe/Amsterdam',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Athens',
+            'timezone_id' => 'Europe/Andorra',
           ),
           12 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Belgrade',
+            'timezone_id' => 'Europe/Athens',
           ),
           13 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Bratislava',
+            'timezone_id' => 'Europe/Belgrade',
           ),
           14 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Brussels',
+            'timezone_id' => 'Europe/Bratislava',
           ),
           15 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Budapest',
+            'timezone_id' => 'Europe/Brussels',
           ),
           16 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Chisinau',
+            'timezone_id' => 'Europe/Budapest',
           ),
           17 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Copenhagen',
+            'timezone_id' => 'Europe/Busingen',
           ),
           18 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Gibraltar',
+            'timezone_id' => 'Europe/Chisinau',
           ),
           19 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Kaliningrad',
+            'timezone_id' => 'Europe/Copenhagen',
           ),
           20 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Kiev',
+            'timezone_id' => 'Europe/Gibraltar',
           ),
           21 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Lisbon',
+            'timezone_id' => 'Europe/Kaliningrad',
           ),
           22 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Ljubljana',
+            'timezone_id' => 'Europe/Kiev',
           ),
           23 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Luxembourg',
+            'timezone_id' => 'Europe/Lisbon',
           ),
           24 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Madrid',
+            'timezone_id' => 'Europe/Ljubljana',
           ),
           25 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Malta',
+            'timezone_id' => 'Europe/Luxembourg',
           ),
           26 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Minsk',
+            'timezone_id' => 'Europe/Madrid',
           ),
           27 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Monaco',
+            'timezone_id' => 'Europe/Malta',
           ),
           28 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Oslo',
+            'timezone_id' => 'Europe/Minsk',
           ),
           29 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Paris',
+            'timezone_id' => 'Europe/Monaco',
           ),
           30 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Podgorica',
+            'timezone_id' => 'Europe/Oslo',
           ),
           31 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Prague',
+            'timezone_id' => 'Europe/Paris',
           ),
           32 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Riga',
+            'timezone_id' => 'Europe/Podgorica',
           ),
           33 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Rome',
+            'timezone_id' => 'Europe/Prague',
           ),
           34 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/San_Marino',
+            'timezone_id' => 'Europe/Riga',
           ),
           35 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Sarajevo',
+            'timezone_id' => 'Europe/Rome',
           ),
           36 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Simferopol',
+            'timezone_id' => 'Europe/San_Marino',
           ),
           37 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Skopje',
+            'timezone_id' => 'Europe/Sarajevo',
           ),
           38 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Sofia',
+            'timezone_id' => 'Europe/Simferopol',
           ),
           39 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Stockholm',
+            'timezone_id' => 'Europe/Skopje',
           ),
           40 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Tallinn',
+            'timezone_id' => 'Europe/Sofia',
           ),
           41 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Tirane',
+            'timezone_id' => 'Europe/Stockholm',
           ),
           42 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Tiraspol',
+            'timezone_id' => 'Europe/Tallinn',
           ),
           43 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Uzhgorod',
+            'timezone_id' => 'Europe/Tirane',
           ),
           44 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Vaduz',
+            'timezone_id' => 'Europe/Tiraspol',
           ),
           45 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Vatican',
+            'timezone_id' => 'Europe/Uzhgorod',
           ),
           46 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Vienna',
+            'timezone_id' => 'Europe/Vaduz',
           ),
           47 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Vilnius',
+            'timezone_id' => 'Europe/Vatican',
           ),
           48 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Warsaw',
+            'timezone_id' => 'Europe/Vienna',
           ),
           49 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Zagreb',
+            'timezone_id' => 'Europe/Vilnius',
           ),
           50 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Zaporozhye',
+            'timezone_id' => 'Europe/Warsaw',
           ),
           51 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Zurich',
+            'timezone_id' => 'Europe/Zagreb',
           ),
           52 => 
           array (
             'dst' => false,
             'offset' => 3600,
-            'timezone_id' => 'WET',
+            'timezone_id' => 'Europe/Zaporozhye',
           ),
           53 => 
           array (
             'dst' => false,
-            'offset' => 7200,
-            'timezone_id' => 'Europe/Kaliningrad',
+            'offset' => 3600,
+            'timezone_id' => 'Europe/Zurich',
+          ),
+          54 => 
+          array (
+            'dst' => false,
+            'offset' => 3600,
+            'timezone_id' => 'WET',
           ),
         ),
         'cgst' => 
@@ -3234,20 +3597,11 @@ return array (
             'offset' => 45900,
             'timezone_id' => 'Pacific/Chatham',
           ),
-        ),
-        'chat' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => 30600,
-            'timezone_id' => 'Asia/Harbin',
-          ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 32400,
-            'timezone_id' => 'Asia/Harbin',
+            'offset' => 44100,
+            'timezone_id' => 'Pacific/Chatham',
           ),
         ),
         'chdt' => 
@@ -3273,13 +3627,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 32400,
             'timezone_id' => 'Asia/Choibalsan',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 32400,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Choibalsan',
           ),
         ),
@@ -3302,48 +3656,6 @@ return array (
             'dst' => false,
             'offset' => 36000,
             'timezone_id' => 'Pacific/Yap',
-          ),
-        ),
-        'cit' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Asia/Dili',
-          ),
-          1 => 
-          array (
-            'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Asia/Makassar',
-          ),
-          2 => 
-          array (
-            'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Asia/Pontianak',
-          ),
-          3 => 
-          array (
-            'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Asia/Ujung_Pandang',
-          ),
-        ),
-        'cjt' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => 32400,
-            'timezone_id' => 'Asia/Sakhalin',
-          ),
-          1 => 
-          array (
-            'dst' => false,
-            'offset' => 32400,
-            'timezone_id' => 'Asia/Tokyo',
           ),
         ),
         'ckhst' => 
@@ -3441,148 +3753,142 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -14640,
-            'timezone_id' => 'America/St_Lucia',
+            'offset' => -15408,
+            'timezone_id' => 'America/Argentina/Buenos_Aires',
           ),
           1 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Buenos_Aires',
+            'timezone_id' => 'America/Argentina/Catamarca',
           ),
           2 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Catamarca',
+            'timezone_id' => 'America/Argentina/ComodRivadavia',
           ),
           3 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/ComodRivadavia',
+            'timezone_id' => 'America/Argentina/Cordoba',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Cordoba',
+            'timezone_id' => 'America/Argentina/Jujuy',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Jujuy',
+            'timezone_id' => 'America/Argentina/La_Rioja',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/La_Rioja',
+            'timezone_id' => 'America/Argentina/Mendoza',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Mendoza',
+            'timezone_id' => 'America/Argentina/Rio_Gallegos',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Rio_Gallegos',
+            'timezone_id' => 'America/Argentina/Salta',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Salta',
+            'timezone_id' => 'America/Argentina/San_Juan',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/San_Juan',
+            'timezone_id' => 'America/Argentina/San_Luis',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/San_Luis',
+            'timezone_id' => 'America/Argentina/Tucuman',
           ),
           12 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Tucuman',
+            'timezone_id' => 'America/Argentina/Ushuaia',
           ),
           13 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Argentina/Ushuaia',
+            'timezone_id' => 'America/Buenos_Aires',
           ),
           14 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Buenos_Aires',
+            'timezone_id' => 'America/Catamarca',
           ),
           15 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Catamarca',
+            'timezone_id' => 'America/Cordoba',
           ),
           16 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Cordoba',
+            'timezone_id' => 'America/Jujuy',
           ),
           17 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Jujuy',
+            'timezone_id' => 'America/Mendoza',
           ),
           18 => 
           array (
             'dst' => false,
             'offset' => -15408,
-            'timezone_id' => 'America/Mendoza',
-          ),
-          19 => 
-          array (
-            'dst' => false,
-            'offset' => -15408,
             'timezone_id' => 'America/Rosario',
           ),
-          20 => 
+          19 => 
           array (
             'dst' => false,
             'offset' => -16060,
             'timezone_id' => 'America/Caracas',
           ),
-          21 => 
+          20 => 
           array (
             'dst' => false,
             'offset' => -16356,
             'timezone_id' => 'America/La_Paz',
           ),
-          22 => 
+          21 => 
           array (
             'dst' => false,
             'offset' => -19176,
             'timezone_id' => 'America/Panama',
           ),
-          23 => 
+          22 => 
           array (
             'dst' => false,
             'offset' => 6900,
             'timezone_id' => 'Europe/Chisinau',
           ),
-          24 => 
+          23 => 
           array (
             'dst' => false,
             'offset' => 6900,
@@ -3958,127 +4264,127 @@ return array (
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/North_Dakota/Center',
+            'timezone_id' => 'America/North_Dakota/Beulah',
           ),
           37 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/North_Dakota/New_Salem',
+            'timezone_id' => 'America/North_Dakota/Center',
           ),
           38 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Ojinaga',
+            'timezone_id' => 'America/North_Dakota/New_Salem',
           ),
           39 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Pangnirtung',
+            'timezone_id' => 'America/Ojinaga',
           ),
           40 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Rainy_River',
+            'timezone_id' => 'America/Pangnirtung',
           ),
           41 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Rankin_Inlet',
+            'timezone_id' => 'America/Rainy_River',
           ),
           42 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Regina',
+            'timezone_id' => 'America/Rankin_Inlet',
           ),
           43 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Resolute',
+            'timezone_id' => 'America/Regina',
           ),
           44 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Swift_Current',
+            'timezone_id' => 'America/Resolute',
           ),
           45 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Tegucigalpa',
+            'timezone_id' => 'America/Swift_Current',
           ),
           46 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Thunder_Bay',
+            'timezone_id' => 'America/Tegucigalpa',
           ),
           47 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'America/Winnipeg',
+            'timezone_id' => 'America/Thunder_Bay',
           ),
           48 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'Canada/Central',
+            'timezone_id' => 'America/Winnipeg',
           ),
           49 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'Canada/East-Saskatchewan',
+            'timezone_id' => 'Canada/Central',
           ),
           50 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'Canada/Saskatchewan',
+            'timezone_id' => 'Canada/East-Saskatchewan',
           ),
           51 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'Mexico/BajaSur',
+            'timezone_id' => 'Canada/Saskatchewan',
           ),
           52 => 
           array (
             'dst' => false,
             'offset' => -21600,
-            'timezone_id' => 'Mexico/General',
+            'timezone_id' => 'Mexico/BajaSur',
           ),
           53 => 
           array (
             'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Asia/Chongqing',
+            'offset' => -21600,
+            'timezone_id' => 'Mexico/General',
           ),
           54 => 
           array (
             'dst' => false,
             'offset' => 28800,
-            'timezone_id' => 'Asia/Chungking',
+            'timezone_id' => 'Asia/Chongqing',
           ),
           55 => 
           array (
             'dst' => false,
             'offset' => 28800,
-            'timezone_id' => 'Asia/Harbin',
+            'timezone_id' => 'Asia/Chungking',
           ),
           56 => 
           array (
             'dst' => false,
             'offset' => 28800,
-            'timezone_id' => 'Asia/Kashgar',
+            'timezone_id' => 'Asia/Harbin',
           ),
           57 => 
           array (
@@ -4108,97 +4414,13 @@ return array (
           array (
             'dst' => false,
             'offset' => 28800,
-            'timezone_id' => 'Asia/Urumqi',
+            'timezone_id' => 'PRC',
           ),
           62 => 
           array (
             'dst' => false,
             'offset' => 28800,
-            'timezone_id' => 'PRC',
-          ),
-          63 => 
-          array (
-            'dst' => false,
-            'offset' => 28800,
             'timezone_id' => 'ROC',
-          ),
-          64 => 
-          array (
-            'dst' => false,
-            'offset' => 34200,
-            'timezone_id' => 'Asia/Jayapura',
-          ),
-          65 => 
-          array (
-            'dst' => false,
-            'offset' => 34200,
-            'timezone_id' => 'Australia/Adelaide',
-          ),
-          66 => 
-          array (
-            'dst' => false,
-            'offset' => 34200,
-            'timezone_id' => 'Australia/Broken_Hill',
-          ),
-          67 => 
-          array (
-            'dst' => false,
-            'offset' => 34200,
-            'timezone_id' => 'Australia/Darwin',
-          ),
-          68 => 
-          array (
-            'dst' => false,
-            'offset' => 34200,
-            'timezone_id' => 'Australia/North',
-          ),
-          69 => 
-          array (
-            'dst' => false,
-            'offset' => 34200,
-            'timezone_id' => 'Australia/South',
-          ),
-          70 => 
-          array (
-            'dst' => false,
-            'offset' => 34200,
-            'timezone_id' => 'Australia/Yancowinna',
-          ),
-          71 => 
-          array (
-            'dst' => true,
-            'offset' => 37800,
-            'timezone_id' => 'Australia/Adelaide',
-          ),
-          72 => 
-          array (
-            'dst' => true,
-            'offset' => 37800,
-            'timezone_id' => 'Australia/Broken_Hill',
-          ),
-          73 => 
-          array (
-            'dst' => true,
-            'offset' => 37800,
-            'timezone_id' => 'Australia/Darwin',
-          ),
-          74 => 
-          array (
-            'dst' => true,
-            'offset' => 37800,
-            'timezone_id' => 'Australia/North',
-          ),
-          75 => 
-          array (
-            'dst' => true,
-            'offset' => 37800,
-            'timezone_id' => 'Australia/South',
-          ),
-          76 => 
-          array (
-            'dst' => true,
-            'offset' => 37800,
-            'timezone_id' => 'Australia/Yancowinna',
           ),
         ),
         'cut' => 
@@ -4224,29 +4446,14 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -3600,
-            'timezone_id' => 'Atlantic/Cape_Verde',
-          ),
-          1 => 
-          array (
-            'dst' => false,
             'offset' => -7200,
             'timezone_id' => 'Atlantic/Cape_Verde',
           ),
-        ),
-        'cwst' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => 31500,
-            'timezone_id' => 'Australia/Eucla',
-          ),
           1 => 
           array (
-            'dst' => true,
-            'offset' => 35100,
-            'timezone_id' => 'Australia/Eucla',
+            'dst' => false,
+            'offset' => -3600,
+            'timezone_id' => 'Atlantic/Cape_Verde',
           ),
         ),
         'cwt' => 
@@ -4434,13 +4641,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 25200,
             'timezone_id' => 'Antarctica/Davis',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 25200,
+            'offset' => 18000,
             'timezone_id' => 'Antarctica/Davis',
           ),
         ),
@@ -4467,13 +4674,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 21600,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Dushanbe',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 25200,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Dushanbe',
           ),
         ),
@@ -4482,13 +4689,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Dushanbe',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Dushanbe',
           ),
         ),
@@ -4497,13 +4704,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => -18000,
+            'offset' => -21600,
             'timezone_id' => 'Chile/EasterIsland',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => -21600,
+            'offset' => -18000,
             'timezone_id' => 'Chile/EasterIsland',
           ),
           2 => 
@@ -4535,21 +4742,21 @@ return array (
           ),
           2 => 
           array (
-            'dst' => false,
-            'offset' => -21600,
-            'timezone_id' => 'Pacific/Easter',
+            'dst' => true,
+            'offset' => 14400,
+            'timezone_id' => 'Indian/Antananarivo',
           ),
           3 => 
           array (
             'dst' => false,
-            'offset' => -25200,
+            'offset' => -21600,
             'timezone_id' => 'Pacific/Easter',
           ),
           4 => 
           array (
-            'dst' => true,
-            'offset' => 14400,
-            'timezone_id' => 'Indian/Antananarivo',
+            'dst' => false,
+            'offset' => -25200,
+            'timezone_id' => 'Pacific/Easter',
           ),
         ),
         'eat' => 
@@ -4594,33 +4801,39 @@ return array (
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Africa/Kampala',
+            'timezone_id' => 'Africa/Juba',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Africa/Mogadishu',
+            'timezone_id' => 'Africa/Kampala',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Africa/Nairobi',
+            'timezone_id' => 'Africa/Mogadishu',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Indian/Antananarivo',
+            'timezone_id' => 'Africa/Nairobi',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Indian/Comoro',
+            'timezone_id' => 'Indian/Antananarivo',
           ),
           11 => 
+          array (
+            'dst' => false,
+            'offset' => 10800,
+            'timezone_id' => 'Indian/Comoro',
+          ),
+          12 => 
           array (
             'dst' => false,
             'offset' => 10800,
@@ -4864,129 +5077,141 @@ return array (
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Asia/Istanbul',
+            'timezone_id' => 'Asia/Hebron',
           ),
           7 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Asia/Nicosia',
+            'timezone_id' => 'Asia/Istanbul',
           ),
           8 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'EET',
+            'timezone_id' => 'Asia/Nicosia',
           ),
           9 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Athens',
+            'timezone_id' => 'EET',
           ),
           10 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Bucharest',
+            'timezone_id' => 'Europe/Athens',
           ),
           11 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Chisinau',
+            'timezone_id' => 'Europe/Bucharest',
           ),
           12 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Istanbul',
+            'timezone_id' => 'Europe/Chisinau',
           ),
           13 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Kaliningrad',
+            'timezone_id' => 'Europe/Istanbul',
           ),
           14 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Kiev',
+            'timezone_id' => 'Europe/Kaliningrad',
           ),
           15 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Mariehamn',
+            'timezone_id' => 'Europe/Kiev',
           ),
           16 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Minsk',
+            'timezone_id' => 'Europe/Mariehamn',
           ),
           17 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Moscow',
+            'timezone_id' => 'Europe/Minsk',
           ),
           18 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Nicosia',
+            'timezone_id' => 'Europe/Moscow',
           ),
           19 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Riga',
+            'timezone_id' => 'Europe/Nicosia',
           ),
           20 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Simferopol',
+            'timezone_id' => 'Europe/Riga',
           ),
           21 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Sofia',
+            'timezone_id' => 'Europe/Samara',
           ),
           22 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Tallinn',
+            'timezone_id' => 'Europe/Simferopol',
           ),
           23 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Tiraspol',
+            'timezone_id' => 'Europe/Sofia',
           ),
           24 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Uzhgorod',
+            'timezone_id' => 'Europe/Tallinn',
           ),
           25 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Vilnius',
+            'timezone_id' => 'Europe/Tiraspol',
           ),
           26 => 
           array (
             'dst' => true,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Warsaw',
+            'timezone_id' => 'Europe/Uzhgorod',
           ),
           27 => 
+          array (
+            'dst' => true,
+            'offset' => 10800,
+            'timezone_id' => 'Europe/Vilnius',
+          ),
+          28 => 
+          array (
+            'dst' => true,
+            'offset' => 10800,
+            'timezone_id' => 'Europe/Warsaw',
+          ),
+          29 => 
           array (
             'dst' => true,
             'offset' => 10800,
@@ -5009,167 +5234,179 @@ return array (
           ),
           2 => 
           array (
-            'dst' => false,
-            'offset' => 7200,
-            'timezone_id' => 'Africa/Cairo',
+            'dst' => true,
+            'offset' => 10800,
+            'timezone_id' => 'Asia/Hebron',
           ),
           3 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Africa/Tripoli',
+            'timezone_id' => 'Africa/Cairo',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Asia/Amman',
+            'timezone_id' => 'Africa/Tripoli',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Asia/Beirut',
+            'timezone_id' => 'Asia/Amman',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Asia/Damascus',
+            'timezone_id' => 'Asia/Beirut',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Asia/Gaza',
+            'timezone_id' => 'Asia/Damascus',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Asia/Istanbul',
+            'timezone_id' => 'Asia/Gaza',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Asia/Nicosia',
+            'timezone_id' => 'Asia/Hebron',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'EET',
+            'timezone_id' => 'Asia/Istanbul',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Athens',
+            'timezone_id' => 'Asia/Nicosia',
           ),
           12 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Bucharest',
+            'timezone_id' => 'EET',
           ),
           13 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Chisinau',
+            'timezone_id' => 'Europe/Athens',
           ),
           14 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Istanbul',
+            'timezone_id' => 'Europe/Bucharest',
           ),
           15 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Kaliningrad',
+            'timezone_id' => 'Europe/Chisinau',
           ),
           16 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Kiev',
+            'timezone_id' => 'Europe/Istanbul',
           ),
           17 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Mariehamn',
+            'timezone_id' => 'Europe/Kaliningrad',
           ),
           18 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Minsk',
+            'timezone_id' => 'Europe/Kiev',
           ),
           19 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Moscow',
+            'timezone_id' => 'Europe/Mariehamn',
           ),
           20 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Nicosia',
+            'timezone_id' => 'Europe/Minsk',
           ),
           21 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Riga',
+            'timezone_id' => 'Europe/Moscow',
           ),
           22 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Simferopol',
+            'timezone_id' => 'Europe/Nicosia',
           ),
           23 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Sofia',
+            'timezone_id' => 'Europe/Riga',
           ),
           24 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Tallinn',
+            'timezone_id' => 'Europe/Simferopol',
           ),
           25 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Tiraspol',
+            'timezone_id' => 'Europe/Sofia',
           ),
           26 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Uzhgorod',
+            'timezone_id' => 'Europe/Tallinn',
           ),
           27 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Vilnius',
+            'timezone_id' => 'Europe/Tiraspol',
           ),
           28 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Europe/Warsaw',
+            'timezone_id' => 'Europe/Uzhgorod',
           ),
           29 => 
+          array (
+            'dst' => false,
+            'offset' => 7200,
+            'timezone_id' => 'Europe/Vilnius',
+          ),
+          30 => 
+          array (
+            'dst' => false,
+            'offset' => 7200,
+            'timezone_id' => 'Europe/Warsaw',
+          ),
+          31 => 
           array (
             'dst' => false,
             'offset' => 7200,
@@ -5201,15 +5438,6 @@ return array (
             'dst' => true,
             'offset' => -16200,
             'timezone_id' => 'America/Santo_Domingo',
-          ),
-        ),
-        'eit' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => 32400,
-            'timezone_id' => 'Asia/Jayapura',
           ),
         ),
         'emt' => 
@@ -5544,174 +5772,6 @@ return array (
             'offset' => -18000,
             'timezone_id' => 'EST',
           ),
-          43 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Antarctica/Macquarie',
-          ),
-          44 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/ACT',
-          ),
-          45 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Brisbane',
-          ),
-          46 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Canberra',
-          ),
-          47 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Currie',
-          ),
-          48 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Hobart',
-          ),
-          49 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/LHI',
-          ),
-          50 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Lindeman',
-          ),
-          51 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Lord_Howe',
-          ),
-          52 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Melbourne',
-          ),
-          53 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/NSW',
-          ),
-          54 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Queensland',
-          ),
-          55 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Sydney',
-          ),
-          56 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Tasmania',
-          ),
-          57 => 
-          array (
-            'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Australia/Victoria',
-          ),
-          58 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Melbourne',
-          ),
-          59 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Antarctica/Macquarie',
-          ),
-          60 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/ACT',
-          ),
-          61 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Brisbane',
-          ),
-          62 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Canberra',
-          ),
-          63 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Currie',
-          ),
-          64 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Hobart',
-          ),
-          65 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Lindeman',
-          ),
-          66 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/NSW',
-          ),
-          67 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Queensland',
-          ),
-          68 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Sydney',
-          ),
-          69 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Tasmania',
-          ),
-          70 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Victoria',
-          ),
         ),
         'ewt' => 
         array (
@@ -5770,6 +5830,21 @@ return array (
             'timezone_id' => 'EST',
           ),
         ),
+        'fet' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 10800,
+            'timezone_id' => 'Europe/Kaliningrad',
+          ),
+          1 => 
+          array (
+            'dst' => false,
+            'offset' => 10800,
+            'timezone_id' => 'Europe/Minsk',
+          ),
+        ),
         'ffmt' => 
         array (
           0 => 
@@ -5802,13 +5877,19 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => -10800,
+            'offset' => -7200,
             'timezone_id' => 'Atlantic/Stanley',
           ),
           1 => 
           array (
+            'dst' => false,
+            'offset' => -10800,
+            'timezone_id' => 'Atlantic/Stanley',
+          ),
+          2 => 
+          array (
             'dst' => true,
-            'offset' => -7200,
+            'offset' => -10800,
             'timezone_id' => 'Atlantic/Stanley',
           ),
         ),
@@ -5817,25 +5898,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -10800,
+            'offset' => -14400,
             'timezone_id' => 'Atlantic/Stanley',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -14400,
+            'offset' => -10800,
             'timezone_id' => 'Atlantic/Stanley',
           ),
         ),
         'fmt' => 
         array (
           0 => 
-          array (
-            'dst' => false,
-            'offset' => -3180,
-            'timezone_id' => 'Africa/Freetown',
-          ),
-          1 => 
           array (
             'dst' => false,
             'offset' => -4056,
@@ -5877,13 +5952,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Aqtau',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Aqtau',
           ),
         ),
@@ -5892,13 +5967,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 21600,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Bishkek',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 25200,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Bishkek',
           ),
         ),
@@ -5907,13 +5982,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Bishkek',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Bishkek',
           ),
         ),
@@ -5964,13 +6039,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 10800,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Tbilisi',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 10800,
             'timezone_id' => 'Asia/Tbilisi',
           ),
         ),
@@ -5979,13 +6054,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -10800,
+            'offset' => -14400,
             'timezone_id' => 'America/Cayenne',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -14400,
+            'offset' => -10800,
             'timezone_id' => 'America/Cayenne',
           ),
         ),
@@ -6234,19 +6309,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -10800,
+            'offset' => -14400,
             'timezone_id' => 'America/Guyana',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -13500,
+            'offset' => -10800,
             'timezone_id' => 'America/Guyana',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => -14400,
+            'offset' => -13500,
             'timezone_id' => 'America/Guyana',
           ),
         ),
@@ -6293,6 +6368,12 @@ return array (
             'dst' => true,
             'offset' => -34200,
             'timezone_id' => 'HST',
+          ),
+          2 => 
+          array (
+            'dst' => true,
+            'offset' => -34200,
+            'timezone_id' => 'Pacific/Johnston',
           ),
         ),
         'hkst' => 
@@ -6354,19 +6435,19 @@ return array (
           6 => 
           array (
             'dst' => false,
-            'offset' => 5992,
+            'offset' => 5989,
             'timezone_id' => 'EET',
           ),
           7 => 
           array (
             'dst' => false,
-            'offset' => 5992,
+            'offset' => 5989,
             'timezone_id' => 'Europe/Helsinki',
           ),
           8 => 
           array (
             'dst' => false,
-            'offset' => 5992,
+            'offset' => 5989,
             'timezone_id' => 'Europe/Mariehamn',
           ),
         ),
@@ -6384,29 +6465,14 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Hovd',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 25200,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Hovd',
-          ),
-        ),
-        'hpt' => 
-        array (
-          0 => 
-          array (
-            'dst' => true,
-            'offset' => -34200,
-            'timezone_id' => 'Pacific/Honolulu',
-          ),
-          1 => 
-          array (
-            'dst' => true,
-            'offset' => -34200,
-            'timezone_id' => 'HST',
           ),
         ),
         'hst' => 
@@ -6441,20 +6507,11 @@ return array (
             'offset' => -37800,
             'timezone_id' => 'HST',
           ),
-        ),
-        'hwt' => 
-        array (
-          0 => 
+          5 => 
           array (
-            'dst' => true,
-            'offset' => -34200,
-            'timezone_id' => 'Pacific/Honolulu',
-          ),
-          1 => 
-          array (
-            'dst' => true,
-            'offset' => -34200,
-            'timezone_id' => 'HST',
+            'dst' => false,
+            'offset' => -37800,
+            'timezone_id' => 'Pacific/Johnston',
           ),
         ),
         'ict' => 
@@ -6547,6 +6604,12 @@ return array (
           array (
             'dst' => true,
             'offset' => 10800,
+            'timezone_id' => 'Asia/Hebron',
+          ),
+          3 => 
+          array (
+            'dst' => true,
+            'offset' => 10800,
             'timezone_id' => 'Asia/Tel_Aviv',
           ),
         ),
@@ -6564,7 +6627,7 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 25040,
+            'offset' => 25035,
             'timezone_id' => 'Asia/Irkutsk',
           ),
           1 => 
@@ -6585,13 +6648,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Indian/Chagos',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Indian/Chagos',
           ),
         ),
@@ -6615,13 +6678,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 28800,
+            'offset' => 32400,
             'timezone_id' => 'Asia/Irkutsk',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 32400,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Irkutsk',
           ),
         ),
@@ -6630,14 +6693,26 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 25200,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Irkutsk',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Irkutsk',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Irkutsk',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Chita',
           ),
         ),
         'irst' => 
@@ -6790,6 +6865,12 @@ return array (
           array (
             'dst' => false,
             'offset' => 7200,
+            'timezone_id' => 'Asia/Hebron',
+          ),
+          21 => 
+          array (
+            'dst' => false,
+            'offset' => 7200,
             'timezone_id' => 'Asia/Tel_Aviv',
           ),
         ),
@@ -6800,6 +6881,39 @@ return array (
             'dst' => false,
             'offset' => 26400,
             'timezone_id' => 'Asia/Jakarta',
+          ),
+        ),
+        'jcst' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Pyongyang',
+          ),
+          1 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Sakhalin',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Seoul',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Tokyo',
+          ),
+          4 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'ROK',
           ),
         ),
         'jdt' => 
@@ -6816,22 +6930,10 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -1368,
-            'timezone_id' => 'Atlantic/St_Helena',
-          ),
-          1 => 
-          array (
-            'dst' => false,
-            'offset' => 25632,
-            'timezone_id' => 'Asia/Jakarta',
-          ),
-          2 => 
-          array (
-            'dst' => false,
             'offset' => 8440,
             'timezone_id' => 'Asia/Jerusalem',
           ),
-          3 => 
+          1 => 
           array (
             'dst' => false,
             'offset' => 8440,
@@ -6898,31 +7000,76 @@ return array (
           array (
             'dst' => false,
             'offset' => 32400,
-            'timezone_id' => 'Asia/Rangoon',
+            'timezone_id' => 'Asia/Pyongyang',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => 32400,
-            'timezone_id' => 'Asia/Sakhalin',
+            'timezone_id' => 'Asia/Rangoon',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => 32400,
-            'timezone_id' => 'Asia/Singapore',
+            'timezone_id' => 'Asia/Sakhalin',
           ),
           12 => 
           array (
             'dst' => false,
             'offset' => 32400,
-            'timezone_id' => 'Asia/Ujung_Pandang',
+            'timezone_id' => 'Asia/Seoul',
           ),
           13 => 
           array (
             'dst' => false,
             'offset' => 32400,
+            'timezone_id' => 'Asia/Singapore',
+          ),
+          14 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Taipei',
+          ),
+          15 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Ujung_Pandang',
+          ),
+          16 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
             'timezone_id' => 'Pacific/Nauru',
+          ),
+          17 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'ROC',
+          ),
+          18 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'ROK',
+          ),
+        ),
+        'jwst' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Taipei',
+          ),
+          1 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'ROC',
           ),
         ),
         'kart' => 
@@ -6934,33 +7081,18 @@ return array (
             'timezone_id' => 'Asia/Karachi',
           ),
         ),
-        'kast' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => 18000,
-            'timezone_id' => 'Asia/Kashgar',
-          ),
-          1 => 
-          array (
-            'dst' => false,
-            'offset' => 19800,
-            'timezone_id' => 'Asia/Kashgar',
-          ),
-        ),
         'kdt' => 
         array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 32400,
+            'offset' => 36000,
             'timezone_id' => 'Asia/Seoul',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 36000,
+            'offset' => 32400,
             'timezone_id' => 'Asia/Seoul',
           ),
           2 => 
@@ -7014,19 +7146,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Qyzylorda',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Qyzylorda',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Qyzylorda',
           ),
         ),
@@ -7041,28 +7173,22 @@ return array (
           1 => 
           array (
             'dst' => false,
-            'offset' => -14696,
-            'timezone_id' => 'America/St_Vincent',
+            'offset' => -18431,
+            'timezone_id' => 'America/Cayman',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => -18432,
-            'timezone_id' => 'America/Cayman',
+            'offset' => -18431,
+            'timezone_id' => 'America/Grand_Turk',
           ),
           3 => 
           array (
             'dst' => false,
-            'offset' => -18432,
-            'timezone_id' => 'America/Grand_Turk',
-          ),
-          4 => 
-          array (
-            'dst' => false,
-            'offset' => -18432,
+            'offset' => -18431,
             'timezone_id' => 'America/Jamaica',
           ),
-          5 => 
+          4 => 
           array (
             'dst' => false,
             'offset' => 7324,
@@ -7074,13 +7200,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 39600,
+            'offset' => 43200,
             'timezone_id' => 'Pacific/Kosrae',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 43200,
+            'offset' => 39600,
             'timezone_id' => 'Pacific/Kosrae',
           ),
         ),
@@ -7089,13 +7215,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 25200,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Krasnoyarsk',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 28800,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Krasnoyarsk',
           ),
           2 => 
@@ -7116,22 +7242,28 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Krasnoyarsk',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 25200,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Krasnoyarsk',
           ),
           2 => 
           array (
             'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Krasnoyarsk',
+          ),
+          3 => 
+          array (
+            'dst' => false,
             'offset' => 21600,
             'timezone_id' => 'Asia/Novokuznetsk',
           ),
-          3 => 
+          4 => 
           array (
             'dst' => false,
             'offset' => 25200,
@@ -7156,37 +7288,37 @@ return array (
           array (
             'dst' => false,
             'offset' => 32400,
-            'timezone_id' => 'Asia/Seoul',
+            'timezone_id' => 'Asia/Pyongyang',
           ),
           3 => 
           array (
             'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Asia/Pyongyang',
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Seoul',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => 28800,
-            'timezone_id' => 'ROK',
+            'timezone_id' => 'Asia/Pyongyang',
           ),
           5 => 
           array (
             'dst' => false,
-            'offset' => 30600,
-            'timezone_id' => 'Asia/Pyongyang',
+            'offset' => 28800,
+            'timezone_id' => 'ROK',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => 30600,
-            'timezone_id' => 'ROK',
+            'timezone_id' => 'Asia/Pyongyang',
           ),
           7 => 
           array (
             'dst' => false,
-            'offset' => 32400,
-            'timezone_id' => 'Asia/Pyongyang',
+            'offset' => 30600,
+            'timezone_id' => 'ROK',
           ),
           8 => 
           array (
@@ -7200,18 +7332,6 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 10800,
-            'timezone_id' => 'Europe/Samara',
-          ),
-          1 => 
-          array (
-            'dst' => true,
-            'offset' => 14400,
-            'timezone_id' => 'Europe/Samara',
-          ),
-          2 => 
-          array (
-            'dst' => true,
             'offset' => 18000,
             'timezone_id' => 'Europe/Samara',
           ),
@@ -7221,13 +7341,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 10800,
+            'offset' => 14400,
             'timezone_id' => 'Europe/Samara',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 10800,
             'timezone_id' => 'Europe/Samara',
           ),
         ),
@@ -7240,6 +7360,33 @@ return array (
             'timezone_id' => 'Pacific/Kwajalein',
           ),
         ),
+        'lhdt' => 
+        array (
+          0 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/LHI',
+          ),
+          1 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Australia/Lord_Howe',
+          ),
+          2 => 
+          array (
+            'dst' => true,
+            'offset' => 41400,
+            'timezone_id' => 'Australia/LHI',
+          ),
+          3 => 
+          array (
+            'dst' => true,
+            'offset' => 41400,
+            'timezone_id' => 'Australia/Lord_Howe',
+          ),
+        ),
         'lhst' => 
         array (
           0 => 
@@ -7250,32 +7397,8 @@ return array (
           ),
           1 => 
           array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/Lord_Howe',
-          ),
-          2 => 
-          array (
-            'dst' => true,
-            'offset' => 41400,
-            'timezone_id' => 'Australia/Lord_Howe',
-          ),
-          3 => 
-          array (
             'dst' => false,
             'offset' => 37800,
-            'timezone_id' => 'Australia/LHI',
-          ),
-          4 => 
-          array (
-            'dst' => true,
-            'offset' => 39600,
-            'timezone_id' => 'Australia/LHI',
-          ),
-          5 => 
-          array (
-            'dst' => true,
-            'offset' => 41400,
             'timezone_id' => 'Australia/LHI',
           ),
         ),
@@ -7284,19 +7407,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -36000,
+            'offset' => 50400,
             'timezone_id' => 'Pacific/Kiritimati',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -38400,
+            'offset' => -36000,
             'timezone_id' => 'Pacific/Kiritimati',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 50400,
+            'offset' => -38400,
             'timezone_id' => 'Pacific/Kiritimati',
           ),
         ),
@@ -7305,1274 +7428,14 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 21600,
-            'timezone_id' => 'Asia/Colombo',
-          ),
-          1 => 
-          array (
-            'dst' => false,
             'offset' => 23400,
             'timezone_id' => 'Asia/Colombo',
           ),
-        ),
-        'lmt' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => -11188,
-            'timezone_id' => 'America/Sao_Paulo',
-          ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -11188,
-            'timezone_id' => 'Brazil/East',
-          ),
-          2 => 
-          array (
-            'dst' => false,
-            'offset' => -11568,
-            'timezone_id' => 'America/Araguaina',
-          ),
-          3 => 
-          array (
-            'dst' => false,
-            'offset' => -11636,
-            'timezone_id' => 'America/Belem',
-          ),
-          4 => 
-          array (
-            'dst' => false,
-            'offset' => -12416,
-            'timezone_id' => 'America/Godthab',
-          ),
-          5 => 
-          array (
-            'dst' => false,
-            'offset' => -12560,
-            'timezone_id' => 'America/Cayenne',
-          ),
-          6 => 
-          array (
-            'dst' => false,
-            'offset' => -13108,
-            'timezone_id' => 'America/Campo_Grande',
-          ),
-          7 => 
-          array (
-            'dst' => false,
-            'offset' => -13128,
-            'timezone_id' => 'America/Santarem',
-          ),
-          8 => 
-          array (
-            'dst' => false,
-            'offset' => -13240,
-            'timezone_id' => 'America/Paramaribo',
-          ),
-          9 => 
-          array (
-            'dst' => false,
-            'offset' => -13460,
-            'timezone_id' => 'America/Cuiaba',
-          ),
-          10 => 
-          array (
-            'dst' => false,
-            'offset' => -13480,
-            'timezone_id' => 'America/Miquelon',
-          ),
-          11 => 
-          array (
-            'dst' => false,
-            'offset' => -13960,
-            'timezone_id' => 'America/Guyana',
-          ),
-          12 => 
-          array (
-            'dst' => false,
-            'offset' => -14308,
-            'timezone_id' => 'America/Barbados',
-          ),
-          13 => 
-          array (
-            'dst' => false,
-            'offset' => -14388,
-            'timezone_id' => 'America/Glace_Bay',
-          ),
-          14 => 
-          array (
-            'dst' => false,
-            'offset' => -14404,
-            'timezone_id' => 'America/Manaus',
-          ),
-          15 => 
-          array (
-            'dst' => false,
-            'offset' => -14404,
-            'timezone_id' => 'Brazil/West',
-          ),
-          16 => 
-          array (
-            'dst' => false,
-            'offset' => -14560,
-            'timezone_id' => 'America/Boa_Vista',
-          ),
-          17 => 
-          array (
-            'dst' => false,
-            'offset' => -14736,
-            'timezone_id' => 'America/Dominica',
-          ),
-          18 => 
-          array (
-            'dst' => false,
-            'offset' => -14764,
-            'timezone_id' => 'America/Port_of_Spain',
-          ),
-          19 => 
-          array (
-            'dst' => false,
-            'offset' => -14768,
-            'timezone_id' => 'America/Guadeloupe',
-          ),
-          20 => 
-          array (
-            'dst' => false,
-            'offset' => -14768,
-            'timezone_id' => 'America/Marigot',
-          ),
-          21 => 
-          array (
-            'dst' => false,
-            'offset' => -14768,
-            'timezone_id' => 'America/St_Barthelemy',
-          ),
-          22 => 
-          array (
-            'dst' => false,
-            'offset' => -14820,
-            'timezone_id' => 'America/Grenada',
-          ),
-          23 => 
-          array (
-            'dst' => false,
-            'offset' => -14832,
-            'timezone_id' => 'America/Antigua',
-          ),
-          24 => 
-          array (
-            'dst' => false,
-            'offset' => -14932,
-            'timezone_id' => 'America/Montserrat',
-          ),
-          25 => 
-          array (
-            'dst' => false,
-            'offset' => -15052,
-            'timezone_id' => 'America/St_Kitts',
-          ),
-          26 => 
-          array (
-            'dst' => false,
-            'offset' => -15136,
-            'timezone_id' => 'America/Anguilla',
-          ),
-          27 => 
-          array (
-            'dst' => false,
-            'offset' => -15264,
-            'timezone_id' => 'America/Halifax',
-          ),
-          28 => 
-          array (
-            'dst' => false,
-            'offset' => -15264,
-            'timezone_id' => 'Canada/Atlantic',
-          ),
-          29 => 
-          array (
-            'dst' => false,
-            'offset' => -15336,
-            'timezone_id' => 'America/Porto_Velho',
-          ),
-          30 => 
-          array (
-            'dst' => false,
-            'offset' => -15508,
-            'timezone_id' => 'America/Tortola',
-          ),
-          31 => 
-          array (
-            'dst' => false,
-            'offset' => -15544,
-            'timezone_id' => 'Atlantic/Bermuda',
-          ),
-          32 => 
-          array (
-            'dst' => false,
-            'offset' => -15584,
-            'timezone_id' => 'America/St_Thomas',
-          ),
-          33 => 
-          array (
-            'dst' => false,
-            'offset' => -15584,
-            'timezone_id' => 'America/Virgin',
-          ),
-          34 => 
-          array (
-            'dst' => false,
-            'offset' => -1624,
-            'timezone_id' => 'Atlantic/Faeroe',
-          ),
-          35 => 
-          array (
-            'dst' => false,
-            'offset' => -1624,
-            'timezone_id' => 'Atlantic/Faroe',
-          ),
-          36 => 
-          array (
-            'dst' => false,
-            'offset' => -16272,
-            'timezone_id' => 'America/Porto_Acre',
-          ),
-          37 => 
-          array (
-            'dst' => false,
-            'offset' => -16272,
-            'timezone_id' => 'America/Rio_Branco',
-          ),
-          38 => 
-          array (
-            'dst' => false,
-            'offset' => -16272,
-            'timezone_id' => 'Brazil/Acre',
-          ),
-          39 => 
-          array (
-            'dst' => false,
-            'offset' => -16508,
-            'timezone_id' => 'America/Thule',
-          ),
-          40 => 
-          array (
-            'dst' => false,
-            'offset' => -16544,
-            'timezone_id' => 'America/Curacao',
-          ),
-          41 => 
-          array (
-            'dst' => false,
-            'offset' => -16768,
-            'timezone_id' => 'America/Eirunepe',
-          ),
-          42 => 
-          array (
-            'dst' => false,
-            'offset' => -16824,
-            'timezone_id' => 'America/Aruba',
-          ),
-          43 => 
-          array (
-            'dst' => false,
-            'offset' => -1820,
-            'timezone_id' => 'Africa/Casablanca',
-          ),
-          44 => 
-          array (
-            'dst' => false,
-            'offset' => -18516,
-            'timezone_id' => 'America/Lima',
-          ),
-          45 => 
-          array (
-            'dst' => false,
-            'offset' => -18564,
-            'timezone_id' => 'America/Nassau',
-          ),
-          46 => 
-          array (
-            'dst' => false,
-            'offset' => -1920,
-            'timezone_id' => 'Africa/Bamako',
-          ),
-          47 => 
-          array (
-            'dst' => false,
-            'offset' => -1920,
-            'timezone_id' => 'Africa/Timbuktu',
-          ),
-          48 => 
-          array (
-            'dst' => false,
-            'offset' => -19931,
-            'timezone_id' => 'America/Detroit',
-          ),
-          49 => 
-          array (
-            'dst' => false,
-            'offset' => -20824,
-            'timezone_id' => 'America/Cancun',
-          ),
-          50 => 
-          array (
-            'dst' => false,
-            'offset' => -20932,
-            'timezone_id' => 'America/Tegucigalpa',
-          ),
-          51 => 
-          array (
-            'dst' => false,
-            'offset' => -21168,
-            'timezone_id' => 'America/Belize',
-          ),
-          52 => 
-          array (
-            'dst' => false,
-            'offset' => -21408,
-            'timezone_id' => 'America/El_Salvador',
-          ),
-          53 => 
-          array (
-            'dst' => false,
-            'offset' => -21504,
-            'timezone_id' => 'Pacific/Galapagos',
-          ),
-          54 => 
-          array (
-            'dst' => false,
-            'offset' => -21508,
-            'timezone_id' => 'America/Merida',
-          ),
-          55 => 
-          array (
-            'dst' => false,
-            'offset' => -21724,
-            'timezone_id' => 'America/Guatemala',
-          ),
-          56 => 
-          array (
-            'dst' => false,
-            'offset' => -2192,
-            'timezone_id' => 'Africa/Sao_Tome',
-          ),
-          57 => 
-          array (
-            'dst' => false,
-            'offset' => -2192,
-            'timezone_id' => 'Europe/Lisbon',
-          ),
-          58 => 
-          array (
-            'dst' => false,
-            'offset' => -23796,
-            'timezone_id' => 'America/Mexico_City',
-          ),
-          59 => 
-          array (
-            'dst' => false,
-            'offset' => -23796,
-            'timezone_id' => 'Mexico/General',
-          ),
-          60 => 
-          array (
-            'dst' => false,
-            'offset' => -24000,
-            'timezone_id' => 'America/Matamoros',
-          ),
-          61 => 
-          array (
-            'dst' => false,
-            'offset' => -24076,
-            'timezone_id' => 'America/Monterrey',
-          ),
-          62 => 
-          array (
-            'dst' => false,
-            'offset' => -25060,
-            'timezone_id' => 'America/Ojinaga',
-          ),
-          63 => 
-          array (
-            'dst' => false,
-            'offset' => -25116,
-            'timezone_id' => 'America/Regina',
-          ),
-          64 => 
-          array (
-            'dst' => false,
-            'offset' => -25116,
-            'timezone_id' => 'Canada/East-Saskatchewan',
-          ),
-          65 => 
-          array (
-            'dst' => false,
-            'offset' => -25116,
-            'timezone_id' => 'Canada/Saskatchewan',
-          ),
-          66 => 
-          array (
-            'dst' => false,
-            'offset' => -25260,
-            'timezone_id' => 'America/Bahia_Banderas',
-          ),
-          67 => 
-          array (
-            'dst' => false,
-            'offset' => -25460,
-            'timezone_id' => 'America/Chihuahua',
-          ),
-          68 => 
-          array (
-            'dst' => false,
-            'offset' => -25540,
-            'timezone_id' => 'America/Mazatlan',
-          ),
-          69 => 
-          array (
-            'dst' => false,
-            'offset' => -25540,
-            'timezone_id' => 'Mexico/BajaSur',
-          ),
-          70 => 
-          array (
-            'dst' => false,
-            'offset' => -25880,
-            'timezone_id' => 'America/Swift_Current',
-          ),
-          71 => 
-          array (
-            'dst' => false,
-            'offset' => -26632,
-            'timezone_id' => 'America/Hermosillo',
-          ),
-          72 => 
-          array (
-            'dst' => false,
-            'offset' => -27232,
-            'timezone_id' => 'America/Edmonton',
-          ),
-          73 => 
-          array (
-            'dst' => false,
-            'offset' => -27232,
-            'timezone_id' => 'Canada/Mountain',
-          ),
-          74 => 
-          array (
-            'dst' => false,
-            'offset' => -27568,
-            'timezone_id' => 'America/Santa_Isabel',
-          ),
-          75 => 
-          array (
-            'dst' => false,
-            'offset' => -28084,
-            'timezone_id' => 'America/Ensenada',
-          ),
-          76 => 
-          array (
-            'dst' => false,
-            'offset' => -28084,
-            'timezone_id' => 'America/Tijuana',
-          ),
-          77 => 
-          array (
-            'dst' => false,
-            'offset' => -28084,
-            'timezone_id' => 'Mexico/BajaNorte',
-          ),
-          78 => 
-          array (
-            'dst' => false,
-            'offset' => -3168,
-            'timezone_id' => 'Africa/El_Aaiun',
-          ),
-          79 => 
-          array (
-            'dst' => false,
-            'offset' => -32388,
-            'timezone_id' => 'Pacific/Gambier',
-          ),
-          80 => 
-          array (
-            'dst' => false,
-            'offset' => -3292,
-            'timezone_id' => 'Africa/Conakry',
-          ),
-          81 => 
-          array (
-            'dst' => false,
-            'offset' => -33480,
-            'timezone_id' => 'Pacific/Marquesas',
-          ),
-          82 => 
-          array (
-            'dst' => false,
-            'offset' => -35896,
-            'timezone_id' => 'Pacific/Tahiti',
-          ),
-          83 => 
-          array (
-            'dst' => false,
-            'offset' => -364,
-            'timezone_id' => 'Africa/Ouagadougou',
-          ),
-          84 => 
-          array (
-            'dst' => false,
-            'offset' => -3696,
-            'timezone_id' => 'Atlantic/Canary',
-          ),
-          85 => 
-          array (
-            'dst' => false,
-            'offset' => -3740,
-            'timezone_id' => 'Africa/Bissau',
-          ),
-          86 => 
-          array (
-            'dst' => false,
-            'offset' => -3828,
-            'timezone_id' => 'Africa/Nouakchott',
-          ),
-          87 => 
-          array (
-            'dst' => false,
-            'offset' => -3996,
-            'timezone_id' => 'Africa/Banjul',
-          ),
-          88 => 
-          array (
-            'dst' => false,
-            'offset' => -40968,
-            'timezone_id' => 'Pacific/Pago_Pago',
-          ),
-          89 => 
-          array (
-            'dst' => false,
-            'offset' => -40968,
-            'timezone_id' => 'Pacific/Samoa',
-          ),
-          90 => 
-          array (
-            'dst' => false,
-            'offset' => -41216,
-            'timezone_id' => 'Pacific/Apia',
-          ),
-          91 => 
-          array (
-            'dst' => false,
-            'offset' => -4184,
-            'timezone_id' => 'Africa/Dakar',
-          ),
-          92 => 
-          array (
-            'dst' => false,
-            'offset' => -4480,
-            'timezone_id' => 'America/Danmarkshavn',
-          ),
-          93 => 
-          array (
-            'dst' => false,
-            'offset' => -5272,
-            'timezone_id' => 'America/Scoresbysund',
-          ),
-          94 => 
-          array (
-            'dst' => false,
-            'offset' => -52,
-            'timezone_id' => 'Africa/Accra',
-          ),
-          95 => 
-          array (
-            'dst' => false,
-            'offset' => -5644,
-            'timezone_id' => 'Atlantic/Cape_Verde',
-          ),
-          96 => 
-          array (
-            'dst' => false,
-            'offset' => -7780,
-            'timezone_id' => 'America/Noronha',
-          ),
-          97 => 
-          array (
-            'dst' => false,
-            'offset' => -7780,
-            'timezone_id' => 'Brazil/DeNoronha',
-          ),
-          98 => 
-          array (
-            'dst' => false,
-            'offset' => -8376,
-            'timezone_id' => 'America/Recife',
-          ),
-          99 => 
-          array (
-            'dst' => false,
-            'offset' => -8572,
-            'timezone_id' => 'America/Maceio',
-          ),
-          100 => 
-          array (
-            'dst' => false,
-            'offset' => -9240,
-            'timezone_id' => 'America/Fortaleza',
-          ),
-          101 => 
-          array (
-            'dst' => false,
-            'offset' => -9244,
-            'timezone_id' => 'America/Bahia',
-          ),
-          102 => 
-          array (
-            'dst' => false,
-            'offset' => -968,
-            'timezone_id' => 'Africa/Abidjan',
-          ),
-          103 => 
-          array (
-            'dst' => false,
-            'offset' => 10356,
-            'timezone_id' => 'Africa/Djibouti',
-          ),
-          104 => 
-          array (
-            'dst' => false,
-            'offset' => 10384,
-            'timezone_id' => 'Indian/Comoro',
-          ),
-          105 => 
-          array (
-            'dst' => false,
-            'offset' => 10660,
-            'timezone_id' => 'Europe/Volgograd',
-          ),
-          106 => 
-          array (
-            'dst' => false,
-            'offset' => 10680,
-            'timezone_id' => 'Asia/Yerevan',
-          ),
-          107 => 
-          array (
-            'dst' => false,
-            'offset' => 10848,
-            'timezone_id' => 'Asia/Aden',
-          ),
-          108 => 
-          array (
-            'dst' => false,
-            'offset' => 10856,
-            'timezone_id' => 'Indian/Mayotte',
-          ),
-          109 => 
-          array (
-            'dst' => false,
-            'offset' => 11212,
-            'timezone_id' => 'Asia/Riyadh',
-          ),
-          110 => 
-          array (
-            'dst' => false,
-            'offset' => 11404,
-            'timezone_id' => 'Indian/Antananarivo',
-          ),
-          111 => 
-          array (
-            'dst' => false,
-            'offset' => 11516,
-            'timezone_id' => 'Asia/Kuwait',
-          ),
-          112 => 
-          array (
-            'dst' => false,
-            'offset' => 11964,
-            'timezone_id' => 'Asia/Baku',
-          ),
-          113 => 
-          array (
-            'dst' => false,
-            'offset' => 12036,
-            'timezone_id' => 'Europe/Samara',
-          ),
-          114 => 
-          array (
-            'dst' => false,
-            'offset' => 12064,
-            'timezone_id' => 'Asia/Aqtau',
-          ),
-          115 => 
-          array (
-            'dst' => false,
-            'offset' => 12140,
-            'timezone_id' => 'Asia/Bahrain',
-          ),
-          116 => 
-          array (
-            'dst' => false,
-            'offset' => 12324,
-            'timezone_id' => 'Asia/Oral',
-          ),
-          117 => 
-          array (
-            'dst' => false,
-            'offset' => 12344,
-            'timezone_id' => 'Asia/Tehran',
-          ),
-          118 => 
-          array (
-            'dst' => false,
-            'offset' => 12368,
-            'timezone_id' => 'Asia/Qatar',
-          ),
-          119 => 
-          array (
-            'dst' => false,
-            'offset' => 13272,
-            'timezone_id' => 'Asia/Dubai',
-          ),
-          120 => 
-          array (
-            'dst' => false,
-            'offset' => 13308,
-            'timezone_id' => 'Indian/Mahe',
-          ),
-          121 => 
-          array (
-            'dst' => false,
-            'offset' => 13312,
-            'timezone_id' => 'Indian/Reunion',
-          ),
-          122 => 
-          array (
-            'dst' => false,
-            'offset' => 13720,
-            'timezone_id' => 'Asia/Aqtobe',
-          ),
-          123 => 
-          array (
-            'dst' => false,
-            'offset' => 13800,
-            'timezone_id' => 'Indian/Mauritius',
-          ),
-          124 => 
-          array (
-            'dst' => false,
-            'offset' => 14012,
-            'timezone_id' => 'Asia/Ashgabat',
-          ),
-          125 => 
-          array (
-            'dst' => false,
-            'offset' => 14012,
-            'timezone_id' => 'Asia/Ashkhabad',
-          ),
-          126 => 
-          array (
-            'dst' => false,
-            'offset' => 14060,
-            'timezone_id' => 'Asia/Muscat',
-          ),
-          127 => 
-          array (
-            'dst' => false,
-            'offset' => 14544,
-            'timezone_id' => 'Asia/Yekaterinburg',
-          ),
-          128 => 
-          array (
-            'dst' => false,
-            'offset' => 1476,
-            'timezone_id' => 'Europe/Luxembourg',
-          ),
-          129 => 
-          array (
-            'dst' => false,
-            'offset' => 15712,
-            'timezone_id' => 'Asia/Qyzylorda',
-          ),
-          130 => 
-          array (
-            'dst' => false,
-            'offset' => 16032,
-            'timezone_id' => 'Asia/Samarkand',
-          ),
-          131 => 
-          array (
-            'dst' => false,
-            'offset' => 16092,
-            'timezone_id' => 'Asia/Karachi',
-          ),
-          132 => 
-          array (
-            'dst' => false,
-            'offset' => 16512,
-            'timezone_id' => 'Asia/Dushanbe',
-          ),
-          133 => 
-          array (
-            'dst' => false,
-            'offset' => 16632,
-            'timezone_id' => 'Asia/Tashkent',
-          ),
-          134 => 
-          array (
-            'dst' => false,
-            'offset' => 17380,
-            'timezone_id' => 'Indian/Chagos',
-          ),
-          135 => 
-          array (
-            'dst' => false,
-            'offset' => 17616,
-            'timezone_id' => 'Asia/Omsk',
-          ),
-          136 => 
-          array (
-            'dst' => false,
-            'offset' => 17904,
-            'timezone_id' => 'Asia/Bishkek',
-          ),
-          137 => 
-          array (
-            'dst' => false,
-            'offset' => 18236,
-            'timezone_id' => 'Asia/Kashgar',
-          ),
-          138 => 
-          array (
-            'dst' => false,
-            'offset' => 18468,
-            'timezone_id' => 'Asia/Almaty',
-          ),
-          139 => 
-          array (
-            'dst' => false,
-            'offset' => 19900,
-            'timezone_id' => 'Asia/Novosibirsk',
-          ),
-          140 => 
-          array (
-            'dst' => false,
-            'offset' => 20476,
-            'timezone_id' => 'Asia/Kathmandu',
-          ),
-          141 => 
-          array (
-            'dst' => false,
-            'offset' => 20476,
-            'timezone_id' => 'Asia/Katmandu',
-          ),
-          142 => 
-          array (
-            'dst' => false,
-            'offset' => 21020,
-            'timezone_id' => 'Asia/Urumqi',
-          ),
-          143 => 
-          array (
-            'dst' => false,
-            'offset' => 2108,
-            'timezone_id' => 'Africa/Malabo',
-          ),
-          144 => 
-          array (
-            'dst' => false,
-            'offset' => 21516,
-            'timezone_id' => 'Asia/Thimbu',
-          ),
-          145 => 
-          array (
-            'dst' => false,
-            'offset' => 21516,
-            'timezone_id' => 'Asia/Thimphu',
-          ),
-          146 => 
-          array (
-            'dst' => false,
-            'offset' => 21996,
-            'timezone_id' => 'Asia/Hovd',
-          ),
-          147 => 
-          array (
-            'dst' => false,
-            'offset' => 22280,
-            'timezone_id' => 'Asia/Krasnoyarsk',
-          ),
-          148 => 
-          array (
-            'dst' => false,
-            'offset' => 2268,
-            'timezone_id' => 'Africa/Libreville',
-          ),
-          149 => 
-          array (
-            'dst' => false,
-            'offset' => 2328,
-            'timezone_id' => 'Africa/Douala',
-          ),
-          150 => 
-          array (
-            'dst' => false,
-            'offset' => 24624,
-            'timezone_id' => 'Asia/Vientiane',
-          ),
-          151 => 
-          array (
-            'dst' => false,
-            'offset' => 25180,
-            'timezone_id' => 'Asia/Phnom_Penh',
-          ),
-          152 => 
-          array (
-            'dst' => false,
-            'offset' => 25580,
-            'timezone_id' => 'Asia/Chongqing',
-          ),
-          153 => 
-          array (
-            'dst' => false,
-            'offset' => 25580,
-            'timezone_id' => 'Asia/Chungking',
-          ),
-          154 => 
-          array (
-            'dst' => false,
-            'offset' => 25600,
-            'timezone_id' => 'Asia/Ho_Chi_Minh',
-          ),
-          155 => 
-          array (
-            'dst' => false,
-            'offset' => 25600,
-            'timezone_id' => 'Asia/Saigon',
-          ),
-          156 => 
-          array (
-            'dst' => false,
-            'offset' => 25652,
-            'timezone_id' => 'Asia/Ulaanbaatar',
-          ),
-          157 => 
-          array (
-            'dst' => false,
-            'offset' => 25652,
-            'timezone_id' => 'Asia/Ulan_Bator',
-          ),
-          158 => 
-          array (
-            'dst' => false,
-            'offset' => 26240,
-            'timezone_id' => 'Asia/Pontianak',
-          ),
-          159 => 
-          array (
-            'dst' => false,
-            'offset' => 26480,
-            'timezone_id' => 'Asia/Kuching',
-          ),
-          160 => 
-          array (
-            'dst' => false,
-            'offset' => 27260,
-            'timezone_id' => 'Asia/Macao',
-          ),
-          161 => 
-          array (
-            'dst' => false,
-            'offset' => 27260,
-            'timezone_id' => 'Asia/Macau',
-          ),
-          162 => 
-          array (
-            'dst' => false,
-            'offset' => 27396,
-            'timezone_id' => 'Asia/Hong_Kong',
-          ),
-          163 => 
-          array (
-            'dst' => false,
-            'offset' => 27480,
-            'timezone_id' => 'Asia/Choibalsan',
-          ),
-          164 => 
-          array (
-            'dst' => false,
-            'offset' => 27580,
-            'timezone_id' => 'Asia/Brunei',
-          ),
-          165 => 
-          array (
-            'dst' => false,
-            'offset' => 28656,
-            'timezone_id' => 'Asia/Makassar',
-          ),
-          166 => 
-          array (
-            'dst' => false,
-            'offset' => 28656,
-            'timezone_id' => 'Asia/Ujung_Pandang',
-          ),
-          167 => 
-          array (
-            'dst' => false,
-            'offset' => 29152,
-            'timezone_id' => 'Asia/Shanghai',
-          ),
-          168 => 
-          array (
-            'dst' => false,
-            'offset' => 29152,
-            'timezone_id' => 'PRC',
-          ),
-          169 => 
-          array (
-            'dst' => false,
-            'offset' => 30140,
-            'timezone_id' => 'Asia/Dili',
-          ),
-          170 => 
-          array (
-            'dst' => false,
-            'offset' => 30404,
-            'timezone_id' => 'Asia/Harbin',
-          ),
-          171 => 
-          array (
-            'dst' => false,
-            'offset' => 31120,
-            'timezone_id' => 'Asia/Yakutsk',
-          ),
-          172 => 
-          array (
-            'dst' => false,
-            'offset' => 3164,
-            'timezone_id' => 'Africa/Tripoli',
-          ),
-          173 => 
-          array (
-            'dst' => false,
-            'offset' => 31664,
-            'timezone_id' => 'Asia/Vladivostok',
-          ),
-          174 => 
-          array (
-            'dst' => false,
-            'offset' => 33768,
-            'timezone_id' => 'Asia/Jayapura',
-          ),
-          175 => 
-          array (
-            'dst' => false,
-            'offset' => 34248,
-            'timezone_id' => 'Asia/Sakhalin',
-          ),
-          176 => 
-          array (
-            'dst' => false,
-            'offset' => 3612,
-            'timezone_id' => 'Africa/Ndjamena',
-          ),
-          177 => 
-          array (
-            'dst' => false,
-            'offset' => 36192,
-            'timezone_id' => 'Asia/Magadan',
-          ),
-          178 => 
-          array (
-            'dst' => false,
-            'offset' => 3668,
-            'timezone_id' => 'Africa/Brazzaville',
-          ),
-          179 => 
-          array (
-            'dst' => false,
-            'offset' => 38076,
-            'timezone_id' => 'Asia/Kamchatka',
-          ),
-          180 => 
-          array (
-            'dst' => false,
-            'offset' => 38388,
-            'timezone_id' => 'Pacific/Guadalcanal',
-          ),
-          181 => 
-          array (
-            'dst' => false,
-            'offset' => 39948,
-            'timezone_id' => 'Pacific/Noumea',
-          ),
-          182 => 
-          array (
-            'dst' => false,
-            'offset' => 40060,
-            'timezone_id' => 'Pacific/Nauru',
-          ),
-          183 => 
-          array (
-            'dst' => false,
-            'offset' => 40396,
-            'timezone_id' => 'Pacific/Efate',
-          ),
-          184 => 
-          array (
-            'dst' => false,
-            'offset' => 42596,
-            'timezone_id' => 'Asia/Anadyr',
-          ),
-          185 => 
-          array (
-            'dst' => false,
-            'offset' => 42820,
-            'timezone_id' => 'Pacific/Fiji',
-          ),
-          186 => 
-          array (
-            'dst' => false,
-            'offset' => 44028,
-            'timezone_id' => 'Pacific/Chatham',
-          ),
-          187 => 
-          array (
-            'dst' => false,
-            'offset' => 4460,
-            'timezone_id' => 'Africa/Bangui',
-          ),
-          188 => 
-          array (
-            'dst' => false,
-            'offset' => 4760,
-            'timezone_id' => 'Europe/Tirane',
-          ),
-          189 => 
-          array (
-            'dst' => false,
-            'offset' => 508,
-            'timezone_id' => 'Africa/Niamey',
-          ),
-          190 => 
-          array (
-            'dst' => false,
-            'offset' => 628,
-            'timezone_id' => 'Africa/Porto-Novo',
-          ),
-          191 => 
-          array (
-            'dst' => false,
-            'offset' => 6600,
-            'timezone_id' => 'Africa/Maseru',
-          ),
-          192 => 
-          array (
-            'dst' => false,
-            'offset' => 6788,
-            'timezone_id' => 'Africa/Lusaka',
-          ),
-          193 => 
-          array (
-            'dst' => false,
-            'offset' => 7216,
-            'timezone_id' => 'Africa/Kigali',
-          ),
-          194 => 
-          array (
-            'dst' => false,
-            'offset' => 7452,
-            'timezone_id' => 'Africa/Harare',
-          ),
-          195 => 
-          array (
-            'dst' => false,
-            'offset' => 7464,
-            'timezone_id' => 'Africa/Mbabane',
-          ),
-          196 => 
-          array (
-            'dst' => false,
-            'offset' => 7780,
-            'timezone_id' => 'Africa/Kampala',
-          ),
-          197 => 
-          array (
-            'dst' => false,
-            'offset' => 7808,
-            'timezone_id' => 'Africa/Khartoum',
-          ),
-          198 => 
-          array (
-            'dst' => false,
-            'offset' => 7820,
-            'timezone_id' => 'Africa/Maputo',
-          ),
-          199 => 
-          array (
-            'dst' => false,
-            'offset' => 8008,
-            'timezone_id' => 'Asia/Nicosia',
-          ),
-          200 => 
-          array (
-            'dst' => false,
-            'offset' => 8008,
-            'timezone_id' => 'Europe/Nicosia',
-          ),
-          201 => 
-          array (
-            'dst' => false,
-            'offset' => 816,
-            'timezone_id' => 'Africa/Lagos',
-          ),
-          202 => 
-          array (
-            'dst' => false,
-            'offset' => 8400,
-            'timezone_id' => 'Africa/Blantyre',
-          ),
-          203 => 
-          array (
-            'dst' => false,
-            'offset' => 8624,
-            'timezone_id' => 'Asia/Amman',
-          ),
-          204 => 
-          array (
-            'dst' => false,
-            'offset' => 8712,
-            'timezone_id' => 'Asia/Damascus',
-          ),
-          205 => 
-          array (
-            'dst' => false,
-            'offset' => 8836,
-            'timezone_id' => 'Africa/Nairobi',
-          ),
-          206 => 
-          array (
-            'dst' => false,
-            'offset' => 9428,
-            'timezone_id' => 'Africa/Dar_es_Salaam',
-          ),
-        ),
-        'lont' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => 25200,
-            'timezone_id' => 'Asia/Chongqing',
-          ),
-          1 => 
-          array (
-            'dst' => false,
-            'offset' => 25200,
-            'timezone_id' => 'Asia/Chungking',
+            'offset' => 21600,
+            'timezone_id' => 'Asia/Colombo',
           ),
         ),
         'lrt' => 
@@ -8589,7 +7452,7 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 9384,
+            'offset' => 9388,
             'timezone_id' => 'Europe/Riga',
           ),
         ),
@@ -8625,14 +7488,38 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 39600,
+            'offset' => 43200,
             'timezone_id' => 'Asia/Magadan',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 43200,
+            'offset' => 39600,
             'timezone_id' => 'Asia/Magadan',
+          ),
+          2 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Srednekolymsk',
+          ),
+          3 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Ust-Nera',
+          ),
+          4 => 
+          array (
+            'dst' => true,
+            'offset' => 43200,
+            'timezone_id' => 'Asia/Srednekolymsk',
+          ),
+          5 => 
+          array (
+            'dst' => true,
+            'offset' => 43200,
+            'timezone_id' => 'Asia/Ust-Nera',
           ),
         ),
         'magt' => 
@@ -8648,6 +7535,48 @@ return array (
             'dst' => false,
             'offset' => 39600,
             'timezone_id' => 'Asia/Magadan',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 43200,
+            'timezone_id' => 'Asia/Magadan',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Srednekolymsk',
+          ),
+          4 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Ust-Nera',
+          ),
+          5 => 
+          array (
+            'dst' => false,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Srednekolymsk',
+          ),
+          6 => 
+          array (
+            'dst' => false,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Ust-Nera',
+          ),
+          7 => 
+          array (
+            'dst' => false,
+            'offset' => 43200,
+            'timezone_id' => 'Asia/Srednekolymsk',
+          ),
+          8 => 
+          array (
+            'dst' => false,
+            'offset' => 43200,
+            'timezone_id' => 'Asia/Ust-Nera',
           ),
         ),
         'malst' => 
@@ -8670,19 +7599,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 25200,
+            'offset' => 27000,
             'timezone_id' => 'Asia/Singapore',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 26400,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Singapore',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 27000,
+            'offset' => 26400,
             'timezone_id' => 'Asia/Singapore',
           ),
           3 => 
@@ -8718,13 +7647,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Antarctica/Mawson',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Antarctica/Mawson',
           ),
         ),
@@ -8748,7 +7677,7 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 16248,
+            'offset' => 16279,
             'timezone_id' => 'Europe/Moscow',
           ),
         ),
@@ -8812,75 +7741,81 @@ return array (
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/North_Dakota/Center',
+            'timezone_id' => 'America/North_Dakota/Beulah',
           ),
           10 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/North_Dakota/New_Salem',
+            'timezone_id' => 'America/North_Dakota/Center',
           ),
           11 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Ojinaga',
+            'timezone_id' => 'America/North_Dakota/New_Salem',
           ),
           12 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Phoenix',
+            'timezone_id' => 'America/Ojinaga',
           ),
           13 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Regina',
+            'timezone_id' => 'America/Phoenix',
           ),
           14 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Shiprock',
+            'timezone_id' => 'America/Regina',
           ),
           15 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Swift_Current',
+            'timezone_id' => 'America/Shiprock',
           ),
           16 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Yellowknife',
+            'timezone_id' => 'America/Swift_Current',
           ),
           17 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/East-Saskatchewan',
+            'timezone_id' => 'America/Yellowknife',
           ),
           18 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/Mountain',
+            'timezone_id' => 'Canada/East-Saskatchewan',
           ),
           19 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/Saskatchewan',
+            'timezone_id' => 'Canada/Mountain',
           ),
           20 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Mexico/BajaSur',
+            'timezone_id' => 'Canada/Saskatchewan',
           ),
           21 => 
+          array (
+            'dst' => true,
+            'offset' => -21600,
+            'timezone_id' => 'Mexico/BajaSur',
+          ),
+          22 => 
           array (
             'dst' => true,
             'offset' => -21600,
@@ -8910,13 +7845,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 39600,
+            'offset' => 43200,
             'timezone_id' => 'Pacific/Kwajalein',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 43200,
+            'offset' => 39600,
             'timezone_id' => 'Pacific/Kwajalein',
           ),
           2 => 
@@ -8946,13 +7881,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 9000,
+            'offset' => 9017,
             'timezone_id' => 'Europe/Moscow',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 9048,
+            'offset' => 9079,
             'timezone_id' => 'Europe/Moscow',
           ),
           2 => 
@@ -9050,92 +7985,98 @@ return array (
           ),
           1 => 
           array (
-            'dst' => true,
-            'offset' => -21600,
-            'timezone_id' => 'America/Boise',
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Pacific/Saipan',
           ),
           2 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Cambridge_Bay',
+            'timezone_id' => 'America/Boise',
           ),
           3 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Edmonton',
+            'timezone_id' => 'America/Cambridge_Bay',
           ),
           4 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/North_Dakota/Center',
+            'timezone_id' => 'America/Edmonton',
           ),
           5 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/North_Dakota/New_Salem',
+            'timezone_id' => 'America/North_Dakota/Beulah',
           ),
           6 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Regina',
+            'timezone_id' => 'America/North_Dakota/Center',
           ),
           7 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Shiprock',
+            'timezone_id' => 'America/North_Dakota/New_Salem',
           ),
           8 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Swift_Current',
+            'timezone_id' => 'America/Regina',
           ),
           9 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Yellowknife',
+            'timezone_id' => 'America/Shiprock',
           ),
           10 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/East-Saskatchewan',
+            'timezone_id' => 'America/Swift_Current',
           ),
           11 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/Mountain',
+            'timezone_id' => 'America/Yellowknife',
           ),
           12 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/Saskatchewan',
+            'timezone_id' => 'Canada/East-Saskatchewan',
           ),
           13 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'MST',
+            'timezone_id' => 'Canada/Mountain',
           ),
           14 => 
           array (
-            'dst' => false,
-            'offset' => 32400,
-            'timezone_id' => 'Pacific/Saipan',
+            'dst' => true,
+            'offset' => -21600,
+            'timezone_id' => 'Canada/Saskatchewan',
           ),
           15 => 
           array (
+            'dst' => true,
+            'offset' => -21600,
+            'timezone_id' => 'MST',
+          ),
+          16 => 
+          array (
             'dst' => false,
-            'offset' => 36000,
+            'offset' => 32400,
             'timezone_id' => 'Pacific/Saipan',
           ),
         ),
@@ -9150,38 +8091,38 @@ return array (
           1 => 
           array (
             'dst' => true,
-            'offset' => 18000,
-            'timezone_id' => 'Europe/Moscow',
+            'offset' => 14400,
+            'timezone_id' => 'Europe/Chisinau',
           ),
           2 => 
           array (
             'dst' => true,
             'offset' => 14400,
-            'timezone_id' => 'Europe/Chisinau',
+            'timezone_id' => 'Europe/Kaliningrad',
           ),
           3 => 
           array (
             'dst' => true,
             'offset' => 14400,
-            'timezone_id' => 'Europe/Kaliningrad',
+            'timezone_id' => 'Europe/Kiev',
           ),
           4 => 
           array (
             'dst' => true,
             'offset' => 14400,
-            'timezone_id' => 'Europe/Kiev',
+            'timezone_id' => 'Europe/Minsk',
           ),
           5 => 
           array (
             'dst' => true,
             'offset' => 14400,
-            'timezone_id' => 'Europe/Minsk',
+            'timezone_id' => 'Europe/Riga',
           ),
           6 => 
           array (
             'dst' => true,
             'offset' => 14400,
-            'timezone_id' => 'Europe/Riga',
+            'timezone_id' => 'Europe/Samara',
           ),
           7 => 
           array (
@@ -9231,68 +8172,113 @@ return array (
           1 => 
           array (
             'dst' => false,
-            'offset' => 10800,
-            'timezone_id' => 'Europe/Chisinau',
+            'offset' => 14400,
+            'timezone_id' => 'Europe/Moscow',
           ),
           2 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Kaliningrad',
+            'timezone_id' => 'Europe/Chisinau',
           ),
           3 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Kiev',
+            'timezone_id' => 'Europe/Kaliningrad',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Minsk',
+            'timezone_id' => 'Europe/Kiev',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Riga',
+            'timezone_id' => 'Europe/Minsk',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Simferopol',
+            'timezone_id' => 'Europe/Riga',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Tallinn',
+            'timezone_id' => 'Europe/Samara',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Tiraspol',
+            'timezone_id' => 'Europe/Simferopol',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Uzhgorod',
+            'timezone_id' => 'Europe/Tallinn',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => 10800,
-            'timezone_id' => 'Europe/Vilnius',
+            'timezone_id' => 'Europe/Tiraspol',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => 10800,
+            'timezone_id' => 'Europe/Uzhgorod',
+          ),
+          12 => 
+          array (
+            'dst' => false,
+            'offset' => 10800,
+            'timezone_id' => 'Europe/Vilnius',
+          ),
+          13 => 
+          array (
+            'dst' => false,
+            'offset' => 10800,
+            'timezone_id' => 'Europe/Volgograd',
+          ),
+          14 => 
+          array (
+            'dst' => false,
+            'offset' => 10800,
             'timezone_id' => 'Europe/Zaporozhye',
+          ),
+          15 => 
+          array (
+            'dst' => false,
+            'offset' => 14400,
+            'timezone_id' => 'Europe/Simferopol',
+          ),
+          16 => 
+          array (
+            'dst' => false,
+            'offset' => 14400,
+            'timezone_id' => 'Europe/Volgograd',
+          ),
+          17 => 
+          array (
+            'dst' => true,
+            'offset' => 14400,
+            'timezone_id' => 'Europe/Volgograd',
+          ),
+        ),
+        'msm' => 
+        array (
+          0 => 
+          array (
+            'dst' => true,
+            'offset' => 18000,
+            'timezone_id' => 'Europe/Moscow',
           ),
         ),
         'mst' => 
@@ -9331,150 +8317,162 @@ return array (
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Dawson_Creek',
+            'timezone_id' => 'America/Creston',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Edmonton',
+            'timezone_id' => 'America/Dawson_Creek',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Ensenada',
+            'timezone_id' => 'America/Edmonton',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Hermosillo',
+            'timezone_id' => 'America/Ensenada',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Inuvik',
+            'timezone_id' => 'America/Hermosillo',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Mazatlan',
+            'timezone_id' => 'America/Inuvik',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Mexico_City',
+            'timezone_id' => 'America/Mazatlan',
           ),
           12 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/North_Dakota/Center',
+            'timezone_id' => 'America/Mexico_City',
           ),
           13 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/North_Dakota/New_Salem',
+            'timezone_id' => 'America/North_Dakota/Beulah',
           ),
           14 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Ojinaga',
+            'timezone_id' => 'America/North_Dakota/Center',
           ),
           15 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Phoenix',
+            'timezone_id' => 'America/North_Dakota/New_Salem',
           ),
           16 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Regina',
+            'timezone_id' => 'America/Ojinaga',
           ),
           17 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Santa_Isabel',
+            'timezone_id' => 'America/Phoenix',
           ),
           18 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Shiprock',
+            'timezone_id' => 'America/Regina',
           ),
           19 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Swift_Current',
+            'timezone_id' => 'America/Santa_Isabel',
           ),
           20 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Tijuana',
+            'timezone_id' => 'America/Shiprock',
           ),
           21 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'America/Yellowknife',
+            'timezone_id' => 'America/Swift_Current',
           ),
           22 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'Canada/East-Saskatchewan',
+            'timezone_id' => 'America/Tijuana',
           ),
           23 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'Canada/Mountain',
+            'timezone_id' => 'America/Yellowknife',
           ),
           24 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'Canada/Saskatchewan',
+            'timezone_id' => 'Canada/East-Saskatchewan',
           ),
           25 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'Mexico/BajaNorte',
+            'timezone_id' => 'Canada/Mountain',
           ),
           26 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'Mexico/BajaSur',
+            'timezone_id' => 'Canada/Saskatchewan',
           ),
           27 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'Mexico/General',
+            'timezone_id' => 'Mexico/BajaNorte',
           ),
           28 => 
           array (
             'dst' => false,
             'offset' => -25200,
-            'timezone_id' => 'MST',
+            'timezone_id' => 'Mexico/BajaSur',
           ),
           29 => 
           array (
+            'dst' => false,
+            'offset' => -25200,
+            'timezone_id' => 'Mexico/General',
+          ),
+          30 => 
+          array (
+            'dst' => false,
+            'offset' => -25200,
+            'timezone_id' => 'MST',
+          ),
+          31 => 
+          array (
             'dst' => true,
-            'offset' => 12648,
+            'offset' => 12679,
             'timezone_id' => 'Europe/Moscow',
           ),
         ),
@@ -9535,63 +8533,69 @@ return array (
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/North_Dakota/Center',
+            'timezone_id' => 'America/North_Dakota/Beulah',
           ),
           5 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/North_Dakota/New_Salem',
+            'timezone_id' => 'America/North_Dakota/Center',
           ),
           6 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Phoenix',
+            'timezone_id' => 'America/North_Dakota/New_Salem',
           ),
           7 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Regina',
+            'timezone_id' => 'America/Phoenix',
           ),
           8 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Shiprock',
+            'timezone_id' => 'America/Regina',
           ),
           9 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Swift_Current',
+            'timezone_id' => 'America/Shiprock',
           ),
           10 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'America/Yellowknife',
+            'timezone_id' => 'America/Swift_Current',
           ),
           11 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/East-Saskatchewan',
+            'timezone_id' => 'America/Yellowknife',
           ),
           12 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/Mountain',
+            'timezone_id' => 'Canada/East-Saskatchewan',
           ),
           13 => 
           array (
             'dst' => true,
             'offset' => -21600,
-            'timezone_id' => 'Canada/Saskatchewan',
+            'timezone_id' => 'Canada/Mountain',
           ),
           14 => 
+          array (
+            'dst' => true,
+            'offset' => -21600,
+            'timezone_id' => 'Canada/Saskatchewan',
+          ),
+          15 => 
           array (
             'dst' => true,
             'offset' => -21600,
@@ -9651,13 +8655,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => -9000,
+            'offset' => -9052,
             'timezone_id' => 'America/St_Johns',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => -9052,
+            'offset' => -9000,
             'timezone_id' => 'America/St_Johns',
           ),
           2 => 
@@ -9783,6 +8787,12 @@ return array (
             'offset' => 21600,
             'timezone_id' => 'Asia/Novokuznetsk',
           ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 25200,
+            'timezone_id' => 'Asia/Novokuznetsk',
+          ),
         ),
         'npt' => 
         array (
@@ -9794,39 +8804,39 @@ return array (
           ),
           1 => 
           array (
-            'dst' => true,
-            'offset' => -36000,
-            'timezone_id' => 'America/Adak',
+            'dst' => false,
+            'offset' => 20700,
+            'timezone_id' => 'Asia/Katmandu',
           ),
           2 => 
           array (
             'dst' => true,
             'offset' => -36000,
-            'timezone_id' => 'America/Atka',
+            'timezone_id' => 'America/Adak',
           ),
           3 => 
           array (
             'dst' => true,
             'offset' => -36000,
-            'timezone_id' => 'America/Nome',
+            'timezone_id' => 'America/Atka',
           ),
           4 => 
           array (
             'dst' => true,
-            'offset' => -9000,
-            'timezone_id' => 'America/Goose_Bay',
+            'offset' => -36000,
+            'timezone_id' => 'America/Nome',
           ),
           5 => 
           array (
             'dst' => true,
             'offset' => -9000,
-            'timezone_id' => 'Canada/Newfoundland',
+            'timezone_id' => 'America/Goose_Bay',
           ),
           6 => 
           array (
-            'dst' => false,
-            'offset' => 20700,
-            'timezone_id' => 'Asia/Katmandu',
+            'dst' => true,
+            'offset' => -9000,
+            'timezone_id' => 'Canada/Newfoundland',
           ),
           7 => 
           array (
@@ -9840,13 +8850,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 41400,
+            'offset' => 43200,
             'timezone_id' => 'Pacific/Nauru',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 43200,
+            'offset' => 41400,
             'timezone_id' => 'Pacific/Nauru',
           ),
         ),
@@ -9866,69 +8876,69 @@ return array (
           ),
           2 => 
           array (
-            'dst' => false,
-            'offset' => -12600,
-            'timezone_id' => 'America/Goose_Bay',
+            'dst' => true,
+            'offset' => 4772,
+            'timezone_id' => 'Europe/Amsterdam',
           ),
           3 => 
           array (
             'dst' => false,
             'offset' => -12600,
-            'timezone_id' => 'Canada/Newfoundland',
+            'timezone_id' => 'America/Goose_Bay',
           ),
           4 => 
           array (
             'dst' => false,
-            'offset' => -12652,
-            'timezone_id' => 'America/Goose_Bay',
+            'offset' => -12600,
+            'timezone_id' => 'Canada/Newfoundland',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => -12652,
-            'timezone_id' => 'Canada/Newfoundland',
+            'timezone_id' => 'America/Goose_Bay',
           ),
           6 => 
           array (
             'dst' => false,
-            'offset' => -39600,
-            'timezone_id' => 'America/Adak',
+            'offset' => -12652,
+            'timezone_id' => 'Canada/Newfoundland',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => -39600,
-            'timezone_id' => 'America/Atka',
+            'timezone_id' => 'America/Adak',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => -39600,
-            'timezone_id' => 'America/Nome',
+            'timezone_id' => 'America/Atka',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => -39600,
-            'timezone_id' => 'Pacific/Midway',
+            'timezone_id' => 'America/Nome',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => -39600,
-            'timezone_id' => 'Pacific/Pago_Pago',
+            'timezone_id' => 'Pacific/Midway',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => -39600,
-            'timezone_id' => 'Pacific/Samoa',
+            'timezone_id' => 'Pacific/Pago_Pago',
           ),
           12 => 
           array (
-            'dst' => true,
-            'offset' => 4772,
-            'timezone_id' => 'Europe/Amsterdam',
+            'dst' => false,
+            'offset' => -39600,
+            'timezone_id' => 'Pacific/Samoa',
           ),
         ),
         'nut' => 
@@ -10030,6 +9040,18 @@ return array (
           array (
             'dst' => false,
             'offset' => 41400,
+            'timezone_id' => 'Antarctica/McMurdo',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 41400,
+            'timezone_id' => 'Antarctica/South_Pole',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 41400,
             'timezone_id' => 'NZ',
           ),
         ),
@@ -10075,9 +9097,33 @@ return array (
           array (
             'dst' => true,
             'offset' => 43200,
-            'timezone_id' => 'NZ',
+            'timezone_id' => 'Antarctica/McMurdo',
           ),
           7 => 
+          array (
+            'dst' => true,
+            'offset' => 43200,
+            'timezone_id' => 'Antarctica/South_Pole',
+          ),
+          8 => 
+          array (
+            'dst' => true,
+            'offset' => 43200,
+            'timezone_id' => 'NZ',
+          ),
+          9 => 
+          array (
+            'dst' => true,
+            'offset' => 45000,
+            'timezone_id' => 'Antarctica/McMurdo',
+          ),
+          10 => 
+          array (
+            'dst' => true,
+            'offset' => 45000,
+            'timezone_id' => 'Antarctica/South_Pole',
+          ),
+          11 => 
           array (
             'dst' => true,
             'offset' => 45000,
@@ -10089,13 +9135,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 21600,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Omsk',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 25200,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Omsk',
           ),
         ),
@@ -10104,13 +9150,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Omsk',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
+            'timezone_id' => 'Asia/Omsk',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Omsk',
           ),
         ),
@@ -10128,13 +9180,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Oral',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Oral',
           ),
         ),
@@ -10189,39 +9241,51 @@ return array (
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Santa_Isabel',
+            'timezone_id' => 'America/Metlakatla',
           ),
           7 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Tijuana',
+            'timezone_id' => 'America/Santa_Isabel',
           ),
           8 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Vancouver',
+            'timezone_id' => 'America/Sitka',
           ),
           9 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Whitehorse',
+            'timezone_id' => 'America/Tijuana',
           ),
           10 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'Canada/Pacific',
+            'timezone_id' => 'America/Vancouver',
           ),
           11 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'Canada/Yukon',
+            'timezone_id' => 'America/Whitehorse',
           ),
           12 => 
+          array (
+            'dst' => true,
+            'offset' => -25200,
+            'timezone_id' => 'Canada/Pacific',
+          ),
+          13 => 
+          array (
+            'dst' => true,
+            'offset' => -25200,
+            'timezone_id' => 'Canada/Yukon',
+          ),
+          14 => 
           array (
             'dst' => true,
             'offset' => -25200,
@@ -10242,13 +9306,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 43200,
+            'offset' => 46800,
             'timezone_id' => 'Asia/Kamchatka',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 46800,
+            'offset' => 43200,
             'timezone_id' => 'Asia/Kamchatka',
           ),
         ),
@@ -10257,13 +9321,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 39600,
+            'offset' => 43200,
             'timezone_id' => 'Asia/Kamchatka',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 43200,
+            'offset' => 39600,
             'timezone_id' => 'Asia/Kamchatka',
           ),
         ),
@@ -10290,19 +9354,19 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -39600,
+            'offset' => 46800,
             'timezone_id' => 'Pacific/Enderbury',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -43200,
+            'offset' => -39600,
             'timezone_id' => 'Pacific/Enderbury',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 46800,
+            'offset' => -43200,
             'timezone_id' => 'Pacific/Enderbury',
           ),
         ),
@@ -10377,14 +9441,14 @@ return array (
           2 => 
           array (
             'dst' => false,
-            'offset' => 26240,
-            'timezone_id' => 'Asia/Pontianak',
+            'offset' => 36000,
+            'timezone_id' => 'Antarctica/DumontDUrville',
           ),
           3 => 
           array (
             'dst' => false,
-            'offset' => 36000,
-            'timezone_id' => 'Antarctica/DumontDUrville',
+            'offset' => 26240,
+            'timezone_id' => 'Asia/Pontianak',
           ),
           4 => 
           array (
@@ -10480,27 +9544,39 @@ return array (
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Santa_Isabel',
+            'timezone_id' => 'America/Metlakatla',
           ),
           5 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Tijuana',
+            'timezone_id' => 'America/Santa_Isabel',
           ),
           6 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Vancouver',
+            'timezone_id' => 'America/Sitka',
           ),
           7 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'Canada/Pacific',
+            'timezone_id' => 'America/Tijuana',
           ),
           8 => 
+          array (
+            'dst' => true,
+            'offset' => -25200,
+            'timezone_id' => 'America/Vancouver',
+          ),
+          9 => 
+          array (
+            'dst' => true,
+            'offset' => -25200,
+            'timezone_id' => 'Canada/Pacific',
+          ),
+          10 => 
           array (
             'dst' => true,
             'offset' => -25200,
@@ -10531,93 +9607,111 @@ return array (
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Dawson',
+            'timezone_id' => 'America/Creston',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Dawson_Creek',
+            'timezone_id' => 'America/Dawson',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Ensenada',
+            'timezone_id' => 'America/Dawson_Creek',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Hermosillo',
+            'timezone_id' => 'America/Ensenada',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Inuvik',
+            'timezone_id' => 'America/Hermosillo',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Juneau',
+            'timezone_id' => 'America/Inuvik',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Mazatlan',
+            'timezone_id' => 'America/Juneau',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Santa_Isabel',
+            'timezone_id' => 'America/Mazatlan',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Tijuana',
+            'timezone_id' => 'America/Metlakatla',
           ),
           12 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Vancouver',
+            'timezone_id' => 'America/Santa_Isabel',
           ),
           13 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'America/Whitehorse',
+            'timezone_id' => 'America/Sitka',
           ),
           14 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'Canada/Pacific',
+            'timezone_id' => 'America/Tijuana',
           ),
           15 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'Canada/Yukon',
+            'timezone_id' => 'America/Vancouver',
           ),
           16 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'Mexico/BajaNorte',
+            'timezone_id' => 'America/Whitehorse',
           ),
           17 => 
           array (
             'dst' => false,
             'offset' => -28800,
-            'timezone_id' => 'Mexico/BajaSur',
+            'timezone_id' => 'Canada/Pacific',
           ),
           18 => 
+          array (
+            'dst' => false,
+            'offset' => -28800,
+            'timezone_id' => 'Canada/Yukon',
+          ),
+          19 => 
+          array (
+            'dst' => false,
+            'offset' => -28800,
+            'timezone_id' => 'Mexico/BajaNorte',
+          ),
+          20 => 
+          array (
+            'dst' => false,
+            'offset' => -28800,
+            'timezone_id' => 'Mexico/BajaSur',
+          ),
+          21 => 
           array (
             'dst' => false,
             'offset' => -28800,
@@ -10654,33 +9748,45 @@ return array (
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Santa_Isabel',
+            'timezone_id' => 'America/Metlakatla',
           ),
           5 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Tijuana',
+            'timezone_id' => 'America/Santa_Isabel',
           ),
           6 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'America/Vancouver',
+            'timezone_id' => 'America/Sitka',
           ),
           7 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'Canada/Pacific',
+            'timezone_id' => 'America/Tijuana',
           ),
           8 => 
           array (
             'dst' => true,
             'offset' => -25200,
-            'timezone_id' => 'Mexico/BajaNorte',
+            'timezone_id' => 'America/Vancouver',
           ),
           9 => 
+          array (
+            'dst' => true,
+            'offset' => -25200,
+            'timezone_id' => 'Canada/Pacific',
+          ),
+          10 => 
+          array (
+            'dst' => true,
+            'offset' => -25200,
+            'timezone_id' => 'Mexico/BajaNorte',
+          ),
+          11 => 
           array (
             'dst' => false,
             'offset' => 32400,
@@ -10701,13 +9807,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -10800,
+            'offset' => -14400,
             'timezone_id' => 'America/Asuncion',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -14400,
+            'offset' => -10800,
             'timezone_id' => 'America/Asuncion',
           ),
         ),
@@ -10734,13 +9840,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Qyzylorda',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Qyzylorda',
           ),
         ),
@@ -10758,7 +9864,7 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 5784,
+            'offset' => 5788,
             'timezone_id' => 'Europe/Riga',
           ),
           1 => 
@@ -10770,7 +9876,7 @@ return array (
           2 => 
           array (
             'dst' => false,
-            'offset' => 23076,
+            'offset' => 23080,
             'timezone_id' => 'Asia/Rangoon',
           ),
         ),
@@ -10839,40 +9945,22 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Samarkand',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Samarkand',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => -41400,
-            'timezone_id' => 'Pacific/Apia',
-          ),
-          3 => 
-          array (
-            'dst' => false,
-            'offset' => -41400,
-            'timezone_id' => 'Pacific/Pago_Pago',
-          ),
-          4 => 
-          array (
-            'dst' => false,
-            'offset' => -41400,
-            'timezone_id' => 'Pacific/Samoa',
-          ),
-          5 => 
-          array (
-            'dst' => false,
             'offset' => 10800,
             'timezone_id' => 'Europe/Samara',
           ),
-          6 => 
+          3 => 
           array (
             'dst' => false,
             'offset' => 14400,
@@ -10883,20 +9971,20 @@ return array (
         array (
           0 => 
           array (
-            'dst' => true,
-            'offset' => 10800,
+            'dst' => false,
+            'offset' => 7200,
             'timezone_id' => 'Africa/Johannesburg',
           ),
           1 => 
           array (
-            'dst' => false,
-            'offset' => 5400,
+            'dst' => true,
+            'offset' => 10800,
             'timezone_id' => 'Africa/Johannesburg',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 7200,
+            'offset' => 5400,
             'timezone_id' => 'Africa/Johannesburg',
           ),
           3 => 
@@ -10914,16 +10002,22 @@ return array (
           5 => 
           array (
             'dst' => false,
-            'offset' => 7200,
-            'timezone_id' => 'Africa/Maseru',
+            'offset' => 5400,
+            'timezone_id' => 'Africa/Gaborone',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => 7200,
-            'timezone_id' => 'Africa/Mbabane',
+            'timezone_id' => 'Africa/Maseru',
           ),
           7 => 
+          array (
+            'dst' => false,
+            'offset' => 7200,
+            'timezone_id' => 'Africa/Mbabane',
+          ),
+          8 => 
           array (
             'dst' => false,
             'offset' => 7200,
@@ -10957,18 +10051,27 @@ return array (
             'timezone_id' => 'America/Santo_Domingo',
           ),
         ),
+        'sdt' => 
+        array (
+          0 => 
+          array (
+            'dst' => true,
+            'offset' => -36000,
+            'timezone_id' => 'Pacific/Apia',
+          ),
+        ),
         'sgt' => 
         array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 27000,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Singapore',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 27000,
             'timezone_id' => 'Asia/Singapore',
           ),
         ),
@@ -10986,13 +10089,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Aqtau',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Aqtau',
           ),
         ),
@@ -11001,23 +10104,8 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -20180,
+            'offset' => -20173,
             'timezone_id' => 'America/Costa_Rica',
-          ),
-        ),
-        'slst' => 
-        array (
-          0 => 
-          array (
-            'dst' => true,
-            'offset' => -1200,
-            'timezone_id' => 'Africa/Freetown',
-          ),
-          1 => 
-          array (
-            'dst' => true,
-            'offset' => 3600,
-            'timezone_id' => 'Africa/Freetown',
           ),
         ),
         'smt' => 
@@ -11083,6 +10171,15 @@ return array (
             'timezone_id' => 'Europe/Simferopol',
           ),
         ),
+        'sret' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Srednekolymsk',
+          ),
+        ),
         'srt' => 
         array (
           0 => 
@@ -11110,9 +10207,15 @@ return array (
           array (
             'dst' => false,
             'offset' => -39600,
-            'timezone_id' => 'Pacific/Midway',
+            'timezone_id' => 'Pacific/Apia',
           ),
           2 => 
+          array (
+            'dst' => false,
+            'offset' => -39600,
+            'timezone_id' => 'Pacific/Midway',
+          ),
+          3 => 
           array (
             'dst' => false,
             'offset' => -39600,
@@ -11139,13 +10242,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Yekaterinburg',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Yekaterinburg',
           ),
         ),
@@ -11154,13 +10257,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Yekaterinburg',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Yekaterinburg',
           ),
         ),
@@ -11238,13 +10341,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Tbilisi',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Tbilisi',
           ),
         ),
@@ -11253,13 +10356,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 10800,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Tbilisi',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 10800,
             'timezone_id' => 'Asia/Tbilisi',
           ),
         ),
@@ -11268,7 +10371,7 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 10756,
+            'offset' => 10746,
             'timezone_id' => 'Asia/Tbilisi',
           ),
         ),
@@ -11295,7 +10398,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -36000,
+            'offset' => -39600,
+            'timezone_id' => 'Pacific/Fakaofo',
+          ),
+          1 => 
+          array (
+            'dst' => false,
+            'offset' => 46800,
             'timezone_id' => 'Pacific/Fakaofo',
           ),
         ),
@@ -11304,13 +10413,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 32400,
             'timezone_id' => 'Asia/Dili',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 32400,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Dili',
           ),
         ),
@@ -11325,32 +10434,32 @@ return array (
           1 => 
           array (
             'dst' => false,
-            'offset' => 14400,
-            'timezone_id' => 'Asia/Ashgabat',
+            'offset' => 5940,
+            'timezone_id' => 'Europe/Tallinn',
           ),
           2 => 
           array (
             'dst' => false,
             'offset' => 14400,
-            'timezone_id' => 'Asia/Ashkhabad',
+            'timezone_id' => 'Asia/Ashgabat',
           ),
           3 => 
           array (
             'dst' => false,
-            'offset' => 18000,
-            'timezone_id' => 'Asia/Ashgabat',
+            'offset' => 14400,
+            'timezone_id' => 'Asia/Ashkhabad',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => 18000,
-            'timezone_id' => 'Asia/Ashkhabad',
+            'timezone_id' => 'Asia/Ashgabat',
           ),
           5 => 
           array (
             'dst' => false,
-            'offset' => 5940,
-            'timezone_id' => 'Europe/Tallinn',
+            'offset' => 18000,
+            'timezone_id' => 'Asia/Ashkhabad',
           ),
         ),
         'tost' => 
@@ -11367,13 +10476,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 44400,
+            'offset' => 46800,
             'timezone_id' => 'Pacific/Tongatapu',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 46800,
+            'offset' => 44400,
             'timezone_id' => 'Pacific/Tongatapu',
           ),
         ),
@@ -11460,13 +10569,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 25200,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Ulaanbaatar',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 25200,
             'timezone_id' => 'Asia/Ulaanbaatar',
           ),
           2 => 
@@ -11499,13 +10608,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Oral',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Oral',
           ),
         ),
@@ -11514,29 +10623,20 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 21600,
             'timezone_id' => 'Asia/Oral',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Oral',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 21600,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Oral',
-          ),
-        ),
-        'urut' => 
-        array (
-          0 => 
-          array (
-            'dst' => false,
-            'offset' => 21600,
-            'timezone_id' => 'Asia/Urumqi',
           ),
         ),
         'utc' => 
@@ -11545,33 +10645,39 @@ return array (
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Etc/Universal',
+            'timezone_id' => 'Antarctica/Troll',
           ),
           1 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Etc/UTC',
+            'timezone_id' => 'Etc/Universal',
           ),
           2 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Etc/Zulu',
+            'timezone_id' => 'Etc/UTC',
           ),
           3 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'GMT',
+            'timezone_id' => 'Etc/Zulu',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'UTC',
+            'timezone_id' => 'GMT',
           ),
           5 => 
+          array (
+            'dst' => false,
+            'offset' => 0,
+            'timezone_id' => 'UTC',
+          ),
+          6 => 
           array (
             'dst' => false,
             'offset' => 0,
@@ -11583,13 +10689,13 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => -10800,
+            'offset' => -9000,
             'timezone_id' => 'America/Montevideo',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => -9000,
+            'offset' => -10800,
             'timezone_id' => 'America/Montevideo',
           ),
         ),
@@ -11652,38 +10758,35 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -14400,
+            'offset' => -16200,
             'timezone_id' => 'America/Caracas',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => -16200,
+            'offset' => -14400,
             'timezone_id' => 'America/Caracas',
-          ),
-        ),
-        'vlasst' => 
-        array (
-          0 => 
-          array (
-            'dst' => true,
-            'offset' => 36000,
-            'timezone_id' => 'Asia/Vladivostok',
           ),
         ),
         'vlast' => 
         array (
           0 => 
           array (
-            'dst' => false,
-            'offset' => 32400,
+            'dst' => true,
+            'offset' => 39600,
             'timezone_id' => 'Asia/Vladivostok',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 39600,
+            'offset' => 36000,
             'timezone_id' => 'Asia/Vladivostok',
+          ),
+          2 => 
+          array (
+            'dst' => true,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Khandyga',
           ),
         ),
         'vlat' => 
@@ -11691,14 +10794,44 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 32400,
+            'offset' => 36000,
             'timezone_id' => 'Asia/Vladivostok',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 36000,
+            'offset' => 32400,
             'timezone_id' => 'Asia/Vladivostok',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Vladivostok',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Khandyga',
+          ),
+          4 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Ust-Nera',
+          ),
+          5 => 
+          array (
+            'dst' => false,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Khandyga',
+          ),
+          6 => 
+          array (
+            'dst' => false,
+            'offset' => 39600,
+            'timezone_id' => 'Asia/Ust-Nera',
           ),
         ),
         'volst' => 
@@ -11925,136 +11058,88 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => -3600,
-            'timezone_id' => 'Africa/Dakar',
+            'offset' => 3600,
+            'timezone_id' => 'Africa/Brazzaville',
           ),
           1 => 
           array (
             'dst' => false,
             'offset' => -3600,
-            'timezone_id' => 'Africa/Bamako',
+            'timezone_id' => 'Africa/Bissau',
           ),
           2 => 
           array (
             'dst' => false,
             'offset' => -3600,
-            'timezone_id' => 'Africa/Banjul',
+            'timezone_id' => 'Africa/El_Aaiun',
           ),
           3 => 
           array (
             'dst' => false,
             'offset' => -3600,
-            'timezone_id' => 'Africa/Bissau',
-          ),
-          4 => 
-          array (
-            'dst' => false,
-            'offset' => -3600,
-            'timezone_id' => 'Africa/Conakry',
-          ),
-          5 => 
-          array (
-            'dst' => false,
-            'offset' => -3600,
-            'timezone_id' => 'Africa/El_Aaiun',
-          ),
-          6 => 
-          array (
-            'dst' => false,
-            'offset' => -3600,
-            'timezone_id' => 'Africa/Freetown',
-          ),
-          7 => 
-          array (
-            'dst' => false,
-            'offset' => -3600,
             'timezone_id' => 'Africa/Niamey',
           ),
-          8 => 
-          array (
-            'dst' => false,
-            'offset' => -3600,
-            'timezone_id' => 'Africa/Nouakchott',
-          ),
-          9 => 
-          array (
-            'dst' => false,
-            'offset' => -3600,
-            'timezone_id' => 'Africa/Timbuktu',
-          ),
-          10 => 
-          array (
-            'dst' => false,
-            'offset' => 0,
-            'timezone_id' => 'Africa/Freetown',
-          ),
-          11 => 
-          array (
-            'dst' => false,
-            'offset' => 3600,
-            'timezone_id' => 'Africa/Brazzaville',
-          ),
-          12 => 
+          4 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Bangui',
           ),
-          13 => 
+          5 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Douala',
           ),
-          14 => 
+          6 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Kinshasa',
           ),
-          15 => 
+          7 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Lagos',
           ),
-          16 => 
+          8 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Libreville',
           ),
-          17 => 
+          9 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Luanda',
           ),
-          18 => 
+          10 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Malabo',
           ),
-          19 => 
+          11 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Ndjamena',
           ),
-          20 => 
+          12 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Niamey',
           ),
-          21 => 
+          13 => 
           array (
             'dst' => false,
             'offset' => 3600,
             'timezone_id' => 'Africa/Porto-Novo',
           ),
-          22 => 
+          14 => 
           array (
             'dst' => false,
             'offset' => 3600,
@@ -12105,86 +11190,92 @@ return array (
           1 => 
           array (
             'dst' => true,
-            'offset' => 3600,
-            'timezone_id' => 'Africa/Algiers',
+            'offset' => 7200,
+            'timezone_id' => 'Europe/Luxembourg',
           ),
           2 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Africa/Casablanca',
+            'timezone_id' => 'Africa/Algiers',
           ),
           3 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Africa/Ceuta',
+            'timezone_id' => 'Africa/Casablanca',
           ),
           4 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Atlantic/Canary',
+            'timezone_id' => 'Africa/Ceuta',
           ),
           5 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Atlantic/Faeroe',
+            'timezone_id' => 'Africa/El_Aaiun',
           ),
           6 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Atlantic/Faroe',
+            'timezone_id' => 'Atlantic/Canary',
           ),
           7 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Atlantic/Madeira',
+            'timezone_id' => 'Atlantic/Faeroe',
           ),
           8 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Brussels',
+            'timezone_id' => 'Atlantic/Faroe',
           ),
           9 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Lisbon',
+            'timezone_id' => 'Atlantic/Madeira',
           ),
           10 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Luxembourg',
+            'timezone_id' => 'Europe/Brussels',
           ),
           11 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Madrid',
+            'timezone_id' => 'Europe/Lisbon',
           ),
           12 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'Europe/Monaco',
+            'timezone_id' => 'Europe/Luxembourg',
           ),
           13 => 
           array (
             'dst' => true,
             'offset' => 3600,
-            'timezone_id' => 'WET',
+            'timezone_id' => 'Europe/Madrid',
           ),
           14 => 
           array (
             'dst' => true,
-            'offset' => 7200,
-            'timezone_id' => 'Europe/Luxembourg',
+            'offset' => 3600,
+            'timezone_id' => 'Europe/Monaco',
+          ),
+          15 => 
+          array (
+            'dst' => true,
+            'offset' => 3600,
+            'timezone_id' => 'WET',
           ),
         ),
         'wet' => 
@@ -12198,104 +11289,104 @@ return array (
           1 => 
           array (
             'dst' => false,
-            'offset' => 0,
-            'timezone_id' => 'Africa/Algiers',
+            'offset' => 3600,
+            'timezone_id' => 'Europe/Luxembourg',
           ),
           2 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Africa/Casablanca',
+            'timezone_id' => 'Africa/Algiers',
           ),
           3 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Africa/Ceuta',
+            'timezone_id' => 'Africa/Casablanca',
           ),
           4 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Africa/El_Aaiun',
+            'timezone_id' => 'Africa/Ceuta',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Atlantic/Azores',
+            'timezone_id' => 'Africa/El_Aaiun',
           ),
           6 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Atlantic/Canary',
+            'timezone_id' => 'Atlantic/Azores',
           ),
           7 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Atlantic/Faeroe',
+            'timezone_id' => 'Atlantic/Canary',
           ),
           8 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Atlantic/Faroe',
+            'timezone_id' => 'Atlantic/Faeroe',
           ),
           9 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Atlantic/Madeira',
+            'timezone_id' => 'Atlantic/Faroe',
           ),
           10 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Europe/Andorra',
+            'timezone_id' => 'Atlantic/Madeira',
           ),
           11 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Europe/Brussels',
+            'timezone_id' => 'Europe/Andorra',
           ),
           12 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Europe/Lisbon',
+            'timezone_id' => 'Europe/Brussels',
           ),
           13 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Europe/Luxembourg',
+            'timezone_id' => 'Europe/Lisbon',
           ),
           14 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Europe/Madrid',
+            'timezone_id' => 'Europe/Luxembourg',
           ),
           15 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Europe/Monaco',
+            'timezone_id' => 'Europe/Madrid',
           ),
           16 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'WET',
+            'timezone_id' => 'Europe/Monaco',
           ),
           17 => 
           array (
             'dst' => false,
-            'offset' => 3600,
-            'timezone_id' => 'Europe/Luxembourg',
+            'offset' => 0,
+            'timezone_id' => 'WET',
           ),
         ),
         'wft' => 
@@ -12337,7 +11428,7 @@ return array (
             'timezone_id' => 'America/Danmarkshavn',
           ),
         ),
-        'wit' => 
+        'wib' => 
         array (
           0 => 
           array (
@@ -12348,32 +11439,68 @@ return array (
           1 => 
           array (
             'dst' => false,
-            'offset' => 27000,
-            'timezone_id' => 'Asia/Jakarta',
+            'offset' => 25200,
+            'timezone_id' => 'Asia/Pontianak',
           ),
           2 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 27000,
             'timezone_id' => 'Asia/Jakarta',
           ),
           3 => 
           array (
             'dst' => false,
-            'offset' => 25200,
+            'offset' => 27000,
             'timezone_id' => 'Asia/Pontianak',
           ),
           4 => 
           array (
             'dst' => false,
-            'offset' => 27000,
-            'timezone_id' => 'Asia/Pontianak',
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Jakarta',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => 28800,
             'timezone_id' => 'Asia/Pontianak',
+          ),
+        ),
+        'wita' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Dili',
+          ),
+          1 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Makassar',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Pontianak',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Ujung_Pandang',
+          ),
+        ),
+        'wit' => 
+        array (
+          0 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Jayapura',
           ),
         ),
         'wmt' => 
@@ -12396,47 +11523,38 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => -36000,
+            'offset' => 50400,
             'timezone_id' => 'Pacific/Apia',
           ),
         ),
-        'wst' => 
+        'wsst' => 
         array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Australia/Perth',
+            'offset' => -41400,
+            'timezone_id' => 'Pacific/Apia',
           ),
           1 => 
           array (
-            'dst' => true,
-            'offset' => 32400,
-            'timezone_id' => 'Australia/Perth',
-          ),
-          2 => 
-          array (
             'dst' => false,
-            'offset' => -39600,
+            'offset' => 46800,
             'timezone_id' => 'Pacific/Apia',
           ),
-          3 => 
+        ),
+        'xjt' => 
+        array (
+          0 => 
           array (
             'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Antarctica/Casey',
+            'offset' => 21600,
+            'timezone_id' => 'Asia/Kashgar',
           ),
-          4 => 
+          1 => 
           array (
             'dst' => false,
-            'offset' => 28800,
-            'timezone_id' => 'Australia/West',
-          ),
-          5 => 
-          array (
-            'dst' => true,
-            'offset' => 32400,
-            'timezone_id' => 'Australia/West',
+            'offset' => 21600,
+            'timezone_id' => 'Asia/Urumqi',
           ),
         ),
         'yakst' => 
@@ -12444,14 +11562,38 @@ return array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 32400,
+            'offset' => 36000,
             'timezone_id' => 'Asia/Yakutsk',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 36000,
+            'offset' => 32400,
             'timezone_id' => 'Asia/Yakutsk',
+          ),
+          2 => 
+          array (
+            'dst' => true,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Chita',
+          ),
+          3 => 
+          array (
+            'dst' => true,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Khandyga',
+          ),
+          4 => 
+          array (
+            'dst' => true,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Chita',
+          ),
+          5 => 
+          array (
+            'dst' => true,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Khandyga',
           ),
         ),
         'yakt' => 
@@ -12459,14 +11601,68 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 28800,
+            'offset' => 32400,
             'timezone_id' => 'Asia/Yakutsk',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 32400,
+            'offset' => 28800,
             'timezone_id' => 'Asia/Yakutsk',
+          ),
+          2 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Yakutsk',
+          ),
+          3 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Chita',
+          ),
+          4 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Khandyga',
+          ),
+          5 => 
+          array (
+            'dst' => false,
+            'offset' => 28800,
+            'timezone_id' => 'Asia/Ust-Nera',
+          ),
+          6 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Chita',
+          ),
+          7 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Khandyga',
+          ),
+          8 => 
+          array (
+            'dst' => false,
+            'offset' => 32400,
+            'timezone_id' => 'Asia/Ust-Nera',
+          ),
+          9 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Chita',
+          ),
+          10 => 
+          array (
+            'dst' => false,
+            'offset' => 36000,
+            'timezone_id' => 'Asia/Khandyga',
           ),
         ),
         'yddt' => 
@@ -12502,15 +11698,21 @@ return array (
           array (
             'dst' => true,
             'offset' => -28800,
-            'timezone_id' => 'America/Whitehorse',
+            'timezone_id' => 'America/Juneau',
           ),
           2 => 
           array (
             'dst' => true,
             'offset' => -28800,
-            'timezone_id' => 'America/Yakutat',
+            'timezone_id' => 'America/Whitehorse',
           ),
           3 => 
+          array (
+            'dst' => true,
+            'offset' => -28800,
+            'timezone_id' => 'America/Yakutat',
+          ),
+          4 => 
           array (
             'dst' => true,
             'offset' => -28800,
@@ -12534,19 +11736,25 @@ return array (
             'offset' => 18000,
             'timezone_id' => 'Asia/Yekaterinburg',
           ),
+          1 => 
+          array (
+            'dst' => false,
+            'offset' => 21600,
+            'timezone_id' => 'Asia/Yekaterinburg',
+          ),
         ),
         'yerst' => 
         array (
           0 => 
           array (
             'dst' => true,
-            'offset' => 14400,
+            'offset' => 18000,
             'timezone_id' => 'Asia/Yerevan',
           ),
           1 => 
           array (
             'dst' => true,
-            'offset' => 18000,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Yerevan',
           ),
         ),
@@ -12555,13 +11763,13 @@ return array (
           0 => 
           array (
             'dst' => false,
-            'offset' => 10800,
+            'offset' => 14400,
             'timezone_id' => 'Asia/Yerevan',
           ),
           1 => 
           array (
             'dst' => false,
-            'offset' => 14400,
+            'offset' => 10800,
             'timezone_id' => 'Asia/Yerevan',
           ),
         ),
@@ -12622,15 +11830,21 @@ return array (
           array (
             'dst' => false,
             'offset' => -32400,
-            'timezone_id' => 'America/Whitehorse',
+            'timezone_id' => 'America/Sitka',
           ),
           5 => 
           array (
             'dst' => false,
             'offset' => -32400,
-            'timezone_id' => 'America/Yakutat',
+            'timezone_id' => 'America/Whitehorse',
           ),
           6 => 
+          array (
+            'dst' => false,
+            'offset' => -32400,
+            'timezone_id' => 'America/Yakutat',
+          ),
+          7 => 
           array (
             'dst' => false,
             'offset' => -32400,
@@ -12958,39 +12172,33 @@ return array (
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Antarctica/McMurdo',
+            'timezone_id' => 'Antarctica/Palmer',
           ),
           13 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Antarctica/Palmer',
+            'timezone_id' => 'Antarctica/Rothera',
           ),
           14 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Antarctica/Rothera',
+            'timezone_id' => 'Antarctica/Syowa',
           ),
           15 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Antarctica/South_Pole',
+            'timezone_id' => 'Antarctica/Troll',
           ),
           16 => 
           array (
             'dst' => false,
             'offset' => 0,
-            'timezone_id' => 'Antarctica/Syowa',
-          ),
-          17 => 
-          array (
-            'dst' => false,
-            'offset' => 0,
             'timezone_id' => 'Antarctica/Vostok',
           ),
-          18 => 
+          17 => 
           array (
             'dst' => false,
             'offset' => 0,
@@ -13008,5 +12216,6 @@ return array (
         ),
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

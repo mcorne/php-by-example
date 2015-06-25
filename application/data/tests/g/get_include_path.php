@@ -1,11 +1,20 @@
 <?php
-// generated automatically 2014-01-30T08:40:00+00:00
+// generated automatically 2015-06-25T15:27:17+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => 'D:\\Data\\php-by-example\\application',
+      'string' => 'p:\\fumw\\vonhyn\\lusdyn\\qyzcen',
     ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 1024,
+        'message' => 'the result is hashed with pbx_hash for security reasons.',
+      ),
+    ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

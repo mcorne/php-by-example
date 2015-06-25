@@ -1,11 +1,12 @@
 <?php
-// generated automatically 2015-06-16T07:36:00+00:00
+// generated automatically 2015-06-25T15:27:15+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => 'Europe/Berlin',
+      'string' => 'UTC',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

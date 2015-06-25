@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-24T13:26:18+00:00
+// generated automatically 2015-06-25T15:27:15+00:00
 return array (
   0 => 
   array (
@@ -7,13 +7,15 @@ return array (
     array (
       'float' => 1,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
     'result' => 
     array (
-      'float' => -3.4914813388431E-15,
+      'float' => 6.123233995736766E-17,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -21,5 +23,6 @@ return array (
     array (
       'float' => -1,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

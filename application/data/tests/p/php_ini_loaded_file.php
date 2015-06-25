@@ -1,11 +1,20 @@
 <?php
-// generated automatically 2014-02-11T18:28:13+00:00
+// generated automatically 2015-06-25T15:27:22+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => 'C:\\Program Files (x86)\\Zend\\ZendServer\\etc\\php.ini',
+      'string' => 'p:\\cenge\\byn\\husxoz\\php.ini',
     ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 1024,
+        'message' => 'the result is hashed with pbx_hash for security reasons.',
+      ),
+    ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-04-19T19:18:48+00:00
+// generated automatically 2015-06-25T15:27:19+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'int' => 42,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -14,6 +15,7 @@ return array (
     array (
       'int' => 4,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -21,6 +23,7 @@ return array (
     array (
       'int' => 42,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -28,6 +31,7 @@ return array (
     array (
       'int' => 42,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -35,6 +39,7 @@ return array (
     array (
       'int' => -42,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   5 => 
   array (
@@ -42,6 +47,7 @@ return array (
     array (
       'int' => 34,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   6 => 
   array (
@@ -49,13 +55,15 @@ return array (
     array (
       'int' => 42,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   7 => 
   array (
     'result' => 
     array (
-      'int' => 10000000000,
+      'int' => 1410065408,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   8 => 
   array (
@@ -63,6 +71,7 @@ return array (
     array (
       'int' => 1,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   9 => 
   array (
@@ -70,6 +79,7 @@ return array (
     array (
       'int' => 26,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   10 => 
   array (
@@ -77,20 +87,23 @@ return array (
     array (
       'int' => 42000000,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   11 => 
   array (
     'result' => 
     array (
-      'int' => -4275113695319687168,
+      'int' => -1609564160,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   12 => 
   array (
     'result' => 
     array (
-      'int' => 9223372036854775807,
+      'int' => 2147483647,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   13 => 
   array (
@@ -98,6 +111,7 @@ return array (
     array (
       'int' => 42,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   14 => 
   array (
@@ -105,6 +119,7 @@ return array (
     array (
       'int' => 34,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   15 => 
   array (
@@ -112,6 +127,7 @@ return array (
     array (
       'int' => 0,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   16 => 
   array (
@@ -119,5 +135,6 @@ return array (
     array (
       'int' => 1,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

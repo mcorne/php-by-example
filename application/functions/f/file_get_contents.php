@@ -63,7 +63,7 @@ class file_get_contents extends function_core
             false,
             NULL,
             0,
-            9999,
+            99999,
         ],
         [
             'abc',
@@ -94,6 +94,8 @@ class file_get_contents extends function_core
     public $synopsis = 'string file_get_contents ( string $filename [, bool $use_include_path = false [, resource $context [, int $offset = -1 [, int $maxlen ]]]] )';
 
     public $test_not_to_run = 1;
+
+    public $test_not_validated = 8;
 
     function pre_exec_function()
     {

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-13T20:49:20+00:00
+// generated automatically 2015-06-25T15:27:22+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'mixed' => 'April1,2003',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -14,6 +15,7 @@ return array (
     array (
       'mixed' => 'The bear black slow jumped over the lazy dog.',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -21,6 +23,7 @@ return array (
     array (
       'mixed' => 'The slow black bear jumped over the lazy dog.',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -28,6 +31,7 @@ return array (
     array (
       'mixed' => '$startDate = 5/27/1999',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -35,6 +39,7 @@ return array (
     array (
       'mixed' => 'foo o',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   5 => 
   array (
@@ -43,5 +48,6 @@ return array (
       'count' => 3,
       'mixed' => 'xp***to',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-29T21:13:51+00:00
+// generated automatically 2015-06-25T15:27:17+00:00
 return array (
   0 => 
   array (
@@ -12,16 +12,20 @@ return array (
         2 => 'Iterator',
         3 => 'ArrayAccess',
         4 => 'Serializable',
-        5 => 'JsonSerializable',
-        6 => 'RecursiveIterator',
-        7 => 'OuterIterator',
-        8 => 'Countable',
-        9 => 'SeekableIterator',
-        10 => 'SplObserver',
-        11 => 'SplSubject',
-        12 => 'Reflector',
-        13 => 'SessionHandlerInterface',
+        5 => 'DateTimeInterface',
+        6 => 'JsonSerializable',
+        7 => 'RecursiveIterator',
+        8 => 'OuterIterator',
+        9 => 'Countable',
+        10 => 'SeekableIterator',
+        11 => 'SplObserver',
+        12 => 'SplSubject',
+        13 => 'Reflector',
+        14 => 'SessionHandlerInterface',
+        15 => 'SessionIdInterface',
+        16 => 'bar',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

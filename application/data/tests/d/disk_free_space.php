@@ -1,25 +1,52 @@
 <?php
-// generated automatically 2014-01-29T08:58:29+00:00
+// generated automatically 2015-06-25T15:27:16+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'float' => 29788065792,
+      'float' => '14503',
     ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 1024,
+        'message' => 'the result is hashed with pbx_hash for security reasons.',
+      ),
+    ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
     'result' => 
     array (
-      'float' => 36308000768,
+      'float' => '14503',
     ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 1024,
+        'message' => 'the result is hashed with pbx_hash for security reasons.',
+      ),
+    ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
     'result' => 
     array (
-      'float' => 29788065792,
+      'float' => false,
     ),
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 2,
+        'message' => 'disk_free_space(): ',
+      ),
+    ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

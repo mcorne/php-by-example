@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-04-19T18:38:30+00:00
+// generated automatically 2015-06-25T15:27:16+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'string' => 'world',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -14,6 +15,7 @@ return array (
     array (
       'string' => 'Hello world !',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -25,6 +27,7 @@ return array (
         'message' => 'this argument value is not allowed in this example ($use_include_path)',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -40,6 +43,7 @@ return array (
         'message' => 'file_get_contents() expects at least 1 parameter, 0 given',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   5 => 
   array (
@@ -55,6 +59,7 @@ return array (
         'message' => 'the following argument has been removed ($maxlen)',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   6 => 
   array (
@@ -70,6 +75,7 @@ return array (
         'message' => 'the following arguments have been removed ($offset, $maxlen)',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   7 => 
   array (
@@ -78,9 +84,10 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'the length must be defined and lower than 1000 bytes in this example ($maxlen)',
+        'message' => 'the length must be defined and lower than 10000 bytes in this example ($maxlen)',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   8 => 
   array (
@@ -89,9 +96,10 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'the filename must start with one of the following strings in this example (/tmp/pbe, http://, https://)',
+        'message' => 'the filename must start with one of the following strings in this example (C:\\Users\\mcorne\\AppData\\Local\\Temp\\pbe, http://, https://)',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   9 => 
   array (
@@ -103,5 +111,6 @@ return array (
         'message' => 'this argument value is not allowed in this example ($use_include_path)',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

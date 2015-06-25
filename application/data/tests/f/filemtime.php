@@ -1,13 +1,14 @@
 <?php
-// generated automatically 2014-10-01T20:08:58+00:00
+// generated automatically 2015-06-25T15:27:16+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'int' => 1412193924,
-      'date' => '2014-10-01 20:05:24',
+      'int' => 1419005061,
+      'date' => '2014-12-19 16:04:21',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -23,5 +24,6 @@ return array (
         'message' => 'filectime(): stat failed for /path/to/foo.txt',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

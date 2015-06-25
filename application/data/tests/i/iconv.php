@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-04-19T19:02:45+00:00
+// generated automatically 2015-06-25T15:27:19+00:00
 return array (
   0 => 
   array (
@@ -12,6 +12,7 @@ return array (
         'out_charset' => '5468697320697320746865204575726f2073796d626f6c2027455552272e',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -24,6 +25,7 @@ return array (
         'out_charset' => '5468697320697320746865204272697469736820506f756e642073796d626f6c2027a3272e',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -44,6 +46,7 @@ return array (
         'message' => 'iconv(): Detected an illegal character in input string',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -56,6 +59,7 @@ return array (
         'out_charset' => 'e0',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -68,5 +72,6 @@ return array (
         'out_charset' => 'c3a0',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

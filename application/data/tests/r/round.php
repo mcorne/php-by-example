@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-27T08:25:36+00:00
+// generated automatically 2015-06-25T15:27:22+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'float' => 3,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -14,6 +15,7 @@ return array (
     array (
       'float' => 4,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -21,6 +23,7 @@ return array (
     array (
       'float' => 4,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -28,6 +31,7 @@ return array (
     array (
       'float' => 4,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -35,6 +39,7 @@ return array (
     array (
       'float' => 1.96,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   5 => 
   array (
@@ -42,20 +47,23 @@ return array (
     array (
       'float' => 1242000,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   6 => 
   array (
     'result' => 
     array (
-      'float' => 5.05,
+      'float' => 5.0499999999999998,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   7 => 
   array (
     'result' => 
     array (
-      'float' => 5.06,
+      'float' => 5.0599999999999996,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   8 => 
   array (
@@ -63,6 +71,7 @@ return array (
     array (
       'float' => 10,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   9 => 
   array (
@@ -70,6 +79,7 @@ return array (
     array (
       'float' => 9,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   10 => 
   array (
@@ -77,6 +87,7 @@ return array (
     array (
       'float' => 10,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   11 => 
   array (
@@ -84,6 +95,7 @@ return array (
     array (
       'float' => 9,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   12 => 
   array (
@@ -91,6 +103,7 @@ return array (
     array (
       'float' => 9,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   13 => 
   array (
@@ -98,6 +111,7 @@ return array (
     array (
       'float' => 8,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   14 => 
   array (
@@ -105,6 +119,7 @@ return array (
     array (
       'float' => 8,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   15 => 
   array (
@@ -112,13 +127,15 @@ return array (
     array (
       'float' => 9,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   16 => 
   array (
     'result' => 
     array (
-      'float' => 1.6,
+      'float' => 1.6000000000000001,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   17 => 
   array (
@@ -126,13 +143,15 @@ return array (
     array (
       'float' => 1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   18 => 
   array (
     'result' => 
     array (
-      'float' => -1.6,
+      'float' => -1.6000000000000001,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   19 => 
   array (
@@ -140,6 +159,7 @@ return array (
     array (
       'float' => -1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   20 => 
   array (
@@ -147,6 +167,7 @@ return array (
     array (
       'float' => 1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   21 => 
   array (
@@ -154,6 +175,7 @@ return array (
     array (
       'float' => 1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   22 => 
   array (
@@ -161,6 +183,7 @@ return array (
     array (
       'float' => -1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   23 => 
   array (
@@ -168,13 +191,15 @@ return array (
     array (
       'float' => -1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   24 => 
   array (
     'result' => 
     array (
-      'float' => 1.6,
+      'float' => 1.6000000000000001,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   25 => 
   array (
@@ -182,13 +207,15 @@ return array (
     array (
       'float' => 1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   26 => 
   array (
     'result' => 
     array (
-      'float' => -1.6,
+      'float' => -1.6000000000000001,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   27 => 
   array (
@@ -196,6 +223,7 @@ return array (
     array (
       'float' => -1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   28 => 
   array (
@@ -203,6 +231,7 @@ return array (
     array (
       'float' => 1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   29 => 
   array (
@@ -210,6 +239,7 @@ return array (
     array (
       'float' => 1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   30 => 
   array (
@@ -217,6 +247,7 @@ return array (
     array (
       'float' => -1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   31 => 
   array (
@@ -224,5 +255,6 @@ return array (
     array (
       'float' => -1.5,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

@@ -1,11 +1,12 @@
 <?php
-// generated automatically 2014-02-16T09:58:32+00:00
+// generated automatically 2015-06-25T15:27:23+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'string' => 'edbcfa',
+      'string' => 'fadbec',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

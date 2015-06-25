@@ -1,20 +1,22 @@
 <?php
-// generated automatically 2014-01-30T21:00:20+00:00
+// generated automatically 2015-06-25T15:27:19+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
       'resource' => 'GMP',
-      'string' => '1207846249',
+      'string' => '223339656',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
     'result' => 
     array (
       'resource' => 'GMP',
-      'string' => '3747777672366780133',
+      'string' => '3470823771128390730',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

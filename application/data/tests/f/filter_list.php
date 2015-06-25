@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-27T17:23:05+00:00
+// generated automatically 2015-06-25T15:27:16+00:00
 return array (
   0 => 
   array (
@@ -14,19 +14,21 @@ return array (
         4 => 'validate_url',
         5 => 'validate_email',
         6 => 'validate_ip',
-        7 => 'string',
-        8 => 'stripped',
-        9 => 'encoded',
-        10 => 'special_chars',
-        11 => 'full_special_chars',
-        12 => 'unsafe_raw',
-        13 => 'email',
-        14 => 'url',
-        15 => 'number_int',
-        16 => 'number_float',
-        17 => 'magic_quotes',
-        18 => 'callback',
+        7 => 'validate_mac',
+        8 => 'string',
+        9 => 'stripped',
+        10 => 'encoded',
+        11 => 'special_chars',
+        12 => 'full_special_chars',
+        13 => 'unsafe_raw',
+        14 => 'email',
+        15 => 'url',
+        16 => 'number_int',
+        17 => 'number_float',
+        18 => 'magic_quotes',
+        19 => 'callback',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

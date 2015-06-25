@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-16T09:51:02+00:00
+// generated automatically 2015-06-25T15:27:23+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'mixed' => '<body text=\'black\'>',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -14,6 +15,7 @@ return array (
     array (
       'mixed' => 'Hll Wrld f PHP',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -21,6 +23,7 @@ return array (
     array (
       'mixed' => 'You should eat pizza, beer, and ice cream every day.',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -28,6 +31,7 @@ return array (
     array (
       'mixed' => 'good goy miss moy!',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -35,6 +39,7 @@ return array (
     array (
       'mixed' => 'Line 1CLine 2DLine 3BLine 4C',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   5 => 
   array (
@@ -42,6 +47,7 @@ return array (
     array (
       'mixed' => 'F',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   6 => 
   array (
@@ -49,5 +55,6 @@ return array (
     array (
       'mixed' => 'apearpearle pear',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

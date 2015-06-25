@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-09-25T13:43:42+00:00
+// generated automatically 2015-06-25T15:27:15+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'mixed' => 'foobar got one and two',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -14,6 +15,7 @@ return array (
     array (
       'mixed' => 'You wanted a mushroom haircut, no problem',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -21,6 +23,7 @@ return array (
     array (
       'mixed' => 'Hello!',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -28,6 +31,7 @@ return array (
     array (
       'mixed' => 'Hello!',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -35,6 +39,7 @@ return array (
     array (
       'mixed' => 'Goodbye Bob!',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   5 => 
   array (
@@ -42,6 +47,7 @@ return array (
     array (
       'mixed' => 1,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   6 => 
   array (
@@ -57,6 +63,7 @@ return array (
         'message' => 'call_user_func_array() expects exactly 2 parameters, 1 given',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   7 => 
   array (
@@ -72,5 +79,6 @@ return array (
         'message' => 'call_user_func_array() expects parameter 2 to be array, integer given',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

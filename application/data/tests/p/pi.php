@@ -1,11 +1,12 @@
 <?php
-// generated automatically 2014-01-25T21:59:47+00:00
+// generated automatically 2015-06-25T15:27:22+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'float' => 3.1415926535898,
+      'float' => 3.1415926535897931,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

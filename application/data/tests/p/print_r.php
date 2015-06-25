@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-04-11T20:13:36+00:00
+// generated automatically 2015-06-25T15:27:22+00:00
 return array (
   0 => 
   array (
@@ -19,6 +19,7 @@ return array (
 )
 ',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -38,6 +39,7 @@ return array (
 )
 ',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -49,5 +51,6 @@ return array (
         'message' => 'this argument may not be empty in this example ($return)',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

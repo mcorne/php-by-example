@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-01-30T19:08:22+00:00
+// generated automatically 2015-06-25T15:27:19+00:00
 return array (
   0 => 
   array (
@@ -8,6 +8,7 @@ return array (
       'resource' => 'GMP',
       'string' => '120',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -16,5 +17,6 @@ return array (
       'resource' => 'GMP',
       'string' => '30414093201713378043612608166064768844377641568960512000000000000',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

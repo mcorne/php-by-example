@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-05-13T09:09:05+00:00
+// generated automatically 2015-06-25T15:27:21+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'string' => 'This string was AES-128 / ECB encrypted.',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -14,6 +15,7 @@ return array (
     array (
       'string' => 'This string was AES-128 / ECB encrypted.',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -22,6 +24,7 @@ return array (
       'data' => 'eXIp3BnsELdTuTvVkpoFqXuYoP6zd73ETDXiNcMhXUiuAm0ju4ufdX9Yxai4X7S3',
       'string' => 'This string was AES-128 / ECB encrypted.',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -31,5 +34,6 @@ return array (
       'base64' => 'eXIp3BnsELdTuTvVkpoFqXuYoP6zd73ETDXiNcMhXUiuAm0ju4ufdX9Yxai4X7S3',
       'string' => 'This string was AES-128 / ECB encrypted.',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

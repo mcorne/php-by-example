@@ -1,38 +1,39 @@
 <?php
-// generated automatically 2014-09-17T11:34:44+00:00
+// generated automatically 2015-06-25T15:27:15+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'timestamp' => 1410953684,
-      'latitude' => 48.85,
-      'longitude' => 2.35,
+      'timestamp' => 1435246035,
+      'latitude' => 48.850000000000001,
+      'longitude' => 2.3500000000000001,
       'array' => 
       array (
-        'sunrise' => 1410931834,
-        'sunset' => 1410976761,
-        'transit' => 1410954298,
-        'civil_twilight_begin' => 1410929940,
-        'civil_twilight_end' => 1410978655,
-        'nautical_twilight_begin' => 1410927686,
-        'nautical_twilight_end' => 1410980909,
-        'astronomical_twilight_begin' => 1410925336,
-        'astronomical_twilight_end' => 1410983259,
+        'sunrise' => 1435204092,
+        'sunset' => 1435262301,
+        'transit' => 1435233196,
+        'civil_twilight_begin' => 1435201543,
+        'civil_twilight_end' => 1435264849,
+        'nautical_twilight_begin' => 1435197912,
+        'nautical_twilight_end' => 1435268480,
+        'astronomical_twilight_begin' => true,
+        'astronomical_twilight_end' => true,
       ),
       'date_sun_info' => 
       array (
-        'sunrise' => '07:30:34',
-        'sunset' => '19:59:21',
-        'transit' => '13:44:58',
-        'civil_twilight_begin' => '06:59:00',
-        'civil_twilight_end' => '20:30:55',
-        'nautical_twilight_begin' => '06:21:26',
-        'nautical_twilight_end' => '21:08:29',
-        'astronomical_twilight_begin' => '05:42:16',
-        'astronomical_twilight_end' => '21:47:39',
+        'sunrise' => '05:48:12',
+        'sunset' => '21:58:21',
+        'transit' => '13:53:16',
+        'civil_twilight_begin' => '05:05:43',
+        'civil_twilight_end' => '22:40:49',
+        'nautical_twilight_begin' => '04:05:12',
+        'nautical_twilight_end' => '23:41:20',
+        'astronomical_twilight_begin' => '01:00:01',
+        'astronomical_twilight_end' => '01:00:01',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -64,6 +65,7 @@ return array (
         'astronomical_twilight_end' => '16:03:00',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -94,5 +96,6 @@ return array (
         'astronomical_twilight_end' => '00:00:01',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

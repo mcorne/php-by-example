@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-05-11T07:09:48+00:00
+// generated automatically 2015-06-25T15:27:23+00:00
 return array (
   0 => 
   array (
@@ -7,19 +7,20 @@ return array (
     array (
       'array' => 
       array (
-        0 => 'https',
-        1 => 'ftps',
-        2 => 'compress.zlib',
-        3 => 'compress.bzip2',
-        4 => 'php',
-        5 => 'file',
-        6 => 'glob',
-        7 => 'data',
-        8 => 'http',
-        9 => 'ftp',
-        10 => 'phar',
-        11 => 'zip',
+        0 => 'php',
+        1 => 'file',
+        2 => 'glob',
+        3 => 'data',
+        4 => 'http',
+        5 => 'ftp',
+        6 => 'zip',
+        7 => 'compress.zlib',
+        8 => 'compress.bzip2',
+        9 => 'https',
+        10 => 'ftps',
+        11 => 'phar',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-21T15:18:40+00:00
+// generated automatically 2015-06-25T15:27:22+00:00
 return array (
   0 => 
   array (
@@ -15,6 +15,7 @@ return array (
         'calories' => '150',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -33,6 +34,7 @@ return array (
         2 => '150',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -48,6 +50,7 @@ return array (
          'CALORIES' => '150',
       )),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -63,6 +66,7 @@ return array (
         'calories' => '150',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -71,5 +75,6 @@ return array (
       'int' => 1,
       'pdostatement' => false,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

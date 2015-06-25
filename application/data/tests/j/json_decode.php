@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-10-05T18:05:11+00:00
+// generated automatically 2015-06-25T15:27:20+00:00
 return array (
   0 => 
   array (
@@ -14,6 +14,7 @@ return array (
          'e' => 5,
       )),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -28,6 +29,7 @@ return array (
         'e' => 5,
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -38,6 +40,7 @@ return array (
          'foo-bar' => 12345,
       )),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -45,6 +48,7 @@ return array (
     array (
       'mixed' => NULL,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   4 => 
   array (
@@ -52,6 +56,7 @@ return array (
     array (
       'mixed' => NULL,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   5 => 
   array (
@@ -59,6 +64,7 @@ return array (
     array (
       'mixed' => NULL,
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   6 => 
   array (
@@ -81,6 +87,7 @@ return array (
         )),
       )),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   7 => 
   array (
@@ -88,9 +95,10 @@ return array (
     array (
       'mixed' => 
       (object)(array(
-         'number' => 1.2345678901235E+19,
+         'number' => 1.2345678901234567E+19,
       )),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   8 => 
   array (
@@ -101,5 +109,6 @@ return array (
          'number' => '12345678901234567890',
       )),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

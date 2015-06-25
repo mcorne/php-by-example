@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-01-12T10:19:10+00:00
+// generated automatically 2015-06-25T15:27:15+00:00
 return array (
   0 => 
   array (
@@ -61,6 +61,7 @@ return array (
         ),
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   1 => 
   array (
@@ -76,6 +77,7 @@ return array (
         'message' => 'First argument of class_alias() must be a name of user defined class',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   2 => 
   array (
@@ -91,5 +93,6 @@ return array (
         'message' => 'Class \'xyz\' not found',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );

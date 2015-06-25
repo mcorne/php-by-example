@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2014-02-02T14:58:01+00:00
+// generated automatically 2015-06-25T15:27:17+00:00
 return array (
   0 => 
   array (
@@ -7,6 +7,7 @@ return array (
     array (
       'string' => 'Hello',
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
   3 => 
   array (
@@ -22,5 +23,6 @@ return array (
         'message' => 'fread() expects exactly 2 parameters, 1 given',
       ),
     ),
+    'php_version' => '5.6.8 WINNT i586',
   ),
 );
