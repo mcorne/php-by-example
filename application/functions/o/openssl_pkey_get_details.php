@@ -120,7 +120,8 @@ class openssl_pkey_get_details extends function_core
     function pre_exec_function()
     {
         $this->copy_file_to_temp('public-key.pem');
-        $this->copy_file_to_temp('public-key-with-pass.pem');
+        $this->copy_file_to_temp('private-key.pem');
+        $this->copy_file_to_temp('private-key-with-pass.pem');
 
         $function = $this->_filter->filter_arg_value('__function');
 
