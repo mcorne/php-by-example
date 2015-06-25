@@ -165,13 +165,14 @@ class function_test extends action
 
     function validate_test_result($test_result, $expected_result, $example_id)
     {
-        unset($test_result['php_version'], $expected_result['php_version']);
+        $expected_result_without_php_version = $expected_result;
+        unset($test_result['php_version'], $expected_result_without_php_version['php_version']);
 
         if ($this->_function->test_not_validated === true or in_array($example_id, (array) $this->_function->test_not_validated)) {
             // the test is considered always valid for this function, eg random generators, list of functions or constants etc.
             $test_validation['status'] = 'test_not_validated';
 
-        } else if ($this->is_expected_value($test_result, $expected_result)) {
+        } else if ($this->is_expected_value($test_result, $expected_result_without_php_version)) {
             $test_validation['status'] = 'test_success';
 
         } else {
