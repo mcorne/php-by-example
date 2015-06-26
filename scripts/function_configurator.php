@@ -102,7 +102,7 @@ class %3$s extends %2$s
 
         if ($method_name) {
             $synopsis = str_replace($method_name, $alias_function_name, $match[1]);
-            $synopsis = str_replace('public static ', '', $synopsis);
+            $synopsis = preg_replace('~^public (static )?~', '', $synopsis);
             $manual_function_name = "public \$manual_function_name = '$method_name';\n";
 
         } else {

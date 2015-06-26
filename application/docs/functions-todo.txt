@@ -22,12 +22,10 @@ closedir
 closelog
 
 collator_create
-collator_get_attribute
 collator_get_error_code
 collator_get_error_message
 collator_get_sort_key
 collator_get_strength
-collator_set_attribute
 collator_set_strength
 
 connection_aborted

@@ -29,11 +29,20 @@ class filter_has_var extends function_core
         ],
     ];
 
+    public $source_code = '
+        setcookie("test_cookie", 123, null, "/");
+
+        inject_function_call
+    ';
+
     public $synopsis = 'bool filter_has_var ( int $type , string $variable_name )';
+
+    public $test_not_validated = 0;
 
     function _get_options_list()
     {
         $variable_names = array_keys($_GET + $_POST + $_COOKIE + $_SERVER);
+        sort($variable_names);
         $options_list = ['variable_name' => $variable_names];
 
         return $options_list;

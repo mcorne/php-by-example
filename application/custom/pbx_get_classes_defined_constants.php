@@ -62,6 +62,37 @@ function pbx_get_class_defined_constants($manual_page_name)
 }
 
 /**
+ * Returns the constant names that match a given value and class prefix
+ *
+ * @param type $value
+ * @param type $class_prefix eg "Collator", "Collator::SORT"
+ * @param boolean $to_string
+ * @param string $separator
+ * @return array|string|false
+ */
+function pbx_get_class_constant_name($value, $class_prefix, $to_string = false, $separator = ',')
+{
+    $constants = pbx_get_classes_defined_constants();
+    $pattern = preg_quote($class_prefix, '~');
+
+    foreach ($constants as $constant_name => $constant_value) {
+        if ($constant_value == $value and preg_match("~$pattern~", $constant_name)) {
+            $constant_names[] = $constant_name;
+        }
+    }
+
+    if (! isset($constant_names)) {
+        return false;
+    }
+
+    if ($to_string) {
+        $constant_names = implode($separator, $constant_names);
+    }
+
+    return $constant_names;
+}
+
+/**
  * Provides access to the functions above through class or object methods
  *
  * This class is used for unit testing.
@@ -82,5 +113,10 @@ class pbx_get_classes_defined_constants
     static function get_class_defined_constants()
     {
         return pbx_get_class_defined_constants();
+    }
+
+    static function get_class_constant_name($value, $class_prefix)
+    {
+        return pbx_get_class_constant_name($value, $class_prefix);
     }
 }

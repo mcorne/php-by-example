@@ -19,8 +19,9 @@ class custom_function extends action
      * @var array
      */
     public $basenames = [
-        'pbx_callbacks'        => ['pbx_callbacks.php'     , 'class'],
-        'pbx_get_city_lat_lng' => ['pbx_cities_lat_lng.php', 'function'],
+        'pbx_callbacks'               => ['pbx_callbacks.php'     , 'class'],
+        'pbx_get_city_lat_lng'        => ['pbx_cities_lat_lng.php', 'function'],
+        'pbx_get_class_constant_name' => ['pbx_get_classes_defined_constants.php', 'function'],
     ];
 
     function add_link_to_custom_filename($match)
