@@ -1,11 +1,11 @@
 <?php
-// generated automatically 2015-06-25T15:27:21+00:00
+// generated automatically 2015-07-02T16:21:16+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'key' => 'OpenSSL key',
+      'key' => 'OpenSSL key ressource',
       'array' => 
       array (
         'bits' => 2048,
@@ -38,7 +38,7 @@ GwIDAQAB
   array (
     'result' => 
     array (
-      'key' => 'OpenSSL key',
+      'key' => 'OpenSSL key ressource',
       'array' => 
       array (
         'bits' => 2048,
@@ -87,7 +87,7 @@ N)\'Ýษํ',
   array (
     'result' => 
     array (
-      'key' => 'OpenSSL key',
+      'key' => 'OpenSSL key ressource',
       'array' => 
       array (
         'bits' => 2048,
@@ -136,7 +136,7 @@ rTน}%ญ2’+<ý&ระhเ(Tฒฮระึ?ก)H^Iฟฮ €ฬ(mkงๅÜ' . "\0" . 'ุ ÿงgsÞ’ฦV๎้x๑
   array (
     'result' => 
     array (
-      'key' => 'OpenSSL key',
+      'key' => 'OpenSSL key ressource',
       'array' => 
       array (
         'bits' => 2048,
@@ -169,7 +169,7 @@ GwIDAQAB
   array (
     'result' => 
     array (
-      'key' => 'OpenSSL key',
+      'key' => 'OpenSSL key ressource',
       'array' => 
       array (
         'bits' => 2048,

@@ -101,7 +101,7 @@ class datetime__add extends function_core
             date_default_timezone_set($timezone);
         }
 
-        $this->returned_params['interval'] = $this->_filter->filter_date_interval('interval_spec');
-        $this->object = $this->_filter->filter_date_time('time');
+        $this->result['datetime'] = $this->object = $this->_filter->filter_date_time('time');
+        $this->result['interval'] = $this->returned_params['interval'] = $this->_filter->filter_date_interval('interval_spec');
     }
 }

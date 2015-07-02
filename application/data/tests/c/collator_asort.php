@@ -1,10 +1,11 @@
 <?php
-// generated automatically 2015-06-25T15:27:15+00:00
+// generated automatically 2015-07-02T16:15:16+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
+      'collator' => 'Collator instance',
       'arr' => 
       array (
         'c' => '7',
@@ -19,6 +20,7 @@ return array (
   array (
     'result' => 
     array (
+      'collator' => 'Collator instance',
       'arr' => 
       array (
         'a' => '100',

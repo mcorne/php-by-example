@@ -65,7 +65,7 @@ class collator__getattribute extends function_core
     {
         $locale = $this->_filter->filter_arg_value('locale');
 
-        if (! $this->object = Collator::create($locale)) {
+        if (! $this->result['collator'] = $this->object = Collator::create($locale)) {
             return;
         }
 

@@ -1,10 +1,11 @@
 <?php
-// generated automatically 2015-06-26T10:29:39+00:00
+// generated automatically 2015-07-02T16:12:45+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
+      'collator' => 'Collator instance',
       'bool' => true,
       'int' => 17,
       'name' => 'Collator::ON',

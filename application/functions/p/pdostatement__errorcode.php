@@ -94,7 +94,7 @@ class pdostatement__errorcode extends function_core
     {
         $this->object_name = 'pdostatement';
 
-        $pdo = new PDO('sqlite::memory:');
+        $this->result['pdo'] = $pdo = new PDO('sqlite::memory:');
         $statement = $this->_filter->filter_arg_value('exec_statement');
         $this->result['int'] = $pdo->exec($statement);
 
@@ -113,7 +113,6 @@ class pdostatement__errorcode extends function_core
         }
 
         $this->object = $this->result['pdostatement'];
-        $this->result['pdostatement'] = get_class($this->object);
 
         $input_parameters = (array) $this->_filter->filter_arg_value('input_parameters');
 

@@ -1,10 +1,11 @@
 <?php
-// generated automatically 2015-06-25T15:27:21+00:00
+// generated automatically 2015-07-02T15:54:01+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'bool' => true,
       'mixed' => 2,
     ),
@@ -14,6 +15,7 @@ return array (
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'mixed' => '3.8.8.3',
     ),
     'php_version' => '5.6.8 WINNT i586',

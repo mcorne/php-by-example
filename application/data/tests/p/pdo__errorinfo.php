@@ -1,10 +1,11 @@
 <?php
-// generated automatically 2015-06-25T15:27:21+00:00
+// generated automatically 2015-07-02T16:18:56+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => false,
       'array' => 
       array (
@@ -19,6 +20,7 @@ return array (
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => false,
       'array' => 
       array (
@@ -33,6 +35,7 @@ return array (
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => 7,
       'array' => 
       array (

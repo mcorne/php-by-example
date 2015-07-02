@@ -1,10 +1,11 @@
 <?php
-// generated automatically 2015-06-25T15:27:21+00:00
+// generated automatically 2015-07-02T15:51:21+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => false,
       'mixed' => 'HY000',
     ),
@@ -14,6 +15,7 @@ return array (
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => false,
       'mixed' => 'HY000',
     ),
@@ -23,6 +25,7 @@ return array (
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => 7,
       'mixed' => '00000',
     ),

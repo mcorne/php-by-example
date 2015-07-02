@@ -49,6 +49,6 @@ class pdo__setattribute extends function_core
 
     function pre_exec_function()
     {
-        $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $this->result['pdo'] = $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     }
 }

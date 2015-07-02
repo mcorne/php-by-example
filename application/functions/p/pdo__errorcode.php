@@ -56,7 +56,7 @@ class pdo__errorcode extends function_core
 
     function pre_exec_function()
     {
-        $this->object = new PDO('sqlite::memory:');
+        $this->result['pdo'] = $this->object = new PDO('sqlite::memory:');
         $statement = $this->_filter->filter_arg_value('exec_statement');
         $this->result['int'] = $this->object->exec($statement);
     }

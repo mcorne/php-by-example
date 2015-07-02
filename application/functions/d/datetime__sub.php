@@ -18,30 +18,35 @@ class datetime__sub extends datetime__add
 {
     public $examples = [
         [
+            'timezone'      => 'UTC',
             'time'          => '2000-01-20',
             'interval_spec' => 'P10D',
             '$interval',
             'format'        => 'Y-m-d',
         ],
         [
+            'timezone'      => 'UTC',
             'time'          => '2000-01-20',
             'interval_spec' => 'PT10H30S',
             '$interval',
             'format'        => 'Y-m-d H:i:s',
         ],
         [
+            'timezone'      => 'UTC',
             'time'          => '2000-01-20',
             'interval_spec' => 'P7Y5M4DT4H3M2S',
             '$interval',
             'format'        => 'Y-m-d H:i:s',
         ],
         [
+            'timezone'      => 'UTC',
             'time'          => '2001-04-30',
             'interval_spec' => 'P1M',
             '$interval',
             'format'        => 'Y-m-d',
         ],
         [
+            'timezone'      => 'UTC',
             'time'          => '2001-04-30',
             'interval_spec' => 'P2M',
             '$interval',

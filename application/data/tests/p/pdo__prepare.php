@@ -1,12 +1,13 @@
 <?php
-// generated automatically 2015-06-25T15:27:21+00:00
+// generated automatically 2015-07-02T15:25:48+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => 7,
-      'pdostatement' => 'PDOStatement',
+      'pdostatement' => 'PDOStatement instance',
       'bool' => true,
       'rows' => 
       array (
@@ -24,8 +25,9 @@ return array (
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => 7,
-      'pdostatement' => 'PDOStatement',
+      'pdostatement' => 'PDOStatement instance',
       'bool' => true,
       'rows' => 
       array (
@@ -43,8 +45,9 @@ return array (
   array (
     'result' => 
     array (
+      'pdo' => 'PDO instance',
       'int' => 7,
-      'pdostatement' => 'PDOStatement',
+      'pdostatement' => 'PDOStatement instance',
       'bool' => true,
       'rows' => 
       array (

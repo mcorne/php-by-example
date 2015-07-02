@@ -54,7 +54,8 @@ class pdostatement__rowcount extends function_core
     {
         $this->object_name = 'pdostatement';
 
-        $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $this->result['pdo'] = $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
         $statement = $this->_filter->filter_arg_value('exec_statement');
         $this->result['count'] = $pdo->exec($statement);
 
@@ -71,6 +72,5 @@ class pdostatement__rowcount extends function_core
         }
 
         $this->object = $this->result['pdostatement'];
-        $this->result['pdostatement'] = get_class($this->object);
     }
 }

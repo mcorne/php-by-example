@@ -277,10 +277,14 @@ class output extends object
 
     function export_var_value($value, $fix_exported_array = true)
     {
-        $value = $this->_converter->convert_resource_to_text($value);
-        $string = '<?php ' . var_export($value, true) . ';';
+        $text = $this->_converter->convert_var_to_text($value);
+        $string = '<?php ' . var_export($text, true) . ';';
 
-        if ($fix_exported_array) {
+        if ($value instanceof stdClass) {
+            $string = str_replace('stdClass::__set_state(array(', '(object) [', $string);
+            $string = preg_replace('~\)\);$~', '];', $string);
+
+        } elseif ($fix_exported_array) {
             // converts "array(...)" to "[...]"
             $string = str_replace('<?php array (', '<?php [', $string);
             $string = preg_replace('~[\n] +array \(~', '[', $string);

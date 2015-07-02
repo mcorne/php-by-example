@@ -121,7 +121,6 @@ class pdo__query extends function_core
     function post_exec_function()
     {
         if ($statement = $this->result['pdostatement']) {
-            $this->result['pdostatement'] = get_class($statement);
             $fetch_style = $this->_filter->filter_arg_value('fetch_style');
             $this->result['rows'] = $statement->fetchAll($fetch_style);
         }
@@ -129,7 +128,8 @@ class pdo__query extends function_core
 
     function pre_exec_function()
     {
-        $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $this->result['object'] = $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
         $statement = $this->_filter->filter_arg_value('exec_statement');
         $this->result['int'] = $this->object->exec($statement);
 

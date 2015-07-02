@@ -41,7 +41,6 @@ class datetimezone__getlocation extends function_core
     function pre_exec_function()
     {
         $timezone = $this->_filter->filter_arg_value('timezone');
-        $this->object = new DateTimeZone($timezone);
-        $this->result['datetimezone'] = get_class($this->object);
+        $this->result['datetimezone'] = $this->object = new DateTimeZone($timezone);
     }
 }

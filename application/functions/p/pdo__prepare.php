@@ -123,7 +123,6 @@ class pdo__prepare extends function_core
                 pdo__prepare::fix_driver_options($this->object, $driver_options);
             }
 
-            $this->result['pdostatement'] = get_class($statement);
             $input_parameters = $this->_filter->filter_arg_value('input_parameters');
 
             if ($this->result['bool'] = $statement->execute($input_parameters)) {
@@ -135,7 +134,8 @@ class pdo__prepare extends function_core
 
     function pre_exec_function()
     {
-        $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $this->result['pdo'] = $this->object = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
         $statement = $this->_filter->filter_arg_value('exec_statement');
         $this->result['int'] = $this->object->exec($statement);
 

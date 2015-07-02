@@ -42,6 +42,6 @@ class timezone_location_get extends datetimezone__getlocation
             return;
         }
 
-        $this->result['datetimezone'] = get_class($this->returned_params['object']);
+        $this->result['datetimezone'] = $this->returned_params['object'];
     }
 }

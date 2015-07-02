@@ -41,6 +41,6 @@ class collator__compare extends function_core
     function pre_exec_function()
     {
         $locale = $this->_filter->filter_arg_value('locale');
-        $this->object = Collator::create($locale);
+        $this->result['collator'] = $this->object = Collator::create($locale);
     }
 }
