@@ -6,7 +6,7 @@
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once 'collator_sort.php';
+require_once 'collator__sortwithsortkeys.php';
 
 /**
  * Function configuration
@@ -14,21 +14,7 @@ require_once 'collator_sort.php';
  * @see docs/function-configuration.txt
  */
 
-class collator_sort_with_sort_keys extends collator_sort
+class collator_sort_with_sort_keys extends collator__sortwithsortkeys
 {
-    public $examples = [
-        [
-            'locale' => 'sv',
-            '__arr'  => [
-                'Köpfe',
-                'Kypper',
-                'Kopfe',
-            ],
-            '$arr',
-        ],
-    ];
-
     public $manual_function_name = 'Collator::sortWithSortKeys';
-
-    public $synopsis = 'public bool collator_sort_with_sort_keys ( Collator $coll, array &$arr )';
 }
