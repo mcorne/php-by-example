@@ -61,7 +61,13 @@ class translator extends object
 
     function get_translation_key()
     {
-        $translation_key = require sprintf('%s/data/translation_key.php', $this->application_path);
+        $translation_key_filename = sprintf('%s/data/translation_key.php', $this->application_path);
+
+        if (! file_exists($translation_key_filename)) {
+            throw new Exception('translation key file missing: ' . $translation_key_filename);
+        }
+
+        $translation_key = require $translation_key_filename;
 
         return $translation_key;
     }

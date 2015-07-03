@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-07-03T09:24:01+00:00
+// generated automatically 2015-07-03T12:58:36+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -161,6 +161,7 @@ return array (
   'each' => 'each',
   'easter_date' => 'easter_date',
   'easter_days' => 'easter_days',
+  'echo' => 'echo',
   'end' => 'end',
   'escapeshellarg' => 'escapeshellarg',
   'escapeshellcmd' => 'escapeshellcmd',
@@ -532,6 +533,7 @@ return array (
   'preg_split' => 'preg_split',
   'prev' => 'prev',
   'print_r' => 'print_r',
+  'printf' => 'printf',
   'quotemeta' => 'quotemeta',
   'rad2deg' => 'rad2deg',
   'rand' => 'rand',
@@ -632,6 +634,7 @@ return array (
   'var_dump' => 'var_dump',
   'var_export' => 'var_export',
   'version_compare' => 'version_compare',
+  'vprintf' => 'vprintf',
   'vsprintf' => 'vsprintf',
   'wordwrap' => 'wordwrap',
   'zend_version' => 'zend_version',

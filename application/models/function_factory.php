@@ -12,6 +12,7 @@ class function_factory extends object
 {
     public $fixed_classnames = [
         'define' => 'define_',
+        'echo'   => 'echo_',
     ];
 
     function create_function_object($function_basename)

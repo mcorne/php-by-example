@@ -436,6 +436,17 @@ class input extends object
             $source_code = $function_call;
         }
 
+        if ($this->_function->output_buffer) {
+            if (! strpos($source_code, 'ob_start')) {
+                $source_code = "ob_start();\n\n" . $source_code;
+            }
+
+            if (! strpos($source_code, 'ob_end_clean')) {
+                $source_code .= "\n\n\$contents = ob_get_contents();";
+                $source_code .= "\nob_end_clean();";
+            }
+        }
+
         // prefixes the additional params to get a proper line break, eg "    $mode; // string $mode"
         $source_code = preg_replace('~^\n    \$\w+; // ~m', '_ARG_LINE_BREAK_$0', $source_code);
 

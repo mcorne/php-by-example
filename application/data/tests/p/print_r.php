@@ -1,11 +1,12 @@
 <?php
-// generated automatically 2015-06-25T15:27:22+00:00
+// generated automatically 2015-07-03T12:49:07+00:00
 return array (
   0 => 
   array (
     'result' => 
     array (
-      'mixed' => 'Array
+      'mixed' => true,
+      'contents' => 'Array
 (
     [a] => apple
     [b] => banana
@@ -38,18 +39,7 @@ return array (
 
 )
 ',
-    ),
-    'php_version' => '5.6.8 WINNT i586',
-  ),
-  2 => 
-  array (
-    'errors' => 
-    array (
-      0 => 
-      array (
-        'code' => 512,
-        'message' => 'this argument may not be empty in this example ($return)',
-      ),
+      'contents' => '',
     ),
     'php_version' => '5.6.8 WINNT i586',
   ),

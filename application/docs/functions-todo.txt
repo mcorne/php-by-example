@@ -714,8 +714,6 @@ posix_times
 posix_ttyname
 posix_uname
 
-printf
-
 proc_close
 proc_get_status
 proc_nice
@@ -961,9 +959,6 @@ user_error
 
 utf8_decode
 utf8_encode
-
-vfprintf
-vprintf
 
 wddx_add_vars
 wddx_deserialize

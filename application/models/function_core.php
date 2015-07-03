@@ -164,6 +164,10 @@ class function_core extends action
 
     function function_exists($return = false)
     {
+        if ($this->_synopsis->function_name == 'echo') {
+            return true;
+        }
+
         $parts = explode('::', $this->_synopsis->function_name);
 
         if (isset($parts[1])) {
@@ -219,10 +223,19 @@ class function_core extends action
             }
             // else: this is most likely an error, false is not hashed
         }
+
+        if ($this->output_buffer) {
+            $this->result['contents'] = ob_get_contents();
+            ob_end_clean();
+        }
     }
 
     function pre_exec_function()
-    {}
+    {
+        if ($this->output_buffer) {
+            ob_start();
+        }
+    }
 
     function process()
     {

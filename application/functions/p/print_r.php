@@ -29,7 +29,6 @@ class print_r extends function_core
                     2 => "z",
                 ],
             ],
-            true
         ],
         [
             [
@@ -43,18 +42,9 @@ class print_r extends function_core
             ],
             true
         ],
-        // used in translations_in_action.php
-        [
-            [
-                "a" => "apple",
-            ],
-        ],
     ];
 
-    public $synopsis = 'mixed print_r ( mixed $expression [, bool $return = false ] )';
+    public $output_buffer = true;
 
-    function pre_exec_function()
-    {
-        $this->_filter->is_allowed_arg_value('return', true, false);
-    }
+    public $synopsis = 'mixed print_r ( mixed $expression [, bool $return = false ] )';
 }

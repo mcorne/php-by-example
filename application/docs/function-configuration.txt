@@ -41,6 +41,7 @@ public $options_getter = ['encoding' => 'mb_list_encodings'];
 public $options_list = ['mode' => ['a', 'a+', 'c', 'c+', 'r', 'r+', 'w', 'w+', 'x', 'x+']];
   see also public function _get_options_list();
 public $options_range = ['mode' => [0, 4]];
+public $output_buffer = true;
 public $see_also = ['call_user_funct'];
   see also filter_callback()
 public $synopsis_fixed

@@ -34,29 +34,17 @@ class var_dump extends function_core
         ],
     ];
 
-    public $source_code = '
-        ob_start();
-
-        inject_function_call
-
-        $contents = ob_get_contents();
-        ob_end_clean();
-    ';
+    public $output_buffer = true;
 
     public $synopsis       = 'void var_dump ( mixed $expression [, mixed $... ] )';
-    public $synopsis_fixed = 'void var_dump ( mixed $expression, mixed $expression2 [, mixed $... ] )';
-
-    function post_exec_function()
-    {
-        $this->result['contents'] = ob_get_contents();
-        ob_end_clean();
-    }
+    public $synopsis_fixed = 'void var_dump ( mixed $expression1, mixed $expression2 [, mixed $... ] )';
 
     function pre_exec_function()
     {
-        ob_start();
+        parent::pre_exec_function();
 
         if (ini_get('xdebug.overload_var_dump')) {
+            // disables xdebug var_dump that overloads PHP var_dump
             ini_set('xdebug.overload_var_dump', false);
         }
     }

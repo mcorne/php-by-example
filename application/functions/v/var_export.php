@@ -27,7 +27,6 @@ class var_export extends print_r
                     2 => "c",
                 ],
             ],
-            true
         ],
         [
             3.1,
