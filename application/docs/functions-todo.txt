@@ -24,9 +24,6 @@ closelog
 collator_create
 collator_get_error_code
 collator_get_error_message
-collator_get_sort_key
-collator_get_strength
-collator_set_strength
 
 connection_aborted
 connection_status
@@ -964,8 +961,6 @@ user_error
 
 utf8_decode
 utf8_encode
-
-var_dump
 
 vfprintf
 vprintf

@@ -55,18 +55,18 @@ class function_configurator extends object
         return $function_name;
     }
 
-    function create_function_alias_config($alias_function_name, $original_function_name, $method_name = null)
+    function create_function_alias_config($alias_function_name, $original_function_name)
     {
         $format =
 '<?php
 /**
  * PHP By Example
  *
- * @copyright %5$s Michel Corne <mcorne@yahoo.com>
+ * @copyright %1$s Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
-require_once \'%1$s%2$s.php\';
+require_once \'%2$s%3$s.php\';
 
 /**
  * Function configuration
@@ -74,10 +74,9 @@ require_once \'%1$s%2$s.php\';
  * @see docs/function-configuration.txt
  */
 
-class %3$s extends %2$s
+class %4$s extends %3$s
 {
-    %6$s
-    public $synopsis = \'%4$s\';
+    public $synopsis = \'%5$s\';
 }
 ';
 
@@ -100,18 +99,10 @@ class %3$s extends %2$s
             throw new Exception("cannot parse function config synopsis for: $original_function_name");
         }
 
-        if ($method_name) {
-            $synopsis = str_replace($method_name, $alias_function_name, $match[1]);
-            $synopsis = preg_replace('~^public (static )?~', '', $synopsis);
-            $manual_function_name = "public \$manual_function_name = '$method_name';\n";
-
-        } else {
-            $synopsis = str_replace($original_function_name, $alias_function_name, $match[1]);
-            $manual_function_name = null;
-        }
+        $synopsis = str_replace($original_function_name, $alias_function_name, $match[1]);
 
         $config = sprintf($format,
-                $include_file_prefix, $original_function_name, $alias_function_name, $synopsis, date('Y'), $manual_function_name);
+                date('Y'), $include_file_prefix, $original_function_name, $alias_function_name, $synopsis);
 
         return $config;
     }
@@ -159,6 +150,54 @@ class %s extends function_core
 
         $function_name = $this->convert_method_name($function_name);
         $config = sprintf($format, date('Y'), $function_name, $examples_property, $synopsis_property);
+
+        return $config;
+    }
+
+    function create_procedure_config($procedure_name, $original_function_name, $method_name)
+    {
+        $format =
+'<?php
+/**
+ * PHP By Example
+ *
+ * @copyright %1$s Michel Corne <mcorne@yahoo.com>
+ * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+ */
+
+require_once \'%2$s%4$s.php\';
+
+/**
+ * Function configuration
+ *
+ * @see docs/function-configuration.txt
+ */
+
+class %3$s extends %4$s
+{
+    %5$s
+}
+';
+
+        $function_config_filename = $this->get_function_config_filename($original_function_name);
+
+        if (! file_exists($function_config_filename) or ! $config = file_get_contents($function_config_filename)) {
+            return null;
+        }
+
+        $original_function_sub_directory = $original_function_name[0];
+
+        if ($original_function_sub_directory != $procedure_name[0]) {
+            // the original function is in a different directory, prefixes the include file name
+            $include_file_prefix = "functions/$original_function_sub_directory/";
+        } else {
+            $include_file_prefix = null;
+        }
+
+        $manual_function_name = "public \$manual_function_name = '$method_name';\n";
+
+        $config = sprintf($format,
+                date('Y'), $include_file_prefix, $procedure_name, $original_function_name, $manual_function_name);
 
         return $config;
     }
@@ -326,8 +365,8 @@ Usage:
 config_function <c|r> <function-name|function-list|function-pattern> [synopsis-fixed]
 config_function a <procedure-name,method-name>
 
--a               Create the config of a procedural type function, alias of a class method.
 -c               Create the function config.
+-p               Create the config of a procedural type function, alias of a class method.
 -r               Replace the function config.
                  Use with caution as any changes in the config file will be replaced as well.
 
@@ -353,7 +392,7 @@ config_function -r sort
 config_function -c sin,cos,tan
 config_function -c ctype_*
 config_function -r sprintf "string sprintf ( string $format , mixed $arg0 , mixed $arg1 [, mixed $... ] )"
-config_function -a locale_compose,Locale::composeLocale
+config_function -p locale_compose,Locale::composeLocale
 ';
 
         return $help_message;
@@ -393,11 +432,11 @@ config_function -a locale_compose,Locale::composeLocale
         date_default_timezone_set('UTC');
         $option = ltrim($option, '-');
 
-        if (! in_array($option, ['a', 'c', 'r'])) {
+        if (! in_array($option, ['c', 'p', 'r'])) {
             throw new Exception($this->get_help());
         }
 
-        if ($option == 'a') {
+        if ($option == 'p') {
             $configs[] = $this->make_procedure_config($functions);
 
         } else {
@@ -421,7 +460,7 @@ config_function -a locale_compose,Locale::composeLocale
         list(, $function_name, $original_method_name) = $match;
         $converted_method_name = $this->convert_method_name($original_method_name);
 
-        if (! $config = $this->create_function_alias_config($function_name, $converted_method_name, $original_method_name)) {
+        if (! $config = $this->create_procedure_config($function_name, $converted_method_name, $original_method_name)) {
             return "cannot configure function alias: $function_name, config missing for: $original_method_name";
         }
 

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-06-26T12:01:34+00:00
+// generated automatically 2015-07-03T09:24:01+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -97,14 +97,20 @@ return array (
   'collator__compare' => 'Collator::compare',
   'collator__getattribute' => 'Collator::getAttribute',
   'collator__getlocale' => 'Collator::getLocale',
+  'collator__getsortkey' => 'Collator::getSortKey',
+  'collator__getstrength' => 'Collator::getStrength',
   'collator__setattribute' => 'Collator::setAttribute',
+  'collator__setstrength' => 'Collator::setStrength',
   'collator__sort' => 'Collator::sort',
   'collator__sortwithsortkeys' => 'Collator::sortWithSortKeys',
   'collator_asort' => 'collator_asort',
   'collator_compare' => 'collator_compare',
   'collator_get_attribute' => 'collator_get_attribute',
   'collator_get_locale' => 'collator_get_locale',
+  'collator_get_sort_key' => 'collator_get_sort_key',
+  'collator_get_strength' => 'collator_get_strength',
   'collator_set_attribute' => 'collator_set_attribute',
+  'collator_set_strength' => 'collator_set_strength',
   'collator_sort' => 'collator_sort',
   'collator_sort_with_sort_keys' => 'collator_sort_with_sort_keys',
   'compact' => 'compact',
@@ -623,6 +629,7 @@ return array (
   'urlencode' => 'urlencode',
   'usleep' => 'usleep',
   'usort' => 'usort',
+  'var_dump' => 'var_dump',
   'var_export' => 'var_export',
   'version_compare' => 'version_compare',
   'vsprintf' => 'vsprintf',

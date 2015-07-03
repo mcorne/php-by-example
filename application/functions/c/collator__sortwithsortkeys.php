@@ -11,6 +11,8 @@ require_once 'collator__sort.php';
 /**
  * Function configuration
  *
+ * Changes to this class may affect other classes.
+ *
  * @see docs/function-configuration.txt
  */
 
