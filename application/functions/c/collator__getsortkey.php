@@ -38,6 +38,8 @@ class collator__getsortkey extends function_core
 
     public $synopsis = 'public string Collator::getSortKey ( string $str )';
 
+    public $test_not_validated = true;
+
     function post_exec_function()
     {
         $this->result['hex'] = bin2hex($this->result['string']);
