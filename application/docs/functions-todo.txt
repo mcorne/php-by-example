@@ -1,8 +1,6 @@
 Functions to do
 ===============
 
-bcscale
-
 bzclose
 bzcompress
 bzdecompress
@@ -22,17 +20,11 @@ closedir
 closelog
 
 collator_create
-collator_get_error_code
-collator_get_error_message
 
 connection_aborted
 connection_status
 
-convert_cyr_string
-
 copy
-
-create_function
 
 curl_close
 curl_copy_handle
@@ -110,8 +102,6 @@ dba_sync
 dcgettext
 dcngettext
 
-debug_backtrace
-debug_print_backtrace
 debug_zval_dump
 
 dgettext
@@ -119,9 +109,6 @@ dgettext
 dir
 
 dngettext
-dns_check_record
-dns_get_mx
-dns_get_record
 
 dom_import_simplexml
 
@@ -131,9 +118,7 @@ error_reporting
 
 exec
 
-exif_imagetype
 exif_read_data
-exif_tagname
 exif_thumbnail
 
 fclose
@@ -574,9 +559,6 @@ msgfmt_set_pattern
 ngettext
 nl_langinfo
 
-normalizer_is_normalized
-normalizer_normalize
-
 numfmt_create
 numfmt_format
 numfmt_format_currency
@@ -648,8 +630,6 @@ openssl_x509_read
 
 output_add_rewrite_var
 output_reset_rewrite_vars
-
-pack
 
 parse_ini_file
 
@@ -828,7 +808,6 @@ show_source
 
 simplexml_import_dom
 simplexml_load_file
-simplexml_load_string
 
 socket_accept
 socket_bind
@@ -950,15 +929,10 @@ trigger_error
 umask
 unlink
 
-unpack
-
 unregister_tick_function
 
 use_soap_error_handler
 user_error
-
-utf8_decode
-utf8_encode
 
 wddx_add_vars
 wddx_deserialize
