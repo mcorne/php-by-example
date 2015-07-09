@@ -25,6 +25,8 @@ class function_core extends action
 
     public $examples = [[]]; // one example with no arg by default
 
+    public $images = [];
+
     public $result = [];
 
     public $returned_params = [];

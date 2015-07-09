@@ -184,4 +184,23 @@ return %s;';
             throw new Exception("cannot write file $filename");
         }
     }
+
+    function write_public_temp_file($content)
+    {
+        $directory = $this->public_path . '/tmp';
+
+        if (! is_dir($directory)) {
+            $this->create_directory($directory);
+        }
+
+        if (! $filename = tempnam($directory, 'pbx')) {
+            throw new Exception("cannot get temp name");
+        }
+
+        $this->write_content($filename, $content);
+
+        $path = 'tmp/' . basename($filename);
+
+        return $path;
+    }
 }

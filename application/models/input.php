@@ -174,7 +174,7 @@ class input extends object
             $format = '<select
                          class="helper %3$s"
                          id="select_%1$s"
-                         onchange="set_arg_value(\'%1$s\')"
+                         onchange="set_arg_value(\'%1$s\', \'%3$s\')"
                        >%2$s</select>';
         }
 
@@ -183,7 +183,7 @@ class input extends object
         $format .= '<span
                      class="helper_submit"
                      id="helper_submit_%1$s"
-                     onclick="set_arg_value(\'%1$s\')"
+                     onclick="set_arg_value(\'%1$s\', \'%3$s\')"
                    >✓</span>';
 
         $options = "<option value=''>$empty_option</option>";

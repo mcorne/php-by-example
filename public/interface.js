@@ -135,21 +135,35 @@ function run_selected_unit_test(url)
     location.assign(url);
 }
 
-function set_arg_value(arg_name)
+function set_arg_value(arg_name, arg_type)
 {
     var select = document.getElementById('select_' + arg_name);
+    var option;
     var options = '';
+    // sets the string or boolean/integer separator
+    var separator = arg_type == 'string' ? ',' : '|';
 
     for (i = 0; i < select.length; i++) {
         if (! i || ! select[i].selected) {
             continue;
         }
 
-        if (options) {
-            options += ' | ' + select[i].value;
-        } else {
-            options = select[i].value;
+        option = select[i].value;
+
+        if (arg_type == 'string') {
+            // removes the quotes off the option
+            option = option.substring(1, option.length - 1);
         }
+
+        if (options) {
+            options += separator + option;
+        } else {
+            options = option;
+        }
+    }
+
+    if (options && arg_type == 'string') {
+        options = '"' + options + '"';
     }
 
     document.getElementById('textarea_' + arg_name).value = options;

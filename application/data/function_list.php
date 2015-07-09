@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-07-08T15:09:08+00:00
+// generated automatically 2015-07-09T13:00:29+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -180,7 +180,9 @@ return array (
   'escapeshellarg' => 'escapeshellarg',
   'escapeshellcmd' => 'escapeshellcmd',
   'exif_imagetype' => 'exif_imagetype',
+  'exif_read_data' => 'exif_read_data',
   'exif_tagname' => 'exif_tagname',
+  'exif_thumbnail' => 'exif_thumbnail',
   'exp' => 'exp',
   'explode' => 'explode',
   'expm1' => 'expm1',
@@ -561,6 +563,7 @@ return array (
   'range' => 'range',
   'rawurldecode' => 'rawurldecode',
   'rawurlencode' => 'rawurlencode',
+  'read_exif_data' => 'read_exif_data',
   'realpath_cache_get' => 'realpath_cache_get',
   'realpath_cache_size' => 'realpath_cache_size',
   'reset' => 'reset',

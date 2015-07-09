@@ -46,6 +46,16 @@
             <td class="operator">=</td>
             <td><?=$this->_output->display_var_value($value, $this->_application->function_name != 'var_export');?></td>
           </tr>
+
+          <?php if (isset($this->_function->images[$var_name])):?>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>
+                <img src="<?=$this->base_url . '/' . $this->_function->images[$var_name];?>">
+              </td>
+            </tr>
+          <?php endif;?>
         <?php endforeach;?>
 
       </table>
