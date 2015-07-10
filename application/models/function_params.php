@@ -50,7 +50,7 @@ class function_params extends object
         $value = trim($this->params[$param_name]);
 
         if (strlen($value) > 10000) {
-            $message = $this->_message_translation->translate('the argument was truncated to 10000 bytes in this example', '$' . $param_name);
+            $message = $this->_message_translation->translate('the argument was truncated to 10000 bytes', '$' . $param_name);
             trigger_error($message, E_USER_NOTICE);
         }
 

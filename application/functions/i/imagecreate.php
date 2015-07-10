@@ -31,4 +31,10 @@ class imagecreate extends function_core
             $this->image_path = $this->_file->write_public_temp_image($this->result['resource']);
         }
     }
+
+    function pre_exec_function()
+    {
+        $this->_filter->filter_number('width' , 1000);
+        $this->_filter->filter_number('height', 1000);
+    }
 }

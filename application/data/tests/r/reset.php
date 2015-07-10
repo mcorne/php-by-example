@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-06-25T15:27:22+00:00
+// generated automatically 2015-07-10T13:55:56+00:00
 return array (
   0 => 
   array (
@@ -84,7 +84,7 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'the number of iterations must be an integer lower than 10 in this example ($count)',
+        'message' => 'the value is over the limit ($count &gt; 10)',
       ),
     ),
     'php_version' => '5.6.8 WINNT i586',
@@ -96,7 +96,7 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'the number of iterations must be an integer lower than 10 in this example ($count)',
+        'message' => 'the value is not a number ($count)',
       ),
     ),
     'php_version' => '5.6.8 WINNT i586',
@@ -134,7 +134,7 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'the number of iterations must be an integer lower than 10 in this example ($count)',
+        'message' => 'the value is over the limit ($count &gt; 10)',
       ),
     ),
     'php_version' => '5.6.8 WINNT i586',

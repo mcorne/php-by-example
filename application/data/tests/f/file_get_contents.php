@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-06-25T15:27:16+00:00
+// generated automatically 2015-07-10T13:54:19+00:00
 return array (
   0 => 
   array (
@@ -24,7 +24,7 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'this argument value is not allowed in this example ($use_include_path)',
+        'message' => 'this argument value is not allowed ($use_include_path)',
       ),
     ),
     'php_version' => '5.6.8 WINNT i586',
@@ -84,7 +84,7 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'the length must be defined and lower than 10000 bytes in this example ($maxlen)',
+        'message' => 'the length must be defined and lower than 10000 bytes ($maxlen)',
       ),
     ),
     'php_version' => '5.6.8 WINNT i586',
@@ -96,7 +96,7 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'the filename must start with one of the following strings in this example (C:\\Users\\mcorne\\AppData\\Local\\Temp\\pbe, http://, https://)',
+        'message' => 'the filename must start with one of the following strings (C:\\Users\\mcorne\\AppData\\Local\\Temp\\pbe, http://, https://)',
       ),
     ),
     'php_version' => '5.6.8 WINNT i586',
@@ -108,7 +108,7 @@ return array (
       0 => 
       array (
         'code' => 512,
-        'message' => 'this argument value is not allowed in this example ($use_include_path)',
+        'message' => 'this argument value is not allowed ($use_include_path)',
       ),
     ),
     'php_version' => '5.6.8 WINNT i586',

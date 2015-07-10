@@ -80,17 +80,17 @@ class fgetc extends function_core
             throw new Exception("cannot open $filename");
         }
 
-        $count = $this->_filter->filter_iteration_count('__count');
-
-        if ($this->_filter->filter_arg_value('handle', false) != '$handle') {
-            // an invalid handle is passed, sets the handle to this value
-            $handle = $this->_filter->filter_arg_value('handle');
-        }
+        $count = $this->_filter->filter_number('__count', 10, true);
 
         $function_name = $this->_synopsis->function_name;
 
         for ($i = 0; $i < $count; $i++) {
             $function_name($handle);
+        }
+
+        if ($this->_filter->filter_arg_value('handle', false) != '$handle') {
+            // an invalid handle var name is passed, sets the handle var name to this value
+            $handle = $this->_filter->filter_arg_value('handle');
         }
 
         $this->returned_params['handle'] = $handle;

@@ -102,7 +102,7 @@ class current extends function_core
     function pre_exec_function()
     {
         $this->returned_params['array'] = $this->_filter->filter_arg_value('array');
-        $count = $this->_filter->filter_iteration_count('__count');
+        $count = $this->_filter->filter_number('__count', 10, true);
 
         for ($i = 0; $i < $count; $i++) {
             next($this->returned_params['array']);

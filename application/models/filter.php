@@ -136,7 +136,7 @@ class filter extends object
 
         if (preg_match('~^https?://~', $filename) and (is_null($length) or is_numeric($length) and $length > 10000)) {
             // the file is external and the length is null or too large
-            $message = $this->_message_translation->translate('the length must be defined and lower than 10000 bytes in this example', '$' . $arg_name);
+            $message = $this->_message_translation->translate('the length must be defined and lower than 10000 bytes', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
 
@@ -163,7 +163,7 @@ class filter extends object
 
         if (! $is_temp_file_allowed) {
             // only http files are allowed
-            $message = $this->_message_translation->translate('the filename must start with one of the following strings in this example')
+            $message = $this->_message_translation->translate('the filename must start with one of the following strings')
                      . " (http://, https://)";
             throw new Exception($message, E_USER_WARNING);
         }
@@ -177,7 +177,7 @@ class filter extends object
             return $filename;
         }
 
-        $message = $this->_message_translation->translate('the filename must start with one of the following strings in this example')
+        $message = $this->_message_translation->translate('the filename must start with one of the following strings')
                  . " ({$this->_file->temp_file_prefix}, http://, https://)";
         throw new Exception($message, E_USER_WARNING);
     }
@@ -196,27 +196,9 @@ class filter extends object
         $valid_callback_pattern = '~(cmp$|^ctype_|^gmp|^is_|^str[ifprst])~';
 
         if (! is_string($function_name) or ! preg_match($valid_callback_pattern, $function_name)) {
-            $message = $this->_message_translation->translate('this callback function may not be used in this example');
+            $message = $this->_message_translation->translate('this callback function may not be used');
             throw new Exception($message, E_USER_WARNING);
         }
-    }
-
-    function filter_iteration_count($arg_name)
-    {
-        if (! $this->_function_params->param_exists($arg_name)) {
-             return null;
-        }
-
-        $count = $this->_function_params->get_param($arg_name);
-
-        if (! is_int($count) or $count > 10) {
-            // the number of iterations is not an integer or too large
-            $arg_name = preg_replace('~^_+~', '', $arg_name);
-            $message = $this->_message_translation->translate('the number of iterations must be an integer lower than 10 in this example', '$' . $arg_name);
-            throw new Exception($message, E_USER_WARNING);
-        }
-
-        return $count;
     }
 
     function filter_method_callback($callback_name, $class_alias = null)
@@ -239,12 +221,35 @@ class filter extends object
             $class_name != 'pbx_callbacks' and (! $class_alias or $class_name != $class_alias))
         {
             // this is a class name and the class exists but is not the custom class or an alias
-            $message = $this->_message_translation->translate('this class may not be used in this example');
+            $message = $this->_message_translation->translate('this class may not be used');
             throw new Exception($message, E_USER_WARNING);
         }
 
         // note that if an object, class or method is invalid, this will be caught by the function itself
         return null;
+    }
+
+    function filter_number($arg_name, $limit, $numeric_only = false)
+    {
+        if (! $this->_function_params->param_exists($arg_name)) {
+             return null;
+        }
+
+        $number = $this->_function_params->get_param($arg_name);
+
+        if ($numeric_only and ! is_numeric($number)) {
+            $arg_name = preg_replace('~^_+~', '', $arg_name);
+            $message = $this->_message_translation->translate('the value is not a number', '$' . $arg_name);
+            throw new Exception($message, E_USER_WARNING);
+        }
+
+        if ($number > $limit) {
+            $arg_name = preg_replace('~^_+~', '', $arg_name);
+            $message = $this->_message_translation->translate('the value is over the limit', "\$$arg_name > $limit");
+            throw new Exception($message, E_USER_WARNING);
+        }
+
+        return $number;
     }
 
     function filter_var_name($arg_name, $mandatory = true)
@@ -270,7 +275,7 @@ class filter extends object
     {
         if (! $this->_function_params->param_exists($arg_name)) {
             if (! $is_empty_arg_allowed) {
-                $message = $this->_message_translation->translate('this argument may not be empty in this example', '$' . $arg_name);
+                $message = $this->_message_translation->translate('this argument may not be empty', '$' . $arg_name);
                 throw new Exception($message, E_USER_WARNING);
             }
 
@@ -280,7 +285,7 @@ class filter extends object
         $value = $this->_function_params->get_param($arg_name);
 
         if (! is_null($value) and ! in_array($value, (array) $allowed_values, true)) {
-            $message = $this->_message_translation->translate('this argument value is not allowed in this example', '$' . $arg_name);
+            $message = $this->_message_translation->translate('this argument value is not allowed', '$' . $arg_name);
             throw new Exception($message, E_USER_WARNING);
         }
     }
@@ -301,7 +306,7 @@ class filter extends object
         $temp_dir = $this->convert_backslash_to_slash($temp_dir);
 
         if (strpos($filename, $temp_dir) === false) {
-            $message = $this->_message_translation->translate('the file must be a temporary file in this example');
+            $message = $this->_message_translation->translate('the file must be a temporary file');
             throw new Exception($message, E_USER_WARNING);
         }
     }
