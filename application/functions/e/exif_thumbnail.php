@@ -33,7 +33,7 @@ class exif_thumbnail extends function_core
     function post_exec_function()
     {
         if ($this->result['string']) {
-            $this->images['string'] = $this->_file->write_public_temp_file($this->result['string']);
+            $this->image_path = $this->_file->write_public_temp_file($this->result['string']);
         }
     }
 }

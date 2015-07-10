@@ -65,8 +65,8 @@ class iconv extends function_core
 
     function post_exec_function()
     {
-         $str = $this->_filter->filter_arg_value('str');
-         $string = $this->result['string'];
-         $this->result['hex'] = unpack("H*in__charset", $str) + unpack("H*out_charset", $string);
+        $str = $this->_filter->filter_arg_value('str');
+        $string = $this->result['string'];
+        $this->result['hex'] = unpack("H*in__charset", $str) + unpack("H*out_charset", $string);
     }
 }

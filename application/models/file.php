@@ -100,6 +100,23 @@ class file extends object
         }
     }
 
+    function get_public_temp_filename()
+    {
+        $directory = $this->public_path . '/tmp';
+
+        if (! is_dir($directory)) {
+            $this->create_directory($directory);
+        }
+
+        if (! $filename = tempnam($directory, 'pbx')) {
+            throw new Exception("cannot get temp name");
+        }
+
+        $path = 'tmp/' . basename($filename);
+
+        return [$path, $filename];
+    }
+
     function index_lines($lines, $index_key)
     {
         $indexed_last_lines = [];
@@ -187,19 +204,20 @@ return %s;';
 
     function write_public_temp_file($content)
     {
-        $directory = $this->public_path . '/tmp';
-
-        if (! is_dir($directory)) {
-            $this->create_directory($directory);
-        }
-
-        if (! $filename = tempnam($directory, 'pbx')) {
-            throw new Exception("cannot get temp name");
-        }
+        list($path, $filename) = $this->get_public_temp_filename();
 
         $this->write_content($filename, $content);
 
-        $path = 'tmp/' . basename($filename);
+        return $path;
+    }
+
+    function write_public_temp_image($image)
+    {
+        list($path, $filename) = $this->get_public_temp_filename();
+
+        if (! imagejpeg($image, $filename, 70)) {
+            throw new Exception("cannot create image jpeg");
+        }
 
         return $path;
     }

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-07-09T13:00:29+00:00
+// generated automatically 2015-07-10T09:02:06+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -214,6 +214,7 @@ return array (
   'fread' => 'fread',
   'frenchtojd' => 'frenchtojd',
   'function_exists' => 'function_exists',
+  'gd_info' => 'gd_info',
   'get_browser' => 'get_browser',
   'get_cfg_var' => 'get_cfg_var',
   'get_current_user' => 'get_current_user',
@@ -339,6 +340,9 @@ return array (
   'ignore_user_abort' => 'ignore_user_abort',
   'image_type_to_extension' => 'image_type_to_extension',
   'image_type_to_mime_type' => 'image_type_to_mime_type',
+  'imagearc' => 'imagearc',
+  'imagecreate' => 'imagecreate',
+  'imagecreatetruecolor' => 'imagecreatetruecolor',
   'implode' => 'implode',
   'in_array' => 'in_array',
   'ini_get' => 'ini_get',
