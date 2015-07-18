@@ -37,6 +37,7 @@ public $manual_function_name = "Locale::composeLocale";
 public $method_to_exec = 'getBrowser'; or false
 public $multi_select = ['fl' => true];
 public $no_input_args = 'use_include_path';
+public $no_object_name = true;
 public $options_getter = ['encoding' => 'mb_list_encodings'];
 public $options_list = ['mode' => ['a', 'a+', 'c', 'c+', 'r', 'r+', 'w', 'w+', 'x', 'x+']];
   see also public function _get_options_list();

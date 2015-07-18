@@ -26,6 +26,8 @@ class get_browser extends function_core
 
     public $method_to_exec = 'getBrowser';
 
+    public $no_object_name = true;
+
     public $source_code = '
         inject_function_call
 

@@ -225,7 +225,10 @@ class input extends object
             $function_call .= sprintf('$_%s = ', $this->_synopsis->return_var);
         }
 
-        if ($this->_function->object_name) {
+        if ($this->_function->no_object_name) {
+            // the object name must not be displayed, eg "get_browser", do nothing
+
+        } elseif ($this->_function->object_name) {
             $function_call .= sprintf('$%s->', $this->_function->object_name);
 
         } elseif ($this->_function->object) {
