@@ -1,9 +1,9 @@
 <?php
 // generated automatically 2015-07-03T12:49:07+00:00
 return array (
-  0 => 
+  0 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'mixed' => true,
       'contents' => 'Array
@@ -22,9 +22,9 @@ return array (
     ),
     'php_version' => '5.6.8 WINNT i586',
   ),
-  1 => 
+  1 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'mixed' => 'Array
 (

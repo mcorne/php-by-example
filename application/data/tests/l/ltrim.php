@@ -1,33 +1,33 @@
 <?php
 // generated automatically 2015-06-25T15:27:20+00:00
 return array (
-  0 => 
+  0 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'string' => 'These are a few words :) ...  ',
     ),
     'php_version' => '5.6.8 WINNT i586',
   ),
-  1 => 
+  1 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'string' => 'These are a few words :) ...  ',
     ),
     'php_version' => '5.6.8 WINNT i586',
   ),
-  2 => 
+  2 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'string' => 'o World',
     ),
     'php_version' => '5.6.8 WINNT i586',
   ),
-  3 => 
+  3 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'string' => 'Example string
 ',

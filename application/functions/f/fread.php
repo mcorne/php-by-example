@@ -7,6 +7,7 @@
  */
 
 require_once 'models/filter.php';
+require_once 'models/function_core.php';
 
 /**
  * Function configuration

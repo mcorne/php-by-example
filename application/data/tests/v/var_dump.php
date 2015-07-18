@@ -1,9 +1,9 @@
 <?php
 // generated automatically 2015-07-03T11:59:18+00:00
 return array (
-  0 => 
+  0 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'contents' => 'array(3) {
   [0]=>
@@ -24,9 +24,9 @@ return array (
     ),
     'php_version' => '5.6.8 WINNT i586',
   ),
-  1 => 
+  1 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'contents' => 'float(3.1)
 bool(true)

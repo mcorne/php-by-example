@@ -2,7 +2,7 @@
 /**
  * PHP By Example
  *
- * @copyright 2014 Michel Corne <mcorne@yahoo.com>
+ * @copyright 2015 Michel Corne <mcorne@yahoo.com>
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
  */
 
@@ -102,6 +102,8 @@ class file extends object
 
     function get_public_temp_filename()
     {
+        $this->remove_old_public_temp_files();
+
         $directory = $this->public_path . '/tmp';
 
         if (! is_dir($directory)) {
@@ -174,6 +176,24 @@ class file extends object
         }
 
         return $lines;
+    }
+
+    function remove_old_public_temp_files()
+    {
+        $directory = $this->public_path . '/tmp';
+
+        if (! $filenames = glob("$directory/pbx*")) {
+            return;
+        }
+
+        foreach($filenames as $filename) {
+            $times[$filename] = filemtime($filename);
+        }
+
+        asort($times);
+        $old_times = array_slice($times, 0, -100);
+        $old_file_names = array_keys($old_times);
+        array_map('unlink', $old_file_names);
     }
 
     function write_array($filename, $array, $replacements = [], $replacement_method = 'str_replace')

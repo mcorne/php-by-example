@@ -1,9 +1,9 @@
 <?php
 // generated automatically 2015-06-25T15:27:15+00:00
 return array (
-  0 => 
+  0 =>
   array (
-    'result' => 
+    'result' =>
     array (
       'string' => '*22!L;W9E(%!(4```
 `

@@ -37,6 +37,8 @@ class exif_read_data extends function_core
 
     public $synopsis = 'array exif_read_data ( string $filename [, string $sections = NULL [, bool $arrays = false [, bool $thumbnail = false ]]] )';
 
+    public $test_not_validated = [0, 2]; // cannot validate because of returned FileDateTime that changes
+
     function pre_exec_function()
     {
         $this->copy_file_to_temp('flower.jpg');
