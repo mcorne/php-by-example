@@ -102,7 +102,7 @@ class synopsis extends object
 
     function _get_return_var()
     {
-        if (preg_match('~^(array|bool|float|int|mixed|number|resource|string|SimpleXMLElement)~', $this->synopsis_fixed, $match)) {
+        if (preg_match('~^(array|boolean|bool|float|integer|int|mixed|number|resource|string|SimpleXMLElement)~', $this->synopsis_fixed, $match)) {
             // the function returns a value of a given type, extracts the type
             // note that the name of the return var is built by default on the type, eg "$int"
             $return_var = $match[1];
@@ -153,7 +153,7 @@ class synopsis extends object
         if (isset($this->_function->constant_prefix[$arg_name])) {
             $constant_prefix = $this->_function->constant_prefix[$arg_name];
 
-        } else if (preg_match('~(int|mixed) \$' . $arg_name . ' = ([A-Z:]+)_~', $this->synopsis_fixed, $match)) {
+        } else if (preg_match('~(integer|int|mixed) \$' . $arg_name . ' = ([A-Z:]+)_~', $this->synopsis_fixed, $match)) {
             $constant_prefix = $constant_prefix = $match[2];
 
         } else {
@@ -224,7 +224,7 @@ class synopsis extends object
 
     function is_input_arg($arg_name)
     {
-        $is_input_arg =  preg_match("~(array|callable|bool|float|int|mixed|number|string) +\\$$arg_name~", $this->synopsis_fixed);
+        $is_input_arg =  preg_match("~(array|callable|boolean|bool|float|integer|int|mixed|number|string) +\\$$arg_name~", $this->synopsis_fixed);
 
         return $is_input_arg;
     }
@@ -232,7 +232,7 @@ class synopsis extends object
     function is_reference_arg($arg_name)
     {
         // checks if the arg is prefixed with "&"
-        $is_reference_arg = preg_match("~(array|bool|float|int|mixed|string) +&\\$$arg_name~", $this->synopsis_fixed);
+        $is_reference_arg = preg_match("~(array|boolean|bool|float|integer|int|mixed|string) +&\\$$arg_name~", $this->synopsis_fixed);
 
         return $is_reference_arg;
     }

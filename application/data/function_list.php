@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-07-10T09:02:06+00:00
+// generated automatically 2017-05-06T09:49:28+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -512,6 +512,8 @@ return array (
   'parse_ini_string' => 'parse_ini_string',
   'parse_str' => 'parse_str',
   'parse_url' => 'parse_url',
+  'password_hash' => 'password_hash',
+  'password_verify' => 'password_verify',
   'pathinfo' => 'pathinfo',
   'pdo__errorcode' => 'PDO::errorCode',
   'pdo__errorinfo' => 'PDO::errorInfo',
