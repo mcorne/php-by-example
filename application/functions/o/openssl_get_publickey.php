@@ -8,6 +8,12 @@
 
 require_once 'openssl_pkey_get_public.php';
 
+/**
+ * Function configuration
+ *
+ * @see docs/function-configuration.txt
+ */
+
 class openssl_get_publickey extends openssl_pkey_get_public
 {
     public $synopsis = 'resource openssl_get_publickey ( mixed $certificate )';

@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2017-05-06T09:49:28+00:00
+// generated automatically 2017-05-07T13:50:05+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -566,6 +566,7 @@ return array (
   'quotemeta' => 'quotemeta',
   'rad2deg' => 'rad2deg',
   'rand' => 'rand',
+  'random_bytes' => 'random_bytes',
   'range' => 'range',
   'rawurldecode' => 'rawurldecode',
   'rawurlencode' => 'rawurlencode',

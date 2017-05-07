@@ -8,6 +8,12 @@
 
 require_once 'openssl_pkey_get_private.php';
 
+/**
+ * Function configuration
+ *
+ * @see docs/function-configuration.txt
+ */
+
 class openssl_get_privatekey extends openssl_pkey_get_private
 {
     public $synopsis = 'resource openssl_get_privatekey ( mixed $key [, string $passphrase = &quot;&quot; ] )';
