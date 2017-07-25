@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-06-25T15:27:21+00:00
+// generated automatically 2017-07-25T08:43:01+00:00
 return array (
   0 => 
   array (
@@ -7,7 +7,15 @@ return array (
     array (
       'string' => 'This string was AES-128 / CBC / ZeroBytePadding encrypted.' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '',
     ),
-    'php_version' => '5.6.8 WINNT i586',
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 8192,
+        'message' => 'Function mcrypt_decrypt() is deprecated',
+      ),
+    ),
+    'php_version' => '7.1.7 WINNT i586',
   ),
   1 => 
   array (
@@ -16,7 +24,15 @@ return array (
       'data' => '³!ßŠRµ$¦®çV€ôTG(üc‚ŒFr3©@{ÐÁ,F[e—1íS?¤¡×=c¥Î591o°[g.u¢c',
       'string' => 'This string was AES-128 / CBC / ZeroBytePadding encrypted.' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '',
     ),
-    'php_version' => '5.6.8 WINNT i586',
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 8192,
+        'message' => 'Function mcrypt_decrypt() is deprecated',
+      ),
+    ),
+    'php_version' => '7.1.7 WINNT i586',
   ),
   2 => 
   array (
@@ -26,6 +42,19 @@ return array (
       'data' => 'syHfih5StSSmrudWgA/0VANHjwYo/GOCjIFGcjOpQB170MEsRltllzHtUz+kodcUPWOlzjU5MW+wW2cudQKiYw==',
       'string' => 'This string was AES-128 / CBC / ZeroBytePadding encrypted.' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '' . "\0" . '',
     ),
-    'php_version' => '5.6.8 WINNT i586',
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 8192,
+        'message' => 'Function mcrypt_encrypt() is deprecated',
+      ),
+      1 => 
+      array (
+        'code' => 8192,
+        'message' => 'Function mcrypt_decrypt() is deprecated',
+      ),
+    ),
+    'php_version' => '7.1.7 WINNT i586',
   ),
 );

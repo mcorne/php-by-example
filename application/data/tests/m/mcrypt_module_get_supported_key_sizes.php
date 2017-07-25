@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2015-06-25T15:27:21+00:00
+// generated automatically 2017-07-25T08:43:01+00:00
 return array (
   0 => 
   array (
@@ -12,6 +12,14 @@ return array (
         2 => 32,
       ),
     ),
-    'php_version' => '5.6.8 WINNT i586',
+    'errors' => 
+    array (
+      0 => 
+      array (
+        'code' => 8192,
+        'message' => 'Function mcrypt_module_get_supported_key_sizes() is deprecated',
+      ),
+    ),
+    'php_version' => '7.1.7 WINNT i586',
   ),
 );
