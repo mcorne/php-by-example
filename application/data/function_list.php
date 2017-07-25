@@ -1,5 +1,5 @@
 <?php
-// generated automatically 2017-05-07T13:50:05+00:00
+// generated automatically 2017-05-13T13:24:52+00:00
 return array (
   'abs' => 'abs',
   'acos' => 'acos',
@@ -471,6 +471,7 @@ return array (
   'mhash_get_hash_name' => 'mhash_get_hash_name',
   'mhash_keygen_s2k' => 'mhash_keygen_s2k',
   'microtime' => 'microtime',
+  'mime_content_type' => 'mime_content_type',
   'min' => 'min',
   'mktime' => 'mktime',
   'money_format' => 'money_format',

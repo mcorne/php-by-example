@@ -71,6 +71,7 @@ class call_user_func extends function_core
         ],
         [
             ['$object', 'say_goodbye'],
+            'Bob'
         ],
         [
             '$xyz',
